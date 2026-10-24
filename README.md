@@ -108,6 +108,13 @@ edge and saved as JPEG q82. Total weight of all imagery: ~6 MB.
 
 Replacing a photo is a file swap — keep the filename, and keep roughly the same aspect ratio.
 
+## Delivery
+
+Milestone 1 covers the four pages above as markup. Repository is private; the live preview is a
+temporary tunnel over the same files — it exists so the pages can be opened on a phone or sent to
+the customer, and it dies when the terminal closes. For a permanent preview, point any static host
+at the repo root.
+
 ## Browser support
 
 Evergreen Chrome, Firefox, Safari, Edge. Uses `IntersectionObserver` and CSS `backdrop-filter`;
