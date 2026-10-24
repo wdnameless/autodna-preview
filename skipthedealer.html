@@ -1,0 +1,1177 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkipTheDealer™ — Buy Cars Up to 40% Cheaper | AutoDNA Canada</title>
+  <meta name="description" content="Skip the dealer markups. AutoDNA sources certified vehicles directly from exclusive dealer auctions in Calgary at 30-40% below market price. 100% transparency.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'dna-bg': '#020202',
+            'dna-surface': '#121121',
+            'dna-purple': '#9685ff',
+            'dna-violet': '#c2b9ff',
+            'dna-muted': '#c2b9ff',
+            'dna-border': '#38324f'
+          },
+          fontFamily: {
+            display: ['Orbitron', 'Orbitron', 'sans-serif'],
+            body: ['Helvetica Neue', 'Helvetica', 'DM Sans', 'Arial', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- AutoDNA Shell Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/page-dealer.css">
+
+  <!-- Core Interaction Engine -->
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/page-dealer.js" defer></script>
+</head>
+<body class="bg-[#07051d] text-white font-body selection:bg-purple-600 selection:text-white antialiased overflow-x-hidden">
+
+  <!-- Shared Chrome: Preloader Overlay -->
+  <div id="dna-preloader" class="dna-preloader fixed inset-0 z-[2000] flex flex-col items-center justify-center bg-[#07051d] transition-opacity duration-500" aria-hidden="true">
+    <div class="flex flex-col items-center gap-6">
+      <img src="assets/img/logo.svg" alt="AutoDNA" class="h-10 w-auto animate-pulse">
+      <div class="dna-progress-bar w-48 h-1 bg-white/10 rounded-full overflow-hidden">
+        <div id="dna-preloader-bar" class="dna-progress-fill h-full bg-gradient-to-r from-[#7c5cff] to-[#b06cff] w-[15%] transition-all duration-150"></div>
+      </div>
+      <span class="text-[10px] uppercase font-mono tracking-widest text-dna-muted">INITIALIZING HUD INTERFACE</span>
+    </div>
+  </div>
+
+  <!-- Shared Chrome: Fullscreen Navigation Overlay -->
+  <div id="dna-menu" class="dna-menu fixed inset-0 z-[1000] flex flex-col justify-between p-6 sm:p-10 lg:p-14" aria-hidden="true" role="dialog" aria-modal="true" aria-label="AutoDNA Navigation Menu">
+    <!-- Top Bar -->
+    <div class="max-w-7xl w-full mx-auto flex items-center justify-between pb-6 border-b border-white/10">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="assets/img/logo.svg" alt="AutoDNA" class="h-7 w-auto">
+        <span class="display font-bold text-base tracking-widest text-white">AUTODNA<span class="text-dna-purple">™</span></span>
+      </a>
+      <button type="button" data-menu-close class="pill-btn-outline px-4 py-2 text-xs font-semibold uppercase tracking-widest flex items-center gap-2 text-white hover:text-white" aria-label="Close Navigation Menu">
+        <span>✕ CLOSE</span>
+      </button>
+    </div>
+
+    <!-- Menu Body Grid -->
+    <div class="max-w-7xl w-full mx-auto my-auto py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <!-- Left Column: AutoDNA Core Ecosystem Services -->
+      <div class="lg:col-span-7 space-y-4">
+        <div class="text-xs uppercase tracking-widest text-dna-muted font-mono">[01 // ECOSYSTEM SERVICES]</div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a href="skipthedealer.html" class="glass-card p-5 group hover:border-dna-purple transition-all block">
+            <div class="text-xs text-dna-purple font-mono mb-1">01 / BUY &amp; SELL</div>
+            <div class="display text-base font-bold text-white group-hover:text-purple-300 transition-colors">SkipTheDealer™</div>
+            <p class="text-xs text-dna-muted mt-1">Direct car sourcing below market with 100% transparency.</p>
+          </a>
+          <a href="invest.html" class="glass-card p-5 group hover:border-dna-purple transition-all block">
+            <div class="text-xs text-dna-purple font-mono mb-1">02 / CAPITAL</div>
+            <div class="display text-base font-bold text-white group-hover:text-purple-300 transition-colors">DNA Flip™</div>
+            <p class="text-xs text-dna-muted mt-1">Invest in car flips backed by data. Up to 40% returns.</p>
+          </a>
+          <a href="service.html" class="glass-card p-5 group hover:border-dna-purple transition-all block">
+            <div class="text-xs text-dna-purple font-mono mb-1">03 / CARE</div>
+            <div class="display text-base font-bold text-white group-hover:text-purple-300 transition-colors">DNA Service™</div>
+            <p class="text-xs text-dna-muted mt-1">Future-ready auto service, robotic repairs, mobile concierge.</p>
+          </a>
+          <a href="service.html#paintbot" class="glass-card p-5 group hover:border-dna-purple transition-all block">
+            <div class="text-xs text-dna-purple font-mono mb-1">04 / ROBOTICS</div>
+            <div class="display text-base font-bold text-white group-hover:text-purple-300 transition-colors">PaintBot™</div>
+            <p class="text-xs text-dna-muted mt-1">Next-gen autonomous vehicle painting and surface perfection.</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Navigation Links in HUD Frame -->
+      <div class="lg:col-span-5">
+        <div class="hud-corners glass-card p-6 sm:p-8 space-y-4">
+          <div class="text-xs uppercase tracking-widest text-dna-muted font-mono flex items-center justify-between pb-3 border-b border-white/10">
+            <span>DNA DIRECTORY</span>
+            <span>CALGARY HQ</span>
+          </div>
+          <ul class="space-y-3 font-semibold text-sm uppercase tracking-wider text-white/90">
+            <li><a href="index.html" class="py-1 hover:text-dna-purple transition-colors flex items-center justify-between"><span>Home</span><span class="text-xs text-dna-muted font-mono">01</span></a></li>
+            <li><a href="skipthedealer.html" class="py-1 hover:text-dna-purple transition-colors flex items-center justify-between text-dna-purple"><span>SkipTheDealer™</span><span class="text-xs text-dna-muted font-mono">02</span></a></li>
+            <li><a href="invest.html" class="py-1 hover:text-dna-purple transition-colors flex items-center justify-between"><span>DNA Flip™ (Invest)</span><span class="text-xs text-dna-muted font-mono">03</span></a></li>
+            <li><a href="service.html" class="py-1 hover:text-dna-purple transition-colors flex items-center justify-between"><span>DNA Service™</span><span class="text-xs text-dna-muted font-mono">04</span></a></li>
+            <li><a href="service.html#shop" class="py-1 hover:text-dna-purple transition-colors flex items-center justify-between"><span>Skip the Shop™</span><span class="text-xs text-dna-muted font-mono">05</span></a></li>
+            <li><a href="service.html#drivecare" class="py-1 hover:text-dna-purple transition-colors flex items-center justify-between"><span>DriveCarePlan™</span><span class="text-xs text-dna-muted font-mono">06</span></a></li>
+            <li><a href="service.html#commercial" class="py-1 hover:text-dna-purple transition-colors flex items-center justify-between"><span>Commercial Fleet</span><span class="text-xs text-dna-muted font-mono">07</span></a></li>
+            <li><a href="#dna-footer" class="py-1 hover:text-dna-purple transition-colors flex items-center justify-between"><span>Contact &amp; Location</span><span class="text-xs text-dna-muted font-mono">08</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar: Status info -->
+    <div class="max-w-7xl w-full mx-auto pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-dna-muted">
+      <div>CALGARY, AB · FLAGSHIP FACILITY OPEN</div>
+      <div class="font-mono">AUTODNA™ v1.0 — SYSTEM ONLINE</div>
+    </div>
+  </div>
+
+  <!-- Shared Chrome: AutoDNA Header Partial -->
+  <header class="dna-header w-full">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Brand Logo Link -->
+      <a href="index.html" class="flex items-center gap-2 sm:gap-3 group" aria-label="AutoDNA Home">
+        <img src="assets/img/logo.svg" alt="AutoDNA Logo" class="h-7 sm:h-8 w-auto">
+        <span class="hidden sm:inline display font-bold text-lg tracking-widest text-white group-hover:text-purple-300 transition-colors">AUTODNA<span class="text-dna-purple">™</span></span>
+      </a>
+
+      <!-- Primary Navigation Links (4 Canonical Pages) -->
+      <nav class="hidden lg:flex items-center gap-8 text-xs font-semibold uppercase tracking-widest text-white/80" aria-label="Primary Navigation">
+        <a href="index.html" class="hover:text-white transition-colors py-1 border-b border-transparent hover:border-dna-purple">Home</a>
+        <a href="skipthedealer.html" class="hover:text-white transition-colors py-1 border-b border-transparent hover:border-dna-purple text-dna-purple">SkipTheDealer™</a>
+        <a href="invest.html" class="hover:text-white transition-colors py-1 border-b border-transparent hover:border-dna-purple">DNA Flip™</a>
+        <a href="service.html" class="hover:text-white transition-colors py-1 border-b border-transparent hover:border-dna-purple">DNA Service™</a>
+      </nav>
+
+      <!-- Header Actions & Menu Trigger -->
+      <div class="flex items-center gap-3">
+        <a href="#quote" class="hidden sm:inline-flex pill-btn-outline px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white hover:text-white">
+          Request Quote
+        </a>
+        <button type="button" data-menu-open class="pill-btn px-3 py-1.5 sm:px-4 sm:py-2 text-xs font-semibold uppercase tracking-widest flex items-center gap-2 text-white" aria-label="Open Navigation Menu">
+          <span>☰ DNA</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- SECTION 1: HERO (P2 canonical) -->
+    <section id="hero" class="relative pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden border-b border-white/10" data-reveal>
+      <!-- Atmospheric Backdrop -->
+      <div class="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#5244b3]/40 via-[#07051d] to-[#07051d] -z-10"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Top Eyebrow Badge -->
+        <div class="flex items-center justify-center lg:justify-start gap-3 mb-6">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-widest bg-purple-950/80 border border-purple-500/40 text-purple-300">
+            <span class="w-2 h-2 rounded-full bg-purple-400 animate-ping"></span>
+            BUY CARS UP TO 40% CHEAPER
+          </span>
+          <span class="text-xs font-mono text-dna-muted hidden sm:inline">[CALGARY EXCLUSIVE AUCTION ACCESS]</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <!-- Hero Copy Left -->
+          <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+            <h1 class="display text-4xl sm:text-6xl lg:text-7xl font-extrabold uppercase tracking-tight text-white leading-none">
+              SKIP THE <br>
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#7c5cff] via-[#a78bfa] to-[#b06cff]">DEALER.</span>
+            </h1>
+
+            <p class="text-lg sm:text-xl font-medium text-purple-200 tracking-wide uppercase font-display">
+              SkipTheDealer™ — Private &amp; Auction Sourcing
+            </p>
+
+            <div class="space-y-2 max-w-xl mx-auto lg:mx-0">
+              <p class="text-sm sm:text-base font-semibold text-white/90 uppercase tracking-wide">
+                YOU PAY THE <span class="text-dna-purple font-bold">REAL PRICE</span>, NOT SOMEONE ELSE'S MARKUP.
+              </p>
+              <p class="text-xs sm:text-sm text-dna-muted uppercase tracking-wider">
+                NO SHOWROOMS, NO FANCY WORDS. <span class="text-white">JUST CHEAPER CARS.</span>
+              </p>
+            </div>
+
+            <!-- CTAs -->
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <a href="#quote" class="pill-btn w-full sm:w-auto px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-center text-white shadow-lg shadow-purple-900/40">
+                FIND YOUR CAR
+              </a>
+              <a href="#how" class="pill-btn-outline w-full sm:w-auto px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-center text-white hover:text-white">
+                HOW IT WORKS →
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Visual Right (Mined Photographics Desktop & Mobile) -->
+          <div class="lg:col-span-5 relative">
+            <div class="hud-corners glass-card p-2 sm:p-3 rounded-xl border border-white/10 overflow-hidden group">
+              <picture>
+                <source media="(max-width: 639px)" srcset="assets/img/dealer/hero-car-mob.jpg">
+                <img src="assets/img/dealer/hero-showcase.jpg" alt="SkipTheDealer Hero Showcase" class="w-full h-auto object-cover rounded-lg group-hover:scale-105 transition-transform duration-500">
+              </picture>
+              <div class="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-dna-muted">
+                <span>AUCTION DIRECT // WHOLESALE</span>
+                <span class="text-purple-400 font-bold">SAVE $4,000 – $10,000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Two Main Scenarios Cards -->
+        <div class="mt-16 pt-12 border-t border-white/10" data-reveal>
+          <div class="text-center max-w-3xl mx-auto mb-10 space-y-2">
+            <div class="text-xs uppercase font-mono tracking-widest text-dna-purple">[THE ECONOMICS]</div>
+            <h2 class="display text-xl sm:text-2xl font-bold uppercase tracking-wide text-white">
+              IMAGINE BUYING WHERE DEALERS ARE OUT OF THE GAME. NOW IT'S YOUR TURN.
+            </h2>
+            <p class="text-xs sm:text-sm text-dna-muted">
+              CUSTOMERS CAN GET A CAR 30–40% CHEAPER THAN MARKET VALUE. THERE ARE TWO MAIN SCENARIOS:
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Scenario 1 -->
+            <div class="hud-corners glass-card p-6 sm:p-8 space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono px-2.5 py-1 rounded bg-purple-950/60 border border-purple-500/30 text-purple-300">SCENARIO 01</span>
+                <span class="text-xs font-mono text-emerald-400">INSTANT EQUITY</span>
+              </div>
+              <h3 class="display text-lg font-bold uppercase text-white">1. BUY AND PROFIT</h3>
+              <p class="text-xs sm:text-sm text-dna-muted leading-relaxed">
+                A customer buys a vehicle for $10,000, while the market dealer retail price is $14,000–$15,000. They immediately gain $4,000–$5,000 in built-in equity. If they choose to resell the car right away, they pocket that difference as pure profit.
+              </p>
+              <div class="pt-2 text-xs font-mono text-purple-300 flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+                Instant built-in upside on day one
+              </div>
+            </div>
+
+            <!-- Scenario 2 -->
+            <div class="hud-corners glass-card p-6 sm:p-8 space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono px-2.5 py-1 rounded bg-purple-950/60 border border-purple-500/30 text-purple-300">SCENARIO 02</span>
+                <span class="text-xs font-mono text-indigo-400">ZERO DEPRECIATION LOSS</span>
+              </div>
+              <h3 class="display text-lg font-bold uppercase text-white">2. DRIVE WITHOUT LOSING</h3>
+              <p class="text-xs sm:text-sm text-dna-muted leading-relaxed">
+                A customer drives the car for 2–3 years. During that period, standard market depreciation drops retail from $15,000 to $10,000. But since they bought below wholesale at $10,000, they can sell after years of ownership for nearly what they paid — effectively driving for free.
+              </p>
+              <div class="pt-2 text-xs font-mono text-purple-300 flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+                Beat the standard 3-year depreciation curve
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 p-4 rounded-xl bg-purple-900/20 border border-purple-500/30 text-center max-w-2xl mx-auto">
+            <p class="display text-xs sm:text-sm font-bold uppercase tracking-wider text-purple-200">
+              WITH SKIPTHEDEALER, CUSTOMERS EITHER PROFIT OR MINIMIZE LOSSES TO ZERO.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: TICKER -->
+    <div class="ticker-wrap border-b border-white/10 bg-black/40 py-3.5 overflow-hidden" aria-hidden="true">
+      <div class="ticker-track flex items-center gap-8 text-xs font-mono uppercase tracking-widest text-purple-300">
+        <span>SKIP THE DEALER™</span>
+        <span class="text-white/30">•</span>
+        <span>SAVE 30–40% BELOW DEALER MARKET</span>
+        <span class="text-white/30">•</span>
+        <span>CLOSED EXCLUSIVE AUCTION ACCESS</span>
+        <span class="text-white/30">•</span>
+        <span>150-POINT AMVIC SAFETY INSPECTION</span>
+        <span class="text-white/30">•</span>
+        <span>ZERO HIDDEN COMMISSIONS</span>
+        <span class="text-white/30">•</span>
+        <span>NO SHOWROOMS, NO BULLSHIT</span>
+        <span class="text-white/30">•</span>
+        <span>CALGARY HQ</span>
+        <span class="text-white/30">•</span>
+        <span>SKIP THE DEALER™</span>
+        <span class="text-white/30">•</span>
+        <span>SAVE 30–40% BELOW DEALER MARKET</span>
+        <span class="text-white/30">•</span>
+        <span>CLOSED EXCLUSIVE AUCTION ACCESS</span>
+        <span class="text-white/30">•</span>
+        <span>150-POINT AMVIC SAFETY INSPECTION</span>
+        <span class="text-white/30">•</span>
+        <span>ZERO HIDDEN COMMISSIONS</span>
+        <span class="text-white/30">•</span>
+        <span>NO SHOWROOMS, NO BULLSHIT</span>
+        <span class="text-white/30">•</span>
+        <span>CALGARY HQ</span>
+      </div>
+    </div>
+
+    <!-- SECTION 3: REAL CARS CAROUSEL W/ PHOTOS -->
+    <section id="results" class="py-20 lg:py-28 border-b border-white/10 relative" data-reveal>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+          <div class="space-y-3 max-w-2xl">
+            <div class="text-xs uppercase font-mono tracking-widest text-dna-purple">[VERIFIED TRANSACTIONS]</div>
+            <h2 class="display text-3xl sm:text-4xl font-bold uppercase tracking-tight text-white">
+              REAL CARS. REAL PEOPLE. REAL RESULTS.
+            </h2>
+            <p class="text-xs sm:text-sm text-dna-muted">
+              Direct comparison of verified vehicle purchases sourced through closed auctions vs typical retail dealership listings in Alberta.
+            </p>
+          </div>
+
+          <!-- Carousel Controls -->
+          <div class="flex items-center gap-3">
+            <button type="button" data-prev class="pill-btn-outline w-10 h-10 flex items-center justify-center text-white hover:text-white" aria-label="Previous Slide">
+              ←
+            </button>
+            <button type="button" data-next class="pill-btn w-10 h-10 flex items-center justify-center text-white" aria-label="Next Slide">
+              →
+            </button>
+          </div>
+        </div>
+
+        <!-- Carousel Slider Container (data-slider) -->
+        <div class="overflow-hidden relative pb-6" data-slider>
+          <div class="dealer-carousel-track flex gap-6" data-slider-track>
+            <!-- Card 1: Luxury Sedan Deal -->
+            <div class="min-w-[280px] sm:min-w-[340px] lg:min-w-[380px] max-w-[400px] flex-shrink-0 dealer-card-glow hud-corners glass-card rounded-xl overflow-hidden border border-white/10 flex flex-col justify-between">
+              <div>
+                <div class="h-64 sm:h-72 overflow-hidden relative">
+                  <img src="assets/img/dealer/result-sedan.jpg" alt="Luxury Sedan Deal" class="w-full h-full object-cover">
+                  <div class="absolute top-3 left-3 px-2.5 py-1 rounded bg-black/60 backdrop-blur border border-purple-500/40 text-[10px] font-mono text-purple-300 uppercase">
+                    AUCTION DIRECT
+                  </div>
+                  <div class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-emerald-950/80 backdrop-blur border border-emerald-500/40 text-[11px] font-mono font-bold text-emerald-400">
+                    SAVED $5,700
+                  </div>
+                </div>
+                <div class="p-5 space-y-2">
+                  <h3 class="display text-base font-bold uppercase text-white">2019 HONDA CIVIC EX</h3>
+                  <p class="text-xs text-dna-muted leading-relaxed">
+                    Sourced from wholesale closed auction. Amvic safety inspected, new brake pads, and complete professional interior detailing.
+                  </p>
+                </div>
+              </div>
+              <div class="p-5 pt-0 border-t border-white/5 flex items-center justify-between text-xs font-mono text-dna-muted">
+                <span>DEALER: <span class="line-through text-white/50">$18,900</span></span>
+                <span class="text-purple-300 font-bold">DNA: $13,200</span>
+              </div>
+            </div>
+
+            <!-- Card 2: Handshake & Happy Delivery -->
+            <div class="min-w-[280px] sm:min-w-[340px] lg:min-w-[380px] max-w-[400px] flex-shrink-0 dealer-card-glow hud-corners glass-card rounded-xl overflow-hidden border border-white/10 flex flex-col justify-between">
+              <div>
+                <div class="h-64 sm:h-72 overflow-hidden relative">
+                  <img src="assets/img/dealer/result-handshake.jpg" alt="Happy Customer Handshake" class="w-full h-full object-cover">
+                  <div class="absolute top-3 left-3 px-2.5 py-1 rounded bg-black/60 backdrop-blur border border-purple-500/40 text-[10px] font-mono text-purple-300 uppercase">
+                    VERIFIED CLIENT
+                  </div>
+                  <div class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-emerald-950/80 backdrop-blur border border-emerald-500/40 text-[11px] font-mono font-bold text-emerald-400">
+                    SAVED $7,600
+                  </div>
+                </div>
+                <div class="p-5 space-y-2">
+                  <h3 class="display text-base font-bold uppercase text-white">2020 VW TIGUAN COMFORTLINE</h3>
+                  <p class="text-xs text-dna-muted leading-relaxed">
+                    Client wanted specific trim &amp; panoramic roof. Handshake delivery right at our Calgary facility with turn-key registration.
+                  </p>
+                </div>
+              </div>
+              <div class="p-5 pt-0 border-t border-white/5 flex items-center justify-between text-xs font-mono text-dna-muted">
+                <span>DEALER: <span class="line-through text-white/50">$26,500</span></span>
+                <span class="text-purple-300 font-bold">DNA: $18,900</span>
+              </div>
+            </div>
+
+            <!-- Card 3: Below-Market Performance SUV -->
+            <div class="min-w-[280px] sm:min-w-[340px] lg:min-w-[380px] max-w-[400px] flex-shrink-0 dealer-card-glow hud-corners glass-card rounded-xl overflow-hidden border border-white/10 flex flex-col justify-between">
+              <div>
+                <div class="h-64 sm:h-72 overflow-hidden relative">
+                  <img src="assets/img/dealer/result-suv.jpg" alt="Performance SUV Delivery" class="w-full h-full object-cover">
+                  <div class="absolute top-3 left-3 px-2.5 py-1 rounded bg-black/60 backdrop-blur border border-purple-500/40 text-[10px] font-mono text-purple-300 uppercase">
+                    PREMIUM SOURCING
+                  </div>
+                  <div class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-emerald-950/80 backdrop-blur border border-emerald-500/40 text-[11px] font-mono font-bold text-emerald-400">
+                    SAVED $6,500
+                  </div>
+                </div>
+                <div class="p-5 space-y-2">
+                  <h3 class="display text-base font-bold uppercase text-white">2021 HYUNDAI ELANTRA PREFERRED</h3>
+                  <p class="text-xs text-dna-muted leading-relaxed">
+                    Single owner, clean history, zero accident report. Bought at 35% below retail showroom prices in under 5 business days.
+                  </p>
+                </div>
+              </div>
+              <div class="p-5 pt-0 border-t border-white/5 flex items-center justify-between text-xs font-mono text-dna-muted">
+                <span>DEALER: <span class="line-through text-white/50">$21,700</span></span>
+                <span class="text-purple-300 font-bold">DNA: $15,200</span>
+              </div>
+            </div>
+
+            <!-- Card 4 (Mobile Slide 1): CARLEARS mob 1 -->
+            <div class="min-w-[280px] sm:min-w-[340px] lg:min-w-[380px] max-w-[400px] flex-shrink-0 dealer-card-glow hud-corners glass-card rounded-xl overflow-hidden border border-white/10 flex flex-col justify-between">
+              <div>
+                <div class="h-64 sm:h-72 overflow-hidden relative">
+                  <img src="assets/img/dealer/carlears-mob-1.jpg" alt="Verified Vehicle Deal" class="w-full h-full object-cover">
+                  <div class="absolute top-3 left-3 px-2.5 py-1 rounded bg-black/60 backdrop-blur border border-purple-500/40 text-[10px] font-mono text-purple-300 uppercase">
+                    CARLEARS SOURCING
+                  </div>
+                  <div class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-emerald-950/80 backdrop-blur border border-emerald-500/40 text-[11px] font-mono font-bold text-emerald-400">
+                    SAVED $8,400
+                  </div>
+                </div>
+                <div class="p-5 space-y-2">
+                  <h3 class="display text-base font-bold uppercase text-white">2022 TOYOTA RAV4 XLE AWD</h3>
+                  <p class="text-xs text-dna-muted leading-relaxed">
+                    High demand AWD hybrid SUV acquired through commercial closed auction. Complete peace of mind with 150-point diagnostic check.
+                  </p>
+                </div>
+              </div>
+              <div class="p-5 pt-0 border-t border-white/5 flex items-center justify-between text-xs font-mono text-dna-muted">
+                <span>DEALER: <span class="line-through text-white/50">$34,200</span></span>
+                <span class="text-purple-300 font-bold">DNA: $25,800</span>
+              </div>
+            </div>
+
+            <!-- Card 5 (Mobile Slide 2): CARLEARS mob 2 -->
+            <div class="min-w-[280px] sm:min-w-[340px] lg:min-w-[380px] max-w-[400px] flex-shrink-0 dealer-card-glow hud-corners glass-card rounded-xl overflow-hidden border border-white/10 flex flex-col justify-between">
+              <div>
+                <div class="h-64 sm:h-72 overflow-hidden relative">
+                  <img src="assets/img/dealer/carlears-mob-2.jpg" alt="Client Delivery Showcase" class="w-full h-full object-cover">
+                  <div class="absolute top-3 left-3 px-2.5 py-1 rounded bg-black/60 backdrop-blur border border-purple-500/40 text-[10px] font-mono text-purple-300 uppercase">
+                    CERTIFIED INSPECTION
+                  </div>
+                  <div class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-emerald-950/80 backdrop-blur border border-emerald-500/40 text-[11px] font-mono font-bold text-emerald-400">
+                    SAVED $11,200
+                  </div>
+                </div>
+                <div class="p-5 space-y-2">
+                  <h3 class="display text-base font-bold uppercase text-white">2021 BMW X5 xDRIVE40i</h3>
+                  <p class="text-xs text-dna-muted leading-relaxed">
+                    Luxury import with M-Sport package. Purchased strictly below dealer wholesale, saving double digits over franchise lots.
+                  </p>
+                </div>
+              </div>
+              <div class="p-5 pt-0 border-t border-white/5 flex items-center justify-between text-xs font-mono text-dna-muted">
+                <span>DEALER: <span class="line-through text-white/50">$54,000</span></span>
+                <span class="text-purple-300 font-bold">DNA: $42,800</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparison Table Frame -->
+        <div class="hud-corners glass-card rounded-xl overflow-hidden border border-white/10 my-14 shadow-2xl">
+          <div class="p-4 sm:p-6 bg-white/[0.02] border-b border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div>
+              <h3 class="display text-sm font-bold uppercase tracking-wider text-white">REAL SAVINGS ON EVERY CAR</h3>
+              <p class="text-xs text-dna-muted">Transparent breakdown: auction acquisition + fees vs dealership retail sticker price</p>
+            </div>
+            <span class="text-[11px] font-mono px-3 py-1 rounded bg-purple-950/60 border border-purple-500/30 text-purple-300">
+              WESTERN CANADA BENCHMARKS
+            </span>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs sm:text-sm">
+              <thead class="text-[11px] uppercase font-mono tracking-wider text-dna-muted bg-purple-950/20 border-b border-white/10">
+                <tr>
+                  <th scope="col" class="py-3.5 px-4 sm:px-6">Car (Year &amp; Model)</th>
+                  <th scope="col" class="py-3.5 px-4 sm:px-6 text-white/70">Dealer Price</th>
+                  <th scope="col" class="py-3.5 px-4 sm:px-6 text-purple-300">SkipTheDealer Price</th>
+                  <th scope="col" class="py-3.5 px-4 sm:px-6 text-emerald-400 font-bold">You Save</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-white/5 font-mono">
+                <tr class="hover:bg-white/[0.02] transition-colors">
+                  <td class="py-4 px-4 sm:px-6 font-display font-semibold text-white">2019 HONDA CIVIC EX</td>
+                  <td class="py-4 px-4 sm:px-6 text-white/60 line-through">$18,900</td>
+                  <td class="py-4 px-4 sm:px-6 text-purple-300 font-bold">$13,200</td>
+                  <td class="py-4 px-4 sm:px-6 text-emerald-400 font-bold text-sm sm:text-base">+$5,700</td>
+                </tr>
+                <tr class="hover:bg-white/[0.02] transition-colors">
+                  <td class="py-4 px-4 sm:px-6 font-display font-semibold text-white">2020 VW TIGUAN COMFORTLINE</td>
+                  <td class="py-4 px-4 sm:px-6 text-white/60 line-through">$26,500</td>
+                  <td class="py-4 px-4 sm:px-6 text-purple-300 font-bold">$18,900</td>
+                  <td class="py-4 px-4 sm:px-6 text-emerald-400 font-bold text-sm sm:text-base">+$7,600</td>
+                </tr>
+                <tr class="hover:bg-white/[0.02] transition-colors">
+                  <td class="py-4 px-4 sm:px-6 font-display font-semibold text-white">2021 HYUNDAI ELANTRA PREFERRED</td>
+                  <td class="py-4 px-4 sm:px-6 text-white/60 line-through">$21,700</td>
+                  <td class="py-4 px-4 sm:px-6 text-purple-300 font-bold">$15,200</td>
+                  <td class="py-4 px-4 sm:px-6 text-emerald-400 font-bold text-sm sm:text-base">+$6,500</td>
+                </tr>
+                <tr class="hover:bg-white/[0.02] transition-colors">
+                  <td class="py-4 px-4 sm:px-6 font-display font-semibold text-white">2022 TOYOTA RAV4 XLE AWD</td>
+                  <td class="py-4 px-4 sm:px-6 text-white/60 line-through">$34,200</td>
+                  <td class="py-4 px-4 sm:px-6 text-purple-300 font-bold">$25,800</td>
+                  <td class="py-4 px-4 sm:px-6 text-emerald-400 font-bold text-sm sm:text-base">+$8,400</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Community / Referral Callout -->
+        <div class="hud-corners glass-card p-6 sm:p-10 rounded-xl border border-white/10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center" data-reveal>
+          <div class="md:col-span-4 flex justify-center">
+            <div class="relative w-full max-w-xs aspect-video sm:aspect-square rounded-lg overflow-hidden border border-purple-500/30">
+              <picture>
+                <source media="(max-width: 639px)" srcset="assets/img/shared/team-mob.jpg">
+                <img src="assets/img/dealer/team.jpg" alt="AutoDNA Community" class="w-full h-full object-cover">
+              </picture>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+                <span class="text-[10px] font-mono text-purple-300">AUTODNA CLIENT ADVOCATES</span>
+              </div>
+            </div>
+          </div>
+          <div class="md:col-span-8 space-y-3 text-left">
+            <span class="text-xs uppercase font-mono tracking-widest text-dna-purple">[REFERRAL ADVANTAGE]</span>
+            <h3 class="display text-xl sm:text-2xl font-bold uppercase text-white">
+              YOUR FRIENDS ARE OUR FRIENDS!
+            </h3>
+            <p class="text-xs sm:text-sm text-dna-muted leading-relaxed">
+              When you find your vehicle through SkipTheDealer™, your friends and family receive a <span class="text-white font-semibold">20% discount on service fees</span> for their orders. And when they complete their first acquisition, you get <span class="text-emerald-400 font-semibold">20% off your next order or maintenance cycle</span>.
+            </p>
+            <div class="pt-2">
+              <a href="#quote" class="inline-flex text-xs font-bold uppercase tracking-wider text-purple-300 hover:text-white transition-colors">
+                ASK CONCIERGE ABOUT THE REFERRAL PERK →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: WHY IT WORKS (Glass Stats + Chart JPG) -->
+    <section id="why" class="py-20 lg:py-28 border-b border-white/10 relative" data-reveal>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <div class="text-xs uppercase font-mono tracking-widest text-dna-purple">[THE ARCHITECTURE]</div>
+          <h2 class="display text-3xl sm:text-4xl font-bold uppercase tracking-tight text-white">
+            WHY IT WORKS
+          </h2>
+          <p class="text-xs sm:text-sm text-dna-muted max-w-xl mx-auto">
+            Traditional dealerships add $4,000–$8,000 in showroom overhead, commission splits, and floor plan interest. We strip away the waste.
+          </p>
+        </div>
+
+        <!-- Glass Stat Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <!-- Card 1 -->
+          <div class="hud-corners glass-card p-6 sm:p-8 space-y-4">
+            <div class="text-xs font-mono text-dna-purple">[01 // SAFETY]</div>
+            <h3 class="display text-base font-bold uppercase text-white">
+              FULL INSPECTION &amp; SAFETY GUARANTEED
+            </h3>
+            <p class="text-xs sm:text-sm text-dna-muted leading-relaxed">
+              Every vehicle undergoes comprehensive diagnostic scanning and a rigorous 150-point AMVIC mechanical safety inspection before key handoff.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="hud-corners glass-card p-6 sm:p-8 space-y-4">
+            <div class="text-xs font-mono text-dna-purple">[02 // NETWORK]</div>
+            <h3 class="display text-base font-bold uppercase text-white">
+              ACCESS TO EXCLUSIVE AUCTIONS
+            </h3>
+            <p class="text-xs sm:text-sm text-dna-muted leading-relaxed">
+              We represent you inside closed commercial dealer auctions across Alberta and Western Canada — wholesale rings off-limits to retail consumers.
+            </p>
+          </div>
+
+          <!-- Card 3: Central Highlight -->
+          <div class="hud-corners glass-card p-6 sm:p-8 space-y-4 bg-purple-950/30 border-purple-500/40 relative overflow-hidden">
+            <div class="text-xs font-mono text-purple-300">[03 // SPREAD]</div>
+            <div class="display text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-indigo-200">
+              30–40%
+            </div>
+            <h3 class="display text-base font-bold uppercase text-white">
+              CHEAPER THAN RETAIL
+            </h3>
+            <p class="text-xs sm:text-sm text-purple-200/80 leading-relaxed">
+              Save thousands compared to dealer lots and inflated private Marketplace sellers who price off retail averages.
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="hud-corners glass-card p-6 sm:p-8 space-y-4">
+            <div class="text-xs font-mono text-dna-purple">[04 // VALUE]</div>
+            <h3 class="display text-base font-bold uppercase text-white">
+              LONG-TERM FINANCIAL BENEFIT
+            </h3>
+            <p class="text-xs sm:text-sm text-dna-muted leading-relaxed">
+              Because you enter at true wholesale, standard 2–3 year vehicle depreciation leaves you at or near parity. Resell with minimal or zero loss.
+            </p>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="hud-corners glass-card p-6 sm:p-8 space-y-4">
+            <div class="text-xs font-mono text-dna-purple">[05 // INTEGRITY]</div>
+            <h3 class="display text-base font-bold uppercase text-white">
+              SAME MARKET. ZERO DEALER MARKUP.
+            </h3>
+            <p class="text-xs sm:text-sm text-dna-muted leading-relaxed">
+              Dealers buy from the exact same auction lanes and add substantial margins for their showrooms. We buy for you at source wholesale.
+            </p>
+          </div>
+
+          <!-- Card 6: Chart / Proof Card -->
+          <div class="hud-corners glass-card p-6 sm:p-8 space-y-4 flex flex-col justify-between">
+            <div>
+              <div class="text-xs font-mono text-dna-purple">[06 // TRANSPARENCY]</div>
+              <h3 class="display text-base font-bold uppercase text-white mb-2">
+                100% OPEN BOOKS
+              </h3>
+              <p class="text-xs text-dna-muted">
+                You see the auction invoice, transport receipts, repair invoices, and documentation down to the exact dollar.
+              </p>
+            </div>
+            <div class="pt-4">
+              <a href="#quote" class="pill-btn w-full py-2.5 text-xs font-bold uppercase tracking-widest text-center text-white block">
+                START YOUR SEARCH
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mined Chart Photographic Asset -->
+        <div class="hud-corners glass-card p-4 sm:p-6 rounded-xl border border-white/10 overflow-hidden shadow-2xl">
+          <div class="mb-4 flex items-center justify-between border-b border-white/10 pb-3">
+            <span class="text-xs font-mono text-dna-purple uppercase tracking-wider">AUCTION SOURCING // PRICING ANALYTICS</span>
+            <span class="text-[11px] font-mono text-emerald-400">AUDITED SPREAD METRICS</span>
+          </div>
+          <img src="assets/img/dealer/why-it-works-chart.jpg" alt="Why It Works Price Analytics Chart" class="w-full h-auto object-cover rounded-lg">
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: 3 STEPS (How it Works) -->
+    <section id="how" class="py-20 lg:py-28 border-b border-white/10 relative" data-reveal>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <div class="text-xs uppercase font-mono tracking-widest text-dna-purple">[THE 3-STEP PIPELINE]</div>
+          <h2 class="display text-3xl sm:text-4xl font-bold uppercase tracking-tight text-white">
+            NO MORE ENDLESS SCROLLING, NO MORE GUESSING.
+          </h2>
+          <p class="text-xs sm:text-sm text-dna-muted max-w-xl mx-auto">
+            From initial parameters to keys in hand — an effortless, transparent car purchasing protocol.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14">
+          <!-- Step 01 -->
+          <div class="hud-corners glass-card p-6 sm:p-8 relative space-y-4">
+            <div class="display text-3xl font-extrabold text-white/20">01</div>
+            <h3 class="display text-lg font-bold uppercase text-white">TELL US YOUR BUDGET</h3>
+            <p class="text-xs sm:text-sm text-dna-muted leading-relaxed">
+              You submit your target make, model, year range, and budget. At this first stage, you immediately receive a realistic financial preview: estimated auction hammer price, potential reconditioning budget, inspection fees, and turnkey delivery total.
+            </p>
+            <div class="text-xs font-mono text-purple-300 pt-2 border-t border-white/10">
+              Clear financial roadmap upfront
+            </div>
+          </div>
+
+          <!-- Step 02 -->
+          <div class="hud-corners glass-card p-6 sm:p-8 relative space-y-4">
+            <div class="display text-3xl font-extrabold text-white/20">02</div>
+            <h3 class="display text-lg font-bold uppercase text-white">WE HUNT &amp; INSPECT</h3>
+            <p class="text-xs sm:text-sm text-dna-muted leading-relaxed">
+              Our licensed buyers monitor closed auction catalogues, run comprehensive vehicle history checks, and inspect mechanical systems in person. We bid strictly up to your approved ceiling — never a penny over.
+            </p>
+            <div class="text-xs font-mono text-purple-300 pt-2 border-t border-white/10">
+              Rigorous diagnostic verification
+            </div>
+          </div>
+
+          <!-- Step 03 -->
+          <div class="hud-corners glass-card p-6 sm:p-8 relative space-y-4">
+            <div class="display text-3xl font-extrabold text-white/20">03</div>
+            <h3 class="display text-lg font-bold uppercase text-white">YOU DRIVE HAPPY</h3>
+            <p class="text-xs sm:text-sm text-dna-muted leading-relaxed">
+              We complete AMVIC safety certification, paperwork, and registration. You collect your vehicle fully detailed, inspected, and road-ready — having saved thousands off retail lot prices.
+            </p>
+            <div class="text-xs font-mono text-purple-300 pt-2 border-t border-white/10">
+              Turnkey delivery to your door
+            </div>
+          </div>
+        </div>
+
+        <!-- Mined Step Search Workflow Visual (Desktop & Mobile) -->
+        <div class="hud-corners glass-card p-2 sm:p-3 rounded-xl border border-white/10 overflow-hidden shadow-2xl">
+          <picture>
+            <source media="(max-width: 639px)" srcset="assets/img/dealer/step-search-mob.jpg">
+            <img src="assets/img/dealer/step-inspection.jpg" alt="Step Hunt &amp; Inspection Protocol Visual" class="w-full h-auto object-cover rounded-lg">
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: SAVINGS COUNTER & BANNER -->
+    <section id="savings" class="py-20 lg:py-28 border-b border-white/10 relative overflow-hidden" data-reveal>
+      <div class="absolute inset-0 bg-gradient-to-b from-[#5244b3]/10 via-transparent to-[#5244b3]/10 pointer-events-none -z-10"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <div class="text-xs uppercase font-mono tracking-widest text-dna-purple">[SAVINGS BENCHMARKS]</div>
+          <h2 class="display text-3xl sm:text-4xl font-bold uppercase tracking-tight text-white">
+            YOU MIGHT SAVE THOUSANDS OF DOLLARS.
+          </h2>
+          <p class="text-xs sm:text-sm text-dna-muted max-w-xl mx-auto">
+            Live audited data from recent vehicle purchases managed by the AutoDNA Calgary team.
+          </p>
+        </div>
+
+        <!-- Counters -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <!-- Counter 1 -->
+          <div class="hud-corners glass-card p-6 text-center space-y-2">
+            <div class="display text-3xl sm:text-5xl font-extrabold text-purple-300">
+              <span data-count="6800" data-count-prefix="$" data-count-duration="1800">$6,800</span>
+            </div>
+            <div class="text-xs uppercase font-mono tracking-wider text-dna-muted">AVERAGE CLIENT SAVINGS</div>
+            <p class="text-[11px] text-white/50">Calculated vs Canadian Black Book retail average</p>
+          </div>
+
+          <!-- Counter 2 -->
+          <div class="hud-corners glass-card p-6 text-center space-y-2">
+            <div class="display text-3xl sm:text-5xl font-extrabold text-indigo-300">
+              <span data-count="38" data-count-suffix="%" data-count-duration="1600">38%</span>
+            </div>
+            <div class="text-xs uppercase font-mono tracking-wider text-dna-muted">MAX BELOW-MARKET SPREAD</div>
+            <p class="text-[11px] text-white/50">Across sedans, SUVs, and luxury imports</p>
+          </div>
+
+          <!-- Counter 3 -->
+          <div class="hud-corners glass-card p-6 text-center space-y-2">
+            <div class="display text-3xl sm:text-5xl font-extrabold text-purple-300">
+              <span data-count="150" data-count-suffix="+" data-count-duration="1500">150+</span>
+            </div>
+            <div class="text-xs uppercase font-mono tracking-wider text-dna-muted">AMVIC CHECKPOINTS</div>
+            <p class="text-[11px] text-white/50">Comprehensive mechanical verification</p>
+          </div>
+
+          <!-- Counter 4 -->
+          <div class="hud-corners glass-card p-6 text-center space-y-2">
+            <div class="display text-3xl sm:text-5xl font-extrabold text-emerald-400">
+              <span data-count="100" data-count-suffix="%" data-count-duration="1400">100%</span>
+            </div>
+            <div class="text-xs uppercase font-mono tracking-wider text-dna-muted">PRICE TRANSPARENCY</div>
+            <p class="text-[11px] text-white/50">Original auction invoices shown to clients</p>
+          </div>
+        </div>
+
+        <!-- Mined Savings Banner Asset -->
+        <div class="hud-corners glass-card p-2 sm:p-3 rounded-xl border border-white/10 overflow-hidden mb-12 shadow-2xl">
+          <img src="assets/img/dealer/savings-banner.jpg" alt="You Might Save Thousands of Dollars Banner" class="w-full h-auto object-cover rounded-lg">
+        </div>
+
+        <!-- Callout Banner -->
+        <div class="hud-corners glass-card p-8 sm:p-10 rounded-xl text-center max-w-2xl mx-auto space-y-4 border border-purple-500/30">
+          <h3 class="display text-xl sm:text-2xl font-bold uppercase text-white">
+            SAVE UP TO $10,000 ON YOUR NEXT CAR? — IT'S REAL.
+          </h3>
+          <p class="text-xs sm:text-sm text-dna-muted">
+            Submit your car criteria and we will return a detailed wholesale auction availability report within 24 hours.
+          </p>
+          <div class="pt-2">
+            <a href="#quote" class="pill-btn px-8 py-3 text-xs font-bold uppercase tracking-widest text-white inline-block">
+              SUBMIT A REQUEST →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: TESTIMONIALS & FAQ (Folds from SkipTheSearch Slices) -->
+    <section id="faq" class="py-20 lg:py-28 border-b border-white/10 relative" data-reveal>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Who This Service Is Perfect For -->
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <div class="text-xs uppercase font-mono tracking-widest text-dna-purple">[AUDIENCE CRITERIA]</div>
+          <h2 class="display text-3xl sm:text-4xl font-bold uppercase tracking-tight text-white">
+            WHO THIS SERVICE IS PERFECT FOR
+          </h2>
+          <p class="text-xs sm:text-sm text-dna-muted max-w-xl mx-auto">
+            SkipTheDealer is engineered for discerning buyers looking for value, safety, and an uncompromising concierge experience.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+          <!-- Persona 1 -->
+          <div class="hud-corners glass-card p-6 space-y-3">
+            <div class="text-xs font-mono text-purple-300">01 // FIRST-TIME BUYERS</div>
+            <h3 class="display text-base font-bold uppercase text-white">FIRST-TIME BUYERS</h3>
+            <p class="text-xs text-dna-muted leading-relaxed">
+              Who don't know how to inspect mechanical systems and need licensed AMVIC inspectors to protect their investment.
+            </p>
+          </div>
+
+          <!-- Persona 2 -->
+          <div class="hud-corners glass-card p-6 space-y-3">
+            <div class="text-xs font-mono text-purple-300">02 // HANDS-OFF CLIENTS</div>
+            <h3 class="display text-base font-bold uppercase text-white">HANDS-OFF CLIENTS</h3>
+            <p class="text-xs text-dna-muted leading-relaxed">
+              Who don't want to deal with aggressive salespeople, hidden dealership doc fees, or endless phone calls.
+            </p>
+          </div>
+
+          <!-- Persona 3 -->
+          <div class="hud-corners glass-card p-6 space-y-3">
+            <div class="text-xs font-mono text-purple-300">03 // VALUE SEEKERS</div>
+            <h3 class="display text-base font-bold uppercase text-white">VALUE SEEKERS</h3>
+            <p class="text-xs text-dna-muted leading-relaxed">
+              Who want the absolute best price possible without sacrificing condition, history, or road-readiness.
+            </p>
+          </div>
+
+          <!-- Persona 4 -->
+          <div class="hud-corners glass-card p-6 space-y-3">
+            <div class="text-xs font-mono text-purple-300">04 // CAREFUL BUYERS</div>
+            <h3 class="display text-base font-bold uppercase text-white">CAREFUL BUYERS</h3>
+            <p class="text-xs text-dna-muted leading-relaxed">
+              Who want to avoid salvaged titles, odometer rollback scams, frame damage, and undisclosed liens.
+            </p>
+          </div>
+
+          <!-- Persona 5 -->
+          <div class="hud-corners glass-card p-6 space-y-3">
+            <div class="text-xs font-mono text-purple-300">05 // BUSY PROFESSIONALS</div>
+            <h3 class="display text-base font-bold uppercase text-white">BUSY PROFESSIONALS</h3>
+            <p class="text-xs text-dna-muted leading-relaxed">
+              Who don't have hours to scroll classified listings at 2 AM or spend weekends driving between Calgary lots.
+            </p>
+          </div>
+
+          <!-- Persona 6 -->
+          <div class="hud-corners glass-card p-6 space-y-3 bg-purple-950/20 border-purple-500/30">
+            <div class="text-xs font-mono text-emerald-400">06 // TURNKEY EXPERTS</div>
+            <h3 class="display text-base font-bold uppercase text-white">SMART INVESTORS</h3>
+            <p class="text-xs text-dna-muted leading-relaxed">
+              Who understand vehicle depreciation curves and want to purchase at wholesale to drive depreciation-free.
+            </p>
+          </div>
+        </div>
+
+        <!-- Why Buying From Private Sellers Is Risky vs AutoDNA -->
+        <div class="hud-corners glass-card p-6 sm:p-10 rounded-xl border border-white/10 mb-20 space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-6">
+            <div>
+              <span class="text-xs font-mono text-dna-purple uppercase tracking-widest">[RISK MITIGATION]</span>
+              <h3 class="display text-xl sm:text-2xl font-bold uppercase text-white">
+                WHY BUYING FROM PRIVATE SELLERS CAN BE RISKY
+              </h3>
+            </div>
+            <span class="text-xs font-mono px-3 py-1.5 rounded bg-red-950/60 border border-red-500/30 text-red-300">
+              AVOID HIDDEN LEMONS
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs sm:text-sm text-dna-muted leading-relaxed">
+            <div class="space-y-4">
+              <h4 class="font-display font-semibold text-white uppercase text-xs tracking-wider">Common Marketplace Traps:</h4>
+              <ul class="space-y-2.5">
+                <li class="flex items-start gap-2.5">
+                  <span class="text-red-400 font-bold">✕</span>
+                  <span><strong>Odometer rollback &amp; mileage manipulation:</strong> Disconnected digital clusters hiding true engine wear.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-red-400 font-bold">✕</span>
+                  <span><strong>Hidden accident frame damage:</strong> Cosmetic repairs masking serious structural safety hazards.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-red-400 font-bold">✕</span>
+                  <span><strong>Undisclosed liens &amp; bank loans:</strong> Previous owner unpaid financing that follows the vehicle.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="space-y-4">
+              <h4 class="font-display font-semibold text-white uppercase text-xs tracking-wider">The AutoDNA Protection Shield:</h4>
+              <ul class="space-y-2.5">
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold">✓</span>
+                  <span><strong>Full CARFAX &amp; Registry Verification:</strong> Zero liens, verified Canadian registration history.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold">✓</span>
+                  <span><strong>150-Point AMVIC Mechanical Safety:</strong> Thorough diagnostic scanning, road testing, and sign-off.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 font-bold">✓</span>
+                  <span><strong>Desjardins Insurance &amp; Registration Setup:</strong> Seamless transfer, license plates, and road-ready keys.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Accordion -->
+        <div class="max-w-3xl mx-auto space-y-4">
+          <div class="text-center mb-10 space-y-2">
+            <div class="text-xs uppercase font-mono tracking-widest text-dna-purple">[QUESTIONS &amp; ANSWERS]</div>
+            <h3 class="display text-2xl font-bold uppercase text-white">FREQUENTLY ASKED QUESTIONS</h3>
+          </div>
+
+          <div class="faq-item hud-corners glass-card rounded-lg border border-white/10 overflow-hidden active">
+            <button type="button" class="faq-trigger w-full p-5 text-left flex items-center justify-between text-xs sm:text-sm font-semibold uppercase tracking-wider text-white">
+              <span>HOW DOES THE CLOSED AUCTION BIDDING WORK?</span>
+              <span class="faq-chevron text-dna-purple text-base">▼</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-xs text-dna-muted leading-relaxed">
+              AutoDNA holds certified commercial dealer licenses allowing direct participation in closed dealer-only auctions across Western Canada. We pre-screen catalogues, review inspection sheets, and only bid up to your explicitly approved maximum budget.
+            </div>
+          </div>
+
+          <div class="faq-item hud-corners glass-card rounded-lg border border-white/10 overflow-hidden">
+            <button type="button" class="faq-trigger w-full p-5 text-left flex items-center justify-between text-xs sm:text-sm font-semibold uppercase tracking-wider text-white">
+              <span>WHAT FEES ARE INCLUDED IN THE FINAL TURNKEY PRICE?</span>
+              <span class="faq-chevron text-dna-purple text-base">▼</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-xs text-dna-muted leading-relaxed">
+              Every quote includes the estimated auction hammer price, auction transaction fee, insured transit to Calgary, full AMVIC mechanical safety inspection, registration, and our flat concierge fee. You will never encounter hidden admin or doc fees.
+            </div>
+          </div>
+
+          <div class="faq-item hud-corners glass-card rounded-lg border border-white/10 overflow-hidden">
+            <button type="button" class="faq-trigger w-full p-5 text-left flex items-center justify-between text-xs sm:text-sm font-semibold uppercase tracking-wider text-white">
+              <span>HOW LONG DOES THE ENTIRE SEARCH AND DELIVERY TAKE?</span>
+              <span class="faq-chevron text-dna-purple text-base">▼</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-xs text-dna-muted leading-relaxed">
+              Most clients receive matched vehicle options within 48 to 72 hours. Once a winning bid is confirmed, transit, mechanical inspection, safety certification, and full detailing typically take 5 to 7 business days before pickup or doorstep delivery.
+            </div>
+          </div>
+
+          <div class="faq-item hud-corners glass-card rounded-lg border border-white/10 overflow-hidden">
+            <button type="button" class="faq-trigger w-full p-5 text-left flex items-center justify-between text-xs sm:text-sm font-semibold uppercase tracking-wider text-white">
+              <span>CAN I TRADE IN MY CURRENT VEHICLE?</span>
+              <span class="faq-chevron text-dna-purple text-base">▼</span>
+            </button>
+            <div class="faq-answer px-5 pb-5 text-xs text-dna-muted leading-relaxed">
+              Yes. We can evaluate your current car and either offer an immediate wholesale cash buyout or enter it into our DNA Flip™ program to maximize your net return toward your new purchase.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Request a quote -->
+    <section id="quote" class="py-20 lg:py-28 border-b border-white/10 relative" data-reveal>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="hud-corners glass-card p-6 sm:p-10 lg:p-12 rounded-xl border border-purple-500/30 shadow-2xl relative">
+          <!-- Form Header -->
+          <div class="text-center mb-10 space-y-3">
+            <span class="text-xs uppercase font-mono tracking-widest text-dna-purple">[REQUEST A QUOTE]</span>
+            <h2 class="display text-2xl sm:text-3xl font-bold uppercase tracking-tight text-white">
+              NOT SURE WHERE TO START?
+            </h2>
+            <p class="text-xs sm:text-sm text-dna-muted max-w-lg mx-auto">
+              Fill in the details below and we'll get back to you with a personalized quote and auction availability as soon as possible.
+            </p>
+          </div>
+
+          <!-- Quote form -->
+          <form data-quote class="space-y-6" novalidate>
+            <div class="form-fields grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <!-- Name -->
+              <div class="sm:col-span-2 space-y-2">
+                <label for="quote-name" class="block text-xs uppercase font-mono tracking-wider text-white/80">
+                  Full Name <span class="text-dna-purple">*</span>
+                </label>
+                <input type="text" id="quote-name" name="name" required autocomplete="name" placeholder="Your full name"
+                  class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder-white/30 text-xs sm:text-sm focus:outline-none focus:border-dna-purple transition-colors">
+              </div>
+
+              <!-- Make -->
+              <div class="space-y-2">
+                <label for="quote-make" class="block text-xs uppercase font-mono tracking-wider text-white/80">
+                  Vehicle Make <span class="text-dna-purple">*</span>
+                </label>
+                <input type="text" id="quote-make" name="make" required autocomplete="off" placeholder="e.g. Toyota, BMW"
+                  class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder-white/30 text-xs sm:text-sm focus:outline-none focus:border-dna-purple transition-colors">
+              </div>
+
+              <!-- Model -->
+              <div class="space-y-2">
+                <label for="quote-model" class="block text-xs uppercase font-mono tracking-wider text-white/80">
+                  Vehicle Model <span class="text-dna-purple">*</span>
+                </label>
+                <input type="text" id="quote-model" name="model" required autocomplete="off" placeholder="e.g. Camry, 3 Series"
+                  class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder-white/30 text-xs sm:text-sm focus:outline-none focus:border-dna-purple transition-colors">
+              </div>
+
+              <!-- Year -->
+              <div class="space-y-2">
+                <label for="quote-year" class="block text-xs uppercase font-mono tracking-wider text-white/80">
+                  Preferred Year <span class="text-dna-purple">*</span>
+                </label>
+                <input type="number" id="quote-year" name="year" required min="1980" max="2035" autocomplete="off" placeholder="e.g. 2018"
+                  class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder-white/30 text-xs sm:text-sm focus:outline-none focus:border-dna-purple transition-colors">
+              </div>
+
+              <!-- Budget -->
+              <div class="space-y-2">
+                <label for="quote-budget" class="block text-xs uppercase font-mono tracking-wider text-white/80">
+                  Approximate Budget (CAD) <span class="text-dna-purple">*</span>
+                </label>
+                <input type="text" id="quote-budget" name="budget" required autocomplete="off" placeholder="e.g. 30000"
+                  class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder-white/30 text-xs sm:text-sm focus:outline-none focus:border-dna-purple transition-colors">
+              </div>
+
+              <!-- Message / Additional Information -->
+              <div class="sm:col-span-2 space-y-2">
+                <label for="quote-message" class="block text-xs uppercase font-mono tracking-wider text-white/80">
+                  Additional Information &amp; Preferences <span class="text-dna-purple">*</span>
+                </label>
+                <textarea id="quote-message" name="message" required rows="4" placeholder="Tell us about any specific requirements, preferred colors, features, or anything else that would help us find the right match for you..."
+                  class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder-white/30 text-xs sm:text-sm focus:outline-none focus:border-dna-purple transition-colors"></textarea>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="pt-4 text-center">
+              <button type="submit" class="pill-btn w-full sm:w-auto px-10 py-3.5 text-xs font-bold uppercase tracking-widest text-white shadow-xl shadow-purple-900/30">
+                SUBMIT REQUEST
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: TEAM BAND (Inside the Mind of AutoDNA) -->
+    <section id="team" class="py-20 lg:py-28 border-b border-white/10 relative" data-reveal>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <!-- Team Visual Left (Mined Photographics Desktop & Mobile) -->
+          <div class="lg:col-span-6">
+            <div class="hud-corners glass-card p-2 sm:p-3 rounded-xl border border-white/10 overflow-hidden group">
+              <picture>
+                <source media="(max-width: 639px)" srcset="assets/img/shared/team-mob.jpg">
+                <img src="assets/img/dealer/team.jpg" alt="AutoDNA Team and Leadership" class="w-full h-auto object-cover rounded-lg group-hover:scale-105 transition-transform duration-500">
+              </picture>
+              <div class="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-dna-muted">
+                <span>FOUNDERS &amp; MASTER TECHNICIANS</span>
+                <span class="text-purple-300">CALGARY FACILITY</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Team Copy Right -->
+          <div class="lg:col-span-6 space-y-6">
+            <div class="text-xs uppercase font-mono tracking-widest text-dna-purple">[THE MINDS BEHIND AUTODNA]</div>
+            <h2 class="display text-3xl sm:text-4xl font-bold uppercase tracking-tight text-white leading-tight">
+              INSIDE THE MIND OF AUTODNA.
+            </h2>
+            <p class="text-xs sm:text-sm text-dna-muted leading-relaxed">
+              We started AutoDNA with a simple conviction: car buyers deserve total transparency, access to true wholesale auction pricing, and expert engineering protection.
+            </p>
+            <div class="hud-corners glass-card p-5 rounded-lg border-l-2 border-l-dna-purple space-y-2">
+              <p class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-purple-200">
+                “THEY'RE THE REASON WHY AUTODNA IS REVOLUTIONIZING THE AUTOMOTIVE EXPERIENCE IN CALGARY.”
+              </p>
+              <span class="block text-[11px] font-mono text-dna-muted">— Leadership Council, AutoDNA Canada</span>
+            </div>
+            <div class="pt-2 flex items-center gap-4 text-xs font-mono text-white/70">
+              <span>AMVIC LICENSED</span>
+              <span>•</span>
+              <span>BONDED &amp; INSURED</span>
+              <span>•</span>
+              <span>100% LOCAL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Chrome: AutoDNA Footer Partial -->
+  <footer id="dna-footer" class="dna-footer w-full bg-[#07051d] text-white border-t border-white/10 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- 3-Column Grid: Contact / Follow / Find -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16 pb-12 border-b border-white/10">
+        <!-- Col 1: CONTACT US -->
+        <div>
+          <h3 class="display text-xs font-bold tracking-widest uppercase text-white mb-5 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 bg-dna-purple inline-block"></span>
+            CONTACT US
+          </h3>
+          <ul class="space-y-3 text-sm text-dna-muted">
+            <li>
+              <span class="block text-xs uppercase tracking-wider text-white/50">Direct Concierge</span>
+              <a href="tel:+14033128306" class="hover:text-dna-purple transition-colors text-white/90 font-mono">+1 (403) 312-8306</a>
+            </li>
+            <li>
+              <span class="block text-xs uppercase tracking-wider text-white/50">Inquiries</span>
+              <a href="mailto:info@autodna.com" class="hover:text-dna-purple transition-colors text-white/90">info@autodna.com</a>
+            </li>
+            <li>
+              <span class="block text-xs uppercase tracking-wider text-white/50">Operating Hours</span>
+              <span class="text-white/80">Mon – Sat: 9:00 AM – 7:00 PM MST</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 2: FOLLOW US -->
+        <div>
+          <h3 class="display text-xs font-bold tracking-widest uppercase text-white mb-5 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 bg-dna-purple inline-block"></span>
+            FOLLOW US
+          </h3>
+          <ul class="space-y-3 text-sm text-dna-muted">
+            <li>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-dna-purple transition-colors text-white/90 flex items-center justify-between group">
+                <span>Instagram</span>
+                <span class="text-xs text-dna-muted group-hover:text-dna-purple font-mono">@autodna</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="hover:text-dna-purple transition-colors text-white/90 flex items-center justify-between group">
+                <span>X (Twitter)</span>
+                <span class="text-xs text-dna-muted group-hover:text-dna-purple font-mono">@AutoDNA</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="hover:text-dna-purple transition-colors text-white/90 flex items-center justify-between group">
+                <span>Facebook</span>
+                <span class="text-xs text-dna-muted group-hover:text-dna-purple font-mono">AutoDNA Canada</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 3: FIND US -->
+        <div>
+          <h3 class="display text-xs font-bold tracking-widest uppercase text-white mb-5 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 bg-dna-purple inline-block"></span>
+            FIND US
+          </h3>
+          <div class="space-y-3 text-sm text-dna-muted">
+            <div>
+              <span class="block text-xs uppercase tracking-wider text-white/50">Flagship Facility &amp; HQ</span>
+              <p class="text-white/90">730 2 Ave SW, Calgary, T2P 1R8, Canada</p>
+            </div>
+            <div class="pt-2">
+              <span class="inline-block text-xs font-mono px-2 py-1 rounded bg-white/5 border border-white/10 text-dna-purple">
+                BUILT IN CALGARY · SERVING WESTERN CANADA
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar: Copyright & Legal -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-dna-muted">
+        <div>
+          <p>© 2025 AutoDNA Canada. All rights reserved.</p>
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="#privacy" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#terms" class="hover:text-white transition-colors">Terms of Service</a>
+          <a href="#dna-cert" class="hover:text-white transition-colors">DNA Guarantee</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

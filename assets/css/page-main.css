@@ -1,0 +1,35 @@
+/* AutoDNA Main Page Styles */
+
+/* Hide scrollbars for sliders while keeping momentum scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Glowing text header */
+.dna-glow-text {
+  text-shadow: 0 0 20px rgba(139, 124, 246, 0.4), 0 0 40px rgba(139, 124, 246, 0.2);
+}
+
+/* Subtle reflective glow for comparison title */
+.glow-reflection {
+  position: relative;
+  display: inline-block;
+}
+.glow-reflection::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  transform: scaleY(-0.7) translateY(2px);
+  opacity: 0.15;
+  filter: blur(2px);
+  pointer-events: none;
+  user-select: none;
+  background: linear-gradient(to bottom, #8b7cf6, transparent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

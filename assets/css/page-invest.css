@@ -1,0 +1,86 @@
+/* AutoDNA Invest (DNA Flip™) Page Styles */
+
+/* Subtle cosmic aura glow for hero */
+.invest-hero-glow {
+  background: radial-gradient(circle at 50% 25%, rgba(124, 92, 255, 0.28) 0%, rgba(176, 108, 255, 0.12) 40%, transparent 70%);
+}
+
+/* Glassmorphism tables for Profit Examples & Options Comparison */
+.invest-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid rgba(139, 124, 246, 0.2);
+  border-radius: 1rem;
+  overflow: hidden;
+  background: rgba(18, 17, 33, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.invest-table th {
+  padding: 1rem 1.25rem;
+  font-family: var(--dna-font-mono, monospace);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #9d93b8;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(139, 124, 246, 0.2);
+  text-align: left;
+}
+
+.invest-table td {
+  padding: 1.1rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.875rem;
+  color: #ffffff;
+}
+
+.invest-table tr:last-child td {
+  border-bottom: none;
+}
+
+.invest-table tr.highlight-dna-flip {
+  background: linear-gradient(90deg, rgba(124, 92, 255, 0.25) 0%, rgba(176, 108, 255, 0.15) 100%);
+  border-left: 3px solid #8b7cf6;
+}
+
+.invest-table tr.highlight-dna-flip td {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Guarantee tree connector visualization */
+.guarantee-branch {
+  position: relative;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+form[data-quote] .form-input-error {
+  border-color: #f87171;
+  background-color: rgba(239, 68, 68, 0.05);
+}
+
+/* Form success panel transitions */
+.form-success-panel {
+  display: none;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+}
+
+.form-success-panel.visible {
+  display: block;
+}
+
+.form-input-error {
+  border-color: #f87171 !important;
+  background-color: rgba(239, 68, 68, 0.05) !important;
+}
+
+.form-error-msg {
+  color: #f87171;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  font-family: monospace;
+}

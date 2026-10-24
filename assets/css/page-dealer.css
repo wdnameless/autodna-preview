@@ -1,0 +1,37 @@
+/* AutoDNA — SkipTheDealer Page Styles */
+.dealer-carousel-track {
+  display: flex;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.dealer-card-glow {
+  position: relative;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dealer-card-glow:hover {
+  transform: translateY(-4px);
+  border-color: rgba(139, 124, 246, 0.5);
+  box-shadow: 0 10px 30px -10px rgba(139, 124, 246, 0.25);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease-out, opacity 0.3s ease-out;
+  opacity: 0;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px;
+  opacity: 1;
+}
+
+.faq-item.active .faq-chevron {
+  transform: rotate(180deg);
+}
+
+.faq-chevron {
+  transition: transform 0.25s ease;
+}

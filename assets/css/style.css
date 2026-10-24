@@ -1,0 +1,407 @@
+/* ==========================================================================
+   AUTODNA — Shared Shell & Design System Companion
+   Tokens, Core Utilities, and Component Classes for Tailwind CSS CDN
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* --- Tokens / Custom Properties --- */
+:root {
+  --dna-bg: #020202;
+  --dna-bg-surface: #0c051d;
+  --dna-bg-card: rgba(18, 10, 36, 0.7);
+  --dna-purple: #9685ff;
+  --dna-violet: #c2b9ff;
+  --dna-purple-deep: #7c5cff;
+  --dna-violet-bright: #b06cff;
+  --dna-grad: linear-gradient(135deg, #7c5cff 0%, #b06cff 100%);
+  --dna-grad-hover: linear-gradient(135deg, #8b6aff 0%, #bd7dff 100%);
+  --dna-border: rgba(139, 124, 246, 0.25);
+  --dna-border-strong: rgba(167, 139, 250, 0.5);
+  --dna-text-muted: #c2b9ff;
+  --dna-font-display: 'Orbitron', 'Michroma', sans-serif;
+  --dna-font-body: 'Helvetica Neue', Helvetica, 'DM Sans', Arial, sans-serif;
+}
+
+/* --- Base Resets & Theme Settings --- */
+html {
+  background-color: var(--dna-bg);
+  color: #ffffff;
+  font-family: var(--dna-font-body);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--dna-bg);
+  color: #ffffff;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--dna-purple);
+  color: #ffffff;
+}
+
+/* --- Typography Utilities --- */
+.display,
+.font-display {
+  font-family: var(--dna-font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.font-body {
+  font-family: var(--dna-font-body);
+}
+
+/* --- HUD Corner Brackets --- */
+.hud-corners {
+  position: relative;
+}
+
+.hud-corners::before,
+.hud-corners::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+  border-color: var(--dna-purple);
+  border-style: solid;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.hud-corners::before {
+  top: -1px;
+  left: -1px;
+  border-width: 2px 0 0 2px;
+}
+
+.hud-corners::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 2px 2px 0;
+}
+
+.hud-corners:hover::before,
+.hud-corners:hover::after {
+  border-color: var(--dna-violet);
+}
+
+/* Four-corner HUD box */
+.hud-corners-all {
+  position: relative;
+}
+
+.hud-corners-all::before,
+.hud-corners-all::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+  border-color: var(--dna-purple);
+  border-style: solid;
+}
+
+.hud-corners-all::before {
+  top: -1px;
+  left: -1px;
+  border-width: 2px 0 0 2px;
+}
+
+.hud-corners-all::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 2px 2px 0;
+}
+
+/* --- Buttons --- */
+.pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  background: var(--dna-grad);
+  color: #ffffff;
+  font-family: var(--dna-font-display);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid transparent;
+  box-shadow: 0 0 22px rgba(124, 92, 255, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.pill-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(176, 108, 255, 0.65);
+  filter: brightness(1.12);
+}
+
+.pill-btn:active {
+  transform: translateY(0);
+}
+
+.pill-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  background: transparent;
+  color: #ffffff;
+  font-family: var(--dna-font-display);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(167, 139, 250, 0.45);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.pill-btn-outline:hover {
+  border-color: var(--dna-violet);
+  background: rgba(139, 124, 246, 0.15);
+  box-shadow: 0 0 22px rgba(139, 124, 246, 0.3);
+  color: #ffffff;
+}
+
+.pill-btn-outline:active {
+  transform: translateY(0);
+}
+
+/* --- Glass Card --- */
+.glass-card {
+  background: var(--dna-bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--dna-border);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: var(--dna-border-strong);
+  box-shadow: 0 12px 40px 0 rgba(124, 92, 255, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+/* --- Marquee / Ticker --- */
+.ticker-wrap {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  width: 100%;
+}
+
+.ticker-track {
+  display: inline-flex;
+  width: max-content;
+  animation: dnaTicker 30s linear infinite;
+  will-change: transform;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes dnaTicker {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* --- Scroll Reveal Animations --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right.in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-delay-100 { transition-delay: 100ms; }
+.reveal-delay-200 { transition-delay: 200ms; }
+.reveal-delay-300 { transition-delay: 300ms; }
+.reveal-delay-400 { transition-delay: 400ms; }
+.reveal-delay-500 { transition-delay: 500ms; }
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-left,
+  .reveal-right {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .ticker-track {
+    animation: none !important;
+  }
+}
+
+/* --- Shared Chrome: Preloader --- */
+.dna-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dna-bg);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s ease;
+}
+
+.dna-preloader.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.dna-progress-bar {
+  width: 240px;
+  height: 4px;
+  background: rgba(139, 124, 246, 0.15);
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.dna-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--dna-grad);
+  transition: width 0.25s ease-out;
+  box-shadow: 0 0 12px var(--dna-purple);
+}
+
+/* --- Shared Chrome: Header --- */
+.dna-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
+}
+
+.dna-header.scrolled {
+  background-color: rgba(6, 2, 15, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--dna-border);
+}
+
+@media (max-width: 639px) {
+  .dna-header a .display {
+    display: none;
+  }
+}
+
+/* --- Shared Chrome: Fullscreen Menu --- */
+#dna-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(6, 2, 15, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
+  overflow-y: auto;
+}
+
+#dna-menu.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* --- Shared Chrome: Footer --- */
+.dna-footer {
+  position: relative;
+  background-color: var(--dna-bg);
+  border-top: 1px solid var(--dna-border);
+}
+
+/* --- Form Styles --- */
+.form-input-error {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.3) !important;
+}
+
+.form-error-msg {
+  color: #f87171;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.form-success-panel {
+  display: none;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  border-radius: 16px;
+  background: rgba(124, 92, 255, 0.1);
+  border: 1px solid var(--dna-border-strong);
+}
+
+.form-success-panel.visible {
+  display: block;
+}
+
+/* --- Utility Color Aliases --- */
+.text-dna-purple { color: var(--dna-purple); }
+.text-dna-violet { color: var(--dna-violet); }
+.text-dna-muted  { color: var(--dna-text-muted); }
+.bg-dna-bg       { background-color: var(--dna-bg); }
+.bg-dna-surface  { background-color: var(--dna-bg-surface); }
+.border-dna      { border-color: var(--dna-border); }
