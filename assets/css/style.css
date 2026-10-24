@@ -862,3 +862,17 @@ a { color: inherit; text-decoration: none; }
 
 /* the page must never scroll sideways on phones */
 html, body { max-width: 100%; overflow-x: hidden; }
+
+/* the value-prop connector: hairlines from the centre down to the five columns */
+.value-fan {
+  width: 100%;
+  height: clamp(80px, 12vw, 170px);
+  display: block;
+  margin-top: 40px;
+}
+
+.value-fan line {
+  stroke: rgba(194, 185, 255, 0.32);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}

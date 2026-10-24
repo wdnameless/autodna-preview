@@ -160,3 +160,17 @@
   line-height: 1.5;
   color: var(--dna-muted);
 }
+
+/* friends block: photo above the offer, as framed on the board */
+.friends-wrap {
+  display: grid;
+  gap: 30px;
+  justify-items: center;
+  margin-top: 30px;
+}
+
+.friends-wrap img {
+  width: min(420px, 100%);
+  aspect-ratio: 285 / 130;
+  object-fit: cover;
+}
