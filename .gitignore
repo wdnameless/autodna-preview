@@ -30,3 +30,7 @@ figma/
 openspec/
 .workflow/
 docs/
+
+.opencode/
+.tmp/
+

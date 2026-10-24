@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60" fill="none" role="img" aria-label="AutoDNA Logo">
+  <defs>
+    <linearGradient id="dnaLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b7cf6"/>
+      <stop offset="100%" stop-color="#b06cff"/>
+    </linearGradient>
+    <filter id="logoGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Left Stylized DNA Mark -->
+  <g transform="translate(6, 12)">
+    <!-- Letter D -->
+    <path d="M4 4 L22 4 L34 16 L34 20 L22 32 L4 32 Z" stroke="url(#dnaLogoGrad)" stroke-width="3" fill="#0c051d"/>
+    <path d="M12 12 L18 12 L24 18 L18 24 L12 24 Z" fill="url(#dnaLogoGrad)"/>
+
+    <!-- Letter N -->
+    <path d="M40 32 L40 4 L48 4 L64 24 L64 4 L72 4 L72 32 L64 32 L48 12 L48 32 Z" fill="url(#dnaLogoGrad)"/>
+
+    <!-- Letter A -->
+    <path d="M78 32 L88 4 L98 4 L108 32 L98 32 L95 24 L85 24 L82 32 Z M87 18 L93 18 L90 10 Z" fill="url(#dnaLogoGrad)"/>
+
+    <!-- Vertical AUTO text -->
+    <g transform="translate(112, 4)" fill="#a78bfa" font-family="'Montserrat', sans-serif" font-size="6" font-weight="800" letter-spacing="1.5">
+      <text x="0" y="6">A</text>
+      <text x="0" y="14">U</text>
+      <text x="0" y="22">T</text>
+      <text x="0" y="30">O</text>
+    </g>
+  </g>
+
+  <!-- Right Logotype Brand Name -->
+  <g transform="translate(132, 38)">
+    <text font-family="'Michroma', 'Orbitron', -apple-system, sans-serif" font-size="16" font-weight="700" letter-spacing="2" fill="#ffffff">
+      AUTO<tspan fill="url(#dnaLogoGrad)">DNA</tspan>
+    </text>
+    <text x="96" y="-7" font-family="'Montserrat', sans-serif" font-size="7" font-weight="600" fill="#a78bfa">TM</text>
+  </g>
+</svg>

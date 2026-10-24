@@ -1,194 +1,210 @@
 /**
- * AutoDNA — shared behaviour
- * Preloader, menu overlay, scroll reveal, counters and form validation.
- * No dependencies.
+ * AutoDNA — Core Interaction Engine
+ * Handles Preloader, Fullscreen Menu Overlay, Interactive Component 7 (Main Services Accordion),
+ * SkipTheDealer Step Switcher (Component 4), and Service Component 8 Tabs (Hover/Click).
  */
+
 (function () {
   'use strict';
 
-  /* --- Preloader ---------------------------------------------------------- */
+  /* --- 1. Preloader Overlay --- */
+  function initPreloader() {
+    var preloader = document.getElementById('preloader');
+    if (!preloader) return;
 
-  function hidePreloader() {
-    var el = document.getElementById('preloader');
-    if (!el) return;
-    el.classList.add('loaded');
-    window.setTimeout(function () {
-      el.style.display = 'none';
-    }, 600);
+    function hide() {
+      preloader.classList.add('is-hidden');
+      setTimeout(function () {
+        preloader.style.display = 'none';
+      }, 600);
+    }
+
+    if (document.readyState === 'complete') {
+      setTimeout(hide, 800);
+    } else {
+      window.addEventListener('load', function () {
+        setTimeout(hide, 800);
+      });
+      setTimeout(hide, 2000); // fallback safety
+    }
   }
 
-  /* --- Menu overlay ------------------------------------------------------- */
-
+  /* --- 2. Menu Drawer Overlay --- */
   function initMenu() {
     var overlay = document.getElementById('menu');
     if (!overlay) return;
 
-    function open() {
-      overlay.classList.add('open');
+    var openBtns = document.querySelectorAll('[data-menu-open]');
+    var closeBtns = document.querySelectorAll('[data-menu-close]');
+
+    function openMenu() {
+      overlay.classList.add('is-open');
       document.body.style.overflow = 'hidden';
     }
 
-    function close() {
-      overlay.classList.remove('open');
+    function closeMenu() {
+      overlay.classList.remove('is-open');
       document.body.style.overflow = '';
     }
 
-    document.querySelectorAll('[data-menu-open]').forEach(function (btn) {
-      btn.addEventListener('click', open);
+    openBtns.forEach(function (btn) {
+      btn.addEventListener('click', openMenu);
     });
 
-    document.querySelectorAll('[data-menu-close]').forEach(function (btn) {
-      btn.addEventListener('click', close);
+    closeBtns.forEach(function (btn) {
+      btn.addEventListener('click', closeMenu);
     });
 
-    overlay.addEventListener('click', function (event) {
-      if (event.target === overlay) close();
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) {
+        closeMenu();
+      }
     });
 
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape') close();
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && overlay.classList.contains('is-open')) {
+        closeMenu();
+      }
     });
-  }
 
-  /* --- Scroll reveal ------------------------------------------------------ */
-
-  function initReveal() {
-    var items = document.querySelectorAll('.reveal');
-    if (!items.length) return;
-
-    if (!('IntersectionObserver' in window)) {
-      items.forEach(function (el) { el.classList.add('in'); });
-      return;
-    }
-
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-
-    items.forEach(function (el) { observer.observe(el); });
-  }
-
-  /* --- Counters ----------------------------------------------------------- */
-
-  function animateCounter(el) {
-    var target = parseFloat(el.getAttribute('data-count'));
-    if (isNaN(target)) return;
-    var suffix = el.getAttribute('data-suffix') || '';
-    var duration = 1400;
-    var start = null;
-
-    function step(timestamp) {
-      if (start === null) start = timestamp;
-      var progress = Math.min((timestamp - start) / duration, 1);
-      var value = Math.floor(progress * target);
-      el.textContent = value + suffix;
-      if (progress < 1) window.requestAnimationFrame(step);
-      else el.textContent = target + suffix;
-    }
-
-    window.requestAnimationFrame(step);
-  }
-
-  function initCounters() {
-    var items = document.querySelectorAll('[data-count]');
-    if (!items.length) return;
-
-    if (!('IntersectionObserver' in window)) {
-      items.forEach(animateCounter);
-      return;
-    }
-
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.4 });
-
-    items.forEach(function (el) { observer.observe(el); });
-  }
-
-  /* --- Forms -------------------------------------------------------------- */
-
-  function initForms() {
-    document.querySelectorAll('form[data-quote]').forEach(function (form) {
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        var valid = true;
-
-        form.querySelectorAll('[required]').forEach(function (field) {
-          var wrapper = field.closest('.field');
-          var value = field.value.trim();
-          var fieldValid = value !== '';
-
-          if (field.type === 'email' && value) {
-            fieldValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-          }
-
-          if (wrapper) wrapper.classList.toggle('invalid', !fieldValid);
-          if (!fieldValid) valid = false;
-        });
-
-        if (!valid) return;
-
-        var success = form.querySelector('.form-success');
-        if (success) {
-          form.querySelectorAll('.field, button[type="submit"]').forEach(function (el) {
-            el.classList.add('hidden');
-          });
-          success.classList.add('visible');
-        }
-        form.reset();
+    // Close menu when clicking internal jump links
+    overlay.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        closeMenu();
       });
     });
   }
 
+  /* --- 3. SkipTheDealer Step Switcher (Component 4) --- */
+  function initStepSwitcher() {
+    var container = document.querySelector('[data-step-switcher]');
+    if (!container) return;
 
-  /* --- Service tabs ------------------------------------------------------- */
+    var tabs = container.querySelectorAll('[data-step-tab]');
+    var panels = container.querySelectorAll('[data-step-panel]');
 
-  function initTabs() {
-    var tabs = document.querySelectorAll('[data-tab]');
-    if (!tabs.length) return;
-
-    var panels = document.querySelectorAll('[data-panel]');
-
-    function activate(name) {
+    function activateStep(stepNum) {
       tabs.forEach(function (tab) {
-        var on = tab.getAttribute('data-tab') === name;
-        tab.classList.toggle('is-active', on);
-        tab.setAttribute('aria-selected', on ? 'true' : 'false');
+        var active = tab.getAttribute('data-step-tab') === stepNum;
+        tab.classList.toggle('is-active', active);
+        tab.setAttribute('aria-selected', active ? 'true' : 'false');
       });
+
       panels.forEach(function (panel) {
-        var on = panel.getAttribute('data-panel') === name;
-        panel.classList.toggle('is-active', on);
-        if (on) panel.removeAttribute('hidden');
-        else panel.setAttribute('hidden', '');
+        var active = panel.getAttribute('data-step-panel') === stepNum;
+        panel.classList.toggle('is-active', active);
       });
     }
 
     tabs.forEach(function (tab) {
       tab.addEventListener('click', function () {
-        activate(tab.getAttribute('data-tab'));
+        var step = this.getAttribute('data-step-tab');
+        activateStep(step);
       });
     });
   }
 
-  /* --- Boot --------------------------------------------------------------- */
+  /* --- 4. Service Page Component 8 Tabs (Hover and Click Switcher) --- */
+  function initServiceSwitcher() {
+    var container = document.querySelector('[data-service-switcher]');
+    if (!container) return;
 
+    var tabs = container.querySelectorAll('[data-service-tab]');
+    var panels = container.querySelectorAll('[data-service-panel]');
+
+    function activateTab(tabKey) {
+      tabs.forEach(function (tab) {
+        var active = tab.getAttribute('data-service-tab') === tabKey;
+        tab.classList.toggle('is-active', active);
+        tab.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+
+      panels.forEach(function (panel) {
+        var active = panel.getAttribute('data-service-panel') === tabKey;
+        panel.classList.toggle('is-active', active);
+      });
+    }
+
+    tabs.forEach(function (tab) {
+      // Switch on click
+      tab.addEventListener('click', function () {
+        var key = this.getAttribute('data-service-tab');
+        activateTab(key);
+      });
+
+      // Switch on hover for fluid desktop exploration as requested in video
+      tab.addEventListener('mouseenter', function () {
+        var key = this.getAttribute('data-service-tab');
+        activateTab(key);
+      });
+    });
+  }
+
+  /* --- 5. Main Page Component 7 Accordion / Hover --- */
+  function initServicesAccordion() {
+    var container = document.querySelector('[data-services-accordion]');
+    if (!container) return;
+
+    var cards = container.querySelectorAll('.dna-service-card');
+
+    cards.forEach(function (card) {
+      card.addEventListener('mouseenter', function () {
+        cards.forEach(function (c) { c.classList.remove('is-expanded'); });
+        this.classList.add('is-expanded');
+      });
+    });
+  }
+
+  /* --- 6. Form Validation --- */
+  function initForms() {
+    var forms = document.querySelectorAll('form[data-quote]');
+    forms.forEach(function (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var isValid = true;
+        var requiredInputs = form.querySelectorAll('[required]');
+
+        requiredInputs.forEach(function (input) {
+          var field = input.closest('.dna-field');
+          var value = (input.value || '').trim();
+          var fieldValid = value.length > 0;
+
+          if (input.type === 'email' && value) {
+            fieldValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+          }
+
+          if (field) {
+            field.classList.toggle('is-invalid', !fieldValid);
+          }
+
+          if (!fieldValid) {
+            isValid = false;
+          }
+        });
+
+        if (!isValid) return;
+
+        var successMsg = form.querySelector('.dna-form-success');
+        if (successMsg) {
+          form.querySelectorAll('.dna-form-grid, button[type="submit"]').forEach(function (el) {
+            el.style.display = 'none';
+          });
+          successMsg.classList.add('is-visible');
+        }
+
+        form.reset();
+      });
+    });
+  }
+
+  /* --- Initialize all modules --- */
   function boot() {
-    hidePreloader();
+    initPreloader();
     initMenu();
-    initReveal();
-    initCounters();
+    initStepSwitcher();
+    initServiceSwitcher();
+    initServicesAccordion();
     initForms();
-    initTabs();
   }
 
   if (document.readyState === 'loading') {
@@ -196,7 +212,4 @@
   } else {
     boot();
   }
-
-  window.addEventListener('load', hidePreloader);
-  window.setTimeout(hidePreloader, 2500);
 })();

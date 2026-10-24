@@ -1,45 +1,10 @@
 /*
-Theme Name: Autodna
-Description: AutoDNA marketing site — four pages built from the Figma boards.
-Version: 3.0.0
-Requires at least: 6.0
-Requires PHP: 7.4
+Theme Name: AutoDNA
+Theme URI: https://autodna.com/
+Author: AutoDNA Development Team
+Author URI: https://autodna.com/
+Description: Custom pixel-faithful WordPress theme for AutoDNA (Main, SkipTheDealer, AutoDNA Flip, AutoDNA Service) built directly from the official Figma design.
+Version: 1.0.0
+License: Proprietary
 Text Domain: autodna
 */
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-html, body {
-  background: #020202;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-/* the frame is the page: sized to the board, scaled down as one unit on narrow screens */
-.dna-frame {
-  position: relative;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.dna-frame > img,
-.dna-frame > div,
-.dna-frame > p {
-  position: absolute;
-  display: block;
-}
-
-.dna-frame img { max-width: none; }
-
-@media (max-width: 1440px) {
-  .dna-frame {
-    transform-origin: top left;
-    transform: scale(var(--dna-scale, 1));
-  }
-}
-
-.dna-frame-wrap { position: relative; overflow: hidden; }
-.dna-frame-wrap .frame { position: relative; transform-origin: top left; }
-.dna-frame-wrap .frame > img,
-.dna-frame-wrap .frame > div,
-.dna-frame-wrap .frame > p { position: absolute; display: block; }
-.dna-frame-wrap .frame img { max-width: none; }
