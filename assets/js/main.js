@@ -150,6 +150,36 @@
     });
   }
 
+
+  /* --- Service tabs ------------------------------------------------------- */
+
+  function initTabs() {
+    var tabs = document.querySelectorAll('[data-tab]');
+    if (!tabs.length) return;
+
+    var panels = document.querySelectorAll('[data-panel]');
+
+    function activate(name) {
+      tabs.forEach(function (tab) {
+        var on = tab.getAttribute('data-tab') === name;
+        tab.classList.toggle('is-active', on);
+        tab.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      panels.forEach(function (panel) {
+        var on = panel.getAttribute('data-panel') === name;
+        panel.classList.toggle('is-active', on);
+        if (on) panel.removeAttribute('hidden');
+        else panel.setAttribute('hidden', '');
+      });
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        activate(tab.getAttribute('data-tab'));
+      });
+    });
+  }
+
   /* --- Boot --------------------------------------------------------------- */
 
   function boot() {
@@ -158,6 +188,7 @@
     initReveal();
     initCounters();
     initForms();
+    initTabs();
   }
 
   if (document.readyState === 'loading') {

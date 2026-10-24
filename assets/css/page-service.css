@@ -187,3 +187,35 @@
   text-transform: uppercase;
   color: var(--dna-purple);
 }
+
+/* tabs: only the active panel is shown */
+.svc-panel { display: none; }
+.svc-panel.is-active { display: block; }
+
+.svc-tab {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-family: var(--dna-font-body);
+}
+
+.svc-tab.is-active {
+  color: #fff;
+  border: 1px solid var(--dna-line-strong);
+  background: rgba(150, 133, 255, 0.1);
+}
+
+.svc-official {
+  margin: 46px auto 0;
+  max-width: 560px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--dna-muted);
+}
+
+.svc-official span { color: var(--dna-purple-soft); }
+
+/* the first block after the collage must not double the hero headline */
+.svc-intro { padding-top: 40px; }

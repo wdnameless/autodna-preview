@@ -31,10 +31,9 @@
     <li><a href="skipthedealer.html">SkipTheDealer</a></li>
     <li><a href="invest.html">AutoDNA Flip</a></li>
     <li><a href="service.html">AutoDNA Service</a></li>
-    <li><a href="#paintbot">PaintBot</a></li>
-    <li><a href="#shop">Skip the Shop</a></li>
-    <li><a href="#drivecare">DriveCarePlan</a></li>
-    <li><a href="#commercial">Commercial</a></li>
+    <li><a href="#services">PaintBot</a></li>
+    <li><a href="#services">Skip the Shop</a></li>
+    <li><a href="#services">DriveCarePlan</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
 </div>
@@ -75,101 +74,68 @@
 </section>
 
 <!-- ONE DNA, MULTIPLE SERVICES -->
-<section class="section svc-multi">
+<section class="section svc-multi" id="services">
   <div class="shell">
     <h2 class="svc-mega">one DNA.<br><span>multiple services.</span></h2>
 
-    <nav class="svc-switch" aria-label="Services">
-      <a href="#shop" class="svc-tab">SkipTheShop</a>
+    <nav class="svc-switch" role="tablist" aria-label="Services">
+      <button type="button" class="svc-tab" role="tab" data-tab="drivecare" aria-selected="false">DriveCarePlan</button>
       <span class="svc-tab-line"></span>
-      <a href="#drivecare" class="svc-tab svc-tab--plain">DriveCarePlan</a>
+      <button type="button" class="svc-tab" role="tab" data-tab="paintbot" aria-selected="false">PaintBot</button>
       <span class="svc-tab-line"></span>
-      <a href="#paintbot" class="svc-tab svc-tab--plain">PaintBot</a>
+      <button type="button" class="svc-tab is-active" role="tab" data-tab="shop" aria-selected="true">SkipTheShop</button>
     </nav>
-  </div>
-</section>
 
-<!-- SKIP THE SHOP -->
-<section class="section svc-block" id="shop">
-  <div class="shell">
-    <h2 class="svc-name">SkipTheShop</h2>
-    <p class="svc-tagline">YOUR CAR GOES TO SERVICE. YOU DON’T.</p>
-
-    <div class="svc-triptych bracket">
-      <img src="assets/img/service/shop-1.jpg" alt="Technician picking up the car">
-      <img src="assets/img/service/shop-2.jpg" alt="Service work in the bay">
-      <img src="assets/img/service/shop-3.jpg" alt="Car returned to the owner">
+    <!-- panel: SkipTheShop (active on load, as on the board) -->
+    <div class="svc-panel is-active" data-panel="shop" role="tabpanel">
+      <h3 class="svc-name">SkipTheShop</h3>
+      <p class="svc-tagline">Your car goes to service. You don’t.</p>
+      <div class="svc-triptych bracket">
+        <img src="assets/img/service/shop-1.jpg" alt="Technician picking up the car">
+        <img src="assets/img/service/shop-2.jpg" alt="Service work in the bay">
+        <img src="assets/img/service/shop-3.jpg" alt="Car returned to the owner">
+      </div>
+      <p class="svc-copy">
+        A new format of car service — where you don’t go to the shop. Our technician picks up your
+        car, completes all necessary work, and brings it back to you.
+      </p>
+      <p class="svc-highlight">Fast. No lines. No wasted time.</p>
     </div>
 
-    <p class="svc-copy">
-      A new format of car service — where you don’t go to the shop. Our technician picks up your
-      car, completes all necessary work, and brings it back to you.
-    </p>
-    <p class="svc-highlight">Fast. No lines. No wasted time.</p>
-    <p class="prose-dna" style="text-align:center;margin:26px auto 0;max-width:560px">
+    <!-- panel: PaintBot -->
+    <div class="svc-panel" data-panel="paintbot" role="tabpanel" hidden>
+      <h3 class="svc-name">PaintBot</h3>
+      <p class="svc-tagline">The only bodyshop in Calgary where a robot paints your car.</p>
+      <div class="svc-triptych bracket">
+        <img src="assets/img/service/paintbot-action.jpg" alt="PaintBot at work">
+        <img src="assets/img/service/paintbot-steps.jpg" alt="Painting process">
+        <img src="assets/img/service/paintbot-bay.jpg" alt="Paint bay">
+      </div>
+      <p class="svc-copy">
+        Six-axis robotic painting delivers a uniform coat every time — no dust, no human error.
+        Each panel is measured, prepped and sprayed in a controlled bay.
+      </p>
+    </div>
+
+    <!-- panel: DriveCarePlan -->
+    <div class="svc-panel" data-panel="drivecare" role="tabpanel" hidden>
+      <h3 class="svc-name">DriveCarePlan</h3>
+      <p class="svc-tagline">See problems before they happen.</p>
+      <div class="svc-triptych bracket">
+        <img src="assets/img/service/drivecare-bay.jpg" alt="DriveCare service bay">
+        <img src="assets/img/service/drivecare-plans-card.jpg" alt="DriveCare plans">
+        <img src="assets/img/service/cashback-pump-tail.jpg" alt="Fuel cashback">
+      </div>
+      <p class="svc-copy">
+        A maintenance plan that reads the car through an OBD module: mileage, fuel level, ECU
+        errors, temperature, RPM and load — with automatic reminders and warnings.
+      </p>
+    </div>
+
+    <p class="svc-official">
       Explore the future of car care — learn more on our AutoDNA Service official site:
-      <span style="color:var(--dna-purple-soft)">AutoDnaService</span>
+      <span>AutoDnaService</span>
     </p>
-  </div>
-</section>
-
-<!-- PAINTBOT -->
-<section class="section svc-block" id="paintbot">
-  <div class="shell">
-    <h2 class="svc-name">PaintBot</h2>
-    <p class="svc-tagline">THE ROBOT THAT PAINTS.</p>
-
-    <div class="svc-triptych bracket">
-      <img src="assets/img/service/paintbot-action.jpg" alt="PaintBot at work">
-      <img src="assets/img/service/paintbot-steps.jpg" alt="Painting process">
-      <img src="assets/img/service/paintbot-bay.jpg" alt="Paint bay">
-    </div>
-
-    <p class="svc-copy">
-      Six-axis robotic painting delivers a uniform coat every time — no dust, no human error.
-      Each panel is measured, prepped and sprayed in a controlled bay.
-    </p>
-    <p class="svc-highlight">PERFECT SURFACE. EVERY PANEL.</p>
-  </div>
-</section>
-
-<!-- DRIVECARE -->
-<section class="section svc-block" id="drivecare">
-  <div class="shell">
-    <h2 class="svc-name">DriveCarePlan</h2>
-    <p class="svc-tagline">SERVICE THAT PAYS FOR ITSELF.</p>
-
-    <div class="svc-triptych bracket">
-      <img src="assets/img/service/drivecare-bay.jpg" alt="DriveCare service bay">
-      <img src="assets/img/service/drivecare-plans-card.jpg" alt="DriveCare plans">
-      <img src="assets/img/service/cashback-pump-tail.jpg" alt="Fuel cashback">
-    </div>
-
-    <p class="svc-copy">
-      A maintenance plan that returns value at the pump: every visit earns fuel cashback, and
-      scheduled service keeps the car covered.
-    </p>
-    <p class="svc-highlight">EVERY CUSTOMER. EVERY VISIT.</p>
-  </div>
-</section>
-
-<!-- COMMERCIAL -->
-<section class="section svc-block" id="commercial">
-  <div class="shell">
-    <h2 class="svc-name">Commercial</h2>
-    <p class="svc-tagline">FLEET MAINTENANCE REINVENTED.</p>
-
-    <div class="svc-triptych bracket">
-      <img src="assets/img/service/commercial-fleet.jpg" alt="Commercial fleet">
-      <img src="assets/img/service/commercial-fleet-ops.jpg" alt="Fleet operations">
-      <img src="assets/img/service/hero-bay-mob.jpg" alt="Service bay">
-    </div>
-
-    <p class="svc-copy">
-      Scheduled maintenance for vans and light trucks, with one invoice per month and a single
-      point of contact for the whole fleet.
-    </p>
-    <p class="svc-highlight">ONE PARTNER. EVERY VEHICLE.</p>
   </div>
 </section>
 
