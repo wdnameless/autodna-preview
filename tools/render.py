@@ -74,20 +74,35 @@ def text_colour(node):
     return '#ffffff'
 
 
-def sample_background(image, box, padding=6):
-    """Median colour of the ring just outside a text box — the local background."""
+def patch_background(image, box, padding=4):
+    """Fill a box with the scene behind it: border pixels interpolated across the hole."""
+    from PIL import Image as _Image
+
     x1, y1, x2, y2 = box
     w, h = image.size
-    samples = []
-    for x in range(max(0, x1 - padding), min(w, x2 + padding)):
-        for y in (max(0, y1 - padding), min(h - 1, y2 + padding - 1)):
-            samples.append(image.getpixel((x, y)))
-    for y in range(max(0, y1 - padding), min(h, y2 + padding)):
-        for x in (max(0, x1 - padding), min(w - 1, x2 + padding - 1)):
-            samples.append(image.getpixel((x, y)))
-    if not samples:
-        return (2, 2, 2)
-    return tuple(int(median(channel)) for channel in zip(*samples))
+    x1, y1 = max(0, x1), max(0, y1)
+    x2, y2 = min(w, x2), min(h, y2)
+    if x2 - x1 < 2 or y2 - y1 < 2:
+        return None
+
+    left = image.crop((max(0, x1 - padding), y1, max(0, x1 - 1), y2)).resize((1, y2 - y1))
+    right = image.crop((min(w - 1, x2), y1, min(w, x2 + padding), y2)).resize((1, y2 - y1))
+    width = x2 - x1
+
+    # a horizontal gradient from the left border colour to the right one
+    patch = _Image.new('RGB', (width, y2 - y1))
+    left_px = left.load()
+    right_px = right.load()
+    dst = patch.load()
+    for y in range(y2 - y1):
+        a = left_px[0, y]
+        b = right_px[0, y]
+        for x in range(width):
+            t = x / max(width - 1, 1)
+            dst[x, y] = (int(a[0] + (b[0] - a[0]) * t),
+                         int(a[1] + (b[1] - a[1]) * t),
+                         int(a[2] + (b[2] - a[2]) * t))
+    return patch
 
 
 def escaped(text):
@@ -119,18 +134,27 @@ def build(key):
         bbox = node.get('absoluteBoundingBox')
         if not bbox:
             continue
+        size = (node.get('style') or {}).get('fontSize', 16)
+        # generous bleed: stroke, italics and descenders all live outside the reported box
+        bleed = int(max(6, size * 0.18))
         box = (
-            round(bbox['x'] - ox),
-            round(bbox['y'] - oy),
-            round(bbox['x'] - ox + bbox['width']),
-            round(bbox['y'] - oy + bbox['height']),
+            round(bbox['x'] - ox) - bleed,
+            round(bbox['y'] - oy) - bleed,
+            round(bbox['x'] - ox + bbox['width']) + bleed,
+            round(bbox['y'] - oy + bbox['height']) + bleed,
         )
-        # paint out the baked text with the surrounding background
-        draw.rectangle(box, fill=sample_background(base, box))
+        # paint out the baked text by continuing the scene through the box
+        box = (max(0, box[0]), max(0, box[1]),
+               min(base.size[0], box[2]), min(base.size[1], box[3]))
+        patch = patch_background(base, box)
+        if patch is not None:
+            base.paste(patch, (max(0, box[0]), max(0, box[1])))
         texts.append((node, box))
 
     out_dir = os.path.join(OUT, key)
     os.makedirs(os.path.join(out_dir, 'assets'), exist_ok=True)
+    if base.size != (width, height):
+        base = base.crop((0, 0, width, height))
     base_path = os.path.join(out_dir, 'assets', 'base.png')
     base.save(base_path, 'PNG', optimize=True)
 

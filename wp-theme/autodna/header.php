@@ -1,6 +1,6 @@
 <?php
 /**
- * Site header — the board draws only the wordmark and the burger, so that is all this outputs.
+ * Header. The boards draw no site chrome inside the frames, so this only opens the document.
  *
  * @package Autodna
  */
@@ -17,16 +17,3 @@ if ( ! defined( 'ABSPATH' ) ) {
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<header class="dna-header">
-	<a class="dna-header__brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php esc_attr_e( 'AutoDNA home', 'autodna' ); ?>">
-		<?php if ( has_custom_logo() ) : ?>
-			<?php the_custom_logo(); ?>
-		<?php else : ?>
-			<span class="dna-header__wordmark">AUTODNA</span>
-		<?php endif; ?>
-	</a>
-	<button class="dna-header__burger" type="button" aria-label="<?php esc_attr_e( 'Menu', 'autodna' ); ?>">
-		<span></span><span></span><span></span>
-	</button>
-</header>
-<main class="dna-main">

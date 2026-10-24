@@ -1,91 +1,38 @@
 /*
 Theme Name: Autodna
-Theme URI: https://autodna.ca/
-Author: AutoDNA Canada
-Description: AutoDNA marketing site — four pages rendered 1:1 from the Figma boards. Requires only WordPress; ACF optional.
-Version: 2.0.0
+Description: AutoDNA marketing site — four pages built from the Figma boards.
+Version: 3.0.0
 Requires at least: 6.0
 Requires PHP: 7.4
 Text Domain: autodna
 */
 
-/* --------------------------------------------------------------------------
-   Frame shell
-   -------------------------------------------------------------------------- */
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html, body {
   background: #020202;
-  color: #edebfb;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-.dna-header {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  z-index: 50;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 22px 60px;
-  pointer-events: none;
-}
-
-.dna-header > * { pointer-events: auto; }
-
-.dna-header__brand { text-decoration: none; }
-
-.dna-header__wordmark {
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 600;
-  font-size: 20px;
-  letter-spacing: 0.14em;
-  color: #fff;
-}
-
-.dna-header__burger {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 34px;
-  height: 22px;
-  background: none;
-  border: 0;
-  cursor: pointer;
-}
-
-.dna-header__burger span {
-  display: block;
-  height: 1.5px;
-  background: #fff;
-}
-
-/* the frame is the page: it keeps the board's exact size and clips to it */
+/* the frame is the page: sized to the board, scaled down as one unit on narrow screens */
 .dna-frame {
   position: relative;
   margin: 0 auto;
   overflow: hidden;
 }
 
+.dna-frame > img,
+.dna-frame > div,
 .dna-frame > p {
   position: absolute;
+  display: block;
 }
 
-.dna-frame > img,
-.dna-frame img.base {
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: block;
-  max-width: none;
-}
+.dna-frame img { max-width: none; }
 
 @media (max-width: 1440px) {
-  /* the board is drawn at 1440 — scale the whole frame down as one unit */
   .dna-frame {
     transform-origin: top left;
-    transform: scale(calc(100vw / 1440));
-    height: calc(100vw * var(--frame-ratio, 5.94));
+    transform: scale(var(--dna-scale, 1));
   }
 }
