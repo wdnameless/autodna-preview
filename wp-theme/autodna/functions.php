@@ -26,7 +26,6 @@ function autodna_theme_setup() {
 add_action( 'after_setup_theme', 'autodna_theme_setup' );
 
 function autodna_enqueue_assets() {
-    // Google Fonts
     wp_enqueue_style(
         'autodna-fonts',
         'https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap',
@@ -34,7 +33,6 @@ function autodna_enqueue_assets() {
         null
     );
 
-    // Main Style
     wp_enqueue_style(
         'autodna-core-style',
         get_template_directory_uri() . '/assets/css/style.css',
@@ -42,7 +40,6 @@ function autodna_enqueue_assets() {
         AUTODNA_THEME_VERSION
     );
 
-    // Main Script
     wp_enqueue_script(
         'autodna-core-script',
         get_template_directory_uri() . '/assets/js/main.js',

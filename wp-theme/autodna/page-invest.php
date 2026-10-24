@@ -227,7 +227,7 @@ get_header(); ?>
   <section class="section" id="guarantee" style="background: radial-gradient(100% 60% at 50% 30%, rgba(67, 54, 148, 0.35) 0%, rgba(7, 5, 29, 0) 70%);">
     <div class="shell">
       <div style="text-align: center; margin-bottom: 40px;">
-        <h2 class="display" style="font-size: clamp(38px, 7vw, 90px); color: #fff;">
+        <h2 class="display" style="font-size: clamp(26px, 6.5vw, 90px); color: #fff;">
           GUARANTEE &amp; <span style="color: var(--dna-purple-soft);">TRANSPARENCY</span>
         </h2>
       </div>

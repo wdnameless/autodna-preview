@@ -45,7 +45,7 @@ get_header(); ?>
       </div>
 
       <div style="margin-top: 50px;">
-        <div class="display-outline" style="font-size: clamp(60px, 14vw, 190px); letter-spacing: 0.05em;">
+        <div class="display-outline" style="font-size: clamp(30px, 11vw, 190px); letter-spacing: 0.02em; letter-spacing: 0.05em;">
           carlears
         </div>
       </div>
@@ -125,7 +125,7 @@ get_header(); ?>
       <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
         <div>
           <p class="kicker">Benchmark vs Market</p>
-          <div class="display-outline" style="font-size: clamp(48px, 9vw, 120px); margin-top: 10px;">
+          <div class="display-outline" style="font-size: clamp(34px, 8vw, 120px); margin-top: 10px;">
             Price<br>Comparison
           </div>
         </div>
