@@ -133,7 +133,7 @@
   </div>
 
   <div class="shell">
-    <div class="stats-grid" style="grid-template-columns:repeat(5,1fr);gap:26px;text-align:center">
+    <div class="stats-grid stats-grid--5" style="gap:26px;text-align:center">
       <div>
         <h3 class="display" style="font-size:19px;color:#fff;margin:0 0 14px">No<br>surprises</h3>
         <p class="prose-dna" style="font-size:16px;line-height:1.4">No hidden fees. No surprises. We cover the GST ourselves.</p>
@@ -161,20 +161,20 @@
 <!-- PRICE COMPARISON -->
 <section class="section" style="overflow:hidden">
   <div class="shell" style="position:relative">
-    <div style="position:relative;min-height:430px">
+    <div style="position:relative;min-height:430px;overflow:hidden">
       <p class="kicker" style="font-size:15px;letter-spacing:0.14em;line-height:1.5">
         Toyota Corolla<br>Hatchback 2021
       </p>
-      <svg viewBox="0 0 420 120" style="width:420px;height:120px;position:absolute;left:170px;top:24px" aria-hidden="true">
+      <svg viewBox="0 0 420 120" style="width:min(420px,45vw);height:auto;position:absolute;left:min(170px,36vw);top:24px;max-width:calc(100% - 36vw)" aria-hidden="true">
         <path d="M0 10 H160 L200 96 H420" fill="none" stroke="rgba(194,185,255,0.4)" stroke-width="1"/>
       </svg>
     </div>
 
     <div class="display-outline" style="font-size:clamp(54px,10vw,148px);line-height:0.86;margin:0">Price<br>Comparison</div>
 
-    <img src="assets/img/main/services-overview.jpg" alt="Toyota Corolla Hatchback 2021" style="position:absolute;right:0;top:0;width:58%;max-width:760px;object-fit:cover">
+    <img src="assets/img/main/services-overview.jpg" alt="Toyota Corolla Hatchback 2021" style="position:absolute;right:0;top:0;width:min(58%,760px);max-width:100%;object-fit:cover">
 
-    <div style="position:relative;margin-top:26px;border:1px solid var(--dna-line)">
+    <div class="table-scroll" style="position:relative;margin-top:26px;border:1px solid var(--dna-line)">
       <table style="width:100%;border-collapse:collapse;font-size:clamp(16px,1.6vw,26px);font-weight:300">
         <thead>
           <tr style="background:rgba(67,54,148,0.45);text-align:left">
