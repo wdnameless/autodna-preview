@@ -327,3 +327,48 @@
 .invest-fan line {
   stroke-width: 1;
 }
+
+/* documentation trio */
+.doc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-top: 40px;
+}
+
+@media (max-width: 900px) { .doc-grid { grid-template-columns: 1fr; } }
+
+.doc-grid > div {
+  padding: 32px 28px;
+  background: rgba(19, 18, 40, 0.5);
+}
+
+.doc-grid h3 {
+  margin: 0 0 14px;
+  font-family: var(--dna-font-body);
+  font-weight: 300;
+  font-size: clamp(17px, 1.7vw, 24px);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+
+.doc-grid p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--dna-muted);
+}
+
+.doc-grid--2 { grid-template-columns: repeat(3, 1fr); margin-bottom: 56px; }
+
+.invest-sub-title {
+  margin: 0 0 26px;
+  font-family: var(--dna-font-body);
+  font-weight: 300;
+  font-size: clamp(20px, 2.4vw, 34px);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dna-purple-soft);
+  text-align: center;
+}

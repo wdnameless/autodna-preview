@@ -167,3 +167,23 @@
   text-transform: uppercase;
   color: var(--dna-purple-soft);
 }
+
+.svc-lead {
+  margin: 46px 0 0;
+  text-align: center;
+  font-size: clamp(28px, 5.2vw, 74px);
+  font-weight: 300;
+  line-height: 1.02;
+  color: #fff;
+}
+
+.svc-lead span { color: var(--dna-purple-soft); }
+
+.svc-kicker {
+  margin: 18px 0 0;
+  text-align: center;
+  font-size: clamp(15px, 1.6vw, 21px);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dna-purple);
+}

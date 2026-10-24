@@ -56,7 +56,8 @@
       Buy cars up to <span style="color:var(--dna-purple)">40% cheaper</span>
     </p>
     <p style="text-align:center;font-size:17px;color:var(--dna-muted);margin:14px 0 0">
-      You pay the real price, not someone else’s markup.
+      You pay the real price, not someone else’s markup.<br>
+      No showrooms, no fancy words. Just cheaper cars.
     </p>
 
     <div style="display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:40px">
@@ -69,19 +70,27 @@
 <!-- TWO SCENARIOS -->
 <section class="section">
   <div class="shell">
+    <p class="display" style="font-size:clamp(22px,3vw,42px);line-height:1.15;color:#fff;margin:0 0 14px;text-align:center">
+      Imagine buying a<br><span style="color:var(--dna-purple)">Dealers are out of the game.</span><br>Now it’s your turn.
+    </p>
+    <p class="prose-dna" style="text-align:center;margin:0 auto 56px;max-width:620px">
+      Customers can get a car 30–40% cheaper than the market price. There are two main scenarios:
+    </p>
+
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px">
       <div>
-        <h3 class="display" style="font-size:clamp(26px,3vw,44px);color:#fff;margin:0 0 20px">1. Buy and profit</h3>
+        <h3 class="display" style="font-size:clamp(26px,3vw,44px);color:#fff;margin:0 0 20px">1.Buy and profit</h3>
         <p class="prose-dna" style="font-size:17px">
-          Customers can get a car 30–40% cheaper than market value. We buy at auction,
-          cover the GST ourselves, and pass the savings on.
+          A customer buys a car for $10,000, while the market price is $14,000–$15,000.
+          They immediately gain $4,000–$5,000 in value and save 30% or more.
         </p>
       </div>
       <div>
         <h3 class="display" style="font-size:clamp(26px,3vw,44px);color:#fff;margin:0 0 20px">2. Drive without losing</h3>
         <p class="prose-dna" style="font-size:17px">
-          Drive the car, keep the value. A private seller’s price with a dealer’s
-          inspection, warranty and paperwork.
+          A customer keeps the car for 2–3 years. During this time, the market price might
+          drop from $15,000 to $7,000–$8,000 — but since they bought it for $10,000,
+          the loss is zero.
         </p>
       </div>
     </div>
@@ -132,7 +141,7 @@
         <p class="prose-dna" style="font-size:15px;border-left:1px solid var(--dna-line-strong);padding-left:16px">Additional expenses (inspection, diagnostics, registration, fees) — Extra costs for inspections, registration, and fees.</p>
       </div>
       <div>
-        <p class="prose-dna" style="font-size:15px;border-left:1px solid var(--dna-line-strong);padding-left:16px">Final “turnkey” price — Total cost to have the car ready to drive.</p>
+        <p class="prose-dna" style="font-size:15px;border-left:1px solid var(--dna-line-strong);padding-left:16px">Final “turnkey” price – Total cost to have the car ready to drive.</p>
       </div>
     </div>
 
@@ -161,23 +170,68 @@
 <!-- RESULTS -->
 <section class="section">
   <div class="shell">
-    <h2 class="display" style="font-size:clamp(34px,6.6vw,92px);line-height:1;color:#fff;margin:0 0 10px">Real savings<br>on every car</h2>
-    <p class="prose-dna" style="font-size:17px">Cars we sourced for customers this month.</p>
+    <h2 class="display" style="font-size:clamp(34px,6.6vw,92px);line-height:1;color:#fff;margin:0 0 40px">Real savings<br>on every car</h2>
 
-    <div class="result-grid" style="margin-top:44px">
+    <div class="table-scroll" style="border:1px solid var(--dna-line)">
+      <table class="savings-table">
+        <thead>
+          <tr><th>Car (Year &amp; Model)</th><th>Dealer Price</th><th>SkipTheDealer Price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2019 Honda Civic</td><td>$18,900</td><td class="hl">$12,400</td></tr>
+          <tr><td>2020 VW Tiguan</td><td>$24,500</td><td class="hl">$16,900</td></tr>
+          <tr><td>2021 Hyundai Elantra</td><td>$21,700</td><td class="hl">$14,900</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="result-grid" style="margin-top:34px">
       <figure class="result-card bracket">
-        <img src="assets/img/dealer/result-sedan.jpg" alt="Luxury sedan deal">
-        <figcaption>2021 Hyundai Elantra Preferred<br><span style="color:var(--dna-purple)">saved $6,800</span></figcaption>
+        <img src="assets/img/dealer/result-sedan.jpg" alt="Delivered sedan">
       </figure>
       <figure class="result-card bracket">
-        <img src="assets/img/dealer/result-suv.jpg" alt="Performance SUV delivery">
-        <figcaption>Performance SUV<br><span style="color:var(--dna-purple)">saved 38%</span></figcaption>
+        <img src="assets/img/dealer/result-suv.jpg" alt="Delivered SUV">
       </figure>
       <figure class="result-card bracket">
-        <img src="assets/img/dealer/result-handshake.jpg" alt="Happy customer">
-        <figcaption>Delivery day<br><span style="color:var(--dna-purple)">3 weeks end to end</span></figcaption>
+        <img src="assets/img/dealer/result-handshake.jpg" alt="Customer handover">
       </figure>
     </div>
+  </div>
+</section>
+
+<!-- WHY IT WORKS -->
+<section class="section">
+  <div class="shell">
+    <div class="why-grid">
+      <div class="bracket">
+        <h3>Full inspection &amp; safety guaranteed</h3>
+        <p>Every car goes through a full diagnostic and AMVIC inspection.</p>
+      </div>
+      <div class="bracket">
+        <h3>Same market, zero dealer markup</h3>
+        <p>Dealers buy from the same auctions and resell for more. We buy for you at dealer prices.
+        Save compared to dealer and Marketplace private seller prices.</p>
+      </div>
+      <div class="bracket">
+        <h3>Access to exclusive auctions</h3>
+        <p>We represent you at closed auctions regular buyers can’t access.</p>
+      </div>
+      <div class="bracket">
+        <h3>Long-term financial benefit</h3>
+        <p>In 2–3 years, you can resell your car for nearly the same price — no losses.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FRIENDS -->
+<section class="section">
+  <div class="shell" style="max-width:760px;text-align:center">
+    <h2 class="display" style="font-size:clamp(28px,4.6vw,64px);color:#fff;margin:0 0 24px;line-height:1.05">Your friends<br>are our friends!</h2>
+    <p class="prose-dna" style="font-size:19px">
+      Your friends and family can enjoy a 30% discount on every second order.<br>
+      And when they make their first order — you’ll get 30% off too!
+    </p>
   </div>
 </section>
 
@@ -220,7 +274,7 @@
         </div>
       </div>
 
-      <button class="btn btn-solid" type="submit" style="margin-top:36px">Submit request</button>
+      <button class="btn btn-solid" type="submit" style="margin-top:36px">Submit a request</button>
       <div class="form-success" style="margin-top:28px">Thanks — we’ll come back within one business day.</div>
     </form>
   </div>
@@ -240,6 +294,13 @@
         </p>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="section" style="text-align:center">
+  <div class="shell">
+    <p class="display" style="font-size:clamp(26px,4.4vw,60px);line-height:1.1;color:#fff;margin:0">Save up to $10,000 on your next car?</p>
+    <p class="display" style="font-size:clamp(22px,3.2vw,44px);line-height:1.1;color:var(--dna-purple);margin:8px 0 0">— It’s real.</p>
   </div>
 </section>
 
