@@ -141,9 +141,14 @@ get_header(); ?>
   </section>
 
   <!-- PROFIT EXAMPLES TABLE -->
-  <section class="section" id="profit">
+  <section class="section" id="profit" style="padding-top: 40px;">
     <div class="shell">
-      <div style="text-align: center; margin-bottom: 40px;">
+      <!-- 4 Cars Sourced Fleet from Figma -->
+      <div style="max-width: 1200px; margin: 0 auto; overflow: hidden; position: relative;">
+        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/' ); ?>img/clean/invest/cars-profit.jpg" alt="AutoDNA Flip Curated Vehicle Portfolio" style="width: 100%; display: block;">
+      </div>
+
+      <div style="text-align: center; margin-top: -20px; margin-bottom: 40px; position: relative; z-index: 2;">
         <h2 class="display-outline" style="font-size: clamp(48px, 9.6vw, 120px);">
           Profit Examples
         </h2>
@@ -188,10 +193,10 @@ get_header(); ?>
   </section>
 
   <!-- INVESTOR BENEFITS -->
-  <section class="section" id="benefits">
+  <section class="section" id="benefits" style="background: radial-gradient(circle at 50% 50%, rgba(89, 75, 177, 0.55) 0%, rgba(67, 54, 148, 0.25) 50%, transparent 80%);">
     <div class="shell">
-      <h2 class="display" style="font-size: clamp(44px, 8vw, 110px); color: #fff; margin-bottom: 44px; text-align: center;">
-        INVESTOR <span style="color: var(--dna-purple);">BENEFITS</span>
+      <h2 class="display display-glow" style="font-size: clamp(44px, 8vw, 120px); color: #fff; margin-bottom: 44px; text-align: center;">
+        INVESTOR <span style="color: var(--dna-purple-soft);">BENEFITS</span>
       </h2>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">

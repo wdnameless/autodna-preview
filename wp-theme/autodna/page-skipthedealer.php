@@ -226,9 +226,14 @@ get_header(); ?>
   </section>
 
   <!-- REAL SAVINGS ON EVERY CAR (TABLE + DELIVERED CARS) -->
-  <section class="section" id="savings">
+  <section class="section" id="savings" style="padding-top: 40px;">
     <div class="shell">
-      <h2 class="display" style="font-size: clamp(36px, 6.5vw, 90px); line-height: 1; color: #fff; margin-bottom: 16px;">
+      <!-- 3 Real Sourced Cars Showcase from Figma -->
+      <div style="max-width: 1200px; margin: 0 auto; overflow: hidden; position: relative;">
+        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/' ); ?>img/clean/dealer/three-cars-savings.jpg" alt="Delivered Honda Civic, VW Tiguan, Hyundai Elantra" style="width: 100%; display: block;">
+      </div>
+
+      <h2 class="display" style="font-size: clamp(36px, 6.5vw, 90px); line-height: 1; color: #fff; margin-top: -30px; margin-bottom: 16px; position: relative; z-index: 2;">
         Real savings<br>on every car
       </h2>
       <p class="prose-dna" style="font-size: 18px;">Audited benchmark deals sourced for our clients.</p>

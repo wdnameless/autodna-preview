@@ -102,7 +102,7 @@
   </section>
 
   <!-- ONE DNA. MULTIPLE SERVICES. (FIGMA COMPONENT 8 INTERACTIVE TABS) -->
-  <section class="section" id="services" style="background: radial-gradient(100% 70% at 50% 30%, rgba(67, 54, 148, 0.5) 0%, rgba(7, 5, 29, 0) 70%);">
+  <section class="section" id="services" style="background: radial-gradient(circle at 50% 50%, rgba(89, 75, 177, 0.65) 0%, rgba(67, 54, 148, 0.3) 55%, transparent 80%);">
     <div class="shell" data-service-switcher>
       
       <div style="text-align: center; margin-bottom: 24px;">
@@ -137,10 +137,8 @@
             YOUR CAR GOES TO SERVICE. YOU DON’T.
           </p>
 
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 36px;">
-            <div class="bracket" style="overflow: hidden;"><img src="assets/img/clean/service/shop-1.jpg" alt="Concierge Valet Pickup" style="width: 100%;"></div>
-            <div class="bracket" style="overflow: hidden;"><img src="assets/img/clean/service/shop-2.jpg" alt="Service Bay Diagnostics" style="width: 100%;"></div>
-            <div class="bracket" style="overflow: hidden;"><img src="assets/img/clean/service/shop-3.jpg" alt="Return Delivery" style="width: 100%;"></div>
+          <div class="bracket" style="max-width: 760px; margin: 0 auto 36px; overflow: hidden;">
+            <img src="assets/img/clean/service/skiptheshop-triptych.jpg" alt="SkipTheShop Concierge Service Triptych" style="width: 100%; display: block;">
           </div>
 
           <p class="prose-dna" style="font-size: 18px; max-width: 680px; margin: 0 auto 16px;">
@@ -204,43 +202,44 @@
     </div>
   </section>
 
-  <!-- TEAM & WORKSHOP CULTURE -->
-  <section class="section" id="team">
-    <div class="shell">
-      <div style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: center;">
-        <div>
-          <h2 class="display" style="font-size: clamp(40px, 6vw, 84px); line-height: 1; color: #fff; margin-bottom: 24px;">
-            Inside the Mind<br>of <span style="color: var(--dna-purple);">AutoDNA.</span>
-          </h2>
-          <p class="prose-dna" style="font-size: 18px; margin-bottom: 18px;">
-            We believe great service starts with clarity — in thinking, in process, in space.
-          </p>
-          <p class="prose-dna" style="font-size: 18px; margin-bottom: 24px;">
-            And it’s born where great people work together with one clear vision — to redefine car care.
-          </p>
-          <div class="glass-card bracket" style="padding: 24px; border-left: 3px solid var(--dna-purple);">
-            <p class="kicker" style="font-size: 16px; color: #ffffff; margin-bottom: 6px;">
-              They’re the reason AutoDNA feels different.
-            </p>
-            <p class="prose-dna" style="font-size: 15px;">
-              Every face here stands for reliability, innovation, and trust.
-            </p>
-          </div>
+  <!-- INSIDE THE MIND OF AUTODNA & CONTACT CALLOUT -->
+  <section class="section" id="team" style="background: linear-gradient(180deg, #07051d 0%, rgba(67, 54, 148, 0.45) 50%, #020202 100%); padding-bottom: 60px;">
+    <div class="shell" style="text-align: center;">
+      
+      <!-- Centered Framed Card with HUD Brackets -->
+      <div class="glass-card bracket" style="max-width: 780px; margin: 0 auto 60px; padding: 40px; text-align: left;">
+        <h2 class="display" style="font-size: clamp(22px, 3vw, 36px); color: var(--dna-purple-soft); margin-bottom: 24px; line-height: 1.15;">
+          INSIDE THE MIND<br>OF AUTODNA.
+        </h2>
+
+        <div style="overflow: hidden; border: 1px solid var(--dna-line); margin-bottom: 24px;">
+          <img src="assets/img/clean/service/team-members.jpg" alt="Inside the Mind of AutoDNA Team" style="width: 100%; display: block;">
         </div>
 
-        <div class="bracket" style="overflow: hidden;">
-          <img src="assets/img/clean/service/team.jpg" alt="Inside AutoDNA Service team">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; border-top: 1px solid var(--dna-line); padding-top: 20px;">
+          <p class="prose-dna" style="font-size: 14px; line-height: 1.5;">
+            We believe <span style="color: #fff;">great service starts with clarity</span> — in thinking, in process, in space.
+          </p>
+          <p class="prose-dna" style="font-size: 14px; line-height: 1.5;">
+            And It’s born where great people work together with one clear vision — <span style="color: var(--dna-purple);">to redefine car care.</span>
+          </p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- CONTACT WITH US CALLOUT -->
-  <section class="section" style="padding-bottom: 40px; text-align: center;">
-    <div class="shell">
-      <h2 class="display display-glow" style="font-size: clamp(36px, 7vw, 90px); color: #fff;">
-        contact with us
-      </h2>
+      <!-- Centered Claim & Contact Callout -->
+      <div style="max-width: 900px; margin: 0 auto;">
+        <p class="display" style="font-size: clamp(24px, 3.8vw, 48px); color: #fff; line-height: 1.15; margin-bottom: 14px;">
+          THEY’RE THE REASON<br>AUTODNA FEELS DIFFERENT.
+        </p>
+        <p class="display" style="font-size: clamp(18px, 2.6vw, 32px); color: var(--dna-purple-soft); line-height: 1.2; margin-bottom: 36px;">
+          EVERY FACE HERE STANDS FOR<br>RELIABILITY, INNOVATION, AND TRUST.
+        </p>
+
+        <a href="#contact" class="btn-bracket" style="display: inline-flex; margin: 0 auto;">
+          CONTACT WITH US
+        </a>
+      </div>
+
     </div>
   </section>
 
