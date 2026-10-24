@@ -1,86 +1,329 @@
-/* AutoDNA Invest (DNA Flip™) Page Styles */
+/* Invest in cars — AutoDNA Flip */
 
-/* Subtle cosmic aura glow for hero */
-.invest-hero-glow {
-  background: radial-gradient(circle at 50% 25%, rgba(124, 92, 255, 0.28) 0%, rgba(176, 108, 255, 0.12) 40%, transparent 70%);
+/* --- hero ---------------------------------------------------------------- */
+
+.invest-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 120px 0 80px;
+  background: #161033;
 }
 
-/* Glassmorphism tables for Profit Examples & Options Comparison */
+.invest-hero-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(90% 70% at 50% 35%, rgba(160, 140, 255, 0.85) 0%, rgba(89, 75, 177, 0.5) 35%, rgba(22, 16, 51, 0) 72%),
+    linear-gradient(180deg, #2b2260 0%, #161033 60%, #0a0820 100%);
+}
+
+.invest-hero .shell { position: relative; }
+
+.invest-hero-head { position: relative; z-index: 2; }
+
+/* the translucent oversized headline, exactly as in the mockup */
+.invest-hero-title {
+  font-family: var(--dna-font-display);
+  font-weight: 500;
+  font-size: clamp(46px, 9.6vw, 138px);
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+  color: rgba(237, 235, 251, 0.62);
+  text-transform: none;
+}
+
+.invest-hero-sub {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 6px;
+  font-family: var(--dna-font-body);
+  font-size: clamp(16px, 2.6vw, 38px);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  flex-wrap: wrap;
+}
+
+.invest-hero-sub b { font-weight: 400; }
+
+.invest-hero-body {
+  position: relative;
+  display: grid;
+  grid-template-columns: 260px 1fr 210px;
+  gap: 24px;
+  align-items: end;
+  margin-top: 40px;
+  min-height: 420px;
+}
+
+.invest-hero-lede {
+  margin: 0;
+  font-family: var(--dna-font-body);
+  font-size: clamp(16px, 1.7vw, 26px);
+  font-weight: 300;
+  line-height: 1.25;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  align-self: end;
+}
+
+.invest-hero-photo {
+  overflow: hidden;
+}
+
+.invest-hero-photo img {
+  width: 100%;
+  aspect-ratio: 860 / 540;
+  object-fit: cover;
+}
+
+.invest-facts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 22px;
+  align-self: end;
+}
+
+.invest-facts li {
+  position: relative;
+  padding-right: 26px;
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--dna-purple-soft);
+  text-align: right;
+}
+
+.invest-facts li::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 18px;
+  height: 1px;
+  background: var(--dna-line-strong);
+}
+
+.invest-cta {
+  margin-top: 40px;
+  min-width: 300px;
+}
+
+@media (max-width: 1000px) {
+  .invest-hero-body { grid-template-columns: 1fr; }
+  .invest-facts li { text-align: left; padding-right: 0; padding-left: 26px; }
+  .invest-facts li::after { right: auto; left: 0; }
+}
+
+/* --- big section titles --------------------------------------------------- */
+
+.invest-big-title {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin: 0 0 20px;
+  font-family: var(--dna-font-display);
+  font-weight: 500;
+  font-size: clamp(40px, 9vw, 132px);
+  line-height: 0.9;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.invest-big-title:first-child { color: var(--dna-purple-soft); }
+
+.invest-big-title span:last-child { color: #fff; }
+
+.invest-big-title i {
+  flex: 1 1 auto;
+  height: 1px;
+  background: var(--dna-line-strong);
+  display: block;
+  min-width: 40px;
+}
+
+.invest-big-title--outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(194, 185, 255, 0.5);
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+/* --- how it works --------------------------------------------------------- */
+
+.invest-how {
+  background: radial-gradient(80% 55% at 50% 30%, rgba(89, 75, 177, 0.5) 0%, rgba(2, 2, 2, 0) 70%);
+}
+
+.invest-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-top: 64px;
+}
+
+.invest-steps article { position: relative; }
+
+.invest-step-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+  padding: 16px 20px;
+  margin-bottom: 34px;
+  font-size: 15px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dna-muted);
+}
+
+.invest-steps h3 {
+  margin: 0 0 18px;
+  font-family: var(--dna-font-display);
+  font-weight: 400;
+  font-size: clamp(19px, 1.9vw, 27px);
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.invest-steps p {
+  margin: 0 0 18px;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--dna-muted);
+}
+
+.invest-step-goal {
+  margin: 22px 0 0 !important;
+  padding-top: 18px;
+  border-top: 1px solid var(--dna-line);
+  font-size: 15px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #fff !important;
+}
+
+.invest-step-goal span { color: var(--dna-purple); }
+
+@media (max-width: 1000px) { .invest-steps { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px) { .invest-steps { grid-template-columns: 1fr; } }
+
+.invest-cars-strip { margin-top: 70px; }
+
+.invest-cars-strip img {
+  width: 100%;
+  height: auto;
+}
+
+/* --- profit table --------------------------------------------------------- */
+
 .invest-table {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  border: 1px solid rgba(139, 124, 246, 0.2);
-  border-radius: 1rem;
-  overflow: hidden;
-  background: rgba(18, 17, 33, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  border-collapse: collapse;
+  font-weight: 300;
+  font-size: clamp(15px, 1.5vw, 22px);
 }
 
 .invest-table th {
-  padding: 1rem 1.25rem;
-  font-family: var(--dna-font-mono, monospace);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #9d93b8;
-  background: rgba(255, 255, 255, 0.03);
-  border-bottom: 1px solid rgba(139, 124, 246, 0.2);
+  padding: 22px 26px;
   text-align: left;
+  font-weight: 300;
+  color: var(--dna-purple-soft);
+  border-bottom: 1px solid var(--dna-line);
+  background: rgba(67, 54, 148, 0.35);
 }
 
 .invest-table td {
-  padding: 1.1rem 1.25rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  font-size: 0.875rem;
-  color: #ffffff;
+  padding: 26px;
+  border-bottom: 1px solid var(--dna-line);
+  background: rgba(19, 18, 40, 0.65);
 }
 
-.invest-table tr:last-child td {
-  border-bottom: none;
+.invest-table td.hl {
+  background: rgba(120, 100, 220, 0.55);
+  color: #fff;
 }
 
-.invest-table tr.highlight-dna-flip {
-  background: linear-gradient(90deg, rgba(124, 92, 255, 0.25) 0%, rgba(176, 108, 255, 0.15) 100%);
-  border-left: 3px solid #8b7cf6;
+.invest-table tr:last-child td { border-bottom: 0; }
+
+@media (max-width: 720px) {
+  .invest-table { display: block; overflow-x: auto; white-space: nowrap; }
 }
 
-.invest-table tr.highlight-dna-flip td {
-  font-weight: 700;
-  color: #ffffff;
+/* --- investor benefits ---------------------------------------------------- */
+
+.invest-mega {
+  margin: 0 0 56px;
+  font-family: var(--dna-font-display);
+  font-weight: 500;
+  font-size: clamp(40px, 10vw, 150px);
+  line-height: 0.88;
+  letter-spacing: 0.01em;
+  color: #fff;
+  text-transform: uppercase;
 }
 
-/* Guarantee tree connector visualization */
-.guarantee-branch {
-  position: relative;
-  transition: transform 0.25s ease, border-color 0.25s ease;
+.invest-mega span { color: var(--dna-purple-soft); }
+
+.invest-mega--center { text-align: center; margin-bottom: 24px; }
+
+.benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
 }
 
-form[data-quote] .form-input-error {
-  border-color: #f87171;
-  background-color: rgba(239, 68, 68, 0.05);
+@media (max-width: 900px) { .benefit-grid { grid-template-columns: 1fr; } }
+
+.benefit-card {
+  padding: 30px;
+  min-height: 220px;
+  background: rgba(19, 18, 40, 0.55);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
 }
 
-/* Form success panel transitions */
-.form-success-panel {
-  display: none;
-  text-align: center;
-  padding: 2.5rem 1.5rem;
+.benefit-card h3 {
+  margin: 0;
+  font-family: var(--dna-font-body);
+  font-weight: 300;
+  font-size: clamp(20px, 2vw, 30px);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #fff;
 }
 
-.form-success-panel.visible {
+.benefit-card p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.45;
+  color: var(--dna-muted);
+}
+
+.benefit-card--accent { background: rgba(120, 100, 220, 0.35); }
+
+/* --- guarantee fan -------------------------------------------------------- */
+
+.invest-guarantee { padding-bottom: 40px; }
+
+.invest-fan {
+  width: 100%;
+  height: 220px;
   display: block;
 }
 
-.form-input-error {
-  border-color: #f87171 !important;
-  background-color: rgba(239, 68, 68, 0.05) !important;
-}
-
-.form-error-msg {
-  color: #f87171;
-  font-size: 0.75rem;
-  margin-top: 0.25rem;
-  font-family: monospace;
+.invest-fan line {
+  stroke-width: 1;
 }

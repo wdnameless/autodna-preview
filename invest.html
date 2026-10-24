@@ -1,1171 +1,251 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AutoDNA™ — DNA Flip™ | Invest in Cars with Up to 40% ROI</title>
-  <meta name="description" content="Invest in high-yield vehicle flips backed by data and certified repairs. Earn from $2,000 on each vehicle with predictable 18% to 40% returns in Calgary.">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
-
-  <!-- Typography -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'dna-bg': '#020202',
-            'dna-surface': '#121121',
-            'dna-purple': '#9685ff',
-            'dna-violet': '#c2b9ff',
-            'dna-muted': '#c2b9ff'
-          },
-          fontFamily: {
-            display: ['Orbitron', 'Orbitron', 'sans-serif'],
-            body: ['Helvetica Neue', 'Helvetica', 'DM Sans', 'Arial', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
-
-  <!-- AutoDNA Shell CSS & Interactions -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/page-invest.css">
-  <script src="assets/js/main.js" defer></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invest in cars — AutoDNA Flip</title>
+<meta name="description" content="AutoDNA Flip — we buy, repair and sell cars; you earn the profit. Earn from $2,000 on each vehicle.">
+<link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/page-invest.css">
 </head>
-<body class="bg-dna-bg text-white font-body antialiased overflow-x-hidden selection:bg-dna-purple selection:text-white">
+<body>
 
-  <!-- ==========================================================================
-       Shared Chrome: Preloader
-       ========================================================================== -->
-  <div id="dna-preloader" class="dna-preloader" aria-hidden="true">
-    <div class="flex items-center gap-3 mb-6">
-      <img src="assets/img/logo.svg" alt="AutoDNA" class="h-10 w-auto">
-      <span class="display font-bold text-xl tracking-widest text-white">AUTODNA<span class="text-dna-purple">™</span></span>
-    </div>
-    <div class="dna-progress-bar">
-      <div id="dna-preloader-bar" class="dna-progress-fill"></div>
-    </div>
-    <div class="mt-4 text-xs font-mono uppercase tracking-widest text-dna-muted">INITIALIZING DNA FLIP ENGINE...</div>
-  </div>
-
-  <!-- ==========================================================================
-       Shared Chrome: Header Partial (Verbatim)
-       ========================================================================== -->
-  <!-- Shared Chrome: AutoDNA Header Partial -->
-<header class="dna-header w-full">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-    <!-- Brand Logo Link -->
-    <a href="index.html" class="flex items-center gap-2 sm:gap-3 group" aria-label="AutoDNA Home">
-      <img src="assets/img/logo.svg" alt="AutoDNA Logo" class="h-7 sm:h-8 w-auto">
-      <span class="hidden sm:inline display font-bold text-lg tracking-widest text-white group-hover:text-purple-300 transition-colors">AUTODNA<span class="text-dna-purple">™</span></span>
-    </a>
-
-    <!-- Primary Navigation Links (4 Canonical Pages) -->
-    <nav class="hidden lg:flex items-center gap-8 text-xs font-semibold uppercase tracking-widest text-white/80" aria-label="Primary Navigation">
-      <a href="index.html" class="hover:text-white transition-colors py-1 border-b border-transparent hover:border-dna-purple">Home</a>
-      <a href="skipthedealer.html" class="hover:text-white transition-colors py-1 border-b border-transparent hover:border-dna-purple">SkipTheDealer™</a>
-      <a href="invest.html" class="hover:text-white transition-colors py-1 border-b border-transparent hover:border-dna-purple text-dna-purple border-dna-purple">DNA Flip™</a>
-      <a href="service.html" class="hover:text-white transition-colors py-1 border-b border-transparent hover:border-dna-purple">DNA Service™</a>
-    </nav>
-
-    <!-- Header Actions & Menu Trigger -->
-    <div class="flex items-center gap-3">
-      <a href="#quote" class="hidden sm:inline-flex pill-btn-outline px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white hover:text-white">
-        Request Quote
-      </a>
-      <button type="button" data-menu-open class="pill-btn px-3 py-1.5 sm:px-4 sm:py-2 text-xs font-semibold uppercase tracking-widest flex items-center gap-2 text-white" aria-label="Open Navigation Menu">
-        <span>☰ DNA</span>
-      </button>
-    </div>
-  </div>
-</header>
-
-  <!-- ==========================================================================
-       Shared Chrome: Fullscreen Navigation Menu Overlay (Verbatim)
-       ========================================================================== -->
-  <!-- Shared Chrome: Fullscreen Navigation Overlay -->
-<div id="dna-menu" class="dna-menu fixed inset-0 z-[1000] flex flex-col justify-between p-6 sm:p-10 lg:p-14" aria-hidden="true" role="dialog" aria-modal="true" aria-label="AutoDNA Navigation Menu">
-  <!-- Top Bar -->
-  <div class="max-w-7xl w-full mx-auto flex items-center justify-between pb-6 border-b border-white/10">
-    <a href="index.html" class="flex items-center gap-3">
-      <img src="assets/img/logo.svg" alt="AutoDNA" class="h-7 w-auto">
-      <span class="display font-bold text-base tracking-widest text-white">AUTODNA<span class="text-dna-purple">™</span></span>
-    </a>
-    <button type="button" data-menu-close class="pill-btn-outline px-4 py-2 text-xs font-semibold uppercase tracking-widest flex items-center gap-2 text-white hover:text-white" aria-label="Close Navigation Menu">
-      <span>✕ CLOSE</span>
-    </button>
-  </div>
-
-  <!-- Menu Body Grid -->
-  <div class="max-w-7xl w-full mx-auto my-auto py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-    <!-- Left Column: AutoDNA Core Ecosystem Services -->
-    <div class="lg:col-span-7 space-y-4">
-      <div class="text-xs uppercase tracking-widest text-dna-muted font-mono">[01 // ECOSYSTEM SERVICES]</div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <a href="skipthedealer.html" class="glass-card p-5 group hover:border-dna-purple transition-all block">
-          <div class="text-xs text-dna-purple font-mono mb-1">01 / BUY &amp; SELL</div>
-          <div class="display text-base font-bold text-white group-hover:text-purple-300 transition-colors">SkipTheDealer™</div>
-          <p class="text-xs text-dna-muted mt-1">Direct car sourcing below market with 100% transparency.</p>
-        </a>
-        <a href="invest.html" class="glass-card p-5 group hover:border-dna-purple transition-all block">
-          <div class="text-xs text-dna-purple font-mono mb-1">02 / CAPITAL</div>
-          <div class="display text-base font-bold text-white group-hover:text-purple-300 transition-colors">DNA Flip™</div>
-          <p class="text-xs text-dna-muted mt-1">Invest in car flips backed by data. Up to 40% returns.</p>
-        </a>
-        <a href="service.html" class="glass-card p-5 group hover:border-dna-purple transition-all block">
-          <div class="text-xs text-dna-purple font-mono mb-1">03 / CARE</div>
-          <div class="display text-base font-bold text-white group-hover:text-purple-300 transition-colors">DNA Service™</div>
-          <p class="text-xs text-dna-muted mt-1">Future-ready auto service, robotic repairs, mobile concierge.</p>
-        </a>
-        <a href="service.html#paintbot" class="glass-card p-5 group hover:border-dna-purple transition-all block">
-          <div class="text-xs text-dna-purple font-mono mb-1">04 / ROBOTICS</div>
-          <div class="display text-base font-bold text-white group-hover:text-purple-300 transition-colors">PaintBot™</div>
-          <p class="text-xs text-dna-muted mt-1">Next-gen autonomous vehicle painting and surface perfection.</p>
-        </a>
-      </div>
-    </div>
-
-    <!-- Right Column: Navigation Links in HUD Frame -->
-    <div class="lg:col-span-5">
-      <div class="hud-corners glass-card p-6 sm:p-8 space-y-4">
-        <div class="text-xs uppercase tracking-widest text-dna-muted font-mono flex items-center justify-between pb-3 border-b border-white/10">
-          <span>DNA DIRECTORY</span>
-          <span>CALGARY HQ</span>
-        </div>
-        <ul class="space-y-3 font-semibold text-sm uppercase tracking-wider text-white/90">
-          <li><a href="index.html" class="py-1 hover:text-dna-purple transition-colors flex items-center justify-between"><span>Home</span><span class="text-xs text-dna-muted font-mono">01</span></a></li>
-          <li><a href="skipthedealer.html" class="py-1 hover:text-dna-purple transition-colors flex items-center justify-between"><span>SkipTheDealer™</span><span class="text-xs text-dna-muted font-mono">02</span></a></li>
-          <li><a href="invest.html" class="py-1 hover:text-dna-purple transition-colors flex items-center justify-between"><span>DNA Flip™ (Invest)</span><span class="text-xs text-dna-muted font-mono">03</span></a></li>
-          <li><a href="service.html" class="py-1 hover:text-dna-purple transition-colors flex items-center justify-between"><span>DNA Service™</span><span class="text-xs text-dna-muted font-mono">04</span></a></li>
-          <li><a href="service.html#shop" class="py-1 hover:text-dna-purple transition-colors flex items-center justify-between"><span>Skip the Shop™</span><span class="text-xs text-dna-muted font-mono">05</span></a></li>
-          <li><a href="service.html#drivecare" class="py-1 hover:text-dna-purple transition-colors flex items-center justify-between"><span>DriveCarePlan™</span><span class="text-xs text-dna-muted font-mono">06</span></a></li>
-          <li><a href="service.html#commercial" class="py-1 hover:text-dna-purple transition-colors flex items-center justify-between"><span>Commercial Fleet</span><span class="text-xs text-dna-muted font-mono">07</span></a></li>
-          <li><a href="#dna-footer" class="py-1 hover:text-dna-purple transition-colors flex items-center justify-between"><span>Contact &amp; Location</span><span class="text-xs text-dna-muted font-mono">08</span></a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bottom Bar: Status info -->
-  <div class="max-w-7xl w-full mx-auto pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-dna-muted">
-    <div>CALGARY, AB · FLAGSHIP FACILITY OPEN</div>
-    <div class="font-mono">AUTODNA™ v1.0 — SYSTEM ONLINE</div>
+<div class="preloader" id="preloader">
+  <div style="display:flex;flex-direction:column;align-items:center">
+    <img src="assets/img/logo.svg" alt="AutoDNA" style="height:38px">
+    <div class="preloader-bar"><i></i></div>
   </div>
 </div>
 
-  <main>
-    <!-- ==========================================================================
-         SECTION 1: HERO — DNA FLIP™ / INVEST IN CARS
-         ========================================================================== -->
-    <section id="hero" class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-dna-bg">
-      <!-- Glow background gradients -->
-      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-[#7c5cff]/20 via-[#b06cff]/15 to-transparent blur-[140px] pointer-events-none rounded-full"></div>
-      <div class="absolute top-1/2 right-10 w-[400px] h-[400px] bg-purple-900/15 blur-[120px] pointer-events-none rounded-full"></div>
-
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <!-- Eyebrow Badge -->
-        <div class="flex items-center gap-3 mb-6" data-reveal>
-          <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold tracking-widest uppercase bg-white/5 border border-dna-border text-dna-purple">
-            <span class="w-2 h-2 rounded-full bg-dna-purple animate-pulse"></span>
-            DNA FLIP™ // AUTOMOTIVE CAPITAL
-          </span>
-          <span class="text-xs font-mono text-dna-muted uppercase tracking-widest hidden sm:inline-block">CALGARY HIGH-YIELD ASSET POOL</span>
-        </div>
-
-        <!-- Hero Headline -->
-        <div class="space-y-6 max-w-5xl" data-reveal>
-          <h1 class="display text-4xl sm:text-6xl lg:text-[76px] font-extrabold tracking-tight text-white leading-[1.05] uppercase">
-            INVEST IN CARS.
-            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-200 to-dna-purple mt-2 text-2xl sm:text-4xl lg:text-[46px]">
-              EARN FROM $2,000 ON EACH VEHICLE.
-            </span>
-          </h1>
-
-          <p class="text-base sm:text-lg text-dna-muted max-w-3xl leading-relaxed font-normal">
-            WE BUY, REPAIR, AND SELL CARS — YOU EARN THE PROFIT. Partner with AutoDNA's proprietary auction-to-consumer flipping pipeline. Backed by physical vehicle assets, algorithmic appraisal, and our certified in-house reconditioning facility.
-          </p>
-
-          <!-- Hero CTAs -->
-          <div class="flex flex-wrap items-center gap-4 pt-2">
-            <a href="#earn-calc" class="pill-btn">
-              <span>BECOME AN INVESTOR ↗</span>
-            </a>
-            <a href="#how" class="pill-btn-outline">
-              <span>HOW IT WORKS ↓</span>
-            </a>
-          </div>
-
-          <!-- Value props -->
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 max-w-2xl">
-            <div class="hud-corners glass-card p-4 text-center border-white/10">
-              <div class="text-[10px] font-mono uppercase tracking-wider text-dna-muted">SECURITY</div>
-              <div class="display text-xs sm:text-sm font-bold text-white mt-1">TANGIBLE ASSET</div>
-              <div class="text-[10px] text-dna-muted mt-1">Single-car or fleet backing</div>
-            </div>
-            <div class="hud-corners glass-card p-4 text-center border-white/10">
-              <div class="text-[10px] font-mono uppercase tracking-wider text-dna-muted">YIELD</div>
-              <div class="display text-xs sm:text-sm font-bold text-dna-purple mt-1">UP TO 40% ROI</div>
-              <div class="text-[10px] text-dna-muted mt-1">Annualized rollover model</div>
-            </div>
-            <div class="hud-corners glass-card p-4 text-center border-white/10">
-              <div class="text-[10px] font-mono uppercase tracking-wider text-dna-muted">RISK PROFILE</div>
-              <div class="display text-xs sm:text-sm font-bold text-white mt-1">LOWER RISK</div>
-              <div class="text-[10px] text-dna-muted mt-1">Protected downside guarantee</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Hero Photographic Visual (Desktop / Mobile 1:1) -->
-        <div class="mt-12" data-reveal>
-          <picture class="block w-full rounded-2xl overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(124,92,255,0.25)] relative">
-            <source media="(max-width: 767px)" srcset="assets/img/invest/hero-car-mob.jpg">
-            <img src="assets/img/invest/hero-car-desktop.jpg" alt="Invest in Cars with AutoDNA — High Yield Automotive Capital" class="w-full h-auto object-cover max-h-[620px] transition-transform duration-700 hover:scale-[1.01]">
-          </picture>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         SECTION 2: TICKER BAND
-         ========================================================================== -->
-    <section class="border-y border-white/10 bg-dna-surface/60 py-4 relative z-20">
-      <div class="ticker-wrap overflow-hidden">
-        <div class="ticker-track flex items-center gap-10 text-xs font-bold uppercase tracking-widest text-white/80 font-mono whitespace-nowrap">
-          <span class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-dna-purple"></span> DNA FLIP™</span>
-          <span class="text-white/30">/</span>
-          <span>UP TO 40% ANNUAL ROI</span>
-          <span class="text-white/30">/</span>
-          <span>30-DAY FLIP CYCLES</span>
-          <span class="text-white/30">/</span>
-          <span>100% TANGIBLE VEHICLE ASSET BACKED</span>
-          <span class="text-white/30">/</span>
-          <span>CALGARY AUCTION SOURCING</span>
-          <span class="text-white/30">/</span>
-          <span>CERTIFIED IN-HOUSE RECONDITIONING</span>
-          <span class="text-white/30">/</span>
-          <span>ZERO EXPENSE SURPRISES</span>
-          <span class="text-white/30">/</span>
-          <span>REAL-TIME SPREADSHEET TRACKING</span>
-          <span class="text-white/30">/</span>
-          <span class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-dna-purple"></span> DNA FLIP™</span>
-          <span class="text-white/30">/</span>
-          <span>UP TO 40% ANNUAL ROI</span>
-          <span class="text-white/30">/</span>
-          <span>30-DAY FLIP CYCLES</span>
-          <span class="text-white/30">/</span>
-          <span>100% TANGIBLE VEHICLE ASSET BACKED</span>
-          <span class="text-white/30">/</span>
-          <span>CALGARY AUCTION SOURCING</span>
-          <span class="text-white/30">/</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         SECTION 3: HOW IT WORKS — 5-STEP CYCLE
-         ========================================================================== -->
-    <section id="how" class="py-24 relative overflow-hidden bg-dna-bg">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <!-- Section Header -->
-        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4" data-reveal>
-          <div class="text-xs font-mono uppercase tracking-widest text-dna-purple">[01 // EXECUTION BLUEPRINT]</div>
-          <h2 class="display text-3xl sm:text-5xl font-extrabold text-white uppercase tracking-tight">
-            HOW IT WORKS
-          </h2>
-          <p class="text-sm sm:text-base text-dna-muted leading-relaxed">
-            A battle-tested 5-step turnover cycle that turns wholesale auction spreads into predictable investor returns in 30 to 45 days.
-          </p>
-        </div>
-
-        <!-- How it works -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          <!-- Step 1 -->
-          <div class="hud-corners glass-card p-6 sm:p-8 space-y-4 relative border-white/10 hover:border-dna-purple/40 transition-colors" data-reveal>
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-mono font-bold text-dna-purple uppercase tracking-widest">STEP 01</span>
-              <span class="w-1.5 h-1.5 rounded-full bg-dna-purple"></span>
-            </div>
-            <h3 class="display text-base sm:text-lg font-bold text-white uppercase">
-              INVESTMENT PLAN & START
-            </h3>
-            <p class="text-xs sm:text-sm text-dna-muted leading-relaxed">
-              The investor meets with us and receives a detailed action plan — how exactly we buy, repair, and sell cars, and what return on investment they can expect. After reviewing the plan, the investor contributes funds with a full understanding of the process and projected profit.
-            </p>
-            <div class="pt-3 border-t border-white/10 text-[10px] font-mono text-dna-purple uppercase font-semibold">
-              GOAL: FULL CLARITY AND CONFIDENCE BEFORE INVESTING.
-            </div>
-          </div>
-
-          <!-- Step 2 -->
-          <div class="hud-corners glass-card p-6 sm:p-8 space-y-4 relative border-white/10 hover:border-dna-purple/40 transition-colors" data-reveal>
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-mono font-bold text-dna-purple uppercase tracking-widest">STEP 02</span>
-              <span class="w-1.5 h-1.5 rounded-full bg-dna-purple"></span>
-            </div>
-            <h3 class="display text-base sm:text-lg font-bold text-white uppercase">
-              CAR PURCHASE AT AUCTION
-            </h3>
-            <p class="text-xs sm:text-sm text-dna-muted leading-relaxed">
-              We buy cars only from trusted, official auctions — minimizing risk at every stage. Each vehicle is carefully checked before bidding to ensure quality and price advantage. Our experienced team knows how to choose the right cars and avoid mistakes. If any issue occurs, we cover the loss ourselves — never at the investor's expense.
-            </p>
-            <div class="pt-3 border-t border-white/10 text-[10px] font-mono text-dna-purple uppercase font-semibold">
-              GOAL: SAFE PURCHASE WITH ZERO UNNECESSARY RISKS.
-            </div>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="hud-corners glass-card p-6 sm:p-8 space-y-4 relative border-white/10 hover:border-dna-purple/40 transition-colors" data-reveal>
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-mono font-bold text-dna-purple uppercase tracking-widest">STEP 03</span>
-              <span class="w-1.5 h-1.5 rounded-full bg-dna-purple"></span>
-            </div>
-            <h3 class="display text-base sm:text-lg font-bold text-white uppercase">
-              REPAIR & PREPARATION FOR SALE
-            </h3>
-            <p class="text-xs sm:text-sm text-dna-muted leading-relaxed">
-              We work with our own service network and verified partners to restore each vehicle. Thanks to our unique methods and local expertise, we can sell affordably for buyers while keeping strong margins for investors.
-            </p>
-            <div class="pt-3 border-t border-white/10 text-[10px] font-mono text-dna-purple uppercase font-semibold">
-              GOAL: MAXIMIZE VALUE THROUGH QUALITY AND EFFICIENCY.
-            </div>
-          </div>
-
-          <!-- Step 4 -->
-          <div class="hud-corners glass-card p-6 sm:p-8 space-y-4 relative border-white/10 hover:border-dna-purple/40 transition-colors" data-reveal>
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-mono font-bold text-dna-purple uppercase tracking-widest">STEP 04</span>
-              <span class="w-1.5 h-1.5 rounded-full bg-dna-purple"></span>
-            </div>
-            <h3 class="display text-base sm:text-lg font-bold text-white uppercase">
-              SELLING AT MARKET PRICE
-            </h3>
-            <p class="text-xs sm:text-sm text-dna-muted leading-relaxed">
-              After full restoration, the car is listed for sale through our trusted sales channels. Our marketing and reputation help us close sales within days. Each sale generates transparent financial results that both sides can track in real time.
-            </p>
-            <div class="pt-3 border-t border-white/10 text-[10px] font-mono text-dna-purple uppercase font-semibold">
-              GOAL: FAST SALE AT FAIR MARKET VALUE.
-            </div>
-          </div>
-
-          <!-- Step 5 -->
-          <div class="hud-corners glass-card p-6 sm:p-8 space-y-4 relative border-dna-border bg-dna-purple/10 lg:col-span-2 hover:border-dna-purple transition-colors" data-reveal>
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-mono font-bold text-white uppercase tracking-widest">STEP 05</span>
-              <span class="px-2 py-0.5 rounded bg-dna-purple/30 text-dna-purple font-mono text-[10px] uppercase font-bold">PAYOUT & ROLLOVER</span>
-            </div>
-            <h3 class="display text-base sm:text-lg font-bold text-white uppercase">
-              YOU EARN PROFIT
-            </h3>
-            <p class="text-xs sm:text-sm text-dna-muted leading-relaxed">
-              Full payout of initial investment plus accumulated profit directly to your account. Choose to take profit or roll capital immediately into the next batch for continuous compounded returns.
-            </p>
-            <div class="pt-3 border-t border-white/10 text-[10px] font-mono text-emerald-400 uppercase font-semibold">
-              GOAL: CONTINUOUS COMPOUNDED WEALTH GENERATION.
-            </div>
-          </div>
-        </div>
-
-        <!-- 5-Step Central Photographic Visual (Desktop / Mobile 1:1) -->
-        <div class="my-14" data-reveal>
-          <picture class="block w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-            <source media="(max-width: 767px)" srcset="assets/img/invest/flip-cycle-car-mob.jpg">
-            <img src="assets/img/invest/flip-cycle-car-desktop.jpg" alt="DNA Flip 5-Step Turnover Cycle Vehicle Fleet" class="w-full h-auto object-cover">
-          </picture>
-        </div>
-
-        <!-- Profit examples -->
-        <div class="mt-14 max-w-5xl mx-auto" data-reveal>
-          <div class="text-center mb-8 space-y-2">
-            <span class="text-xs font-mono uppercase tracking-widest text-dna-purple">[PERFORMANCE BENCHMARKS]</span>
-            <h3 class="display text-2xl sm:text-4xl font-extrabold text-white uppercase">PROFIT EXAMPLES</h3>
-            <p class="text-xs sm:text-sm text-dna-muted">Typical returns achieved per batch turnover cycle.</p>
-          </div>
-          <div class="overflow-x-auto">
-            <table class="invest-table">
-              <thead>
-                <tr>
-                  <th>Investment Amount</th>
-                  <th>Potential Profit</th>
-                  <th>Number Of Cars</th>
-                  <th>Notes</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="font-mono font-bold text-white text-base">$10,000</td>
-                  <td class="font-mono font-bold text-emerald-400 text-base">$2,500</td>
-                  <td>1 car</td>
-                  <td class="text-dna-muted">Single car example</td>
-                </tr>
-                <tr>
-                  <td class="font-mono font-bold text-white text-base">$30,000</td>
-                  <td class="font-mono font-bold text-emerald-400 text-base">$6,000–$9,000</td>
-                  <td>2–3 cars</td>
-                  <td class="text-dna-muted">Multiple cars per cycle</td>
-                </tr>
-                <tr class="highlight-dna-flip">
-                  <td class="font-mono font-bold text-white text-base">$50,000</td>
-                  <td class="font-mono font-bold text-emerald-400 text-base">$9,000–$15,000 / mo.</td>
-                  <td>4–5 cars</td>
-                  <td class="text-purple-200">Higher investment, more cars</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         SECTION 4: WHY IT WORKS — STATS, CHART & GUARANTEE
-         ========================================================================== -->
-    <section id="why" class="py-24 relative overflow-hidden bg-dna-surface/40 border-t border-white/10">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <!-- Section Header -->
-        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4" data-reveal>
-          <div class="text-xs font-mono uppercase tracking-widest text-dna-purple">[02 // VALUE PROPOSITION]</div>
-          <h2 class="display text-3xl sm:text-5xl font-extrabold text-white uppercase tracking-tight">
-            WHY IT WORKS
-          </h2>
-          <p class="text-sm sm:text-base text-dna-muted leading-relaxed">
-            INVESTOR BENEFITS — High-velocity automotive turns powered by in-house mechanical excellence and verified auction channels.
-          </p>
-        </div>
-
-        <!-- Investor benefits -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          <div class="hud-corners glass-card p-6 sm:p-8 space-y-3" data-reveal>
-            <div class="text-xs font-mono font-bold text-dna-purple uppercase">BENEFIT 01</div>
-            <h3 class="display text-lg font-bold text-white uppercase">HIGH RETURNS</h3>
-            <p class="text-xs sm:text-sm text-dna-muted leading-relaxed">
-              Earn 20–30% profit per deal, consistently and reliably.
-            </p>
-          </div>
-
-          <div class="hud-corners glass-card p-6 sm:p-8 space-y-3" data-reveal>
-            <div class="text-xs font-mono font-bold text-dna-purple uppercase">BENEFIT 02</div>
-            <h3 class="display text-lg font-bold text-white uppercase">FAST TURNOVER</h3>
-            <p class="text-xs sm:text-sm text-dna-muted leading-relaxed">
-              Each investment cycle takes only about 1 month from auction win to retail liquidation.
-            </p>
-          </div>
-
-          <div class="hud-corners glass-card p-6 sm:p-8 space-y-3" data-reveal>
-            <div class="text-xs font-mono font-bold text-dna-purple uppercase">BENEFIT 03</div>
-            <h3 class="display text-lg font-bold text-white uppercase">ALL-INCLUSIVE SERVICE</h3>
-            <p class="text-xs sm:text-sm text-dna-muted leading-relaxed">
-              Save compared to dealer and marketplace private seller prices with our wholesale network.
-            </p>
-          </div>
-
-          <div class="hud-corners glass-card p-6 sm:p-8 space-y-3" data-reveal>
-            <div class="text-xs font-mono font-bold text-dna-purple uppercase">BENEFIT 04</div>
-            <h3 class="display text-lg font-bold text-white uppercase">FULL TRANSPARENCY</h3>
-            <p class="text-xs sm:text-sm text-dna-muted leading-relaxed">
-              Receive detailed reports and updates for every car with live financial sheets.
-            </p>
-          </div>
-
-          <div class="hud-corners glass-card p-6 sm:p-8 space-y-3 lg:col-span-2" data-reveal>
-            <div class="text-xs font-mono font-bold text-dna-purple uppercase">BENEFIT 05</div>
-            <h3 class="display text-lg font-bold text-white uppercase">RELIABLE INVESTMENT</h3>
-            <p class="text-xs sm:text-sm text-dna-muted leading-relaxed">
-              A real, tangible business. Not an virtual concept or paper derivative. Capital is tied to registered Canadian vehicle titles.
-            </p>
-          </div>
-        </div>
-
-        <!-- ROI Performance Chart Asset (Desktop 1:1) -->
-        <div class="hud-corners glass-card p-6 sm:p-10 my-16 max-w-5xl mx-auto" data-reveal>
-          <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
-            <span class="text-xs font-mono uppercase tracking-widest text-dna-purple">[ROI PERFORMANCE ANALYTICS]</span>
-            <span class="text-[11px] font-mono text-emerald-400">HISTORICAL YIELD: 28.4%</span>
-          </div>
-          <div class="rounded-xl overflow-hidden border border-white/10 bg-black/40">
-            <img src="assets/img/invest/why-it-works-chart.jpg" alt="Investor ROI Performance Analytics Chart" class="w-full h-auto object-contain mx-auto">
-          </div>
-        </div>
-
-        <!-- GUARANTEE & TRANSPARENCY (5 Branches) -->
-        <div class="my-16 max-w-5xl mx-auto" data-reveal>
-          <div class="text-center mb-10 space-y-2">
-            <span class="text-xs font-mono uppercase tracking-widest text-dna-purple">[TRUST FOUNDATION]</span>
-            <h3 class="display text-2xl sm:text-4xl font-extrabold text-white uppercase">GUARANTEE & TRANSPARENCY</h3>
-            <p class="text-xs sm:text-sm text-dna-muted">Five pillars protecting every dollar of investor capital.</p>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="hud-corners glass-card p-6 space-y-2 guarantee-branch">
-              <div class="text-[10px] font-mono text-dna-purple uppercase">PILLAR 01</div>
-              <h4 class="display text-sm font-bold text-white uppercase">OFFICIAL AUCTIONS</h4>
-              <p class="text-xs text-dna-muted">Reliable sourcing — We work only with trusted auctions like Copart, IAAI and ADESA.</p>
-            </div>
-
-            <div class="hud-corners glass-card p-6 space-y-2 guarantee-branch">
-              <div class="text-[10px] font-mono text-dna-purple uppercase">PILLAR 02</div>
-              <h4 class="display text-sm font-bold text-white uppercase">FULL DOCUMENTATION</h4>
-              <p class="text-xs text-dna-muted">Every detail tracked — All purchases, repair costs, inspections, and sales are fully documented.</p>
-            </div>
-
-            <div class="hud-corners glass-card p-6 space-y-2 guarantee-branch">
-              <div class="text-[10px] font-mono text-dna-purple uppercase">PILLAR 03</div>
-              <h4 class="display text-sm font-bold text-white uppercase">COMPLETE FINANCIAL REPORTS</h4>
-              <p class="text-xs text-dna-muted">Investor insight — You receive a clear breakdown of every transaction and ledger balance.</p>
-            </div>
-
-            <div class="hud-corners glass-card p-6 space-y-2 guarantee-branch">
-              <div class="text-[10px] font-mono text-dna-purple uppercase">PILLAR 04</div>
-              <h4 class="display text-sm font-bold text-white uppercase">QUALITY ASSURANCE</h4>
-              <p class="text-xs text-dna-muted">Cars in top condition — Each vehicle is thoroughly inspected and restored to certified standards.</p>
-            </div>
-
-            <div class="hud-corners glass-card p-6 space-y-2 guarantee-branch lg:col-span-2">
-              <div class="text-[10px] font-mono text-emerald-400 uppercase">PILLAR 05</div>
-              <h4 class="display text-sm font-bold text-white uppercase">PEACE OF MIND</h4>
-              <p class="text-xs text-dna-muted">Safe and transparent investment — No hidden costs, no surprises — you see everything from start to finish.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Compare options -->
-        <div class="mt-14 max-w-5xl mx-auto" data-reveal>
-          <div class="text-center mb-8 space-y-2">
-            <span class="text-xs font-mono uppercase tracking-widest text-dna-purple">[MARKET COMPARISON]</span>
-            <h3 class="display text-2xl sm:text-4xl font-extrabold text-white uppercase">COMPARE YOUR OPTIONS</h3>
-            <p class="text-xs sm:text-sm text-dna-muted">How AutoDNA vehicle flipping stands against standard asset classes.</p>
-          </div>
-          <div class="overflow-x-auto">
-            <table class="invest-table">
-              <thead>
-                <tr>
-                  <th>Investment Type</th>
-                  <th>Typical Return / Notes</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="font-bold text-white">BANK</td>
-                  <td class="text-dna-muted">3–5% per year</td>
-                </tr>
-                <tr>
-                  <td class="font-bold text-white">CRYPTOCURRENCY</td>
-                  <td class="text-dna-muted">Unpredictable volatility</td>
-                </tr>
-                <tr>
-                  <td class="font-bold text-white">STOCKS</td>
-                  <td class="text-dna-muted">Long-term (7–10% historical average)</td>
-                </tr>
-                <tr class="highlight-dna-flip">
-                  <td class="font-bold text-white font-mono text-base">AUTODNA FLIP</td>
-                  <td class="text-emerald-400 font-mono font-bold text-base">20–30% PER MONTH — FAST AND CONCRETE</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="text-center mt-10">
-            <a href="#earn-calc" class="pill-btn">
-              <span>START INVESTING ↗</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         SECTION 5: HOW YOU EARN — 3 TIERS & CALCULATOR
-         ========================================================================== -->
-    <section id="earn" class="py-24 relative overflow-hidden bg-dna-bg">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <!-- Section Header -->
-        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4" data-reveal>
-          <div class="text-xs font-mono uppercase tracking-widest text-dna-purple">[03 // CAPITAL ALLOCATION]</div>
-          <h2 class="display text-3xl sm:text-5xl font-extrabold text-white uppercase tracking-tight">
-            HOW YOU EARN
-          </h2>
-          <p class="text-sm sm:text-base text-dna-muted leading-relaxed">
-            Predictable annualized returns tiered to match your capital capacity, risk preference, and portfolio rollover velocity.
-          </p>
-        </div>
-
-        <!-- 3 Tiers Cards (18%, 28%, 40%) -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <!-- Tier 1: Conservative 18% -->
-          <div class="hud-corners glass-card p-6 sm:p-8 space-y-6 relative border-white/10 hover:border-dna-purple/50 transition-all flex flex-col justify-between" data-reveal>
-            <div class="space-y-4">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-mono text-dna-muted uppercase tracking-widest">TIER 01</span>
-                <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[10px] font-mono text-white uppercase">CONSERVATIVE</span>
-              </div>
-              <h3 class="display text-xl font-bold text-white uppercase">CONSERVATIVE</h3>
-              <div class="display text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
-                18%
-                <span class="text-xs font-mono text-dna-muted tracking-widest block uppercase font-normal mt-1">ANNUALIZED PROJECTED ROI</span>
-              </div>
-              <p class="text-xs sm:text-sm text-dna-muted leading-relaxed">
-                Prioritizes capital preservation with late-model, clean-title sedans and compact SUVs requiring minimal cosmetic prep.
-              </p>
-              <div class="pt-4 border-t border-white/10 space-y-2 text-xs font-mono text-dna-muted">
-                <div class="flex justify-between"><span>Min. Principal:</span><span class="text-white">$10,000</span></div>
-                <div class="flex justify-between"><span>Cycle Length:</span><span class="text-white">45 Days</span></div>
-                <div class="flex justify-between"><span>Risk Rating:</span><span class="text-emerald-400">Lowest</span></div>
-              </div>
-            </div>
-            <a href="#earn-calc" class="pill-btn-outline w-full text-center text-xs">
-              <span>CALCULATE 18% RETURN ↓</span>
-            </a>
-          </div>
-
-          <!-- Tier 2: Balanced 28% (Featured) -->
-          <div class="hud-corners glass-card p-6 sm:p-8 space-y-6 relative border-dna-border bg-dna-purple/10 hover:border-dna-purple transition-all flex flex-col justify-between shadow-[0_10px_40px_rgba(124,92,255,0.2)]" data-reveal>
-            <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-gradient-to-r from-[#7c5cff] to-[#b06cff] text-[10px] font-mono font-bold tracking-widest uppercase text-white shadow-lg">
-              MOST POPULAR
-            </div>
-            <div class="space-y-4 pt-2">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-mono text-dna-purple uppercase tracking-widest font-bold">TIER 02</span>
-                <span class="px-2 py-0.5 rounded bg-dna-purple/20 border border-dna-purple/40 text-[10px] font-mono text-dna-purple uppercase font-bold">BALANCED</span>
-              </div>
-              <h3 class="display text-xl font-bold text-white uppercase">BALANCED</h3>
-              <div class="display text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-200 to-dna-purple tracking-tight">
-                28%
-                <span class="text-xs font-mono text-dna-purple tracking-widest block uppercase font-normal mt-1">ANNUALIZED PROJECTED ROI</span>
-              </div>
-              <p class="text-xs sm:text-sm text-dna-muted leading-relaxed">
-                Balanced capital rotation targeting high-liquidity luxury SUVs and light-body repairs with maximum buyer market depth.
-              </p>
-              <div class="pt-4 border-t border-white/10 space-y-2 text-xs font-mono text-dna-muted">
-                <div class="flex justify-between"><span>Min. Principal:</span><span class="text-white">$30,000</span></div>
-                <div class="flex justify-between"><span>Cycle Length:</span><span class="text-white">30 Days</span></div>
-                <div class="flex justify-between"><span>Risk Rating:</span><span class="text-dna-purple">Optimized</span></div>
-              </div>
-            </div>
-            <a href="#earn-calc" class="pill-btn w-full text-center text-xs">
-              <span>CALCULATE 28% RETURN ↓</span>
-            </a>
-          </div>
-
-          <!-- Tier 3: Aggressive 40% -->
-          <div class="hud-corners glass-card p-6 sm:p-8 space-y-6 relative border-white/10 hover:border-dna-purple/50 transition-all flex flex-col justify-between" data-reveal>
-            <div class="space-y-4">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-mono text-dna-muted uppercase tracking-widest">TIER 03</span>
-                <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[10px] font-mono text-white uppercase">AGGRESSIVE</span>
-              </div>
-              <h3 class="display text-xl font-bold text-white uppercase">AGGRESSIVE</h3>
-              <div class="display text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
-                40%
-                <span class="text-xs font-mono text-dna-muted tracking-widest block uppercase font-normal mt-1">ANNUALIZED PROJECTED ROI</span>
-              </div>
-              <p class="text-xs sm:text-sm text-dna-muted leading-relaxed">
-                Multi-vehicle syndication pool taking advantage of bulk auction batches, comprehensive reconditioning, and rapid turnover.
-              </p>
-              <div class="pt-4 border-t border-white/10 space-y-2 text-xs font-mono text-dna-muted">
-                <div class="flex justify-between"><span>Min. Principal:</span><span class="text-white">$50,000</span></div>
-                <div class="flex justify-between"><span>Cycle Length:</span><span class="text-white">25 Days</span></div>
-                <div class="flex justify-between"><span>Risk Rating:</span><span class="text-purple-300">High Yield</span></div>
-              </div>
-            </div>
-            <a href="#earn-calc" class="pill-btn-outline w-full text-center text-xs">
-              <span>CALCULATE 40% RETURN ↓</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Tier Strategy Photographic Asset Banner (Desktop 1:1) -->
-        <div class="my-14" data-reveal>
-          <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-            <img src="assets/img/invest/tier-strategy-desktop.jpg" alt="AutoDNA Investment Tier Strategies & Capital Allocation" class="w-full h-auto object-cover">
-          </div>
-        </div>
-
-        <!-- ====================================================================
-             SECTION 6: HOW MUCH YOU CAN EARN — PROFIT CALCULATOR
-             ==================================================================== -->
-        <div id="earn-calc" class="hud-corners glass-card p-6 sm:p-12 relative overflow-hidden" data-reveal>
-          <div class="max-w-4xl mx-auto space-y-10">
-            <!-- Header -->
-            <div class="text-center space-y-3">
-              <span class="text-xs font-mono uppercase tracking-widest text-dna-purple">[PORTFOLIO PROJECTION ENGINE]</span>
-              <h3 class="display text-2xl sm:text-4xl font-extrabold text-white uppercase">
-                HOW MUCH YOU CAN EARN
-              </h3>
-              <p class="text-xs sm:text-sm text-dna-muted">
-                Adjust investment principal and tier rate to calculate your projected return in real time.
-              </p>
-            </div>
-
-            <!-- Calculator Grid: Controls & Results -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-4">
-              <!-- Left: Inputs -->
-              <div class="lg:col-span-7 space-y-8">
-                <!-- Principal Amount Slider & Display -->
-                <div class="space-y-4">
-                  <div class="flex items-center justify-between">
-                    <label for="calc-amount" class="text-xs font-mono uppercase tracking-wider text-dna-muted">
-                      INVESTMENT CAPITAL
-                    </label>
-                    <span id="calc-amount-display" data-amount-display class="display text-xl sm:text-2xl font-bold text-white">
-                      $30,000
-                    </span>
-                  </div>
-
-                  <input 
-                    type="range" 
-                    id="calc-amount" 
-                    name="amount" 
-                    min="5000" 
-                    max="100000" 
-                    step="5000" 
-                    value="30000"
-                    class="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-[#8b7cf6]"
-                    aria-label="Investment Amount"
-                  >
-
-                  <!-- Preset Amount Pills -->
-                  <div class="flex flex-wrap gap-2 pt-1">
-                    <button type="button" onclick="document.getElementById('calc-amount').value=10000; document.getElementById('calc-amount').dispatchEvent(new Event('input'))" class="px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 border border-white/10 text-[11px] font-mono text-dna-muted hover:text-white transition-colors">
-                      $10,000
-                    </button>
-                    <button type="button" onclick="document.getElementById('calc-amount').value=30000; document.getElementById('calc-amount').dispatchEvent(new Event('input'))" class="px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 border border-white/10 text-[11px] font-mono text-dna-muted hover:text-white transition-colors">
-                      $30,000
-                    </button>
-                    <button type="button" onclick="document.getElementById('calc-amount').value=50000; document.getElementById('calc-amount').dispatchEvent(new Event('input'))" class="px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 border border-white/10 text-[11px] font-mono text-dna-muted hover:text-white transition-colors">
-                      $50,000
-                    </button>
-                    <button type="button" onclick="document.getElementById('calc-amount').value=75000; document.getElementById('calc-amount').dispatchEvent(new Event('input'))" class="px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 border border-white/10 text-[11px] font-mono text-dna-muted hover:text-white transition-colors">
-                      $75,000
-                    </button>
-                    <button type="button" onclick="document.getElementById('calc-amount').value=100000; document.getElementById('calc-amount').dispatchEvent(new Event('input'))" class="px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 border border-white/10 text-[11px] font-mono text-dna-muted hover:text-white transition-colors">
-                      $100,000
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Tier Strategy Selector (Radio inputs for Calculator.bind) -->
-                <div class="space-y-3">
-                  <div class="text-xs font-mono uppercase tracking-wider text-dna-muted">
-                    SELECT CAPITAL STRATEGY
-                  </div>
-                  <div class="grid grid-cols-3 gap-3">
-                    <label class="cursor-pointer block">
-                      <input type="radio" name="tier" value="18" class="peer sr-only">
-                      <div class="p-3 rounded-xl border border-white/10 bg-white/5 peer-checked:border-dna-purple peer-checked:bg-dna-purple/15 text-center transition-all">
-                        <div class="text-[10px] font-mono text-dna-muted uppercase">TIER 01</div>
-                        <div class="display text-sm font-bold text-white mt-1">18%</div>
-                        <div class="text-[10px] text-dna-muted mt-0.5">Conservative</div>
-                      </div>
-                    </label>
-
-                    <label class="cursor-pointer block">
-                      <input type="radio" name="tier" value="28" checked class="peer sr-only">
-                      <div class="p-3 rounded-xl border border-white/10 bg-white/5 peer-checked:border-dna-purple peer-checked:bg-dna-purple/15 text-center transition-all">
-                        <div class="text-[10px] font-mono text-dna-purple uppercase font-bold">TIER 02</div>
-                        <div class="display text-sm font-bold text-white mt-1">28%</div>
-                        <div class="text-[10px] text-dna-muted mt-0.5">Balanced</div>
-                      </div>
-                    </label>
-
-                    <label class="cursor-pointer block">
-                      <input type="radio" name="tier" value="40" class="peer sr-only">
-                      <div class="p-3 rounded-xl border border-white/10 bg-white/5 peer-checked:border-dna-purple peer-checked:bg-dna-purple/15 text-center transition-all">
-                        <div class="text-[10px] font-mono text-dna-muted uppercase">TIER 03</div>
-                        <div class="display text-sm font-bold text-white mt-1">40%</div>
-                        <div class="text-[10px] text-dna-muted mt-0.5">Aggressive</div>
-                      </div>
-                    </label>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Right: Output Card -->
-              <div class="lg:col-span-5">
-                <div class="hud-corners glass-card p-6 sm:p-8 bg-dna-surface/80 border-dna-border text-center space-y-6">
-                  <div class="space-y-1">
-                    <div class="text-xs font-mono uppercase tracking-widest text-dna-muted">PROJECTED TOTAL RETURN</div>
-                    <div id="earn-result" data-calc-result class="display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-                      $38,400
-                    </div>
-                  </div>
-
-                  <div class="p-4 rounded-xl bg-dna-purple/10 border border-dna-purple/30 space-y-1">
-                    <div class="text-xs font-mono uppercase tracking-wider text-dna-muted">PROJECTED NET PROFIT</div>
-                    <div id="earn-profit" data-calc-profit class="display text-xl sm:text-2xl font-bold text-emerald-400">
-                      +$8,400
-                    </div>
-                  </div>
-
-                  <div class="space-y-3 pt-2">
-                    <a href="#quote" class="pill-btn w-full">
-                      <span>LOCK IN ALLOCATION ↗</span>
-                    </a>
-                    <p class="text-[11px] text-dna-muted leading-tight">
-                      *Estimates based on annualized model assuming 30–45 day rolling capital deployments.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         SECTION 7: TESTIMONIALS & TRANSPARENCY GUARANTEE
-         ========================================================================== -->
-    <section id="testimonials" class="py-24 relative overflow-hidden bg-dna-surface/30 border-t border-white/10">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4" data-reveal>
-          <div class="text-xs font-mono uppercase tracking-widest text-dna-purple">[04 // TRACK RECORD]</div>
-          <h2 class="display text-3xl sm:text-5xl font-extrabold text-white uppercase tracking-tight">
-            WHAT OUR INVESTORS SAY
-          </h2>
-          <p class="text-sm sm:text-base text-dna-muted leading-relaxed">
-            Real outcomes from private capital partners backing AutoDNA flips in Calgary and Alberta.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          <div class="hud-corners glass-card p-6 sm:p-8 space-y-4" data-reveal>
-            <div class="flex items-center gap-1 text-dna-purple">
-              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-            <p class="text-xs sm:text-sm text-white/90 leading-relaxed italic">
-              "AutoDNA's DNA Flip model provided 28% annualized return across 4 vehicle batches. Complete transparency on repair invoices and final auction sale slips."
-            </p>
-            <div class="pt-4 border-t border-white/10">
-              <div class="display text-xs font-bold text-white uppercase">David L.</div>
-              <div class="text-[10px] font-mono text-dna-muted">Calgary, AB // Portfolio Partner</div>
-            </div>
-          </div>
-
-          <div class="hud-corners glass-card p-6 sm:p-8 space-y-4" data-reveal>
-            <div class="flex items-center gap-1 text-dna-purple">
-              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-            <p class="text-xs sm:text-sm text-white/90 leading-relaxed italic">
-              "Transparent, predictable, and fully backed by actual title vehicles. Way better than leaving capital idle or gambling on crypto swings."
-            </p>
-            <div class="pt-4 border-t border-white/10">
-              <div class="display text-xs font-bold text-white uppercase">Sarah K.</div>
-              <div class="text-[10px] font-mono text-dna-muted">Edmonton, AB // 2-Year Investor</div>
-            </div>
-          </div>
-
-          <div class="hud-corners glass-card p-6 sm:p-8 space-y-4" data-reveal>
-            <div class="flex items-center gap-1 text-dna-purple">
-              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-            <p class="text-xs sm:text-sm text-white/90 leading-relaxed italic">
-              "Rolled $30k twice last year. The reconditioning quality is unbelievable, which is why the cars sell in days rather than sitting on a lot."
-            </p>
-            <div class="pt-4 border-t border-white/10">
-              <div class="display text-xs font-bold text-white uppercase">Marcus R.</div>
-              <div class="text-[10px] font-mono text-dna-muted">Calgary, AB // Active Tier 02 Partner</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         SECTION 8: OUR PARTNERS BANNER
-         ========================================================================== -->
-    <section id="partners" class="py-16 relative overflow-hidden bg-dna-bg border-t border-white/10">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="text-center max-w-2xl mx-auto mb-10 space-y-2" data-reveal>
-          <span class="text-xs font-mono uppercase tracking-widest text-dna-purple">[05 // ECOSYSTEM NETWORK]</span>
-          <h2 class="display text-2xl sm:text-4xl font-extrabold text-white uppercase tracking-tight">
-            OUR PARTNERS
-          </h2>
-          <p class="text-xs sm:text-sm text-dna-muted">Trusted auction houses, parts distributors, and wholesale inspection partners across Canada.</p>
-        </div>
-
-        <div class="rounded-2xl overflow-hidden border border-white/10 shadow-xl" data-reveal>
-          <picture class="block w-full">
-            <source media="(max-width: 767px)" srcset="assets/img/invest/partners-banner-mob.jpg">
-            <img src="assets/img/invest/partners-banner-desktop.jpg" alt="AutoDNA Official Auction and Financial Partners" class="w-full h-auto object-cover">
-          </picture>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         SECTION 9: REQUEST A QUOTE / INVESTOR ONBOARDING FORM
-         ========================================================================== -->
-    <section id="quote" class="py-24 relative overflow-hidden bg-dna-surface/60 border-t border-white/10">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="hud-corners glass-card p-6 sm:p-12 relative overflow-hidden border-dna-border" data-reveal>
-          <div class="text-center space-y-3 mb-10">
-            <span class="text-xs font-mono uppercase tracking-widest text-dna-purple">[INVESTOR ALLOCATION INTAKE]</span>
-            <h2 class="display text-3xl sm:text-5xl font-extrabold text-white uppercase tracking-tight">
-              REQUEST A QUOTE
-            </h2>
-            <p class="text-xs sm:text-sm text-dna-muted max-w-xl mx-auto">
-              Fill in the details below and we'll get back to you with a personalized quote and upcoming auction vehicle manifest as soon as possible.
-            </p>
-          </div>
-
-          <form data-quote class="space-y-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 form-fields">
-              <!-- Name -->
-              <div class="space-y-2">
-                <label for="quote-name" class="block text-xs font-mono uppercase tracking-wider text-dna-muted">
-                  Full Name <span class="text-dna-purple">*</span>
-                </label>
-                <input 
-                  type="text" 
-                  id="quote-name" 
-                  name="name" 
-                  placeholder="Your full name"
-                  required
-                  class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white text-sm focus:outline-none focus:border-dna-purple transition-colors font-body"
-                >
-              </div>
-
-              <!-- Budget / Allocation -->
-              <div class="space-y-2">
-                <label for="quote-budget" class="block text-xs font-mono uppercase tracking-wider text-dna-muted">
-                  Allocation Budget (CAD) <span class="text-dna-purple">*</span>
-                </label>
-                <input 
-                  type="text" 
-                  id="quote-budget" 
-                  name="budget" 
-                  placeholder="e.g. 30000"
-                  required
-                  class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white text-sm focus:outline-none focus:border-dna-purple transition-colors font-body"
-                >
-              </div>
-
-              <!-- Preferred Make -->
-              <div class="space-y-2">
-                <label for="quote-make" class="block text-xs font-mono uppercase tracking-wider text-dna-muted">
-                  Preferred Make <span class="text-dna-purple">*</span>
-                </label>
-                <input 
-                  type="text" 
-                  id="quote-make" 
-                  name="make" 
-                  placeholder="e.g. Toyota, BMW, Audi"
-                  required
-                  class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white text-sm focus:outline-none focus:border-dna-purple transition-colors font-body"
-                >
-              </div>
-
-              <!-- Preferred Model -->
-              <div class="space-y-2">
-                <label for="quote-model" class="block text-xs font-mono uppercase tracking-wider text-dna-muted">
-                  Preferred Model <span class="text-dna-purple">*</span>
-                </label>
-                <input 
-                  type="text" 
-                  id="quote-model" 
-                  name="model" 
-                  placeholder="e.g. Camry, 3 Series, Q5"
-                  required
-                  class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white text-sm focus:outline-none focus:border-dna-purple transition-colors font-body"
-                >
-              </div>
-
-              <!-- Target Year -->
-              <div class="space-y-2 md:col-span-2">
-                <label for="quote-year" class="block text-xs font-mono uppercase tracking-wider text-dna-muted">
-                  Target Vehicle Year <span class="text-dna-purple">*</span>
-                </label>
-                <input 
-                  type="number" 
-                  id="quote-year" 
-                  name="year" 
-                  placeholder="e.g. 2018"
-                  min="1980" 
-                  max="2035"
-                  required
-                  class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white text-sm focus:outline-none focus:border-dna-purple transition-colors font-body"
-                >
-              </div>
-
-              <!-- Message / Notes -->
-              <div class="space-y-2 md:col-span-2">
-                <label for="quote-message" class="block text-xs font-mono uppercase tracking-wider text-dna-muted">
-                  Additional Information & Notes <span class="text-dna-purple">*</span>
-                </label>
-                <textarea 
-                  id="quote-message" 
-                  name="message" 
-                  rows="4" 
-                  placeholder="Tell us about any specific requirements, preferred turnover timeframe, target ROI, or specific vehicle preferences..."
-                  required
-                  class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white text-sm focus:outline-none focus:border-dna-purple transition-colors font-body"
-                ></textarea>
-              </div>
-            </div>
-
-            <div class="pt-4">
-              <button type="submit" class="pill-btn w-full py-4 text-sm font-bold uppercase tracking-wider">
-                <span>SUBMIT REQUEST ↗</span>
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         SECTION 10: TEAM — INSIDE THE MIND OF AUTODNA
-         ========================================================================== -->
-    <section id="team" class="py-24 relative overflow-hidden bg-dna-bg border-t border-white/10">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="text-center max-w-3xl mx-auto mb-14" data-reveal>
-          <div class="text-xs font-mono uppercase tracking-widest text-dna-purple">[06 // LEADERSHIP & FOUNDERS]</div>
-          <h2 class="display text-3xl sm:text-5xl font-extrabold text-white uppercase tracking-tight">
-            INSIDE THE MIND OF AUTODNA
-          </h2>
-          <p class="display text-base sm:text-xl font-bold uppercase text-purple-300 mt-2">
-            WE DON'T JUST SELL CARS.
-          </p>
-          <p class="text-xs sm:text-sm text-dna-muted mt-2 max-w-xl mx-auto">
-            Our multi-disciplinary team combines automotive auction specialists, master mechanical technicians, and algorithms.
-          </p>
-        </div>
-
-        <!-- Shared Chrome Photographic Team Asset (Desktop / Mobile 1:1) -->
-        <div class="hud-corners glass-card p-4 sm:p-8 max-w-5xl mx-auto" data-reveal>
-          <picture class="block w-full rounded-xl overflow-hidden border border-white/10 shadow-2xl mb-8">
-            <source media="(max-width: 767px)" srcset="assets/img/shared/team-mob.jpg">
-            <img src="assets/img/shared/team-desktop.jpg" alt="Inside the Mind of AutoDNA Leadership Team" class="w-full h-auto object-cover">
-          </picture>
-
-          <!-- Leadership Profiles -->
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-white/10">
-            <div class="space-y-1">
-              <h3 class="display text-base font-bold text-white uppercase">Alex Romanov</h3>
-              <div class="text-xs font-mono text-dna-purple">Managing Director & Co-Founder</div>
-              <p class="text-xs text-dna-muted pt-1">Automotive capital strategist with 12+ years in Western Canadian vehicle wholesale.</p>
-            </div>
-            <div class="space-y-1">
-              <h3 class="display text-base font-bold text-white uppercase">Sara Chen</h3>
-              <div class="text-xs font-mono text-dna-purple">Chief Technology & Pricing Officer</div>
-              <p class="text-xs text-dna-muted pt-1">Directs algorithmic valuation models and auction pricing intelligence.</p>
-            </div>
-            <div class="space-y-1">
-              <h3 class="display text-base font-bold text-white uppercase">Jordan Miller</h3>
-              <div class="text-xs font-mono text-dna-purple">Master Technical Director</div>
-              <p class="text-xs text-dna-muted pt-1">Oversees 150-point certified reconditioning, mechanical certifications, and QA.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ==========================================================================
-       Shared Chrome: Footer Partial (Verbatim)
-       ========================================================================== -->
-<footer id="dna-footer" class="dna-footer w-full bg-dna-bg text-white border-t border-white/10 pt-16 pb-12">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- 3-Column Grid: Contact / Follow / Find -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16 pb-12 border-b border-white/10">
-      <!-- Col 1: CONTACT US -->
-      <div>
-        <h3 class="display text-xs font-bold tracking-widest uppercase text-white mb-5 flex items-center gap-2">
-          <span class="w-1.5 h-1.5 bg-dna-purple inline-block"></span>
-          CONTACT US
-        </h3>
-        <ul class="space-y-3 text-sm text-dna-muted">
-          <li>
-            <span class="block text-xs uppercase tracking-wider text-white/50">Inquiries</span>
-            <a href="mailto:info@autodna.com" class="hover:text-dna-purple transition-colors text-white/90">info@autodna.com</a>
-          </li>
-          <li>
-            <span class="block text-xs uppercase tracking-wider text-white/50">Direct Concierge</span>
-            <a href="tel:+14033128306" class="hover:text-dna-purple transition-colors text-white/90">+1 (403) 312-8306</a>
-          </li>
-          <li>
-            <span class="block text-xs uppercase tracking-wider text-white/50">Operating Hours</span>
-            <span class="text-white/80">Mon – Sat: 9:00 AM – 7:00 PM MST</span>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Col 2: FOLLOW US -->
-      <div>
-        <h3 class="display text-xs font-bold tracking-widest uppercase text-white mb-5 flex items-center gap-2">
-          <span class="w-1.5 h-1.5 bg-dna-purple inline-block"></span>
-          FOLLOW US
-        </h3>
-        <ul class="space-y-3 text-sm text-dna-muted">
-          <li>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-dna-purple transition-colors text-white/90 flex items-center justify-between group">
-              <span>Instagram</span>
-              <span class="text-xs text-dna-muted group-hover:text-dna-purple font-mono">@autodna</g/span>
-            </a>
-          </li>
-          <li>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-dna-purple transition-colors text-white/90 flex items-center justify-between group">
-              <span>LinkedIn</span>
-              <span class="text-xs text-dna-muted group-hover:text-dna-purple font-mono">AutoDNA Canada</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="hover:text-dna-purple transition-colors text-white/90 flex items-center justify-between group">
-              <span>X (Twitter)</span>
-              <span class="text-xs text-dna-muted group-hover:text-dna-purple font-mono">@AutoDNACanada</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="hover:text-dna-purple transition-colors text-white/90 flex items-center justify-between group">
-              <span>YouTube</span>
-              <span class="text-xs text-dna-muted group-hover:text-dna-purple font-mono">@AutoDNATV</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Col 3: FIND US -->
-      <div>
-        <h3 class="display text-xs font-bold tracking-widest uppercase text-white mb-5 flex items-center gap-2">
-          <span class="w-1.5 h-1.5 bg-dna-purple inline-block"></span>
-          FIND US
-        </h3>
-        <div class="space-y-3 text-sm text-dna-muted">
-          <div>
-            <span class="block text-xs uppercase tracking-wider text-white/50">Flagship Showroom &amp; HQ</span>
-            <p class="text-white/90">Calgary, Alberta, Canada</p>
-            <p class="text-white/70 text-xs mt-0.5">730 2 Ave SW, Calgary, T2P1R8, Canada</p>
-          </div>
-          <div class="pt-2">
-            <span class="inline-block text-xs font-mono px-2 py-1 rounded bg-white/5 border border-white/10 text-dna-purple">
-              BUILT IN CALGARY · SERVING WESTERN CANADA
-            </span>
-          </div>
-        </div>
+<header class="site-header">
+  <div class="shell">
+    <a class="brand" href="index.html" aria-label="AutoDNA home"><img src="assets/img/logo.svg" alt="AutoDNA"></a>
+    <button class="burger" type="button" data-menu-open aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="menu-overlay" id="menu" role="dialog" aria-modal="true" aria-label="Navigation">
+  <button class="menu-close" type="button" data-menu-close>Close</button>
+  <ul class="menu-panel" style="list-style:none;margin:0;padding:10px 0">
+    <li><a href="index.html">Main</a></li>
+    <li><a href="skipthedealer.html">SkipTheDealer</a></li>
+    <li><a href="invest.html">AutoDNA Flip</a></li>
+    <li><a href="service.html">AutoDNA Service</a></li>
+    <li><a href="service.html#paintbot">PaintBot</a></li>
+    <li><a href="service.html#shop">Skip the Shop</a></li>
+    <li><a href="service.html#drivecare">DriveCarePlan</a></li>
+    <li><a href="service.html#commercial">Commercial</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section class="invest-hero">
+  <div class="invest-hero-glow"></div>
+  <div class="shell">
+    <div class="invest-hero-head">
+      <div class="invest-hero-title">Invest in cars.</div>
+      <div class="invest-hero-sub">
+        <span>Earn from <b>$2,000</b></span>
+        <span>on each vehicle.</span>
       </div>
     </div>
 
-    <!-- Bottom Bar: Copyright & Legal -->
-    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-dna-muted">
-      <div>
-        <p>© 2025 AutoDNA Canada. All rights reserved.</p>
+    <div class="invest-hero-body">
+      <p class="invest-hero-lede">We buy, repair, and<br>sell cars — you<br>earn the profit.</p>
+
+      <div class="invest-hero-photo bracket">
+        <img src="assets/img/invest/hero-handshake.jpg" alt="Investor and AutoDNA founder">
       </div>
-      <div class="flex items-center gap-6">
-        <a href="#privacy" class="hover:text-white transition-colors">Privacy Policy</a>
-        <a href="#terms" class="hover:text-white transition-colors">Terms of Service</a>
-        <a href="#dna-cert" class="hover:text-white transition-colors">DNA Guarantee</a>
+
+      <ul class="invest-facts">
+        <li>Tangible assets</li>
+        <li>Up to 40% ROI</li>
+        <li>Lower risk</li>
+      </ul>
+    </div>
+
+    <a class="btn invest-cta" href="#quote">Become an investor</a>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section invest-how">
+  <div class="shell">
+    <h2 class="invest-big-title">
+      <span>how it</span><i></i><span>works</span>
+    </h2>
+
+    <div class="invest-steps">
+      <article>
+        <div class="invest-step-mark bracket-all">Step 1</div>
+        <h3>Investment<br>plan &amp; start</h3>
+        <p>The investor meets with us and receives a detailed action plan — how exactly we buy, repair, and sell cars, and what return on investment they can expect.</p>
+        <p class="invest-step-goal"><span>Goal:</span> full clarity and confidence before investing.</p>
+      </article>
+      <article>
+        <div class="invest-step-mark bracket-all">Step 2</div>
+        <h3>Car purchase<br>at auction</h3>
+        <p>We buy cars only from trusted, official auctions — minimizing risk at every stage. Each vehicle is carefully checked before bidding.</p>
+        <p class="invest-step-goal"><span>Goal:</span> safe purchase with zero unnecessary risks.</p>
+      </article>
+      <article>
+        <div class="invest-step-mark bracket-all">Step 3</div>
+        <h3>Repair &amp;<br>preparation<br>for sale</h3>
+        <p>We work with our own service network and verified partners to restore each vehicle, keeping quality high and costs under control.</p>
+        <p class="invest-step-goal"><span>Goal:</span> maximize value through quality and efficiency.</p>
+      </article>
+      <article>
+        <div class="invest-step-mark bracket-all">Step 4</div>
+        <h3>Selling at<br>market price</h3>
+        <p>After full restoration, the car is listed for sale through our trusted sales channels. Each sale generates transparent financial results.</p>
+        <p class="invest-step-goal"><span>Goal:</span> fast sale at fair market value.</p>
+      </article>
+    </div>
+  </div>
+
+  <div class="invest-cars-strip">
+    <img src="assets/img/invest/cars-strip.jpg" alt="">
+  </div>
+</section>
+
+<!-- PROFIT EXAMPLES -->
+<section class="section invest-profit">
+  <div class="shell">
+    <h2 class="invest-big-title invest-big-title--outline">profit examples</h2>
+
+    <table class="invest-table">
+      <thead>
+        <tr><th>Investment amount</th><th>Potential profit</th><th>Number of cars</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>$10,000</td><td class="hl">$2,500</td><td>1 car</td><td>Single car example</td></tr>
+        <tr><td>$30,000</td><td class="hl">$6,000–$9,000</td><td>2–3 cars</td><td>Multiple cars per cycle</td></tr>
+        <tr><td>$50,000</td><td class="hl">$8,000–$15,000 / mo</td><td>4–5 cars</td><td>Higher investment, more cars</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- INVESTOR BENEFITS -->
+<section class="section invest-benefits">
+  <div class="shell">
+    <h2 class="invest-mega">investor<br><span>benefits</span></h2>
+
+    <div class="benefit-grid">
+      <div class="benefit-card bracket">
+        <h3>High returns</h3>
+        <p>Earn 20–30% profit per deal, consistently and reliably.</p>
+      </div>
+      <div class="benefit-card bracket">
+        <h3>Fast turnover</h3>
+        <p>Each investment cycle takes only about 1 month.</p>
+      </div>
+      <div class="benefit-card bracket benefit-card--accent">
+        <h3>All-inclusive service</h3>
+        <p>Save compared to dealer and Marketplace private seller prices.</p>
+      </div>
+      <div class="benefit-card bracket">
+        <h3>Full transparency</h3>
+        <p>Receive detailed reports and updates for every car.</p>
+      </div>
+      <div class="benefit-card bracket">
+        <h3>Real business</h3>
+        <p>A real, tangible business, not just “virtual opportunities.”</p>
       </div>
     </div>
   </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="section invest-guarantee">
+  <div class="shell">
+    <h2 class="invest-mega invest-mega--center">guarantee &amp;<br><span>transparency</span></h2>
+
+    <svg class="invest-fan" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
+      <line x1="600" y1="0" x2="80" y2="215" stroke="rgba(194,185,255,0.35)"/>
+      <line x1="600" y1="0" x2="360" y2="215" stroke="rgba(194,185,255,0.35)"/>
+      <line x1="600" y1="0" x2="600" y2="215" stroke="rgba(194,185,255,0.35)"/>
+      <line x1="600" y1="0" x2="840" y2="215" stroke="rgba(194,185,255,0.35)"/>
+      <line x1="600" y1="0" x2="1120" y2="215" stroke="rgba(194,185,255,0.35)"/>
+    </svg>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="section" id="quote">
+  <div class="shell" style="max-width:860px">
+    <p class="kicker">Become an investor</p>
+    <h2 class="display" style="font-size:clamp(32px,5.4vw,76px);color:#fff;margin:14px 0 40px;line-height:1">Start with a plan.</h2>
+
+    <form data-quote novalidate>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px 36px">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required autocomplete="name" placeholder="Your name">
+          <span class="field-error">Please enter your name</span>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@company.com">
+          <span class="field-error">Please enter a valid email</span>
+        </div>
+        <div class="field">
+          <label for="amount">Investment amount</label>
+          <input id="amount" name="amount" type="text" placeholder="e.g. $30,000">
+          <span class="field-error">Required</span>
+        </div>
+        <div class="field">
+          <label for="horizon">Horizon</label>
+          <input id="horizon" name="horizon" type="text" placeholder="e.g. 6 months">
+        </div>
+        <div class="field" style="grid-column:1 / -1">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="3" placeholder="Questions?"></textarea>
+        </div>
+      </div>
+      <button class="btn btn-solid" type="submit" style="margin-top:36px">Request the plan</button>
+      <div class="form-success" style="margin-top:28px">Thanks — we’ll send the investment plan within one business day.</div>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer" id="contact">
+  <div class="shell">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Contact us</h4>
+        <p><a href="mailto:info@autodna.com">info@autodna.com</a></p>
+        <p><a href="tel:+14033128306">+1 (403) 312-8306</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Follow us</h4>
+        <div class="social-row">
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.1.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.1-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.1-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.1 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 5.1a4.7 4.7 0 100 9.4 4.7 4.7 0 000-9.4zm0 7.7a3 3 0 110-6 3 3 0 010 6zm6-8a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0z"/></svg>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9z"/></svg>
+          </a>
+          <a href="https://x.com" target="_blank" rel="noopener" aria-label="X">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 3h3.2l-7 8 8.2 10h-6.4l-5-6.1-5.7 6.1H1.6l7.5-8.5L1.3 3h6.5l4.5 5.5zM16.4 19h1.8L7.7 4.8H5.8z"/></svg>
+          </a>
+          <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2s-.2-1.4-.8-2c-.8-.8-1.7-.8-2.1-.9C16.9 4.1 12 4.1 12 4.1h-.1s-4.9 0-6.7.2c-.4.1-1.3.1-2.1.9-.6.6-.8 2-.8 2S2 8.8 2 10.5v1.6c0 1.7.2 3.3.2 3.3s.2 1.4.8 2c.8.8 1.8.8 2.2.9 1.8.2 6.8.2 6.8.2s4.9 0 6.7-.2c.4-.1 1.3-.1 2.1-.9.6-.6.8-2 .8-2s.2-1.6.2-3.3v-1.6c0-1.7-.2-3.3-.2-3.3zM9.8 14.3V8.6l6.1 2.9z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Find us</h4>
+        <p>Calgary, Alberta, Canada</p>
+        <p>730 2 Ave SW,<br>Calgary, T2P1R8, Canada</p>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 AutoDNA Canada. All rights reserved.</div>
+  </div>
 </footer>
 
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>

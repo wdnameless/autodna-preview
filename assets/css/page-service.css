@@ -1,69 +1,169 @@
-/* ==========================================================================
-   AUTODNA — Page Service Stylesheet (page-service.css)
-   Fidelity 1:1 Color Tokens, HUD Grids & Mobile 393px Stacking
-   ========================================================================== */
+/* The future of service — AutoDNA Service */
 
-:root {
-  --service-canvas: #07051d;
-  --service-card: #121121;
-  --service-void: #020202;
-  --service-glow: #02183f;
-  --service-cashback: #2e2766;
-  --service-team: #272057;
-  --service-border: #38324f;
-  --service-cyan: #38bdf8;
-  --service-purple: #8b7cf6;
-  --service-violet: #a78bfa;
-}
-
-/* Service Hero Nebula */
-.service-hero-glow {
-  background: radial-gradient(circle at 50% 30%, rgba(2, 24, 63, 0.7) 0%, rgba(7, 5, 29, 0) 70%),
-              radial-gradient(circle at 75% 20%, rgba(124, 92, 255, 0.25) 0%, rgba(7, 5, 29, 0) 50%);
-}
-
-/* Cash Back Lilac Band */
-.bg-cashback-lilac {
-  background-color: var(--service-cashback);
-  background-image: radial-gradient(circle at 20% 50%, rgba(139, 124, 246, 0.2) 0%, transparent 60%),
-                    radial-gradient(circle at 80% 50%, rgba(176, 108, 255, 0.15) 0%, transparent 60%);
-}
-
-/* Team Deep Violet Band */
-.bg-team-violet {
-  background-color: var(--service-team);
-  background-image: radial-gradient(circle at 50% 0%, rgba(139, 124, 246, 0.2) 0%, transparent 70%);
-}
-
-/* Card Surface Dark */
-.bg-service-card {
-  background-color: var(--service-card);
-}
-
-.border-service-hud {
-  border-color: var(--service-border);
-}
-
-/* Image Frames with HUD brackets */
-.hud-media-box {
+/* hero: the composed collage fills the viewport width, text is baked into it */
+.svc-hero {
   position: relative;
-  background-color: rgba(18, 17, 33, 0.85);
-  border: 1px solid var(--service-border);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
-  overflow: hidden;
+  width: 100%;
+  background: #0b0820;
 }
 
-.hud-media-box img {
-  display: block;
+.svc-hero-img {
   width: 100%;
   height: auto;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .svc-hero-img { min-height: 60vh; object-fit: cover; object-position: center; }
+}
+
+/* intro claim */
+.svc-claim {
+  margin: 44px 0 0;
+  text-align: center;
+  font-size: clamp(26px, 4.6vw, 66px);
+  line-height: 1.06;
+  color: #fff;
+}
+
+.svc-claim span { color: var(--dna-purple); }
+
+/* one DNA / multiple services */
+.svc-multi {
+  background: radial-gradient(85% 60% at 50% 40%, rgba(89, 75, 177, 0.55) 0%, rgba(2, 2, 2, 0) 70%);
+  padding-bottom: 40px;
+}
+
+.svc-mega {
+  margin: 0;
+  text-align: center;
+  font-family: var(--dna-font-display);
+  font-weight: 500;
+  font-size: clamp(34px, 8.6vw, 132px);
+  line-height: 0.94;
+  letter-spacing: 0.01em;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.svc-mega span { color: var(--dna-purple); }
+
+/* the three-way switch: first item boxed, the rest plain with hairlines */
+.svc-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+  margin-top: 56px;
+}
+
+.svc-tab {
+  padding: 16px 26px;
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--dna-purple-soft);
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.svc-tab--plain {
+  color: var(--dna-muted);
+  position: relative;
+}
+
+/* corner brackets on the plain items, as in the mockup */
+.svc-tab--plain::before,
+.svc-tab--plain::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--dna-line-strong);
+  border-style: solid;
+  opacity: 0.8;
+}
+
+.svc-tab--plain::before {
+  top: 2px;
+  left: 2px;
+  border-width: 1px 0 0 1px;
+}
+
+.svc-tab--plain::after {
+  bottom: 2px;
+  right: 2px;
+  border-width: 0 1px 1px 0;
+}
+
+.svc-tab:hover { color: #fff; }
+
+.svc-tab-line {
+  width: clamp(40px, 8vw, 120px);
+  height: 1px;
+  background: var(--dna-line-strong);
+}
+
+/* service blocks */
+.svc-block { padding-top: 40px; }
+
+.svc-name {
+  margin: 0;
+  text-align: center;
+  font-family: var(--dna-font-display);
+  font-weight: 400;
+  font-size: clamp(34px, 6.4vw, 88px);
+  line-height: 1;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.svc-tagline {
+  margin: 12px 0 0;
+  text-align: center;
+  font-size: clamp(16px, 2.4vw, 34px);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--dna-purple-soft);
+}
+
+/* the framed photo strip */
+.svc-triptych {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin: 42px auto 0;
+  max-width: 700px;
+}
+
+.svc-triptych img {
+  width: 100%;
+  aspect-ratio: 3 / 4.6;
   object-fit: cover;
 }
 
-/* Mobile Stacking Helpers */
-@media (max-width: 640px) {
-  .service-mobile-tight {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-  }
+@media (max-width: 700px) {
+  .svc-triptych { grid-template-columns: 1fr; max-width: 100%; }
+  .svc-triptych img { aspect-ratio: 16 / 10; }
+}
+
+.svc-copy {
+  margin: 34px auto 0;
+  max-width: 620px;
+  text-align: center;
+  font-size: clamp(15px, 1.5vw, 20px);
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--dna-muted);
+}
+
+.svc-highlight {
+  margin: 22px 0 0;
+  text-align: center;
+  font-size: clamp(15px, 1.9vw, 26px);
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dna-purple-soft);
 }

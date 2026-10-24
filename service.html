@@ -1,1190 +1,221 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AutoDNA™ — DNA Service™ | The Future of Automotive Service in Calgary</title>
-  <meta name="description" content="Next-generation automotive center in Calgary. Autonomous PaintBot™ robotic refinishing, Skip the Shop™ concierge pickup, and DriveCarePlan™ telematics intelligence.">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
-
-  <!-- Typography -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'dna-bg': '#020202',
-            'dna-surface': '#121121',
-            'dna-purple': '#9685ff',
-            'dna-violet': '#c2b9ff',
-            'dna-muted': '#c2b9ff',
-            'dna-border': '#38324f',
-            'dna-cyan': '#38bdf8'
-          },
-          fontFamily: {
-            display: ['Orbitron', 'Orbitron', 'sans-serif'],
-            body: ['Helvetica Neue', 'Helvetica', 'DM Sans', 'Arial', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
-
-  <!-- AutoDNA Shell CSS & Interactions -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/page-service.css">
-  <script src="assets/js/main.js" defer></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The future of service — AutoDNA Service</title>
+<meta name="description" content="AutoDNA Service — a next-generation automotive centre in Calgary. PaintBot, SkipTheShop, DriveCarePlan, Commercial.">
+<link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/page-service.css">
 </head>
-<body class="bg-[#07051d] text-white font-body antialiased overflow-x-hidden selection:bg-[#8b7cf6] selection:text-white">
+<body>
 
-  <!-- ==========================================================================
-       Shared Chrome: Preloader
-       ========================================================================== -->
-  <div id="dna-preloader" class="dna-preloader" aria-hidden="true">
-    <div class="flex items-center gap-3 mb-6">
-      <img src="assets/img/logo.svg" alt="AutoDNA" class="h-10 w-auto">
-      <span class="display font-bold text-xl tracking-widest text-white">AUTODNA<span class="text-[#8b7cf6]">™</span></span>
-    </div>
-    <div class="dna-progress-bar">
-      <div id="dna-preloader-bar" class="dna-progress-fill"></div>
-    </div>
-    <div class="mt-4 text-xs font-mono uppercase tracking-widest text-[#9d93b8]">INITIALIZING DNA SERVICE HUB...</div>
+<div class="preloader" id="preloader">
+  <div style="display:flex;flex-direction:column;align-items:center">
+    <img src="assets/img/logo.svg" alt="AutoDNA" style="height:38px">
+    <div class="preloader-bar"><i></i></div>
   </div>
+</div>
 
-  <!-- ==========================================================================
-       Shared Chrome: Header Partial (Verbatim)
-       ========================================================================== -->
-  <!-- Shared Chrome: AutoDNA Header Partial -->
-  <header class="dna-header w-full">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <!-- Brand Logo Link -->
-      <a href="index.html" class="flex items-center gap-2 sm:gap-3 group" aria-label="AutoDNA Home">
-        <img src="assets/img/logo.svg" alt="AutoDNA Logo" class="h-7 sm:h-8 w-auto">
-        <span class="hidden sm:inline display font-bold text-lg tracking-widest text-white group-hover:text-purple-300 transition-colors">AUTODNA<span class="text-[#8b7cf6]">™</span></span>
-      </a>
+<header class="site-header" style="position:absolute;padding:0">
+  <div class="shell" style="justify-content:flex-end">
+    <button class="burger" type="button" data-menu-open aria-label="Open menu" style="margin-top:22px"><span></span><span></span><span></span></button>
+  </div>
+</header>
 
-      <!-- Primary Navigation Links (4 Canonical Pages) -->
-      <nav class="hidden lg:flex items-center gap-8 text-xs font-semibold uppercase tracking-widest text-white/80" aria-label="Primary Navigation">
-        <a href="index.html" class="hover:text-white transition-colors py-1 border-b border-transparent hover:border-[#8b7cf6]">Home</a>
-        <a href="skipthedealer.html" class="hover:text-white transition-colors py-1 border-b border-transparent hover:border-[#8b7cf6]">SkipTheDealer™</a>
-        <a href="invest.html" class="hover:text-white transition-colors py-1 border-b border-transparent hover:border-[#8b7cf6]">DNA Flip™</a>
-        <a href="service.html" class="hover:text-white transition-colors py-1 border-b border-transparent text-[#8b7cf6] border-[#8b7cf6]">DNA Service™</a>
-      </nav>
+<div class="menu-overlay" id="menu" role="dialog" aria-modal="true" aria-label="Navigation">
+  <button class="menu-close" type="button" data-menu-close>Close</button>
+  <ul class="menu-panel" style="list-style:none;margin:0;padding:10px 0">
+    <li><a href="index.html">Main</a></li>
+    <li><a href="skipthedealer.html">SkipTheDealer</a></li>
+    <li><a href="invest.html">AutoDNA Flip</a></li>
+    <li><a href="service.html">AutoDNA Service</a></li>
+    <li><a href="#paintbot">PaintBot</a></li>
+    <li><a href="#shop">Skip the Shop</a></li>
+    <li><a href="#drivecare">DriveCarePlan</a></li>
+    <li><a href="#commercial">Commercial</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</div>
 
-      <!-- Header Actions & Menu Trigger -->
-      <div class="flex items-center gap-3">
-        <a href="skipthedealer.html#quote" class="hidden sm:inline-flex pill-btn-outline px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white hover:text-white">
-          Request Quote
-        </a>
-        <button type="button" data-menu-open class="pill-btn px-3 py-1.5 sm:px-4 sm:py-2 text-xs font-semibold uppercase tracking-widest flex items-center gap-2 text-white" aria-label="Open Navigation Menu">
-          <span>☰ DNA</span>
-        </button>
-      </div>
-    </div>
-  </header>
+<!-- HERO COLLAGE -->
+<section class="svc-hero">
+  <img class="svc-hero-img" src="assets/img/service/hero-collage.jpg" alt="Inside the AutoDNA Service centre">
+</section>
 
-  <!-- ==========================================================================
-       Shared Chrome: Fullscreen Navigation Overlay (Verbatim)
-       ========================================================================== -->
-  <!-- Shared Chrome: Fullscreen Navigation Overlay -->
-  <div id="dna-menu" class="dna-menu fixed inset-0 z-[1000] flex flex-col justify-between p-6 sm:p-10 lg:p-14" aria-hidden="true" role="dialog" aria-modal="true" aria-label="AutoDNA Navigation Menu">
-    <!-- Top Bar -->
-    <div class="max-w-7xl w-full mx-auto flex items-center justify-between pb-6 border-b border-white/10">
-      <a href="index.html" class="flex items-center gap-3">
-        <img src="assets/img/logo.svg" alt="AutoDNA" class="h-7 w-auto">
-        <span class="display font-bold text-base tracking-widest text-white">AUTODNA<span class="text-[#8b7cf6]">™</span></span>
-      </a>
-      <button type="button" data-menu-close class="pill-btn-outline px-4 py-2 text-xs font-semibold uppercase tracking-widest flex items-center gap-2 text-white hover:text-white" aria-label="Close Navigation Menu">
-        <span>✕ CLOSE</span>
-      </button>
+<!-- INTRO -->
+<section class="section svc-intro">
+  <div class="shell" style="max-width:1100px">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="width:100%;height:60px;display:block" aria-hidden="true">
+      <line x1="600" y1="0" x2="600" y2="34" stroke="rgba(194,185,255,0.4)"/>
+      <line x1="600" y1="34" x2="120" y2="58" stroke="rgba(194,185,255,0.25)"/>
+      <line x1="600" y1="34" x2="1080" y2="58" stroke="rgba(194,185,255,0.25)"/>
+    </svg>
+
+    <p class="prose-dna" style="text-align:center;font-size:17px;max-width:520px;margin:26px auto 0">
+      It’s not just a service — it’s a modern automotive ecosystem that integrates
+      telematics, robotics, and customer comfort.
+    </p>
+
+    <div class="bracket" style="margin-top:44px">
+      <img src="assets/img/service/showroom.jpg" alt="AutoDNA showroom floor" style="width:100%">
     </div>
 
-    <!-- Menu Body Grid -->
-    <div class="max-w-7xl w-full mx-auto my-auto py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-      <!-- Left Column: AutoDNA Core Ecosystem Services -->
-      <div class="lg:col-span-7 space-y-4">
-        <div class="text-xs uppercase tracking-widest text-[#9d93b8] font-mono">[01 // ECOSYSTEM SERVICES]</div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <a href="skipthedealer.html" class="glass-card p-5 group hover:border-[#8b7cf6] transition-all block">
-            <div class="text-xs text-[#8b7cf6] font-mono mb-1">01 / BUY &amp; SELL</div>
-            <div class="display text-base font-bold text-white group-hover:text-purple-300 transition-colors">SkipTheDealer™</div>
-            <p class="text-xs text-[#9d93b8] mt-1">Direct car sourcing below market with 100% transparency.</p>
-          </a>
-          <a href="invest.html" class="glass-card p-5 group hover:border-[#8b7cf6] transition-all block">
-            <div class="text-xs text-[#8b7cf6] font-mono mb-1">02 / CAPITAL</div>
-            <div class="display text-base font-bold text-white group-hover:text-purple-300 transition-colors">DNA Flip™</div>
-            <p class="text-xs text-[#9d93b8] mt-1">Invest in car flips backed by data. Up to 40% returns.</p>
-          </a>
-          <a href="service.html" class="glass-card p-5 group hover:border-[#8b7cf6] transition-all block">
-            <div class="text-xs text-[#8b7cf6] font-mono mb-1">03 / CARE</div>
-            <div class="display text-base font-bold text-white group-hover:text-purple-300 transition-colors">DNA Service™</div>
-            <p class="text-xs text-[#9d93b8] mt-1">Future-ready auto service, robotic repairs, mobile concierge.</p>
-          </a>
-          <a href="service.html#paintbot" class="glass-card p-5 group hover:border-[#8b7cf6] transition-all block">
-            <div class="text-xs text-[#8b7cf6] font-mono mb-1">04 / ROBOTICS</div>
-            <div class="display text-base font-bold text-white group-hover:text-purple-300 transition-colors">PaintBot™</div>
-            <p class="text-xs text-[#9d93b8] mt-1">Next-gen autonomous vehicle painting and surface perfection.</p>
-          </a>
-        </div>
-      </div>
+    <h2 class="display svc-claim">
+      the future of car service<br>begins in <span>calgary.</span>
+    </h2>
+  </div>
+</section>
 
-      <!-- Right Column: Navigation Links in HUD Frame -->
-      <div class="lg:col-span-5">
-        <div class="hud-corners glass-card p-6 sm:p-8 space-y-4">
-          <div class="text-xs uppercase tracking-widest text-[#9d93b8] font-mono flex items-center justify-between pb-3 border-b border-white/10">
-            <span>DNA DIRECTORY</span>
-            <span>CALGARY HQ</span>
-          </div>
-          <ul class="space-y-3 font-semibold text-sm uppercase tracking-wider text-white/90">
-            <li><a href="index.html" class="py-1 hover:text-[#8b7cf6] transition-colors flex items-center justify-between"><span>Home</span><span class="text-xs text-[#9d93b8] font-mono">01</span></a></li>
-            <li><a href="skipthedealer.html" class="py-1 hover:text-[#8b7cf6] transition-colors flex items-center justify-between"><span>SkipTheDealer™</span><span class="text-xs text-[#9d93b8] font-mono">02</span></a></li>
-            <li><a href="invest.html" class="py-1 hover:text-[#8b7cf6] transition-colors flex items-center justify-between"><span>DNA Flip™ (Invest)</span><span class="text-xs text-[#9d93b8] font-mono">03</span></a></li>
-            <li><a href="service.html" class="py-1 hover:text-[#8b7cf6] transition-colors flex items-center justify-between"><span>DNA Service™</span><span class="text-xs text-[#9d93b8] font-mono">04</span></a></li>
-            <li><a href="service.html#shop" class="py-1 hover:text-[#8b7cf6] transition-colors flex items-center justify-between"><span>Skip the Shop™</span><span class="text-xs text-[#9d93b8] font-mono">05</span></a></li>
-            <li><a href="service.html#drivecare" class="py-1 hover:text-[#8b7cf6] transition-colors flex items-center justify-between"><span>DriveCarePlan™</span><span class="text-xs text-[#9d93b8] font-mono">06</span></a></li>
-            <li><a href="service.html#commercial" class="py-1 hover:text-[#8b7cf6] transition-colors flex items-center justify-between"><span>Commercial Fleet</span><span class="text-xs text-[#9d93b8] font-mono">07</span></a></li>
-            <li><a href="#dna-footer" class="py-1 hover:text-[#8b7cf6] transition-colors flex items-center justify-between"><span>Contact &amp; Location</span><span class="text-xs text-[#9d93b8] font-mono">08</span></a></li>
-          </ul>
-        </div>
-      </div>
+<!-- ONE DNA, MULTIPLE SERVICES -->
+<section class="section svc-multi">
+  <div class="shell">
+    <h2 class="svc-mega">one DNA.<br><span>multiple services.</span></h2>
+
+    <nav class="svc-switch" aria-label="Services">
+      <a href="#shop" class="svc-tab">SkipTheShop</a>
+      <span class="svc-tab-line"></span>
+      <a href="#drivecare" class="svc-tab svc-tab--plain">DriveCarePlan</a>
+      <span class="svc-tab-line"></span>
+      <a href="#paintbot" class="svc-tab svc-tab--plain">PaintBot</a>
+    </nav>
+  </div>
+</section>
+
+<!-- SKIP THE SHOP -->
+<section class="section svc-block" id="shop">
+  <div class="shell">
+    <h2 class="svc-name">SkipTheShop</h2>
+    <p class="svc-tagline">YOUR CAR GOES TO SERVICE. YOU DON’T.</p>
+
+    <div class="svc-triptych bracket">
+      <img src="assets/img/service/shop-1.jpg" alt="Technician picking up the car">
+      <img src="assets/img/service/shop-2.jpg" alt="Service work in the bay">
+      <img src="assets/img/service/shop-3.jpg" alt="Car returned to the owner">
     </div>
 
-    <!-- Bottom Bar: Status info -->
-    <div class="max-w-7xl w-full mx-auto pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#9d93b8]">
-      <div>CALGARY, AB · FLAGSHIP FACILITY OPEN</div>
-      <div class="font-mono">AUTODNA™ v1.0 — SYSTEM ONLINE</div>
+    <p class="svc-copy">
+      A new format of car service — where you don’t go to the shop. Our technician picks up your
+      car, completes all necessary work, and brings it back to you.
+    </p>
+    <p class="svc-highlight">FAST. NO LINES. NO WASTED TIME.</p>
+  </div>
+</section>
+
+<!-- PAINTBOT -->
+<section class="section svc-block" id="paintbot">
+  <div class="shell">
+    <h2 class="svc-name">PaintBot</h2>
+    <p class="svc-tagline">THE ROBOT THAT PAINTS.</p>
+
+    <div class="svc-triptych bracket">
+      <img src="assets/img/service/paintbot-action.jpg" alt="PaintBot at work">
+      <img src="assets/img/service/paintbot-steps.jpg" alt="Painting process">
+      <img src="assets/img/service/paintbot-bay.jpg" alt="Paint bay">
+    </div>
+
+    <p class="svc-copy">
+      Six-axis robotic painting delivers a uniform coat every time — no dust, no human error.
+      Each panel is measured, prepped and sprayed in a controlled bay.
+    </p>
+    <p class="svc-highlight">PERFECT SURFACE. EVERY PANEL.</p>
+  </div>
+</section>
+
+<!-- DRIVECARE -->
+<section class="section svc-block" id="drivecare">
+  <div class="shell">
+    <h2 class="svc-name">DriveCarePlan</h2>
+    <p class="svc-tagline">SERVICE THAT PAYS FOR ITSELF.</p>
+
+    <div class="svc-triptych bracket">
+      <img src="assets/img/service/drivecare-bay.jpg" alt="DriveCare service bay">
+      <img src="assets/img/service/drivecare-plans-card.jpg" alt="DriveCare plans">
+      <img src="assets/img/service/cashback-pump-tail.jpg" alt="Fuel cashback">
+    </div>
+
+    <p class="svc-copy">
+      A maintenance plan that returns value at the pump: every visit earns fuel cashback, and
+      scheduled service keeps the car covered.
+    </p>
+    <p class="svc-highlight">EVERY CUSTOMER. EVERY VISIT.</p>
+  </div>
+</section>
+
+<!-- COMMERCIAL -->
+<section class="section svc-block" id="commercial">
+  <div class="shell">
+    <h2 class="svc-name">Commercial</h2>
+    <p class="svc-tagline">FLEET MAINTENANCE REINVENTED.</p>
+
+    <div class="svc-triptych bracket">
+      <img src="assets/img/service/commercial-fleet.jpg" alt="Commercial fleet">
+      <img src="assets/img/service/commercial-fleet-ops.jpg" alt="Fleet operations">
+      <img src="assets/img/service/hero-bay-mob.jpg" alt="Service bay">
+    </div>
+
+    <p class="svc-copy">
+      Scheduled maintenance for vans and light trucks, with one invoice per month and a single
+      point of contact for the whole fleet.
+    </p>
+    <p class="svc-highlight">ONE PARTNER. EVERY VEHICLE.</p>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section">
+  <div class="shell">
+    <div style="display:grid;grid-template-columns:0.95fr 1.05fr;gap:56px;align-items:start">
+      <div class="display" style="font-size:clamp(44px,6.4vw,104px);line-height:0.92;color:#fff">
+        inside<br>the mind<br>of <span style="color:var(--dna-purple)">AutoDNA.</span>
+      </div>
+      <div>
+        <div class="bracket"><img src="assets/img/service/team.jpg" alt="Inside the AutoDNA service team" style="width:100%"></div>
+        <p class="prose-dna" style="font-size:clamp(18px,1.9vw,26px);line-height:1.3;text-transform:uppercase;letter-spacing:0.06em;margin:30px 0 0">
+          They’re the reason AutoDNA feels different. Every face here stands for reliability,
+          innovation, and trust.
+        </p>
+      </div>
     </div>
   </div>
+</section>
 
-  <main>
-    <!-- ==========================================================================
-         P4.1: HERO SECTION — The Future of Service
-         ========================================================================== -->
-    <section id="hero" class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-[#07051d] service-hero-glow">
-      <!-- Glow background gradients -->
-      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-[#02183f]/60 via-[#7c5cff]/20 to-transparent blur-[140px] pointer-events-none rounded-full"></div>
-      <div class="absolute top-1/2 right-10 w-[400px] h-[400px] bg-[#8b7cf6]/10 blur-[120px] pointer-events-none rounded-full"></div>
-
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <!-- Hero Eyebrow & Badges -->
-        <div class="text-center max-w-4xl mx-auto space-y-6" data-reveal>
-          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-[#38324f] text-xs font-mono text-[#8b7cf6] tracking-widest uppercase">
-            <span class="w-2 h-2 rounded-full bg-[#8b7cf6] animate-pulse"></span>
-            FLAGSHIP CALGARY FACILITY NOW OPEN
-          </div>
-
-          <h1 class="display text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-white uppercase leading-none">
-            THE FUTURE OF <span class="bg-gradient-to-r from-white via-purple-200 to-[#8b7cf6] bg-clip-text text-transparent">SERVICE</span>
-          </h1>
-
-          <div class="display text-base sm:text-xl lg:text-2xl font-bold tracking-widest text-[#a78bfa] uppercase">
-            IS ALREADY HERE.
-          </div>
-
-          <p class="text-xs sm:text-sm font-mono tracking-widest uppercase text-[#9d93b8]">
-            INNOVATION. TECHNOLOGY. TRUST.
-          </p>
-
-          <p class="text-sm sm:text-base text-[#9d93b8] max-w-3xl mx-auto leading-relaxed pt-2">
-            AUTODNA SERVICE IS A <strong class="text-white">NEXT-GENERATION AUTOMOTIVE CENTER</strong>, EQUIPPED WITH INNOVATIVE TECHNOLOGY, A MODERN MINIMALIST AND SPOTLESS INTERIOR, SMART SERVICE SYSTEMS, A SKILLED TEAM, AND MUCH MORE — AS DESCRIBED BELOW.
-          </p>
-          <p class="text-xs sm:text-sm text-[#9d93b8]/80 max-w-2xl mx-auto italic">
-            It's not just a service — it's a modern automotive ecosystem that integrates telematics, robotics, and customer comfort.
-          </p>
-
-          <!-- CTAs -->
-          <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
-            <a href="#services" class="pill-btn px-8 py-4 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2">
-              <span>EXPLORE SERVICES</span>
-              <span>↓</span>
-            </a>
-            <a href="#paintbot" class="pill-btn-outline px-8 py-4 text-xs font-semibold uppercase tracking-wider inline-flex items-center gap-2">
-              <span>HOW IT WORKS</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Hero Visual: Facility Showroom in HUD frame -->
-        <div class="mt-16 max-w-5xl mx-auto" data-reveal>
-          <div class="hud-corners glass-card p-3 sm:p-6 relative overflow-hidden group">
-            <div class="relative w-full rounded-lg overflow-hidden border border-[#38324f] flex items-center justify-center bg-[#121121]">
-              <picture>
-                <source media="(max-width: 767px)" srcset="assets/img/service/hero-bay-mob.jpg">
-                <img src="assets/img/service/hero-showroom.jpg" alt="AutoDNA Flagship Service Center Calgary" class="w-full h-auto object-cover opacity-95 transition-transform duration-700 group-hover:scale-105">
-              </picture>
-              <div class="absolute inset-0 bg-gradient-to-t from-[#07051d] via-transparent to-transparent opacity-70"></div>
-              
-              <!-- Floating HUD Badge -->
-              <div class="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-[#07051d]/85 backdrop-blur-md border border-[#38324f] p-3 sm:p-4 rounded-lg">
-                <div>
-                  <div class="display text-xs sm:text-sm font-bold uppercase tracking-wider text-white">THE FUTURE OF CAR SERVICE BEGINS IN CALGARY</div>
-                  <div class="text-[11px] sm:text-xs font-mono text-[#9d93b8] mt-0.5">100 9 Ave SE · 12 High-Tech Service Bays · Autonomous Paint Cells</div>
-                </div>
-                <div class="flex items-center gap-2 text-xs font-mono text-[#8b7cf6]">
-                  <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                  <span>ONLINE &amp; ACCEPTING BOOKINGS</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Stats Bar -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6 pt-6 border-t border-[#38324f] text-center">
-              <div>
-                <div class="display text-xl sm:text-2xl font-bold text-white" data-count="12">12</div>
-                <div class="text-[11px] font-mono uppercase text-[#9d93b8] mt-1">Smart Bays</div>
-              </div>
-              <div>
-                <div class="display text-xl sm:text-2xl font-bold text-white" data-count="100" data-count-suffix="%">100%</div>
-                <div class="text-[11px] font-mono uppercase text-[#9d93b8] mt-1">Telematics Monitored</div>
-              </div>
-              <div>
-                <div class="display text-xl sm:text-2xl font-bold text-white" data-count="3" data-count-suffix="X">3X</div>
-                <div class="text-[11px] font-mono uppercase text-[#9d93b8] mt-1">Faster Turnaround</div>
-              </div>
-              <div>
-                <div class="display text-xl sm:text-2xl font-bold text-white" data-count="0" data-count-suffix=" WAIT">0 WAIT</div>
-                <div class="text-[11px] font-mono uppercase text-[#9d93b8] mt-1">Concierge Valet</div>
-              </div>
-            </div>
-          </div>
-        </div>
+<footer class="site-footer" id="contact">
+  <div class="shell">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Contact us</h4>
+        <p><a href="mailto:info@autodna.com">info@autodna.com</a></p>
+        <p><a href="tel:+14033128306">+1 (403) 312-8306</a></p>
       </div>
-    </section>
-
-    <!-- ==========================================================================
-         P4.2: SUB-SERVICE CARDS (Anchored navigation to the 4 sections)
-         ========================================================================== -->
-    <section id="services" class="py-20 relative overflow-hidden bg-[#121121]/60 border-t border-[#38324f]">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <!-- Section Header -->
-        <div class="text-center max-w-3xl mx-auto mb-12 space-y-4" data-reveal>
-          <div class="text-xs font-mono uppercase tracking-widest text-[#8b7cf6]">[02 // CORE SERVICE PILLARS]</div>
-          <h2 class="display text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white uppercase tracking-tight">
-            ONE DNA. <span class="bg-gradient-to-r from-white via-purple-200 to-[#8b7cf6] bg-clip-text text-transparent">MULTIPLE SERVICES.</span>
-          </h2>
-          <p class="text-sm sm:text-base text-[#9d93b8] leading-relaxed">
-            Select a service pillar to explore technical capabilities, autonomous systems, and booking options.
-          </p>
-
-          <!-- Anchor Navigation Pills -->
-          <div class="flex flex-wrap items-center justify-center gap-2 pt-2">
-            <a href="#paintbot" class="px-4 py-1.5 rounded-full border border-[#38324f] bg-white/5 hover:border-[#8b7cf6] text-xs font-mono uppercase text-[#a78bfa] transition-colors">PaintBot™</a>
-            <a href="#shop" class="px-4 py-1.5 rounded-full border border-[#38324f] bg-white/5 hover:border-[#8b7cf6] text-xs font-mono uppercase text-[#a78bfa] transition-colors">Skip the Shop™</a>
-            <a href="#drivecare" class="px-4 py-1.5 rounded-full border border-[#38324f] bg-white/5 hover:border-[#8b7cf6] text-xs font-mono uppercase text-[#a78bfa] transition-colors">DriveCarePlan™</a>
-            <a href="#commercial" class="px-4 py-1.5 rounded-full border border-[#38324f] bg-white/5 hover:border-[#8b7cf6] text-xs font-mono uppercase text-[#a78bfa] transition-colors">Commercial Fleet</a>
-          </div>
-        </div>
-
-        <!-- 4 Sub-service Anchor Cards Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <!-- Card 1: PaintBot™ -->
-          <a href="#paintbot" class="hud-corners glass-card p-5 flex flex-col justify-between group hover:border-[#8b7cf6] hover:-translate-y-1 transition-all duration-300 block" data-reveal>
-            <div>
-              <div class="flex items-center justify-between text-xs font-mono text-[#8b7cf6] mb-3">
-                <span>01 // ROBOTICS</span>
-                <span class="group-hover:translate-x-1 transition-transform">→</span>
-              </div>
-              <div class="w-full aspect-[4/3] rounded-lg overflow-hidden border border-[#38324f] mb-4 bg-[#07051d]">
-                <img src="assets/img/service/card-paintbot.jpg" alt="PaintBot Autonomous Robotic Paint" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-              </div>
-              <h3 class="display text-lg font-bold text-white uppercase mb-2 group-hover:text-purple-300 transition-colors">PaintBot™</h3>
-              <p class="text-xs text-[#9d93b8] leading-relaxed">
-                Autonomous robotic vehicle painting. Micron-level laser precision, zero overspray, and flawless OEM formula matching.
-              </p>
-            </div>
-            <div class="mt-6 pt-4 border-t border-[#38324f] flex items-center justify-between text-[11px] font-mono text-[#9d93b8]">
-              <span>FACTORY FINISH</span>
-              <span class="text-[#8b7cf6] font-semibold">EXPLORE #PAINTBOT</span>
-            </div>
+      <div class="footer-col">
+        <h4>Follow us</h4>
+        <div class="social-row">
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.1.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.1-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.1-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.1 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 5.1a4.7 4.7 0 100 9.4 4.7 4.7 0 000-9.4zm0 7.7a3 3 0 110-6 3 3 0 010 6zm6-8a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0z"/></svg>
           </a>
-
-          <!-- Card 2: Skip the Shop™ -->
-          <a href="#shop" class="hud-corners glass-card p-5 flex flex-col justify-between group hover:border-[#8b7cf6] hover:-translate-y-1 transition-all duration-300 block" data-reveal>
-            <div>
-              <div class="flex items-center justify-between text-xs font-mono text-[#8b7cf6] mb-3">
-                <span>02 // CONCIERGE</span>
-                <span class="group-hover:translate-x-1 transition-transform">→</span>
-              </div>
-              <div class="w-full aspect-[4/3] rounded-lg overflow-hidden border border-[#38324f] mb-4 bg-[#07051d]">
-                <img src="assets/img/service/card-shop.jpg" alt="Skip the Shop Concierge Pickup & Delivery" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-              </div>
-              <h3 class="display text-lg font-bold text-white uppercase mb-2 group-hover:text-purple-300 transition-colors">Skip the Shop™</h3>
-              <p class="text-xs text-[#9d93b8] leading-relaxed">
-                Your car goes to service. You don't. Valet pickup, certified repair, video inspections, and door-to-door delivery.
-              </p>
-            </div>
-            <div class="mt-6 pt-4 border-t border-[#38324f] flex items-center justify-between text-[11px] font-mono text-[#9d93b8]">
-              <span>DOOR-TO-DOOR</span>
-              <span class="text-[#8b7cf6] font-semibold">EXPLORE #SHOP</span>
-            </div>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9z"/></svg>
           </a>
-
-          <!-- Card 3: DriveCarePlan™ -->
-          <a href="#drivecare" class="hud-corners glass-card p-5 flex flex-col justify-between group hover:border-[#8b7cf6] hover:-translate-y-1 transition-all duration-300 block" data-reveal>
-            <div>
-              <div class="flex items-center justify-between text-xs font-mono text-[#8b7cf6] mb-3">
-                <span>03 // TELEMATICS</span>
-                <span class="group-hover:translate-x-1 transition-transform">→</span>
-              </div>
-              <div class="w-full aspect-[4/3] rounded-lg overflow-hidden border border-[#38324f] mb-4 bg-[#07051d]">
-                <img src="assets/img/service/card-drivecare.jpg" alt="DriveCarePlan Telematics Intelligence" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-              </div>
-              <h3 class="display text-lg font-bold text-white uppercase mb-2 group-hover:text-purple-300 transition-colors">DriveCarePlan™</h3>
-              <p class="text-xs text-[#9d93b8] leading-relaxed">
-                Continuous 24/7 ECU error tracking, preventative analytics, fuel concierge, and automated maintenance reminders.
-              </p>
-            </div>
-            <div class="mt-6 pt-4 border-t border-[#38324f] flex items-center justify-between text-[11px] font-mono text-[#9d93b8]">
-              <span>PREDICTIVE CARE</span>
-              <span class="text-[#8b7cf6] font-semibold">EXPLORE #DRIVECARE</span>
-            </div>
+          <a href="https://x.com" target="_blank" rel="noopener" aria-label="X">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 3h3.2l-7 8 8.2 10h-6.4l-5-6.1-5.7 6.1H1.6l7.5-8.5L1.3 3h6.5l4.5 5.5zM16.4 19h1.8L7.7 4.8H5.8z"/></svg>
           </a>
-
-          <!-- Card 4: Commercial Fleet -->
-          <a href="#commercial" class="hud-corners glass-card p-5 flex flex-col justify-between group hover:border-[#8b7cf6] hover:-translate-y-1 transition-all duration-300 block" data-reveal>
-            <div>
-              <div class="flex items-center justify-between text-xs font-mono text-[#8b7cf6] mb-3">
-                <span>04 // ENTERPRISE</span>
-                <span class="group-hover:translate-x-1 transition-transform">→</span>
-              </div>
-              <div class="w-full aspect-[4/3] rounded-lg overflow-hidden border border-[#38324f] mb-4 bg-[#07051d]">
-                <img src="assets/img/service/card-commercial.jpg" alt="Commercial Fleet Maintenance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-              </div>
-              <h3 class="display text-lg font-bold text-white uppercase mb-2 group-hover:text-purple-300 transition-colors">Commercial Fleet</h3>
-              <p class="text-xs text-[#9d93b8] leading-relaxed">
-                Enterprise fleet intelligence for logistics, courier vans, municipal fleets, and contractors. Up to 20% lower costs.
-              </p>
-            </div>
-            <div class="mt-6 pt-4 border-t border-[#38324f] flex items-center justify-between text-[11px] font-mono text-[#9d93b8]">
-              <span>ZERO DOWNTIME</span>
-              <span class="text-[#8b7cf6] font-semibold">EXPLORE #COMMERCIAL</span>
-            </div>
-          </a>
-        </div>
-
-        <!-- Official Site Direct Link -->
-        <div class="mt-12 text-center" data-reveal>
-          <div class="inline-flex flex-col sm:flex-row items-center gap-3 p-4 rounded-xl border border-[#38324f] bg-[#07051d]/90">
-            <span class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-white">
-              EXPLORE THE FUTURE OF CAR CARE — LEARN MORE ON OUR AUTODNA SERVICE OFFICIAL SITE:
-            </span>
-            <a href="skipthedealer.html#quote" class="pill-btn px-6 py-2 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2">
-              <span>AutoDnaService</span>
-              <span>↗</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         P4.3: TICKER BAND
-         ========================================================================== -->
-    <section class="border-y border-[#38324f] bg-[#07051d] py-4 relative z-20 overflow-hidden">
-      <div class="ticker-wrap">
-        <div class="ticker-track flex items-center gap-10 text-xs font-bold uppercase tracking-widest text-white/80 font-mono">
-          <span class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-[#8b7cf6]"></span> DNA SERVICE™</span>
-          <span class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-[#8b7cf6]"></span> DRIVECAREPLAN™</span>
-          <span class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-[#8b7cf6]"></span> PAINTBOT™ ROBOTIC REPAIR</span>
-          <span class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-[#8b7cf6]"></span> SKIP THE SHOP™ VALET</span>
-          <span class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-[#8b7cf6]"></span> COMMERCIAL FLEET MAINTENANCE</span>
-          <span class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-[#8b7cf6]"></span> CALGARY FLAGSHIP FACILITY</span>
-          <span class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-[#8b7cf6]"></span> 100% TELEMATICS MONITORED</span>
-          <span class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-[#8b7cf6]"></span> ZERO DOWNTIME GUARANTEE</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         P4.4: PAINTBOT™ SECTION (#paintbot)
-         ========================================================================== -->
-    <section id="paintbot" class="py-24 relative overflow-hidden bg-[#07051d]">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <!-- Section Header -->
-        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4" data-reveal>
-          <div class="text-xs font-mono uppercase tracking-widest text-[#8b7cf6]">[03 // ROBOTIC REFINISHING CELL]</div>
-          <div class="text-xs font-mono tracking-widest text-white/60 uppercase">PAINTBOT™</div>
-          <h2 class="display text-3xl sm:text-5xl font-extrabold text-white uppercase tracking-tight">
-            MEET THE ROBOT <span class="bg-gradient-to-r from-white via-purple-200 to-[#8b7cf6] bg-clip-text text-transparent">THAT PAINTS.</span>
-          </h2>
-          <p class="display text-xs sm:text-sm font-semibold tracking-wider text-[#a78bfa] uppercase">
-            A REVOLUTION IN VEHICLE REPAIR &amp; SURFACE FINISHING.
-          </p>
-          <p class="text-sm sm:text-base text-[#9d93b8] leading-relaxed">
-            PAINTBOT™ IS AN AUTOMATED ROBOTIC SYSTEM FOR VEHICLE PAINTING AND PREPARATION. HIGH PRECISION, ZERO HUMAN ERROR, AND PERFECT COLOR MATCHING EVERY SINGLE TIME.
-          </p>
-          <p class="text-xs sm:text-sm text-[#9d93b8]/80 italic">
-            It reduces turnaround time from days to hours, ensuring factory-grade finishing with unmatched consistency.
-          </p>
-        </div>
-
-        <!-- PaintBot Primary Visual & Feature Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-16">
-          <!-- Visual: 6-Axis Robotic Arm in HUD Frame -->
-          <div class="lg:col-span-6" data-reveal>
-            <div class="hud-corners glass-card p-4 sm:p-6 relative overflow-hidden group">
-              <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#38324f] bg-[#121121]">
-                <img src="assets/img/service/paintbot-bay.jpg" alt="AutoDNA PaintBot 6-Axis Autonomous Spray Robot Arm" class="w-full h-full object-cover filter drop-shadow-[0_0_30px_rgba(139,124,246,0.3)] transition-transform duration-700 group-hover:scale-105">
-                
-                <!-- HUD Overlays -->
-                <div class="absolute top-4 left-4 bg-[#07051d]/90 border border-[#38324f] px-3 py-1 rounded text-[10px] font-mono text-[#8b7cf6]">
-                  CALIBRATION: 0.02 MICRONS
-                </div>
-                <div class="absolute bottom-4 right-4 bg-[#07051d]/90 border border-[#38324f] px-3 py-1 rounded text-[10px] font-mono text-emerald-400">
-                  STERILE BOOTH: ISO CLASS 5
-                </div>
-              </div>
-              <div class="mt-4 flex items-center justify-between text-xs font-mono text-[#9d93b8]">
-                <span>MODEL: DNA-PB-6X</span>
-                <span>SPECTROPHOTOMETER: ACTIVE</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Feature Callouts (4 items) -->
-          <div class="lg:col-span-6 space-y-4" data-reveal>
-            <div class="glass-card p-6 border-l-4 border-l-[#8b7cf6]">
-              <div class="display text-sm font-bold text-white uppercase mb-1 flex items-center justify-between">
-                <span>100% PRECISION</span>
-                <span class="text-xs font-mono text-[#8b7cf6]">±0.02mm</span>
-              </div>
-              <p class="text-xs text-[#9d93b8] leading-relaxed">
-                Automated 3D laser profiling and multi-axis articulation down to individual microns. Every contour receives exact coat thickness.
-              </p>
-            </div>
-
-            <div class="glass-card p-6 border-l-4 border-l-[#8b7cf6]">
-              <div class="display text-sm font-bold text-white uppercase mb-1 flex items-center justify-between">
-                <span>ZERO OVERSPRAY</span>
-                <span class="text-xs font-mono text-[#8b7cf6]">99.8% EFFICIENCY</span>
-              </div>
-              <p class="text-xs text-[#9d93b8] leading-relaxed">
-                Eco-friendly closed-circuit electrostatic filtration capturing 99.8% of particulates with zero volatile paint waste.
-              </p>
-            </div>
-
-            <div class="glass-card p-6 border-l-4 border-l-[#8b7cf6]">
-              <div class="display text-sm font-bold text-white uppercase mb-1 flex items-center justify-between">
-                <span>3X FASTER</span>
-                <span class="text-xs font-mono text-[#8b7cf6]">SAME-DAY READY</span>
-              </div>
-              <p class="text-xs text-[#9d93b8] leading-relaxed">
-                Same-day turnaround for scratches, chips, scuffs, and full panel repaints. Infrared accelerated curing completes in minutes.
-              </p>
-            </div>
-
-            <div class="glass-card p-6 border-l-4 border-l-[#8b7cf6]">
-              <div class="display text-sm font-bold text-white uppercase mb-1 flex items-center justify-between">
-                <span>PERFECT OEM MATCH</span>
-                <span class="text-xs font-mono text-[#8b7cf6]">ΔE &lt; 0.3</span>
-              </div>
-              <p class="text-xs text-[#9d93b8] leading-relaxed">
-                AI computerized spectrophotometer matches OEM factory codes, aging deltas, and metallic flakes with zero visible difference.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- PaintBot Dual Action & Workflow Visuals -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16" data-reveal>
-          <div class="hud-corners glass-card p-4 rounded-xl overflow-hidden group">
-            <div class="relative w-full aspect-video rounded-lg overflow-hidden border border-[#38324f]">
-              <img src="assets/img/service/paintbot-action.jpg" alt="PaintBot Precision Automotive Panel Scanning & Spray" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-            </div>
-            <div class="mt-3 flex items-center justify-between text-xs font-mono text-[#9d93b8]">
-              <span>PRECISION PANEL SCANNING</span>
-              <span class="text-[#8b7cf6]">SUB-MILLIMETER TRACKING</span>
-            </div>
-          </div>
-
-          <div class="hud-corners glass-card p-4 rounded-xl overflow-hidden group">
-            <div class="relative w-full aspect-video rounded-lg overflow-hidden border border-[#38324f]">
-              <img src="assets/img/service/paintbot-steps.jpg" alt="PaintBot 3-Step Autonomous Repair Workflow" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-            </div>
-            <div class="mt-3 flex items-center justify-between text-xs font-mono text-[#9d93b8]">
-              <span>AUTONOMOUS WORKFLOW</span>
-              <span class="text-[#8b7cf6]">CLOSED-BOOTH PROCESS</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- How It Works: 3 Steps -->
-        <div class="mb-12" data-reveal>
-          <div class="text-center mb-8">
-            <div class="text-xs font-mono uppercase tracking-widest text-[#8b7cf6]">[WORKFLOW]</div>
-            <h3 class="display text-xl font-bold text-white uppercase mt-1">HOW PAINTBOT™ WORKS</h3>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="hud-corners glass-card p-6">
-              <div class="text-2xl font-bold font-mono text-[#8b7cf6] mb-2">01</div>
-              <div class="display text-sm font-bold text-white uppercase mb-2">DIGITAL 3D SCAN</div>
-              <p class="text-xs text-[#9d93b8] leading-relaxed">
-                High-resolution laser profiling maps body curves, panel curvature, and micro-damage into a dense spatial point cloud.
-              </p>
-            </div>
-
-            <div class="hud-corners glass-card p-6">
-              <div class="text-2xl font-bold font-mono text-[#8b7cf6] mb-2">02</div>
-              <div class="display text-sm font-bold text-white uppercase mb-2">AI FORMULA MIXING</div>
-              <p class="text-xs text-[#9d93b8] leading-relaxed">
-                Computer-controlled mixing chambers dispense pigments, binders, and pearls to match factory OEM paint formulas exactly.
-              </p>
-            </div>
-
-            <div class="hud-corners glass-card p-6">
-              <div class="text-2xl font-bold font-mono text-[#8b7cf6] mb-2">03</div>
-              <div class="display text-sm font-bold text-white uppercase mb-2">ROBOTIC APPLICATION</div>
-              <p class="text-xs text-[#9d93b8] leading-relaxed">
-                Multi-axis robotic arms spray base and clear coats under sterile positive pressure with thermal infrared flash-baking.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- CTA Band -->
-        <div class="text-center pt-6" data-reveal>
-          <a href="skipthedealer.html#quote" class="pill-btn px-8 py-4 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2">
-            <span>BOOK PAINTBOT™ SERVICE</span>
-            <span>→</span>
+          <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2s-.2-1.4-.8-2c-.8-.8-1.7-.8-2.1-.9C16.9 4.1 12 4.1 12 4.1h-.1s-4.9 0-6.7.2c-.4.1-1.3.1-2.1.9-.6.6-.8 2-.8 2S2 8.8 2 10.5v1.6c0 1.7.2 3.3.2 3.3s.2 1.4.8 2c.8.8 1.8.8 2.2.9 1.8.2 6.8.2 6.8.2s4.9 0 6.7-.2c.4-.1 1.3-.1 2.1-.9.6-.6.8-2 .8-2s.2-1.6.2-3.3v-1.6c0-1.7-.2-3.3-.2-3.3zM9.8 14.3V8.6l6.1 2.9z"/></svg>
           </a>
         </div>
       </div>
-    </section>
-
-    <!-- ==========================================================================
-         P4.5: SKIP THE SHOP SECTION (#shop)
-         ========================================================================== -->
-    <section id="shop" class="py-24 relative overflow-hidden bg-[#121121]/50 border-t border-[#38324f]">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <!-- Section Header -->
-        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4" data-reveal>
-          <div class="text-xs font-mono uppercase tracking-widest text-[#8b7cf6]">[04 // VALET CONCIERGE CARE]</div>
-          <div class="text-xs font-mono tracking-widest text-white/60 uppercase">SKIP THE SHOP™</div>
-          <h2 class="display text-3xl sm:text-5xl font-extrabold text-white uppercase tracking-tight">
-            YOUR CAR GOES TO SERVICE. <span class="bg-gradient-to-r from-white via-purple-200 to-[#8b7cf6] bg-clip-text text-transparent">YOU DON'T.</span>
-          </h2>
-          <p class="text-sm sm:text-base text-[#9d93b8] leading-relaxed">
-            A NEW FORMAT OF CAR SERVICE — WHERE YOU DON'T GO TO THE SHOP. OUR TECHNICIAN PICKS UP YOUR CAR, COMPLETES ALL NECESSARY WORK, AND BRINGS IT BACK TO YOU.
-          </p>
-          <div class="display text-xs sm:text-sm font-bold tracking-widest text-[#a78bfa] uppercase">
-            FAST. NO LINES. NO WASTED TIME.
-          </div>
-        </div>
-
-        <!-- Skip the Shop Dual Photographic Visuals -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16" data-reveal>
-          <div class="hud-corners glass-card p-4 rounded-xl overflow-hidden group">
-            <div class="relative w-full aspect-video rounded-lg overflow-hidden border border-[#38324f]">
-              <img src="assets/img/service/shop-carrier.jpg" alt="Skip the Shop Enclosed Transport Carrier & Doorstep Pickup" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-            </div>
-            <div class="mt-3 flex items-center justify-between text-xs font-mono text-[#9d93b8]">
-              <span>ENCLOSED CARRIER VALET</span>
-              <span class="text-[#8b7cf6]">CALGARY METRO COVERAGE</span>
-            </div>
-          </div>
-
-          <div class="hud-corners glass-card p-4 rounded-xl overflow-hidden group">
-            <div class="relative w-full aspect-video rounded-lg overflow-hidden border border-[#38324f]">
-              <img src="assets/img/service/shop-concierge-steps.jpg" alt="Skip the Shop 4-Step Concierge Delivery Cycle" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-            </div>
-            <div class="mt-3 flex items-center justify-between text-xs font-mono text-[#9d93b8]">
-              <span>4-STEP CYCLE</span>
-              <span class="text-[#8b7cf6]">100% VIDEO TRANSPARENCY</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 4 Process Steps -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          <div class="hud-corners glass-card p-6 flex flex-col justify-between" data-reveal>
-            <div>
-              <div class="text-2xl font-bold font-mono text-[#8b7cf6] mb-2">01</div>
-              <div class="display text-sm font-bold text-white uppercase mb-2">REQUEST ONLINE</div>
-              <p class="text-xs text-[#9d93b8] leading-relaxed">
-                Book your service appointment through our digital portal in under 2 minutes with upfront itemized pricing.
-              </p>
-            </div>
-            <div class="mt-6 pt-4 border-t border-[#38324f] text-[11px] font-mono text-[#9d93b8]">
-              ESTIMATE: INSTANT
-            </div>
-          </div>
-
-          <div class="hud-corners glass-card p-6 flex flex-col justify-between" data-reveal>
-            <div>
-              <div class="text-2xl font-bold font-mono text-[#8b7cf6] mb-2">02</div>
-              <div class="display text-sm font-bold text-white uppercase mb-2">CONCIERGE PICKUP</div>
-              <p class="text-xs text-[#9d93b8] leading-relaxed">
-                Our bonded, background-checked driver arrives at your Calgary home or office to securely collect your vehicle.
-              </p>
-            </div>
-            <div class="mt-6 pt-4 border-t border-[#38324f] text-[11px] font-mono text-[#9d93b8]">
-              VALET: CALGARY WIDE
-            </div>
-          </div>
-
-          <div class="hud-corners glass-card p-6 flex flex-col justify-between" data-reveal>
-            <div>
-              <div class="text-2xl font-bold font-mono text-[#8b7cf6] mb-2">03</div>
-              <div class="display text-sm font-bold text-white uppercase mb-2">CERTIFIED SERVICE</div>
-              <p class="text-xs text-[#9d93b8] leading-relaxed">
-                Technicians perform service in our high-tech bays. You receive live video inspections and approval requests.
-              </p>
-            </div>
-            <div class="mt-6 pt-4 border-t border-[#38324f] text-[11px] font-mono text-[#9d93b8]">
-              TRANSPARENCY: 100%
-            </div>
-          </div>
-
-          <div class="hud-corners glass-card p-6 flex flex-col justify-between" data-reveal>
-            <div>
-              <div class="text-2xl font-bold font-mono text-[#8b7cf6] mb-2">04</div>
-              <div class="display text-sm font-bold text-white uppercase mb-2">RETURNED TO DOOR</div>
-              <p class="text-xs text-[#9d93b8] leading-relaxed">
-                Your vehicle is delivered back to your exact location — detailed, test-driven, certified, and ready to go.
-              </p>
-            </div>
-            <div class="mt-6 pt-4 border-t border-[#38324f] text-[11px] font-mono text-[#9d93b8]">
-              WARRANTY INCLUDED
-            </div>
-          </div>
-        </div>
-
-        <!-- Our Promise Callout Box -->
-        <div class="max-w-4xl mx-auto hud-corners glass-card p-8 text-center space-y-4" data-reveal>
-          <div class="text-xs font-mono uppercase tracking-widest text-[#8b7cf6]">[OUR PROMISE]</div>
-          <h3 class="display text-lg sm:text-2xl font-bold text-white uppercase">
-            ZERO WAITING ROOMS. ZERO UNEXPECTED BILLS.
-          </h3>
-          <p class="text-xs sm:text-sm text-[#9d93b8] max-w-2xl mx-auto leading-relaxed">
-            100% digital estimates, full transparency with video inspections before any wrench turns. If you're not satisfied, we make it right.
-          </p>
-          <div class="pt-2">
-            <a href="skipthedealer.html#quote" class="pill-btn px-8 py-3 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2">
-              <span>SCHEDULE VALET SERVICE</span>
-              <span>→</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         P4.6: DRIVECAREPLAN SECTION (#drivecare)
-         ========================================================================== -->
-    <section id="drivecare" class="py-24 relative overflow-hidden bg-[#07051d] border-t border-[#38324f]">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <!-- Section Header -->
-        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4" data-reveal>
-          <div class="text-xs font-mono uppercase tracking-widest text-[#8b7cf6]">[05 // CONNECTED TELEMATICS SYSTEM]</div>
-          <div class="text-xs font-mono tracking-widest text-white/60 uppercase">DRIVECAREPLAN™</div>
-          <h2 class="display text-3xl sm:text-5xl font-extrabold text-white uppercase tracking-tight">
-            STAY INFORMED. <span class="bg-gradient-to-r from-white via-purple-200 to-[#8b7cf6] bg-clip-text text-transparent">STAY AHEAD.</span>
-          </h2>
-          <div class="display text-xs sm:text-sm font-bold tracking-widest text-[#a78bfa] uppercase">
-            SERVICE THAT PAYS FOR ITSELF.
-          </div>
-          <p class="text-sm sm:text-base text-[#9d93b8] leading-relaxed">
-            DRIVECAREPLAN IS A SYSTEM THAT COMBINES CAR MONITORING, ANALYTICS, AND PREVENTATIVE SERVICE. IT AUTOMATICALLY TRACKS THE STATUS OF YOUR VEHICLE (MILEAGE, FUEL CONSUMPTION, ECU ERRORS, TEMPERATURES, LOAD, ETC.) AND REMINDS YOU ABOUT NECESSARY MAINTENANCE, DIAGNOSTICS, OR REFUELING.
-          </p>
-          <p class="text-xs sm:text-sm text-[#9d93b8]/80 italic">
-            The plan integrates with our telematics devices and helps us remotely analyze the technical condition of your car 24/7.
-          </p>
-        </div>
-
-        <!-- DriveCare Dual Visual Showcase -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16" data-reveal>
-          <div class="hud-corners glass-card p-4 rounded-xl overflow-hidden group">
-            <div class="relative w-full aspect-video rounded-lg overflow-hidden border border-[#38324f]">
-              <img src="assets/img/service/drivecare-bay.jpg" alt="DriveCarePlan Vehicle Maintenance & Warranty Coverage" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-            </div>
-            <div class="mt-3 flex items-center justify-between text-xs font-mono text-[#9d93b8]">
-              <span>WARRANTY &amp; DIAGNOSTICS</span>
-              <span class="text-[#8b7cf6]">24/7 ECU MONITORING</span>
-            </div>
-          </div>
-
-          <div class="hud-corners glass-card p-4 rounded-xl overflow-hidden group">
-            <div class="relative w-full aspect-video rounded-lg overflow-hidden border border-[#38324f]">
-              <img src="assets/img/service/drivecare-plans-card.jpg" alt="DriveCarePlan Coverage Tiers & Telematics Intelligence" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-            </div>
-            <div class="mt-3 flex items-center justify-between text-xs font-mono text-[#9d93b8]">
-              <span>SUBSCRIPTION TIERS</span>
-              <span class="text-[#8b7cf6]">FUEL CASHBACK INCLUDED</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Telematics Feature & Description Grid (Table from Slice) -->
-        <div class="hud-corners glass-card p-6 sm:p-8 mb-16 overflow-hidden" data-reveal>
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 pb-4 border-b border-[#38324f] text-xs font-mono uppercase tracking-wider text-[#8b7cf6] hidden lg:grid">
-            <div class="lg:col-span-4">Feature</div>
-            <div class="lg:col-span-8">Description</div>
-          </div>
-
-          <div class="divide-y divide-[#38324f] space-y-4 lg:space-y-0">
-            <!-- Row 1 -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-2 lg:gap-4 py-4 items-start">
-              <div class="lg:col-span-4 display text-xs font-bold text-white uppercase">24/7 TELEMATICS MONITORING</div>
-              <div class="lg:col-span-8 text-xs text-[#9d93b8] leading-relaxed">
-                Via a telematics module, your car is constantly monitored for errors. Data is sent directly from your car's ECU, and any faults that appear are immediately reflected in our system.
-              </div>
-            </div>
-
-            <!-- Row 2 -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-2 lg:gap-4 py-4 items-start">
-              <div class="lg:col-span-4 display text-xs font-bold text-white uppercase">AUTOMATIC ERROR NOTIFICATIONS</div>
-              <div class="lg:col-span-8 text-xs text-[#9d93b8] leading-relaxed">
-                Our technicians analyze the severity of the problem and notify you if diagnostics or repair are needed.
-              </div>
-            </div>
-
-            <!-- Row 3 -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-2 lg:gap-4 py-4 items-start">
-              <div class="lg:col-span-4 display text-xs font-bold text-white uppercase">DRIVING AND EFFICIENCY ANALYTICS</div>
-              <div class="lg:col-span-8 text-xs text-[#9d93b8] leading-relaxed">
-                Analysis of fuel consumption, engine load, and driving style. If you suddenly see increased fuel consumption, it might indicate a need to check your tires, perform a wheel alignment, replace filters, etc., as these factors affect your engine, suspension, and costs.
-              </div>
-            </div>
-
-            <!-- Row 4 -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-2 lg:gap-4 py-4 items-start">
-              <div class="lg:col-span-4 display text-xs font-bold text-white uppercase">MILEAGE &amp; SCHEDULED REMINDERS</div>
-              <div class="lg:col-span-8 text-xs text-[#9d93b8] leading-relaxed">
-                We understand life is fast and you might forget about car maintenance (like when it's time to change oil or filters). Our system receives notifications when scheduled maintenance is due. We determine this interval with you—every 6,000, 8,000, or 10,000 km, depending on the car's mileage, make, type, etc. Our technicians will suggest the correct interval. We will notify you automatically when it's time for maintenance.
-              </div>
-            </div>
-
-            <!-- Row 5 -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-2 lg:gap-4 py-4 items-start">
-              <div class="lg:col-span-4 display text-xs font-bold text-white uppercase">LOW-FUEL CONCIERGE</div>
-              <div class="lg:col-span-8 text-xs text-[#9d93b8] leading-relaxed">
-                If your fuel level drops below 5 L, you receive an SMS: "Refuel now?". A courier will come for free and refuel your car directly at your home or work. This service operates within Calgary and its surroundings. You only pay for the cost of the gasoline (Shell, Costco, Esso, Chevron, Petro Canada).
-              </div>
-            </div>
-
-            <!-- Row 6 -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-2 lg:gap-4 py-4 items-start">
-              <div class="lg:col-span-4 display text-xs font-bold text-white uppercase">PRIORITY SERVICE</div>
-              <div class="lg:col-span-8 text-xs text-[#9d93b8] leading-relaxed">
-                You receive priority scheduling for service with expedited bay allocation.
-              </div>
-            </div>
-
-            <!-- Row 7 -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-2 lg:gap-4 py-4 items-start">
-              <div class="lg:col-span-4 display text-xs font-bold text-white uppercase">FREE PICKUP &amp; RETURN</div>
-              <div class="lg:col-span-8 text-xs text-[#9d93b8] leading-relaxed">
-                Free Pick-Up &amp; Return of your car for diagnostics anywhere within Calgary metropolitan area.
-              </div>
-            </div>
-
-            <!-- Row 8 -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-2 lg:gap-4 py-4 items-start">
-              <div class="lg:col-span-4 display text-xs font-bold text-white uppercase">MONTHLY TECHNICAL REPORT</div>
-              <div class="lg:col-span-8 text-xs text-[#9d93b8] leading-relaxed">
-                You receive a monthly technical report detailing battery voltage health, brake lining estimates, tire pressures, and engine performance trends.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Callout Banner: SEE PROBLEMS BEFORE THEY HAPPEN -->
-        <div class="text-center space-y-4 mb-8" data-reveal>
-          <h3 class="display text-2xl sm:text-4xl font-extrabold text-white uppercase">
-            SEE PROBLEMS <span class="bg-gradient-to-r from-white via-purple-200 to-[#8b7cf6] bg-clip-text text-transparent">BEFORE THEY HAPPEN.</span>
-          </h3>
-          <div class="pt-2">
-            <a href="skipthedealer.html#quote" class="pill-btn px-8 py-4 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2">
-              <span>ACTIVATE DRIVECAREPLAN™</span>
-              <span>→</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         P4.7: COMMERCIAL FLEET SECTION (#commercial)
-         ========================================================================== -->
-    <section id="commercial" class="py-24 relative overflow-hidden bg-[#121121]/50 border-t border-[#38324f]">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <!-- Section Header -->
-        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4" data-reveal>
-          <div class="text-xs font-mono uppercase tracking-widest text-[#8b7cf6]">[06 // COMMERCIAL FLEET INTELLIGENCE]</div>
-          <div class="text-xs font-mono tracking-widest text-white/60 uppercase">DRIVECARE PLAN™ COMMERCIAL</div>
-          <h2 class="display text-3xl sm:text-5xl font-extrabold text-white uppercase tracking-tight">
-            FLEET MAINTENANCE <span class="bg-gradient-to-r from-white via-purple-200 to-[#8b7cf6] bg-clip-text text-transparent">REINVENTED.</span>
-          </h2>
-          <div class="display text-xs sm:text-sm font-semibold tracking-wider text-[#a78bfa] uppercase">
-            WHERE TELEMATICS MEETS SERVICE INTELLIGENCE.
-          </div>
-          <p class="text-sm sm:text-base text-[#9d93b8] leading-relaxed">
-            DRIVECARE PLAN™ COMMERCIAL IS A SMART MONITORING AND MAINTENANCE SYSTEM FOR ANY FLEET.
-          </p>
-          <p class="text-xs sm:text-sm text-[#9d93b8]/90 max-w-3xl mx-auto leading-relaxed">
-            THIS AUTODNA PROGRAM IS CREATED FOR COMMERCIAL CLIENTS: FLEETS OF CONSTRUCTION COMPANIES, TAXI SERVICES, LOGISTICS AND COURIER COMPANIES (INCLUDING AMAZON DELIVERY, FEDEX, UPS), MUNICIPAL AND GOVERNMENT AGENCIES (CITY OF CALGARY FLEET, POLICE, FIRE DEPARTMENTS, SCHOOL BUSES), AS WELL AS SMALL BUSINESSES WITH A FEW VEHICLES.
-          </p>
-          <p class="text-xs sm:text-sm text-[#9d93b8]/80 italic max-w-2xl mx-auto">
-            It automatically tracks the status of every vehicle (mileage, fuel consumption, ECU errors, temperature, load) and reminds about necessary maintenance, diagnostics, or refueling. The plan integrates with our telematics devices and helps manage the technical condition of tens or hundreds of vehicles without human error.
-          </p>
-        </div>
-
-        <!-- Commercial Fleet Dual Visual Showcase -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16" data-reveal>
-          <div class="hud-corners glass-card p-4 rounded-xl overflow-hidden group">
-            <div class="relative w-full aspect-video rounded-lg overflow-hidden border border-[#38324f]">
-              <img src="assets/img/service/commercial-fleet.jpg" alt="Commercial Fleet Maintenance Vans & Enterprise Vehicle Fleet" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-            </div>
-            <div class="mt-3 flex items-center justify-between text-xs font-mono text-[#9d93b8]">
-              <span>COMMERCIAL FLEET VANS</span>
-              <span class="text-[#8b7cf6]">LOGISTICS &amp; CONTRACTORS</span>
-            </div>
-          </div>
-
-          <div class="hud-corners glass-card p-4 rounded-xl overflow-hidden group">
-            <div class="relative w-full aspect-video rounded-lg overflow-hidden border border-[#38324f]">
-              <img src="assets/img/service/commercial-fleet-ops.jpg" alt="Commercial Fleet Operations, Mobile Diagnostics & Telematics" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-            </div>
-            <div class="mt-3 flex items-center justify-between text-xs font-mono text-[#9d93b8]">
-              <span>ENTERPRISE DISPATCH</span>
-              <span class="text-[#8b7cf6]">ZERO DOWNTIME TELEMETRY</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- How It Works: 4 Steps for Commercial Fleet -->
-        <div class="mb-16" data-reveal>
-          <div class="text-center mb-8">
-            <div class="text-xs font-mono uppercase tracking-widest text-[#8b7cf6]">[ENTERPRISE WORKFLOW]</div>
-            <h3 class="display text-xl font-bold text-white uppercase mt-1">HOW COMMERCIAL FLEET WORKS</h3>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="hud-corners glass-card p-6 flex flex-col justify-between">
-              <div>
-                <div class="text-2xl font-bold font-mono text-[#8b7cf6] mb-2">01</div>
-                <div class="display text-xs font-bold text-white uppercase mb-2">OBD-MODULE INSTALLATION</div>
-                <p class="text-xs text-[#9d93b8] leading-relaxed">
-                  Installation of an OBD telematics module in every vehicle across your fleet in minutes.
-                </p>
-              </div>
-              <div class="mt-6 pt-4 border-t border-[#38324f] text-[11px] font-mono text-[#9d93b8]">
-                PLUG-AND-PLAY HARDWARE
-              </div>
-            </div>
-
-            <div class="hud-corners glass-card p-6 flex flex-col justify-between">
-              <div>
-                <div class="text-2xl font-bold font-mono text-[#8b7cf6] mb-2">02</div>
-                <div class="display text-xs font-bold text-white uppercase mb-2">REAL-TIME DATA COLLECTION</div>
-                <p class="text-xs text-[#9d93b8] leading-relaxed">
-                  Continuous telemetry: mileage, fuel level, ECU errors, cooling temperature, RPM, and engine load.
-                </p>
-              </div>
-              <div class="mt-6 pt-4 border-t border-[#38324f] text-[11px] font-mono text-[#9d93b8]">
-                LIVE STREAMING TELEMETRY
-              </div>
-            </div>
-
-            <div class="hud-corners glass-card p-6 flex flex-col justify-between">
-              <div>
-                <div class="text-2xl font-bold font-mono text-[#8b7cf6] mb-2">03</div>
-                <div class="display text-xs font-bold text-white uppercase mb-2">AUTOMATIC TRIGGERS</div>
-                <p class="text-xs text-[#9d93b8] leading-relaxed">
-                  Reminders for oil change, filter replacement, and scheduled maintenance. Warnings about overheating and errors.
-                </p>
-              </div>
-              <div class="mt-6 pt-4 border-t border-[#38324f] text-[11px] font-mono text-[#9d93b8]">
-                PREDICTIVE THRESHOLDS
-              </div>
-            </div>
-
-            <div class="hud-corners glass-card p-6 flex flex-col justify-between">
-              <div>
-                <div class="text-2xl font-bold font-mono text-[#8b7cf6] mb-2">04</div>
-                <div class="display text-xs font-bold text-white uppercase mb-2">NOTIFICATIONS &amp; SCHEDULING</div>
-                <p class="text-xs text-[#9d93b8] leading-relaxed">
-                  Fleet managers see dedicated dashboards. Instant push &amp; email alerts allow immediate pickup scheduling.
-                </p>
-              </div>
-              <div class="mt-6 pt-4 border-t border-[#38324f] text-[11px] font-mono text-[#9d93b8]">
-                FLEET DASHBOARD &amp; DISPATCH
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Fleet Advantages Grid (5 Benefits from Slice) -->
-        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-16" data-reveal>
-          <div class="glass-card p-5 text-center">
-            <div class="display text-xs font-bold text-white uppercase mb-2">ZERO DOWNTIME</div>
-            <p class="text-[11px] text-[#9d93b8] leading-relaxed">
-              Vehicles are not idled due to missed maintenance. Proactive service schedules keep assets on the road.
-            </p>
-          </div>
-
-          <div class="glass-card p-5 text-center">
-            <div class="display text-xs font-bold text-white uppercase mb-2">PREDICTIVE MAINTENANCE</div>
-            <p class="text-[11px] text-[#9d93b8] leading-relaxed">
-              The system warns about problems before a breakdown occurs, preventing catastrophic engine failures.
-            </p>
-          </div>
-
-          <div class="glass-card p-5 text-center">
-            <div class="display text-xs font-bold text-white uppercase mb-2">AUTOMATIC SCHEDULING</div>
-            <p class="text-[11px] text-[#9d93b8] leading-relaxed">
-              Service is planned automatically based on actual mileage, hours, and duty cycle condition.
-            </p>
-          </div>
-
-          <div class="glass-card p-5 text-center">
-            <div class="display text-xs font-bold text-white uppercase mb-2">ECO &amp; COST-SAVING</div>
-            <p class="text-[11px] text-[#9d93b8] leading-relaxed">
-              Reduction in fuel consumption and repair costs by up to 20% through efficient route and engine monitoring.
-            </p>
-          </div>
-
-          <div class="glass-card p-5 text-center">
-            <div class="display text-xs font-bold text-white uppercase mb-2">PICKUP &amp; RETURN</div>
-            <p class="text-[11px] text-[#9d93b8] leading-relaxed">
-              Service without queues, with automated vehicle delivery to and from your commercial depot.
-            </p>
-          </div>
-        </div>
-
-        <!-- Big Banner & CTA -->
-        <div class="hud-corners glass-card p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-6" data-reveal>
-          <h3 class="display text-2xl sm:text-4xl font-extrabold text-white uppercase">
-            SEE PROBLEMS <span class="bg-gradient-to-r from-white via-purple-200 to-[#8b7cf6] bg-clip-text text-transparent">BEFORE THEY HAPPEN.</span>
-          </h3>
-          <p class="text-xs sm:text-sm text-[#9d93b8] max-w-2xl mx-auto">
-            Equip your company vehicles with DriveCare Plan™ Commercial. Lower operating expenses, eliminate unexpected roadside breakdowns, and centralize fleet health in one portal.
-          </p>
-          <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
-            <a href="skipthedealer.html#quote" class="pill-btn px-8 py-4 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2">
-              <span>REQUEST FLEET CONSULTATION</span>
-              <span>→</span>
-            </a>
-            <a href="mailto:info@autodna.com" class="pill-btn-outline px-8 py-4 text-xs font-semibold uppercase tracking-wider inline-flex items-center gap-2">
-              <span>CONTACT FLEET TEAM</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         P4.8: EVERY CUSTOMER. EVERY VISIT. (Petrol Cashback Band)
-         ========================================================================== -->
-    <section id="cashback" class="py-20 relative overflow-hidden bg-cashback-lilac border-t border-[#38324f]">
-      <!-- Glow background -->
-      <div class="absolute inset-0 bg-gradient-to-r from-[#2e2766] via-transparent to-[#2e2766] pointer-events-none"></div>
-
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="hud-corners glass-card p-6 sm:p-10 lg:p-12 border-[#8b7cf6]/40 relative overflow-hidden" data-reveal>
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div class="lg:col-span-7 space-y-4">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-white/5 border border-white/10 text-xs font-mono text-[#8b7cf6] uppercase">
-                EXCLUSIVE AUTODNA BENEFIT
-              </div>
-              <h2 class="display text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white uppercase tracking-tight">
-                EVERY CUSTOMER. <span class="bg-gradient-to-r from-white via-purple-200 to-[#8b7cf6] bg-clip-text text-transparent">EVERY VISIT.</span>
-              </h2>
-              <div class="display text-sm sm:text-base font-bold tracking-wider text-[#a78bfa] uppercase">
-                NO ONE REFUNDS YOUR FUEL. EXCEPT US.
-              </div>
-              <p class="text-xs sm:text-sm text-[#9d93b8] max-w-2xl leading-relaxed">
-                Receive instant gasoline cashback on every service appointment, mechanical repair, or PaintBot™ refinishing visit at our Calgary facility. We value your time and fuel.
-              </p>
-              <div class="pt-4 flex items-center gap-4">
-                <a href="skipthedealer.html#quote" class="pill-btn px-8 py-4 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2">
-                  <span>CLAIM YOUR FUEL CASHBACK</span>
-                  <span>→</span>
-                </a>
-                <div class="text-xs font-mono text-white/90">
-                  <span class="display text-xl sm:text-2xl font-extrabold text-white" data-count="100" data-count-suffix="%">100%</span>
-                  <div class="text-[10px] text-[#9d93b8] uppercase">ELIGIBLE VISITS</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Photographic Image: Petrol Pump Cashback Tail Visual -->
-            <div class="lg:col-span-5 flex flex-col items-center justify-center">
-              <div class="w-full rounded-xl overflow-hidden border border-[#38324f] bg-[#07051d] shadow-2xl">
-                <img src="assets/img/service/cashback-pump-tail.jpg" alt="Every Customer Every Visit Petrol Cashback 100%" class="w-full h-auto object-cover">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         P4.9: TEAM BAND (#team) — Inside the Mind of AutoDNA
-         ========================================================================== -->
-    <section id="team" class="py-24 relative overflow-hidden bg-team-violet border-t border-[#38324f]">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <!-- Section Header -->
-        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4" data-reveal>
-          <div class="text-xs font-mono uppercase tracking-widest text-[#8b7cf6]">[07 // THE TEAM]</div>
-          <h2 class="display text-3xl sm:text-5xl font-extrabold text-white uppercase tracking-tight">
-            INSIDE THE MIND OF <span class="bg-gradient-to-r from-white via-purple-200 to-[#8b7cf6] bg-clip-text text-transparent">AUTODNA.</span>
-          </h2>
-          <div class="space-y-2 text-xs sm:text-sm text-[#9d93b8]/90 italic max-w-2xl mx-auto">
-            <p>“We believe great service starts with clarity — in thinking, in process, in space.”</p>
-            <p>“And it's born where great people work together with one clear vision — to redefine car care.”</p>
-          </div>
-        </div>
-
-        <!-- Team Visual & Highlight Block -->
-        <div class="hud-corners glass-card p-4 sm:p-8 mb-12" data-reveal>
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <!-- Team Photo Graphic -->
-            <div class="lg:col-span-5">
-              <div class="w-full rounded-xl border border-[#38324f] overflow-hidden bg-[#07051d]">
-                <picture>
-                  <source media="(max-width: 767px)" srcset="assets/img/shared/team-mob.jpg">
-                  <img src="assets/img/service/team.jpg" alt="Inside the Mind of AutoDNA Leadership Team" class="w-full h-auto object-cover">
-                </picture>
-              </div>
-            </div>
-
-            <!-- Team Statement & Values -->
-            <div class="lg:col-span-7 space-y-6">
-              <div class="display text-xl sm:text-2xl font-bold text-white uppercase leading-snug">
-                THEY'RE THE REASON AUTODNA FEELS DIFFERENT.
-              </div>
-              <p class="display text-xs sm:text-sm font-semibold tracking-wider text-[#a78bfa] uppercase">
-                EVERY FACE HERE STANDS FOR RELIABILITY, INNOVATION, AND TRUST.
-              </p>
-              <p class="text-xs sm:text-sm text-[#9d93b8] leading-relaxed">
-                From master mechanics certified on advanced Euro &amp; EV drivetrains to robotics engineers programming autonomous paint arms, our team is unified under one mandate: bring integrity, technical perfection, and effortless transparency to Calgary vehicle care.
-              </p>
-
-              <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-[#38324f] text-xs font-mono">
-                <div>
-                  <div class="text-white font-bold">14+ YEARS</div>
-                  <div class="text-[#9d93b8] text-[11px]">CALGARY EXP.</div>
-                </div>
-                <div>
-                  <div class="text-white font-bold">RED SEAL</div>
-                  <div class="text-[#9d93b8] text-[11px]">CERTIFIED TECHS</div>
-                </div>
-                <div>
-                  <div class="text-white font-bold">2,200+</div>
-                  <div class="text-[#9d93b8] text-[11px]">VEHICLES SERVICED</div>
-                </div>
-              </div>
-
-              <div class="pt-4">
-                <a href="skipthedealer.html#quote" class="pill-btn px-8 py-3 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2">
-                  <span>CONTACT WITH US</span>
-                  <span>↗</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ==========================================================================
-       Shared Chrome: Footer Partial (Verbatim with id="dna-footer")
-       ========================================================================== -->
-  <!-- Shared Chrome: AutoDNA Footer Partial -->
-  <footer id="dna-footer" class="dna-footer w-full bg-[#07051d] text-white border-t border-white/10 pt-16 pb-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- 3-Column Grid: Contact / Follow / Find -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-12 border-b border-white/10">
-        
-        <!-- Column 1: Contact Us -->
-        <div class="space-y-4">
-          <div class="display text-xs font-bold uppercase tracking-widest text-[#8b7cf6]">
-            CONTACT US
-          </div>
-          <div class="space-y-2 text-sm font-mono text-white/90">
-            <div>
-              <a href="tel:+14033128306" class="hover:text-[#8b7cf6] transition-colors flex items-center justify-between group">
-                <span>+1 (403) 312-8306</span>
-                <span class="text-xs text-[#9d93b8] group-hover:text-white transition-colors">↗</span>
-              </a>
-            </div>
-            <div>
-              <a href="mailto:info@autodna.com" class="hover:text-[#8b7cf6] transition-colors flex items-center justify-between group">
-                <span>info@autodna.com</span>
-                <span class="text-xs text-[#9d93b8] group-hover:text-white transition-colors">↗</span>
-              </a>
-            </div>
-          </div>
-          <div class="text-[11px] font-mono text-[#9d93b8] pt-2">
-            HOURS: MON–SAT 08:00 – 19:00 MST
-          </div>
-        </div>
-
-        <!-- Column 2: Follow Us -->
-        <div class="space-y-4">
-          <div class="display text-xs font-bold uppercase tracking-widest text-[#8b7cf6]">
-            FOLLOW US
-          </div>
-          <p class="text-xs text-[#9d93b8]">
-            Stay connected with AutoDNA on social networks for daily flips, service highlights, and automotive intelligence.
-          </p>
-          <div class="flex items-center gap-3 pt-2">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/80 hover:text-white hover:border-[#8b7cf6] hover:bg-white/10 transition-all" aria-label="Facebook">
-              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            </a>
-            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/80 hover:text-white hover:border-[#8b7cf6] hover:bg-white/10 transition-all" aria-label="X (Twitter)">
-              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/80 hover:text-white hover:border-[#8b7cf6] hover:bg-white/10 transition-all" aria-label="Instagram">
-              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Column 3: Find Us -->
-        <div class="space-y-4">
-          <div class="display text-xs font-bold uppercase tracking-widest text-[#8b7cf6]">
-            FIND US
-          </div>
-          <div class="text-sm font-mono text-white/90 leading-relaxed">
-            <div>730 2 Ave SW,</div>
-            <div>Calgary, T2P 1R8,</div>
-            <div>Canada</div>
-          </div>
-          <div>
-            <a href="https://maps.google.com/?q=730+2+Ave+SW+Calgary+AB+Canada" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-mono text-[#8b7cf6] hover:text-white transition-colors">
-              <span>OPEN IN GOOGLE MAPS</span>
-              <span>↗</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bottom Disclaimer & Copyright -->
-      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#9d93b8]">
-        <div>
-          © 2025 AutoDNA Canada. All rights reserved.
-        </div>
-        <div class="flex items-center gap-6">
-          <a href="skipthedealer.html" class="hover:text-white transition-colors">SkipTheDealer™</a>
-          <a href="invest.html" class="hover:text-white transition-colors">DNA Flip™</a>
-          <a href="service.html" class="text-white hover:text-white transition-colors">DNA Service™</a>
-          <a href="#hero" class="hover:text-white transition-colors">Back to Top ↑</a>
-        </div>
+      <div class="footer-col">
+        <h4>Find us</h4>
+        <p>Calgary, Alberta, Canada</p>
+        <p>730 2 Ave SW,<br>Calgary, T2P1R8, Canada</p>
       </div>
     </div>
-  </footer>
+    <div class="footer-bottom">© 2025 AutoDNA Canada. All rights reserved.</div>
+  </div>
+</footer>
 
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>

@@ -1,407 +1,850 @@
 /* ==========================================================================
-   AUTODNA — Shared Shell & Design System Companion
-   Tokens, Core Utilities, and Component Classes for Tailwind CSS CDN
+   AutoDNA — shared styles
+   Design language: HUD frame brackets, connector lines, thin outlined
+   buttons, wide-tracked Orbitron over a near-black canvas.
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap');
 
-/* --- Tokens / Custom Properties --- */
 :root {
+  /* canvas */
   --dna-bg: #020202;
-  --dna-bg-surface: #0c051d;
-  --dna-bg-card: rgba(18, 10, 36, 0.7);
+  --dna-ink: #03022a;
+  --dna-panel: #131228;
+  --dna-panel-2: #1a1830;
+
+  /* purple family */
   --dna-purple: #9685ff;
-  --dna-violet: #c2b9ff;
-  --dna-purple-deep: #7c5cff;
-  --dna-violet-bright: #b06cff;
-  --dna-grad: linear-gradient(135deg, #7c5cff 0%, #b06cff 100%);
-  --dna-grad-hover: linear-gradient(135deg, #8b6aff 0%, #bd7dff 100%);
-  --dna-border: rgba(139, 124, 246, 0.25);
-  --dna-border-strong: rgba(167, 139, 250, 0.5);
-  --dna-text-muted: #c2b9ff;
-  --dna-font-display: 'Orbitron', 'Michroma', sans-serif;
+  --dna-purple-soft: #c2b9ff;
+  --dna-purple-deep: #433694;
+  --dna-purple-mid: #594bb1;
+  --dna-glow: #5140c8;
+
+  /* text */
+  --dna-white: #ffffff;
+  --dna-text: #edebfb;
+  --dna-muted: #c2b9ff;
+  --dna-dim: rgba(194, 185, 255, 0.6);
+
+  --dna-line: rgba(194, 185, 255, 0.22);
+  --dna-line-strong: rgba(194, 185, 255, 0.45);
+
+  --dna-font-display: 'Orbitron', 'Arial Black', sans-serif;
   --dna-font-body: 'Helvetica Neue', Helvetica, 'DM Sans', Arial, sans-serif;
+
+  --dna-shell: 1440px;
+  --dna-gutter: 60px;
 }
 
-/* --- Base Resets & Theme Settings --- */
-html {
-  background-color: var(--dna-bg);
-  color: #ffffff;
-  font-family: var(--dna-font-body);
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
-  background-color: var(--dna-bg);
-  color: #ffffff;
-  overflow-x: hidden;
-  min-height: 100vh;
-}
-
-/* Selection */
-::selection {
-  background-color: var(--dna-purple);
-  color: #ffffff;
-}
-
-/* --- Typography Utilities --- */
-.display,
-.font-display {
-  font-family: var(--dna-font-display);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.font-body {
+  margin: 0;
+  background: var(--dna-bg);
+  color: var(--dna-text);
   font-family: var(--dna-font-body);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-/* --- HUD Corner Brackets --- */
-.hud-corners {
-  position: relative;
-}
+img { display: block; max-width: 100%; }
 
-.hud-corners::before,
-.hud-corners::after {
-  content: "";
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  pointer-events: none;
-  border-color: var(--dna-purple);
-  border-style: solid;
-  transition: border-color 0.25s ease, transform 0.25s ease;
-}
+a { color: inherit; text-decoration: none; }
 
-.hud-corners::before {
-  top: -1px;
-  left: -1px;
-  border-width: 2px 0 0 2px;
-}
+::selection { background: var(--dna-purple); color: #0b0820; }
 
-.hud-corners::after {
-  bottom: -1px;
-  right: -1px;
-  border-width: 0 2px 2px 0;
-}
+/* --------------------------------------------------------------------------
+   Layout
+   -------------------------------------------------------------------------- */
 
-.hud-corners:hover::before,
-.hud-corners:hover::after {
-  border-color: var(--dna-violet);
-}
-
-/* Four-corner HUD box */
-.hud-corners-all {
-  position: relative;
-}
-
-.hud-corners-all::before,
-.hud-corners-all::after {
-  content: "";
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  pointer-events: none;
-  border-color: var(--dna-purple);
-  border-style: solid;
-}
-
-.hud-corners-all::before {
-  top: -1px;
-  left: -1px;
-  border-width: 2px 0 0 2px;
-}
-
-.hud-corners-all::after {
-  bottom: -1px;
-  right: -1px;
-  border-width: 0 2px 2px 0;
-}
-
-/* --- Buttons --- */
-.pill-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.75rem;
-  border-radius: 9999px;
-  background: var(--dna-grad);
-  color: #ffffff;
-  font-family: var(--dna-font-display);
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border: 1px solid transparent;
-  box-shadow: 0 0 22px rgba(124, 92, 255, 0.4);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-  cursor: pointer;
-  user-select: none;
-  white-space: nowrap;
-}
-
-.pill-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(176, 108, 255, 0.65);
-  filter: brightness(1.12);
-}
-
-.pill-btn:active {
-  transform: translateY(0);
-}
-
-.pill-btn-outline {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.75rem;
-  border-radius: 9999px;
-  background: transparent;
-  color: #ffffff;
-  font-family: var(--dna-font-display);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border: 1px solid rgba(167, 139, 250, 0.45);
-  transition: all 0.2s ease;
-  cursor: pointer;
-  user-select: none;
-  white-space: nowrap;
-}
-
-.pill-btn-outline:hover {
-  border-color: var(--dna-violet);
-  background: rgba(139, 124, 246, 0.15);
-  box-shadow: 0 0 22px rgba(139, 124, 246, 0.3);
-  color: #ffffff;
-}
-
-.pill-btn-outline:active {
-  transform: translateY(0);
-}
-
-/* --- Glass Card --- */
-.glass-card {
-  background: var(--dna-bg-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--dna-border);
-  border-radius: 16px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.glass-card:hover {
-  border-color: var(--dna-border-strong);
-  box-shadow: 0 12px 40px 0 rgba(124, 92, 255, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-}
-
-/* --- Marquee / Ticker --- */
-.ticker-wrap {
-  overflow: hidden;
-  white-space: nowrap;
-  position: relative;
+.shell {
   width: 100%;
+  max-width: var(--dna-shell);
+  margin: 0 auto;
+  padding: 0 var(--dna-gutter);
+}
+
+@media (max-width: 900px) {
+  :root { --dna-gutter: 24px; }
+}
+
+/* --------------------------------------------------------------------------
+   Type
+   -------------------------------------------------------------------------- */
+
+.display {
+  font-family: var(--dna-font-display);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+/* the huge outlined words: CARLEARS, PRICE COMPARISON, SERVICES, AUTO CLUB */
+.display-outline {
+  font-family: var(--dna-font-display);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(194, 185, 255, 0.55);
+}
+
+/* thin light body copy, wide tracking — the mockup's body voice */
+.prose-dna {
+  font-size: 20px;
+  line-height: 1.45;
+  font-weight: 300;
+  color: var(--dna-muted);
+}
+
+.prose-dna strong { color: #fff; font-weight: 400; }
+
+.kicker {
+  font-family: var(--dna-font-body);
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dna-dim);
+}
+
+/* --------------------------------------------------------------------------
+   HUD frame corners — the small L-brackets around blocks
+   -------------------------------------------------------------------------- */
+
+.bracket {
+  position: relative;
+}
+
+.bracket::before,
+.bracket::after {
+  content: '';
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-color: var(--dna-line-strong);
+  border-style: solid;
+  pointer-events: none;
+}
+
+.bracket::before {
+  top: 0;
+  left: 0;
+  border-width: 1px 0 0 1px;
+}
+
+.bracket::after {
+  bottom: 0;
+  right: 0;
+  border-width: 0 1px 1px 0;
+}
+
+/* four corners on one element */
+.bracket-all { position: relative; }
+
+.bracket-all::before,
+.bracket-all::after {
+  content: '';
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-color: var(--dna-line-strong);
+  border-style: solid;
+  pointer-events: none;
+}
+
+.bracket-all::before {
+  top: 0;
+  left: 0;
+  border-width: 1px 0 0 1px;
+}
+
+.bracket-all::after {
+  bottom: 0;
+  right: 0;
+  border-width: 0 1px 1px 0;
+}
+
+/* --------------------------------------------------------------------------
+   Buttons — thin rectangles, no pills
+   -------------------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  min-width: 240px;
+  padding: 18px 26px;
+  font-family: var(--dna-font-body);
+  font-size: 17px;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: #fff;
+  border: 1px solid var(--dna-line-strong);
+  background: transparent;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  position: relative;
+}
+
+.btn::after {
+  content: '→';
+  font-family: var(--dna-font-body);
+  opacity: 0.8;
+}
+
+.btn:hover {
+  background: rgba(150, 133, 255, 0.14);
+  border-color: var(--dna-purple);
+}
+
+.btn-solid {
+  background: var(--dna-purple);
+  border-color: var(--dna-purple);
+  color: #0b0820;
+  font-weight: 400;
+}
+
+.btn-solid:hover {
+  background: var(--dna-purple-soft);
+  border-color: var(--dna-purple-soft);
+}
+
+/* small text link with the connector arrow, used in hero rail + footer */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--dna-muted);
+  transition: color 0.2s ease;
+}
+
+.link-arrow::after {
+  content: '↗';
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.link-arrow:hover { color: #fff; }
+
+/* --------------------------------------------------------------------------
+   Panels
+   -------------------------------------------------------------------------- */
+
+.panel {
+  background: var(--dna-panel);
+  border: 1px solid rgba(194, 185, 255, 0.12);
+}
+
+.panel-blur {
+  background: rgba(19, 18, 40, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(194, 185, 255, 0.14);
+}
+
+/* --------------------------------------------------------------------------
+   Marquee / ticker
+   -------------------------------------------------------------------------- */
+
+.ticker {
+  overflow: hidden;
+  border-top: 1px solid var(--dna-line);
+  border-bottom: 1px solid var(--dna-line);
+  padding: 16px 0;
+  white-space: nowrap;
 }
 
 .ticker-track {
   display: inline-flex;
-  width: max-content;
-  animation: dnaTicker 30s linear infinite;
-  will-change: transform;
+  gap: 60px;
+  animation: dnaTicker 38s linear infinite;
+  font-family: var(--dna-font-body);
+  font-size: 17px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dna-dim);
 }
 
-.ticker-track:hover {
-  animation-play-state: paused;
+.ticker-track span::before {
+  content: '—';
+  margin-right: 60px;
+  color: var(--dna-purple);
 }
 
 @keyframes dnaTicker {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-50%, 0, 0);
-  }
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
-/* --- Scroll Reveal Animations --- */
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; }
+}
+
+/* --------------------------------------------------------------------------
+   Reveal on scroll
+   -------------------------------------------------------------------------- */
+
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-.reveal.in {
-  opacity: 1;
-  transform: translateY(0);
-}
+.reveal.in { opacity: 1; transform: none; }
 
-.reveal-left {
-  opacity: 0;
-  transform: translateX(-32px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reveal-left.in {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.reveal-right {
-  opacity: 0;
-  transform: translateX(32px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reveal-right.in {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.reveal-delay-100 { transition-delay: 100ms; }
-.reveal-delay-200 { transition-delay: 200ms; }
-.reveal-delay-300 { transition-delay: 300ms; }
-.reveal-delay-400 { transition-delay: 400ms; }
-.reveal-delay-500 { transition-delay: 500ms; }
-
-/* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
-  .reveal,
-  .reveal-left,
-  .reveal-right {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-  .ticker-track {
-    animation: none !important;
-  }
+  .reveal { opacity: 1; transform: none; transition: none; }
 }
 
-/* --- Shared Chrome: Preloader --- */
-.dna-preloader {
+/* --------------------------------------------------------------------------
+   Preloader
+   -------------------------------------------------------------------------- */
+
+.preloader {
   position: fixed;
   inset: 0;
-  z-index: 9999;
+  z-index: 2000;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: var(--dna-bg);
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s ease;
+  background: #0a0720;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
-.dna-preloader.loaded {
+.preloader.loaded {
   opacity: 0;
   visibility: hidden;
-  pointer-events: none;
 }
 
-.dna-progress-bar {
-  width: 240px;
-  height: 4px;
-  background: rgba(139, 124, 246, 0.15);
-  border-radius: 9999px;
+.preloader-bar {
+  width: 220px;
+  height: 1px;
+  background: rgba(194, 185, 255, 0.2);
+  margin-top: 22px;
   overflow: hidden;
-  position: relative;
 }
 
-.dna-progress-fill {
+.preloader-bar > i {
+  display: block;
   height: 100%;
-  width: 0%;
-  background: var(--dna-grad);
-  transition: width 0.25s ease-out;
-  box-shadow: 0 0 12px var(--dna-purple);
+  width: 0;
+  background: var(--dna-purple);
+  animation: dnaLoad 1.6s ease forwards;
 }
 
-/* --- Shared Chrome: Header --- */
-.dna-header {
-  position: fixed;
+@keyframes dnaLoad {
+  to { width: 100%; }
+}
+
+/* --------------------------------------------------------------------------
+   Header — logo left, burger right. No inline nav (it lives in the overlay).
+   -------------------------------------------------------------------------- */
+
+.site-header {
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 50;
-  transition: background-color 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
+  z-index: 60;
+  padding: 22px 0;
 }
 
-.dna-header.scrolled {
-  background-color: rgba(6, 2, 15, 0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--dna-border);
+.site-header .shell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-@media (max-width: 639px) {
-  .dna-header a .display {
-    display: none;
+.brand img { height: 30px; width: auto; }
+
+.burger {
+  width: 34px;
+  height: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.burger span {
+  display: block;
+  height: 1.5px;
+  background: #fff;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* --------------------------------------------------------------------------
+   Menu overlay — right-aligned list with hairline row dividers
+   -------------------------------------------------------------------------- */
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1500;
+  background: rgba(6, 4, 24, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 var(--dna-gutter);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.menu-overlay.open { opacity: 1; visibility: visible; }
+
+.menu-panel {
+  width: min(420px, 100%);
+  background: rgba(12, 10, 34, 0.92);
+  border: 1px solid var(--dna-line);
+  padding: 10px 0;
+}
+
+.menu-panel li + li { border-top: 1px solid var(--dna-line); }
+
+.menu-panel a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 26px;
+  font-size: 19px;
+  font-weight: 300;
+  color: var(--dna-muted);
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.menu-panel a::after {
+  content: '→';
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.menu-panel a:hover {
+  color: #fff;
+  background: rgba(150, 133, 255, 0.1);
+}
+
+.menu-close {
+  position: absolute;
+  top: 26px;
+  right: var(--dna-gutter);
+  background: none;
+  border: 0;
+  color: var(--dna-muted);
+  font-size: 15px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  padding-top: 120px;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(120% 80% at 50% 20%, rgba(81, 64, 200, 0.55) 0%, rgba(3, 2, 42, 0) 62%),
+    radial-gradient(70% 50% at 8% 60%, rgba(150, 133, 255, 0.28) 0%, rgba(2, 2, 2, 0) 60%),
+    #03022a;
+  pointer-events: none;
+}
+
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+/* the three-car triptych, framed by brackets */
+.hero-triptych {
+  position: relative;
+  width: min(760px, 100%);
+  aspect-ratio: 760 / 380;
+  overflow: hidden;
+}
+
+.hero-triptych img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-title {
+  position: relative;
+  z-index: 2;
+  margin: -0.34em 0 0;
+  font-family: var(--dna-font-display);
+  font-weight: 500;
+  font-size: clamp(48px, 10.2vw, 148px);
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+  text-align: center;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.hero-sub {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 860px;
+  margin: 26px auto 0;
+  font-family: var(--dna-font-body);
+  font-size: clamp(20px, 2.4vw, 34px);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.hero-sub .accent { color: var(--dna-purple); }
+
+/* the connector line that links a block to its neighbour */
+.connector {
+  position: relative;
+  height: 1px;
+  background: var(--dna-line);
+}
+
+/* --------------------------------------------------------------------------
+   Explore rail (top-right in hero): three links with elbow connectors
+   -------------------------------------------------------------------------- */
+
+.explore-rail {
+  position: absolute;
+  top: 90px;
+  right: 0;
+  width: 300px;
+  display: grid;
+  gap: 44px;
+  text-align: right;
+  z-index: 3;
+}
+
+.explore-rail a {
+  display: block;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.3;
+  color: var(--dna-muted);
+  padding-right: 26px;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.explore-rail a::before {
+  /* elbow: horizontal hairline ending in an arrow */
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 18px;
+  height: 1px;
+  background: var(--dna-line-strong);
+}
+
+.explore-rail a::after {
+  content: '↗';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-70%);
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+.explore-rail a:hover { color: #fff; }
+
+@media (max-width: 1100px) {
+  .explore-rail {
+    position: static;
+    width: auto;
+    text-align: left;
+    margin-top: 32px;
+    gap: 16px;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* --- Shared Chrome: Fullscreen Menu --- */
-#dna-menu {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  background: rgba(6, 2, 15, 0.97);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
-  overflow-y: auto;
+/* --------------------------------------------------------------------------
+   Stats band
+   -------------------------------------------------------------------------- */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 28px;
 }
 
-#dna-menu.active {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
+@media (max-width: 1100px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .stats-grid { grid-template-columns: 1fr; } }
+
+.stat-num {
+  font-family: var(--dna-font-display);
+  font-weight: 500;
+  font-size: clamp(44px, 5.4vw, 78px);
+  line-height: 1;
+  color: #fff;
 }
 
-/* --- Shared Chrome: Footer --- */
-.dna-footer {
+.stat-label {
+  margin-top: 10px;
+  font-size: 19px;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dna-muted);
+}
+
+.stat-copy {
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.4;
+  color: var(--dna-dim);
+}
+
+/* --------------------------------------------------------------------------
+   Service cards (three across, photo + overlay label)
+   -------------------------------------------------------------------------- */
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+@media (max-width: 900px) { .service-grid { grid-template-columns: 1fr; } }
+
+.service-card {
   position: relative;
-  background-color: var(--dna-bg);
-  border-top: 1px solid var(--dna-border);
+  aspect-ratio: 440 / 470;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
 }
 
-/* --- Form Styles --- */
-.form-input-error {
-  border-color: #ef4444 !important;
-  box-shadow: 0 0 12px rgba(239, 68, 68, 0.3) !important;
+.service-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.9) brightness(0.85);
+  transition: transform 0.6s ease;
 }
 
-.form-error-msg {
-  color: #f87171;
-  font-size: 0.75rem;
-  margin-top: 0.25rem;
+.service-card:hover img { transform: scale(1.04); }
+
+.service-card-body {
+  position: relative;
+  z-index: 2;
+  padding: 26px;
+  width: 100%;
+  background: linear-gradient(to top, rgba(6, 4, 24, 0.9), rgba(6, 4, 24, 0));
 }
 
-.form-success-panel {
+.service-card h3 {
+  margin: 0 0 10px;
+  font-family: var(--dna-font-body);
+  font-size: 30px;
+  font-weight: 300;
+  color: #fff;
+}
+
+.service-card p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--dna-dim);
+}
+
+/* --------------------------------------------------------------------------
+   Footer — purple columns with vertical light streaks
+   -------------------------------------------------------------------------- */
+
+.site-footer {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(2, 2, 2, 0) 0%, rgba(67, 54, 148, 0.22) 40%, rgba(89, 75, 177, 0.5) 100%),
+    #020202;
+  overflow: hidden;
+}
+
+.site-footer::before {
+  /* vertical streaks */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(194, 185, 255, 0.06) 0px,
+    rgba(194, 185, 255, 0.06) 1px,
+    transparent 1px,
+    transparent 180px
+  );
+  pointer-events: none;
+}
+
+.footer-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding: 70px 0 40px;
+}
+
+@media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr; } }
+
+.footer-col h4 {
+  margin: 0 0 26px;
+  font-family: var(--dna-font-body);
+  font-size: 22px;
+  font-weight: 300;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.footer-col a,
+.footer-col p {
+  font-size: 19px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--dna-purple-soft);
+}
+
+.footer-col a:hover { color: #fff; }
+
+.footer-bottom {
+  position: relative;
+  border-top: 1px solid rgba(194, 185, 255, 0.16);
+  padding: 22px 0;
+  font-size: 13px;
+  color: rgba(237, 235, 251, 0.55);
+}
+
+/* social row */
+.social-row { display: flex; gap: 26px; align-items: center; }
+
+.social-row a {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(237, 235, 251, 0.92);
+  color: #261f52;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.social-row a:hover { background: #fff; color: #3a2f8a; }
+
+.social-row svg { width: 20px; height: 20px; }
+
+/* --------------------------------------------------------------------------
+   Forms
+   -------------------------------------------------------------------------- */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field label {
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dna-dim);
+}
+
+.field input,
+.field textarea,
+.field select {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--dna-line-strong);
+  padding: 12px 0;
+  font-family: var(--dna-font-body);
+  font-size: 18px;
+  font-weight: 300;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.field input::placeholder,
+.field textarea::placeholder { color: rgba(194, 185, 255, 0.35); }
+
+.field input:focus,
+.field textarea:focus { border-color: var(--dna-purple); }
+
+.field.invalid input,
+.field.invalid textarea { border-color: #ff6b6b; }
+
+.field-error {
+  font-size: 13px;
+  color: #ff8f8f;
   display: none;
-  text-align: center;
-  padding: 2.5rem 1.5rem;
-  border-radius: 16px;
-  background: rgba(124, 92, 255, 0.1);
-  border: 1px solid var(--dna-border-strong);
 }
 
-.form-success-panel.visible {
-  display: block;
+.field.invalid .field-error { display: block; }
+
+.form-success {
+  display: none;
+  padding: 26px;
+  border: 1px solid var(--dna-purple);
+  background: rgba(150, 133, 255, 0.08);
+  font-size: 17px;
+  color: var(--dna-purple-soft);
 }
 
-/* --- Utility Color Aliases --- */
-.text-dna-purple { color: var(--dna-purple); }
-.text-dna-violet { color: var(--dna-violet); }
-.text-dna-muted  { color: var(--dna-text-muted); }
-.bg-dna-bg       { background-color: var(--dna-bg); }
-.bg-dna-surface  { background-color: var(--dna-bg-surface); }
-.border-dna      { border-color: var(--dna-border); }
+.form-success.visible { display: block; }
+
+/* --------------------------------------------------------------------------
+   Utilities
+   -------------------------------------------------------------------------- */
+
+.stack-24 > * + * { margin-top: 24px; }
+.stack-40 > * + * { margin-top: 40px; }
+.stack-64 > * + * { margin-top: 64px; }
+
+.section { position: relative; padding: 90px 0; }
+.section-tight { position: relative; padding: 60px 0; }
+
+.rule {
+  height: 1px;
+  background: var(--dna-line);
+  border: 0;
+  margin: 0;
+}
+
+.hidden { display: none !important; }
+
+@media (max-width: 900px) {
+  .hero-title { white-space: normal; }
+  .hero-sub { grid-template-columns: 1fr; gap: 12px; }
+  .section { padding: 60px 0; }
+}
