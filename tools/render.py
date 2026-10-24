@@ -74,6 +74,29 @@ def text_colour(node):
     return '#ffffff'
 
 
+def region_is_flat(image, box, tolerance=12):
+    """True when the area behind a text box is a single colour, so repainting is lossless."""
+    x1, y1, x2, y2 = box
+    w, h = image.size
+    x1, y1 = max(0, x1), max(0, y1)
+    x2, y2 = min(w, x2), min(h, y2)
+    if x2 - x1 < 4 or y2 - y1 < 4:
+        return False
+    ring = []
+    pad = 5
+    for x in range(x1, x2, max(1, (x2 - x1) // 24)):
+        for y in (max(0, y1 - pad), min(h - 1, y2 + pad)):
+            ring.append(image.getpixel((x, y)))
+    for y in range(y1, y2, max(1, (y2 - y1) // 12)):
+        for x in (max(0, x1 - pad), min(w - 1, x2 + pad)):
+            ring.append(image.getpixel((x, y)))
+    if not ring:
+        return False
+    mean = [sum(c[i] for c in ring) / len(ring) for i in range(3)]
+    worst = max(max(abs(c[i] - mean[i]) for i in range(3)) for c in ring)
+    return worst <= tolerance
+
+
 def patch_background(image, box, padding=4):
     """Fill a box with the scene behind it: border pixels interpolated across the hole."""
     from PIL import Image as _Image
@@ -143,6 +166,11 @@ def build(key):
             round(bbox['x'] - ox + bbox['width']) + bleed,
             round(bbox['y'] - oy + bbox['height']) + bleed,
         )
+        box = (max(0, box[0]), max(0, box[1]),
+               min(base.size[0], box[2]), min(base.size[1], box[3]))
+        # text over imagery stays in the artwork: cutting it out would destroy the photo under it
+        if not region_is_flat(base, box):
+            continue
         # paint out the baked text by continuing the scene through the box
         box = (max(0, box[0]), max(0, box[1]),
                min(base.size[0], box[2]), min(base.size[1], box[3]))
@@ -200,7 +228,7 @@ def build(key):
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=%d">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>%s</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -208,16 +236,36 @@ def build(key):
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { background: #020202; }
-  body { position: relative; width: %dpx; height: %dpx; }
+  html, body { overflow-x: hidden; }
+  body { position: relative; }
+  .frame { position: relative; width: %dpx; height: %dpx; transform-origin: top left; }
   .base { position: absolute; left: 0; top: 0; display: block; }
-  body > p { position: absolute; }
+  .frame > p { position: absolute; }
 </style>
 </head>
 <body>
+<div class="frame">
 %s
+</div>
+<script>
+  // the frame is a fixed drawing; fit it to the window rather than cropping it
+  (function () {
+    var frameW = __FRAME_W__;
+    var frame = document.querySelector('.frame');
+    function fit() {
+      var scale = Math.min(1, window.innerWidth / frameW);
+      frame.style.transform = 'scale(' + scale + ')';
+      // reserve exactly the scaled height so the page scrolls through the whole board
+      frame.parentNode.style.height = (frame.offsetHeight * scale) + 'px';
+    }
+    fit();
+    window.addEventListener('resize', fit);
+  })();
+</script>
 </body>
 </html>
-''' % (width, escaped(title), width, height, '\n'.join(parts))
+''' % (escaped(title), width, height, '\n'.join(parts))
+    html = html.replace('__FRAME_W__', str(width))
 
     with open(os.path.join(out_dir, filename), 'w', encoding='utf-8') as handle:
         handle.write(html)

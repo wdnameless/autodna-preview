@@ -9,47 +9,29 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 get_header(); ?>
 
-<div class="dna-frame" data-frame="service" style="width:1440px;height:5418px">
+<div class="dna-frame-wrap">
+<div class="frame" data-frame="service">
 <img class="base" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/service/base.png" alt="" width="1440" height="5418">
-<p style="left:582px;top:5377px;width:277px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14.00px;font-weight:300;line-height:14.00px;letter-spacing:-0.28px;color:#ffffff;text-transform:none;text-align:left;white-space:pre-wrap">© 2025 AutoDNA Canada. All rights reserved.</p>
-<p style="left:38px;top:5183px;width:235px;font-family:'Orbitron', sans-serif;font-size:30.00px;font-weight:400;line-height:27.90px;letter-spacing:-0.60px;color:#ffffff;text-transform:uppercase;text-align:left;white-space:pre-wrap">Contact us</p>
-<p style="left:609px;top:5183px;width:218px;font-family:'Orbitron', sans-serif;font-size:30.00px;font-weight:400;line-height:27.90px;letter-spacing:-0.60px;color:#ffffff;text-transform:uppercase;text-align:left;white-space:pre-wrap">Follow Us</p>
-<p style="left:1041px;top:5183px;width:145px;font-family:'Orbitron', sans-serif;font-size:30.00px;font-weight:400;line-height:27.90px;letter-spacing:-0.60px;color:#ffffff;text-transform:uppercase;text-align:left;white-space:pre-wrap">Find Us</p>
-<p style="left:38px;top:5294px;width:238px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:28.00px;font-weight:400;line-height:26.04px;letter-spacing:-0.56px;color:#433694;text-transform:none;text-align:left;white-space:pre-wrap">info@autodna.com</p>
-<p style="left:1041px;top:5244px;width:245px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:28.00px;font-weight:400;line-height:26.04px;letter-spacing:-0.56px;color:#433694;text-transform:none;text-align:left;white-space:pre-wrap">730 2 Ave SW, Calgary, T2P1R8, Canada</p>
-<p style="left:38px;top:5246px;width:232px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:28.00px;font-weight:400;line-height:26.04px;letter-spacing:-0.56px;color:#433694;text-transform:uppercase;text-align:left;white-space:pre-wrap">+1 (403) 312-8306</p>
 <p style="left:399px;top:4038px;width:347px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:40.00px;font-weight:300;line-height:37.20px;letter-spacing:-0.80px;color:#c2b9ff;text-transform:uppercase;text-align:left;white-space:pre-wrap">Inside the Mind of AutoDNA.</p>
-<p style="left:400px;top:4419px;width:269px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:20.00px;font-weight:300;line-height:20.00px;letter-spacing:-0.40px;color:#ffffff;text-transform:none;text-align:justified;white-space:pre-wrap">We believe great service starts with clarity — in thinking, in process, in space.
-</p>
 <p style="left:758px;top:4419px;width:283px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:20.00px;font-weight:300;line-height:20.00px;letter-spacing:-0.40px;color:#ffffff;text-transform:none;text-align:justified;white-space:pre-wrap">And It’s born where great people work together with one clear vision — to redefine car care.</p>
 <p style="left:452px;top:4568px;width:537px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:40.00px;font-weight:300;line-height:37.20px;letter-spacing:-0.80px;color:#e1d9ff;text-transform:uppercase;text-align:center;white-space:pre-wrap">They’re the reason AutoDNA feels different.</p>
-<p style="left:217px;top:4673px;width:1007px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:40.00px;font-weight:300;line-height:37.20px;letter-spacing:-0.80px;color:#9685ff;text-transform:uppercase;text-align:center;white-space:pre-wrap">Every face here stands for 
-reliability, innovation, and trust.</p>
 <p style="left:593px;top:4809px;width:226px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:20.00px;font-weight:300;line-height:20.00px;letter-spacing:-0.40px;color:#ffffff;text-transform:uppercase;text-align:left;white-space:pre-wrap">contact with us</p>
-<p style="left:345px;top:3438px;width:751px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:40.00px;font-weight:300;line-height:37.20px;letter-spacing:-0.80px;color:#9685ff;text-transform:uppercase;text-align:center;white-space:pre-wrap"> Explore the future of car care — 
-learn more on our AutoDNA Service official site:</p>
 <p style="left:593px;top:3607px;width:226px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:20.00px;font-weight:300;line-height:20.00px;letter-spacing:-0.40px;color:#ffffff;text-transform:none;text-align:left;white-space:pre-wrap">AutoDnaService</p>
-<p style="left:578px;top:499px;width:285px;font-family:'Orbitron', sans-serif;font-size:35.00px;font-weight:700;line-height:30.80px;letter-spacing:15.05px;color:#ffffff;text-transform:uppercase;text-align:justified;white-space:pre-wrap">service</p>
-<p style="left:0px;top:43px;width:1440px;font-family:'Orbitron', sans-serif;font-size:135.00px;font-weight:500;line-height:118.80px;letter-spacing:-6.75px;color:#e3dfff;text-transform:lowercase;text-align:center;white-space:pre-wrap">The future of service </p>
-<p style="left:18px;top:623px;width:219px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:30.00px;font-weight:300;line-height:27.90px;letter-spacing:-0.60px;color:#ffffff;text-transform:uppercase;text-align:justified;white-space:pre-wrap">Innovation. Technology. Trust.</p>
-<p style="left:1163px;top:186px;width:261px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:30.00px;font-weight:300;line-height:27.90px;letter-spacing:-0.60px;color:#ffffff;text-transform:uppercase;text-align:justified;white-space:pre-wrap">is already here.</p>
-<p style="left:138px;top:894px;width:1165px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:40.00px;font-weight:300;line-height:37.20px;letter-spacing:-0.80px;color:#e7e0ff;text-transform:uppercase;text-align:center;white-space:pre-wrap">AutoDNA Service is a next-generation automotive center, equipped with innovative technology, a modern minimalist and spotless interior, smart service systems, a skilled team,
-and much more — as described below.</p>
-<p style="left:492px;top:1151px;width:457px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:20.00px;font-weight:300;line-height:20.00px;letter-spacing:-0.40px;color:#ffffff;text-transform:none;text-align:center;white-space:pre-wrap">It’s not just a service — it’s a modern automotive ecosystem that integrates telematics,
-robotics, and customer comfort.</p>
-<p style="left:187px;top:1699px;width:1067px;font-family:'Orbitron', sans-serif;font-size:50.00px;font-weight:400;line-height:46.50px;letter-spacing:-1.00px;color:#ffffff;text-transform:uppercase;text-align:center;white-space:pre-wrap">The future of car service begins in Calgary.</p>
-<p style="left:457px;top:2996px;width:527px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:24.00px;font-weight:300;line-height:24.00px;letter-spacing:-0.48px;color:#c2b9ff;text-transform:uppercase;text-align:center;white-space:pre-wrap">Fast. No lines. No wasted time.</p>
-<p style="left:8px;top:1981px;width:1425px;font-family:'Orbitron', sans-serif;font-size:120.00px;font-weight:500;line-height:105.60px;letter-spacing:-6.00px;color:#e3dfff;text-transform:uppercase;text-align:center;white-space:pre-wrap">One DNA. 
-Multiple services.</p>
-<p style="left:656px;top:2302px;width:129px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:20.00px;font-weight:300;line-height:20.00px;letter-spacing:-0.40px;color:#c2b9ff;text-transform:none;text-align:left;white-space:pre-wrap">DriveCarePlan</p>
-<p style="left:972px;top:2302px;width:83px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:20.00px;font-weight:300;line-height:20.00px;letter-spacing:-0.40px;color:#c2b9ff;text-transform:none;text-align:left;white-space:pre-wrap">PaintBot</p>
-<p style="left:365px;top:2302px;width:124px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:20.00px;font-weight:300;line-height:20.00px;letter-spacing:-0.40px;color:#ffffff;text-transform:none;text-align:left;white-space:pre-wrap">SkipTheShop</p>
-<p style="left:454px;top:2413px;width:533px;font-family:'Orbitron', sans-serif;font-size:50.00px;font-weight:400;line-height:46.50px;letter-spacing:-1.00px;color:#ffffff;text-transform:none;text-align:center;white-space:pre-wrap">SkipTheShop</p>
-<p style="left:457px;top:2480px;width:527px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:24.00px;font-weight:300;line-height:24.00px;letter-spacing:-0.48px;color:#ffffff;text-transform:uppercase;text-align:center;white-space:pre-wrap">Your car goes to service. You don’t.</p>
-<p style="left:438px;top:2917px;width:565px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:20.00px;font-weight:300;line-height:20.00px;letter-spacing:-0.40px;color:#ffffff;text-transform:none;text-align:center;white-space:pre-wrap">A new format of car service — where you don’t go to the shop.
-Our technician picks up your car, completes all necessary work, and brings it back to you.
-
-</p>
 </div>
+</div>
+
+<script>
+(function () {
+  var frame = document.querySelector('.dna-frame-wrap .frame');
+  if (!frame) return;
+  function fit() {
+    var scale = Math.min(1, window.innerWidth / 1440);
+    frame.style.transform = 'scale(' + scale + ')';
+    frame.parentNode.style.height = (frame.offsetHeight * scale) + 'px';
+  }
+  fit();
+  window.addEventListener('resize', fit);
+})();
+</script>
 
 <?php get_footer();

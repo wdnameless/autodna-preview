@@ -36,3 +36,10 @@ html, body {
     transform: scale(var(--dna-scale, 1));
   }
 }
+
+.dna-frame-wrap { position: relative; overflow: hidden; }
+.dna-frame-wrap .frame { position: relative; transform-origin: top left; }
+.dna-frame-wrap .frame > img,
+.dna-frame-wrap .frame > div,
+.dna-frame-wrap .frame > p { position: absolute; display: block; }
+.dna-frame-wrap .frame img { max-width: none; }
