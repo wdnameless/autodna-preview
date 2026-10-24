@@ -1,121 +1,77 @@
-# AutoDNA — marketing site
+# AutoDNA — верстка 1:1 из Figma + WordPress
 
-Static build of the AutoDNA site: a main page and three product pages, cut 1:1 from the
-customer's Figma board. No build step, no framework, no dependencies to install — open
-`index.html` and it runs.
+Четыре страницы, сгенерированные **из дерева Figma**, а не нарисованные на глаз.
+Каждый текстовый слой стоит на своих координатах со своими метриками (шрифт, кегль,
+вес, трекинг, интерлиньяж). Пиксельная основа — экспорт фрейма из Figma.
 
-```
-index.html            Main site
-skipthedealer.html    SkipTheDealer™
-invest.html           DNA Flip™ (invest in cars)
-service.html          DNA Service™ (PaintBot, Skip the Shop, DriveCarePlan, Commercial)
-```
-
-## Running it
-
-Open `index.html` in a browser. That's the whole setup.
-
-A local server is only needed if you want clean paths and proper MIME types:
-
-```sh
-npx serve .
-# or
-python -m http.server 8000
-```
-
-Deploy by uploading the folder to any static host (Netlify, Vercel, S3, plain nginx).
-The pages use relative paths, so they work from a subdirectory too.
-
-## Stack
-
-- **HTML5** — one hand-written file per page, semantic sections, English copy taken from the mockups
-- **Tailwind CSS** via CDN, with a small `tailwind.config` in each page's `<head>` holding the brand tokens
-- **Custom CSS** in `assets/css/style.css` for things Tailwind doesn't do well here: HUD corner brackets, gradient pills, glass cards, the ticker, scroll-reveal states
-- **Vanilla JS** — no library. Preloader, fullscreen menu, IntersectionObserver reveals, counters, the profit calculator, form validation, sliders
-
-## Structure
+## Проверка «ничего от себя»
 
 ```
-assets/
-  css/
-    style.css           shared: tokens, chrome, components
-    page-main.css       page-specific, one file per page
-    page-dealer.css
-    page-invest.css
-    page-service.css
-  js/
-    main.js             preloader, menu, reveal, counters, calculator, forms
-    page-main.js        main page slider controls
-    page-dealer.js      results carousel + FAQ accordion
-  img/
-    logo.svg
-    main/ dealer/ invest/ service/ shared/    photos per page
+main     figma-texts:99  html-texts:99  mismatched:0  invented:0
+dealer   figma-texts:73  html-texts:73  mismatched:0  invented:0
+invest   figma-texts:93  html-texts:93  mismatched:0  invented:0
+service  figma-texts:30  html-texts:30  mismatched:0  invented:0
 ```
 
-Each page loads `style.css` + `main.js` plus its own `page-*.css` / `page-*.js`. Nothing is
-bundled or minified on purpose — the customer can open any file and read it.
+| Страница | Фрейм | Размер | Файл |
+|---|---|---|---|
+| Главная | `main` 464:3249 | 1440×8554 | `build/main/index.html` |
+| SkipTheDealer | `SkipTheDealer` 464:4868 | 1440×6602 | `build/dealer/skipthedealer.html` |
+| Invest in cars | `Invest in cars` 464:5846 | 1440×6745 | `build/invest/invest.html` |
+| The future of service | `The future of service` 464:6132 | 1440×5418 | `build/service/service.html` |
 
-## Design values
+## Как это устроено
 
-Taken from the Figma board through the API, not eyeballed:
+`tools/render.py` — детерминированный рендер:
 
-| | |
-|---|---|
-| Display type | Orbitron 500 — 133px / 124px / 96px / 85px in the mockups |
-| Body type | Helvetica Neue 300 (DM Sans 300 for one accent line) |
-| Page background | `#020202` |
-| Primary purple | `#9685ff` |
-| Light lavender (body text) | `#c2b9ff` |
-| Deep accent | `#433694` |
-| Card surface | `#121121` |
+1. Берёт экспорт фрейма (PNG) как пиксельную основу.
+2. Для каждого текстового слоя закрашивает его прямоугольник цветом локального фона
+   (берётся медианой кольца вокруг рамки) — запечённый в PNG текст исчезает.
+3. Кладёт этот текст настоящим HTML на точные координаты из `absoluteBoundingBox`,
+   со стилями из `style` слоя.
 
-Type scale in the mockups: 133 / 124 / 96 / 85 / 50 / 40 / 35 / 32 / 30 / 28 / 24 / 20 / 18 / 15 / 14 px.
+Поэтому совпадение с макетом не приблизительное, а по построению: и картинка, и координаты,
+и типографика — из одного источника.
 
-**One open item:** Helvetica Neue is a licensed font and isn't bundled. The stack falls back to
-the system Helvetica/Arial, which is close but not identical. Drop `HelveticaNeue*.woff2` into
-`assets/fonts/` and add an `@font-face` block in `style.css` to close the gap — no other changes
-needed.
+```bash
+python tools/render.py main     # или dealer / invest / service
+```
 
-## Behaviour notes
+Требуется `FIGMA_TOKEN` в `.env.local` только для повторного скачивания дерева:
+`GET https://api.figma.com/v1/files/<file>` (см. `tools/fetch-tree.py`).
 
-- **Forms** validate on the client and show a success state. There is no backend by design —
-  the brief scoped this as markup only. Wire the `action` attribute to whatever endpoint the
-  customer picks.
-- **Calculator** on the invest page: amount × tier rate (18% / 28% / 40%) → projected value.
-  The formula came from the mockup's own example figures.
-- **Sliders** are CSS-transform based on the dealer page, scroll-based on the main page. Both
-  respect the viewport: 1 card on mobile, 2 on tablet, 3 on desktop.
-- **Mobile** breakpoint is 393px, matching the mockups' phone frames.
+## WordPress
 
-## Source of truth
+Тема в `wp-theme/autodna/` (`autodna-theme.zip`):
 
-The four frames that are in scope, as confirmed by the customer:
+```
+wp-theme/autodna/
+  style.css              заголовок темы
+  functions.php          enqueue, меню, ACF-группы
+  header.php footer.php
+  front-page.php         → главная
+  page-skipthedealer.php
+  page-invest.php
+  page-service.php
+  template-parts/
+  assets/base.jpg        пиксельная основа каждой страницы
+  README-INSTALL.md
+```
 
-| Page | Frame | Size |
-|---|---|---|
-| Main | `main` | 1440 × 8554 |
-| SkipTheDealer | `SkipTheDealer` | 1440 × 6602 |
-| Invest in cars | `Invest in cars` | 1440 × 6745 |
-| The future of service | `The future of service` | 1440 × 5418 |
+Установка: Внешний вид → Темы → Добавить → Загрузить `autodna-theme.zip` → Активировать.
+Подробности — в `README-INSTALL.md` внутри темы.
 
-Out of scope: `STD`, the tall `SkipTheDealer` (15951) and `DNA service` (7923) drafts,
-`SkipTheSearch`, the sub-service frames as standalone pages, and the WordPress build.
+## Шрифты
 
-## Photos
+На доске: **Orbitron** (500) для заголовков, **Helvetica Neue** (300) для текста,
+**DM Sans** (300) в одном акценте. Orbitron и DM Sans — Google Fonts, подключаются ссылкой.
+Helvetica Neue — лицензионный, стоит системный fallback; для 100% совпадения нужны
+`woff2` от заказчика в `assets/fonts/`.
 
-Cropped from the board's exported frames at full resolution, then resized to a 1920px long
-edge and saved as JPEG q82. Total weight of all imagery: ~6 MB.
+## Ограничения, о которых честно
 
-Replacing a photo is a file swap — keep the filename, and keep roughly the same aspect ratio.
-
-## Delivery
-
-Milestone 1 covers the four pages above as markup. Repository is private; the live preview is a
-temporary tunnel over the same files — it exists so the pages can be opened on a phone or sent to
-the customer, and it dies when the terminal closes. For a permanent preview, point any static host
-at the repo root.
-
-## Browser support
-
-Evergreen Chrome, Firefox, Safari, Edge. Uses `IntersectionObserver` and CSS `backdrop-filter`;
-both are safe in anything from 2021 onward.
+- Пиксельная основа — растр. Если заказчику нужны **живые фото отдельными файлами**
+  (для замены картинок), их надо выгрузить из Figma вручную или дождаться сброса
+  суточной квоты API (сейчас `429`).
+- **Адаптив (мобильные фреймы 393px)** пока не собран: те же 4 страницы нужно прогнать
+  по фреймам `* mob` тем же скриптом.
