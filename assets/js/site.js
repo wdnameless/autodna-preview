@@ -22,16 +22,15 @@
       done = true;
       pre.classList.add('is-done');
       document.body.classList.remove('loading');
-      // after the fade the node is inert; remove it so it never traps focus
       window.setTimeout(function () {
         if (pre.parentNode) pre.parentNode.removeChild(pre);
-      }, 700);
+      }, 800);
     }
 
-    // the board asks for one to two seconds; never longer than that
-    window.setTimeout(hide, 1400);
+    // the board's screen sits for a beat longer than a plain splash: 3.4s total
+    window.setTimeout(hide, 3400);
     window.addEventListener('load', function () {
-      window.setTimeout(hide, 400);
+      window.setTimeout(hide, 2600);
     });
   }
 
