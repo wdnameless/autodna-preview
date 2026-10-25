@@ -108,24 +108,25 @@
 
 .svc__card {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 8px;
-  /* clears the 19px bottom corner marks, which sit 18px off the edge */
-  padding: 46px clamp(16px, 1.55vw, 30px) 46px;
+  display: block;
+  /* The label sits at a fixed height so all three labels read on one line no matter
+     which card is active — on the board it is 134..169 of a 291px card, and the
+     description starts at 184. Padding only insets the sides. */
+  padding: 0 clamp(16px, 1.55vw, 30px);
   text-decoration: none;
-  /* the board's card is a flat tint at 44%; the blur is what makes it glass.
-     A little stronger than the raw value keeps white text off the photograph. */
-  background: rgba(38, 37, 72, 0.62);
-  -webkit-backdrop-filter: blur(16px) saturate(118%);
-  backdrop-filter: blur(16px) saturate(118%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  /* The board paints all three labels; only the card in focus gets the glass tint,
+     the description and its corner marks. */
+  background: rgba(38, 37, 72, 0);
+  -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(0px);
+  transition: background 0.45s ease, -webkit-backdrop-filter 0.45s ease, backdrop-filter 0.45s ease;
 }
 
 .svc__card.is-active {
-  opacity: 1;
+  /* the board's card is a flat tint at 44%; the blur is what makes it glass */
+  background: rgba(38, 37, 72, 0.62);
+  -webkit-backdrop-filter: blur(16px) saturate(118%);
+  backdrop-filter: blur(16px) saturate(118%);
 }
 
 /* four hairline L-marks, one per corner — the board's Vector 6..9 */
@@ -135,7 +136,11 @@
   height: 19px;
   border: 0 solid var(--svc-mark);
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
 }
+
+.svc__card.is-active .svc__corner { opacity: 1; }
 
 .svc__corner:nth-of-type(1) { top: 18px;    left: 18px;  border-width: 1px 0 0 1px; }
 .svc__corner:nth-of-type(2) { top: 18px;    right: 18px; border-width: 1px 1px 0 0; }
@@ -146,19 +151,40 @@
 .svc__go { display: none; }
 
 .svc__label {
+  position: absolute;
+  left: clamp(16px, 1.55vw, 30px);
+  right: clamp(16px, 1.55vw, 30px);
+  top: 46%;
   font-size: clamp(18px, 2.78vw, 40px);
   font-weight: 300;
   line-height: 1.0;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.78);
+  transition: color 0.35s ease;
 }
 
+.svc__card.is-active .svc__label { color: #fff; }
+
 .svc__desc {
+  position: absolute;
+  left: clamp(16px, 1.55vw, 30px);
+  right: clamp(16px, 1.55vw, 30px);
+  top: 63.2%;
   max-width: 26em;
   font-size: clamp(11px, 0.94vw, 18px);
   font-weight: 300;
   line-height: 1.35;
   color: rgba(255, 255, 255, 0.78);
+  /* only the card in focus carries its copy, as on the board */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.45s ease, opacity 0.4s ease;
+}
+
+.svc__card.is-active .svc__desc {
+  max-height: 200px;
+  opacity: 1;
 }
 
 /* --- page chrome --------------------------------------------------------- */
@@ -235,6 +261,12 @@
     top: auto;
     width: auto;
     height: auto;
+    display: grid;
+    gap: 12px clamp(14px, 4vw, 24px);
+    background: rgba(38, 37, 72, 0.72);
+    -webkit-backdrop-filter: blur(14px) saturate(120%);
+    backdrop-filter: blur(14px) saturate(120%);
+    padding: clamp(24px, 6vw, 38px) clamp(20px, 5vw, 30px) clamp(28px, 7vw, 44px);
     padding: clamp(28px, 7vw, 42px) clamp(20px, 5vw, 30px) clamp(48px, 12vw, 62px);
     display: grid;
     grid-template-columns: 1fr auto;
@@ -247,19 +279,26 @@
     margin-bottom: 22px;
   }
 
+  .svc__card .svc__corner { opacity: 0.85; }
+
   .svc__card[data-card="skip"]    { grid-row: 3; margin-top: 12px; }
   .svc__card[data-card="flip"]    { grid-row: 5; }
   .svc__card[data-card="service"] { grid-row: 7; margin-bottom: 0; }
 
   .svc__label {
+    position: static;
     grid-column: 1;
     font-size: clamp(27px, 7.4vw, 42px);
     letter-spacing: -0.025em;
+    color: #fff;
   }
 
   .svc__desc {
+    position: static;
     grid-column: 1;
     max-width: none;
+    max-height: none;
+    opacity: 1;
     font-size: clamp(13px, 3.7vw, 17px);
     line-height: 1.45;
     color: rgba(255, 255, 255, 0.7);
