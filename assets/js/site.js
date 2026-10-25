@@ -141,15 +141,21 @@
      still scrolls correctly. */
 
   function initSceneScale() {
-    // any fixed-width scene (hero, dealer hero) scales as one unit on narrow screens
-    document.querySelectorAll('[class$="__scene"]').forEach(function (scene) {
+    // Fixed-width drawings (hero scenes, the services band) scale as one unit on narrow
+    // screens. The drawing keeps its own pixel size; only its transform changes, and the
+    // wrapper reserves the scaled height so the page still scrolls correctly.
+    document.querySelectorAll('[class$="__scene"], .svc__stage').forEach(function (scene) {
       var frameWidth = scene.offsetWidth || 1440;
       var frameHeight = scene.offsetHeight || 809;
 
       function fit() {
         var scale = Math.min(1, document.documentElement.clientWidth / frameWidth);
         scene.style.transform = 'scale(' + scale + ')';
-        if (scene.parentNode) scene.parentNode.style.height = (frameHeight * scale) + 'px';
+        scene.style.transformOrigin = 'top left';
+        if (scene.parentNode) {
+          scene.parentNode.style.height = Math.round(frameHeight * scale) + 'px';
+          scene.parentNode.style.overflow = 'hidden';
+        }
       }
 
       fit();
