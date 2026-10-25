@@ -57,236 +57,82 @@ body.home {
 .sec-claim--muted { color: rgba(255, 255, 255, 0.55); }
 .sec-claim--accent { color: var(--dna-purple-soft); }
 
-/* ══ 1. HERO — from Menu.svg (artboard 1440x797) ══════════════════════════
-     triptych   739.66 x 377.918 at (340, 191)   => 51.4% wide, centred, 9 L-marks
-     headline   "THE GENETIC CODE" spanning the frame, bleeding past both edges
-     subline    "TO YOUR CAR / HAS ALREADY BEEN FOUND" under it, angled rule between
-     rail       289 x 385 at (1126, 35) with Home … Contact
+/* ══ 1. HERO — the board itself ═══════════════════════════════════════════
+   Everything in this band (gradient ground, the two oversized geometry shapes,
+   the triptych, the headline, the subline, both menu states) is a single vector
+   composition in Menu.svg: 145KB of paths, one raster (the triptych) referenced
+   externally. Rebuilding it in CSS could only ever approximate it — gradients
+   were guesses and Orbitron is not the board's lettering — so the hero renders
+   that artwork directly. Copy stays in the HTML for search engines and screen
+   readers, visually hidden.
+
+   The overlay controls (logo, hamburger, menu panel) are real HTML on top.
    ========================================================================== */
 
-/* Ground measured off the board: the corners read #07051d / #01010c and the
-   centre #02020e — a near-black violet, not the brighter pool I had. */
 .hero {
   position: relative;
-  min-height: 100svh;
-  display: flex;
-  align-items: flex-start;
+  width: 100%;
+  height: 100svh;
+  min-height: 560px;
   overflow: hidden;
-  background:
-    radial-gradient(62% 74% at 34% 62%, rgba(96, 76, 205, 0.30) 0%, transparent 68%),
-    radial-gradient(48% 58% at 76% 16%, rgba(56, 44, 132, 0.24) 0%, transparent 70%),
-    #07051d;
+  background: #020202;
 }
 
-/* the oversized outline glyphs drifting behind the hero */
-.hero__outline {
+/* the artwork fills the band and never distorts */
+.hero__art {
   position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.4;
-  background-image:
-    radial-gradient(closest-side at 10% 22%, rgba(150, 130, 255, 0.26), transparent),
-    radial-gradient(closest-side at 90% 74%, rgba(150, 130, 255, 0.22), transparent);
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  /* the artwork is a fixed 1440x797 frame; at the design width it maps 1:1, and on
+     wider screens it is centred rather than stretched */
+  width: 100%;
+  min-width: 1440px;      /* never shrink the frame below its design width */
+  height: auto;
+  min-height: 100%;
+  object-fit: contain;
+  object-position: center top;
+  display: block;
+  z-index: 0;
 }
 
-/* the brand mark, top-left, as in the frame */
+/* the real copy, kept for AT and crawlers without painting over the artwork */
+.hero__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── the logo, top-left ─────────────────────────────────────────────────── */
 .hero__mark {
   position: absolute;
-  top: clamp(18px, 4.4vh, 36px);
-  left: clamp(14px, 1.66vw, 24px);
+  top: 3.62%;
+  left: 1.66%;
   z-index: 6;
   display: block;
 }
 
-.hero__mark img { width: clamp(28px, 2.44vw, 36px); height: auto; display: block; }
+.hero__mark img { width: 36.7px; height: auto; display: block; }
 
-.hero__inner {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: clamp(96px, 23.97vh, 240px) var(--pad) clamp(46px, 7vh, 74px);
-}
-
-.hero__center {
-  position: relative;
-  width: 100%;
-  max-width: clamp(720px, 79.8vw, 1150px);
-  margin: 0 auto;
-}
-
-/* triptych — 739.66 x 377.918, framed by four L-marks */
-.hero__triptych {
-  position: relative;
-  width: min(51.4vw, 740px);
-  margin: 0 auto;
-  aspect-ratio: 739.66 / 377.918;
-  z-index: 2;
-}
-
-.hero__triptych img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.hero__triptych .corner-mark { width: 9px; height: 9px; border-color: rgba(220, 216, 245, 0.55); }
-.hero__triptych .corner-mark:nth-of-type(1) { top: -9px;    left: -9px;  }
-.hero__triptych .corner-mark:nth-of-type(2) { top: -9px;    right: -9px; }
-.hero__triptych .corner-mark:nth-of-type(3) { bottom: -9px; left: -9px;  }
-.hero__triptych .corner-mark:nth-of-type(4) { bottom: -9px; right: -9px; }
-
-/* THE GENETIC CODE — wide, light, bleeding past the frame like the board */
-.hero__word {
-  position: relative;
-  margin: -69px 0 0;
-  font-family: var(--dna-display);
-  font-weight: 400;
-  font-size: clamp(42px, 9.58vw, 138px);
-  line-height: 0.92;
-  letter-spacing: -0.045em;
-  text-transform: uppercase;
-  text-align: center;
-  white-space: nowrap;
-  color: #fff;
-  z-index: 3;
-  /* the board bleeds this past the frame edges */
-  width: max-content;
-  max-width: none;
-  left: 50%;
-  position: relative;
-  transform: translateX(-50%);
-  text-shadow: 0 0 40px rgba(120, 100, 220, 0.45);
-}
-
-/* the two halves of the subline, with the angled hairline between them */
-.hero__foot {
-  position: relative;
-  display: grid;
-  grid-template-columns: 309px 1fr;
-  column-gap: 133px;
-  margin-top: 13px;
-  max-width: 757px;
-  margin-left: auto;
-  margin-right: auto;
-  z-index: 3;
-}
-
-.hero__line {
-  margin: 0;
-  font-family: var(--dna-body);
-  font-size: clamp(14px, 1.5vw, 22px);
-  font-weight: 300;
-  line-height: 1.2;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
-  color: #fff;
-}
-
-.hero__line--right { text-align: right; }
-.hero__line span { color: var(--dna-purple); }
-
-.hero__foot::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 0.2em;
-  width: clamp(46px, 5vw, 74px);
-  height: 1.1em;
-  transform: translateX(-50%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
-  border-right: 1px solid rgba(255, 255, 255, 0.45);
-  clip-path: polygon(0 62%, 62% 62%, 100% 0, 100% 100%, 62% 100%, 0 100%);
-}
-
-/* ── the explore rail ─────────────────────────────────────────────────────
-   A 265 x 210 box at (1147, 195) on the board. Three labels sit inside it, each
-   bracketed by a bent hairline that runs right, steps diagonally, then runs to
-   the frame edge and ends in an arrow. Path data straight from main.svg:
-       M1147.19 244.815 H1297.9  L1338.31 195.352 H1412.24   (rises, arrow up)
-       M1147.19 270.186 H1297.89 L1338.31 319.649 H1412.24   (falls, arrow down)
-       M1147.19 405.376 H1297.89 L1338.31 355.912 H1412.24   (rises, arrow up)
-   Rebased to the box origin (1147,195) those become 0/49.8, 0/75.2, 0/210.4.
-   ──────────────────────────────────────────────────────────────────────── */
-
-.hero__rail {
-  position: absolute;
-  top: clamp(96px, 24.5vh, 195px);
-  right: var(--pad);
-  width: clamp(212px, 18.4vw, 265px);
-  /* the board box is 265x210 */
-  height: clamp(168px, 14.6vw, 210px);
-  z-index: 5;
-}
-
-/* the wires are one SVG in the box's own coordinate space, so they line up with
-   the labels no matter how the box scales */
-.hero__wires {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: visible;
-}
-
-.hero__wires svg { width: 100%; height: 100%; display: block; }
-.hero__wires .wire { stroke: rgba(194, 185, 255, 0.55); stroke-width: 1; fill: none; vector-effect: non-scaling-stroke; }
-.hero__wires .head { stroke: rgba(255, 255, 255, 0.85); stroke-width: 1.2; fill: none; vector-effect: non-scaling-stroke; }
-
-/* labels, placed at their board offsets inside the same box:
-     SkipTheDealer   2 / 210  = 0.95%    (two lines, 33px)
-     AutoDNA Flip    91 / 210 = 43.3%   (two lines, 34px)
-     AutoDNA Service 181 / 210 = 86.2%  (one line, 15px)
-   Widths are capped so a label never runs into its own wire. */
-.hero__link {
-  position: absolute;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  text-decoration: none;
-  font-family: var(--dna-body);
-  font-size: clamp(12px, 1.32vw, 19px);
-  font-weight: 300;
-  line-height: 1.12;
-  letter-spacing: -0.005em;
-  color: #fff;
-  max-width: 62%;
-}
-
-.hero__link em {
-  font-style: normal;
-  color: rgba(255, 255, 255, 0.45);
-  transition: color 0.3s ease;
-}
-
-.hero__link span { display: block; }
-
-.hero__link:hover em { color: rgba(255, 255, 255, 0.85); }
-
-.hero__link--1 { top: 0.95%; }
-.hero__link--2 { top: 43.3%; }
-.hero__link--3 { top: 86.2%; }
-
-.hero__rail-label { display: none; }
-
-/* the hamburger, top-right of the frame */
+/* ── the hamburger, top-right ───────────────────────────────────────────── */
 .hero__burger {
   position: absolute;
-  top: clamp(18px, 4.5vh, 36px);
-  right: clamp(14px, 1.9vw, 27px);
+  top: 4.52%;
+  right: 1.94%;
   z-index: 7;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 6px;
+  justify-content: space-between;
   width: 36.7px;
   height: 20px;
   padding: 0;
-  gap: 5.99px;
   background: none;
   border: 0;
   cursor: pointer;
@@ -300,15 +146,11 @@ body.home {
   transition: transform 0.3s ease, opacity 0.25s ease;
 }
 
-.hero__burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.hero__burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(8.66px) rotate(45deg); }
 .hero__burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-.hero__burger[aria-expanded="true"] span:nth-child(3) { width: 26px; transform: translateY(-7.5px) rotate(-45deg); }
+.hero__burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8.66px) rotate(-45deg); }
 
-/* ── the menu panel behind the hamburger ────────────────────────────────
-   A tall right-hand panel: four white L-marks on its corners, one hairline under
-   every row, an arrow at the right of each row, first row brightest.
-   ──────────────────────────────────────────────────────────────────────── */
-
+/* ── the menu panel ─────────────────────────────────────────────────────── */
 .hero__drawer {
   position: fixed;
   inset: 0;
@@ -344,7 +186,6 @@ body.home {
 
 .hero__drawer.is-open nav { transform: none; }
 
-/* four hairline L-marks on the panel corners */
 .hero__drawer nav .corner-mark {
   width: 24px;
   height: 24px;
@@ -362,7 +203,7 @@ body.home {
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  padding: clamp(11px, 1.5vw, 17px) 2px clamp(11px, 1.5vw, 17px) 0;
+  padding: clamp(11px, 1.5vw, 17px) 40px clamp(11px, 1.5vw, 17px) 0;
   color: rgba(255, 255, 255, 0.94);
   text-decoration: none;
   font-family: var(--dna-body);
@@ -374,17 +215,10 @@ body.home {
   transition: color 0.25s ease, border-color 0.25s ease;
 }
 
-.hero__drawer a:first-of-type {
-  font-size: clamp(19px, 1.82vw, 26px);
-  color: #fff;
-}
-
+.hero__drawer a:first-of-type { font-size: clamp(19px, 1.82vw, 26px); color: #fff; }
 .hero__drawer a:last-of-type { border-bottom: 0; }
-
 .hero__drawer a:hover { border-bottom-color: #fff; }
 
-/* the arrow at the right of each row: one shaft, one head, drawn as an inline SVG
-   so the two parts can never separate */
 .hero__drawer a .menu-arrow {
   position: absolute;
   right: 2px;
@@ -403,37 +237,11 @@ body.home {
   stroke-linecap: square;
 }
 
-.hero__drawer a { padding-right: 40px; }
-
 /* ── smooth scroll ─────────────────────────────────────────────────────── */
 html { scroll-behavior: smooth; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-}
-
-/* ── smooth scroll with an offset for sticky-less anchors ──────────────── */
-html { scroll-behavior: smooth; }
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-}
-
-/* reveal on scroll */
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 0.9, 0.24, 1);
-  will-change: opacity, transform;
-}
-
-.reveal.is-in {
-  opacity: 1;
-  transform: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
 }
 
 /* ══ 2. FOUR VALUES ══════════════════════════════════════════════════════ */
@@ -1046,11 +854,18 @@ html { scroll-behavior: smooth; }
     order: 3;
   }
 
-  .hero__triptych { width: min(86vw, 620px); }
-  .hero__word { white-space: normal; font-size: clamp(26px, 7.4vw, 58px); letter-spacing: -0.05em; margin-top: 18px; }
-  /* the bent connectors are drawn for the desktop rail; at this width they would
-     cross the subline, so the stacked rail reads as plain links instead */
-  .hero__wires { display: none; }
+  /* The artwork is one fixed 1440x797 board. On a phone the readable move is to
+     scale it to the viewport width rather than crop it, so the whole composition
+     stays legible. */
+  .hero { height: auto; }
+  .hero__art {
+    position: relative;
+    left: 0;
+    transform: none;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+  }
   .hero__rail {
     position: static;
     width: 100%;
