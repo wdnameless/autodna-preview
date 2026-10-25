@@ -3,11 +3,17 @@
    The real typefaces from the board: Helvetica Neue (Light 300 is the body
    voice) and Orbitron (display). Both are local files, so the pages carry
    no web-font request and match the design exactly.
+
+   The Helvetica faces are cut from fonts/HelveticaNeue.ttc (14 faces), not
+   from a glyph subset: the full faces carry 1205-2085 glyphs with Cyrillic,
+   typographic punctuation and real kerning tables. The earlier 92-glyph
+   subsets lacked ’ → € and all of Cyrillic, so any such character silently
+   fell back to Arial.
    ========================================================================== */
 
 @font-face {
   font-family: 'Helvetica Neue';
-  src: url('../fonts/HelveticaNeue-light.ttf') format('truetype');
+  src: url('../fonts/HelveticaNeue-light.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -15,7 +21,7 @@
 
 @font-face {
   font-family: 'Helvetica Neue';
-  src: url('../fonts/HelveticaNeue-regular.ttf') format('truetype');
+  src: url('../fonts/HelveticaNeue-regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -23,7 +29,7 @@
 
 @font-face {
   font-family: 'Helvetica Neue';
-  src: url('../fonts/HelveticaNeue-medium.ttf') format('truetype');
+  src: url('../fonts/HelveticaNeue-medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -31,15 +37,18 @@
 
 @font-face {
   font-family: 'Helvetica Neue';
-  src: url('../fonts/HelveticaNeue-bold.ttf') format('truetype');
+  src: url('../fonts/HelveticaNeue-bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
+/* Orbitron ships as one variable file spanning 400-900; the display weights
+   used across the pages (500 for the wordmark, 800 for the dealer headline)
+   all come from it. */
 @font-face {
   font-family: 'Orbitron';
-  src: url('../fonts/Orbitron-Variable.ttf') format('truetype');
+  src: url('../fonts/Orbitron-Variable.woff2') format('woff2');
   font-weight: 400 900;
   font-style: normal;
   font-display: swap;
