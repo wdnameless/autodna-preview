@@ -478,9 +478,10 @@ html { scroll-behavior: smooth; }
 
 .stats__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: clamp(12px, 1.6vw, 24px);
-  max-width: 1240px;
+  /* five figures on the board: 12 / 10+ / 450+ / 3-4 / 30-50% */
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(10px, 1.3vw, 20px);
+  max-width: 1440px;
   margin: 0 auto;
 }
 
@@ -493,9 +494,15 @@ html { scroll-behavior: smooth; }
   min-height: clamp(240px, 22vw, 300px);
 }
 
+.stat__num small {
+  font-size: 0.52em;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
 .stat__num {
   font-family: var(--dna-display);
-  font-size: clamp(46px, 5.6vw, 78px);
+  font-size: clamp(38px, 4.6vw, 64px);
   font-weight: 700;
   line-height: 0.86;
   letter-spacing: -0.04em;
@@ -900,6 +907,7 @@ html { scroll-behavior: smooth; }
   .hero__inner { padding-top: 80px; order: 2; }
   .hero__mark { order: 1; position: static; margin: 18px auto 0; }
   .club__grid, .values__grid, .stats__grid { grid-template-columns: repeat(2, 1fr); }
+  .imagine__grid { grid-template-columns: repeat(2, 1fr); }
   .imagine__grid { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
   .imagine__fan { display: none; }
   .club__grid { margin-top: 20px; }
