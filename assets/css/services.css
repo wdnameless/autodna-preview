@@ -1,13 +1,13 @@
 /* ══ SERVICES — Component 7 (desktop) + main mob (stacked) ═════════════════
-   Desktop: one full-screen band, three thirds, backdrop swaps on hover.
    Values below are read from the Figma SVG, not eyeballed:
-     active panel  #262548 @ 44%   (Frame 1650 / 1654, fill-opacity=.44)
+     active panel  #262548 @ .44   (Frame 1650 / 1654, fill-opacity=.44)
      brackets      #C2B9FF         (Vector 6..9, hairline L-marks, 19px arms)
-     arrow         16x16, same stroke
-   Mobile: the three services stack, each photo above its own glass panel.
+     card box      454x291 at y 611.156 on a 1388.34x790.511 band
+                   => width 32.71%, top 63.19%, height 36.81%, gap 0.92%
+   Desktop: the whole third is the hit area. The cards sit in their own grid,
+   so a card can never reach into its neighbour.
    ========================================================================== */
 
-/* The page ground is a violet pool that deepens downward, not flat black. */
 .svc {
   --svc-ink: #262548;
   --svc-mark: #C2B9FF;
@@ -43,6 +43,7 @@
   transform: scale(1.02);
   transition: opacity 0.55s ease, transform 1.2s cubic-bezier(0.22, 0.9, 0.24, 1);
   will-change: opacity, transform;
+  z-index: 0;
 }
 
 .svc__bg.is-active {
@@ -65,70 +66,91 @@
   letter-spacing: -0.058em;
   text-transform: uppercase;
   color: #fff;
-  /* the board carries a soft bloom on the letters (filter0_f, stdDeviation 1.89) */
   text-shadow: 0 0 10px rgba(226, 220, 255, 0.28), 0 0 30px rgba(160, 140, 255, 0.16);
   pointer-events: none;
+  z-index: 1;
+}
+
+/* --- hit columns: the whole third, edge to edge ------------------------- */
+
+.svc__zones {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   z-index: 2;
 }
 
-/* --- the three hit zones ------------------------------------------------- */
-
 .svc__zone {
+  display: block;
+  height: 100%;
+  cursor: pointer;
+  /* the photo underneath must not be selectable when the user drags across thirds */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* --- the three cards, in the board's own grid --------------------------- */
+
+.svc__cards {
   position: absolute;
-  top: 63.2%;
-  width: 32.71%;
-  height: 36.8%;
+  /* the board keeps 26.7px on a 1440 frame = 1.85% at each side */
+  left: 1.85%;
+  right: 1.85%;
+  top: 63.19%;
+  height: 36.81%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.92%;
+  z-index: 3;
+  /* the columns above own the pointer; the cards only paint */
+  pointer-events: none;
+}
+
+.svc__card {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   gap: 8px;
-  padding: 0 clamp(16px, 1.55vw, 30px) clamp(44px, 4.6vw, 56px);
-  z-index: 3;
-  transition: background 0.4s ease;
+  /* clears the 19px bottom corner marks, which sit 18px off the edge */
+  padding: 46px clamp(16px, 1.55vw, 30px) 46px;
+  text-decoration: none;
+  /* the board's card is a flat tint at 44%; the blur is what makes it glass.
+     A little stronger than the raw value keeps white text off the photograph. */
+  background: rgba(38, 37, 72, 0.62);
+  -webkit-backdrop-filter: blur(16px) saturate(118%);
+  backdrop-filter: blur(16px) saturate(118%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
-.svc__zone[data-zone="skip"]    { left: 1.92%; }
-.svc__zone[data-zone="flip"]    { left: 35.56%; }
-.svc__zone[data-zone="service"] { left: 69.20%; }
-
-/* The active third is a glass panel: tinted at 44%, blurred behind, so the
-   backdrop still reads through it exactly as on the board. */
-.svc__zone.is-active {
-  background: color-mix(in srgb, var(--svc-ink) 44%, transparent);
-  -webkit-backdrop-filter: blur(7px) saturate(112%);
-  backdrop-filter: blur(7px) saturate(112%);
+.svc__card.is-active {
+  opacity: 1;
 }
 
 /* four hairline L-marks, one per corner — the board's Vector 6..9 */
-.svc__zone .svc__corner { display: none; }
-
-@media (min-width: 1024px) {
-  .svc__zone .svc__corner {
-    display: block;
-    position: absolute;
-    width: 19px;
-    height: 19px;
-    border: 0 solid var(--svc-mark);
-    opacity: 0;
-    transition: opacity 0.35s ease;
-    pointer-events: none;
-  }
-
-  .svc__zone .svc__corner:nth-of-type(1) { top: 18px;    left: 18px;  border-width: 1px 0 0 1px; }
-  .svc__zone .svc__corner:nth-of-type(2) { top: 18px;    right: 18px; border-width: 1px 1px 0 0; }
-  .svc__zone .svc__corner:nth-of-type(3) { bottom: 18px; left: 18px;  border-width: 0 0 1px 1px; }
-  .svc__zone .svc__corner:nth-of-type(4) { bottom: 18px; right: 18px; border-width: 0 1px 1px 0; }
-
-  .svc__zone.is-active .svc__corner { opacity: 1; }
+.svc__corner {
+  position: absolute;
+  width: 19px;
+  height: 19px;
+  border: 0 solid var(--svc-mark);
+  pointer-events: none;
 }
 
+.svc__corner:nth-of-type(1) { top: 18px;    left: 18px;  border-width: 1px 0 0 1px; }
+.svc__corner:nth-of-type(2) { top: 18px;    right: 18px; border-width: 1px 1px 0 0; }
+.svc__corner:nth-of-type(3) { bottom: 18px; left: 18px;  border-width: 0 0 1px 1px; }
+.svc__corner:nth-of-type(4) { bottom: 18px; right: 18px; border-width: 0 1px 1px 0; }
+
+/* the arrow badge belongs to the stacked layout only */
+.svc__go { display: none; }
+
 .svc__label {
-  font-size: clamp(18px, 2.88vw, 64px);
+  font-size: clamp(18px, 2.78vw, 40px);
   font-weight: 300;
   line-height: 1.0;
   letter-spacing: -0.02em;
   color: #fff;
-  transition: color 0.25s ease;
 }
 
 .svc__desc {
@@ -136,22 +158,8 @@
   font-size: clamp(11px, 0.94vw, 18px);
   font-weight: 300;
   line-height: 1.35;
-  color: rgba(255, 255, 255, 0.74);
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.4s ease, opacity 0.35s ease;
+  color: rgba(255, 255, 255, 0.78);
 }
-
-.svc__zone.is-active .svc__desc {
-  max-height: 120px;
-  opacity: 1;
-}
-
-.svc__zone:hover .svc__label { color: #e7e0ff; }
-
-/* the arrow badge belongs to the stacked layout only */
-.svc__go { display: none; }
 
 /* --- page chrome --------------------------------------------------------- */
 
@@ -188,7 +196,9 @@
     row-gap: 0;
   }
 
-  /* the title sits in its own marked-off box above the stack */
+  /* there is nothing to swap on touch: every third is visible at once */
+  .svc__zones { display: none; }
+
   .svc__word {
     position: static;
     transform: none;
@@ -210,42 +220,36 @@
     opacity: 1;
     transform: none;
     transition: none;
-    z-index: 1;
   }
 
   .svc__bg[data-state="skip"]    { grid-row: 2; }
   .svc__bg[data-state="flip"]    { grid-row: 4; }
   .svc__bg[data-state="service"] { grid-row: 6; }
 
-  .svc__zone {
+  /* the cards become rows of the same grid, interleaved with their photos */
+  .svc__cards { display: contents; }
+
+  .svc__card {
     position: relative;
-    /* the desktop thirds are `left` offsets; relative positioning would still honour them */
     left: auto;
     top: auto;
     width: auto;
     height: auto;
-    padding: clamp(24px, 6vw, 38px) clamp(20px, 5vw, 30px) clamp(28px, 7vw, 44px);
+    padding: clamp(28px, 7vw, 42px) clamp(20px, 5vw, 30px) clamp(48px, 12vw, 62px);
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: start;
+    justify-content: stretch;
     gap: 12px clamp(14px, 4vw, 24px);
-    background: color-mix(in srgb, var(--svc-ink) 62%, transparent);
-    -webkit-backdrop-filter: blur(14px) saturate(120%);
-    backdrop-filter: blur(14px) saturate(120%);
-    z-index: 2;
+    background: rgba(38, 37, 72, 0.72);
+    opacity: 1;
+    pointer-events: auto;
     margin-bottom: 22px;
   }
 
-  .svc__zone[data-zone="skip"]    { grid-row: 3; margin-top: 12px; left: auto; }
-  .svc__zone[data-zone="flip"]    { grid-row: 5; left: auto; }
-  .svc__zone[data-zone="service"] { grid-row: 7; margin-bottom: 0; left: auto; }
-
-  /* every panel carries the same four L-marks on touch, not just the active one */
-  .svc__zone .svc__corner { display: block; position: absolute; width: 16px; height: 16px; border: 0 solid var(--svc-mark); opacity: 0.85; }
-  .svc__zone .svc__corner:nth-of-type(1) { top: 0; left: 0; border-width: 1px 0 0 1px; }
-  .svc__zone .svc__corner:nth-of-type(2) { top: 0; right: 0; border-width: 1px 1px 0 0; }
-  .svc__zone .svc__corner:nth-of-type(3) { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
-  .svc__zone .svc__corner:nth-of-type(4) { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+  .svc__card[data-card="skip"]    { grid-row: 3; margin-top: 12px; }
+  .svc__card[data-card="flip"]    { grid-row: 5; }
+  .svc__card[data-card="service"] { grid-row: 7; margin-bottom: 0; }
 
   .svc__label {
     grid-column: 1;
@@ -256,11 +260,9 @@
   .svc__desc {
     grid-column: 1;
     max-width: none;
-    max-height: none;
-    opacity: 1;
     font-size: clamp(13px, 3.7vw, 17px);
     line-height: 1.45;
-    color: rgba(255, 255, 255, 0.68);
+    color: rgba(255, 255, 255, 0.7);
   }
 
   /* bracketed arrow, top-right of every panel */

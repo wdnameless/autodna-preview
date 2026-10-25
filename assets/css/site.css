@@ -27,10 +27,12 @@
   pointer-events: none;
 }
 
-/* the SVG is 1440x797 — let it fill the viewport without distorting */
+/* The art is an <img> inside a <picture>: wide screens get preloader.svg (1440x797),
+   phones get preloader-mobile.svg (393x797). Both fill the screen without distorting. */
 .preloader__art {
   position: absolute;
   inset: 0;
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -115,7 +117,16 @@
 }
 
 /* the splash lifts slightly as it fades */
+.preloader__art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 .preloader.is-done .preloader__art,
+.preloader.is-done .preloader__art img,
 .preloader.is-done .preloader__bar {
   transition: transform 0.7s ease;
   transform: translateY(-14px);

@@ -11,9 +11,14 @@
 </head>
 <body class="loading">
 
-<!-- preloader: the board's own SVG, held 2.5s -->
+<!-- preloader: the board's own SVG, held 2.5s. The board has two artworks —
+     preloader-1.svg (1440x797) for wide screens and preloader.svg (393x797) for
+     phones. Serving the wide one to a phone cropped the mark into a giant fragment. -->
 <div class="preloader" id="preloader" aria-hidden="true">
-  <img class="preloader__art" src="assets/img/preloader.svg" alt="AutoDNA">
+  <picture class="preloader__art">
+    <source media="(max-width: 640px)" srcset="assets/img/preloader-mobile.svg">
+    <img src="assets/img/preloader.svg" alt="AutoDNA">
+  </picture>
   <div class="preloader__bar"><span></span></div>
 </div>
 
@@ -24,9 +29,10 @@
 <main>
   <!--
     SERVICES — the block from the board (Frame 1683 / Component 7).
-    Desktop: one full-screen band, a single backdrop that swaps between three states
-    depending on which third the pointer is over — SkipTheDealers, AutoDNA Flip,
-    AutoDNA Service. Mobile: the same three services stack, each with its own photo.
+    Desktop: one full-screen band. The whole third is the hit area, not just the card,
+    so pointing anywhere in a third swaps the backdrop. The three glass cards live in
+    their own grid, inset by the board's margins, so they can never overlap a neighbour.
+    Mobile: the same three services stack, each with its own photo.
   -->
   <section class="svc" aria-label="Our services">
     <div class="svc__stage">
@@ -38,27 +44,36 @@
 
       <h2 class="svc__word">Services</h2>
 
-      <!-- three hit zones, each a third of the band -->
-      <a class="svc__zone" href="#skip"    data-zone="skip"    aria-label="SkipTheDealers">
-        <span class="svc__corner" aria-hidden="true"></span><span class="svc__corner" aria-hidden="true"></span><span class="svc__corner" aria-hidden="true"></span><span class="svc__corner" aria-hidden="true"></span>
-        <span class="svc__label">SkipTheDealers</span>
-        <span class="svc__desc">Find, bid, and buy the best vehicles directly from trusted car auctions. Smart, transparent, and hassle-free — we handle the process from search to delivery.</span>
-              <span class="svc__go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" stroke-linecap="square"/></svg></span>
-</a>
+      <!-- full-height hit columns: one third each, edge to edge -->
+      <div class="svc__zones">
+        <a class="svc__zone" href="#skip"    data-zone="skip"    aria-label="SkipTheDealers"></a>
+        <a class="svc__zone" href="#flip"    data-zone="flip"    aria-label="AutoDNA Flip"></a>
+        <a class="svc__zone" href="#service" data-zone="service" aria-label="AutoDNA Service"></a>
+      </div>
 
-      <a class="svc__zone" href="#flip"    data-zone="flip"    aria-label="AutoDNA Flip">
-        <span class="svc__corner" aria-hidden="true"></span><span class="svc__corner" aria-hidden="true"></span><span class="svc__corner" aria-hidden="true"></span><span class="svc__corner" aria-hidden="true"></span>
-        <span class="svc__label">AutoDNA Flip</span>
-        <span class="svc__desc">Turn vehicles into valuable assets. We help you invest wisely in high-demand cars and maximize your returns through strategic resale.</span>
-              <span class="svc__go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" stroke-linecap="square"/></svg></span>
-</a>
+      <!-- the three cards, in the board's own grid: side margins 1.85%, gap 0.9% -->
+      <div class="svc__cards">
+        <a class="svc__card" href="#skip" data-card="skip">
+          <span class="svc__corner" aria-hidden="true"></span><span class="svc__corner" aria-hidden="true"></span><span class="svc__corner" aria-hidden="true"></span><span class="svc__corner" aria-hidden="true"></span>
+          <span class="svc__label">SkipTheDealers</span>
+          <span class="svc__desc">Find, bid, and buy the best vehicles directly from trusted car auctions. Smart, transparent, and hassle-free — we handle the process from search to delivery.</span>
+          <span class="svc__go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" stroke-linecap="square"/></svg></span>
+        </a>
 
-      <a class="svc__zone" href="#service" data-zone="service" aria-label="AutoDNA Service">
-        <span class="svc__corner" aria-hidden="true"></span><span class="svc__corner" aria-hidden="true"></span><span class="svc__corner" aria-hidden="true"></span><span class="svc__corner" aria-hidden="true"></span>
-        <span class="svc__label">AutoDNA Service</span>
-        <span class="svc__desc">A next-generation automotive centre: PaintBot robotics, SkipTheShop concierge and DriveCarePlan telematics under one roof.</span>
-              <span class="svc__go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" stroke-linecap="square"/></svg></span>
-</a>
+        <a class="svc__card" href="#flip" data-card="flip">
+          <span class="svc__corner" aria-hidden="true"></span><span class="svc__corner" aria-hidden="true"></span><span class="svc__corner" aria-hidden="true"></span><span class="svc__corner" aria-hidden="true"></span>
+          <span class="svc__label">AutoDNA Flip</span>
+          <span class="svc__desc">Turn vehicles into valuable assets. We help you invest wisely in high-demand cars and maximize your returns through strategic resale.</span>
+          <span class="svc__go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" stroke-linecap="square"/></svg></span>
+        </a>
+
+        <a class="svc__card" href="#service" data-card="service">
+          <span class="svc__corner" aria-hidden="true"></span><span class="svc__corner" aria-hidden="true"></span><span class="svc__corner" aria-hidden="true"></span><span class="svc__corner" aria-hidden="true"></span>
+          <span class="svc__label">AutoDNA Service</span>
+          <span class="svc__desc">A next-generation automotive centre: PaintBot robotics, SkipTheShop concierge and DriveCarePlan telematics under one roof.</span>
+          <span class="svc__go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" stroke-linecap="square"/></svg></span>
+        </a>
+      </div>
 
     </div>
   </section>

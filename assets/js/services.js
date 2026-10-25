@@ -1,9 +1,13 @@
 /**
- * SERVICES band — swap the backdrop depending on which third the pointer is over.
+ * SERVICES band — the whole third is the hit area.
  *
  * The board has three states for this block: SkipTheDealers (default), AutoDNA Flip,
- * AutoDNA Service. Hovering a third brings its state forward; leaving the band returns
- * to the default so the block always reads as designed at rest.
+ * AutoDNA Service. Pointing anywhere inside a third brings its state forward; leaving
+ * the band returns to the default so the block always reads as designed at rest.
+ *
+ * Hit columns and cards are separate elements: the columns cover the full height of
+ * each third (so hover works over the photograph too), while the cards are painted in
+ * their own grid and never take the pointer on desktop.
  */
 (function () {
   'use strict';
@@ -14,6 +18,7 @@
 
     var backdrops = stage.querySelectorAll('.svc__bg');
     var zones = stage.querySelectorAll('.svc__zone');
+    var cards = stage.querySelectorAll('.svc__card');
     var DEFAULT = 'skip';
 
     // Below 1024px the same services stack as three separate cards, each owning its photo.
@@ -26,19 +31,19 @@
         img.classList.toggle('is-active', on);
         img.setAttribute('aria-hidden', on ? 'false' : 'true');
       });
-      zones.forEach(function (zone) {
-        zone.classList.toggle('is-active', zone.getAttribute('data-zone') === key);
+      cards.forEach(function (card) {
+        card.classList.toggle('is-active', card.getAttribute('data-card') === key);
       });
     }
 
-    // In the stacked layout every photo is on screen and nothing is hidden from AT.
+    // In the stacked layout every photo and every card is on screen.
     function reset() {
       backdrops.forEach(function (img) {
         img.classList.add('is-active');
         img.setAttribute('aria-hidden', 'false');
       });
-      zones.forEach(function (zone) {
-        zone.classList.toggle('is-active', zone.getAttribute('data-zone') === DEFAULT);
+      cards.forEach(function (card) {
+        card.classList.toggle('is-active', card.getAttribute('data-card') === DEFAULT);
       });
     }
 
@@ -63,7 +68,7 @@
     // returning to the band's resting state
     stage.addEventListener('mouseleave', function () { if (band.matches) show(DEFAULT); });
 
-    // keyboard users tab through zones; leaving the last one restores the default
+    // keyboard users tab through the cards; leaving the last one restores the default
     stage.addEventListener('focusout', function (event) {
       if (band.matches && !stage.contains(event.relatedTarget)) show(DEFAULT);
     });
