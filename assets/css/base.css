@@ -1,0 +1,368 @@
+/* ==========================================================================
+   AutoDNA — design tokens and shared shell
+   Values read from the Figma document: colours from node fills, type from
+   node styles. Nothing here is estimated.
+   ========================================================================== */
+
+@import url('fonts.css');
+
+:root {
+  /* canvas */
+  --dna-bg: #07051d;
+  --dna-void: #020202;
+  --dna-panel: #13121f;
+  --dna-panel-solid: #131228;
+
+  /* the purple family, straight from the boards */
+  --dna-purple: #9685ff;
+  --dna-purple-soft: #c2b9ff;
+  --dna-purple-deep: #433694;
+  --dna-purple-mid: #6a5fb7;
+  --dna-purple-dark: #262548;
+  --dna-glow-center: #5140c8;
+
+  /* text */
+  --dna-white: #ffffff;
+  --dna-text: #f1f0ff;
+  --dna-muted: #c2b9ff;
+  --dna-dim: rgba(194, 185, 255, 0.62);
+
+  /* hairlines */
+  --dna-line: rgba(194, 185, 255, 0.18);
+  --dna-line-strong: rgba(194, 185, 255, 0.42);
+
+  /* type */
+  --dna-display: 'Orbitron', 'Arial Black', sans-serif;
+  --dna-body: 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
+
+  /* layout */
+  --shell: 1440px;
+  --gutter: 48px;
+}
+
+@media (max-width: 900px) {
+  :root { --gutter: 20px; }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  /* fixed-width scenes are scaled with transform, which leaves their layout box at 1440px;
+     clip it here so narrow viewports never report horizontal overflow */
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  background: var(--dna-bg);
+  color: var(--dna-text);
+  font-family: var(--dna-body);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+a { color: inherit; text-decoration: none; }
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+ul, ol { list-style: none; margin: 0; padding: 0; }
+
+::selection { background: var(--dna-purple); color: #0b0820; }
+
+/* --- layout ------------------------------------------------------------- */
+
+.shell {
+  width: 100%;
+  max-width: var(--shell);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.section { position: relative; padding: 100px 0; }
+
+@media (max-width: 900px) {
+  .section { padding: 60px 0; }
+}
+
+/* --- type --------------------------------------------------------------- */
+
+.display {
+  font-family: var(--dna-display);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* the huge hollow words: carlears, price comparison, profit examples */
+.outline {
+  font-family: var(--dna-display);
+  font-weight: 500;
+  line-height: 0.92;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(194, 185, 255, 0.55);
+}
+
+.body {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--dna-muted);
+}
+
+.kicker {
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dna-dim);
+}
+
+/* --- HUD corner brackets, drawn as two pseudo elements ------------------ */
+
+.bracket { position: relative; }
+
+.bracket::before,
+.bracket::after {
+  content: '';
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border: 0 solid var(--dna-line-strong);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.bracket::before {
+  top: 0;
+  left: 0;
+  border-width: 1px 0 0 1px;
+}
+
+.bracket::after {
+  bottom: 0;
+  right: 0;
+  border-width: 0 1px 1px 0;
+}
+
+/* the small corner marks used inside cards */
+.marks { position: relative; }
+
+.marks::before,
+.marks::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 0 solid var(--dna-line-strong);
+  pointer-events: none;
+}
+
+.marks::before {
+  top: 6px;
+  left: 6px;
+  border-width: 1px 0 0 1px;
+}
+
+.marks::after {
+  bottom: 6px;
+  right: 6px;
+  border-width: 0 1px 1px 0;
+}
+
+/* --- buttons: thin rectangles, arrow on the right ----------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+  padding: 16px 26px;
+  font-family: var(--dna-body);
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dna-white);
+  border: 1px solid var(--dna-line-strong);
+  background: rgba(19, 18, 40, 0.35);
+  transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+
+.btn::after {
+  content: '↗';
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.btn:hover {
+  background: rgba(150, 133, 255, 0.14);
+  border-color: var(--dna-purple);
+  box-shadow: 0 0 22px rgba(150, 133, 255, 0.25);
+}
+
+.btn--solid {
+  background: var(--dna-purple);
+  border-color: var(--dna-purple);
+  color: #0b0820;
+  font-weight: 400;
+}
+
+.btn--solid:hover {
+  background: var(--dna-purple-soft);
+  border-color: var(--dna-purple-soft);
+  box-shadow: 0 0 26px rgba(194, 185, 255, 0.35);
+}
+
+/* --- panels ------------------------------------------------------------- */
+
+.panel {
+  background: rgba(19, 18, 40, 0.62);
+  border: 1px solid var(--dna-line);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* --- link with arrow, used in the hero rail and footers ----------------- */
+
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--dna-muted);
+  transition: color 0.2s;
+}
+
+.arrow-link::after {
+  content: '↗';
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.arrow-link:hover { color: var(--dna-white); }
+
+/* --- reveal on scroll --------------------------------------------------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* --- tables ------------------------------------------------------------- */
+
+.table-scroll {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--dna-line);
+}
+
+.table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  font-size: 17px;
+  font-weight: 300;
+}
+
+.table th {
+  padding: 20px 24px;
+  text-align: left;
+  font-weight: 400;
+  color: var(--dna-purple-soft);
+  background: rgba(67, 54, 148, 0.35);
+  border-bottom: 1px solid var(--dna-line);
+}
+
+.table td {
+  padding: 22px 24px;
+  border-bottom: 1px solid var(--dna-line);
+  background: rgba(19, 18, 40, 0.5);
+  color: var(--dna-white);
+}
+
+.table tr:last-child td { border-bottom: 0; }
+
+.table .hl { background: rgba(120, 100, 220, 0.42); font-weight: 400; }
+
+/* --- forms -------------------------------------------------------------- */
+
+.field { display: flex; flex-direction: column; gap: 8px; }
+
+.field label {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dna-dim);
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 12px 0;
+  font-family: var(--dna-body);
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--dna-white);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--dna-line-strong);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.field input::placeholder,
+.field textarea::placeholder { color: rgba(194, 185, 255, 0.3); }
+
+.field input:focus,
+.field textarea:focus { border-color: var(--dna-purple); }
+
+.field.is-invalid input,
+.field.is-invalid textarea { border-color: #ff6b6b; }
+
+.field-error {
+  display: none;
+  font-size: 12px;
+  color: #ff8f8f;
+}
+
+.field.is-invalid .field-error { display: block; }
+
+.form-success {
+  display: none;
+  margin-top: 24px;
+  padding: 24px;
+  font-size: 17px;
+  color: var(--dna-purple-soft);
+  background: rgba(150, 133, 255, 0.08);
+  border: 1px solid var(--dna-purple);
+}
+
+.form-success.is-visible { display: block; }
