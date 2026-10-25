@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AutoDNA — Services</title>
+<title>AutoDNA — Skip the dealers</title>
+<meta name="description" content="AutoDNA: auction-priced cars with full inspection, plus service, carwash, alignment and tire change at the lowest prices in Calgary.">
 <link rel="icon" type="image/png" href="assets/img/mark-dna.png">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/main.css">
 <link rel="stylesheet" href="assets/css/services.css">
 </head>
-<body class="loading">
+<body class="home loading">
 
-<!-- preloader: the board's own SVG, held 2.5s. The board has two artworks —
-     preloader-1.svg (1440x797) for wide screens and preloader.svg (393x797) for
-     phones. Serving the wide one to a phone cropped the mark into a giant fragment. -->
+<!-- preloader: the board's own artwork, held 2.5s -->
 <div class="preloader" id="preloader" aria-hidden="true">
   <picture class="preloader__art">
     <source media="(max-width: 640px)" srcset="assets/img/preloader-mobile.svg">
@@ -22,36 +22,230 @@
   <div class="preloader__bar"><span></span></div>
 </div>
 
-<header class="services-page__head">
-  <a href="#" class="services-page__mark" aria-label="AutoDNA"><img src="assets/img/mark-dna.png" alt="AutoDNA"></a>
-</header>
-
 <main>
-  <!--
-    SERVICES — the block from the board (Frame 1683 / Component 7).
-    Desktop: one full-screen band. The whole third is the hit area, not just the card,
-    so pointing anywhere in a third swaps the backdrop. The three glass cards live in
-    their own grid, inset by the board's margins, so they can never overlap a neighbour.
-    Mobile: the same three services stack, each with its own photo.
-  -->
-  <section class="svc" aria-label="Our services">
-    <div class="svc__stage">
 
-      <!-- the three backdrops, stacked; only the active one is opaque -->
+  <!-- ══ 1. HERO — triptych with DNA / AUTO across it ══════════════════ -->
+  <section class="hero">
+    <div class="hero__outline" aria-hidden="true"></div>
+
+    <div class="hero__inner">
+      <div class="hero__center">
+        <div class="hero__triptych">
+          <img src="assets/img/hero-triptych.webp" alt="A pickup, a Honda crossover and a Tesla side by side" fetchpriority="high">
+        </div>
+
+        <h1 class="hero__word hero__word--dna">DNA</h1>
+        <p class="hero__word hero__word--auto" aria-hidden="true">AUTO</p>
+
+        <div class="hero__foot">
+          <p class="hero__line">Skip the dealer —<br>get the car you want<br><span>without the markup.</span></p>
+          <p class="hero__line hero__line--right">Auction prices.<br>Full inspection.<br><span>One honest invoice.</span></p>
+        </div>
+      </div>
+
+      <nav class="hero__rail" aria-label="Explore">
+        <a href="#services">SkipTheDealers</a>
+        <a href="#club">AutoDNA Service</a>
+        <a href="#compare">AutoDNA Flip</a>
+        <a href="#truth">How it works</a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ══ 2. FOUR VALUES ═══════════════════════════════════════════════ -->
+  <section class="values" aria-label="Why AutoDNA">
+    <div class="values__halo" aria-hidden="true"></div>
+
+    <div class="shell">
+      <div class="values__grid">
+        <article class="value-card">
+          <span class="corner-mark"></span><span class="corner-mark"></span><span class="corner-mark"></span><span class="corner-mark"></span>
+          <h2 class="value-card__title">High quality</h2>
+          <p class="value-card__text">A higher level of quality you can trust at an affordable price</p>
+        </article>
+
+        <article class="value-card">
+          <span class="corner-mark"></span><span class="corner-mark"></span><span class="corner-mark"></span><span class="corner-mark"></span>
+          <h2 class="value-card__title">Wide choice</h2>
+          <p class="value-card__text">A great selection of cars to match every lifestyle and need</p>
+        </article>
+
+        <article class="value-card">
+          <span class="corner-mark"></span><span class="corner-mark"></span><span class="corner-mark"></span><span class="corner-mark"></span>
+          <h2 class="value-card__title">Save more</h2>
+          <p class="value-card__text">A smarter way to save money without compromising on quality</p>
+        </article>
+
+        <article class="value-card">
+          <span class="corner-mark"></span><span class="corner-mark"></span><span class="corner-mark"></span><span class="corner-mark"></span>
+          <h2 class="value-card__title">True value</h2>
+          <p class="value-card__text">A real value that gives you confidence and satisfaction every time</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 3. IMAGINE — the claim and the fan of five ════════════════════ -->
+  <section class="imagine">
+    <div class="shell">
+      <div class="imagine__head">
+        <p class="sec-claim">Imagine buying a car from a dealer —</p>
+        <p class="sec-claim sec-claim--accent">but paying the same price you’d pay a private seller.</p>
+      </div>
+
+      <div class="imagine__fan" aria-hidden="true">
+        <svg viewBox="0 0 1240 160" preserveAspectRatio="none">
+          <line x1="620" y1="0" x2="106"  y2="160"/>
+          <line x1="620" y1="0" x2="420"  y2="160"/>
+          <line x1="620" y1="0" x2="620"  y2="160"/>
+          <line x1="620" y1="0" x2="820"  y2="160"/>
+          <line x1="620" y1="0" x2="1134" y2="160"/>
+        </svg>
+      </div>
+
+      <div class="imagine__grid">
+        <div class="imagine__col">
+          <h3>No surprises</h3>
+          <p>No hidden fees. No surprises. We cover the GST ourselves.</p>
+        </div>
+        <div class="imagine__col">
+          <h3>Affordable dealer prices</h3>
+          <p>Buying from a dealer can be just as affordable as buying privately.</p>
+        </div>
+        <div class="imagine__col">
+          <h3>Changing the game</h3>
+          <p>Calgary has never seen this before. We put the customer first.</p>
+        </div>
+        <div class="imagine__col">
+          <h3>Flexible options</h3>
+          <p>Flexible financing and an extended warranty from our partners.</p>
+        </div>
+        <div class="imagine__col">
+          <h3>Real value</h3>
+          <p>Zero profit for us — just fair prices and peace of mind for you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 4. PRICE COMPARISON ═══════════════════════════════════════════ -->
+  <section class="compare" id="compare">
+    <div class="shell">
+      <div class="compare__inner">
+        <div>
+          <img class="compare__car" src="assets/img/carlears-car.webp" alt="Toyota Corolla Hatchback 2021" loading="lazy">
+          <p class="compare__caption">Toyota Corolla Hatchback 2021</p>
+        </div>
+
+        <table class="compare__table">
+          <caption class="visually-hidden">Price comparison between dealers, marketplace and AutoDNA</caption>
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Dealers</th>
+              <th scope="col">Marketplace</th>
+              <th scope="col" class="is-win">AutoDNA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Price</th>
+              <td><span class="compare__price">$23,000 <small>+ GST</small></span></td>
+              <td><span class="compare__price">$21,000 <small>(GST included)</small></span></td>
+              <td class="is-win"><span class="compare__price">$21,000 <small>(GST included)</small></span></td>
+            </tr>
+            <tr>
+              <th scope="row">Option</th>
+              <td>Dealer purchase</td>
+              <td>Marketplace</td>
+              <td class="is-win">AutoDNA</td>
+            </tr>
+            <tr>
+              <th scope="row">Features</th>
+              <td>Higher price, GST extra</td>
+              <td>Lower price</td>
+              <td class="is-win">Full inspection completed, 3-year paid warranty, financing available</td>
+            </tr>
+            <tr>
+              <th scope="row">Cons</th>
+              <td>—</td>
+              <td>Car not inspected, potential issues, no warranty</td>
+              <td class="is-win">None — all value included</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 5. STATS ══════════════════════════════════════════════════════ -->
+  <section class="stats">
+    <div class="shell">
+      <div class="stats__grid">
+        <article class="stat">
+          <span class="corner-mark"></span><span class="corner-mark"></span><span class="corner-mark"></span><span class="corner-mark"></span>
+          <span class="stat__num">200+</span>
+          <h2 class="stat__title">Stages of inspection</h2>
+          <p class="stat__text">We test, verify, and only then hand over the keys. Real inspection — not intuition.</p>
+        </article>
+
+        <article class="stat">
+          <span class="corner-mark"></span><span class="corner-mark"></span><span class="corner-mark"></span><span class="corner-mark"></span>
+          <span class="stat__num">450+</span>
+          <h2 class="stat__title">Clients said “Wow!”</h2>
+          <p class="stat__text">And new ones join every week. Every car is a story — and our client is always the main character.</p>
+        </article>
+
+        <article class="stat">
+          <span class="corner-mark"></span><span class="corner-mark"></span><span class="corner-mark"></span><span class="corner-mark"></span>
+          <span class="stat__num">15+</span>
+          <h2 class="stat__title">Years in the industry</h2>
+          <p class="stat__text">We’ve seen it all — and that’s why we do it right. It’s in our DNA.</p>
+        </article>
+
+        <article class="stat">
+          <span class="corner-mark"></span><span class="corner-mark"></span><span class="corner-mark"></span><span class="corner-mark"></span>
+          <span class="stat__num">2–4</span>
+          <h2 class="stat__title">Weeks — faster than you expect</h2>
+          <p class="stat__text">An optimized process — no delays, no surprises. Search, preparation, and the car is yours.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 6. PARENT CORPORATION ═════════════════════════════════════════ -->
+  <section class="parent">
+    <div class="parent__outline" aria-hidden="true"></div>
+
+    <div class="shell">
+      <div class="parent__row">
+        <p class="sec-claim parent__claim">AutoDNA is the parent corporation that brings together SkipTheDealer, AutoDNA Service, and other companies.</p>
+        <div class="parent__aside">
+          <p class="sec-claim">We play by new rules — and this is just the beginning.</p>
+        </div>
+      </div>
+
+      <img class="parent__photo" src="assets/img/showroom.webp" alt="The AutoDNA showroom at night" loading="lazy">
+
+      <p class="sec-claim parent__plan">Over the next two years, we plan to create a complete automotive hub for car enthusiasts, offering all kinds of services and entertainment for our clients.</p>
+    </div>
+  </section>
+
+  <!-- ══ 7. SERVICES — the band from the board ═════════════════════════ -->
+  <section class="svc" id="services" aria-label="Our services">
+    <div class="svc__stage">
       <img class="svc__bg is-active" src="assets/img/svc-skip.webp"    alt="" data-state="skip" aria-hidden="false">
       <img class="svc__bg"           src="assets/img/svc-flip.webp"    alt="" data-state="flip" aria-hidden="true">
       <img class="svc__bg"           src="assets/img/svc-service.webp" alt="" data-state="service" aria-hidden="true">
 
       <h2 class="svc__word">Services</h2>
 
-      <!-- full-height hit columns: one third each, edge to edge -->
       <div class="svc__zones">
         <a class="svc__zone" href="#skip"    data-zone="skip"    aria-label="SkipTheDealers"></a>
         <a class="svc__zone" href="#flip"    data-zone="flip"    aria-label="AutoDNA Flip"></a>
         <a class="svc__zone" href="#service" data-zone="service" aria-label="AutoDNA Service"></a>
       </div>
 
-      <!-- the three cards, in the board's own grid: side margins 1.85%, gap 0.9% -->
       <div class="svc__cards">
         <a class="svc__card" href="#skip" data-card="skip">
           <span class="svc__corner" aria-hidden="true"></span><span class="svc__corner" aria-hidden="true"></span><span class="svc__corner" aria-hidden="true"></span><span class="svc__corner" aria-hidden="true"></span>
@@ -74,9 +268,108 @@
           <span class="svc__go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" stroke-linecap="square"/></svg></span>
         </a>
       </div>
-
     </div>
   </section>
+
+  <!-- ══ 8. AUTO CLUB ═════════════════════════════════════════════════-->
+  <section class="club" id="club">
+    <div class="shell">
+      <p class="sec-claim club__head">Join DNA Auto Club and get more than just service.</p>
+    </div>
+
+    <p class="club__word" aria-hidden="true">AutoClub</p>
+
+    <div class="club__grid">
+      <article class="club-card">
+        <span class="corner-mark"></span><span class="corner-mark"></span><span class="corner-mark"></span><span class="corner-mark"></span>
+        <h2 class="club-card__name">Service</h2>
+        <span class="club-card__deal">
+          <span class="club-card__num">30%</span>
+          <span class="club-card__num club-card__num--accent">off any work.</span>
+        </span>
+        <p class="club-card__text">The lowest prices in Calgary for bodywork, mechanics, and painting.</p>
+      </article>
+
+      <article class="club-card">
+        <span class="corner-mark"></span><span class="corner-mark"></span><span class="corner-mark"></span><span class="corner-mark"></span>
+        <h2 class="club-card__name">Carwash</h2>
+        <span class="club-card__deal">
+          <span class="club-card__num club-card__num--accent">Every second wash</span>
+          <span class="club-card__num">is free</span>
+        </span>
+        <p class="club-card__text">Modern automatic carwash that preserves your car’s coating.</p>
+      </article>
+
+      <article class="club-card">
+        <span class="corner-mark"></span><span class="corner-mark"></span><span class="corner-mark"></span><span class="corner-mark"></span>
+        <h2 class="club-card__name">Wheel alignment</h2>
+        <span class="club-card__deal">
+          <span class="club-card__num">$70</span>
+          <span class="club-card__was">market price $150</span>
+        </span>
+        <p class="club-card__text">State-of-the-art equipment with automatic adjustment.</p>
+      </article>
+
+      <article class="club-card">
+        <span class="corner-mark"></span><span class="corner-mark"></span><span class="corner-mark"></span><span class="corner-mark"></span>
+        <h2 class="club-card__name">Tire change</h2>
+        <span class="club-card__deal">
+          <span class="club-card__num">$60</span>
+          <span class="club-card__was">market price $120</span>
+        </span>
+        <p class="club-card__text">Any wheel repair, seasonal tire replacement, and free tire storage.</p>
+      </article>
+    </div>
+
+    <div class="shell">
+      <p class="sec-claim club__claim">Real benefits, real savings —<br>made for drivers like you.</p>
+    </div>
+  </section>
+
+  <!-- ══ 9. COMMUNITY ═════════════════════════════════════════════════ -->
+  <section class="community" id="truth">
+    <div class="shell">
+      <div class="community__inner">
+        <h2 class="community__word">We don’t<br><em>just</em><br>sell<br>cars.</h2>
+
+        <div>
+          <img class="community__photo" src="assets/img/community.webp" alt="The AutoDNA team in front of a row of cars" loading="lazy">
+        </div>
+      </div>
+
+      <p class="sec-claim community__claim">We’re building a community where every customer gets more than they expect.</p>
+    </div>
+  </section>
+
+  <!-- ══ 10. FOOTER ═══════════════════════════════════════════════════ -->
+  <footer class="foot">
+    <div class="shell">
+      <div class="foot__grid">
+        <div class="foot__col foot__col--contact">
+          <h3>Contact us</h3>
+          <a href="tel:+14033128306">+1 (403) 312-8306</a>
+          <a href="mailto:info@autodna.com">info@autodna.com</a>
+        </div>
+
+        <div class="foot__col">
+          <h3>Follow us</h3>
+          <div class="foot__social">
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a>
+            <a href="#" aria-label="X"><svg viewBox="0 0 24 24"><path d="M17.5 3h3l-6.6 7.6L21.8 21h-6.1l-4.8-6.2L5.4 21h-3l7-8.1L2.6 3h6.2l4.3 5.7L17.5 3zm-1.1 16h1.7L7.7 4.7H5.9L16.4 19z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7.5A4.5 4.5 0 1 0 16.5 12 4.5 4.5 0 0 0 12 7.5zm0 7.4a2.9 2.9 0 1 1 2.9-2.9 2.9 2.9 0 0 1-2.9 2.9zM17 3H7a4 4 0 0 0-4 4v10a4 4 0 0 0 4 4h10a4 4 0 0 0 4-4V7a4 4 0 0 0-4-4zm2.4 14a2.4 2.4 0 0 1-2.4 2.4H7A2.4 2.4 0 0 1 4.6 17V7A2.4 2.4 0 0 1 7 4.6h10A2.4 2.4 0 0 1 19.4 7zm-2-11.3a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/></svg></a>
+          </div>
+        </div>
+
+        <div class="foot__col foot__col--find">
+          <h3>Find us</h3>
+          <p>730 2 Ave SW,<br>Calgary, T2P1R8,<br>Canada</p>
+        </div>
+      </div>
+
+      <p class="foot__legal">© 2025 AutoDNA Canada. All rights reserved.</p>
+    </div>
+  </footer>
+
 </main>
 
 <script src="assets/js/site.js" defer></script>
