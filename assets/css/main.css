@@ -193,71 +193,192 @@ body.home {
   clip-path: polygon(0 62%, 62% 62%, 100% 0, 100% 100%, 62% 100%, 0 100%);
 }
 
-/* the explore rail: 289x385 at (1126, 35) — top-right of the frame */
+/* ── the explore rail ─────────────────────────────────────────────────────
+   Not a menu list. main.svg frames three service links on the right of the hero,
+   each with a bent hairline running out to an arrow:
+       Explore / SkipTheDealer   text at (1148,197)-(1267,230)  line 1147,195-1338,245
+       AutoDNA Flip              text at (1149,286)-(1226,320)  line 1147,270-1338,320
+       AutoDNA Service           text at (1149,376)-(1290,391)  line 1147,356-1338,405
+   The bent lines are #C2B9FF. The hamburger sits at the top right of the frame.
+   ──────────────────────────────────────────────────────────────────────── */
+
 .hero__rail {
   position: absolute;
-  top: clamp(14px, 4.4vh, 35px);
+  top: clamp(112px, 21vh, 160px);
   right: var(--pad);
-  width: clamp(210px, 20vw, 285px);
+  width: clamp(212px, 18.4vw, 265px);
   display: flex;
   flex-direction: column;
-  background: rgba(16, 13, 38, 0.5);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
   z-index: 5;
 }
 
 .hero__rail a {
   position: relative;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  padding: 11px 16px;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 0 0 1px;
   color: #fff;
   text-decoration: none;
   font-family: var(--dna-body);
-  font-size: clamp(12px, 1vw, 14px);
+  font-size: clamp(13px, 1.05vw, 15px);
   font-weight: 300;
-  line-height: 1.25;
-  border-bottom: 1px solid rgba(194, 185, 255, 0.2);
-  transition: background 0.25s ease;
+  line-height: 1.28;
+  transition: color 0.25s ease;
 }
 
-.hero__rail a:first-child { background: rgba(120, 96, 235, 0.18); }
-.hero__rail a:last-child { border-bottom: 0; }
-.hero__rail a:hover { background: rgba(120, 96, 235, 0.3); }
-
-/* the arrow on the right of each row: one shaft, one head */
-.hero__rail a::after {
-  content: '';
-  position: relative;
-  width: 16px;
-  height: 1px;
-  flex: none;
-  background: rgba(255, 255, 255, 0.75);
+.hero__rail a span { display: block; }
+.hero__rail a em {
+  font-style: normal;
+  color: rgba(255, 255, 255, 0.55);
+  transition: color 0.25s ease;
 }
 
-.hero__rail a::before {
-  content: '';
+.hero__rail a:hover em { color: #fff; }
+
+/* each row is tall enough for its own bent connector */
+/* band heights follow the board's wire gaps: 195→245, 270→320, 356→405 */
+.hero__rail { gap: clamp(12px, 1.6vw, 25px); }
+.hero__rail a:nth-child(1) { height: clamp(34px, 3.5vw, 50px); }
+.hero__rail a:nth-child(2) { height: clamp(36px, 3.7vw, 50px); }
+.hero__rail a:nth-child(3) { height: clamp(34px, 3.5vw, 50px); }
+
+/* the connectors are drawn once as SVG, using the board's own path data:
+     M1147.19 244.815 H1297.9 L1338.31 195.352 H1412.24
+     M1147.19 270.186 H1297.89 L1338.31 319.649 H1412.24
+     M1147.19 405.376 H1297.89 L1338.31 355.912 H1412.24
+   The stage spans the rail box and is clipped to it, so the lines run out to the
+   frame edge exactly as on the board. */
+.hero__wires {
   position: absolute;
-  right: 16px;
-  width: 6px;
-  height: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.75);
+  top: clamp(112px, 21vh, 160px);
+  right: var(--pad);
+  width: clamp(212px, 18.4vw, 265px);
+  height: clamp(210px, 19.5vw, 245px);
+  z-index: 4;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero__wires svg { width: 100%; height: 100%; display: block; }
+.hero__wires path { stroke: rgba(194, 185, 255, 0.55); stroke-width: 1; fill: none; }
+
+.hero__rail-label { display: none; }
+
+/* the hamburger, top-right of the frame */
+.hero__burger {
+  position: absolute;
+  top: clamp(18px, 2.6vh, 32px);
+  right: var(--pad);
+  z-index: 7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 44px;
+  height: 34px;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.hero__burger span {
+  display: block;
+  width: 26px;
+  height: 1.5px;
+  margin-left: auto;
+  background: rgba(255, 255, 255, 0.92);
+  transition: transform 0.3s ease, opacity 0.25s ease;
+}
+
+.hero__burger span:nth-child(2) { width: 26px; }
+.hero__burger span:nth-child(3) { width: 18px; }
+
+.hero__burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.hero__burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.hero__burger[aria-expanded="true"] span:nth-child(3) { width: 26px; transform: translateY(-7.5px) rotate(-45deg); }
+
+/* ── the full menu panel, opened by the hamburger (Menu.svg) ───────────── */
+.hero__drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: 1fr minmax(280px, 400px);
+  background: rgba(8, 6, 22, 0.82);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.hero__drawer.is-open { opacity: 1; visibility: visible; }
+
+.hero__drawer nav {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px clamp(24px, 3vw, 44px);
+  background: rgba(16, 13, 38, 0.6);
+  transform: translateX(24px);
+  transition: transform 0.45s cubic-bezier(0.22, 0.9, 0.24, 1);
+}
+
+.hero__drawer.is-open nav { transform: none; }
+
+.hero__drawer a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-family: var(--dna-body);
+  font-size: clamp(15px, 1.4vw, 18px);
+  font-weight: 300;
+  border-bottom: 1px solid rgba(194, 185, 255, 0.16);
+  transition: color 0.25s ease, padding-left 0.25s ease;
+}
+
+.hero__drawer a:hover,
+.hero__drawer a.is-current { color: #fff; padding-left: 8px; }
+
+.hero__drawer a::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
   border-width: 1px 1px 0 0;
   transform: rotate(45deg);
+  flex: none;
 }
 
-/* the "Explore" label that sits over the rail on the board */
-.hero__rail-label {
-  order: -1;
-  padding: 10px 16px 4px;
-  font-family: var(--dna-body);
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
+/* ── smooth scroll with an offset for sticky-less anchors ──────────────── */
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 0.9, 0.24, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
 }
 
 /* ══ 2. FOUR VALUES ══════════════════════════════════════════════════════ */
@@ -871,7 +992,12 @@ body.home {
   }
 
   .hero__triptych { width: min(86vw, 620px); }
-  .hero__word { white-space: normal; font-size: clamp(26px, 7.4vw, 58px); letter-spacing: -0.05em; }
+  .hero__word { white-space: normal; font-size: clamp(26px, 7.4vw, 58px); letter-spacing: -0.05em; margin-top: 18px; }
+  /* the bent connectors are drawn for the desktop rail; at this width they would
+     cross the subline, so the stacked rail reads as plain links instead */
+  .hero__wires { display: none; }
+  .hero__rail a { height: auto; padding: 12px 0; border-bottom: 1px solid rgba(194, 185, 255, 0.16); }
+  .hero__rail { width: 100%; max-width: none; right: auto; top: auto; position: static; margin-top: 30px; }
   .hero__foot { grid-template-columns: 1fr; gap: 8px; max-width: 560px; }
   .hero__line, .hero__line--right { text-align: left; }
   .hero__foot::after { display: none; }

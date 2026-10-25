@@ -385,50 +385,8 @@ body.loading { overflow: hidden; }
   height: 60px;
 }
 
-/* rail: x1147, items at y194 / 284 / 373 */
-.hero__rail {
-  position: absolute;
-  left: 1147px;
-  top: 194px;
-  width: 260px;
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  text-align: right;
-}
+/* the hero rail lives in main.css, drawn against Menu.svg geometry */
 
-.hero__rail a {
-  display: block;
-  position: relative;
-  padding-right: 32px;
-  font-size: 20px;
-  font-weight: 300;
-  line-height: 1.0;
-  letter-spacing: -0.4px;
-  color: var(--dna-muted);
-  transition: color 0.2s;
-}
-
-.hero__rail a::before {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 14px;
-  width: 24px;
-  height: 1px;
-  background: var(--dna-line-strong);
-}
-
-.hero__rail a::after {
-  content: '↗';
-  position: absolute;
-  right: -2px;
-  top: 5px;
-  font-size: 11px;
-  color: var(--dna-purple-soft);
-}
-
-.hero__rail a:hover { color: #fff; }
 
 /* ── carlears ───────────────────────────────────────────────────────────── */
 

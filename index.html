@@ -32,18 +32,43 @@
       <img src="assets/img/mark-dna.png" alt="AutoDNA">
     </a>
 
+    <button class="hero__burger" id="burger" data-menu-open aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- the three service links, with the board's bent connectors -->
+    <div class="hero__wires" aria-hidden="true">
+      <svg viewBox="1147 180 266 240" preserveAspectRatio="none">
+        <path d="M1147.19 244.815H1297.9L1338.31 195.352H1412.24"/>
+        <path d="M1147.19 270.186H1297.89L1338.31 319.649H1412.24"/>
+        <path d="M1147.19 405.376H1297.89L1338.31 355.912H1412.24"/>
+        <!-- heads: the two upper wires point up-right, the last one up-right too -->
+        <path d="M1403.5 204.5L1412.24 195.352L1403.5 186.2"/>
+        <path d="M1403.5 328.8L1412.24 319.649L1403.5 310.5"/>
+        <path d="M1403.5 365.06L1412.24 355.912L1403.5 346.76"/>
+      </svg>
+    </div>
+
     <nav class="hero__rail" aria-label="Explore">
-      <p class="hero__rail-label">Explore</p>
-      <a href="#home">Home</a>
-      <a href="#truth">Who We Are</a>
-      <a href="#values">Why AutoDNA</a>
-      <a href="#compare">Price Comparison</a>
-      <a href="#services">Our Services</a>
-      <a href="#stats">Facts &amp; Figures</a>
-      <a href="#parent">About AutoDNA</a>
-      <a href="#club">DNA Auto Club</a>
-      <a href="#contact">Contact</a>
+      <a href="#services"><em>Explore</em><span>SkipTheDealer</span></a>
+      <a href="#services"><span>AutoDNA Flip</span></a>
+      <a href="#services"><span>AutoDNA Service</span></a>
     </nav>
+
+    <!-- the full menu, opened by the hamburger -->
+    <div class="hero__drawer" id="drawer" aria-hidden="true">
+      <nav aria-label="Main menu">
+        <a href="#home" class="is-current">Home</a>
+        <a href="#truth">Who We Are</a>
+        <a href="#values">Why AutoDNA</a>
+        <a href="#compare">Price Comparison</a>
+        <a href="#services">Our Services</a>
+        <a href="#stats">Facts &amp; Figures</a>
+        <a href="#parent">About AutoDNA</a>
+        <a href="#club">DNA Auto Club</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
 
     <div class="hero__inner">
       <div class="hero__center">
@@ -384,5 +409,6 @@
 
 <script src="assets/js/site.js" defer></script>
 <script src="assets/js/services.js" defer></script>
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>
