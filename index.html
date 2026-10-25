@@ -37,36 +37,46 @@
     </button>
 
     <!-- the three service links, with the board's bent connectors -->
-    <div class="hero__wires" aria-hidden="true">
-      <svg viewBox="1147 180 266 240" preserveAspectRatio="none">
-        <path d="M1147.19 244.815H1297.9L1338.31 195.352H1412.24"/>
-        <path d="M1147.19 270.186H1297.89L1338.31 319.649H1412.24"/>
-        <path d="M1147.19 405.376H1297.89L1338.31 355.912H1412.24"/>
-        <!-- heads: the two upper wires point up-right, the last one up-right too -->
-        <path d="M1403.5 204.5L1412.24 195.352L1403.5 186.2"/>
-        <path d="M1403.5 328.8L1412.24 319.649L1403.5 310.5"/>
-        <path d="M1403.5 365.06L1412.24 355.912L1403.5 346.76"/>
+    <div class="hero__rail" aria-label="Explore">
+      <svg class="hero__wires" viewBox="0 0 265 210" preserveAspectRatio="none" aria-hidden="true">
+        <path class="wire" d="M0 49.815H150.71L191.12 0.352H265.24"/>
+        <path class="wire" d="M0 75.186H150.7L191.12 124.649H265.24"/>
+        <path class="wire" d="M0 210.376H150.7L191.12 160.912H265.24"/>
+        <path class="head" d="M257.4 6.4L265.24 0.352L257.4 -5.6"/>
+        <path class="head" d="M257.4 130.7L265.24 124.649L257.4 118.6"/>
+        <path class="head" d="M257.4 167L265.24 160.912L257.4 154.8"/>
       </svg>
-    </div>
 
-    <nav class="hero__rail" aria-label="Explore">
-      <a href="#services"><em>Explore</em><span>SkipTheDealer</span></a>
-      <a href="#services"><span>AutoDNA Flip</span></a>
-      <a href="#services"><span>AutoDNA Service</span></a>
-    </nav>
+      <a class="hero__link hero__link--1" href="#services"><em>Explore</em><span>SkipTheDealer</span></a>
+      <a class="hero__link hero__link--2" href="#services"><span>AutoDNA</span><span>Flip</span></a>
+      <a class="hero__link hero__link--3" href="#services"><span>AutoDNA Service</span></a>
+    </div>
 
     <!-- the full menu, opened by the hamburger -->
     <div class="hero__drawer" id="drawer" aria-hidden="true">
       <nav aria-label="Main menu">
-        <a href="#home" class="is-current">Home</a>
-        <a href="#truth">Who We Are</a>
-        <a href="#values">Why AutoDNA</a>
-        <a href="#compare">Price Comparison</a>
-        <a href="#services">Our Services</a>
-        <a href="#stats">Facts &amp; Figures</a>
-        <a href="#parent">About AutoDNA</a>
-        <a href="#club">DNA Auto Club</a>
-        <a href="#contact">Contact</a>
+          <span class="corner-mark" aria-hidden="true"></span>
+          <span class="corner-mark" aria-hidden="true"></span>
+          <span class="corner-mark" aria-hidden="true"></span>
+          <span class="corner-mark" aria-hidden="true"></span>
+          <a href="#home" class="is-current">Home
+          <svg class="menu-arrow" viewBox="0 0 26 12" aria-hidden="true"><path d="M0 6h24M19 1l5 5-5 5"/></svg></a>
+          <a href="#truth">Who We Are
+          <svg class="menu-arrow" viewBox="0 0 26 12" aria-hidden="true"><path d="M0 6h24M19 1l5 5-5 5"/></svg></a>
+          <a href="#values">Why AutoDNA
+          <svg class="menu-arrow" viewBox="0 0 26 12" aria-hidden="true"><path d="M0 6h24M19 1l5 5-5 5"/></svg></a>
+          <a href="#compare">Price Comparison
+          <svg class="menu-arrow" viewBox="0 0 26 12" aria-hidden="true"><path d="M0 6h24M19 1l5 5-5 5"/></svg></a>
+          <a href="#services">Our Services
+          <svg class="menu-arrow" viewBox="0 0 26 12" aria-hidden="true"><path d="M0 6h24M19 1l5 5-5 5"/></svg></a>
+          <a href="#stats">Facts &amp; Figures
+          <svg class="menu-arrow" viewBox="0 0 26 12" aria-hidden="true"><path d="M0 6h24M19 1l5 5-5 5"/></svg></a>
+          <a href="#parent">About AutoDNA
+          <svg class="menu-arrow" viewBox="0 0 26 12" aria-hidden="true"><path d="M0 6h24M19 1l5 5-5 5"/></svg></a>
+          <a href="#club">DNA Auto Club
+          <svg class="menu-arrow" viewBox="0 0 26 12" aria-hidden="true"><path d="M0 6h24M19 1l5 5-5 5"/></svg></a>
+          <a href="#contact">Contact
+          <svg class="menu-arrow" viewBox="0 0 26 12" aria-hidden="true"><path d="M0 6h24M19 1l5 5-5 5"/></svg></a>
       </nav>
     </div>
 
