@@ -144,7 +144,7 @@
     // Fixed-width drawings (hero scenes, the services band) scale as one unit on narrow
     // screens. The drawing keeps its own pixel size; only its transform changes, and the
     // wrapper reserves the scaled height so the page still scrolls correctly.
-    document.querySelectorAll('[class$="__scene"], .svc__stage').forEach(function (scene) {
+    document.querySelectorAll('[class$="__scene"]').forEach(function (scene) {
       var frameWidth = scene.offsetWidth || 1440;
       var frameHeight = scene.offsetHeight || 809;
 

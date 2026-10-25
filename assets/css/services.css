@@ -1,18 +1,24 @@
-/* ══ SERVICES — the block from the board (Frame 1683 / Component 7) ════════
-   Desktop (>=1024px): one full-screen band. Three thirds; pointing at a third
-   swaps the backdrop — SkipTheDealers (default) / AutoDNA Flip / AutoDNA Service.
-   Mobile (<1024px): the same three services stack, each with its own photo and
-   a framed panel, as in main mob.png.
+/* ══ SERVICES — Component 7 (desktop) + main mob (stacked) ═════════════════
+   Desktop: one full-screen band, three thirds, backdrop swaps on hover.
+   Values below are read from the Figma SVG, not eyeballed:
+     active panel  #262548 @ 44%   (Frame 1650 / 1654, fill-opacity=.44)
+     brackets      #C2B9FF         (Vector 6..9, hairline L-marks, 19px arms)
+     arrow         16x16, same stroke
+   Mobile: the three services stack, each photo above its own glass panel.
    ========================================================================== */
 
-/* --- the band ------------------------------------------------------------ */
-
+/* The page ground is a violet pool that deepens downward, not flat black. */
 .svc {
+  --svc-ink: #262548;
+  --svc-mark: #C2B9FF;
   position: relative;
   width: 100%;
   height: 100svh;
   min-height: 560px;
-  background: #020202;
+  background:
+    radial-gradient(120% 78% at 50% 8%, rgba(76, 60, 168, 0.55) 0%, rgba(38, 30, 84, 0.28) 42%, transparent 72%),
+    radial-gradient(90% 60% at 82% 96%, rgba(64, 50, 150, 0.42) 0%, transparent 68%),
+    linear-gradient(180deg, #0a0818 0%, #171233 38%, #241d51 72%, #322a78 100%);
 }
 
 .svc__stage {
@@ -49,7 +55,7 @@
 .svc__word {
   position: absolute;
   left: 50%;
-  top: clamp(56px, 9vh, 120px);
+  top: clamp(48px, 8vh, 104px);
   transform: translateX(-50%);
   margin: 0;
   font-family: var(--dna-display);
@@ -59,6 +65,8 @@
   letter-spacing: -0.058em;
   text-transform: uppercase;
   color: #fff;
+  /* the board carries a soft bloom on the letters (filter0_f, stdDeviation 1.89) */
+  text-shadow: 0 0 10px rgba(226, 220, 255, 0.28), 0 0 30px rgba(160, 140, 255, 0.16);
   pointer-events: none;
   z-index: 2;
 }
@@ -67,40 +75,52 @@
 
 .svc__zone {
   position: absolute;
-  bottom: 0;
-  width: 33.3333%;
-  height: 42%;
+  top: 63.2%;
+  width: 32.71%;
+  height: 36.8%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   gap: 8px;
-  padding: 0 clamp(14px, 1.7vw, 34px) clamp(20px, 2.4vw, 48px);
+  padding: 0 clamp(16px, 1.55vw, 30px) clamp(44px, 4.6vw, 56px);
   z-index: 3;
   transition: background 0.4s ease;
 }
 
-.svc__zone[data-zone="skip"]    { left: 0; }
-.svc__zone[data-zone="flip"]    { left: 33.3333%; }
-.svc__zone[data-zone="service"] { left: 66.6666%; }
+.svc__zone[data-zone="skip"]    { left: 1.92%; }
+.svc__zone[data-zone="flip"]    { left: 35.56%; }
+.svc__zone[data-zone="service"] { left: 69.20%; }
 
-/* corner marks, drawn on the card that is currently in focus */
-.svc__zone::before,
-.svc__zone::after {
-  content: '';
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  border: 0 solid rgba(220, 216, 245, 0.55);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
+/* The active third is a glass panel: tinted at 44%, blurred behind, so the
+   backdrop still reads through it exactly as on the board. */
+.svc__zone.is-active {
+  background: color-mix(in srgb, var(--svc-ink) 44%, transparent);
+  -webkit-backdrop-filter: blur(7px) saturate(112%);
+  backdrop-filter: blur(7px) saturate(112%);
 }
 
-.svc__zone::before { top: 18px; left: 18px; border-width: 1px 0 0 1px; }
-.svc__zone::after  { bottom: 18px; right: 18px; border-width: 0 1px 1px 0; }
+/* four hairline L-marks, one per corner — the board's Vector 6..9 */
+.svc__zone .svc__corner { display: none; }
 
-.svc__zone.is-active::before,
-.svc__zone.is-active::after { opacity: 1; }
+@media (min-width: 1024px) {
+  .svc__zone .svc__corner {
+    display: block;
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    border: 0 solid var(--svc-mark);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+  }
+
+  .svc__zone .svc__corner:nth-of-type(1) { top: 18px;    left: 18px;  border-width: 1px 0 0 1px; }
+  .svc__zone .svc__corner:nth-of-type(2) { top: 18px;    right: 18px; border-width: 1px 1px 0 0; }
+  .svc__zone .svc__corner:nth-of-type(3) { bottom: 18px; left: 18px;  border-width: 0 0 1px 1px; }
+  .svc__zone .svc__corner:nth-of-type(4) { bottom: 18px; right: 18px; border-width: 0 1px 1px 0; }
+
+  .svc__zone.is-active .svc__corner { opacity: 1; }
+}
 
 .svc__label {
   font-size: clamp(18px, 2.88vw, 64px);
@@ -112,12 +132,11 @@
 }
 
 .svc__desc {
-  max-width: 30em;
+  max-width: 26em;
   font-size: clamp(11px, 0.94vw, 18px);
   font-weight: 300;
   line-height: 1.35;
-  color: rgba(255, 255, 255, 0.72);
-  /* the board keeps the description behind the active card only */
+  color: rgba(255, 255, 255, 0.74);
   max-height: 0;
   overflow: hidden;
   opacity: 0;
@@ -127,10 +146,6 @@
 .svc__zone.is-active .svc__desc {
   max-height: 120px;
   opacity: 1;
-}
-
-.svc__zone.is-active {
-  background: linear-gradient(to top, rgba(8, 6, 24, 0.55) 0%, rgba(8, 6, 24, 0.15) 60%, transparent 100%);
 }
 
 .svc__zone:hover .svc__label { color: #e7e0ff; }
@@ -156,29 +171,41 @@
 
 .services-page__mark img { width: clamp(40px, 4.6vw, 84px); height: auto; display: block; }
 
-/* ══ STACKED LAYOUT (main mob.png) ════════════════════════════════════════ */
+/* ══ STACKED LAYOUT — main mob.png ════════════════════════════════════════ */
 
 @media (max-width: 1023px) {
   .svc {
     height: auto;
     min-height: 0;
-    padding: 24px 16px 56px;
-    background: #020202;
+    padding: 28px 16px 64px;
   }
 
-  /* one column; explicit rows interleave each photo with its own panel */
   .svc__stage {
     display: grid;
     grid-template-columns: 100%;
     height: auto;
     overflow: visible;
+    row-gap: 0;
+  }
+
+  /* the title sits in its own marked-off box above the stack */
+  .svc__word {
+    position: static;
+    transform: none;
+    grid-row: 1;
+    margin: 0 0 26px;
+    padding: clamp(26px, 7vw, 46px) 10px;
+    font-size: 12.9vw;
+    line-height: 1;
+    text-align: center;
+    letter-spacing: -0.045em;
   }
 
   .svc__bg {
     position: static;
     width: 100%;
     height: auto;
-    aspect-ratio: 1780 / 1014;
+    aspect-ratio: 1388 / 791;
     object-fit: cover;
     opacity: 1;
     transform: none;
@@ -186,53 +213,43 @@
     z-index: 1;
   }
 
-  /* the title block, framed like the others */
-  .svc__word {
-    position: static;
-    transform: none;
-    grid-row: 1;
-    margin: 0 0 24px;
-    padding: clamp(30px, 8vw, 54px) 12px;
-    border: 1px solid rgba(190, 180, 255, 0.28);
-    font-size: 12.8vw;
-    line-height: 1;
-    text-align: center;
-    letter-spacing: -0.045em;
-  }
-
-  .svc__zone {
-    position: static;
-    width: auto;
-    height: auto;
-    padding: clamp(22px, 5.6vw, 34px);
-    border: 1px solid rgba(190, 180, 255, 0.28);
-    border-top: 0;
-    background: rgba(11, 9, 32, 0.92);
-    z-index: 2;
-    margin-bottom: 24px;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: start;
-    gap: 14px clamp(14px, 4vw, 24px);
-  }
-
-  .svc__zone[data-zone="skip"]    { grid-row: 3; margin-top: 0; }
-  .svc__zone[data-zone="flip"]    { grid-row: 5; }
-  .svc__zone[data-zone="service"] { grid-row: 7; margin-bottom: 0; }
-
   .svc__bg[data-state="skip"]    { grid-row: 2; }
   .svc__bg[data-state="flip"]    { grid-row: 4; }
   .svc__bg[data-state="service"] { grid-row: 6; }
 
-  /* the corner marks and the hover wash are desktop affordances */
-  .svc__zone::before,
-  .svc__zone::after { display: none; }
+  .svc__zone {
+    position: relative;
+    /* the desktop thirds are `left` offsets; relative positioning would still honour them */
+    left: auto;
+    top: auto;
+    width: auto;
+    height: auto;
+    padding: clamp(24px, 6vw, 38px) clamp(20px, 5vw, 30px) clamp(28px, 7vw, 44px);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 12px clamp(14px, 4vw, 24px);
+    background: color-mix(in srgb, var(--svc-ink) 62%, transparent);
+    -webkit-backdrop-filter: blur(14px) saturate(120%);
+    backdrop-filter: blur(14px) saturate(120%);
+    z-index: 2;
+    margin-bottom: 22px;
+  }
 
-  .svc__zone.is-active { background: rgba(11, 9, 32, 0.92); }
+  .svc__zone[data-zone="skip"]    { grid-row: 3; margin-top: 12px; left: auto; }
+  .svc__zone[data-zone="flip"]    { grid-row: 5; left: auto; }
+  .svc__zone[data-zone="service"] { grid-row: 7; margin-bottom: 0; left: auto; }
+
+  /* every panel carries the same four L-marks on touch, not just the active one */
+  .svc__zone .svc__corner { display: block; position: absolute; width: 16px; height: 16px; border: 0 solid var(--svc-mark); opacity: 0.85; }
+  .svc__zone .svc__corner:nth-of-type(1) { top: 0; left: 0; border-width: 1px 0 0 1px; }
+  .svc__zone .svc__corner:nth-of-type(2) { top: 0; right: 0; border-width: 1px 1px 0 0; }
+  .svc__zone .svc__corner:nth-of-type(3) { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
+  .svc__zone .svc__corner:nth-of-type(4) { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
 
   .svc__label {
     grid-column: 1;
-    font-size: clamp(26px, 7.2vw, 40px);
+    font-size: clamp(27px, 7.4vw, 42px);
     letter-spacing: -0.025em;
   }
 
@@ -241,35 +258,25 @@
     max-width: none;
     max-height: none;
     opacity: 1;
-    font-size: clamp(13px, 3.6vw, 16px);
-    line-height: 1.4;
-    color: rgba(255, 255, 255, 0.66);
+    font-size: clamp(13px, 3.7vw, 17px);
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.68);
   }
 
-  /* the bracketed arrow badge, top-right of every panel */
+  /* bracketed arrow, top-right of every panel */
   .svc__go {
     grid-column: 2;
     grid-row: 1 / span 2;
     display: grid;
     place-items: center;
-    width: clamp(56px, 18vw, 88px);
-    height: clamp(56px, 18vw, 88px);
-    border: 1px solid rgba(190, 180, 255, 0.35);
+    width: clamp(58px, 19vw, 92px);
+    height: clamp(58px, 19vw, 92px);
+    border: 1px solid rgba(194, 185, 255, 0.45);
     align-self: start;
   }
 
-  .svc__go svg {
-    width: 46%;
-    height: 46%;
-    stroke: #fff;
-    stroke-width: 1.4;
-    fill: none;
-  }
+  .svc__go svg { width: 44%; height: 44%; stroke: var(--svc-mark); stroke-width: 1.2; fill: none; }
 
-  .services-page__head {
-    position: relative;
-    padding: 20px 0 24px;
-  }
-
+  .services-page__head { position: relative; padding: 18px 0 26px; }
   .services-page__mark img { width: 48px; }
 }
