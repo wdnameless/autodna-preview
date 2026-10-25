@@ -64,16 +64,18 @@ body.home {
      rail       289 x 385 at (1126, 35) with Home … Contact
    ========================================================================== */
 
+/* Ground measured off the board: the corners read #07051d / #01010c and the
+   centre #02020e — a near-black violet, not the brighter pool I had. */
 .hero {
   position: relative;
   min-height: 100svh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   overflow: hidden;
   background:
-    radial-gradient(70% 80% at 30% 70%, rgba(124, 100, 240, 0.42) 0%, transparent 62%),
-    radial-gradient(60% 70% at 78% 12%, rgba(72, 56, 160, 0.42) 0%, transparent 66%),
-    linear-gradient(155deg, #0a0820 0%, #131034 44%, #1b1547 100%);
+    radial-gradient(62% 74% at 34% 62%, rgba(96, 76, 205, 0.30) 0%, transparent 68%),
+    radial-gradient(48% 58% at 76% 16%, rgba(56, 44, 132, 0.24) 0%, transparent 70%),
+    #07051d;
 }
 
 /* the oversized outline glyphs drifting behind the hero */
@@ -90,13 +92,13 @@ body.home {
 /* the brand mark, top-left, as in the frame */
 .hero__mark {
   position: absolute;
-  top: clamp(18px, 2.4vh, 30px);
-  left: var(--pad);
+  top: clamp(18px, 4.4vh, 36px);
+  left: clamp(14px, 1.66vw, 24px);
   z-index: 6;
   display: block;
 }
 
-.hero__mark img { width: clamp(38px, 4vw, 56px); height: auto; display: block; }
+.hero__mark img { width: clamp(28px, 2.44vw, 36px); height: auto; display: block; }
 
 .hero__inner {
   position: relative;
@@ -104,13 +106,13 @@ body.home {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: clamp(74px, 10vh, 110px) var(--pad) clamp(46px, 7vh, 74px);
+  padding: clamp(96px, 23.97vh, 240px) var(--pad) clamp(46px, 7vh, 74px);
 }
 
 .hero__center {
   position: relative;
   width: 100%;
-  max-width: 1000px;
+  max-width: clamp(720px, 79.8vw, 1150px);
   margin: 0 auto;
 }
 
@@ -139,17 +141,23 @@ body.home {
 /* THE GENETIC CODE — wide, light, bleeding past the frame like the board */
 .hero__word {
   position: relative;
-  margin: clamp(-24px, -2.2vw, -14px) 0 0;
+  margin: -69px 0 0;
   font-family: var(--dna-display);
   font-weight: 400;
-  font-size: clamp(30px, 6.1vw, 96px);
+  font-size: clamp(42px, 9.58vw, 138px);
   line-height: 0.92;
-  letter-spacing: -0.042em;
+  letter-spacing: -0.045em;
   text-transform: uppercase;
   text-align: center;
   white-space: nowrap;
   color: #fff;
   z-index: 3;
+  /* the board bleeds this past the frame edges */
+  width: max-content;
+  max-width: none;
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%);
   text-shadow: 0 0 40px rgba(120, 100, 220, 0.45);
 }
 
@@ -157,10 +165,10 @@ body.home {
 .hero__foot {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(20px, 4vw, 70px);
-  margin-top: clamp(14px, 2.4vh, 26px);
-  max-width: 760px;
+  grid-template-columns: 309px 1fr;
+  column-gap: 133px;
+  margin-top: 13px;
+  max-width: 757px;
   margin-left: auto;
   margin-right: auto;
   z-index: 3;
@@ -268,16 +276,17 @@ body.home {
 /* the hamburger, top-right of the frame */
 .hero__burger {
   position: absolute;
-  top: clamp(18px, 2.6vh, 32px);
-  right: var(--pad);
+  top: clamp(18px, 4.5vh, 36px);
+  right: clamp(14px, 1.9vw, 27px);
   z-index: 7;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 6px;
-  width: 44px;
-  height: 34px;
+  width: 36.7px;
+  height: 20px;
   padding: 0;
+  gap: 5.99px;
   background: none;
   border: 0;
   cursor: pointer;
@@ -285,14 +294,11 @@ body.home {
 
 .hero__burger span {
   display: block;
-  width: 26px;
-  height: 1.5px;
-  margin-left: auto;
-  background: rgba(255, 255, 255, 0.92);
+  width: 100%;
+  height: 2.68px;
+  background: var(--dna-purple-soft);
   transition: transform 0.3s ease, opacity 0.25s ease;
 }
-
-.hero__burger span:nth-child(3) { width: 18px; }
 
 .hero__burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
 .hero__burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
