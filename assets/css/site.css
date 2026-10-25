@@ -6,7 +6,9 @@
    ========================================================================== */
 
 /* ── preloader ─────────────────────────────────────────────────────────── */
-/* The artwork is the board's own SVG (gradient + DNA/AUTO mark), shown whole. */
+/* The artwork is the board's own SVG (gradient + DNA/AUTO mark). It arrives with a slow
+   zoom-and-settle, a light sweep crosses it, the mark breathes, and a hairline fills until
+   the screen lifts. Everything below is timed against the 2.5s hold. */
 
 .preloader {
   position: fixed;
@@ -14,6 +16,7 @@
   z-index: 9000;
   display: grid;
   place-items: center;
+  overflow: hidden;
   background: #020202;
   transition: opacity 0.7s ease, visibility 0.7s ease;
 }
@@ -32,37 +35,98 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  animation:
+    preZoom 2.1s cubic-bezier(0.22, 0.9, 0.24, 1) forwards,
+    preGlow 2.1s ease-in-out forwards;
+  will-change: transform, filter, opacity;
 }
 
-/* a hairline that fills while the screen is up */
+/* slow push in, so the screen feels alive while it is up */
+@keyframes preZoom {
+  0%   { transform: scale(1.10); opacity: 0; }
+  18%  { opacity: 1; }
+  100% { transform: scale(1);    opacity: 1; }
+}
+
+/* the gradient brightens a touch, then settles */
+@keyframes preGlow {
+  0%   { filter: brightness(0.55) saturate(0.85); }
+  40%  { filter: brightness(1.18) saturate(1.10); }
+  100% { filter: brightness(1)    saturate(1); }
+}
+
+/* a diagonal light sweep across the artwork */
+.preloader::after {
+  content: '';
+  position: absolute;
+  top: -60%;
+  left: -40%;
+  width: 60%;
+  height: 220%;
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(214, 206, 255, 0.14) 42%,
+    rgba(255, 255, 255, 0.38) 50%,
+    rgba(214, 206, 255, 0.12) 58%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(12deg);
+  animation: preSweep 1.75s cubic-bezier(0.4, 0, 0.3, 1) 0.2s forwards;
+  pointer-events: none;
+}
+
+@keyframes preSweep {
+  0%   { transform: translateX(-30%) rotate(12deg); opacity: 0; }
+  15%  { opacity: 1; }
+  85%  { opacity: 1; }
+  100% { transform: translateX(320%) rotate(12deg); opacity: 0; }
+}
+
+/* the whole screen lifts away rather than snapping off */
 .preloader__bar {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   width: 240px;
   height: 2px;
   align-self: end;
   margin-bottom: 18vh;
   background: rgba(194, 185, 255, 0.22);
   overflow: hidden;
+  animation: preBarIn 0.6s ease 0.15s both;
 }
 
 .preloader__bar > span {
   display: block;
   height: 100%;
   width: 0;
-  background: linear-gradient(90deg, #9685ff, #f1f0ff);
-  animation: barFill 3.2s cubic-bezier(0.35, 0, 0.25, 1) forwards;
+  background: linear-gradient(90deg, #9685ff, #d6ceff, #f1f0ff);
+  box-shadow: 0 0 12px rgba(150, 133, 255, 0.75);
+  animation: barFill 1.6s cubic-bezier(0.35, 0, 0.2, 1) 0.12s forwards;
+}
+
+@keyframes preBarIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
 }
 
 @keyframes barFill {
   to { width: 100%; }
 }
 
-/* stop the page from scrolling behind the preloader */
+/* the splash lifts slightly as it fades */
+.preloader.is-done .preloader__art,
+.preloader.is-done .preloader__bar {
+  transition: transform 0.7s ease;
+  transform: translateY(-14px);
+}
+
 body.loading { overflow: hidden; }
 
 @media (prefers-reduced-motion: reduce) {
-  .preloader__bar > span { animation-duration: 1s; }
+  .preloader__art { animation: none; }
+  .preloader::after { display: none; }
+  .preloader__bar > span { animation-duration: 0.8s; }
 }
 
 /* ── header ────────────────────────────────────────────────────────────── */

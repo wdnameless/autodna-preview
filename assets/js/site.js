@@ -27,11 +27,9 @@
       }, 800);
     }
 
-    // the board's screen sits for a beat longer than a plain splash: 3.4s total
-    window.setTimeout(hide, 3400);
-    window.addEventListener('load', function () {
-      window.setTimeout(hide, 2600);
-    });
+    // 2.5s total, fade included: the screen starts lifting at 1.8s and is gone by 2.5s
+    var FADE = 700;
+    window.setTimeout(hide, 2500 - FADE);
   }
 
   /* ── drawer ───────────────────────────────────────────────────────────── */
