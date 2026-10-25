@@ -24,8 +24,9 @@
 <main>
   <!--
     SERVICES — the block from the board (Frame 1683 / Component 7).
-    A single 1388x791 backdrop that swaps between three states depending on which
-    third of the band the pointer is over: SkipTheDealers, AutoDNA Flip, AutoDNA Service.
+    Desktop: one full-screen band, a single backdrop that swaps between three states
+    depending on which third the pointer is over — SkipTheDealers, AutoDNA Flip,
+    AutoDNA Service. Mobile: the same three services stack, each with its own photo.
   -->
   <section class="svc" aria-label="Our services">
     <div class="svc__stage">
@@ -41,17 +42,20 @@
       <a class="svc__zone" href="#skip"    data-zone="skip"    aria-label="SkipTheDealers">
         <span class="svc__label">SkipTheDealers</span>
         <span class="svc__desc">Find, bid, and buy the best vehicles directly from trusted car auctions. Smart, transparent, and hassle-free — we handle the process from search to delivery.</span>
-      </a>
+              <span class="svc__go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" stroke-linecap="square"/></svg></span>
+</a>
 
       <a class="svc__zone" href="#flip"    data-zone="flip"    aria-label="AutoDNA Flip">
         <span class="svc__label">AutoDNA Flip</span>
         <span class="svc__desc">Turn vehicles into valuable assets. We help you invest wisely in high-demand cars and maximize your returns through strategic resale.</span>
-      </a>
+              <span class="svc__go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" stroke-linecap="square"/></svg></span>
+</a>
 
       <a class="svc__zone" href="#service" data-zone="service" aria-label="AutoDNA Service">
         <span class="svc__label">AutoDNA Service</span>
         <span class="svc__desc">A next-generation automotive centre: PaintBot robotics, SkipTheShop concierge and DriveCarePlan telematics under one roof.</span>
-      </a>
+              <span class="svc__go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" stroke-linecap="square"/></svg></span>
+</a>
 
     </div>
   </section>

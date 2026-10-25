@@ -1,26 +1,30 @@
-/* ══ SERVICES — the band from the board ═══════════════════════════════════
-   One 1388x791 backdrop. Three thirds. Pointing at a third swaps the backdrop:
-   SkipTheDealers (default) / AutoDNA Flip / AutoDNA Service.
+/* ══ SERVICES — the block from the board (Frame 1683 / Component 7) ════════
+   Desktop (>=1024px): one full-screen band. Three thirds; pointing at a third
+   swaps the backdrop — SkipTheDealers (default) / AutoDNA Flip / AutoDNA Service.
+   Mobile (<1024px): the same three services stack, each with its own photo and
+   a framed panel, as in main mob.png.
    ========================================================================== */
+
+/* --- the band ------------------------------------------------------------ */
 
 .svc {
   position: relative;
-  padding: 96px 0 120px;
+  width: 100%;
+  height: 100svh;
+  min-height: 560px;
   background: #020202;
 }
 
-/* the band, at the board's own 1388x791 */
 .svc__stage {
   position: relative;
-  width: 1388px;
-  height: 791px;
-  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  margin: 0;
   overflow: hidden;
   isolation: isolate;
-  transform-origin: top left;
 }
 
-/* --- backdrops ---------------------------------------------------------- */
+/* --- backdrops ----------------------------------------------------------- */
 
 .svc__bg {
   position: absolute;
@@ -28,6 +32,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 42%;
   opacity: 0;
   transform: scale(1.02);
   transition: opacity 0.55s ease, transform 1.2s cubic-bezier(0.22, 0.9, 0.24, 1);
@@ -39,17 +44,17 @@
   transform: scale(1);
 }
 
-/* --- the wordmark, x368 y174 on the board -------------------------------- */
+/* --- the wordmark -------------------------------------------------------- */
 
 .svc__word {
   position: absolute;
   left: 50%;
-  top: 62px;
+  top: clamp(56px, 9vh, 120px);
   transform: translateX(-50%);
   margin: 0;
   font-family: var(--dna-display);
   font-weight: 500;
-  font-size: 124px;
+  font-size: clamp(44px, 8.93vw, 200px);
   line-height: 0.88;
   letter-spacing: -0.058em;
   text-transform: uppercase;
@@ -64,12 +69,12 @@
   position: absolute;
   bottom: 0;
   width: 33.3333%;
-  height: 46%;
+  height: 42%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   gap: 8px;
-  padding: 0 24px 34px;
+  padding: 0 clamp(14px, 1.7vw, 34px) clamp(20px, 2.4vw, 48px);
   z-index: 3;
   transition: background 0.4s ease;
 }
@@ -98,7 +103,7 @@
 .svc__zone.is-active::after { opacity: 1; }
 
 .svc__label {
-  font-size: 40px;
+  font-size: clamp(18px, 2.88vw, 64px);
   font-weight: 300;
   line-height: 1.0;
   letter-spacing: -0.02em;
@@ -107,8 +112,8 @@
 }
 
 .svc__desc {
-  max-width: 410px;
-  font-size: 13px;
+  max-width: 30em;
+  font-size: clamp(11px, 0.94vw, 18px);
   font-weight: 300;
   line-height: 1.35;
   color: rgba(255, 255, 255, 0.72);
@@ -130,7 +135,10 @@
 
 .svc__zone:hover .svc__label { color: #e7e0ff; }
 
-/* --- page chrome, kept minimal while this block is the deliverable ------ */
+/* the arrow badge belongs to the stacked layout only */
+.svc__go { display: none; }
+
+/* --- page chrome --------------------------------------------------------- */
 
 .services-page__head {
   position: absolute;
@@ -138,19 +146,130 @@
   left: 0;
   right: 0;
   z-index: 40;
-  padding: 26px 0;
+  padding: clamp(14px, 2.2vh, 30px) 0;
   display: flex;
   justify-content: center;
+  pointer-events: none;
 }
 
-.services-page__mark img { width: 64px; height: auto; display: block; }
+.services-page__mark { pointer-events: auto; }
 
-@media (max-width: 1420px) {
-  .svc { overflow: hidden; }
-}
+.services-page__mark img { width: clamp(40px, 4.6vw, 84px); height: auto; display: block; }
 
-@media (max-width: 640px) {
-  .svc__word { font-size: 15vw; top: 28px; }
-  .svc__label { font-size: 20px; }
-  .svc__zone { height: 52%; padding: 0 12px 18px; }
+/* ══ STACKED LAYOUT (main mob.png) ════════════════════════════════════════ */
+
+@media (max-width: 1023px) {
+  .svc {
+    height: auto;
+    min-height: 0;
+    padding: 24px 16px 56px;
+    background: #020202;
+  }
+
+  /* one column; explicit rows interleave each photo with its own panel */
+  .svc__stage {
+    display: grid;
+    grid-template-columns: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .svc__bg {
+    position: static;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1780 / 1014;
+    object-fit: cover;
+    opacity: 1;
+    transform: none;
+    transition: none;
+    z-index: 1;
+  }
+
+  /* the title block, framed like the others */
+  .svc__word {
+    position: static;
+    transform: none;
+    grid-row: 1;
+    margin: 0 0 24px;
+    padding: clamp(30px, 8vw, 54px) 12px;
+    border: 1px solid rgba(190, 180, 255, 0.28);
+    font-size: 12.8vw;
+    line-height: 1;
+    text-align: center;
+    letter-spacing: -0.045em;
+  }
+
+  .svc__zone {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: clamp(22px, 5.6vw, 34px);
+    border: 1px solid rgba(190, 180, 255, 0.28);
+    border-top: 0;
+    background: rgba(11, 9, 32, 0.92);
+    z-index: 2;
+    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 14px clamp(14px, 4vw, 24px);
+  }
+
+  .svc__zone[data-zone="skip"]    { grid-row: 3; margin-top: 0; }
+  .svc__zone[data-zone="flip"]    { grid-row: 5; }
+  .svc__zone[data-zone="service"] { grid-row: 7; margin-bottom: 0; }
+
+  .svc__bg[data-state="skip"]    { grid-row: 2; }
+  .svc__bg[data-state="flip"]    { grid-row: 4; }
+  .svc__bg[data-state="service"] { grid-row: 6; }
+
+  /* the corner marks and the hover wash are desktop affordances */
+  .svc__zone::before,
+  .svc__zone::after { display: none; }
+
+  .svc__zone.is-active { background: rgba(11, 9, 32, 0.92); }
+
+  .svc__label {
+    grid-column: 1;
+    font-size: clamp(26px, 7.2vw, 40px);
+    letter-spacing: -0.025em;
+  }
+
+  .svc__desc {
+    grid-column: 1;
+    max-width: none;
+    max-height: none;
+    opacity: 1;
+    font-size: clamp(13px, 3.6vw, 16px);
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.66);
+  }
+
+  /* the bracketed arrow badge, top-right of every panel */
+  .svc__go {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    display: grid;
+    place-items: center;
+    width: clamp(56px, 18vw, 88px);
+    height: clamp(56px, 18vw, 88px);
+    border: 1px solid rgba(190, 180, 255, 0.35);
+    align-self: start;
+  }
+
+  .svc__go svg {
+    width: 46%;
+    height: 46%;
+    stroke: #fff;
+    stroke-width: 1.4;
+    fill: none;
+  }
+
+  .services-page__head {
+    position: relative;
+    padding: 20px 0 24px;
+  }
+
+  .services-page__mark img { width: 48px; }
 }
