@@ -57,7 +57,12 @@ body.home {
 .sec-claim--muted { color: rgba(255, 255, 255, 0.55); }
 .sec-claim--accent { color: var(--dna-purple-soft); }
 
-/* ══ 1. HERO ═════════════════════════════════════════════════════════════ */
+/* ══ 1. HERO — from Menu.svg (artboard 1440x797) ══════════════════════════
+     triptych   739.66 x 377.918 at (340, 191)   => 51.4% wide, centred, 9 L-marks
+     headline   "THE GENETIC CODE" spanning the frame, bleeding past both edges
+     subline    "TO YOUR CAR / HAS ALREADY BEEN FOUND" under it, angled rule between
+     rail       289 x 385 at (1126, 35) with Home … Contact
+   ========================================================================== */
 
 .hero {
   position: relative;
@@ -66,9 +71,9 @@ body.home {
   align-items: center;
   overflow: hidden;
   background:
-    radial-gradient(70% 80% at 18% 78%, rgba(124, 100, 240, 0.55) 0%, transparent 62%),
-    radial-gradient(60% 70% at 78% 10%, rgba(72, 56, 160, 0.5) 0%, transparent 66%),
-    linear-gradient(155deg, #0b0820 0%, #161039 42%, #201952 100%);
+    radial-gradient(70% 80% at 30% 70%, rgba(124, 100, 240, 0.42) 0%, transparent 62%),
+    radial-gradient(60% 70% at 78% 12%, rgba(72, 56, 160, 0.42) 0%, transparent 66%),
+    linear-gradient(155deg, #0a0820 0%, #131034 44%, #1b1547 100%);
 }
 
 /* the oversized outline glyphs drifting behind the hero */
@@ -76,11 +81,22 @@ body.home {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.35;
+  opacity: 0.4;
   background-image:
-    radial-gradient(closest-side at 8% 30%, rgba(150, 130, 255, 0.3), transparent),
-    radial-gradient(closest-side at 92% 68%, rgba(150, 130, 255, 0.26), transparent);
+    radial-gradient(closest-side at 10% 22%, rgba(150, 130, 255, 0.26), transparent),
+    radial-gradient(closest-side at 90% 74%, rgba(150, 130, 255, 0.22), transparent);
 }
+
+/* the brand mark, top-left, as in the frame */
+.hero__mark {
+  position: absolute;
+  top: clamp(18px, 2.4vh, 30px);
+  left: var(--pad);
+  z-index: 6;
+  display: block;
+}
+
+.hero__mark img { width: clamp(38px, 4vw, 56px); height: auto; display: block; }
 
 .hero__inner {
   position: relative;
@@ -88,11 +104,7 @@ body.home {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: clamp(84px, 11vh, 120px) var(--pad) clamp(56px, 8vh, 84px);
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: clamp(18px, 3vw, 40px);
+  padding: clamp(74px, 10vh, 110px) var(--pad) clamp(46px, 7vh, 74px);
 }
 
 .hero__center {
@@ -102,11 +114,13 @@ body.home {
   margin: 0 auto;
 }
 
+/* triptych — 739.66 x 377.918, framed by four L-marks */
 .hero__triptych {
   position: relative;
-  width: min(52vw, 740px);
+  width: min(51.4vw, 740px);
   margin: 0 auto;
   aspect-ratio: 739.66 / 377.918;
+  z-index: 2;
 }
 
 .hero__triptych img {
@@ -116,78 +130,81 @@ body.home {
   display: block;
 }
 
-.hero__triptych::before,
-.hero__triptych::after {
-  content: '';
-  position: absolute;
-  width: 9px;
-  height: 9px;
-  border: 1px solid rgba(220, 216, 245, 0.45);
-}
-.hero__triptych::before { top: -9px; left: -9px; border-width: 1px 0 0 1px; }
-.hero__triptych::after  { bottom: -9px; right: -9px; border-width: 0 1px 1px 0; }
+.hero__triptych .corner-mark { width: 9px; height: 9px; border-color: rgba(220, 216, 245, 0.55); }
+.hero__triptych .corner-mark:nth-of-type(1) { top: -9px;    left: -9px;  }
+.hero__triptych .corner-mark:nth-of-type(2) { top: -9px;    right: -9px; }
+.hero__triptych .corner-mark:nth-of-type(3) { bottom: -9px; left: -9px;  }
+.hero__triptych .corner-mark:nth-of-type(4) { bottom: -9px; right: -9px; }
 
-/* DNA sits across the top of the triptych, AUTO across the bottom */
+/* THE GENETIC CODE — wide, light, bleeding past the frame like the board */
 .hero__word {
-  margin: 0;
+  position: relative;
+  margin: clamp(-24px, -2.2vw, -14px) 0 0;
   font-family: var(--dna-display);
-  font-weight: 500;
-  line-height: 0.8;
-  letter-spacing: -0.05em;
+  font-weight: 400;
+  font-size: clamp(30px, 6.1vw, 96px);
+  line-height: 0.92;
+  letter-spacing: -0.042em;
   text-transform: uppercase;
   text-align: center;
-  color: #fff;
   white-space: nowrap;
-}
-
-.hero__word--dna {
-  position: relative;
-  margin-top: calc(-0.42em - 18px);
-  font-size: clamp(76px, 13vw, 190px);
+  color: #fff;
   z-index: 3;
+  text-shadow: 0 0 40px rgba(120, 100, 220, 0.45);
 }
 
-.hero__word--auto {
-  position: relative;
-  margin-top: -0.1em;
-  font-size: clamp(64px, 11.6vw, 170px);
-  color: transparent;
-  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.85);
-  z-index: 3;
-}
-
+/* the two halves of the subline, with the angled hairline between them */
 .hero__foot {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(16px, 4vw, 60px);
-  margin-top: clamp(20px, 3.4vh, 40px);
-  max-width: 880px;
+  gap: clamp(20px, 4vw, 70px);
+  margin-top: clamp(14px, 2.4vh, 26px);
+  max-width: 760px;
   margin-left: auto;
   margin-right: auto;
+  z-index: 3;
 }
 
 .hero__line {
   margin: 0;
   font-family: var(--dna-body);
-  font-size: clamp(14px, 1.42vw, 20px);
+  font-size: clamp(14px, 1.5vw, 22px);
   font-weight: 300;
-  line-height: 1.16;
+  line-height: 1.2;
   letter-spacing: 0.01em;
   text-transform: uppercase;
   color: #fff;
 }
 
 .hero__line--right { text-align: right; }
-.hero__line span { color: rgba(255, 255, 255, 0.5); }
+.hero__line span { color: var(--dna-purple); }
 
-/* the explore rail on the right edge of the board */
+.hero__foot::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0.2em;
+  width: clamp(46px, 5vw, 74px);
+  height: 1.1em;
+  transform: translateX(-50%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  border-right: 1px solid rgba(255, 255, 255, 0.45);
+  clip-path: polygon(0 62%, 62% 62%, 100% 0, 100% 100%, 62% 100%, 0 100%);
+}
+
+/* the explore rail: 289x385 at (1126, 35) — top-right of the frame */
 .hero__rail {
-  width: clamp(180px, 16vw, 232px);
+  position: absolute;
+  top: clamp(14px, 4.4vh, 35px);
+  right: var(--pad);
+  width: clamp(210px, 20vw, 285px);
   display: flex;
   flex-direction: column;
-  background: rgba(16, 13, 38, 0.42);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
+  background: rgba(16, 13, 38, 0.5);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  z-index: 5;
 }
 
 .hero__rail a {
@@ -196,28 +213,51 @@ body.home {
   align-items: center;
   justify-content: space-between;
   gap: 14px;
-  padding: 17px 18px;
+  padding: 11px 16px;
   color: #fff;
   text-decoration: none;
   font-family: var(--dna-body);
-  font-size: clamp(12px, 0.95vw, 14px);
+  font-size: clamp(12px, 1vw, 14px);
   font-weight: 300;
   line-height: 1.25;
-  text-transform: uppercase;
   border-bottom: 1px solid rgba(194, 185, 255, 0.2);
   transition: background 0.25s ease;
 }
 
+.hero__rail a:first-child { background: rgba(120, 96, 235, 0.18); }
 .hero__rail a:last-child { border-bottom: 0; }
-.hero__rail a:hover { background: rgba(120, 96, 235, 0.24); }
+.hero__rail a:hover { background: rgba(120, 96, 235, 0.3); }
 
+/* the arrow on the right of each row: one shaft, one head */
 .hero__rail a::after {
   content: '';
-  width: 11px;
-  height: 11px;
-  border: 1px solid rgba(194, 185, 255, 0.6);
-  border-width: 1px 1px 0 0;
+  position: relative;
+  width: 16px;
+  height: 1px;
   flex: none;
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.hero__rail a::before {
+  content: '';
+  position: absolute;
+  right: 16px;
+  width: 6px;
+  height: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-width: 1px 1px 0 0;
+  transform: rotate(45deg);
+}
+
+/* the "Explore" label that sits over the rail on the board */
+.hero__rail-label {
+  order: -1;
+  padding: 10px 16px 4px;
+  font-family: var(--dna-body);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
 }
 
 /* ══ 2. FOUR VALUES ══════════════════════════════════════════════════════ */
@@ -820,8 +860,26 @@ body.home {
 /* ══ responsive ══════════════════════════════════════════════════════════ */
 
 @media (max-width: 1100px) {
-  .hero__inner { grid-template-columns: 1fr; }
-  .hero__rail { width: 100%; margin-top: 8px; }
+  /* the rail is absolutely placed on desktop; on narrow screens it becomes a
+     stacked list under the hero content so the menu is never off-canvas */
+  .hero__rail {
+    position: static;
+    width: 100%;
+    max-width: 560px;
+    margin: 26px auto 0;
+    order: 3;
+  }
+
+  .hero__triptych { width: min(86vw, 620px); }
+  .hero__word { white-space: normal; font-size: clamp(26px, 7.4vw, 58px); letter-spacing: -0.05em; }
+  .hero__foot { grid-template-columns: 1fr; gap: 8px; max-width: 560px; }
+  .hero__line, .hero__line--right { text-align: left; }
+  .hero__foot::after { display: none; }
+  /* .hero is a flex row on desktop; stacked, it must become a column or the rail
+     shrinks to its content */
+  .hero { min-height: 0; padding-bottom: 40px; flex-direction: column; align-items: stretch; }
+  .hero__inner { padding-top: 80px; order: 2; }
+  .hero__mark { order: 1; position: static; margin: 18px auto 0; }
   .club__grid, .values__grid, .stats__grid { grid-template-columns: repeat(2, 1fr); }
   .imagine__grid { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
   .imagine__fan { display: none; }

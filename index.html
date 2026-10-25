@@ -24,36 +24,46 @@
 
 <main>
 
-  <!-- ══ 1. HERO — triptych with DNA / AUTO across it ══════════════════ -->
-  <section class="hero">
+  <!-- ══ 1. HERO — Menu.svg: triptych, THE GENETIC CODE, explore rail ══ -->
+  <section class="hero" id="home">
     <div class="hero__outline" aria-hidden="true"></div>
+
+    <a class="hero__mark" href="#home" aria-label="AutoDNA">
+      <img src="assets/img/mark-dna.png" alt="AutoDNA">
+    </a>
+
+    <nav class="hero__rail" aria-label="Explore">
+      <p class="hero__rail-label">Explore</p>
+      <a href="#home">Home</a>
+      <a href="#truth">Who We Are</a>
+      <a href="#values">Why AutoDNA</a>
+      <a href="#compare">Price Comparison</a>
+      <a href="#services">Our Services</a>
+      <a href="#stats">Facts &amp; Figures</a>
+      <a href="#parent">About AutoDNA</a>
+      <a href="#club">DNA Auto Club</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
     <div class="hero__inner">
       <div class="hero__center">
         <div class="hero__triptych">
+          <span class="corner-mark"></span><span class="corner-mark"></span><span class="corner-mark"></span><span class="corner-mark"></span>
           <img src="assets/img/hero-triptych.webp" alt="A pickup, a Honda crossover and a Tesla side by side" fetchpriority="high">
         </div>
 
-        <h1 class="hero__word hero__word--dna">DNA</h1>
-        <p class="hero__word hero__word--auto" aria-hidden="true">AUTO</p>
+        <h1 class="hero__word">The genetic code</h1>
 
         <div class="hero__foot">
-          <p class="hero__line">Skip the dealer —<br>get the car you want<br><span>without the markup.</span></p>
-          <p class="hero__line hero__line--right">Auction prices.<br>Full inspection.<br><span>One honest invoice.</span></p>
+          <p class="hero__line">To your car</p>
+          <p class="hero__line hero__line--right">Has <span>already</span> been found</p>
         </div>
       </div>
-
-      <nav class="hero__rail" aria-label="Explore">
-        <a href="#services">SkipTheDealers</a>
-        <a href="#club">AutoDNA Service</a>
-        <a href="#compare">AutoDNA Flip</a>
-        <a href="#truth">How it works</a>
-      </nav>
     </div>
   </section>
 
   <!-- ══ 2. FOUR VALUES ═══════════════════════════════════════════════ -->
-  <section class="values" aria-label="Why AutoDNA">
+  <section class="values" id="values" aria-label="Why AutoDNA">
     <div class="values__halo" aria-hidden="true"></div>
 
     <div class="shell">
@@ -179,7 +189,7 @@
   </section>
 
   <!-- ══ 5. STATS ══════════════════════════════════════════════════════ -->
-  <section class="stats">
+  <section class="stats" id="stats">
     <div class="shell">
       <div class="stats__grid">
         <article class="stat">
@@ -214,7 +224,7 @@
   </section>
 
   <!-- ══ 6. PARENT CORPORATION ═════════════════════════════════════════ -->
-  <section class="parent">
+  <section class="parent" id="parent">
     <div class="parent__outline" aria-hidden="true"></div>
 
     <div class="shell">
@@ -342,7 +352,7 @@
   </section>
 
   <!-- ══ 10. FOOTER ═══════════════════════════════════════════════════ -->
-  <footer class="foot">
+  <footer class="foot" id="contact">
     <div class="shell">
       <div class="foot__grid">
         <div class="foot__col foot__col--contact">
