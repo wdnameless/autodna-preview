@@ -46,10 +46,18 @@ Starter недоступен. Ставить десктоп **можно** (пр
 ### Установка (2 минуты)
 
 1. Открыть Figma (браузер или десктоп — без разницы).
-2. Меню → **Plugins → Development → Import plugin from manifest…**
-3. Выбрать файл `figma-plugin/manifest.json` из этого проекта.
-4. Готово: плагин появится в **Plugins → Development** под именем
-   `AutoDNA — dump node tree`.
+2. Меню слева вверху → **Plugins → Development → Import plugin from manifest…**
+3. Выбрать `figma-plugin/manifest.json`.
+4. Плагин появится в **Plugins → Development** как `AutoDNA dump node tree`.
+
+Важно: меню **Development** существует только после первого импорта — пустым
+Figma его не показывает. Если пункта нет совсем, обходной путь: **Plugins →
+Development → Create new plugin** (Figma создаст манифест), затем заменить в нём
+`main` на `code.js` и добавить `"ui": "ui.html"`.
+
+Манифест обязан содержать `ui`, иначе `__html__` не определён и плагин падает
+с `ReferenceError` на первой строке. Также нужны `id` и
+`"documentAccess": "dynamic-page"`.
 
 ### Использование
 

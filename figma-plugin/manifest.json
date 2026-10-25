@@ -1,7 +1,17 @@
 {
-  "name": "AutoDNA — dump node tree",
-  "id": "autodna-dump-node-tree",
+  "name": "AutoDNA dump node tree",
   "api": "1.0.0",
   "main": "code.js",
-  "editorType": ["figma"]
+  "ui": "ui.html",
+  "editorType": [
+    "figma",
+    "dev"
+  ],
+  "documentAccess": "dynamic-page",
+  "networkAccess": {
+    "allowedDomains": [
+      "none"
+    ]
+  },
+  "id": "1000000000000000001"
 }
