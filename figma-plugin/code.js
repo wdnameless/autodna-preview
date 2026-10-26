@@ -13,7 +13,7 @@
 figma.showUI(__html__, { width: 420, height: 460 });
 
 /** Collects one node, flattening anything the page would need as CSS. */
-function describe(node, parentAbs) {
+async function describe(node, parentAbs) {
   const out = {
     id: node.id,
     name: node.name,
@@ -31,7 +31,18 @@ function describe(node, parentAbs) {
   if (node.type === 'TEXT') {
     const t = node;
     out.text = t.characters;
-    const s = t.style || {};
+
+    // style is only readable once the font is loaded; without the await it throws
+    // and leaves font empty
+    let s = {};
+    try {
+      if (t.fontName && t.fontName !== figma.mixed) {
+        await figma.loadFontAsync(t.fontName);
+      }
+      s = t.style || {};
+    } catch (e) {
+      s = { _error: String(e) };
+    }
     out.font = {
       family: s.fontFamily,
       weight: s.fontWeight,
@@ -85,7 +96,10 @@ function describe(node, parentAbs) {
   }
 
   if ('children' in node && node.children.length) {
-    out.children = node.children.map((c) => describe(c, parentAbs));
+    out.children = [];
+    for (const child of node.children) {
+      out.children.push(await describe(child, parentAbs));
+    }
   }
 
   return out;
@@ -121,18 +135,18 @@ function paint(p) {
 }
 
 /** Everything Figma knows about a frame, as one object. */
-function dump(node) {
+async function dump(node) {
   const box = node.absoluteBoundingBox || { x: 0, y: 0, width: 0, height: 0 };
   return {
     file: figma.root.name,
     frame: node.name,
     frameSize: { w: r(box.width), h: r(box.height) },
     dumpedAt: new Date().toISOString(),
-    tree: describe(node, box)
+    tree: await describe(node, box)
   };
 }
 
-figma.ui.onmessage = (msg) => {
+figma.ui.onmessage = async (msg) => {
   if (msg.type === 'close') {
     figma.closePlugin();
     return;
@@ -140,12 +154,23 @@ figma.ui.onmessage = (msg) => {
 
   if (msg.type !== 'dump') return;
 
+  // Selecting is optional: with nothing selected the plugin dumps every top-level
+  // frame on the current page, which is the usual case for a board file.
   const selection = figma.currentPage.selection;
-  if (!selection.length) {
-    figma.ui.postMessage({ type: 'error', message: 'Select at least one frame first.' });
+  const targets = selection.length
+    ? selection
+    : figma.currentPage.children.filter(function (n) {
+        return n.type === 'FRAME' || n.type === 'COMPONENT' || n.type === 'SECTION';
+      });
+
+  if (!targets.length) {
+    figma.ui.postMessage({ type: 'error', message: 'No frames on this page.' });
     return;
   }
 
-  const results = selection.map(dump);
+  const results = [];
+  for (const node of targets) {
+    results.push(await dump(node));
+  }
   figma.ui.postMessage({ type: 'result', payload: results });
 };

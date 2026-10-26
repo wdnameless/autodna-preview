@@ -27,6 +27,7 @@ dist/
 
 # Reference material — never ship
 figma/
+AUTODNA/
 openspec/
 .workflow/
 docs/
