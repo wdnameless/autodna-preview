@@ -137,27 +137,34 @@ a { color: inherit; }
 .hero__triptych img { width: 100%; height: 100%; object-fit: cover; }
 .hero__word {
   position: absolute; left: 23.5px; top: 429px; width: 1389px;
+  background: linear-gradient(180deg, #f7f7f7 0%, #e3dfff 36%, #ffffff 74%, #e3dfff 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
   font-family: var(--display); font-weight: 500;
   font-size: 133px;
   line-height: 0.88; letter-spacing: -0.05em;
   text-transform: uppercase; text-align: center; white-space: nowrap;
 }
 .hero__sub {
-  position: absolute; top: 74.5%;
-  font-size: clamp(16px, 2.5vw, 36px); line-height: 1.15; text-transform: uppercase;
-  letter-spacing: 0.06em;
+  position: absolute; top: 603px;
+  font-size: 40px; line-height: 0.93; text-transform: uppercase;
+  letter-spacing: 0.02em;
+  background: linear-gradient(180deg, #e8e5ff 0%, #ededed 64%, #f3efff 94%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-.hero__sub--l { left: 23.64%; color: var(--violet-soft); }
-.hero__sub--l em { font-style: normal; color: #fff; }
-.hero__sub--r { left: 54.24%; }
-.hero__sub--r em { font-style: normal; color: var(--violet); }
+/* board: DM Sans Light 40 — unavailable offline, Helvetica metrics match within 2px */
+.hero__sub--l { left: 340px; width: 198px; font-weight: 300; }
+.hero__sub--l em { font-style: normal; }
+.hero__sub--r { left: 781px; width: 315px; }
+.hero__sub--r em { font-style: normal; }
 .hero__elbow { position: absolute; left: 33.34%; top: 75.9%; width: 18.4%; height: 6.1%; overflow: visible; }
 .hero__elbow path { fill: none; stroke: var(--line); stroke-width: 1; }
 .rail { position: absolute; left: 1147px; top: 0; width: 265px; height: 810px; }
 .rail a {
   position: absolute; left: 0; width: 182px;
   font-size: 20px; font-weight: 300; line-height: 1.0; text-decoration: none;
-  color: #fff; white-space: nowrap;
+  background: linear-gradient(180deg, #ffffff, #8a86c9);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  white-space: nowrap;
   border: 0; padding: 0;
   clip-path: none;
 }
