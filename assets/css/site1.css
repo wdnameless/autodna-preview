@@ -359,16 +359,17 @@ a { color: inherit; }
 
 /* ══ 9. COMMUNITY ═════════════════════════════════════════════════════════ */
 .community {
-  max-width: 1440px; margin: 0 auto; padding: 30px 40px 90px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+  max-width: 1440px; margin: 0 auto; padding: 30px 22px 90px;
+  display: grid; grid-template-columns: 560px 1fr; gap: 60px; align-items: start;
 }
 .community__title {
   font-family: var(--display); font-weight: 500;
-  font-size: clamp(40px, 6.5vw, 96px);
-  text-transform: uppercase; line-height: 1.02;
+  font-size: 124px; letter-spacing: -0.05em;
+  text-transform: uppercase; line-height: 0.92;
 }
 .community__title em { font-style: normal; color: var(--violet); }
-.community__photo img { width: 100%; }
+.community__photo { max-width: 759px; }
+.community__photo img { width: 100%; aspect-ratio: 759 / 388; object-fit: cover; }
 .community__sub { grid-column: 2; font-size: 40px; text-transform: uppercase; text-align: left; margin-top: 24px; }
 .community__sub span { color: var(--violet-soft); }
 
