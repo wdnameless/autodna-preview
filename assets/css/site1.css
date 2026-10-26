@@ -320,11 +320,11 @@ a { color: inherit; }
   pointer-events: none;
 }
 .corporate__top { position: relative; display: grid; grid-template-columns: 1fr 320px; gap: 40px; align-items: start; margin-bottom: 50px; padding-top: 120px; }
-.corporate__about { font-family: var(--display); font-weight: 500; font-size: clamp(20px, 2.6vw, 38px); text-transform: uppercase; line-height: 1.35; }
+.corporate__about { font-size: 40px; font-weight: 300; text-transform: uppercase; line-height: 1.25; }
 .corporate__card { background: rgba(20, 16, 48, 0.9); border: 1px solid var(--line-dim); padding: 30px 26px; font-size: 24px; text-transform: uppercase; line-height: 1.4; color: var(--violet-pale); }
 .corporate__photo { position: relative; max-width: 760px; margin: 0 auto; }
 .corporate__photo img { width: 100%; }
-.corporate__plan { position: relative; max-width: 900px; margin: 50px auto 0; font-family: var(--display); font-weight: 500; font-size: clamp(18px, 2.4vw, 34px); text-transform: uppercase; line-height: 1.4; }
+.corporate__plan { position: relative; max-width: 760px; margin: 50px auto 0; font-size: 40px; font-weight: 300; text-transform: uppercase; line-height: 1.25; }
 
 /* ══ 8. CLUB ═════════════════════════════════════════════════════════════ */
 .club { max-width: 1440px; margin: 0 auto; padding: 30px 40px 90px; }
@@ -343,8 +343,9 @@ a { color: inherit; }
   box-shadow: 0 0 50px rgba(150, 133, 255, 0.3);
 }
 .club-card h3 { font-family: var(--display); font-weight: 500; font-size: 22px; text-transform: uppercase; color: #fff; min-height: 60px; }
-.club-card__big { font-family: var(--display); font-size: clamp(26px, 3vw, 44px); text-transform: uppercase; margin: 12px 0; }
-.club-card__big small { display: block; font-family: var(--body); font-weight: 300; font-size: 18px; color: var(--violet); }
+.club-card__big { font-family: var(--display); font-weight: 500; font-size: 64px; letter-spacing: -0.05em; text-transform: uppercase; margin: 12px 0 0; }
+.club-card__mid { font-family: var(--display); font-weight: 500; font-size: 32px; letter-spacing: -0.05em; text-transform: uppercase; color: var(--violet-soft); margin: 4px 0 12px; }
+
 .club-card p:last-child { font-size: 18px; line-height: 1.45; }
 .club__out { text-align: right; margin-top: 36px; font-size: clamp(18px, 2.2vw, 30px); text-transform: uppercase; }
 
@@ -360,7 +361,7 @@ a { color: inherit; }
 }
 .community__title em { font-style: normal; color: var(--violet); }
 .community__photo img { width: 100%; }
-.community__sub { grid-column: 1 / -1; font-size: clamp(20px, 2.78vw, 40px); text-transform: uppercase; text-align: right; }
+.community__sub { grid-column: 2; font-size: 40px; text-transform: uppercase; text-align: left; margin-top: 24px; }
 .community__sub span { color: var(--violet-soft); }
 
 /* ══ 10. FOOTER ═══════════════════════════════════════════════════════════ */
