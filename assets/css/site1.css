@@ -316,8 +316,13 @@ a { color: inherit; }
   text-shadow: 0 0 90px rgba(150, 133, 255, 0.6);
 }
 .club__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.club-card { border: 1px solid var(--line-dim); background: linear-gradient(180deg, rgba(67,54,148,.3), rgba(2,2,2,.6)); padding: 26px 22px 30px; }
-.club-card h3 { font-size: 24px; font-weight: 300; text-transform: uppercase; color: var(--violet-soft); min-height: 60px; }
+.club-card {
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(106, 95, 183, 0.55), rgba(67, 54, 148, 0.75));
+  padding: 26px 22px 30px;
+  box-shadow: 0 0 50px rgba(150, 133, 255, 0.3);
+}
+.club-card h3 { font-family: var(--display); font-weight: 500; font-size: 22px; text-transform: uppercase; color: #fff; min-height: 60px; }
 .club-card__big { font-family: var(--display); font-size: clamp(26px, 3vw, 44px); text-transform: uppercase; margin: 12px 0; }
 .club-card__big small { display: block; font-family: var(--body); font-weight: 300; font-size: 18px; color: var(--violet); }
 .club-card p:last-child { font-size: 18px; line-height: 1.45; }
