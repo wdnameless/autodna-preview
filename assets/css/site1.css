@@ -255,13 +255,13 @@ a { color: inherit; }
 .compare__title {
   position: absolute; left: 0; bottom: -30px; z-index: 2;
   font-family: var(--display); font-weight: 500;
-  font-size: clamp(48px, 8.6vw, 124px);
+  font-size: 124px;
   text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.95;
   margin: 0;
 }
 .compare__mirror {
   font-family: var(--display); font-weight: 500;
-  font-size: clamp(48px, 8.6vw, 124px);
+  font-size: 124px;
   text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.95;
   transform: scaleY(-1);
   background: linear-gradient(180deg, rgba(150,133,255,.55), transparent 75%);
@@ -293,7 +293,7 @@ a { color: inherit; }
 .services__pano img { width: 100%; aspect-ratio: 1389 / 791; object-fit: cover; }
 .services__title {
   font-family: var(--display); font-weight: 500;
-  font-size: clamp(48px, 8.6vw, 124px);
+  font-size: 124px;
   text-transform: uppercase; text-align: center; margin-bottom: 0; position: relative; z-index: 3;
 }
 .services__grid { display: grid; grid-template-columns: 454px 454px 454px; gap: 13px; justify-content: center; margin-top: -291px; position: relative; z-index: 2; }
@@ -344,10 +344,10 @@ a { color: inherit; }
 
 /* ══ 8. CLUB ═════════════════════════════════════════════════════════════ */
 .club { max-width: 1440px; margin: 0 auto; padding: 30px 40px 90px; }
-.club__lede { font-size: clamp(18px, 2.2vw, 30px); text-transform: uppercase; color: var(--violet-pale); max-width: 520px; }
+.club__lede { font-size: 40px; text-transform: uppercase; color: var(--violet-pale); max-width: 520px; }
 .club__title {
   font-family: var(--display); font-weight: 500;
-  font-size: clamp(48px, 8.6vw, 124px);
+  font-size: 124px;
   text-transform: uppercase; text-align: center; margin: 10px 0 50px;
   text-shadow: 0 0 90px rgba(150, 133, 255, 0.6);
 }
@@ -364,7 +364,7 @@ a { color: inherit; }
 .club-card__mid { font-family: var(--display); font-weight: 500; font-size: 32px; letter-spacing: -0.05em; text-transform: uppercase; color: var(--violet-soft); margin: 4px 0 12px; }
 
 .club-card p:last-child { font-size: 18px; line-height: 1.45; }
-.club__out { text-align: right; margin-top: 36px; font-size: clamp(18px, 2.2vw, 30px); text-transform: uppercase; }
+.club__out { text-align: right; margin-top: 36px; font-size: 40px; text-transform: uppercase; }
 
 /* ══ 9. COMMUNITY ═════════════════════════════════════════════════════════ */
 .community {
