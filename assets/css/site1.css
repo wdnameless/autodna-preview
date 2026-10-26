@@ -399,6 +399,8 @@ a { color: inherit; }
   .carlears__word { font-size: 17vw; }
   .hero__word { font-size: 12vw; }
   .compare__title, .compare__mirror { white-space: normal; }
+  .tick.tr, .tick.br { right: 0; }
+  .tick.tl, .tick.bl { left: 0; }
   .compare__tabs { display: flex; }
   .compare__table thead { display: none; }
   .compare__table, .compare__table tbody, .compare__table tr, .compare__table td, .compare__table th { display: block; width: 100%; }
