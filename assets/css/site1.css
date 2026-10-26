@@ -98,7 +98,7 @@ a { color: inherit; }
   position: fixed; top: 0; left: 0; right: 0; z-index: 50;
   display: flex; align-items: center; justify-content: space-between;
   padding: 18px 28px;
-  mix-blend-mode: difference;
+  background: linear-gradient(180deg, rgba(2,2,8,0.7), transparent);
 }
 .hud__logo { display: block; line-height: 0; }
 .hud__burger {
@@ -169,6 +169,7 @@ a { color: inherit; }
 .hero__sub--r em { font-style: normal; }
 .hero__elbow { position: absolute; left: 33.34%; top: 75.9%; width: 18.4%; height: 6.1%; overflow: visible; }
 .hero__elbow path { fill: none; stroke: var(--line); stroke-width: 1; }
+.hero__cta { display: none; }
 .rail { position: absolute; left: 1147px; top: 0; width: 265px; height: 810px; }
 .rail a {
   position: absolute; left: 0; width: 190px;
@@ -401,16 +402,49 @@ a { color: inherit; }
 .rv { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .rv.is-in { opacity: 1; transform: none; }
 
+/* ══ TABLET ══════════════════════════════════════════════════════════════ */
+@media (max-width: 1412px) and (min-width: 901px) {
+  .hero { overflow: hidden; }
+  .hero__frame { max-width: 100vw; overflow: hidden; height: 640px; }
+  .hero__word { left: 2%; width: 96%; font-size: 8.9vw; }
+  .hero__triptych { left: 10%; width: 80%; top: 14%; }
+  .hero__sub--l { left: 10%; top: auto; bottom: 170px; }
+  .hero__sub--r { left: auto; right: 10%; top: auto; bottom: 100px; text-align: right; }
+  .hero__elbow { display: none; }
+  .rail { display: none; }
+  .value__grid { grid-template-columns: repeat(3, 1fr); }
+  .value__title { margin-left: 0; max-width: none; }
+  .services__grid { grid-template-columns: 1fr; max-width: 640px; margin: 30px auto 0; }
+  .services__grid .svc { min-height: 0; padding: 24px; }
+  .facts { min-height: 0; }
+  .fact { position: static; max-width: none; margin-bottom: 24px; }
+  .corporate__top { grid-template-columns: 1fr; }
+  .club__grid { grid-template-columns: 1fr 1fr; }
+  .community { grid-template-columns: 1fr; }
+  .community__title { font-size: 11vw; }
+  .community__sub { grid-column: 1; }
+  .tick.tr, .tick.br { right: 0; }
+  .tick.tl, .tick.bl { left: 0; }
+  main { overflow-x: clip; }
+}
+
 /* ══ MOBILE ══════════════════════════════════════════════════════════════ */
 @media (max-width: 900px) {
   .hero, .hero__frame { height: 640px; }
   .hero__triptych { left: 6%; width: 88%; top: 16%; }
   .hero__word { left: 0; top: 52%; width: 100%; font-size: 12.5vw; white-space: normal; }
-  .hero__sub { top: auto; bottom: 120px; }
-  .hero__sub--l { left: 6%; }
-  .hero__sub--r { left: auto; right: 6%; text-align: right; }
+  .hero__sub { top: auto; width: auto; font-size: 24px; }
+  .hero__sub--l { left: 6%; bottom: 170px; }
+  .hero__sub--r { left: 6%; right: auto; bottom: 90px; text-align: left; }
   .hero__elbow { display: none; }
   .rail { display: none; }
+  .hero__cta {
+    display: block; position: absolute; left: 6%; bottom: 30px; z-index: 3;
+    font-size: 15px; text-transform: uppercase; letter-spacing: 0.1em;
+    color: #fff; text-decoration: none;
+    border: 1px solid var(--line); padding: 12px 22px;
+  }
+  .hero__frame { max-width: 100vw; overflow: hidden; }
   .hero__sub { width: auto; }
   .fact__n { font-size: 56px; }
   .fact__l { font-size: 20px; }
