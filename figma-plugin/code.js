@@ -8,12 +8,19 @@
  * SVG, and the build reads values instead of guessing them.
  *
  * Select a frame (or several) in Figma, then run: Plugins → Development → AutoDNA dump.
+ *
+ * v2 for 1:1 builds additionally captures:
+ * - vector geometry (fillGeometry paths) so HUD lines/elisions become exact SVG
+ * - stroke geometry + weight/cap/join/dash for thin vector strokes
+ * - image bytes (exportAsync PNG) keyed by node id, so photos don't need the API
+ * - rotation, blend mode, visibility, lock, clipsContent, individual stroke weights
+ * - per-side radius already existed; constraints and min/max size added for responsive
  */
 
-figma.showUI(__html__, { width: 420, height: 460 });
+figma.showUI(__html__, { width: 420, height: 500 });
 
 /** Collects one node, flattening anything the page would need as CSS. */
-async function describe(node, parentAbs) {
+async function describe(node, parentAbs, ctx) {
   const out = {
     id: node.id,
     name: node.name,
@@ -27,11 +34,20 @@ async function describe(node, parentAbs) {
     out.rel = { x: r(b.x - parentAbs.x), y: r(b.y - parentAbs.y) };
   }
 
+  // visibility / lock: hidden and locked layers explain phantom boxes
+  if (node.visible === false) out.hidden = true;
+  if (node.locked) out.locked = true;
+  if (typeof node.opacity === 'number' && node.opacity !== 1) out.opacity = r(node.opacity);
+  if (node.blendMode && node.blendMode !== 'NORMAL' && node.blendMode !== 'PASS_THROUGH') {
+    out.blend = node.blendMode;
+  }
+  if (typeof node.rotation === 'number' && node.rotation !== 0) out.rotation = r(node.rotation * 180 / Math.PI);
+
   // text: everything a font substitution would otherwise ruin.
   // NOTE: TextNode has NO `.style` property — font data lives directly on the
   // node (fontName/fontSize/lineHeight/letterSpacing/...). Reading `.style`
   // yields {} and the dump silently loses every font. Verified against a mock
-  // of the documented API surface (.tmp/mock-figma.cjs).
+  // of the documented API surface (test/mock-figma.cjs).
   if (node.type === 'TEXT') {
     const t = node;
     out.text = t.characters;
@@ -55,7 +71,7 @@ async function describe(node, parentAbs) {
           }));
         }
       }
-    } catch (_) { /* segments are optional; base fields below are enough */ }
+    } catch { /* segments are optional; base fields below are enough */ }
     if (runs) out.runs = runs;
 
     // base style: readable only after the font is loaded; without the await a
@@ -111,14 +127,54 @@ async function describe(node, parentAbs) {
     if (autoResize) out.textAutoResize = autoResize;
   }
 
+  // vector geometry: the exact path data behind lines, ticks and ellipses.
+  // Without this the build re-draws HUD connectors by eye; with it they copy over.
+  if ((node.type === 'VECTOR' || node.type === 'ELLIPSE' || node.type === 'LINE' ||
+       node.type === 'POLYGON' || node.type === 'STAR') && Array.isArray(node.fillGeometry)) {
+    try {
+      const paths = node.fillGeometry.map((g) => g.data).filter(Boolean);
+      if (paths.length) out.paths = paths;
+      if (Array.isArray(node.strokeGeometry)) {
+        const sp = node.strokeGeometry.map((g) => g.data).filter(Boolean);
+        if (sp.length) out.strokePaths = sp;
+      }
+    } catch { /* geometry is best-effort */ }
+  }
+
   // paints: fills, strokes, effects
   if (Array.isArray(node.fills) && node.fills.length) {
     out.fills = node.fills.filter((f) => f.visible !== false).map(paint);
+    // image bytes: export the node itself so the build never needs /images.
+    // Only for nodes whose own fill is an image (photos), not for frames that
+    // merely contain them — keeps the payload small.
+    const hasImage = node.fills.some((f) => f.type === 'IMAGE' && f.visible !== false);
+    if (hasImage && typeof node.exportAsync === 'function' && ctx && ctx.images) {
+      try {
+        const bytes = await node.exportAsync({ format: 'PNG', constraint: { type: 'WIDTH', value: 1600 } });
+        ctx.images[node.id] = {
+          name: node.name,
+          w: Math.round(node.width || 0),
+          h: Math.round(node.height || 0),
+          png: base64(bytes)
+        };
+        out.imageRef = node.id;
+      } catch { /* export is best-effort; the SVG fallback still works */ }
+    }
   }
   if (Array.isArray(node.strokes) && node.strokes.length) {
     out.strokes = node.strokes.filter((f) => f.visible !== false).map(paint);
     out.strokeWeight = node.strokeWeight;
     out.strokeAlign = node.strokeAlign;
+    if (node.strokeCap && node.strokeCap !== figma.mixed) out.strokeCap = node.strokeCap;
+    if (node.strokeJoin && node.strokeJoin !== figma.mixed) out.strokeJoin = node.strokeJoin;
+    if (Array.isArray(node.dashPattern) && node.dashPattern.length) out.dash = node.dashPattern.map(r);
+    if (node.strokeWeight !== figma.mixed && typeof node.strokeWeight !== 'number' &&
+        node.strokeTopWeight !== undefined) {
+      out.strokeSides = {
+        top: node.strokeTopWeight, right: node.strokeRightWeight,
+        bottom: node.strokeBottomWeight, left: node.strokeLeftWeight
+      };
+    }
   }
   if (typeof node.cornerRadius === 'number') out.radius = node.cornerRadius;
   if (typeof node.cornerRadius === 'symbol') {
@@ -133,10 +189,18 @@ async function describe(node, parentAbs) {
       radius: e.radius,
       spread: e.spread,
       offset: e.offset,
+      blend: e.blendMode !== 'NORMAL' ? e.blendMode : undefined,
       color: e.color ? rgba(e.color) : undefined
     }));
   }
-  if (typeof node.opacity === 'number' && node.opacity !== 1) out.opacity = node.opacity;
+
+  // containers
+  if (typeof node.clipsContent === 'boolean') out.clips = node.clipsContent;
+  if (node.constraints) out.constraints = { h: node.constraints.horizontal, v: node.constraints.vertical };
+  if (typeof node.minWidth === 'number' && node.minWidth) out.minW = node.minWidth;
+  if (typeof node.maxWidth === 'number' && node.maxWidth) out.maxW = node.maxWidth;
+  if (typeof node.minHeight === 'number' && node.minHeight) out.minH = node.minHeight;
+  if (typeof node.maxHeight === 'number' && node.maxHeight) out.maxH = node.maxHeight;
 
   // layout, when the frame uses auto layout
   if (node.layoutMode && node.layoutMode !== 'NONE') {
@@ -147,12 +211,21 @@ async function describe(node, parentAbs) {
       primary: node.primaryAxisAlignItems,
       counter: node.counterAxisAlignItems
     };
+    if (node.layoutWrap && node.layoutWrap !== 'NO_WRAP') out.layout.wrap = node.layoutWrap;
+  }
+  // sizing inside auto layout parents
+  if (node.layoutAlign && node.layoutAlign !== 'INHERIT') out.layoutAlign = node.layoutAlign;
+  if (node.layoutGrow !== undefined && node.layoutGrow !== 0) out.layoutGrow = node.layoutGrow;
+
+  // instances: which component, so repeated cards stay in sync
+  if (node.type === 'INSTANCE' && node.mainComponent) {
+    try { out.component = node.mainComponent.name; } catch {}
   }
 
   if ('children' in node && node.children.length) {
     out.children = [];
     for (const child of node.children) {
-      out.children.push(await describe(child, parentAbs));
+      out.children.push(await describe(child, parentAbs, ctx));
     }
   }
 
@@ -183,21 +256,45 @@ function paint(p) {
     };
   }
   if (p.type === 'IMAGE') {
-    return { type: 'image', scaleMode: p.scaleMode, imageHash: p.imageHash };
+    return {
+      type: 'image',
+      scaleMode: p.scaleMode,
+      imageHash: p.imageHash,
+      transform: p.imageTransform,
+      rotation: p.rotation
+    };
   }
   return { type: p.type };
+}
+
+/** Uint8Array → base64 without blowing the stack on large images. */
+function base64(bytes) {
+  let s = '';
+  const CH = 8192;
+  for (let i = 0; i < bytes.length; i += CH) {
+    s += String.fromCharCode.apply(null, bytes.subarray(i, i + CH));
+  }
+  // btoa exists in the plugin sandbox; the mock polyfills it
+  if (typeof btoa === 'function') return btoa(s);
+  if (typeof Buffer === 'function') return Buffer.from(bytes).toString('base64');
+  return '';
 }
 
 /** Everything Figma knows about a frame, as one object. */
 async function dump(node) {
   const box = node.absoluteBoundingBox || { x: 0, y: 0, width: 0, height: 0 };
-  return {
+  const ctx = { images: {} };
+  const tree = await describe(node, box, ctx);
+  const out = {
     file: figma.root.name,
     frame: node.name,
     frameSize: { w: r(box.width), h: r(box.height) },
     dumpedAt: new Date().toISOString(),
-    tree: await describe(node, box)
+    plugin: 'autodna-dump/2',
+    tree
   };
+  if (Object.keys(ctx.images).length) out.images = ctx.images;
+  return out;
 }
 
 figma.ui.onmessage = async (msg) => {
@@ -222,6 +319,7 @@ figma.ui.onmessage = async (msg) => {
     return;
   }
 
+  figma.ui.postMessage({ type: 'progress', message: 'Reading ' + targets.length + ' frame(s)…' });
   const results = [];
   for (const node of targets) {
     results.push(await dump(node));

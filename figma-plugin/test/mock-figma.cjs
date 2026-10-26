@@ -73,10 +73,24 @@ runsNode.getStyledTextSegments = () => ([
 ]);
 frame.children.push(runsNode);
 
+// vector with real geometry + rotation + blend + dash
+frame.children.push({
+  id: '1:4', name: 'Vector 24', type: 'VECTOR',
+  absoluteBoundingBox: { x: 580, y: 815, width: 265, height: 49 },
+  fillGeometry: [{ data: 'M0 49.5H150.7L191.12 0H265.24' }],
+  strokeGeometry: [{ data: 'M0 49.5H150.7L191.12 0H265.24' }],
+  fills: [], strokes: [{ type: 'SOLID', visible: true, opacity: 1, color: { r: 0.9, g: 0.9, b: 0.9 } }],
+  strokeWeight: 1, strokeAlign: 'CENTER', strokeCap: 'ROUND', strokeJoin: 'MITER',
+  dashPattern: [4, 2],
+  rotation: Math.PI / 4, blendMode: 'SCREEN', effects: [],
+});
+
 // gradient vector
 frame.children.push({
   id: '1:5', name: 'Ellipse 5', type: 'ELLIPSE',
   absoluteBoundingBox: { x: 200, y: 1500, width: 1504, height: 716 },
+  width: 64, height: 32,
+  exportAsync: async () => Uint8Array.from([137, 80, 78, 71, 13, 10, 26, 10]),
   fills: [{ type: 'GRADIENT_LINEAR', visible: true, opacity: 1,
     gradientStops: [
       { position: 0, color: { r: 0.09, g: 0.09, b: 0.14 } },
@@ -87,8 +101,30 @@ frame.children.push({
   strokes: [], effects: [],
 });
 
+
+// photo node: IMAGE fill triggers exportAsync
+frame.children.push({
+  id: '1:6', name: 'image 73', type: 'RECTANGLE',
+  absoluteBoundingBox: { x: 4735, y: 4632, width: 943, height: 401 },
+  width: 943, height: 401,
+  fills: [{ type: 'IMAGE', visible: true, scaleMode: 'CROP', imageHash: '8a6c5a09' }],
+  strokes: [], effects: [],
+  exportAsync: async () => Uint8Array.from([137, 80, 78, 71, 13, 10, 26, 10, 1, 2, 3, 4]),
+});
+
+// hidden + locked + rotated frame with clips and constraints
+const ghost = {
+  id: '1:7', name: 'ghost', type: 'FRAME',
+  absoluteBoundingBox: { x: 100, y: 2000, width: 200, height: 100 },
+  visible: false, locked: true, opacity: 0.5, rotation: Math.PI,
+  clipsContent: true, constraints: { horizontal: 'STRETCH', vertical: 'TOP' },
+  fills: [], strokes: [], effects: [], layoutMode: 'NONE',
+  children: [],
+};
+frame.children.push(ghost);
 let posted = null;
 global.__html__ = '<html></html>';
+global.btoa = (s) => Buffer.from(s, 'binary').toString('base64');
 global.figma = {
   mixed,
   root: { name: 'AUTODNA (Copy)' },

@@ -59,29 +59,51 @@
     run.addEventListener('click', function () {
       status.textContent = 'Reading…';
       out.value = '';
+      run.disabled = true;
       parent.postMessage({ pluginMessage: { type: 'dump' } }, '*');
     });
 
     out.addEventListener('click', function () {
       if (!out.value) return;
       out.select();
-      document.execCommand('copy');
-      status.textContent = 'Copied ' + out.value.length + ' characters.';
+      try { document.execCommand('copy'); } catch (_) {}
+      // execCommand is deprecated and fails on huge payloads; the Clipboard
+      // API is the reliable path for multi-megabyte dumps with images
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(out.value).then(function () {
+          status.textContent = 'Copied ' + out.value.length + ' characters.';
+        }, function () {
+          status.textContent = out.value.length + ' characters. Select all + Ctrl+C to copy.';
+        });
+      } else {
+        status.textContent = 'Selected ' + out.value.length + ' characters. Press Ctrl+C to copy.';
+      }
     });
 
     onmessage = function (event) {
       var msg = event.data.pluginMessage;
       if (!msg) return;
 
+      if (msg.type === 'progress') {
+        status.textContent = msg.message;
+        return;
+      }
+
       if (msg.type === 'error') {
         status.textContent = msg.message;
+        run.disabled = false;
         return;
       }
 
       if (msg.type === 'result') {
         var text = JSON.stringify(msg.payload.length === 1 ? msg.payload[0] : msg.payload, null, 2);
         out.value = text;
-        status.textContent = msg.payload.length + ' frame(s), ' + text.length + ' characters. Click the box to copy.';
+        var mb = (text.length / 1048576).toFixed(1);
+        var imgs = 0;
+        msg.payload.forEach(function (f) { if (f.images) imgs += Object.keys(f.images).length; });
+        status.textContent = msg.payload.length + ' frame(s), ' + mb + ' MB' +
+          (imgs ? ', ' + imgs + ' image(s)' : '') + '. Click the box to copy.';
+        run.disabled = false;
       }
     };
   </script>
