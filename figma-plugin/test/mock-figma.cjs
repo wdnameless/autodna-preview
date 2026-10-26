@@ -93,7 +93,9 @@ global.figma = {
   mixed,
   root: { name: 'AUTODNA (Copy)' },
   currentPage: { selection: [frame], children: [frame] },
-  loadFontAsync: async () => {},
+  loadFontAsync: async (f) => {
+    if (f && f.family === 'Helvetica Neue') throw new Error('The font "Helvetica Neue Light" could not be loaded');
+  },
   showUI: () => {},
   ui: { postMessage: (m) => { posted = m; } },
   closePlugin: () => {},

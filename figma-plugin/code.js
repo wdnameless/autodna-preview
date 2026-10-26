@@ -81,7 +81,28 @@ async function describe(node, parentAbs) {
       decoration = t.textDecoration !== figma.mixed ? t.textDecoration : undefined;
       autoResize = t.textAutoResize;
     } catch (e) {
-      font = { _error: String(e) };
+      // the font is missing on this machine (e.g. Helvetica Neue on Windows
+      // without it installed) — loadFontAsync throws and every field guarded
+      // by it would be lost. fontName/fontSize are plain values, not style
+      // reads, so retry them individually: each in its own try, whatever
+      // survives is still exact data for the build.
+      font = { _error: String(e), _partial: true };
+      const grab = (fn, key) => { try { const v = fn(); if (v !== undefined && v !== figma.mixed) font[key] = v; } catch { } };
+      grab(() => t.fontName.family, 'family');
+      grab(() => t.fontName.style, 'weight');
+      grab(() => t.fontSize, 'size');
+      grab(() => t.lineHeight.unit === 'PIXELS' ? r(t.lineHeight.value) : undefined, 'lineHeight');
+      grab(() => t.lineHeight.unit, 'lineHeightUnit');
+      grab(() => t.letterSpacing.unit === 'PIXELS' ? r(t.letterSpacing.value) : undefined, 'letterSpacing');
+      grab(() => t.letterSpacing.unit, 'letterSpacingUnit');
+      grab(() => t.textAlignHorizontal, 'align_tmp');
+      if (font.align_tmp) { align = font.align_tmp; delete font.align_tmp; }
+      grab(() => t.textCase, 'transform_tmp');
+      if (font.transform_tmp) { transform = font.transform_tmp; delete font.transform_tmp; }
+      grab(() => t.textDecoration, 'decoration_tmp');
+      if (font.decoration_tmp) { decoration = font.decoration_tmp; delete font.decoration_tmp; }
+      grab(() => t.textAutoResize, 'autoResize_tmp');
+      if (font.autoResize_tmp) { autoResize = font.autoResize_tmp; delete font.autoResize_tmp; }
     }
     out.font = font;
     if (align) out.align = align;
