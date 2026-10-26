@@ -305,7 +305,7 @@ a { color: inherit; }
   position: relative;
   max-width: 1440px; margin: 0 auto; padding: 60px 40px;
   min-height: 640px;
-  background: radial-gradient(900px 600px at 50% 50%, rgba(150, 133, 255, 0.5), rgba(67, 54, 148, 0.25) 50%, transparent 75%);
+  background: linear-gradient(90deg, #242048 0%, #4d4688 25%, #6a5fb7 50%, #8078c3 75%, #6a5fb7 100%);
 }
 .fact { position: absolute; max-width: 250px; }
 .fact--a { left: 40px; top: 120px; }
