@@ -112,24 +112,25 @@ a { color: inherit; }
 
 /* ══ MENU ════════════════════════════════════════════════════════════════ */
 .menu {
-  position: fixed; inset: 0; z-index: 40;
-  background: rgba(2, 2, 8, 0.45);
+  position: fixed; inset: 0; z-index: 60;
+  background: rgba(10, 8, 30, 0.55);
   display: flex; align-items: flex-start; justify-content: flex-end;
   padding: 36px max(14px, 50vw - 706px) 0 0;
 }
 .menu[hidden] { display: none; }
 .menu__panel {
-  width: 289px;
-  background: rgba(38, 37, 72, 0.44);
-  border: 1px solid rgba(194, 185, 255, 0.35);
+  width: 300px;
+  background: rgba(24, 22, 52, 0.72);
+  border: 1px solid rgba(194, 185, 255, 0.4);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
 }
 .menu ul { list-style: none; }
 .menu li { border-bottom: 1px solid rgba(194, 185, 255, 0.5); }
 .menu li:last-child { border-bottom: 0; }
 .menu ul a {
   display: flex; justify-content: space-between; align-items: center;
-  height: 40px; padding: 0 12px 0 14px;
-  font-size: 20px; font-weight: 300; text-decoration: none;
+  height: 44px; padding: 0 12px 0 14px;
+  font-size: 22px; font-weight: 300; text-decoration: none;
   color: #fff;
 }
 .menu ul a:hover { background: rgba(150, 133, 255, 0.18); }
