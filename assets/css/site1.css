@@ -401,6 +401,17 @@ a { color: inherit; }
 }
 .foot__legal { text-align: center; margin-top: 30px; font-size: 14px; color: rgba(255, 255, 255, 0.85); }
 
+
+/* ══ AMBIENT LIGHT (board-sampled) ═══════════════════════════════════════ */
+.carlears { background: radial-gradient(900px 500px at 50% 30%, rgba(67,54,148,.28), transparent 70%), #020202; }
+.value { background: radial-gradient(700px 420px at 50% 45%, rgba(157,150,207,.16), transparent 70%), #020202; }
+.compare { background: linear-gradient(90deg, #191828, #5e559f 45%, #484277 75%, #191828), #020202; }
+.services { background: linear-gradient(90deg, #110e24, #1c1145 45%, #645497 85%, #2a2450); }
+.facts { background: linear-gradient(90deg, #242048 0%, #4d4688 30%, #6a5fb7 55%, #827ac9 80%, #6a5fb7 100%); }
+.corporate { background: radial-gradient(1100px 700px at 50% 40%, rgba(60,50,130,.35), transparent 70%), #020202; }
+.club { background: radial-gradient(800px 500px at 12% 60%, rgba(90,80,160,.25), transparent 60%), radial-gradient(800px 500px at 88% 60%, rgba(90,80,160,.25), transparent 60%), #020202; }
+.community { background: radial-gradient(1100px 600px at 62% 45%, rgba(138,108,218,.55), rgba(55,44,123,.9) 55%, #141126 100%), #020202; }
+
 /* ══ REVEAL  ══════════════════════════════════════════════════════════════ */
 .rv { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .rv.is-in { opacity: 1; transform: none; }
