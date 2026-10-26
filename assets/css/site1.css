@@ -179,7 +179,9 @@ a { color: inherit; }
   overflow: visible; pointer-events: none;
 }
 .rail a svg path { fill: none; stroke: var(--line); stroke-width: 1; }
-.rail a i { position: absolute; left: 257px; top: 22px; font-style: normal; font-size: 11px; color: var(--violet-soft); }
+.rail a i { position: absolute; left: 257px; top: 22px; font-style: normal; }
+.rail__arrow { width: 8px; height: 8px; overflow: visible; }
+.rail__arrow path { fill: none; stroke: #c2b9ff; stroke-width: 1; }
 .rail a:nth-child(1) { top: 0; }
 .rail a:nth-child(2) { top: 92px; }
 .rail a:nth-child(3) { top: 186px; }
