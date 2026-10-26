@@ -133,6 +133,11 @@ a { color: inherit; }
 /* ══ 1. HERO ═════════════════════════════════════════════════════════════ */
 .hero { position: relative; overflow: hidden; background: #050428; padding-bottom: 40px; }
 .hero__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* fig Ellipse 2/3: black shapes, bg-blur 4, fg-blur 200 — carve top/bottom glow */
+.hero__shade { position: absolute; left: 0; right: 0; z-index: 1; pointer-events: none; }
+.hero__shade--top { top: -140px; height: 380px; background: radial-gradient(120% 100% at 50% 0%, rgba(0,0,0,0.75), transparent 70%); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+.hero__shade--bottom { bottom: -40px; height: 340px; background: radial-gradient(120% 100% at 50% 100%, rgba(0,0,0,0.7), transparent 70%); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+.hero__frame { z-index: 2; }
 .hero__frame { position: relative; max-width: 1440px; height: 810px; margin: 0 auto; }
 .hero__triptych { position: absolute; left: 24.17%; top: 23%; width: 51.39%; aspect-ratio: 740 / 378; }
 .hero__triptych img { width: 100%; height: 100%; object-fit: cover; }
