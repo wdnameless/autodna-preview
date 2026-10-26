@@ -65,7 +65,8 @@
       set(menu.hidden);
     });
     menu.addEventListener('click', function (e) {
-      if (e.target.closest('a')) set(false);
+      // link click OR backdrop click (anything outside the panel) closes
+      if (e.target.closest('a') || !e.target.closest('.menu__panel')) set(false);
     });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && !menu.hidden) set(false);
