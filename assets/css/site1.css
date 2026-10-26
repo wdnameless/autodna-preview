@@ -376,8 +376,7 @@ a { color: inherit; }
 /* ══ 10. FOOTER ═══════════════════════════════════════════════════════════ */
 .foot {
   background:
-    linear-gradient(90deg, transparent 0%, rgba(150, 133, 255, 0.25) 20%, rgba(150, 133, 255, 0.45) 35%, rgba(150, 133, 255, 0.25) 50%, rgba(150, 133, 255, 0.5) 65%, rgba(150, 133, 255, 0.3) 80%, transparent 100%),
-    linear-gradient(180deg, #020202, #6a5fb7 90%, #9685ff 130%);
+    linear-gradient(90deg, #9988fe 0%, #6a5fc9 18%, #594bb1 30%, #8474e8 50%, #594bb1 65%, #9989ff 82%, #9c8cff 100%);
   padding: 60px 40px 30px;
 }
 .foot__grid {
