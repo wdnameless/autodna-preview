@@ -148,7 +148,7 @@ a { color: inherit; }
 .rail a:hover span { color: #fff; }
 
 /* ══ 2. CARLEARS ═════════════════════════════════════════════════════════ */
-.carlears { max-width: 1440px; margin: 0 auto; padding: 130px 40px 140px; text-align: center; }
+.carlears { overflow: hidden; max-width: 1440px; margin: 0 auto; padding: 130px 40px 140px; text-align: center; }
 .carlears__lede { font-size: clamp(20px, 2.78vw, 40px); text-transform: uppercase; color: var(--violet-pale); }
 .carlears__new { font-size: clamp(20px, 2.78vw, 40px); text-transform: uppercase; color: var(--violet-pale); }
 .carlears__new em { font-style: normal; color: var(--violet); }
@@ -347,9 +347,15 @@ a { color: inherit; }
   .services__grid { grid-template-columns: 1fr; }
   .facts { grid-template-columns: repeat(3, 1fr); }
   .club__grid { grid-template-columns: 1fr 1fr; }
+.corporate__top { grid-template-columns: 1fr; padding-top: 60px; }
+  .corporate__dna { font-size: 44vw; top: -10px; max-width: 100vw; overflow: hidden; }
   .community { grid-template-columns: 1fr; }
   .community__sub { text-align: left; }
   .foot__grid { grid-template-columns: 1fr; }
+.compare__title, .compare__mirror { white-space: normal; font-size: 12.5vw; }
+  .carlears__word { font-size: 17vw; }
+  .hero__word { font-size: 12vw; }
+  .compare__title, .compare__mirror { white-space: normal; }
   .compare__tabs { display: flex; }
   .compare__table thead { display: none; }
   .compare__table, .compare__table tbody, .compare__table tr, .compare__table td, .compare__table th { display: block; width: 100%; }
