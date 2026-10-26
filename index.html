@@ -13,7 +13,9 @@
 
 <!-- ══ PRELOADER ═════════════════════════════════════════════════════════ -->
 <div class="preloader" id="preloader" aria-hidden="true">
-  <img src="assets/img/site1/preloader.svg" alt="">
+  <img class="preloader__logo" src="assets/img/site1/dna-logo.svg" alt="">
+  <div class="preloader__bar" aria-hidden="true"><span></span></div>
+  <p class="preloader__pct" aria-hidden="true">0%</p>
 </div>
 
 <!-- ══ HEADER ════════════════════════════════════════════════════════════ -->
@@ -51,7 +53,7 @@
 
 <main id="home">
 
-<!-- ══ 1. HERO 0–810 ═════════════════════════════════════════════════════ -->
+<!-- ══ 1. HERO ═════════════════════════════════════════════════════════════ -->
 <section class="hero" aria-label="Intro">
   <img class="hero__bg" src="assets/img/site1/hero-ground.svg" alt="" aria-hidden="true">
   <div class="hero__frame">
@@ -61,17 +63,22 @@
       <img src="assets/img/site1/hero-trio.jpg" alt="Pickup, Honda crossover and Tesla side by side" fetchpriority="high">
     </div>
     <h1 class="hero__word">the genetic code</h1>
-    <p class="hero__sub hero__sub--l">to <em>your</em><br><span>car</span></p>
-    <p class="hero__sub hero__sub--r">has <em>already</em><br>been found</p>
+    <p class="hero__sub hero__sub--l">to&nbsp;&nbsp;your<br>car</p>
+    <p class="hero__sub hero__sub--r">has&nbsp;&nbsp;&nbsp;&nbsp;<em>already</em><br>been found</p>
     <svg class="hero__elbow" viewBox="0 0 265 50" preserveAspectRatio="none" aria-hidden="true">
       <path d="M0 49.5H150.7L191.12 0H265.24"/>
     </svg>
     <nav class="rail" aria-label="Explore">
-      <a href="#services"><span>Explore</span>SkipTheDealer</a>
-      <a href="#services">AutoDNA<br>Flip</a>
-      <a href="#services">AutoDNA<br>Service</a>
+      <a href="#services"><span>Explore</span>SkipTheDealer<i>↗</i></a>
+      <a href="#services">AutoDNA<br>Flip<i>↘</i></a>
+      <a href="#services">AutoDNA Service<i>↗</i></a>
     </nav>
   </div>
+  <figure class="hero__quote">
+    <span class="tick tl"></span><span class="tick br"></span>
+    <blockquote>We don’t call ourselves a<br>dealer, we don’t like that word.</blockquote>
+    <span class="hero__quote-line" aria-hidden="true"></span>
+  </figure>
 </section>
 
 <!-- ══ 2. CARLEARS 810–1790 ══════════════════════════════════════════════ -->
