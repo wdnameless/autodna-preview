@@ -114,6 +114,7 @@ a { color: inherit; }
 .menu {
   position: fixed; inset: 0; z-index: 60;
   background: rgba(10, 8, 30, 0.55);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   display: flex; align-items: flex-start; justify-content: flex-end;
   padding: 36px max(14px, 50vw - 706px) 0 0;
 }
