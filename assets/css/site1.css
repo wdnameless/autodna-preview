@@ -174,7 +174,7 @@ a { color: inherit; }
   border: 0; padding: 0;
   clip-path: none;
 }
-.rail a svg {
+.rail a > svg {
   position: absolute; left: 0; top: 22px; width: 265px; height: 49px;
   overflow: visible; pointer-events: none;
 }
