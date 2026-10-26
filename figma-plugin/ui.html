@@ -42,19 +42,28 @@
 </head>
 <body>
   <h1>Dump node tree</h1>
-  <p>Select a frame in Figma, press the button, then copy the JSON into the project.</p>
+  <p>Select the site's frame(s) in Figma — or a SECTION folder to dump a whole site. Preview shows what will be dumped.</p>
 
   <div>
     <button id="run">Dump selected frame(s)</button>
   </div>
 
+  <div id="targets" style="margin-top:8px;font-size:12px;color:#2c2c34;min-height:18px;"></div>
   <div id="status"></div>
   <textarea id="out" readonly placeholder="JSON will appear here"></textarea>
-
   <script>
     var run = document.getElementById('run');
     var out = document.getElementById('out');
     var status = document.getElementById('status');
+    var targets = document.getElementById('targets');
+
+    // live preview: poll what would be dumped so the user sees the site list
+    // before the heavy run. Cheap — no tree walk, just names and sizes.
+    function askPreview() {
+      if (!run.disabled) parent.postMessage({ pluginMessage: { type: 'preview' } }, '*');
+    }
+    setInterval(askPreview, 1500);
+    askPreview();
 
     run.addEventListener('click', function () {
       status.textContent = 'Reading…';
@@ -86,6 +95,16 @@
 
       if (msg.type === 'progress') {
         status.textContent = msg.message;
+        return;
+      }
+      if (msg.type === 'preview') {
+        if (msg.error) { targets.textContent = ''; return; }
+        var list = (msg.targets || []).map(function (t) {
+          return t.name + ' [' + t.kind + ' ' + t.size + ']';
+        });
+        targets.textContent = list.length
+          ? 'Will dump: ' + list.slice(0, 6).join(' · ') + (list.length > 6 ? ' +' + (list.length - 6) + ' more' : '')
+          : 'Nothing selectable on this page.';
         return;
       }
 

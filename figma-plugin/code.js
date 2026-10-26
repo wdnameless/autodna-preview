@@ -129,6 +129,47 @@ async function describe(node, parentAbs, ctx) {
     if (autoResize) out.textAutoResize = autoResize;
   }
 
+  // WordPress mapping: hints the theme builder needs — semantic block type from
+  // the layer name, link targets from prototype reactions, alt text, form roles.
+  // Layer naming convention (documented in the guide): `hero`, `cards:pricing`,
+  // `btn:Request a quote -> #quote`, `img:team alt="Our crew"`, `form:quote`.
+  try {
+    const nm = (node.name || '').trim();
+    const m = nm.match(/^(hero|header|footer|menu|nav|cards|slider|tabs|accordion|form|btn|button|link|img|image|icon|logo|input|textarea|select|checkbox|video|map|price|table)\b\s*:?\s*(.*)$/i);
+    if (m) {
+      out.wp = { block: m[1].toLowerCase(), label: (m[2] || '').trim() || undefined };
+      const alt = nm.match(/alt="([^"]+)"/i);
+      if (alt) out.wp.alt = alt[1];
+      const href = nm.match(/->\s*(\S+)/);
+      if (href) out.wp.href = href[1];
+    }
+    if (Array.isArray(node.reactions) && node.reactions.length) {
+      const dests = [];
+      for (const r of node.reactions) {
+        const acts = (r.actions || []).filter((a) => a.destinationId || a.url);
+        for (const a of acts) dests.push(a.url || ('#' + a.destinationId));
+      }
+      if (dests.length) {
+        out.wp = out.wp || {};
+        out.wp.links = dests;
+      }
+    }
+    // component props on instances (variant toggles, text overrides)
+    if (node.type === 'INSTANCE' && node.componentProperties) {
+      try {
+        const props = {};
+        for (const k in node.componentProperties) {
+          const v = node.componentProperties[k];
+          if (v && v.value !== undefined) props[k.split('#')[0]] = v.value;
+        }
+        if (Object.keys(props).length) {
+          out.wp = out.wp || {};
+          out.wp.props = props;
+        }
+      } catch {}
+    }
+  } catch {}
+
   // vector geometry: the exact path data behind lines, ticks and ellipses.
   // Without this the build re-draws HUD connectors by eye; with it they copy over.
   if ((node.type === 'VECTOR' || node.type === 'ELLIPSE' || node.type === 'LINE' ||
@@ -300,22 +341,75 @@ async function dump(node) {
   return out;
 }
 
+/**
+ * What to dump. Rules, in order:
+ * 1. explicit selection wins — dump exactly what is selected (frames,
+ *    components, sections; a SECTION expands to its frames, so one click
+ *    dumps a whole site folder);
+ * 2. nothing selected — every top-level frame/component/section on the page.
+ * Groups and single vectors are skipped with a note: dumping a loose Group
+ * was the #1 user error (33 stray layers instead of frames).
+ */
+function resolveTargets() {
+  const selection = figma.currentPage.selection;
+  if (!selection.length) {
+    return figma.currentPage.children.filter(function (n) {
+      return n.type === 'FRAME' || n.type === 'COMPONENT' || n.type === 'SECTION';
+    });
+  }
+  const out = [];
+  const skipped = [];
+  for (const n of selection) {
+    if (n.type === 'SECTION') {
+      for (const c of n.children) {
+        if (c.type === 'FRAME' || c.type === 'COMPONENT') out.push(c);
+      }
+    } else if (n.type === 'FRAME' || n.type === 'COMPONENT') {
+      out.push(n);
+    } else {
+      skipped.push(n.name + ' (' + n.type + ')');
+    }
+  }
+  if (skipped.length) {
+    figma.ui.postMessage({
+      type: 'progress',
+      message: 'Skipped ' + skipped.length + ' non-frame layer(s): ' + skipped.slice(0, 3).join(', ') +
+        (skipped.length > 3 ? '…' : '') + ' — select the FRAME, not its contents.'
+    });
+  }
+  return out;
+}
+
 figma.ui.onmessage = async (msg) => {
   if (msg.type === 'close') {
     figma.closePlugin();
     return;
   }
 
+  if (msg.type === 'preview') {
+    // live answer: what WOULD be dumped right now, so the user picks the
+    // right site before the heavy run
+    try {
+      const t = resolveTargets();
+      figma.ui.postMessage({
+        type: 'preview',
+        targets: t.map((n) => ({
+          name: n.name,
+          kind: n.type,
+          size: n.absoluteBoundingBox
+            ? Math.round(n.absoluteBoundingBox.width) + '×' + Math.round(n.absoluteBoundingBox.height)
+            : '?'
+        }))
+      });
+    } catch (e) {
+      figma.ui.postMessage({ type: 'preview', targets: [], error: String(e && e.message || e) });
+    }
+    return;
+  }
+
   if (msg.type !== 'dump') return;
 
-  // Selecting is optional: with nothing selected the plugin dumps every top-level
-  // frame on the current page, which is the usual case for a board file.
-  const selection = figma.currentPage.selection;
-  const targets = selection.length
-    ? selection
-    : figma.currentPage.children.filter(function (n) {
-        return n.type === 'FRAME' || n.type === 'COMPONENT' || n.type === 'SECTION';
-      });
+  const targets = resolveTargets();
 
   if (!targets.length) {
     figma.ui.postMessage({ type: 'error', message: 'No frames on this page.' });

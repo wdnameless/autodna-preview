@@ -145,6 +145,31 @@ frame.children.push({
   absoluteBoundingBox: { x: 100, y: 2700, width: 50, height: 50 },
   fills: [], strokes: [], effects: [],
 });
+
+// WP + section fixtures
+const wpBtn = {
+  id: '2:1', name: 'btn:Request a quote -> #quote', type: 'FRAME',
+  absoluteBoundingBox: { x: 100, y: 3000, width: 280, height: 56 },
+  fills: [], strokes: [], effects: [], layoutMode: 'NONE',
+  reactions: [{ actions: [{ url: 'https://autodna.ca/quote' }] }],
+  children: [],
+};
+frame.children.push(wpBtn);
+const wpImg = {
+  id: '2:2', name: 'img:team alt="Our crew in Calgary"', type: 'RECTANGLE',
+  absoluteBoundingBox: { x: 100, y: 3100, width: 400, height: 300 },
+  width: 400, height: 300,
+  fills: [{ type: 'IMAGE', visible: true, scaleMode: 'FILL', imageHash: 'team' }],
+  strokes: [], effects: [],
+  exportAsync: async () => Uint8Array.from([1, 2, 3]),
+};
+frame.children.push(wpImg);
+const section = {
+  id: '3:1', name: 'Site A', type: 'SECTION',
+  absoluteBoundingBox: { x: 0, y: 0, width: 3000, height: 9000 },
+  children: [frame],
+};
+const strayGroup = { id: '4:1', name: 'Group 33', type: 'GROUP' };
 let posted = null;
 global.__html__ = '<html></html>';
 global.btoa = (s) => Buffer.from(s, 'binary').toString('base64');
@@ -180,8 +205,32 @@ global.figma = {
   await figma.ui.onmessage({ type: 'dump' });
   console.log('empty-selection:', posted.type, 'frames:', posted.payload && posted.payload.length);
 
-  // case 3: page without frames -> clean error, no crash
+  // case 3: SECTION selection expands to its frames
   posted = null;
+  figma.currentPage.selection = [section];
+  const seen = [];
+  const origPost = figma.ui.postMessage;
+  figma.ui.postMessage = (m) => { seen.push(m.type); posted = m; };
+  await figma.ui.onmessage({ type: 'dump' });
+  console.log('section-select:', posted.type, 'frames:', posted.payload && posted.payload.length);
+
+  // case 4: stray GROUP in selection -> skipped with note, frames still dump
+  posted = null; seen.length = 0;
+  figma.currentPage.selection = [frame, strayGroup];
+  await figma.ui.onmessage({ type: 'dump' });
+  console.log('group-mixed:', posted.type, 'frames:', posted.payload && posted.payload.length,
+    '| progress notes:', seen.filter((t) => t === 'progress').length);
+
+  // case 5: preview answers without dumping
+  posted = null;
+  figma.currentPage.selection = [section];
+  await figma.ui.onmessage({ type: 'preview' });
+  console.log('preview:', posted.type, '| targets:', JSON.stringify(posted.targets));
+  figma.ui.postMessage = origPost;
+
+  // case 6: page without frames -> clean error, no crash
+  posted = null;
+  figma.currentPage.selection = [];
   figma.currentPage.children = [{ id: '9:9', name: 'loose text', type: 'TEXT' }];
   await figma.ui.onmessage({ type: 'dump' });
   console.log('no-frames:', posted.type, '|', posted.message);
