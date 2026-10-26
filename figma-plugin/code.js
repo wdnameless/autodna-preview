@@ -27,34 +27,67 @@ async function describe(node, parentAbs) {
     out.rel = { x: r(b.x - parentAbs.x), y: r(b.y - parentAbs.y) };
   }
 
-  // text: everything a font substitution would otherwise ruin
+  // text: everything a font substitution would otherwise ruin.
+  // NOTE: TextNode has NO `.style` property — font data lives directly on the
+  // node (fontName/fontSize/lineHeight/letterSpacing/...). Reading `.style`
+  // yields {} and the dump silently loses every font. Verified against a mock
+  // of the documented API surface (.tmp/mock-figma.cjs).
   if (node.type === 'TEXT') {
     const t = node;
     out.text = t.characters;
 
-    // style is only readable once the font is loaded; without the await it throws
-    // and leaves font empty
-    let s = {};
+    // styled runs: mixed fonts/sizes inside one node (e.g. "SAVE 30-50%" with
+    // an accented word) — record per-run so the build can wrap them in spans
+    let runs = null;
+    try {
+      if (typeof t.getStyledTextSegments === 'function') {
+        const segs = t.getStyledTextSegments(['fontName', 'fontSize', 'fills', 'textDecoration']);
+        if (segs && segs.length > 1) {
+          runs = segs.map((s) => ({
+            start: s.start,
+            end: s.end,
+            chars: s.characters,
+            family: s.fontName && s.fontName !== figma.mixed ? s.fontName.family : undefined,
+            weight: s.fontName && s.fontName !== figma.mixed ? s.fontName.style : undefined,
+            size: s.fontSize !== figma.mixed ? s.fontSize : undefined,
+            fills: Array.isArray(s.fills) ? s.fills.filter((f) => f.visible !== false).map(paint) : undefined,
+            decoration: s.textDecoration !== figma.mixed ? s.textDecoration : undefined
+          }));
+        }
+      }
+    } catch (_) { /* segments are optional; base fields below are enough */ }
+    if (runs) out.runs = runs;
+
+    // base style: readable only after the font is loaded; without the await a
+    // real Figma throws and the mock below would too
+    let font = {}, align, transform, decoration, autoResize;
     try {
       if (t.fontName && t.fontName !== figma.mixed) {
         await figma.loadFontAsync(t.fontName);
       }
-      s = t.style || {};
+      const lh = t.lineHeight;
+      const ls = t.letterSpacing;
+      font = {
+        family: t.fontName && t.fontName !== figma.mixed ? t.fontName.family : undefined,
+        weight: t.fontName && t.fontName !== figma.mixed ? t.fontName.style : undefined,
+        size: t.fontSize !== figma.mixed ? t.fontSize : undefined,
+        lineHeight: lh && lh !== figma.mixed && lh.unit === 'PIXELS' ? r(lh.value) : undefined,
+        lineHeightUnit: lh && lh !== figma.mixed ? lh.unit : undefined,
+        letterSpacing: ls && ls !== figma.mixed && ls.unit === 'PIXELS' ? r(ls.value) : undefined,
+        letterSpacingUnit: ls && ls !== figma.mixed ? ls.unit : undefined
+      };
+      align = t.textAlignHorizontal !== figma.mixed ? t.textAlignHorizontal : undefined;
+      transform = t.textCase !== figma.mixed ? t.textCase : undefined;
+      decoration = t.textDecoration !== figma.mixed ? t.textDecoration : undefined;
+      autoResize = t.textAutoResize;
     } catch (e) {
-      s = { _error: String(e) };
+      font = { _error: String(e) };
     }
-    out.font = {
-      family: s.fontFamily,
-      weight: s.fontWeight,
-      size: s.fontSize,
-      lineHeight: s.lineHeightPx != null ? r(s.lineHeightPx) : undefined,
-      letterSpacing: s.letterSpacing != null ? r(s.letterSpacing) : undefined,
-      letterSpacingUnit: s.letterSpacingUnit,
-      align: s.textAlignHorizontal,
-      transform: s.textCase,
-      decoration: s.textDecoration
-    };
-    out.textAutoResize = t.textAutoResize;
+    out.font = font;
+    if (align) out.align = align;
+    if (transform && transform !== 'ORIGINAL') out.transform = transform;
+    if (decoration && decoration !== 'NONE') out.decoration = decoration;
+    if (autoResize) out.textAutoResize = autoResize;
   }
 
   // paints: fills, strokes, effects
