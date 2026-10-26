@@ -122,6 +122,29 @@ const ghost = {
   children: [],
 };
 frame.children.push(ghost);
+
+// hostile nodes: exportAsync rejects, zero-size image, vector without geometry
+frame.children.push({
+  id: '1:8', name: 'broken photo', type: 'RECTANGLE',
+  absoluteBoundingBox: { x: 100, y: 2200, width: 500, height: 300 },
+  width: 500, height: 300, visible: true,
+  fills: [{ type: 'IMAGE', visible: true, scaleMode: 'FILL', imageHash: 'dead' }],
+  strokes: [], effects: [],
+  exportAsync: async () => { throw new Error('export rejected'); },
+});
+frame.children.push({
+  id: '1:9', name: 'zero photo', type: 'RECTANGLE',
+  absoluteBoundingBox: { x: 100, y: 2600, width: 0, height: 0 },
+  width: 0, height: 0, visible: true,
+  fills: [{ type: 'IMAGE', visible: true, scaleMode: 'FILL', imageHash: 'zero' }],
+  strokes: [], effects: [],
+  exportAsync: async () => { throw new Error('must not be called'); },
+});
+frame.children.push({
+  id: '1:10', name: 'bare vector', type: 'VECTOR',
+  absoluteBoundingBox: { x: 100, y: 2700, width: 50, height: 50 },
+  fills: [], strokes: [], effects: [],
+});
 let posted = null;
 global.__html__ = '<html></html>';
 global.btoa = (s) => Buffer.from(s, 'binary').toString('base64');
@@ -144,6 +167,12 @@ global.figma = {
   const out = JSON.stringify(posted.payload.length === 1 ? posted.payload[0] : posted.payload, null, 2);
   require('fs').writeFileSync('mock-dump.json', out);
   console.log('dump ok,', out.length, 'chars');
+  const tree = (posted.payload.length === 1 ? posted.payload[0] : posted.payload).tree;
+  const byName = {};
+  (function idx(n) { byName[n.name] = n; (n.children || []).forEach(idx); })(tree);
+  console.log('broken photo imageRef:', byName['broken photo'].imageRef || '(skipped, no crash)');
+  console.log('zero photo imageRef:', byName['zero photo'].imageRef || '(skipped, no export call)');
+  console.log('bare vector paths:', byName['bare vector'].paths || '(absent, no crash)');
 
   // case 2: nothing selected -> dumps every top-level frame
   posted = null;

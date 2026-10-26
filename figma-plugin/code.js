@@ -41,7 +41,9 @@ async function describe(node, parentAbs, ctx) {
   if (node.blendMode && node.blendMode !== 'NORMAL' && node.blendMode !== 'PASS_THROUGH') {
     out.blend = node.blendMode;
   }
-  if (typeof node.rotation === 'number' && node.rotation !== 0) out.rotation = r(node.rotation * 180 / Math.PI);
+  if (typeof node.rotation === 'number' && node.rotation !== 0) {
+    out.rotation = r(node.rotation * 180 / Math.PI);
+  }
 
   // text: everything a font substitution would otherwise ruin.
   // NOTE: TextNode has NO `.style` property — font data lives directly on the
@@ -148,9 +150,12 @@ async function describe(node, parentAbs, ctx) {
     // Only for nodes whose own fill is an image (photos), not for frames that
     // merely contain them — keeps the payload small.
     const hasImage = node.fills.some((f) => f.type === 'IMAGE' && f.visible !== false);
-    if (hasImage && typeof node.exportAsync === 'function' && ctx && ctx.images) {
+    const w = Math.round(node.width || 0), h = Math.round(node.height || 0);
+    if (hasImage && typeof node.exportAsync === 'function' && ctx && ctx.images &&
+        node.visible !== false && w > 0 && h > 0) {
       try {
-        const bytes = await node.exportAsync({ format: 'PNG', constraint: { type: 'WIDTH', value: 1600 } });
+        const target = Math.min(1600, w);
+        const bytes = await node.exportAsync({ format: 'PNG', constraint: { type: 'WIDTH', value: target } });
         ctx.images[node.id] = {
           name: node.name,
           w: Math.round(node.width || 0),
@@ -269,14 +274,12 @@ function paint(p) {
 
 /** Uint8Array → base64 without blowing the stack on large images. */
 function base64(bytes) {
-  let s = '';
-  const CH = 8192;
-  for (let i = 0; i < bytes.length; i += CH) {
-    s += String.fromCharCode.apply(null, bytes.subarray(i, i + CH));
-  }
-  // btoa exists in the plugin sandbox; the mock polyfills it
-  if (typeof btoa === 'function') return btoa(s);
   if (typeof Buffer === 'function') return Buffer.from(bytes).toString('base64');
+  // btoa path: build the binary string one char at a time — apply() on slices
+  // still overflows the stack for megabyte photos in the plugin sandbox
+  let s = '';
+  for (let i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]);
+  if (typeof btoa === 'function') return btoa(s);
   return '';
 }
 
@@ -321,8 +324,21 @@ figma.ui.onmessage = async (msg) => {
 
   figma.ui.postMessage({ type: 'progress', message: 'Reading ' + targets.length + ' frame(s)…' });
   const results = [];
+  const failed = [];
   for (const node of targets) {
-    results.push(await dump(node));
+    try {
+      figma.ui.postMessage({ type: 'progress', message: 'Reading ' + node.name + '…' });
+      results.push(await dump(node));
+    } catch (e) {
+      failed.push(node.name + ': ' + (e && e.message ? e.message : String(e)));
+    }
+  }
+  if (!results.length) {
+    figma.ui.postMessage({ type: 'error', message: 'Dump failed: ' + failed.join('; ') });
+    return;
+  }
+  if (failed.length) {
+    figma.ui.postMessage({ type: 'progress', message: 'Skipped: ' + failed.join('; ') });
   }
   figma.ui.postMessage({ type: 'result', payload: results });
 };
