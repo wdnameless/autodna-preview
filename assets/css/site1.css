@@ -477,7 +477,8 @@ a { color: inherit; }
   .compare__title, .compare__mirror { white-space: normal; }
   .tick.tr, .tick.br { right: 0; }
   .tick.tl, .tick.bl { left: 0; }
-  .compare__tabs { display: flex; }
+  .compare__tabs { display: flex; flex-wrap: wrap; }
+  .compare__tabs button { flex: 1 1 auto; min-width: 0; }
   .compare__table thead { display: none; }
   .compare__table, .compare__table tbody, .compare__table tr, .compare__table td, .compare__table th { display: block; width: 100%; }
   .compare__table tr { border: 1px solid var(--line-dim); margin-bottom: 14px; padding: 10px; }
@@ -485,6 +486,9 @@ a { color: inherit; }
   .compare__table tr.is-lit { display: block; }
 }
 @media (max-width: 640px) {
+  .compare { padding-left: 12px; padding-right: 12px; }
+  .compare__table th, .compare__table td { padding: 12px; font-size: 16px; }
+  .compare__badge { position: static; display: inline-block; margin-bottom: 12px; }
   .carlears, .value, .compare, .services, .facts, .corporate, .club, .community { padding-left: 20px; padding-right: 20px; }
   .carlears__grid, .value__grid, .club__grid { grid-template-columns: 1fr; }
   .facts { grid-template-columns: 1fr 1fr; }
