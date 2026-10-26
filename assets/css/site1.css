@@ -148,7 +148,9 @@ a { color: inherit; }
 .hero__frame { z-index: 2; }
 .hero__frame { position: relative; max-width: 1440px; height: 810px; margin: 0 auto; }
 .hero__triptych { position: absolute; left: 24.17%; top: 23%; width: 51.39%; aspect-ratio: 740 / 378; }
-.hero__triptych img { width: 100%; height: 100%; object-fit: cover; }
+.hero__triptych img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.08) contrast(1.05) brightness(0.98); }
+.hero__triptych::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(150,133,255,.14), transparent 35%, transparent 65%, rgba(10,8,30,.28)); pointer-events: none; }
+.services__pano img, .corporate__photo img, .community__photo img, .compare__car img { filter: saturate(1.1) contrast(1.06); }
 .hero__word {
   position: absolute; left: 23.5px; top: 429px; width: 1389px;
   background: linear-gradient(180deg, #f7f7f7 0%, #e3dfff 36%, #ffffff 74%, #e3dfff 100%);
@@ -215,8 +217,10 @@ a { color: inherit; }
 }
 .carlears__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: left; }
 .clr-card {
-  border: 1px solid var(--line-dim);
-  background: rgba(38, 37, 72, 0.44);
+  border: 1px solid rgba(194, 185, 255, 0.35);
+  background: linear-gradient(160deg, rgba(70,62,140,.5), rgba(38,37,72,.44) 45%, rgba(20,18,45,.6));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.14), inset 0 -18px 30px rgba(10,8,30,.35), 0 24px 60px rgba(10,8,30,.45);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
   padding: 28px 16px 32px;
   min-height: 291px;
 }
@@ -349,8 +353,10 @@ a { color: inherit; }
 }
 .club__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .club-card {
-  border: 1px solid var(--line-dim);
-  background: linear-gradient(180deg, #1a1735, #121121);
+  border: 1px solid rgba(194, 185, 255, 0.3);
+  background: linear-gradient(160deg, rgba(50,45,100,.55), #121121 55%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 20px 50px rgba(10,8,30,.5);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
   padding: 26px 22px 30px;
 }
 .club-card h3 { font-family: var(--display); font-weight: 500; font-size: 22px; text-transform: uppercase; color: #fff; min-height: 60px; }
@@ -403,7 +409,7 @@ a { color: inherit; }
 
 
 /* ══ AMBIENT LIGHT (board-sampled) ═══════════════════════════════════════ */
-.carlears { background: radial-gradient(900px 500px at 50% 30%, rgba(67,54,148,.28), transparent 70%), #020202; }
+.carlears { background: radial-gradient(1200px 400px at 50% 0%, rgba(67,54,148,.18), transparent 60%), #020202; }
 .value { background: radial-gradient(700px 420px at 50% 45%, rgba(157,150,207,.16), transparent 70%), #020202; }
 .compare { background: linear-gradient(90deg, #191828, #5e559f 45%, #484277 75%, #191828), #020202; }
 .services { background: linear-gradient(90deg, #110e24, #1c1145 45%, #645497 85%, #2a2450); }
@@ -411,6 +417,12 @@ a { color: inherit; }
 .corporate { background: radial-gradient(1100px 700px at 50% 40%, rgba(60,50,130,.35), transparent 70%), #020202; }
 .club { background: radial-gradient(800px 500px at 12% 60%, rgba(90,80,160,.25), transparent 60%), radial-gradient(800px 500px at 88% 60%, rgba(90,80,160,.25), transparent 60%), #020202; }
 .community { background: radial-gradient(1100px 600px at 62% 45%, rgba(138,108,218,.55), rgba(55,44,123,.9) 55%, #141126 100%), #020202; }
+
+/* film grain: 3% luminance noise, kills banding, adds premium texture */
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: 200; pointer-events: none; opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
 
 /* ══ REVEAL  ══════════════════════════════════════════════════════════════ */
 .rv { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
