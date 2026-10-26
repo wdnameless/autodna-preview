@@ -460,6 +460,9 @@ a { color: inherit; }
   .fact__n { font-size: 56px; }
   .club__grid { grid-template-columns: 1fr 1fr; }
 .corporate__top { grid-template-columns: 1fr; padding-top: 60px; }
+  .corporate__about { font-size: 7vw; }
+  .corporate__card { font-size: 5.5vw; }
+  .corporate__plan { font-size: 6vw; }
   .corporate__dna { font-size: 44vw; top: -10px; max-width: 100vw; overflow: hidden; }
   .community { grid-template-columns: 1fr; }
   .community__title { font-size: 17vw; }
@@ -467,7 +470,7 @@ a { color: inherit; }
   .community__sub { grid-column: 1; }
   .community__sub { text-align: left; }
   .foot__grid { grid-template-columns: 1fr; }
-.compare__title, .compare__mirror { white-space: normal; font-size: 12.5vw; }
+.compare__title, .compare__mirror { white-space: normal; font-size: 11vw; max-width: 100%; overflow-wrap: anywhere; }
   .carlears { overflow: hidden; }
   .carlears__word { font-size: 15vw; }
   .hero__word { font-size: 12vw; }
