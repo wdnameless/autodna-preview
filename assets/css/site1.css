@@ -201,26 +201,27 @@ a { color: inherit; }
 .value__grid p { font-size: 20px; line-height: 1.4; }
 
 /* ══ 4. COMPARE ══════════════════════════════════════════════════════════ */
-.compare { max-width: 1440px; margin: 0 auto; padding: 30px 40px 90px; text-align: center; }
-.compare__car { position: relative; max-width: 972px; margin: 0 auto; }
-.compare__car img { width: 100%; border-radius: 4px; box-shadow: 0 30px 80px rgba(150, 133, 255, 0.35); }
+.compare { max-width: 1440px; margin: 0 auto; padding: 30px 40px 90px; }
+.compare__top { position: relative; }
+.compare__car { position: relative; margin-left: auto; max-width: 972px; }
+.compare__car img { width: 100%; box-shadow: 0 30px 80px rgba(150, 133, 255, 0.35); }
 .compare__badge {
-  display: inline-block; margin-top: 14px;
-  font-size: 24px; color: var(--violet-soft);
-  border: 1px solid var(--line); padding: 8px 22px; border-radius: 20px;
+  position: absolute; left: -190px; top: 40px;
+  font-size: 15px; text-transform: uppercase; color: var(--violet-soft); line-height: 1.4;
+  border: 1px solid var(--line); border-right: 0; padding: 10px 30px 10px 12px;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
 }
 .compare__title {
+  position: absolute; left: 0; bottom: -30px; z-index: 2;
   font-family: var(--display); font-weight: 500;
-  font-size: clamp(40px, 7.6vw, 110px);
-  white-space: nowrap;
-  text-transform: uppercase; letter-spacing: -0.02em; line-height: 1;
-  margin: 40px 0 0;
+  font-size: clamp(48px, 8.6vw, 124px);
+  text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.95;
+  margin: 0;
 }
 .compare__mirror {
   font-family: var(--display); font-weight: 500;
-  font-size: clamp(40px, 7.6vw, 110px);
-  white-space: nowrap;
-  text-transform: uppercase; letter-spacing: -0.02em; line-height: 1;
+  font-size: clamp(48px, 8.6vw, 124px);
+  text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.95;
   transform: scaleY(-1);
   background: linear-gradient(180deg, rgba(150,133,255,.55), transparent 75%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
@@ -235,13 +236,15 @@ a { color: inherit; }
 }
 .compare__tabs button[aria-selected="true"] { background: var(--violet-deep); color: #fff; }
 .compare__wrap { overflow-x: auto; }
-.compare__table { width: 100%; border-collapse: collapse; text-align: left; font-size: 24px; }
-.compare__table th, .compare__table td { padding: 18px 20px; border-bottom: 1px solid var(--line-dim); vertical-align: top; }
-.compare__table thead th { font-weight: 300; color: var(--violet-soft); text-transform: uppercase; font-size: 20px; }
-.compare__table tbody th { font-weight: 500; font-size: 28px; }
-.compare__table tbody td { font-size: 22px; }
-.compare__table tr.is-lit { background: linear-gradient(90deg, rgba(67, 54, 148, 0.55), rgba(67, 54, 148, 0.15)); }
-.compare__table tr.is-lit th { color: var(--violet-pale); }
+.compare__table { width: 100%; border-collapse: collapse; text-align: left; margin-top: -40px; }
+.compare__table th, .compare__table td { padding: 20px; border: 1px solid var(--line-dim); vertical-align: top; }
+.compare__table thead th { font-weight: 300; color: var(--violet-soft); font-size: 15px; background: rgba(67, 54, 148, 0.25); }
+.compare__table tbody th { font-weight: 300; font-size: 20px; text-transform: uppercase; }
+.compare__table tbody td { font-size: 20px; }
+.compare__table tr.is-lit th, .compare__table tr.is-lit td {
+  background: linear-gradient(180deg, #7b6ff0, #9685ff);
+  color: #fff; border-color: #9685ff;
+}
 
 /* ══ 5. SERVICES ═════════════════════════════════════════════════════════ */
 .services { position: relative; max-width: 1440px; margin: 0 auto; padding: 30px 40px 90px; }
