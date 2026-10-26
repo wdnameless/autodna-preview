@@ -10,6 +10,12 @@
   font-display: swap;
 }
 @font-face {
+  font-family: 'DM Sans';
+  src: url('../fonts/DMSans-light.woff2') format('woff2');
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
   font-family: 'Helvetica Neue';
   src: url('../fonts/HelveticaNeue-light.woff2') format('woff2');
   font-weight: 300;
@@ -157,8 +163,7 @@ a { color: inherit; }
   background: linear-gradient(180deg, #e8e5ff 0%, #ededed 64%, #f3efff 94%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-/* board: DM Sans Light 40 — unavailable offline, Helvetica metrics match within 2px */
-.hero__sub--l { left: 340px; width: 198px; font-weight: 300; }
+.hero__sub--l { left: 340px; width: 198px; font-family: 'DM Sans', var(--body); font-weight: 300; }
 .hero__sub--l em { font-style: normal; }
 .hero__sub--r { left: 781px; width: 315px; }
 .hero__sub--r em { font-style: normal; }
@@ -275,30 +280,25 @@ a { color: inherit; }
 }
 
 /* ══ 5. SERVICES ═════════════════════════════════════════════════════════ */
-.services { position: relative; max-width: 1440px; margin: 0 auto; padding: 30px 40px 90px; }
-.services::before {
-  content: ""; position: absolute; inset: 0;
-  background: url('../img/site1/services-bg.jpg') center / cover no-repeat;
-  opacity: 0.22; pointer-events: none;
-}
-.services > * { position: relative; }
+.services { position: relative; max-width: 1440px; margin: 0 auto; padding: 30px 0 90px; }
+.services__pano { position: relative; max-width: 1389px; margin: -140px auto 0; padding: 0; }
+.services__pano img { width: 100%; aspect-ratio: 1389 / 791; object-fit: cover; }
 .services__title {
   font-family: var(--display); font-weight: 500;
   font-size: clamp(48px, 8.6vw, 124px);
-  text-transform: uppercase; text-align: center; margin-bottom: 50px;
+  text-transform: uppercase; text-align: center; margin-bottom: 0; position: relative; z-index: 3;
 }
-.services__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.services__grid { display: grid; grid-template-columns: 454px 454px 454px; gap: 13px; justify-content: center; margin-top: -291px; position: relative; z-index: 2; }
 .svc {
-  position: relative; display: block; text-align: left;
-  background: #0a0a18; border: 1px solid var(--line-dim);
-  color: #fff; font: inherit; cursor: pointer; padding: 0; overflow: hidden;
-  min-height: 400px;
+  display: block; text-align: left; min-height: 291px;
+  background: transparent; border: 0;
+  color: #fff; font: inherit; cursor: pointer; padding: 128px 22px 20px;
 }
-.svc img { width: 100%; height: 260px; object-fit: cover; opacity: 0.85; }
-.svc__name { display: block; font-size: 40px; padding: 20px 24px 0; }
-.svc__more { display: block; font-size: 18px; line-height: 1.45; color: var(--violet-soft); padding: 10px 24px 26px; max-height: 0; overflow: hidden; opacity: 0; transition: 0.35s ease; }
+.svc[data-svc="dealer"] { background: rgba(38, 37, 72, 0.44); }
+.svc__name { display: block; font-size: 40px; font-weight: 300; }
+.svc__more { display: block; font-size: 18px; line-height: 1.5; color: #fff; margin-top: 12px; max-height: 0; overflow: hidden; opacity: 0; transition: 0.35s ease; }
 .svc.is-active .svc__more, .svc:hover .svc__more, .svc:focus-visible .svc__more { max-height: 200px; opacity: 1; }
-.svc.is-active { border-color: var(--violet); box-shadow: 0 0 60px rgba(150, 133, 255, 0.25); }
+.svc.is-active { outline: 1px solid var(--violet); }
 
 /* ══ 6. FACTS ════════════════════════════════════════════════════════════ */
 .facts {
