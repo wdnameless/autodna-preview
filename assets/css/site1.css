@@ -107,24 +107,27 @@ a { color: inherit; }
 /* ══ MENU ════════════════════════════════════════════════════════════════ */
 .menu {
   position: fixed; inset: 0; z-index: 40;
-  background: rgba(2, 2, 10, 0.82);
+  background: rgba(2, 2, 10, 0.55);
   backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  display: flex; flex-direction: column; align-items: flex-end; justify-content: center;
-  padding: 0 8vw;
+  display: flex; align-items: flex-start; justify-content: flex-end;
+  padding: 70px max(20px, 50vw - 670px) 0 0;
 }
 .menu[hidden] { display: none; }
-.menu ul { list-style: none; text-align: right; }
+.menu__panel { width: 250px; }
+.menu ul { list-style: none; }
 .menu li { border-bottom: 1px solid var(--line-dim); }
-.menu a {
-  display: block; padding: 10px 0;
-  font-size: clamp(18px, 2.4vw, 30px);
-  text-decoration: none;
+.menu li:first-child { border-top: 1px solid var(--line-dim); }
+.menu ul a {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 9px 2px; height: 40px;
+  font-size: 15px; text-decoration: none;
   color: var(--violet-pale);
 }
-.menu a:hover { color: #fff; }
-.menu a::after { content: ' →'; color: var(--violet); }
-.menu__foot { margin-top: 28px; display: flex; gap: 24px; font-size: 15px; color: var(--violet-soft); }
-.menu__foot a { text-decoration: none; }
+.menu ul a:hover { color: #fff; }
+.menu ul a::after { content: '→'; color: var(--violet); font-size: 13px; }
+.menu__foot { margin-top: 24px; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: var(--violet-soft); }
+.menu__foot a { text-decoration: none; display: flex; justify-content: space-between; }
+.menu__foot a::after { content: '→'; color: var(--violet); }
 
 /* ══ 1. HERO ═════════════════════════════════════════════════════════════ */
 .hero { position: relative; overflow: hidden; background: #050428; padding-bottom: 40px; }
@@ -150,15 +153,20 @@ a { color: inherit; }
 .hero__sub--r em { font-style: normal; color: var(--violet); }
 .hero__elbow { position: absolute; left: 33.34%; top: 75.9%; width: 18.4%; height: 6.1%; overflow: visible; }
 .hero__elbow path { fill: none; stroke: var(--line); stroke-width: 1; }
-.rail { position: absolute; left: 79.7%; top: 28.5%; width: 18.4%; }
+.rail { position: absolute; left: 1147px; top: 0; width: 265px; height: 810px; }
 .rail a {
-  position: absolute; left: 0; width: 100%;
-  font-size: 15.5px; line-height: 1.3; text-decoration: none;
-  border: 1px solid var(--line-dim); border-right: 0;
-  padding: 10px 26px 10px 12px;
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
+  position: absolute; left: 0; width: 182px;
+  font-size: 20px; font-weight: 300; line-height: 1.0; text-decoration: none;
+  color: #fff; white-space: nowrap;
+  border: 0; padding: 0;
+  clip-path: none;
 }
-.rail a i { position: absolute; right: 8px; top: 8px; font-style: normal; font-size: 13px; color: var(--violet-soft); }
+.rail a svg {
+  position: absolute; left: 0; top: 22px; width: 265px; height: 49px;
+  overflow: visible; pointer-events: none;
+}
+.rail a svg path { fill: none; stroke: var(--line); stroke-width: 1; }
+.rail a i { position: absolute; left: 257px; top: 22px; font-style: normal; font-size: 11px; color: var(--violet-soft); }
 .rail a:nth-child(1) { top: 0; }
 .rail a:nth-child(2) { top: 92px; }
 .rail a:nth-child(3) { top: 186px; }

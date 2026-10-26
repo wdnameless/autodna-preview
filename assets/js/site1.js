@@ -2,14 +2,13 @@
 (function () {
   'use strict';
 
-  // preloader: DNA reveal + real load progress, curtain lift, once per session
+  // preloader: DNA reveal + real load progress, curtain lift — always visible
+  // (short version on repeat visits so the user sees every deploy)
   function initPreloader() {
     var el = document.getElementById('preloader');
     if (!el) return;
-    if (sessionStorage.getItem('dna-pre') === '1') {
-      el.style.display = 'none';
-      return;
-    }
+    var repeat = false;
+    try { repeat = sessionStorage.getItem('dna-pre') === '1'; } catch (_) {}
     var bar = el.querySelector('.preloader__bar span');
     var pct = el.querySelector('.preloader__pct');
     var t0 = Date.now();
@@ -35,14 +34,15 @@
       setTimeout(function () {
         el.classList.add('is-done');
         document.body.style.overflow = '';
-        sessionStorage.setItem('dna-pre', '1');
+        try { sessionStorage.setItem('dna-pre', '1'); } catch (_) {}
       }, 350);
     }
+    var hold = repeat ? 500 : 1400;
     if (document.readyState === 'complete') {
-      setTimeout(finish, 1400);
+      setTimeout(finish, hold);
     } else {
       window.addEventListener('load', function () {
-        var wait = Math.max(0, 1400 - (Date.now() - t0));
+        var wait = Math.max(0, hold - (Date.now() - t0));
         setTimeout(finish, wait);
       });
       // safety: never trap the user behind the curtain
