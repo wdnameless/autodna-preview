@@ -256,9 +256,20 @@ a { color: inherit; }
 .carlears {
   position: relative;
   overflow: hidden;
-  padding: 60px 0 160px;
+  padding: 60px 0 280px;
   text-align: center;
   background: #020202 url("../img/site1/carlears-bg.svg") center top / 1440px auto no-repeat;
+}
+.carlears::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 220px;
+  background: linear-gradient(180deg, transparent 0%, rgba(2,2,2,0.85) 60%, #020202 100%);
+  pointer-events: none;
+  z-index: 3;
 }
 .carlears__top-block {
   position: relative;
