@@ -422,7 +422,7 @@ a { color: inherit; }
 .facts { background: linear-gradient(90deg, #242048 0%, #4d4688 30%, #6a5fb7 55%, #827ac9 80%, #6a5fb7 100%); }
 .corporate { background: radial-gradient(1100px 700px at 50% 40%, rgba(60,50,130,.35), transparent 70%), #020202; }
 .club { background: radial-gradient(800px 500px at 12% 60%, rgba(90,80,160,.25), transparent 60%), radial-gradient(800px 500px at 88% 60%, rgba(90,80,160,.25), transparent 60%), #020202; }
-.community { background: radial-gradient(1100px 600px at 62% 45%, rgba(138,108,218,.55), rgba(55,44,123,.9) 55%, #141126 100%), #020202; }
+.community { background: radial-gradient(700px 480px at 72% 42%, rgba(117,96,191,.38), rgba(20,17,38,.6) 55%, #020202 85%), #020202; }
 
 /* film grain: 3% luminance noise, kills banding, adds premium texture */
 body::after {
