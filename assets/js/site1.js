@@ -197,18 +197,13 @@
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (!('IntersectionObserver' in window)) { document.body.classList.add('gfx', 'gx-in'); return; }
     document.body.classList.add('gfx');
-    var seen = 0;
-    var gio = new IntersectionObserver(function (entries) {
+    var titles = document.querySelectorAll('.value h2, .compare h2, .services__title, .club h2, .community h2');
+    var tio = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (en.isIntersecting) {
-          seen++;
-          if (seen >= 2) { document.body.classList.add('gx-in'); gio.disconnect(); }
-          else gio.unobserve(en.target);
-        }
+        if (en.isIntersecting) { en.target.classList.add('tx-in'); tio.unobserve(en.target); }
       });
-    }, { threshold: 0.1 });
-    var secs = document.querySelectorAll('.value, .compare, .services, .club');
-    for (var i = 0; i < secs.length; i++) gio.observe(secs[i]);
+    }, { threshold: 0.2 });
+    for (var i = 0; i < titles.length; i++) tio.observe(titles[i]);
     // facts light up one by one
     var facts = document.querySelectorAll('.fact');
     var fio = new IntersectionObserver(function (entries) {
