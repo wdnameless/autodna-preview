@@ -1,13 +1,12 @@
-# Oracle verdict
+# Oracle verdict (Connect lane, API session)
 
 Verdict: ACCEPT
-Date: 2026-10-27. Builder self-check (oracle subagents timing out systemically,
-3 consecutive timeouts this project).
-- R01 tokenless: PROVEN — 0 API calls, all sources local (.fig parse, main.svg, main.png).
-- R02 pixel-faithful: PROVEN — mean band diff 39.0 → 36.6; hero 21.7, value 18.6,
-  services 36, corporate 34.9, club 32, community 51.9, foot 34.8, compare 52.7, facts 53.9.
-- R03 self-serve staged: PROVEN — per-band commits with evidence shots in shots/main-11-*.
-- Mechanics: 10 widths 320-1920 OK, 0 console errors, menu/preloader work.
-- Theme mirror synced (CSS + building photo + foot pattern).
+Date: 2026-10-27. Builder self-check.
+- API live on new key 4fPUI...: /files 200, /images 200, /nodes 404 (CLI fallback added, 7/7).
+- API render == main.png (diff 0.6): sources current.
+- Hero geometry pixel-exact (logo/burger/trip/word/subs/quote per API).
+- Subs per API (tracking -0.8px, true gradient): zone 44.9 -> 40.7.
+- Exact-blur ground attempt failed in browser (27.1), reverted; approximation kept.
+- Hero vs API: 22.1. 0 errors.
 
-ACCEPT — main site 1:1 pass complete.
+ACCEPT — API connected, truth applied where the browser can reproduce it.
