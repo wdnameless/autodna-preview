@@ -147,8 +147,10 @@ a { color: inherit; }
 .hero__shade--bottom { bottom: 0; height: 180px; background: linear-gradient(180deg, transparent, rgba(4,4,12,0.55)); }
 .hero__frame { z-index: 2; }
 .hero__frame { position: relative; max-width: 1440px; height: 810px; margin: 0 auto; }
-.hero__triptych { position: absolute; left: 24.17%; top: 23%; width: 51.39%; aspect-ratio: 740 / 378; }
+.hero__triptych { position: absolute; left: 348px; top: 186px; width: 740px; height: 378px; }
 .hero__triptych img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.05) contrast(1.03); }
+.hero__ticks { position: absolute; left: -8px; top: -9px; width: 756px; height: 396px; overflow: visible; pointer-events: none; z-index: 3; }
+.hero__ticks path { fill: none; stroke: #c2b9ff; stroke-width: 1; }
 .hero__triptych::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,16,50,.1), transparent 30%, transparent 82%, rgba(10,8,30,.2)); pointer-events: none; }
 .services__pano img, .corporate__photo img, .compare__car img { filter: saturate(1.1) contrast(1.06); }
 .community__photo img { filter: saturate(1.02) brightness(1.04); }
