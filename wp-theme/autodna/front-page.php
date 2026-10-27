@@ -137,7 +137,7 @@ get_header(); ?>
 
     <!-- Corolla photo -->
     <div class="compare__car">
-      <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/corolla.jpg" alt="Toyota Corolla Hatchback 2021" fetchpriority="low">
+      <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/corolla.png" alt="Toyota Corolla Hatchback 2021" fetchpriority="low">
     </div>
 
     <!-- Big Orbitron Title behind table header -->
