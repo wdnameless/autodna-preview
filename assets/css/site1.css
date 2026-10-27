@@ -313,17 +313,20 @@ a { color: inherit; }
   position: relative;
   max-width: 1440px; margin: 0 auto; padding: 60px 40px;
   min-height: 640px;
-  background: linear-gradient(90deg, #242048 0%, #4d4688 25%, #6a5fb7 50%, #8078c3 75%, #6a5fb7 100%);
+  background:
+    radial-gradient(480px 380px at 80% 36%, rgba(194,185,255,.5), rgba(89,74,197,.22) 45%, transparent 70%),
+    linear-gradient(90deg, #0b0a16 0%, #121026 35%, #1e1a45 62%, #0e0d1e 85%, #06060b 100%),
+    linear-gradient(180deg, rgba(0,0,0,.5) 0%, transparent 32%, transparent 68%, rgba(0,0,0,.55) 100%);
 }
-.fact { position: absolute; max-width: 250px; }
-.fact--a { left: 40px; top: 120px; }
-.fact--b { left: 330px; top: 140px; }
-.fact--c { left: 560px; top: 360px; }
-.fact--d { left: 850px; top: 360px; }
-.fact--e { right: 40px; top: 110px; max-width: 280px; }
+.fact { position: absolute; width: 262px; }
+.fact--a { left: -15px; top: 96px; }
+.fact--b { left: 549px; top: 96px; }
+.fact--e { left: 1112px; top: 96px; }
+.fact--c { left: 267px; top: 243px; }
+.fact--d { left: 831px; top: 243px; }
 .fact__n { font-family: var(--display); font-weight: 500; font-size: 85px; letter-spacing: -0.05em; color: #fff; line-height: 0.88; }
 .fact__l { font-size: 30px; text-transform: uppercase; color: var(--violet-soft); margin-top: 12px; line-height: 1.2; }
-.fact__t { font-size: 15px; line-height: 1.45; color: rgba(255, 255, 255, 0.75); margin-top: 10px; }
+.fact__t { font-size: 20px; line-height: 1.45; color: rgba(255, 255, 255, 0.75); margin-top: 10px; }
 .fact__k { font-size: 20px; text-transform: uppercase; color: var(--violet-soft); }
 
 /* ══ 7. CORPORATE  ═════════════════════════════════════════════════════════ */
