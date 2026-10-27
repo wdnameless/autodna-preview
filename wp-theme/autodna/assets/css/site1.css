@@ -173,8 +173,8 @@ a { color: inherit; }
 .hero__sub--l em { font-style: normal; }
 .hero__sub--r { left: 781px; width: 315px; }
 .hero__sub--r em { font-style: normal; }
-.hero__elbow { position: absolute; left: 33.34%; top: 75.9%; width: 18.4%; height: 6.1%; overflow: visible; }
-.hero__elbow path { fill: none; stroke: var(--line); stroke-width: 1; }
+.hero__elbow { position: absolute; left: 480px; top: 615px; width: 265px; height: 50px; overflow: visible; }
+.hero__elbow path { fill: none; stroke: #c2b9ff; stroke-width: 1; }
 .hero__cta { display: none; }
 .rail { position: absolute; left: 1147px; top: 0; width: 265px; height: 810px; }
 .rail a {
@@ -196,8 +196,10 @@ a { color: inherit; }
 .rail a:hover span { color: var(--violet-pale); }
 
 /* ══ 2. CARLEARS ═════════════════════════════════════════════════════════ */
-.hero__quote { position: relative; z-index: 2; max-width: 760px; margin: 6px auto 0; text-align: center; padding: 12px 40px 18px; }
-.hero__quote blockquote { font-size: 20px; line-height: 1.0; color: #fff; }
+.hero__quote { position: relative; z-index: 2; max-width: 760px; margin: 60px auto 0; text-align: center; padding: 0 40px 18px; }
+.hero__quote blockquote { font-size: 20px; line-height: 1.0; background: linear-gradient(180deg, #ffffff, #494775); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero__quote-ticks { position: absolute; left: 0; top: -60px; width: 100%; height: 200px; overflow: visible; pointer-events: none; }
+.hero__quote-ticks path { fill: none; stroke: #c2b9ff; stroke-width: 1; }
 .hero__quote-line { position: absolute; left: 50%; bottom: 0; width: 1px; height: 30px; background: var(--line); }
 .carlears { overflow: hidden; max-width: 1440px; margin: 0 auto; padding: 130px 40px 140px; text-align: center; }
 .carlears__lede { font-size: 40px; text-transform: uppercase; color: #e1d9ff; }
