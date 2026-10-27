@@ -670,15 +670,17 @@ a { color: inherit; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 25px 25px;
-  gap: 13px;
+  max-width: 100%;
+  margin: 0;
+  padding: 0 20px 30px;
+  gap: 20px;
   align-items: end;
+  box-sizing: border-box;
 }
 
 .svc-col {
   position: relative;
+  width: 100%;
   min-height: 291px;
   cursor: pointer;
   display: flex;
@@ -691,21 +693,18 @@ a { color: inherit; }
   position: relative;
   width: 100%;
   min-height: 291px;
-  padding: 30px 24px;
+  padding: 32px 28px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   background: transparent;
   border: 0;
+  border-radius: 2px;
+  box-sizing: border-box;
   transition: background 0.35s ease, backdrop-filter 0.35s ease, box-shadow 0.35s ease;
 }
 
-.svc-card__ticks {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
+.svc-card .tick {
   opacity: 0;
   transition: opacity 0.35s ease;
 }
@@ -714,14 +713,14 @@ a { color: inherit; }
 .svc-col:hover .svc-card,
 .svc-col:focus-visible .svc-card {
   background: rgba(38, 37, 72, 0.44);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   box-shadow: 0 20px 60px rgba(10, 6, 30, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
-.svc-col.is-active .svc-card__ticks,
-.svc-col:hover .svc-card__ticks,
-.svc-col:focus-visible .svc-card__ticks {
+.svc-col.is-active .svc-card .tick,
+.svc-col:hover .svc-card .tick,
+.svc-col:focus-visible .svc-card .tick {
   opacity: 1;
 }
 

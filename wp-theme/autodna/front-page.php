@@ -208,10 +208,9 @@ get_header(); ?>
     <div class="services__interactive-grid">
       <!-- Col 1: SkipTheDealers -->
       <div class="svc-col is-active" data-svc="1" tabindex="0" role="button" aria-expanded="true">
-        <div class="svc-card">
-          <svg class="svc-card__ticks" viewBox="0 0 454 291" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M0 18.8V0H18.8 M454 18.8V0H435.2 M0 272.2V291H18.8 M454 272.2V291H435.2" stroke="#C2B9FF" fill="none" stroke-width="1"/>
-          </svg>
+        <div class="svc-card ticks">
+          <span class="tick tl"></span><span class="tick tr"></span>
+          <span class="tick bl"></span><span class="tick br"></span>
           <h3 class="svc-col__name">SkipTheDealers</h3>
           <p class="svc-col__desc">Find, bid, and buy the best vehicles directly from trusted car auctions. Smart, transparent, and hassle-free — we handle the process from search to delivery.</p>
         </div>
@@ -219,10 +218,9 @@ get_header(); ?>
 
       <!-- Col 2: AutoDNA Flip -->
       <div class="svc-col" data-svc="2" tabindex="0" role="button" aria-expanded="false">
-        <div class="svc-card">
-          <svg class="svc-card__ticks" viewBox="0 0 454 291" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M0 18.8V0H18.8 M454 18.8V0H435.2 M0 272.2V291H18.8 M454 272.2V291H435.2" stroke="#C2B9FF" fill="none" stroke-width="1"/>
-          </svg>
+        <div class="svc-card ticks">
+          <span class="tick tl"></span><span class="tick tr"></span>
+          <span class="tick bl"></span><span class="tick br"></span>
           <h3 class="svc-col__name">AutoDNA Flip</h3>
           <p class="svc-col__desc">Turn vehicles into valuable assets. We help you invest wisely in high-demand cars and maximize your returns through strategic resale.</p>
         </div>
@@ -230,10 +228,9 @@ get_header(); ?>
 
       <!-- Col 3: AutoDNA Service -->
       <div class="svc-col" data-svc="3" tabindex="0" role="button" aria-expanded="false">
-        <div class="svc-card">
-          <svg class="svc-card__ticks" viewBox="0 0 454 291" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M0 18.8V0H18.8 M454 18.8V0H435.2 M0 272.2V291H18.8 M454 272.2V291H435.2" stroke="#C2B9FF" fill="none" stroke-width="1"/>
-          </svg>
+        <div class="svc-card ticks">
+          <span class="tick tl"></span><span class="tick tr"></span>
+          <span class="tick bl"></span><span class="tick br"></span>
           <h3 class="svc-col__name">AutoDNA Service</h3>
           <p class="svc-col__desc">AutoDNA Service is a next-generation automotive center, equipped with innovative technology, a modern minimalist and spotless interior.</p>
         </div>
