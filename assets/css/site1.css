@@ -336,11 +336,11 @@ a { color: inherit; }
 /* ══ 8. CLUB ═════════════════════════════════════════════════════════════ */
 .club { padding: 30px 0 90px; }
 .club > * { max-width: 1440px; margin-left: auto; margin-right: auto; padding-left: 40px; padding-right: 40px; }
-.club__lede { font-size: 40px; text-transform: uppercase; color: var(--violet-pale); max-width: 520px; }
+.club__lede { font-size: 40px; font-weight: 300; letter-spacing: -0.8px; text-transform: uppercase; text-align: justify; color: #c2b9ff; max-width: 335px; margin: 0; }
 .club__title {
   font-family: var(--display); font-weight: 500;
-  font-size: 124px;
-  text-transform: uppercase; text-align: center; margin: 10px 0 50px;
+  font-size: 124px; letter-spacing: -6.2px; line-height: 0.88;
+  text-transform: uppercase; text-align: center; color: #f7f7f7; margin: 10px auto 50px; max-width: 794px;
   text-shadow: 0 0 90px rgba(150, 133, 255, 0.6);
 }
 .club__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
@@ -351,12 +351,12 @@ a { color: inherit; }
   backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
   padding: 26px 22px 30px;
 }
-.club-card h3 { font-family: var(--display); font-weight: 500; font-size: 22px; text-transform: uppercase; color: #fff; min-height: 60px; }
+.club-card h3 { font-size: 40px; font-weight: 300; letter-spacing: -0.8px; text-transform: uppercase; color: #fff; min-height: 0; margin: 0 0 10px; line-height: 0.93; }
 .club-card__big { font-family: var(--display); font-weight: 500; font-size: 64px; letter-spacing: -0.05em; text-transform: uppercase; margin: 12px 0 0; }
 .club-card__mid { font-family: var(--display); font-weight: 500; font-size: 32px; letter-spacing: -0.05em; text-transform: uppercase; color: var(--violet-soft); margin: 4px 0 12px; }
 
 .club-card p:last-child { font-size: 18px; line-height: 1.45; }
-.club__out { text-align: right; margin-top: 36px; font-size: 40px; text-transform: uppercase; }
+.club__out { text-align: justify; margin: 36px 0 0 auto; font-size: 40px; font-weight: 300; letter-spacing: -0.8px; text-transform: uppercase; color: #c2b9ff; max-width: 677px; }
 
 /* ══ 9. COMMUNITY ═════════════════════════════════════════════════════════ */
 .community {
@@ -372,7 +372,7 @@ a { color: inherit; }
 .community__title em { font-style: normal; color: var(--violet); }
 .community__photo { max-width: 776px; grid-column: 3; grid-row: 1; }
 .community__photo img { width: 100%; aspect-ratio: 776 / 406; object-fit: cover; }
-.community__sub { position: relative; grid-column: 3; grid-row: 2; font-size: 40px; line-height: 1.06; text-transform: uppercase; text-align: left; margin: 28px 0 0 114px; max-width: 663px; }
+.community__sub { position: relative; grid-column: 3; grid-row: 2; font-size: 40px; font-weight: 300; letter-spacing: -0.8px; line-height: 0.93; text-transform: uppercase; text-align: justify; margin: 28px 0 0 114px; max-width: 663px; color: #c2b9ff; }
 .community__sub span { color: var(--violet-soft); }
 .community__wire { position: absolute; left: -299px; top: 31px; width: 265px; height: 49px; overflow: visible; }
 .community__wire path { fill: none; stroke: var(--line); stroke-width: 1; }
