@@ -510,11 +510,12 @@ body::after {
   .corporate__card { font-size: 5.5vw; }
   .corporate__plan { font-size: 6vw; }
   .corporate__dna { font-size: 44vw; top: -10px; max-width: 100vw; overflow: hidden; }
-  .community { grid-template-columns: 1fr; }
-  .community__title { font-size: 17vw; }
+  .community { grid-template-columns: minmax(0,1fr); padding: 30px 20px; }
+  .community__title { font-size: 15vw; }
   .community__photo { max-width: 100%; overflow: hidden; }
-  .community__sub { grid-column: 1; }
+  .community__sub { grid-column: 1; margin: 20px 0 0; max-width: none; font-size: 7vw; }
   .community__sub { text-align: left; }
+  .community__wire { display: none; }
   .foot__grid { grid-template-columns: 1fr; }
 .compare__title, .compare__mirror { white-space: normal; font-size: 11vw; max-width: 100%; overflow-wrap: anywhere; }
   .carlears { overflow: hidden; }
