@@ -143,7 +143,7 @@ a { color: inherit; }
 /* fig Ellipse 2/3: black shapes, bg-blur 4, fg-blur 200 — carve top/bottom glow */
 .hero__shade { position: absolute; left: 0; right: 0; z-index: 1; pointer-events: none; }
 .hero__shade--top { top: -140px; height: 380px; background: radial-gradient(120% 100% at 50% 0%, rgba(0,0,0,0.6), transparent 70%); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
-.hero__shade--bottom { bottom: 0; height: 180px; background: linear-gradient(180deg, transparent, rgba(4,4,12,0.55)); }
+.hero__shade--bottom { bottom: -2px; height: 260px; background: linear-gradient(180deg, transparent 0%, rgba(2,2,8,0.55) 45%, #020208 100%); }
 .hero__frame { z-index: 2; }
 .hero__frame { position: relative; max-width: 1440px; height: 810px; margin: 0 auto; }
 .hero__triptych { position: absolute; left: 348px; top: 186px; width: 740px; height: 378px; }
@@ -201,7 +201,7 @@ a { color: inherit; }
 .hero__quote-ticks { position: absolute; left: 0; top: -60px; width: 100%; height: 200px; overflow: visible; pointer-events: none; }
 .hero__quote-ticks path { fill: none; stroke: #c2b9ff; stroke-width: 1; }
 .hero__quote-line { position: absolute; left: 50%; bottom: 0; width: 1px; height: 30px; background: var(--line); }
-.carlears { overflow: hidden; padding: 130px 0 140px; text-align: center; }
+.carlears { overflow: hidden; padding: 130px 0 140px; text-align: center; background: linear-gradient(180deg, #020208 0%, #020202 120px); }
 .carlears > * { max-width: 1440px; margin-left: auto; margin-right: auto; padding-left: 40px; padding-right: 40px; }
 .carlears__lede { display: flex; justify-content: center; gap: 78px; font-size: 40px; line-height: 0.93; letter-spacing: -0.8px; text-transform: uppercase; color: #e1d9ff; }
 .carlears__word {
@@ -555,6 +555,37 @@ body::after {
   .facts { grid-template-columns: 1fr 1fr; }
   .clr-card h3 { font-size: 32px; }
   .svc__name { font-size: 32px; }
+}
+
+
+/* ══ GLOBAL DYNAMICS ════════════════════════════════════════════════════ */
+body::before, body::after { content: ""; position: fixed; z-index: 0; pointer-events: none; border-radius: 50%; filter: blur(90px); }
+body::before { left: -15%; top: 8%; width: 55vw; height: 55vw; background: radial-gradient(circle, rgba(120,100,220,0.13), transparent 65%); animation: amb-drift1 26s ease-in-out infinite alternate; }
+body::after { right: -18%; top: 45%; width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(80,60,180,0.11), transparent 65%); animation: amb-drift2 32s ease-in-out infinite alternate; }
+@keyframes amb-drift1 { from { transform: translate(0,0) scale(1); } to { transform: translate(6vw,10vh) scale(1.12); } }
+@keyframes amb-drift2 { from { transform: translate(0,0) scale(1.05); } to { transform: translate(-5vw,-8vh) scale(0.95); } }
+main, .hud { position: relative; z-index: 1; }
+/* section veils: every section melts into neighbours */
+.value, .compare, .services, .facts, .corporate, .club, .community { position: relative; }
+.value::before, .compare::before, .services::before, .facts::before, .corporate::before, .club::before, .community::before {
+  content: ""; position: absolute; left: 0; right: 0; top: -70px; height: 140px; z-index: 5; pointer-events: none;
+  background: linear-gradient(180deg, transparent, rgba(2,2,8,0.5) 50%, transparent);
+}
+/* section titles: blur-in reveal */
+.gfx .value h2, .gfx .compare h2, .gfx .services__title, .gfx .club h2, .gfx .community h2 {
+  opacity: 0; transform: translateY(26px); filter: blur(8px);
+  transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1), filter 0.9s ease;
+}
+.gfx.gx-in .value h2, .gfx.gx-in .compare h2, .gfx.gx-in .services__title, .gfx.gx-in .club h2, .gfx.gx-in .community h2 { opacity: 1; transform: none; filter: none; }
+/* facts count-up pulse */
+.gfx .fact__n { transition: text-shadow 0.5s ease; }
+.gfx .fact.lit .fact__n { text-shadow: 0 0 34px rgba(150,133,255,0.8); }
+/* carlears bg drift */
+.cfx.cx-in .carlears__grid { animation: grid-settle 1.2s cubic-bezier(0.22,1,0.36,1) 0.5s backwards; }
+@keyframes grid-settle { from { transform: translateY(24px); } to { transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  body::before, body::after { display: none; }
+  .gfx .value h2, .gfx .compare h2, .gfx .services__title, .gfx .club h2, .gfx .community h2 { opacity: 1; transform: none; filter: none; transition: none; }
 }
 
 /* ══ PREMIUM CARLEARS ═══════════════════════════════════════════════════ */

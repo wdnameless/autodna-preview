@@ -192,6 +192,51 @@
     }
   }
 
+  // global dynamics: section title reveals + fact glow + carlears bg drift
+  function initGlobalFx() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!('IntersectionObserver' in window)) { document.body.classList.add('gfx', 'gx-in'); return; }
+    document.body.classList.add('gfx');
+    var seen = 0;
+    var gio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          seen++;
+          if (seen >= 2) { document.body.classList.add('gx-in'); gio.disconnect(); }
+          else gio.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    var secs = document.querySelectorAll('.value, .compare, .services, .club');
+    for (var i = 0; i < secs.length; i++) gio.observe(secs[i]);
+    // facts light up one by one
+    var facts = document.querySelectorAll('.fact');
+    var fio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          var idx = Array.prototype.indexOf.call(facts, en.target);
+          setTimeout(function () { en.target.classList.add('lit'); }, idx * 220);
+          fio.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    for (var j = 0; j < facts.length; j++) fio.observe(facts[j]);
+    // carlears letter drifts on scroll
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var y = window.scrollY;
+        if (y > 500 && y < 2600) {
+          var car = document.querySelector('.carlears');
+          if (car) car.style.backgroundPosition = 'center ' + ((y - 900) * 0.08) + 'px';
+        }
+        ticking = false;
+      });
+    }, { passive: true });
+  }
+
   function boot() {
     initPreloader();
     initMenu();
@@ -199,6 +244,7 @@
     initServices();
     initReveal();
     initHeroFx();
+    initGlobalFx();
   }
 
   if (document.readyState === 'loading') {
