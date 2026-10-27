@@ -8,7 +8,7 @@
     var el = document.getElementById('preloader');
     if (!el) return;
     var repeat = false;
-    try { repeat = sessionStorage.getItem('dna-pre') === '1'; } catch (_) {}
+    try { repeat = sessionStorage.getItem('dna-pre') === '1'; } catch (e) { void e; }
     var bar = el.querySelector('.preloader__bar span');
     var pct = el.querySelector('.preloader__pct');
     var t0 = Date.now();
@@ -34,7 +34,8 @@
       setTimeout(function () {
         el.classList.add('is-done');
         document.body.style.overflow = '';
-        try { sessionStorage.setItem('dna-pre', '1'); } catch (_) {}
+        document.body.classList.add('hero-in');
+        try { sessionStorage.setItem('dna-pre', '1'); } catch (e) { void e; }
       }, 350);
     }
     var hold = repeat ? 500 : 1400;
@@ -119,12 +120,73 @@
     els.forEach(function (el) { io.observe(el); });
   }
 
+  // premium hero: staged intro + parallax + breathing glow (geometry untouched)
+  function initHeroFx() {
+    var hero = document.querySelector('.hero');
+    if (!hero) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      hero.classList.add('hero--static');
+      return;
+    }
+    var frame = hero.querySelector('.hero__frame');
+    var trip = hero.querySelector('.hero__triptych img');
+    var word = hero.querySelector('.hero__word');
+    var subs = hero.querySelectorAll('.hero__sub');
+    var rails = hero.querySelectorAll('.rail a');
+    var quote = hero.querySelector('.hero__quote');
+    var bg = hero.querySelector('.hero__bg');
+    hero.classList.add('hero--fx');
+    var mo = null;
+    function play() {
+      hero.classList.add('hero--in');
+      var steps = [trip && trip.parentNode, word, subs[0], subs[1], quote];
+      for (var i = 0; i < steps.length; i++) {
+        var el = steps[i];
+        if (!el) continue;
+        el.style.transitionDelay = (0.15 + i * 0.14) + 's';
+        el.classList.add('hx-in');
+      }
+      for (var j = 0; j < rails.length; j++) {
+        rails[j].style.transitionDelay = (0.9 + j * 0.12) + 's';
+        rails[j].classList.add('hx-in');
+      }
+    }
+    if (document.body.classList.contains('hero-in')) play();
+    else {
+      mo = new MutationObserver(function () {
+        if (document.body.classList.contains('hero-in')) { mo.disconnect(); play(); }
+      });
+      mo.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+      setTimeout(play, 4000);
+    }
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var y = Math.min(window.scrollY, 900);
+        if (bg) bg.style.transform = 'translate3d(0,' + (y * 0.18) + 'px,0) scale(1.02)';
+        if (frame) frame.style.transform = 'translate3d(0,' + (y * -0.06) + 'px,0)';
+        if (quote) quote.style.transform = 'translate3d(0,' + (y * -0.12) + 'px,0)';
+        ticking = false;
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    for (var k = 0; k < rails.length; k++) {
+      (function (a) {
+        a.addEventListener('mouseenter', function () { a.classList.add('rail--hot'); });
+        a.addEventListener('mouseleave', function () { a.classList.remove('rail--hot'); });
+      })(rails[k]);
+    }
+  }
+
   function boot() {
     initPreloader();
     initMenu();
     initCompare();
     initServices();
     initReveal();
+    initHeroFx();
   }
 
   if (document.readyState === 'loading') {

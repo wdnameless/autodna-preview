@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'AUTODNA_THEME_VERSION', '1.0.0' );
+define( 'AUTODNA_THEME_VERSION', '1.1.0' );
 
 function autodna_theme_setup() {
     add_theme_support( 'title-tag' );

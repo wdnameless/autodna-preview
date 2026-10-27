@@ -9,14 +9,13 @@ get_header(); ?>
 
 <!-- ══ 1. HERO ═════════════════════════════════════════════════════════════ -->
 <section class="hero" aria-label="Intro">
-  <img class="hero__bg" src="assets/img/site1/hero-ground.svg" alt="" aria-hidden="true">
+  <img class="hero__bg" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/hero-ground.jpg" alt="" aria-hidden="true" fetchpriority="high">
   <div class="hero__shade hero__shade--top" aria-hidden="true"></div>
   <div class="hero__shade hero__shade--bottom" aria-hidden="true"></div>
   <div class="hero__frame">
-    <div class="hero__triptych ticks">
-      <span class="tick tl"></span><span class="tick tr"></span>
-      <span class="tick bl"></span><span class="tick br"></span>
-      <img src="assets/img/site1/hero-trio.jpg" alt="Pickup, Honda crossover and Tesla side by side" fetchpriority="high">
+    <div class="hero__triptych">
+      <svg class="hero__ticks" viewBox="330 167 776 416" preserveAspectRatio="none" aria-hidden="true"><path d="M340.219 190.684V177.352H353.551M1096.19 190.684V177.351H1082.86M353.551 572.609H340.219V559.277M1082.86 572.609H1096.19V559.277"/></svg>
+      <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/hero-trio.jpg" alt="Pickup, Honda crossover and Tesla side by side" fetchpriority="high">
     </div>
     <h1 class="hero__word">the genetic code</h1>
     <p class="hero__sub hero__sub--l">to&nbsp;&nbsp;your<br>car</p>
@@ -26,9 +25,9 @@ get_header(); ?>
     </svg>
     <a class="hero__cta" href="#services">Explore our services ↘</a>
     <nav class="rail" aria-label="Explore">
-      <a href="#services" style="top:194px;left:0"><span>Explore SkipTheDealer</span><svg viewBox="1147 195 266 50" preserveAspectRatio="none" aria-hidden="true"><path d="M1147.19 244.815H1297.9L1338.31 195.352H1412.24"/></svg><i style="left:257px;top:0"><svg class="rail__arrow" viewBox="0 0 8 8" aria-hidden="true"><path d="M0 8L8 0M0 0H8V8"/></svg></i></a>
-      <a href="#services" style="top:283px;left:0"><span>AutoDNA<br>Flip</span><svg viewBox="1147 270 266 50" preserveAspectRatio="none" aria-hidden="true"><path d="M1147.19 270.186H1297.89L1338.31 319.649H1412.24"/></svg><i style="left:257px;top:40px"><svg class="rail__arrow rail__arrow--down" viewBox="0 0 8 8" aria-hidden="true"><path d="M0 0L8 8M0 8H8V0"/></svg></i></a>
-      <a href="#services" style="top:373px;left:0"><span>AutoDNA Service</span><svg viewBox="1147 356 266 50" preserveAspectRatio="none" aria-hidden="true"><path d="M1147.19 405.376H1297.89L1338.31 355.912H1412.24"/></svg><i style="left:257px;top:0"><svg class="rail__arrow" viewBox="0 0 8 8" aria-hidden="true"><path d="M0 8L8 0M0 0H8V8"/></svg></i></a>
+      <a href="#services" style="top:194px;left:0"><span>Explore<br>SkipTheDealer</span><svg viewBox="1147 195 266 50" preserveAspectRatio="none" aria-hidden="true"><path d="M1147.19 244.815H1297.9L1338.31 195.352H1412.24"/></svg><i style="left:257px;top:-17px"><svg class="rail__arrow" viewBox="0 0 8 8" aria-hidden="true"><path d="M0 8L8 0M0 0H8V8"/></svg></i></a>
+      <a href="#services" style="top:283px;left:0"><span>AutoDNA<br>Flip</span><svg viewBox="1147 270 266 50" preserveAspectRatio="none" aria-hidden="true"><path d="M1147.19 270.186H1297.89L1338.31 319.649H1412.24"/></svg><i style="left:257px;top:19px"><svg class="rail__arrow rail__arrow--down" viewBox="0 0 8 8" aria-hidden="true"><path d="M0 0L8 8M0 8H8V0"/></svg></i></a>
+      <a href="#services" style="top:373px;left:0"><span>AutoDNA Service</span><svg viewBox="1147 356 266 50" preserveAspectRatio="none" aria-hidden="true"><path d="M1147.19 405.376H1297.89L1338.31 355.912H1412.24"/></svg><i style="left:257px;top:-35px"><svg class="rail__arrow" viewBox="0 0 8 8" aria-hidden="true"><path d="M0 8L8 0M0 0H8V8"/></svg></i></a>
     </nav>
   </div>
   <figure class="hero__quote">
