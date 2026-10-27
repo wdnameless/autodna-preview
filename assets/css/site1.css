@@ -176,7 +176,7 @@ a { color: inherit; }
 .hero__elbow { position: absolute; left: 480px; top: 615px; width: 265px; height: 50px; overflow: visible; }
 .hero__elbow path { fill: none; stroke: #c2b9ff; stroke-width: 1; }
 .hero__cta { display: none; }
-.rail { position: absolute; right: 28px; top: 0; width: 265px; height: 810px; }
+.rail { position: absolute; right: 28px; top: 0; width: 265px; height: 810px; z-index: 4; }
 .rail a {
   position: absolute; left: 0; width: 190px;
   font-size: 20px; font-weight: 300; line-height: 0.96; letter-spacing: -0.4px; text-align: justify; text-decoration: none;
@@ -192,7 +192,7 @@ a { color: inherit; }
 .rail a i { position: absolute; left: 257px; top: 1px; font-style: normal; line-height: 0; }
 .rail__arrow { width: 8px; height: 8px; overflow: visible; display: block; }
 .rail__arrow path { fill: none; stroke: #c2b9ff; stroke-width: 1; }
-.rail a span { display: block; font-weight: 200; background: linear-gradient(100deg, #ffffff 0%, #6a6599 55%, #17154f 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.rail a span { display: block; font-weight: 300; background: linear-gradient(100deg, #ffffff 0%, #ffffff 30%, #8f8ab8 60%, #17154f 140%); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .rail a:hover span { background: linear-gradient(105deg, #ffffff 0%, #c2b9ff 60%, #8f8ab8 100%); -webkit-background-clip: text; background-clip: text; }
 
 /* ══ 2. CARLEARS ═════════════════════════════════════════════════════════ */
@@ -544,6 +544,25 @@ body::after {
   .svc__name { font-size: 32px; }
 }
 
+
+
+/* ══ HERO DENSITY (match source richness) ═════════════════════════════════ */
+.hero::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.4 0 0 0 0 1 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: screen;
+}
+.hero__triptych { box-shadow: 0 40px 120px rgba(10, 6, 30, 0.65), 0 0 90px rgba(150, 133, 255, 0.18); }
+.hero__triptych::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(120% 90% at 50% 40%, transparent 55%, rgba(8, 6, 25, 0.42) 100%);
+}
+.hero__word {
+  filter: drop-shadow(0 2px 18px rgba(150, 133, 255, 0.35)) drop-shadow(0 0 60px rgba(150, 133, 255, 0.2));
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero::after { display: none; }
+}
 
 /* ══ GLOBAL DYNAMICS ════════════════════════════════════════════════════ */
 body::before, body::after { content: ""; position: fixed; z-index: 0; pointer-events: none; border-radius: 50%; filter: blur(90px); }
