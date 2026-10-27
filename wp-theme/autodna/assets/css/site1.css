@@ -192,8 +192,8 @@ a { color: inherit; }
 .rail a i { position: absolute; left: 257px; top: 1px; font-style: normal; line-height: 0; }
 .rail__arrow { width: 8px; height: 8px; overflow: visible; display: block; }
 .rail__arrow path { fill: none; stroke: #c2b9ff; stroke-width: 1; }
-.rail a span { display: block; }
-.rail a:hover span { color: var(--violet-pale); }
+.rail a span { display: block; background: linear-gradient(105deg, #ffffff 0%, #8f8ab8 45%, #17154f 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.rail a:hover span { background: linear-gradient(105deg, #ffffff 0%, #c2b9ff 60%, #8f8ab8 100%); -webkit-background-clip: text; background-clip: text; }
 
 /* ══ 2. CARLEARS ═════════════════════════════════════════════════════════ */
 .hero__quote { position: relative; z-index: 2; width: 260px; margin: 60px auto 0; text-align: center; padding: 0 0 18px; }
@@ -556,6 +556,24 @@ body::after {
   .clr-card h3 { font-size: 32px; }
   .svc__name { font-size: 32px; }
 }
+
+/* ══ PREMIUM CARLEARS ═══════════════════════════════════════════════════ */
+.cfx .carlears__lede, .cfx .carlears__word { opacity: 0; transform: translateY(30px); transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1); }
+.cfx .clr-card { opacity: 0; transform: translateY(40px) scale(0.97); transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s ease, background 0.4s ease; }
+.cfx.cx-in .carlears__lede { opacity: 1; transform: none; }
+.cfx.cx-in .carlears__word { opacity: 1; transform: none; transition-delay: 0.12s; }
+.cfx.cx-in .clr-card { opacity: 1; transform: none; }
+.cfx.cx-in .clr-card:nth-child(1) { transition-delay: 0.25s; }
+.cfx.cx-in .clr-card:nth-child(2) { transition-delay: 0.37s; }
+.cfx.cx-in .clr-card:nth-child(3) { transition-delay: 0.49s; }
+.cfx.cx-in .clr-card:nth-child(4) { transition-delay: 0.61s; }
+.cfx .clr-card:hover { background: rgba(52, 50, 100, 0.55); box-shadow: 0 20px 70px rgba(150, 133, 255, 0.25), inset 0 1px 0 rgba(255,255,255,0.2); transform: translateY(-4px) !important; }
+.cfx .clr-card:hover h3 { color: #fff; text-shadow: 0 0 24px rgba(150, 133, 255, 0.7); }
+.cfx .clr-card h3 { transition: color 0.35s ease, text-shadow 0.35s ease; }
+@media (prefers-reduced-motion: reduce) {
+  .cfx .carlears__lede, .cfx .carlears__word, .cfx .clr-card { opacity: 1; transform: none; transition: none; }
+}
+
 /* ══ PREMIUM HERO (geometry untouched) ═══════════════════════════════ */
 .hero--fx .hero__triptych, .hero--fx .hero__word, .hero--fx .hero__sub,
 .hero--fx .hero__quote, .hero--fx .rail a {

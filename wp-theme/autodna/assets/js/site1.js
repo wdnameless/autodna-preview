@@ -103,7 +103,7 @@
 
   // scroll reveal
   function initReveal() {
-    var els = document.querySelectorAll('.clr-card, .club-card, .fact, .value__grid > div, .corporate__photo, .community__photo');
+    var els = document.querySelectorAll('.club-card, .fact, .value__grid > div, .corporate__photo, .community__photo');
     els.forEach(function (el) { el.classList.add('rv'); });
     if (!('IntersectionObserver' in window)) {
       els.forEach(function (el) { el.classList.add('is-in'); });
@@ -118,6 +118,18 @@
       });
     }, { threshold: 0.12 });
     els.forEach(function (el) { io.observe(el); });
+    // carlears: section-level cascade trigger
+    var car = document.querySelector('.carlears');
+    if (car) {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      car.classList.add('cfx');
+      var cio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { car.classList.add('cx-in'); cio.disconnect(); }
+        });
+      }, { threshold: 0.18 });
+      cio.observe(car);
+    }
   }
 
   // premium hero: staged intro + parallax + breathing glow (geometry untouched)
