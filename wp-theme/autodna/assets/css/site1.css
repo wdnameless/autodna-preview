@@ -96,15 +96,14 @@ a { color: inherit; }
 /* ══ HEADER ══════════════════════════════════════════════════════════════ */
 .hud {
   position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 18px 28px;
+  display: flex; align-items: flex-start; justify-content: space-between;
+  padding: 36px 27px 0 23px;
   background: linear-gradient(180deg, rgba(2,2,8,0.7), transparent);
 }
 .hud__logo { display: block; line-height: 0; }
 .hud__burger {
   display: flex; flex-direction: column; gap: 6px;
-  margin-right: 10px;
-  background: none; border: 0; cursor: pointer; padding: 6px;
+  background: none; border: 0; cursor: pointer; padding: 0;
 }
 .hud__burger span { display: block; width: 37px; height: 3px; background: #c2b9ff; transition: 0.3s; }
 /* board: burger stays a burger when the menu is open */
@@ -197,8 +196,8 @@ a { color: inherit; }
 .rail a:hover span { color: var(--violet-pale); }
 
 /* ══ 2. CARLEARS ═════════════════════════════════════════════════════════ */
-.hero__quote { position: relative; z-index: 2; max-width: 760px; margin: 60px auto 0; text-align: center; padding: 0 40px 18px; }
-.hero__quote blockquote { font-size: 20px; line-height: 1.0; background: linear-gradient(180deg, #ffffff, #494775); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero__quote { position: relative; z-index: 2; width: 260px; margin: 60px auto 0; text-align: center; padding: 0 0 18px; }
+.hero__quote blockquote { font-size: 20px; line-height: 0.96; letter-spacing: -0.4px; background: linear-gradient(180deg, #ffffff, #494775); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .hero__quote-ticks { position: absolute; left: 0; top: -60px; width: 100%; height: 200px; overflow: visible; pointer-events: none; }
 .hero__quote-ticks path { fill: none; stroke: #c2b9ff; stroke-width: 1; }
 .hero__quote-line { position: absolute; left: 50%; bottom: 0; width: 1px; height: 30px; background: var(--line); }
