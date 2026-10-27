@@ -138,7 +138,7 @@ a { color: inherit; }
 .menu ul a svg path { fill: none; stroke: #c2b9ff; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; }
 
 /* ══ 1. HERO  ═════════════════════════════════════════════════════════════ */
-.hero { position: relative; overflow: hidden; background: #050428; padding-bottom: 40px; }
+.hero { position: relative; overflow: hidden; background: #050428; padding-bottom: 40px; margin-bottom: -98px; }
 .hero__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 /* fig Ellipse 2/3: black shapes, bg-blur 4, fg-blur 200 — carve top/bottom glow */
 .hero__shade { position: absolute; left: 0; right: 0; z-index: 1; pointer-events: none; }
@@ -230,14 +230,14 @@ a { color: inherit; }
 }
 
 /* ══ 3. VALUE ════════════════════════════════════════════════════════════ */
-.value { padding: 120px 0 150px; text-align: center; }
+.value { padding: 60px 0 122px; text-align: center; }
 .value > * { max-width: 1440px; margin-left: auto; margin-right: auto; padding-left: 40px; padding-right: 40px; }
 .value__title { font-size: 40px; font-weight: 300; letter-spacing: -0.8px; text-transform: uppercase; line-height: 0.93; color: #e1d9ff; text-align: center; max-width: 559px; margin: 0 auto; }
 .value__title em { font-style: normal; color: var(--violet); }
 .value__fan { width: 100%; height: 283px; margin: 20px 0 0; }
 .value__fan path { stroke: url(#fanStroke); stroke-width: 1; fill: none; }
 .value__grid { display: grid; grid-template-columns: 224px 209px 219px 219px 223px; gap: 40px; text-align: center; justify-content: center; }
-.value__grid h3 { font-size: 24px; font-weight: 300; letter-spacing: -0.48px; text-transform: uppercase; color: var(--violet-soft); margin-bottom: 10px; line-height: 1.0; }
+.value__grid h3 { font-size: 24px; font-weight: 300; letter-spacing: -0.48px; text-transform: uppercase; color: var(--violet-soft); margin: 0 0 10px; line-height: 0.93; min-height: 44px; }
 .value__grid p { font-size: 20px; font-weight: 300; letter-spacing: -0.4px; line-height: 1.0; }
 
 /* ══ 4. COMPARE ══════════════════════════════════════════════════════════ */
@@ -266,7 +266,9 @@ a { color: inherit; }
 .compare__tabs button[aria-selected="true"] { background: var(--violet-deep); color: #fff; }
 .compare__wrap { overflow-x: auto; }
 .compare__table { width: 100%; border-collapse: collapse; text-align: left; margin-top: -40px; }
-.compare__table th, .compare__table td { padding: 22px 24px; border: 1px solid var(--line-dim); vertical-align: top; background: rgba(38, 37, 72, 0.44); }
+.compare__table th, .compare__table td { padding: 22px 24px; border: 1px solid var(--line-dim); vertical-align: middle; background: rgba(38, 37, 72, 0.44); }
+.compare__table tbody tr { height: 131px; }
+.compare__table tbody tr.is-lit { height: 187px; }
 .compare__table thead th { font-weight: 300; color: var(--violet-soft); font-size: 24px; background: rgba(38, 37, 72, 0.44); }
 .compare__table tbody th { font-weight: 300; font-size: 30px; }
 .compare__table tbody td { font-size: 28px; }
@@ -301,7 +303,7 @@ a { color: inherit; }
 .facts {
   position: relative;
   padding: 60px 0;
-  min-height: 640px;
+  min-height: 560px;
   background:
     radial-gradient(480px 380px at 80% 36%, rgba(194,185,255,.5), rgba(89,74,197,.22) 45%, transparent 70%),
     linear-gradient(90deg, #0b0a16 0%, #121026 35%, #1e1a45 62%, #0e0d1e 85%, #06060b 100%),
@@ -336,11 +338,11 @@ a { color: inherit; }
 /* ══ 8. CLUB ═════════════════════════════════════════════════════════════ */
 .club { padding: 30px 0 90px; }
 .club > * { max-width: 1440px; margin-left: auto; margin-right: auto; padding-left: 40px; padding-right: 40px; }
-.club__lede { font-size: 40px; font-weight: 300; letter-spacing: -0.8px; text-transform: uppercase; text-align: justify; color: #c2b9ff; max-width: 335px; margin: 0; }
+.club__lede { font-size: 40px; font-weight: 300; letter-spacing: -0.8px; line-height: 0.93; text-transform: uppercase; text-align: justify; color: #c2b9ff; max-width: 335px; margin: 0; }
 .club__title {
   font-family: var(--display); font-weight: 500;
   font-size: 124px; letter-spacing: -6.2px; line-height: 0.88;
-  text-transform: uppercase; text-align: center; color: #f7f7f7; margin: 10px auto 50px; max-width: 794px;
+  text-transform: uppercase; text-align: center; white-space: nowrap; color: #f7f7f7; margin: 10px auto 50px;
   text-shadow: 0 0 90px rgba(150, 133, 255, 0.6);
 }
 .club__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
@@ -356,7 +358,7 @@ a { color: inherit; }
 .club-card__mid { font-family: var(--display); font-weight: 500; font-size: 32px; letter-spacing: -0.05em; text-transform: uppercase; color: var(--violet-soft); margin: 4px 0 12px; }
 
 .club-card p:last-child { font-size: 18px; line-height: 1.45; }
-.club__out { text-align: justify; margin: 36px 0 0 auto; font-size: 40px; font-weight: 300; letter-spacing: -0.8px; text-transform: uppercase; color: #c2b9ff; max-width: 677px; }
+.club__out { text-align: justify; margin: 36px 0 0 auto; font-size: 40px; font-weight: 300; letter-spacing: -0.8px; line-height: 0.93; text-transform: uppercase; color: #c2b9ff; max-width: 677px; }
 
 /* ══ 9. COMMUNITY ═════════════════════════════════════════════════════════ */
 .community {
@@ -372,7 +374,7 @@ a { color: inherit; }
 .community__title em { font-style: normal; color: var(--violet); }
 .community__photo { max-width: 776px; grid-column: 3; grid-row: 1; }
 .community__photo img { width: 100%; aspect-ratio: 776 / 406; object-fit: cover; }
-.community__sub { position: relative; grid-column: 3; grid-row: 2; font-size: 40px; font-weight: 300; letter-spacing: -0.8px; line-height: 0.93; text-transform: uppercase; text-align: justify; margin: 28px 0 0 114px; max-width: 663px; color: #c2b9ff; }
+.community__sub { position: relative; grid-column: 3; grid-row: 1; margin-top: 434px !important; font-size: 40px; font-weight: 300; letter-spacing: -0.8px; line-height: 0.93; text-transform: uppercase; text-align: justify; margin: 0 0 0 114px; max-width: 663px; color: #c2b9ff; }
 .community__sub span { color: var(--violet-soft); }
 .community__wire { position: absolute; left: -299px; top: 31px; width: 265px; height: 49px; overflow: visible; }
 .community__wire path { fill: none; stroke: var(--line); stroke-width: 1; }
