@@ -26,6 +26,7 @@ dist/
 *.zip
 
 # Reference material — never ship
+assets/fig-imgs/*.png
 figma/
 AUTODNA/
 openspec/
