@@ -190,27 +190,55 @@ get_header(); ?>
   </div>
 </section>
 
-<!-- ══ 5. SERVICES 3820–4790 ═════════════════════════════════════════════ -->
+<!-- ══ 5. SERVICES (Full-screen interactive panorama) ═══════════════════ -->
 <section class="services" id="services" aria-label="Services">
-  <h2 class="services__title">Services</h2>
-  <figure class="services__pano ticks">
-    <span class="tick tl"></span><span class="tick tr"></span>
-    <span class="tick bl"></span><span class="tick br"></span>
-    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/site1/services-hall.jpg' ); ?>" alt="AutoDNA team with three cars in the violet hall">
-  </figure>
-  <div class="services__grid">
-    <button class="svc is-active" data-svc="dealer">
-      <span class="svc__name">SkipTheDealers</span>
-      <span class="svc__more">Find, bid, and buy the best vehicles directly from trusted car auctions. Smart, transparent, and hassle-free — we handle the process from search to delivery. →</span>
-    </button>
-    <button class="svc" data-svc="flip">
-      <span class="svc__name">AutoDNA Flip</span>
-      <span class="svc__more">Turn vehicles into valuable assets. We help you invest wisely in high-demand cars and maximize your returns through strategic resale. →</span>
-    </button>
-    <button class="svc" data-svc="service">
-      <span class="svc__name">AutoDNA Service</span>
-      <span class="svc__more">AutoDNA Service is a next-generation automotive center, equipped with innovative technology, a modern minimalist and spotless interior. →</span>
-    </button>
+  <!-- 3 Full-bleed background layers with crossfade on hover -->
+  <div class="services__bg-layer services__bg-layer--1 is-active" aria-hidden="true" style="background-image: url('<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/service-dealer-bg.jpg');"></div>
+  <div class="services__bg-layer services__bg-layer--2" aria-hidden="true" style="background-image: url('<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/service-flip-bg.jpg');"></div>
+  <div class="services__bg-layer services__bg-layer--3" aria-hidden="true" style="background-image: url('<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/service-service-bg.jpg');"></div>
+
+  <!-- Ambient dark gradient vignettes -->
+  <div class="services__shade services__shade--top" aria-hidden="true"></div>
+  <div class="services__shade services__shade--bottom" aria-hidden="true"></div>
+
+  <div class="services__content">
+    <h2 class="services__title">SERVICES</h2>
+
+    <!-- 3 Interactive service columns at the bottom -->
+    <div class="services__interactive-grid">
+      <!-- Col 1: SkipTheDealers -->
+      <div class="svc-col is-active" data-svc="1" tabindex="0" role="button" aria-expanded="true">
+        <div class="svc-card">
+          <svg class="svc-card__ticks" viewBox="0 0 454 291" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 18.8V0H18.8 M454 18.8V0H435.2 M0 272.2V291H18.8 M454 272.2V291H435.2" stroke="#C2B9FF" fill="none" stroke-width="1"/>
+          </svg>
+          <h3 class="svc-col__name">SkipTheDealers</h3>
+          <p class="svc-col__desc">Find, bid, and buy the best vehicles directly from trusted car auctions. Smart, transparent, and hassle-free — we handle the process from search to delivery.</p>
+        </div>
+      </div>
+
+      <!-- Col 2: AutoDNA Flip -->
+      <div class="svc-col" data-svc="2" tabindex="0" role="button" aria-expanded="false">
+        <div class="svc-card">
+          <svg class="svc-card__ticks" viewBox="0 0 454 291" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 18.8V0H18.8 M454 18.8V0H435.2 M0 272.2V291H18.8 M454 272.2V291H435.2" stroke="#C2B9FF" fill="none" stroke-width="1"/>
+          </svg>
+          <h3 class="svc-col__name">AutoDNA Flip</h3>
+          <p class="svc-col__desc">Turn vehicles into valuable assets. We help you invest wisely in high-demand cars and maximize your returns through strategic resale.</p>
+        </div>
+      </div>
+
+      <!-- Col 3: AutoDNA Service -->
+      <div class="svc-col" data-svc="3" tabindex="0" role="button" aria-expanded="false">
+        <div class="svc-card">
+          <svg class="svc-card__ticks" viewBox="0 0 454 291" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 18.8V0H18.8 M454 18.8V0H435.2 M0 272.2V291H18.8 M454 272.2V291H435.2" stroke="#C2B9FF" fill="none" stroke-width="1"/>
+          </svg>
+          <h3 class="svc-col__name">AutoDNA Service</h3>
+          <p class="svc-col__desc">AutoDNA Service is a next-generation automotive center, equipped with innovative technology, a modern minimalist and spotless interior.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 

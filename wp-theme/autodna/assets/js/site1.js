@@ -90,15 +90,39 @@
     });
   }
 
-  // service cards: click toggles the active panel
+  // fullscreen interactive services: hover + click crossfades background layer & toggles card
   function initServices() {
-    var cards = document.querySelectorAll('.svc');
-    cards.forEach(function (card) {
-      card.addEventListener('click', function () {
-        cards.forEach(function (c) { c.classList.remove('is-active'); });
-        card.classList.add('is-active');
-      });
-    });
+    var cols = document.querySelectorAll('.svc-col');
+    var layers = document.querySelectorAll('.services__bg-layer');
+    if (!cols.length || !layers.length) return;
+
+    function activate(target) {
+      var id = target.getAttribute('data-svc');
+      for (var i = 0; i < cols.length; i++) {
+        var c = cols[i];
+        var isActive = (c === target);
+        c.classList.toggle('is-active', isActive);
+        c.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+      }
+      for (var j = 0; j < layers.length; j++) {
+        var l = layers[j];
+        l.classList.toggle('is-active', l.classList.contains('services__bg-layer--' + id));
+      }
+    }
+
+    for (var k = 0; k < cols.length; k++) {
+      (function (col) {
+        col.addEventListener('mouseenter', function () {
+          activate(col);
+        });
+        col.addEventListener('click', function () {
+          activate(col);
+        });
+        col.addEventListener('focus', function () {
+          activate(col);
+        });
+      })(cols[k]);
+    }
   }
 
   // scroll reveal
@@ -197,18 +221,13 @@
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (!('IntersectionObserver' in window)) { document.body.classList.add('gfx', 'gx-in'); return; }
     document.body.classList.add('gfx');
-    var seen = 0;
-    var gio = new IntersectionObserver(function (entries) {
+    var titles = document.querySelectorAll('.value h2, .compare h2, .services__title, .club h2, .community h2');
+    var tio = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (en.isIntersecting) {
-          seen++;
-          if (seen >= 2) { document.body.classList.add('gx-in'); gio.disconnect(); }
-          else gio.unobserve(en.target);
-        }
+        if (en.isIntersecting) { en.target.classList.add('tx-in'); tio.unobserve(en.target); }
       });
-    }, { threshold: 0.1 });
-    var secs = document.querySelectorAll('.value, .compare, .services, .club');
-    for (var i = 0; i < secs.length; i++) gio.observe(secs[i]);
+    }, { threshold: 0.2 });
+    for (var i = 0; i < titles.length; i++) tio.observe(titles[i]);
     // facts light up one by one
     var facts = document.querySelectorAll('.fact');
     var fio = new IntersectionObserver(function (entries) {

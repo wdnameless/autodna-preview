@@ -591,26 +591,174 @@ a { color: inherit; }
 }
 
 /* ══ 5. SERVICES ═════════════════════════════════════════════════════════ */
-.services { position: relative; padding: 30px 0 90px; }
-.services > * { max-width: 1440px; margin-left: auto; margin-right: auto; }
-.services__pano { position: relative; max-width: 1389px; margin: -140px auto 0; padding: 0; }
-.services__pano img { width: 100%; aspect-ratio: 1389 / 791; object-fit: cover; }
+/* ══ 5. SERVICES (Full-screen interactive panorama) ═══════════════════ */
+.services {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  height: 900px;
+  overflow: hidden;
+  background-color: #020202;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* 3 Full-bleed background layers with crossfade */
+.services__bg-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s ease;
+  transform: scale(1.02);
+  z-index: 1;
+}
+.services__bg-layer.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Ambient dark vignettes for smooth blend with top and bottom */
+.services__shade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+.services__shade--top {
+  top: 0;
+  height: 200px;
+  background: linear-gradient(180deg, #020202 0%, rgba(2,2,8,0.7) 40%, transparent 100%);
+}
+.services__shade--bottom {
+  bottom: 0;
+  height: 220px;
+  background: linear-gradient(180deg, transparent 0%, rgba(2,2,8,0.6) 40%, #020202 100%);
+}
+
+.services__content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .services__title {
-  font-family: var(--display); font-weight: 500;
+  font-family: var(--display);
+  font-weight: 500;
   font-size: 124px;
-  text-transform: uppercase; text-align: center; margin-bottom: 0; position: relative; z-index: 3;
+  text-transform: uppercase;
+  text-align: center;
+  color: #f7f7f7;
+  letter-spacing: -6.2px;
+  line-height: 109px;
+  margin: 60px 0 0;
+  text-shadow: 0 0 60px rgba(150, 133, 255, 0.45);
 }
-.services__grid { display: grid; grid-template-columns: 454px 454px 454px; gap: 13px; justify-content: center; margin-top: -291px; position: relative; z-index: 2; }
-.svc {
-  display: block; text-align: left; min-height: 291px;
-  background: transparent; border: 0;
-  color: #fff; font: inherit; cursor: pointer; padding: 129px 22px 20px;
+
+/* 3 Interactive service columns at the bottom */
+.services__interactive-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 25px 25px;
+  gap: 13px;
+  align-items: end;
 }
-.svc[data-svc="dealer"] { background: rgba(38, 37, 72, 0.44); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-.svc__name { display: block; font-size: 40px; font-weight: 300; }
-.svc__more { display: block; font-size: 18px; font-weight: 300; letter-spacing: -0.36px; line-height: 1.0; color: #fff; margin-top: 14px; max-width: 409px; max-height: 0; overflow: hidden; opacity: 0; transition: 0.35s ease; }
-.svc.is-active .svc__more, .svc:hover .svc__more, .svc:focus-visible .svc__more { max-height: 200px; opacity: 1; }
-.svc.is-active { outline: none; }
+
+.svc-col {
+  position: relative;
+  min-height: 291px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  outline: none;
+}
+
+.svc-card {
+  position: relative;
+  width: 100%;
+  min-height: 291px;
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: transparent;
+  border: 0;
+  transition: background 0.35s ease, backdrop-filter 0.35s ease, box-shadow 0.35s ease;
+}
+
+.svc-card__ticks {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.svc-col.is-active .svc-card,
+.svc-col:hover .svc-card,
+.svc-col:focus-visible .svc-card {
+  background: rgba(38, 37, 72, 0.44);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 20px 60px rgba(10, 6, 30, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.svc-col.is-active .svc-card__ticks,
+.svc-col:hover .svc-card__ticks,
+.svc-col:focus-visible .svc-card__ticks {
+  opacity: 1;
+}
+
+.svc-col__name {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  letter-spacing: -0.8px;
+  line-height: 37.2px;
+  color: #ffffff;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.svc-col__desc {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  letter-spacing: -0.36px;
+  line-height: 1.25;
+  color: #ffffff;
+  margin: 16px 0 0;
+  max-width: 410px;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease 0.05s, transform 0.4s ease 0.05s, max-height 0.4s ease;
+}
+
+.svc-col.is-active .svc-col__desc,
+.svc-col:hover .svc-col__desc,
+.svc-col:focus-visible .svc-col__desc {
+  opacity: 1;
+  max-height: 150px;
+  transform: translateY(0);
+}
 
 /* ══ 6. FACTS ════════════════════════════════════════════════════════════ */
 .facts {
@@ -728,7 +876,6 @@ a { color: inherit; }
 /* ══ AMBIENT LIGHT (board-sampled) ═══════════════════════════════════════ */
 .carlears { background-color: #020202; position: relative; }
 .value { background: radial-gradient(700px 420px at 50% 45%, rgba(157,150,207,.16), transparent 70%), #020202; }
-.services { background: linear-gradient(90deg, #110e24, #1c1145 45%, #645497 85%, #2a2450); }
 .facts { background: linear-gradient(90deg, #242048 0%, #4d4688 30%, #6a5fb7 55%, #827ac9 80%, #6a5fb7 100%); }
 .corporate { background: radial-gradient(1100px 700px at 50% 40%, rgba(60,50,130,.35), transparent 70%), #020202; }
 .club { background: radial-gradient(800px 500px at 12% 60%, rgba(90,80,160,.25), transparent 60%), radial-gradient(800px 500px at 88% 60%, rgba(90,80,160,.25), transparent 60%), #020202; }

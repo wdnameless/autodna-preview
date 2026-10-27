@@ -90,15 +90,39 @@
     });
   }
 
-  // service cards: click toggles the active panel
+  // fullscreen interactive services: hover + click crossfades background layer & toggles card
   function initServices() {
-    var cards = document.querySelectorAll('.svc');
-    cards.forEach(function (card) {
-      card.addEventListener('click', function () {
-        cards.forEach(function (c) { c.classList.remove('is-active'); });
-        card.classList.add('is-active');
-      });
-    });
+    var cols = document.querySelectorAll('.svc-col');
+    var layers = document.querySelectorAll('.services__bg-layer');
+    if (!cols.length || !layers.length) return;
+
+    function activate(target) {
+      var id = target.getAttribute('data-svc');
+      for (var i = 0; i < cols.length; i++) {
+        var c = cols[i];
+        var isActive = (c === target);
+        c.classList.toggle('is-active', isActive);
+        c.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+      }
+      for (var j = 0; j < layers.length; j++) {
+        var l = layers[j];
+        l.classList.toggle('is-active', l.classList.contains('services__bg-layer--' + id));
+      }
+    }
+
+    for (var k = 0; k < cols.length; k++) {
+      (function (col) {
+        col.addEventListener('mouseenter', function () {
+          activate(col);
+        });
+        col.addEventListener('click', function () {
+          activate(col);
+        });
+        col.addEventListener('focus', function () {
+          activate(col);
+        });
+      })(cols[k]);
+    }
   }
 
   // scroll reveal
