@@ -302,13 +302,13 @@ a { color: inherit; }
 .svc {
   display: block; text-align: left; min-height: 291px;
   background: transparent; border: 0;
-  color: #fff; font: inherit; cursor: pointer; padding: 128px 22px 20px;
+  color: #fff; font: inherit; cursor: pointer; padding: 129px 22px 20px;
 }
-.svc[data-svc="dealer"] { background: rgba(38, 37, 72, 0.30); }
+.svc[data-svc="dealer"] { background: rgba(38, 37, 72, 0.44); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 .svc__name { display: block; font-size: 40px; font-weight: 300; }
-.svc__more { display: block; font-size: 18px; line-height: 1.5; color: #fff; margin-top: 12px; max-height: 0; overflow: hidden; opacity: 0; transition: 0.35s ease; }
+.svc__more { display: block; font-size: 18px; font-weight: 300; letter-spacing: -0.36px; line-height: 1.0; color: #fff; margin-top: 14px; max-width: 409px; max-height: 0; overflow: hidden; opacity: 0; transition: 0.35s ease; }
 .svc.is-active .svc__more, .svc:hover .svc__more, .svc:focus-visible .svc__more { max-height: 200px; opacity: 1; }
-.svc.is-active { outline: 1px solid var(--violet); }
+.svc.is-active { outline: none; }
 
 /* ══ 6. FACTS ════════════════════════════════════════════════════════════ */
 .facts {
