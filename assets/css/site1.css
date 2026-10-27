@@ -368,13 +368,13 @@ a { color: inherit; }
 
 /* ══ 9. COMMUNITY ═════════════════════════════════════════════════════════ */
 .community {
-  max-width: 1440px; margin: 0 auto; padding: 30px 22px 90px;
+  max-width: 1440px; margin: 0 auto; padding: 20px 22px 40px;
   display: grid; grid-template-columns: 560px 1fr; gap: 60px; align-items: start;
 }
 .community__title {
   font-family: var(--display); font-weight: 500;
   font-size: 124px; letter-spacing: -0.05em;
-  text-transform: uppercase; line-height: 0.92;
+  text-transform: uppercase; line-height: 0.88;
 }
 .community__title em { font-style: normal; color: var(--violet); }
 .community__photo { max-width: 759px; }
