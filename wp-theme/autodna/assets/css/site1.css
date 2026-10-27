@@ -522,6 +522,14 @@ body::after {
   .compare__table tr.is-lit { display: block; }
 }
 @media (max-width: 640px) {
+  .carlears, .value, .compare, .services, .facts, .corporate, .club, .community { padding-top: 34px; padding-bottom: 40px; }
+  .clr-card, .club-card { min-height: 0; padding: 20px 16px 24px; }
+  .clr-card h3 { font-size: 26px; margin-bottom: 8px; }
+  .clr-card p { font-size: 16px; line-height: 1.35; }
+  .club-card h3 { min-height: 0; font-size: 18px; }
+  .club-card p:last-child { font-size: 15px; line-height: 1.35; }
+  .fact { margin-bottom: 18px; }
+  .fact__t { margin-top: 6px; }
   .compare { padding-left: 12px; padding-right: 12px; }
   .compare__table th, .compare__table td { padding: 12px; font-size: 16px; }
   .compare__badge { position: static; display: inline-block; margin-bottom: 12px; }
