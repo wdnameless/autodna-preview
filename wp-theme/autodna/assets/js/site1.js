@@ -2,18 +2,52 @@
 (function () {
   'use strict';
 
-  // preloader: once per session, 2.2s to match the board's timing
+  // preloader: DNA reveal + real load progress, curtain lift — always visible
+  // (short version on repeat visits so the user sees every deploy)
   function initPreloader() {
     var el = document.getElementById('preloader');
     if (!el) return;
-    if (sessionStorage.getItem('dna-pre') === '1') {
-      el.classList.add('is-done');
-      return;
+    var repeat = false;
+    try { repeat = sessionStorage.getItem('dna-pre') === '1'; } catch (_) {}
+    var bar = el.querySelector('.preloader__bar span');
+    var pct = el.querySelector('.preloader__pct');
+    var t0 = Date.now();
+    var pct_ = 0, done = false;
+    document.body.style.overflow = 'hidden';
+    function paint(n) {
+      pct_ = Math.min(100, Math.max(pct_, n));
+      if (bar) bar.style.width = pct_ + '%';
+      if (pct) pct.textContent = Math.round(pct_) + '%';
     }
-    setTimeout(function () {
-      el.classList.add('is-done');
-      sessionStorage.setItem('dna-pre', '1');
-    }, 2200);
+    // tick toward 90% while resources load; window load jumps to 100
+    var tick = setInterval(function () {
+      if (done) return;
+      var dt = (Date.now() - t0) / 1000;
+      paint(Math.min(90, dt * 55 + 8));
+    }, 120);
+    function finish() {
+      if (done) return;
+      done = true;
+      clearInterval(tick);
+      paint(100);
+      // hold the full bar a beat, then lift the curtain
+      setTimeout(function () {
+        el.classList.add('is-done');
+        document.body.style.overflow = '';
+        try { sessionStorage.setItem('dna-pre', '1'); } catch (_) {}
+      }, 350);
+    }
+    var hold = repeat ? 500 : 1400;
+    if (document.readyState === 'complete') {
+      setTimeout(finish, hold);
+    } else {
+      window.addEventListener('load', function () {
+        var wait = Math.max(0, hold - (Date.now() - t0));
+        setTimeout(finish, wait);
+      });
+      // safety: never trap the user behind the curtain
+      setTimeout(finish, 6000);
+    }
   }
 
   // fullscreen menu overlay
@@ -31,7 +65,8 @@
       set(menu.hidden);
     });
     menu.addEventListener('click', function (e) {
-      if (e.target.closest('a')) set(false);
+      // link click OR backdrop click (anything outside the panel) closes
+      if (e.target.closest('a') || !e.target.closest('.menu__panel')) set(false);
     });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && !menu.hidden) set(false);

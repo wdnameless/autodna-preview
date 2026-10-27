@@ -7,27 +7,35 @@ get_header(); ?>
 
 <main id="home">
 
-<!-- ══ 1. HERO 0–810 ═════════════════════════════════════════════════════ -->
+<!-- ══ 1. HERO ═════════════════════════════════════════════════════════════ -->
 <section class="hero" aria-label="Intro">
-  <img class="hero__bg" src=\"<?php echo esc_url( get_template_directory_uri() . '/assets/img/site1/hero-ground.svg' ); ?>\" alt="" aria-hidden="true">
+  <img class="hero__bg" src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/site1/hero-ground.svg' ); ?>" alt="" aria-hidden="true">
+  <div class="hero__shade hero__shade--top" aria-hidden="true"></div>
+  <div class="hero__shade hero__shade--bottom" aria-hidden="true"></div>
   <div class="hero__frame">
     <div class="hero__triptych ticks">
       <span class="tick tl"></span><span class="tick tr"></span>
       <span class="tick bl"></span><span class="tick br"></span>
-      <img src=\"<?php echo esc_url( get_template_directory_uri() . '/assets/img/site1/hero-trio.jpg' ); ?>\" alt="Pickup, Honda crossover and Tesla side by side" fetchpriority="high">
+      <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/site1/hero-trio.jpg' ); ?>" alt="Pickup, Honda crossover and Tesla side by side" fetchpriority="high">
     </div>
     <h1 class="hero__word">the genetic code</h1>
-    <p class="hero__sub hero__sub--l">to <em>your</em><br><span>car</span></p>
-    <p class="hero__sub hero__sub--r">has <em>already</em><br>been found</p>
+    <p class="hero__sub hero__sub--l">to&nbsp;&nbsp;your<br>car</p>
+    <p class="hero__sub hero__sub--r">has&nbsp;&nbsp;&nbsp;&nbsp;<em>already</em><br>been found</p>
     <svg class="hero__elbow" viewBox="0 0 265 50" preserveAspectRatio="none" aria-hidden="true">
       <path d="M0 49.5H150.7L191.12 0H265.24"/>
     </svg>
+    <a class="hero__cta" href="#services">Explore our services ↘</a>
     <nav class="rail" aria-label="Explore">
-      <a href="#services"><span>Explore</span>SkipTheDealer</a>
-      <a href="#services">AutoDNA<br>Flip</a>
-      <a href="#services">AutoDNA<br>Service</a>
+      <a href="#services" style="top:194px"><span>Explore<br>SkipTheDealer</span><svg viewBox="0 0 265 50" preserveAspectRatio="none" aria-hidden="true"><path d="M0 42H150.7L191.1 8H265"/></svg><i><svg class="rail__arrow" viewBox="-1 -1 10 10" aria-hidden="true"><path d="M0 8L8 0M0 0H8V8"/></svg></i></a>
+      <a href="#services" style="top:283px"><span>AutoDNA<br>Flip</span><svg viewBox="0 0 265 50" preserveAspectRatio="none" aria-hidden="true"><path d="M0 8H150.7L191.1 42H265"/></svg><i><svg class="rail__arrow rail__arrow--down" viewBox="-1 -1 10 10" aria-hidden="true"><path d="M0 0L8 8M0 8H8V0"/></svg></i></a>
+      <a href="#services" style="top:373px"><span>AutoDNA Service</span><svg viewBox="0 0 265 50" preserveAspectRatio="none" aria-hidden="true"><path d="M0 42H150.7L191.1 8H265"/></svg><i><svg class="rail__arrow" viewBox="-1 -1 10 10" aria-hidden="true"><path d="M0 8L8 0M0 0H8V8"/></svg></i></a>
     </nav>
   </div>
+  <figure class="hero__quote">
+    <span class="tick tl"></span><span class="tick br"></span>
+    <blockquote>We don’t call ourselves a<br>dealer, we don’t like that word.</blockquote>
+    <span class="hero__quote-line" aria-hidden="true"></span>
+  </figure>
 </section>
 
 <!-- ══ 2. CARLEARS 810–1790 ══════════════════════════════════════════════ -->
@@ -80,12 +88,14 @@ get_header(); ?>
 
 <!-- ══ 4. COMPARE 2830–3820 ══════════════════════════════════════════════ -->
 <section class="compare" id="compare" aria-label="Price comparison">
-  <div class="compare__car">
-    <img src=\"<?php echo esc_url( get_template_directory_uri() . '/assets/img/site1/corolla.jpg' ); ?>\" alt="Toyota Corolla Hatchback 2021">
-    <p class="compare__badge">Toyota Corolla Hatchback 2021</p>
+  <div class="compare__top">
+    <div class="compare__car">
+      <p class="compare__badge">Toyota Corolla<br>Hatchback 2021</p>
+      <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/site1/corolla.jpg' ); ?>" alt="Toyota Corolla Hatchback 2021">
+    </div>
+    <h2 class="compare__title">Price<br>Comparison</h2>
   </div>
-  <h2 class="compare__title">Price Comparison</h2>
-  <p class="compare__mirror" aria-hidden="true">Price Comparison</p>
+  <p class="compare__mirror" aria-hidden="true">Price<br>Comparison</p>
   <div class="compare__tabs" role="tablist" aria-label="Seller">
     <button role="tab" aria-selected="false" data-col="dealer">Dealers</button>
     <button role="tab" aria-selected="false" data-col="market">Marketplace</button>
@@ -106,32 +116,34 @@ get_header(); ?>
 <!-- ══ 5. SERVICES 3820–4790 ═════════════════════════════════════════════ -->
 <section class="services" id="services" aria-label="Services">
   <h2 class="services__title">Services</h2>
+  <figure class="services__pano ticks">
+    <span class="tick tl"></span><span class="tick tr"></span>
+    <span class="tick bl"></span><span class="tick br"></span>
+    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/site1/services-hall.jpg' ); ?>" alt="AutoDNA team with three cars in the violet hall">
+  </figure>
   <div class="services__grid">
     <button class="svc is-active" data-svc="dealer">
-      <img src=\"<?php echo esc_url( get_template_directory_uri() . '/assets/img/site1/service-dealer.jpg' ); ?>\" alt="">
       <span class="svc__name">SkipTheDealers</span>
-      <span class="svc__more">Auction cars without the auction risk →</span>
+      <span class="svc__more">Find, bid, and buy the best vehicles directly from trusted car auctions. Smart, transparent, and hassle-free — we handle the process from search to delivery. →</span>
     </button>
     <button class="svc" data-svc="flip">
-      <img src=\"<?php echo esc_url( get_template_directory_uri() . '/assets/img/site1/service-flip.jpg' ); ?>\" alt="">
       <span class="svc__name">AutoDNA Flip</span>
-      <span class="svc__more">Turn vehicles into valuable assets. We help you invest wisely in high-demand cars →</span>
+      <span class="svc__more">Turn vehicles into valuable assets. We help you invest wisely in high-demand cars and maximize your returns through strategic resale. →</span>
     </button>
     <button class="svc" data-svc="service">
-      <img src=\"<?php echo esc_url( get_template_directory_uri() . '/assets/img/site1/service-service.jpg' ); ?>\" alt="">
       <span class="svc__name">AutoDNA Service</span>
-      <span class="svc__more">A next-generation automotive center, equipped with innovation →</span>
+      <span class="svc__more">AutoDNA Service is a next-generation automotive center, equipped with innovative technology, a modern minimalist and spotless interior. →</span>
     </button>
   </div>
 </section>
 
 <!-- ══ 6. FACTS 4790–5430 ════════════════════════════════════════════════ -->
 <section class="facts" id="facts" aria-label="Facts and figures">
-  <div class="fact"><p class="fact__n">12</p><p class="fact__l">Years of<br>experience</p><p class="fact__t">Auto experts with a decade of auction wins.</p></div>
-  <div class="fact"><p class="fact__n">10+</p><p class="fact__l">Cars in stock</p><p class="fact__t">Fresh auction picks every week.</p></div>
-  <div class="fact"><p class="fact__n">30-50%</p><p class="fact__l">Save 30-50%</p><p class="fact__t">Below dealer sticker, every time.</p></div>
-  <div class="fact"><p class="fact__n">450+</p><p class="fact__l">Happy clients</p><p class="fact__t">Drivers who skipped the dealer.</p></div>
-  <div class="fact"><p class="fact__n">4.9</p><p class="fact__l">Average rating</p><p class="fact__t">From verified buyer reviews.</p></div>
+  <div class="fact fact--a ticks"><span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span><p class="fact__n">12</p><p class="fact__l">Stages of Inspection</p><p class="fact__t">We test, verify, and only then hand over the keys. Real inspection — not intuition.</p></div>
+  <div class="fact fact--b ticks"><span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span><p class="fact__n">10+</p><p class="fact__l">Years in the Industry</p><p class="fact__t">We’ve seen it all — and that’s why we do it right. It’s in our DNA.</p></div>
+  <div class="fact fact--c ticks"><span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span><p class="fact__n">450+</p><p class="fact__l">Clients Said “Wow!”</p><p class="fact__t">And new ones join every week. Every car is a story — and our client is always the main character.</p></div>
+  <div class="fact fact--d ticks"><span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span><p class="fact__n">3-4</p><p class="fact__l">Weeks — Faster Than You Expect</p><p class="fact__t">An optimized process — no delays, no surprises. Search, preparation, and the car is yours.</p></div>
+  <div class="fact fact--e ticks"><span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span><p class="fact__k">Save</p><p class="fact__n">30-50%</p><p class="fact__t">Overpaying isn’t our style — auctions let you save big.</p></div>
 </section>
 
 <!-- ══ 7. CORPORATE 5430–6630 ════════════════════════════════════════════ -->
@@ -148,7 +160,7 @@ get_header(); ?>
   <figure class="corporate__photo ticks">
     <span class="tick tl"></span><span class="tick tr"></span>
     <span class="tick bl"></span><span class="tick br"></span>
-    <img src=\"<?php echo esc_url( get_template_directory_uri() . '/assets/img/site1/building.jpg' ); ?>\" alt="DNA Auto dealership building in Calgary">
+    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/site1/building.jpg' ); ?>" alt="DNA Auto dealership building in Calgary">
   </figure>
   <p class="corporate__plan">Over the next two years, we plan to create a complete automotive hub for car enthusiasts, offering all kinds of services and entertainment for our clients.</p>
 </section>
@@ -161,25 +173,25 @@ get_header(); ?>
     <article class="club-card ticks">
       <span class="tick tl"></span><span class="tick tr"></span>
       <span class="tick bl"></span><span class="tick br"></span>
-      <h3>Service</h3><p class="club-card__big">30% <small>off any work.</small></p>
+      <h3>Service</h3><p class="club-card__big">30%</p><p class="club-card__mid">off any work.</p>
       <p>The lowest prices in Calgary for bodywork, mechanics, and painting.</p>
     </article>
     <article class="club-card ticks">
       <span class="tick tl"></span><span class="tick tr"></span>
       <span class="tick bl"></span><span class="tick br"></span>
-      <h3>Carwash</h3><p class="club-card__big">Every second wash <small>is free</small></p>
+      <h3>Carwash</h3><p class="club-card__mid">every second wash</p><p class="club-card__big">is free</p>
       <p>Modern automatic carwash that preserves your car’s coating.</p>
     </article>
     <article class="club-card ticks">
       <span class="tick tl"></span><span class="tick tr"></span>
       <span class="tick bl"></span><span class="tick br"></span>
-      <h3>Wheel Alignment</h3><p class="club-card__big">$70 <small>market price $150</small></p>
+      <h3>Wheel Alignment</h3><p class="club-card__big">$70</p><p class="club-card__mid">market price $150</p>
       <p>State-of-the-art equipment with automatic adjustment.</p>
     </article>
     <article class="club-card ticks">
       <span class="tick tl"></span><span class="tick tr"></span>
       <span class="tick bl"></span><span class="tick br"></span>
-      <h3>Tire Change</h3><p class="club-card__big">$60 <small>market price - $120</small></p>
+      <h3>Tire Change</h3><p class="club-card__big">$60</p><p class="club-card__mid">market price - $120</p>
       <p>Any wheel repair, seasonal tire replacement, and free tire storage.</p>
     </article>
   </div>
@@ -188,11 +200,11 @@ get_header(); ?>
 
 <!-- ══ 9. COMMUNITY 7580–8240 ════════════════════════════════════════════ -->
 <section class="community" aria-label="Community">
-  <h2 class="community__title">We don’t <em>just</em> sell cars.</h2>
+  <h2 class="community__title">We<br>don’t<br><em>just</em><br>sell<br>cars.</h2>
   <figure class="community__photo ticks">
     <span class="tick tl"></span><span class="tick tr"></span>
     <span class="tick bl"></span><span class="tick br"></span>
-    <img src=\"<?php echo esc_url( get_template_directory_uri() . '/assets/img/site1/community-trio.jpg' ); ?>\" alt="Three groups of happy AutoDNA customers with their cars">
+    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/site1/community-trio.jpg' ); ?>" alt="AutoDNA community with five cars">
   </figure>
   <p class="community__sub"><span>We’re building a community where</span> every customer gets more than they expect.</p>
 </section>
@@ -201,8 +213,8 @@ get_header(); ?>
 <footer class="foot" id="contact">
   <div class="foot__grid">
     <div><h3>Contact us</h3><a href="tel:+14033128306">+1 (403) 312-8306</a><a href="mailto:info@autodna.com">info@autodna.com</a></div>
-    <div><h3>Follow us</h3><p class="foot__social"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="X">x</a><a href="#" aria-label="Instagram">ig</a></p></div>
-    <div><h3>Find us</h3><p>730 2 Ave SW,<br>Calgary, T2P1R8,<br>Canada</p></div>
+    <div><h3>Follow Us</h3><p class="foot__social"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="X">x</a><a href="#" aria-label="Instagram">ig</a></p></div>
+    <div><h3>Find Us</h3><p>730 2 Ave SW, Calgary, T2P1R8, Canada</p></div>
   </div>
   <p class="foot__legal">© 2025 AutoDNA Canada. All rights reserved.</p>
 </footer>

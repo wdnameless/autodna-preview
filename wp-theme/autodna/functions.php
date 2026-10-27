@@ -67,3 +67,36 @@ function autodna_fallback_menu() {
     }
     echo '</ul>';
 }
+
+/** Gutenberg: pattern category + editor styles. */
+function autodna_register_pattern_category() {
+    register_block_pattern_category( 'autodna', array( 'label' => __( 'AutoDNA', 'autodna' ) ) );
+}
+add_action( 'init', 'autodna_register_pattern_category' );
+
+function autodna_editor_setup() {
+    add_editor_style( 'assets/css/site1.css' );
+}
+add_action( 'after_setup_theme', 'autodna_editor_setup' );
+
+/** Customizer: editable contact fields used by footer/menu patterns. */
+function autodna_customize_register( $wp_customize ) {
+    $wp_customize->add_section( 'autodna_contact', array( 'title' => __( 'AutoDNA Contact', 'autodna' ) ) );
+    $fields = array(
+        'autodna_phone'     => '+1 (403) 312-8306',
+        'autodna_email'     => 'info@autodna.com',
+        'autodna_address'   => '730 2 Ave SW, Calgary, T2P1R8, Canada',
+        'autodna_facebook'  => '#',
+        'autodna_x'         => '#',
+        'autodna_instagram' => '#',
+    );
+    foreach ( $fields as $key => $def ) {
+        $wp_customize->add_setting( $key, array( 'default' => $def, 'sanitize_callback' => 'sanitize_text_field' ) );
+        $wp_customize->add_control( $key, array(
+            'label'   => ucwords( str_replace( '_', ' ', preg_replace( '/^autodna_/', '', $key ) ) ),
+            'section' => 'autodna_contact',
+            'type'    => 'text',
+        ) );
+    }
+}
+add_action( 'customize_register', 'autodna_customize_register' );
