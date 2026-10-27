@@ -249,7 +249,7 @@ a { color: inherit; }
 .compare__car img { width: 100%; box-shadow: 0 30px 80px rgba(150, 133, 255, 0.35); }
 .compare__badge {
   position: absolute; left: -190px; top: 40px;
-  font-size: 15px; text-transform: uppercase; color: var(--violet-soft); line-height: 1.4;
+  font-size: 24px; color: #fff; line-height: 1.2; white-space: nowrap;
   border: 1px solid var(--line); border-right: 0; padding: 10px 30px 10px 12px;
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
 }
@@ -279,13 +279,13 @@ a { color: inherit; }
 .compare__tabs button[aria-selected="true"] { background: var(--violet-deep); color: #fff; }
 .compare__wrap { overflow-x: auto; }
 .compare__table { width: 100%; border-collapse: collapse; text-align: left; margin-top: -40px; }
-.compare__table th, .compare__table td { padding: 20px; border: 1px solid var(--line-dim); vertical-align: top; }
-.compare__table thead th { font-weight: 300; color: var(--violet-soft); font-size: 15px; background: rgba(67, 54, 148, 0.25); }
-.compare__table tbody th { font-weight: 300; font-size: 20px; text-transform: uppercase; }
-.compare__table tbody td { font-size: 20px; }
+.compare__table th, .compare__table td { padding: 22px 24px; border: 1px solid var(--line-dim); vertical-align: top; background: rgba(38, 37, 72, 0.44); }
+.compare__table thead th { font-weight: 300; color: var(--violet-soft); font-size: 24px; background: rgba(38, 37, 72, 0.44); }
+.compare__table tbody th { font-weight: 300; font-size: 30px; }
+.compare__table tbody td { font-size: 28px; }
 .compare__table tr.is-lit th, .compare__table tr.is-lit td {
-  background: linear-gradient(180deg, #7b6ff0, #9685ff);
-  color: #fff; border-color: #9685ff;
+  background: linear-gradient(180deg, #15112e 0%, #9685ff 80%, #b0a4ff 100%);
+  color: #fff; border-color: rgba(150, 133, 255, 0.6);
 }
 
 /* ══ 5. SERVICES ═════════════════════════════════════════════════════════ */
