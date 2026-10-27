@@ -176,24 +176,81 @@ a { color: inherit; }
 .hero__elbow { position: absolute; left: 480px; top: 615px; width: 265px; height: 50px; overflow: visible; }
 .hero__elbow path { fill: none; stroke: #c2b9ff; stroke-width: 1; }
 .hero__cta { display: none; }
-.rail { position: absolute; right: 28px; top: 0; width: 265px; height: 810px; z-index: 4; }
-.rail a {
-  position: absolute; left: 0; width: 190px;
-  font-size: 20px; font-weight: 300; line-height: 0.96; letter-spacing: -0.4px; text-align: justify; text-decoration: none;
+.rail {
+  position: absolute;
+  left: 1147px;
+  top: 177px;
+  width: 265px;
+  height: 228px;
+  z-index: 4;
+}
+.rail__vectors {
+  position: absolute;
+  inset: 0;
+  width: 265.05px;
+  height: 228.03px;
+  overflow: visible;
+  pointer-events: none;
+}
+.rail__line, .rail__arrow-svg {
+  fill: none;
+  stroke: #c2b9ff;
+  stroke-width: 1px;
+  transition: stroke 0.3s ease, filter 0.3s ease;
+}
+.rail__arrow-svg {
+  transition: stroke 0.3s ease, filter 0.3s ease, transform 0.3s ease;
+  transform-origin: center;
+}
+.rail__link {
+  position: absolute;
+  left: 0;
+  display: block;
+  text-decoration: none;
   color: #fff;
-  white-space: normal;
-  border: 0; padding: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 19.2px;
+  letter-spacing: -0.4px;
+  text-align: left;
+  white-space: nowrap;
+  padding: 0;
+  border: 0;
 }
-.rail a > svg {
-  position: absolute; left: 0; top: 1px; width: 265px; height: 49px;
-  overflow: visible; pointer-events: none;
+.rail__link span {
+  display: block;
+  background: linear-gradient(105deg, #ffffff 0%, #dedaff 40%, #a29cc8 75%, #686196 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: background 0.3s ease;
 }
-.rail a svg path { fill: none; stroke: #c2b9ff; stroke-width: 1; }
-.rail a i { position: absolute; left: 257px; top: 1px; font-style: normal; line-height: 0; }
-.rail__arrow { width: 8px; height: 8px; overflow: visible; display: block; }
-.rail__arrow path { fill: none; stroke: #c2b9ff; stroke-width: 1; }
-.rail a span { display: block; font-weight: 300; background: linear-gradient(100deg, #ffffff 0%, #ffffff 30%, #8f8ab8 60%, #17154f 140%); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.rail a:hover span { background: linear-gradient(105deg, #ffffff 0%, #c2b9ff 60%, #8f8ab8 100%); -webkit-background-clip: text; background-clip: text; }
+.rail__link:hover span {
+  background: linear-gradient(105deg, #ffffff 0%, #ffffff 50%, #c2b9ff 80%, #a29cc8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.rail__link--1 { top: 16.6px; width: 185px; }
+.rail__link--2 { top: 106.3px; width: 120px; }
+.rail__link--3 { top: 196px; width: 180px; }
+
+/* hover glow links to respective line & arrow */
+.rail:has(.rail__link--1:hover) .rail__line--1,
+.rail:has(.rail__link--1:hover) .rail__arrow-svg--1 {
+  stroke: #ffffff;
+  filter: drop-shadow(0 0 6px rgba(194, 185, 255, 0.9));
+}
+.rail:has(.rail__link--2:hover) .rail__line--2,
+.rail:has(.rail__link--2:hover) .rail__arrow-svg--2 {
+  stroke: #ffffff;
+  filter: drop-shadow(0 0 6px rgba(194, 185, 255, 0.9));
+}
+.rail:has(.rail__link--3:hover) .rail__line--3,
+.rail:has(.rail__link--3:hover) .rail__arrow-svg--3 {
+  stroke: #ffffff;
+  filter: drop-shadow(0 0 6px rgba(194, 185, 255, 0.9));
+}
 
 /* ══ 2. CARLEARS ═════════════════════════════════════════════════════════ */
 .hero__quote { position: relative; z-index: 2; width: 260px; margin: 60px auto 0; text-align: center; padding: 0 0 18px; }
@@ -633,10 +690,7 @@ main { position: relative; z-index: 1; }
   0%, 100% { text-shadow: 0 0 80px rgba(150, 133, 255, 0.45); }
   50% { text-shadow: 0 0 95px rgba(150, 133, 255, 0.55); }
 }
-.hero--fx .rail a svg path { transition: stroke 0.3s ease, stroke-width 0.3s ease, filter 0.3s ease; }
-.hero--fx .rail a.rail--hot svg path { stroke: #fff; filter: drop-shadow(0 0 6px rgba(194, 185, 255, 0.9)); }
-.hero--fx .rail a.rail--hot i { transform: translate(2px, -2px); }
-.hero--fx .rail a i { transition: transform 0.3s ease; display: inline-block; }
+.hero--fx .rail__line, .hero--fx .rail__arrow-svg { transition: stroke 0.3s ease, stroke-width 0.3s ease, filter 0.3s ease; }
 .hero--fx .hero__bg { transform: scale(1.02); }
 .hero--static .hero__bg { transform: none; }
 
