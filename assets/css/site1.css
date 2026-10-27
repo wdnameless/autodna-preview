@@ -180,25 +180,20 @@ a { color: inherit; }
 .rail a {
   position: absolute; left: 0; width: 190px;
   font-size: 20px; font-weight: 300; line-height: 0.95; text-decoration: none;
-  background: linear-gradient(180deg, #ffffff, #8a86c9);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
+  color: #fff;
   white-space: normal;
   border: 0; padding: 0;
-  clip-path: none;
 }
 .rail a > svg {
-  position: absolute; left: 0; top: 22px; width: 265px; height: 49px;
+  position: absolute; left: 0; top: 1px; width: 265px; height: 49px;
   overflow: visible; pointer-events: none;
 }
-.rail a svg path { fill: none; stroke: var(--line); stroke-width: 1; }
-.rail a i { position: absolute; left: 253px; top: 22px; font-style: normal; }
-.rail__arrow { width: 8px; height: 8px; overflow: visible; }
+.rail a svg path { fill: none; stroke: #c2b9ff; stroke-width: 1; }
+.rail a i { position: absolute; left: 257px; top: 1px; font-style: normal; line-height: 0; }
+.rail__arrow { width: 8px; height: 8px; overflow: visible; display: block; }
 .rail__arrow path { fill: none; stroke: #c2b9ff; stroke-width: 1; }
-.rail a:nth-child(1) { top: 0; }
-.rail a:nth-child(2) { top: 92px; }
-.rail a:nth-child(3) { top: 186px; }
-.rail a span { display: block; color: rgba(255, 255, 255, 0.5); }
-.rail a:hover span { color: #fff; }
+.rail a span { display: block; }
+.rail a:hover span { color: var(--violet-pale); }
 
 /* ══ 2. CARLEARS ═════════════════════════════════════════════════════════ */
 .hero__quote { position: relative; z-index: 2; max-width: 760px; margin: 6px auto 0; text-align: center; padding: 12px 40px 18px; }
