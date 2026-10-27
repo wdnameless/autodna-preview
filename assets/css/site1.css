@@ -323,18 +323,15 @@ a { color: inherit; }
 .corporate { position: relative; padding: 60px 0 90px; overflow: hidden; }
 .corporate > * { max-width: 1440px; margin-left: auto; margin-right: auto; padding-left: 40px; padding-right: 40px; }
 .corporate__dna {
-  position: absolute; top: -40px; left: 50%; transform: translateX(-50%);
-  font-family: var(--display); font-weight: 500; font-size: clamp(200px, 30vw, 430px);
-  text-transform: uppercase; line-height: 1; white-space: nowrap;
-  color: transparent; -webkit-text-stroke: 1px rgba(150, 133, 255, 0.35);
-  pointer-events: none;
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; pointer-events: none;
 }
-.corporate__top { position: relative; display: grid; grid-template-columns: 1fr 320px; gap: 40px; align-items: start; margin-bottom: 50px; padding-top: 120px; }
-.corporate__about { font-size: 40px; font-weight: 300; text-transform: uppercase; line-height: 1.25; }
-.corporate__card { background: rgba(20, 16, 48, 0.9); border: 1px solid var(--line-dim); padding: 30px 26px; font-size: 24px; text-transform: uppercase; line-height: 1.4; color: var(--violet-pale); }
-.corporate__photo { position: relative; max-width: 760px; margin: 0 auto; }
-.corporate__photo img { width: 100%; }
-.corporate__plan { position: relative; max-width: 760px; margin: 50px auto 0; font-size: 40px; font-weight: 300; text-transform: uppercase; line-height: 1.25; }
+.corporate__top { position: relative; display: grid; grid-template-columns: 592px 289px; gap: 34px; align-items: start; justify-content: center; margin-bottom: 30px; padding-top: 60px; }
+.corporate__about { font-size: 40px; font-weight: 300; letter-spacing: -0.8px; text-transform: uppercase; line-height: 0.93; text-align: justify; color: #c2b9ff; margin: 0; }
+.corporate__card { background: rgba(38, 37, 72, 0.44); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 0; padding: 35px; font-size: 40px; font-weight: 300; letter-spacing: -0.8px; text-transform: uppercase; line-height: 0.93; text-align: justify; color: #c2b9ff; width: 289px; min-height: 291px; margin: 0; }
+.corporate__photo { position: relative; width: 740px; margin: 0 auto; }
+.corporate__photo img { width: 740px; height: 378px; object-fit: cover; display: block; }
+.corporate__plan { position: relative; width: 759px; margin: 17px auto 0; font-size: 40px; font-weight: 300; letter-spacing: -0.8px; text-transform: uppercase; line-height: 0.93; text-align: justify; color: #c2b9ff; }
 
 /* ══ 8. CLUB ═════════════════════════════════════════════════════════════ */
 .club { padding: 30px 0 90px; }
