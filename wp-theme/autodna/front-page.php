@@ -212,9 +212,9 @@ get_header(); ?>
 <!-- ══ 10. FOOTER 8240–8554 ══════════════════════════════════════════════ -->
 <footer class="foot" id="contact">
   <div class="foot__grid">
-    <div><h3>Contact us</h3><a href="tel:+14033128306">+1 (403) 312-8306</a><a href="mailto:info@autodna.com">info@autodna.com</a></div>
-    <div><h3>Follow Us</h3><p class="foot__social"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="X">x</a><a href="#" aria-label="Instagram">ig</a></p></div>
-    <div><h3>Find Us</h3><p>730 2 Ave SW, Calgary, T2P1R8, Canada</p></div>
+    <div class="foot__col"><h3>Contact us</h3><a href="tel:+14033128306">+1 (403) 312-8306<svg viewBox="0 0 348 34" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34H247L277 0H348"/></svg></a><a href="mailto:info@autodna.com">info@autodna.com<svg viewBox="0 0 348 34" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34H247L277 0H348"/></svg></a></div>
+    <div class="foot__col"><h3>Follow Us</h3><p class="foot__social"><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.3 0-1.1-.1-2-.1-2 0-3.4 1.2-3.4 3.5V11H8.5v3H11v7h2.5Z"/></svg></a><a href="#" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 4h2.9l-6.4 7.3L21.5 20h-5.9l-4.6-6-5.3 6H2.8l6.9-7.8L2.5 4h6l4.2 5.5L17.5 4Zm-1 14.3h1.6L7.7 5.6H6L16.5 18.3Z"/></svg></a><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8Zm0-2.1a5.3 5.3 0 1 1 0 10.6 5.3 5.3 0 0 1 0-10.6Zm6.8-.3a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0ZM12 4.2c-2.5 0-2.8 0-3.8.1a5 5 0 0 0-1.7.3 3.4 3.4 0 0 0-2 2 5 5 0 0 0-.3 1.7c-.1 1-.1 1.3-.1 3.8s0 2.8.1 3.8a5 5 0 0 0 .3 1.7 3.4 3.4 0 0 0 2 2 5 5 0 0 0 1.7.3c1 .1 1.3.1 3.8.1s2.8 0 3.8-.1a5 5 0 0 0 1.7-.3 3.4 3.4 0 0 0 2-2 5 5 0 0 0 .3-1.7c.1-1 .1-1.3.1-3.8s0-2.8-.1-3.8a5 5 0 0 0-.3-1.7 3.4 3.4 0 0 0-2-2 5 5 0 0 0-1.7-.3c-1-.1-1.3-.1-3.8-.1Z"/></svg></a></p></div>
+    <div class="foot__col"><h3>Find Us</h3><p>730 2 Ave SW, Calgary, T2P1R8, Canada<svg viewBox="0 0 348 34" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34H247L277 0H348"/></svg></p></div>
   </div>
   <p class="foot__legal">© 2025 AutoDNA Canada. All rights reserved.</p>
 </footer>
