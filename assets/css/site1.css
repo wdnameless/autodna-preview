@@ -176,7 +176,7 @@ a { color: inherit; }
 .hero__elbow { position: absolute; left: 480px; top: 615px; width: 265px; height: 50px; overflow: visible; }
 .hero__elbow path { fill: none; stroke: #c2b9ff; stroke-width: 1; }
 .hero__cta { display: none; }
-.rail { position: absolute; left: 1147px; top: 0; width: 265px; height: 810px; }
+.rail { position: absolute; right: 28px; top: 0; width: 265px; height: 810px; }
 .rail a {
   position: absolute; left: 0; width: 190px;
   font-size: 20px; font-weight: 300; line-height: 0.96; letter-spacing: -0.4px; text-align: justify; text-decoration: none;
@@ -192,7 +192,7 @@ a { color: inherit; }
 .rail a i { position: absolute; left: 257px; top: 1px; font-style: normal; line-height: 0; }
 .rail__arrow { width: 8px; height: 8px; overflow: visible; display: block; }
 .rail__arrow path { fill: none; stroke: #c2b9ff; stroke-width: 1; }
-.rail a span { display: block; background: linear-gradient(105deg, #ffffff 0%, #8f8ab8 45%, #17154f 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.rail a span { display: block; font-weight: 200; background: linear-gradient(100deg, #ffffff 0%, #6a6599 55%, #17154f 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .rail a:hover span { background: linear-gradient(105deg, #ffffff 0%, #c2b9ff 60%, #8f8ab8 100%); -webkit-background-clip: text; background-clip: text; }
 
 /* ══ 2. CARLEARS ═════════════════════════════════════════════════════════ */
@@ -551,7 +551,7 @@ body::before { left: -15%; top: 8%; width: 55vw; height: 55vw; background: radia
 body::after { right: -18%; top: 45%; width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(80,60,180,0.11), transparent 65%); animation: amb-drift2 32s ease-in-out infinite alternate; }
 @keyframes amb-drift1 { from { transform: translate(0,0) scale(1); } to { transform: translate(6vw,10vh) scale(1.12); } }
 @keyframes amb-drift2 { from { transform: translate(0,0) scale(1.05); } to { transform: translate(-5vw,-8vh) scale(0.95); } }
-main, .hud { position: relative; z-index: 1; }
+main { position: relative; z-index: 1; }
 /* section veils: every section melts into neighbours */
 .value, .compare, .services, .facts, .corporate, .club, .community { position: relative; }
 .value::before, .compare::before, .services::before, .facts::before, .corporate::before, .club::before, .community::before {
