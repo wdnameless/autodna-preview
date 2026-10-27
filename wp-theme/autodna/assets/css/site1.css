@@ -166,10 +166,9 @@ a { color: inherit; }
 .hero__sub {
   position: absolute; top: 603px; height: 74px;
   font-size: 40px; line-height: 0.93; text-transform: uppercase;
-  letter-spacing: -0.008em;
-  background: linear-gradient(180deg, #ffffff 0%, #f2f0ff 60%, #e8e5ff 100%);
+  letter-spacing: -0.8px;
+  background: linear-gradient(180deg, #e8e5ff 0%, #ededed 64%, #f3efff 94%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
-  filter: drop-shadow(0 2px 12px rgba(2, 2, 8, 0.8));
 }
 .hero__sub--l { left: 340px; width: 198px; font-family: 'DM Sans', var(--body); font-weight: 300; }
 .hero__sub--l em { font-style: normal; }
