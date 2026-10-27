@@ -143,13 +143,13 @@ a { color: inherit; }
 .hero__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 /* fig Ellipse 2/3: black shapes, bg-blur 4, fg-blur 200 — carve top/bottom glow */
 .hero__shade { position: absolute; left: 0; right: 0; z-index: 1; pointer-events: none; }
-.hero__shade--top { top: -140px; height: 380px; background: radial-gradient(120% 100% at 50% 0%, rgba(0,0,0,0.75), transparent 70%); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
-.hero__shade--bottom { bottom: -40px; height: 340px; background: radial-gradient(120% 100% at 50% 100%, rgba(0,0,0,0.7), transparent 70%); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+.hero__shade--top { top: -140px; height: 380px; background: radial-gradient(120% 100% at 50% 0%, rgba(0,0,0,0.6), transparent 70%); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+.hero__shade--bottom { bottom: 0; height: 180px; background: linear-gradient(180deg, transparent, rgba(4,4,12,0.55)); }
 .hero__frame { z-index: 2; }
 .hero__frame { position: relative; max-width: 1440px; height: 810px; margin: 0 auto; }
 .hero__triptych { position: absolute; left: 24.17%; top: 23%; width: 51.39%; aspect-ratio: 740 / 378; }
-.hero__triptych img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.08) contrast(1.05) brightness(0.98); }
-.hero__triptych::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(150,133,255,.14), transparent 35%, transparent 65%, rgba(10,8,30,.28)); pointer-events: none; }
+.hero__triptych img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.05) contrast(1.03); }
+.hero__triptych::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,16,50,.1), transparent 30%, transparent 82%, rgba(10,8,30,.2)); pointer-events: none; }
 .services__pano img, .corporate__photo img, .community__photo img, .compare__car img { filter: saturate(1.1) contrast(1.06); }
 .hero__word {
   position: absolute; left: 23.5px; top: 429px; width: 1389px;
@@ -190,7 +190,7 @@ a { color: inherit; }
   overflow: visible; pointer-events: none;
 }
 .rail a svg path { fill: none; stroke: var(--line); stroke-width: 1; }
-.rail a i { position: absolute; left: 257px; top: 22px; font-style: normal; }
+.rail a i { position: absolute; left: 253px; top: 22px; font-style: normal; }
 .rail__arrow { width: 8px; height: 8px; overflow: visible; }
 .rail__arrow path { fill: none; stroke: #c2b9ff; stroke-width: 1; }
 .rail a:nth-child(1) { top: 0; }
@@ -200,7 +200,7 @@ a { color: inherit; }
 .rail a:hover span { color: #fff; }
 
 /* ══ 2. CARLEARS ═════════════════════════════════════════════════════════ */
-.hero__quote { position: relative; max-width: 760px; margin: 6px auto 0; text-align: center; padding: 12px 40px 18px; }
+.hero__quote { position: relative; z-index: 2; max-width: 760px; margin: 6px auto 0; text-align: center; padding: 12px 40px 18px; }
 .hero__quote blockquote { font-size: 20px; line-height: 1.0; color: #fff; }
 .hero__quote-line { position: absolute; left: 50%; bottom: 0; width: 1px; height: 30px; background: var(--line); }
 .carlears { overflow: hidden; max-width: 1440px; margin: 0 auto; padding: 130px 40px 140px; text-align: center; }
