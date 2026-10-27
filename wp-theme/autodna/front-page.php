@@ -53,33 +53,53 @@ get_header(); ?>
   </figure>
 </section>
 
-<!-- ══ 2. CARLEARS 810–1790 ══════════════════════════════════════════════ -->
+<!-- ══ 2. CARLEARS ══════════════════════════════════════════════════════ -->
 <section class="carlears" id="carlears" aria-label="Carlears">
-  <p class="carlears__lede">We’re starting</p>
-  <p class="carlears__new">a <em>new</em> slang term</p>
-  <h2 class="carlears__word" aria-label="carlears">carlears</h2>
+  <div class="carlears__top-block">
+    <svg class="carlears__ticks" viewBox="0 0 756 333" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 13.3V0H13.3 M756 13.3V0H742.7 M0 319.7V333H13.3 M756 319.7V333H742.7" stroke="#C2B9FF" fill="none" stroke-width="1"/>
+    </svg>
+    <figure class="carlears__quote">
+      <blockquote>We don’t call ourselves a dealer, we don’t like that word.</blockquote>
+      <span class="carlears__quote-line" aria-hidden="true"></span>
+    </figure>
+    <p class="carlears__lede">
+      <span>We’re starting</span>
+      <span>a <em class="carlears__new-badge">new</em> slang term</span>
+    </p>
+    <div class="carlears__word-wrap">
+      <span class="carlears__flank carlears__flank--l" aria-hidden="true"></span>
+      <h2 class="carlears__word" aria-label="carlears">carlears</h2>
+      <span class="carlears__flank carlears__flank--r" aria-hidden="true"></span>
+    </div>
+  </div>
+
   <div class="carlears__grid">
-    <article class="clr-card ticks">
-      <span class="tick tl"></span><span class="tick tr"></span>
-      <span class="tick bl"></span><span class="tick br"></span>
+    <article class="clr-card">
+      <svg class="clr-card__ticks" viewBox="0 0 289 291" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 18.8V0H18.8 M289 18.8V0H270.2 M0 272.2V291H18.8 M289 272.2V291H270.2" stroke="#C2B9FF" fill="none" stroke-width="1"/>
+      </svg>
       <h3>High quality</h3>
       <p>A higher level of quality you can trust at an affordable price</p>
     </article>
-    <article class="clr-card ticks">
-      <span class="tick tl"></span><span class="tick tr"></span>
-      <span class="tick bl"></span><span class="tick br"></span>
+    <article class="clr-card">
+      <svg class="clr-card__ticks" viewBox="0 0 289 291" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 18.8V0H18.8 M289 18.8V0H270.2 M0 272.2V291H18.8 M289 272.2V291H270.2" stroke="#C2B9FF" fill="none" stroke-width="1"/>
+      </svg>
       <h3>Wide choice</h3>
       <p>A great selection of cars to match every lifestyle and need</p>
     </article>
-    <article class="clr-card ticks">
-      <span class="tick tl"></span><span class="tick tr"></span>
-      <span class="tick bl"></span><span class="tick br"></span>
+    <article class="clr-card">
+      <svg class="clr-card__ticks" viewBox="0 0 289 291" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 18.8V0H18.8 M289 18.8V0H270.2 M0 272.2V291H18.8 M289 272.2V291H270.2" stroke="#C2B9FF" fill="none" stroke-width="1"/>
+      </svg>
       <h3>Save more</h3>
       <p>A smarter way to save money without compromising on quality</p>
     </article>
-    <article class="clr-card ticks">
-      <span class="tick tl"></span><span class="tick tr"></span>
-      <span class="tick bl"></span><span class="tick br"></span>
+    <article class="clr-card">
+      <svg class="clr-card__ticks" viewBox="0 0 289 291" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 18.8V0H18.8 M289 18.8V0H270.2 M0 272.2V291H18.8 M289 272.2V291H270.2" stroke="#C2B9FF" fill="none" stroke-width="1"/>
+      </svg>
       <h3>True value</h3>
       <p>A real value that gives you confidence and satisfaction every time</p>
     </article>

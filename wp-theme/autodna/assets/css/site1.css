@@ -138,7 +138,7 @@ a { color: inherit; }
 .menu ul a svg path { fill: none; stroke: #c2b9ff; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; }
 
 /* ══ 1. HERO  ═════════════════════════════════════════════════════════════ */
-.hero { position: relative; overflow: hidden; background: #050428; padding-bottom: 40px; margin-bottom: -98px; }
+.hero { position: relative; overflow: hidden; background: #050428; padding-bottom: 40px; }
 .hero__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 /* fig Ellipse 2/3: black shapes, bg-blur 4, fg-blur 200 — carve top/bottom glow */
 .hero__shade { position: absolute; left: 0; right: 0; z-index: 1; pointer-events: none; }
@@ -253,37 +253,153 @@ a { color: inherit; }
 }
 
 /* ══ 2. CARLEARS ═════════════════════════════════════════════════════════ */
-.hero__quote { position: relative; z-index: 2; width: 260px; margin: 60px auto 0; text-align: center; padding: 0 0 18px; }
-.hero__quote blockquote { font-size: 20px; line-height: 0.96; letter-spacing: -0.4px; background: linear-gradient(180deg, #ffffff, #494775); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.hero__quote-ticks { position: absolute; left: 0; top: -60px; width: 100%; height: 200px; overflow: visible; pointer-events: none; }
-.hero__quote-ticks path { fill: none; stroke: #c2b9ff; stroke-width: 1; }
-.hero__quote-line { position: absolute; left: 50%; bottom: 0; width: 1px; height: 30px; background: var(--line); }
-.carlears { overflow: hidden; padding: 182px 0 201px; text-align: center; background: linear-gradient(180deg, #020208 0%, #020202 120px); }
-.carlears > * { max-width: 1440px; margin-left: auto; margin-right: auto; padding-left: 40px; padding-right: 40px; }
-.carlears__lede { display: flex; justify-content: center; gap: 78px; font-size: 40px; line-height: 0.93; letter-spacing: -0.8px; text-transform: uppercase; color: #e1d9ff; }
+.carlears {
+  position: relative;
+  overflow: hidden;
+  padding: 60px 0 160px;
+  text-align: center;
+  background: #020202 url("../img/site1/carlears-bg.svg") center top / 1440px auto no-repeat;
+}
+.carlears__top-block {
+  position: relative;
+  width: 756px;
+  margin: 0 auto;
+  text-align: center;
+}
+.carlears__ticks {
+  position: absolute;
+  inset: 0;
+  width: 756px;
+  height: 333px;
+  pointer-events: none;
+}
+.carlears__quote {
+  position: relative;
+  width: 260px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0;
+}
+.carlears__quote blockquote {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 19.2px;
+  letter-spacing: -0.4px;
+  background: linear-gradient(180deg, #ffffff 0%, #494775 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0;
+}
+.carlears__quote-line {
+  display: block;
+  width: 1px;
+  height: 35px;
+  background: #c2b9ff;
+  margin: 18px auto 28px;
+}
+.carlears__lede {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 756px;
+  margin: 0 auto 12px;
+  font-size: 40px;
+  font-weight: 300;
+  letter-spacing: -0.8px;
+  line-height: 0.93;
+  text-transform: uppercase;
+  color: #e1d9ff;
+}
+.carlears__new-badge {
+  font-style: normal;
+  color: #7262ff;
+  text-shadow: 0 0 18px rgba(114, 98, 255, 0.7);
+}
+.carlears__word-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 270px;
+}
 .carlears__word {
-  font-family: var(--display); font-weight: 500;
+  font-family: var(--display);
+  font-weight: 500;
   font-size: 124px;
-  text-transform: uppercase; letter-spacing: -6.2px; line-height: 0.88;
+  text-transform: uppercase;
+  letter-spacing: -6.2px;
+  line-height: 0.88;
   color: #f7f7f7;
   text-shadow: 0 0 80px rgba(150, 133, 255, 0.45);
-  margin: 10px 0 337px;
+  margin: 0;
+  z-index: 2;
+  white-space: nowrap;
 }
-.carlears__grid { display: grid; grid-template-columns: repeat(4, 289px); gap: 78px; justify-content: center; text-align: left; }
+.carlears__flank {
+  position: absolute;
+  top: 50%;
+  width: 250px;
+  height: 1px;
+  background: #c2b9ff;
+  opacity: 0.8;
+}
+.carlears__flank--l {
+  right: calc(100% + 40px);
+}
+.carlears__flank--r {
+  left: calc(100% + 40px);
+}
+.carlears__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 289px);
+  gap: 78px;
+  justify-content: center;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+}
 .clr-card {
-  border: 0;
+  position: relative;
+  width: 289px;
+  height: 291px;
   background: rgba(38, 37, 72, 0.44);
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-  padding: 28px 16px 28px;
-  width: 289px; min-height: 291px;
-  display: flex; flex-direction: column;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 0;
 }
-.clr-card p { margin-top: auto; }
-.clr-card h3 { font-size: 40px; font-weight: 300; letter-spacing: -0.8px; text-transform: uppercase; color: #c2b9ff; margin-bottom: 14px; line-height: 0.93; white-space: nowrap; }
+.clr-card__ticks {
+  position: absolute;
+  inset: 0;
+  width: 289px;
+  height: 291px;
+  pointer-events: none;
+}
+.clr-card h3 {
+  font-size: 40px;
+  font-weight: 300;
+  letter-spacing: -0.8px;
+  text-transform: uppercase;
+  color: #c2b9ff;
+  margin: 0;
+  line-height: 0.93;
+  white-space: nowrap;
+}
 .clr-card p {
-  font-size: 20px; font-weight: 300; letter-spacing: -0.4px; line-height: 1.0;
-  background: linear-gradient(180deg, #ffffff, #8a86c9);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: -0.4px;
+  line-height: 20px;
+  background: linear-gradient(180deg, #ffffff 0%, #8a86c9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0;
 }
 
 /* ══ 3. VALUE ════════════════════════════════════════════════════════════ */
@@ -471,8 +587,6 @@ a { color: inherit; }
 
 /* ══ AMBIENT LIGHT (board-sampled) ═══════════════════════════════════════ */
 .carlears { background-color: #020202; position: relative; }
-.carlears::before { content: ""; position: absolute; left: 50%; top: -297px; width: 1440px; height: 980px; margin-left: -720px; background: url("../img/site1/carlears-bg.svg") center top / 1440px auto no-repeat; pointer-events: none; }
-.carlears > * { position: relative; z-index: 1; }
 .value { background: radial-gradient(700px 420px at 50% 45%, rgba(157,150,207,.16), transparent 70%), #020202; }
 .compare { background: linear-gradient(90deg, #191828, #5e559f 45%, #484277 75%, #191828), #020202; }
 .services { background: linear-gradient(90deg, #110e24, #1c1145 45%, #645497 85%, #2a2450); }
