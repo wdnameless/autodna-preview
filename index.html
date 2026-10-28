@@ -29,22 +29,82 @@
   </button>
 </header>
 
-<!-- ══ MENU OVERLAY ══════════════════════════════════════════════════════ -->
+<!-- ══ MENU OVERLAY (Desktop drop & Mobile full-screen per Figma 464:867) ══ -->
 <nav class="menu" id="menu" aria-label="Site menu" hidden>
-  <div class="menu__panel ticks">
-    <span class="tick tl"></span><span class="tick tr"></span>
-    <span class="tick bl"></span><span class="tick br"></span>
-  <ul>
-    <li><a href="#home">Home<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H11M5.5 0.5L11 6L5.5 11.5"/></svg></a></li>
-    <li><a href="#carlears">Who We Are<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H11M5.5 0.5L11 6L5.5 11.5"/></svg></a></li>
-    <li><a href="#value">Why AutoDNA<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H11M5.5 0.5L11 6L5.5 11.5"/></svg></a></li>
-    <li><a href="#compare">Price Comparison<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H11M5.5 0.5L11 6L5.5 11.5"/></svg></a></li>
-    <li><a href="#services">Our Services<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H11M5.5 0.5L11 6L5.5 11.5"/></svg></a></li>
-    <li><a href="#facts">Facts &amp; Figures<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H11M5.5 0.5L11 6L5.5 11.5"/></svg></a></li>
-    <li><a href="#corporate">About AutoDNA<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H11M5.5 0.5L11 6L5.5 11.5"/></svg></a></li>
-    <li><a href="#club">DNA Auto Club<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H11M5.5 0.5L11 6L5.5 11.5"/></svg></a></li>
-    <li><a href="#contact">Contact<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H11M5.5 0.5L11 6L5.5 11.5"/></svg></a></li>
-  </ul>
+  <div class="menu__container">
+    <!-- Mobile Header inside menu (Logo + Close cross) -->
+    <div class="menu__header">
+      <a class="menu__logo" href="#home" aria-label="AutoDNA">
+        <img src="assets/img/site1/logo.svg" width="37" height="20" alt="AutoDNA">
+      </a>
+      <button class="menu__close" id="menu-close" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" width="28" height="28" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill="none" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Links panel with ticks Frame 1638 -->
+    <div class="menu__panel ticks">
+      <span class="tick tl"></span><span class="tick tr"></span>
+      <span class="tick bl"></span><span class="tick br"></span>
+      <ul>
+        <li><a href="#home"><span>Home</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
+        <li><a href="#carlears"><span>Who We Are</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
+        <li><a href="#value"><span>Why AutoDNA</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
+        <li><a href="#compare"><span>Price Comparison</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
+        <li><a href="#services"><span>Our Services</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
+        <li><a href="#facts"><span>Facts &amp; Figures</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
+        <li><a href="#corporate"><span>About AutoDNA</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
+        <li><a href="#club"><span>DNA Auto Club</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
+        <li><a href="#contact"><span>Contact</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
+      </ul>
+    </div>
+
+    <!-- Mobile Contact & Socials block (Figma Frame 1938) -->
+    <div class="menu__contact">
+      <h3 class="menu__contact-title">CONTACT US</h3>
+      <div class="menu__contact-item">
+        <a href="tel:+14033128306" class="menu__contact-link">+1 (403) 312-8306</a>
+        <svg class="menu__contact-line" viewBox="0 0 348 35" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 34.2H246.7L312.8 0H348.2" stroke="#C2B9FF" fill="none" stroke-width="1"/>
+          <path d="M340.2 8L348.2 0M340.2 0H348.2V8" stroke="#C2B9FF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </div>
+      <div class="menu__contact-item">
+        <a href="mailto:info@autodna.com" class="menu__contact-link">info@autodna.com</a>
+        <svg class="menu__contact-line" viewBox="0 0 348 35" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 34.2H246.7L312.8 0H348.2" stroke="#C2B9FF" fill="none" stroke-width="1"/>
+          <path d="M340.2 8L348.2 0M340.2 0H348.2V8" stroke="#C2B9FF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </div>
+      <div class="menu__socials">
+        <a href="#" aria-label="Facebook" class="menu__soc-btn">
+          <svg viewBox="0 0 40 40" aria-hidden="true">
+            <circle cx="20" cy="20" r="19.5" fill="none" stroke="#C2B9FF"/>
+            <path d="M22 29v-9h3l.5-3.5h-3.5v-2c0-1 .3-1.8 1.8-1.8h2V9.5c-.4 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.6H16V20h2.8v9H22Z" fill="#FFFFFF"/>
+          </svg>
+        </a>
+        <a href="#" aria-label="X" class="menu__soc-btn">
+          <svg viewBox="0 0 40 40" aria-hidden="true">
+            <circle cx="20" cy="20" r="19.5" fill="none" stroke="#C2B9FF"/>
+            <path d="M25.5 12h2.5l-5.5 6.3L29 27h-5.1l-4-5.2-4.6 5.2h-2.5l5.9-6.8L12.5 12h5.2l3.6 4.8L25.5 12Zm-.9 13.5h1.4L17.1 13.4h-1.5l9 12.1Z" fill="#FFFFFF"/>
+          </svg>
+        </a>
+        <a href="#" aria-label="Instagram" class="menu__soc-btn">
+          <svg viewBox="0 0 40 40" aria-hidden="true">
+            <circle cx="20" cy="20" r="19.5" fill="none" stroke="#C2B9FF"/>
+            <rect x="13" y="13" width="14" height="14" rx="4" fill="none" stroke="#FFFFFF" stroke-width="1.8"/>
+            <circle cx="20" cy="20" r="3.5" fill="none" stroke="#FFFFFF" stroke-width="1.8"/>
+            <circle cx="24.5" cy="15.5" r="1" fill="#FFFFFF"/>
+          </svg>
+        </a>
+      </div>
+      <svg class="menu__social-underline" viewBox="0 0 207 1" preserveAspectRatio="none" aria-hidden="true">
+        <line x1="0" y1="0.5" x2="207" y2="0.5" stroke="#C2B9FF"/>
+      </svg>
+    </div>
   </div>
 </nav>
 

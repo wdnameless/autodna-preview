@@ -55,6 +55,7 @@
   function initMenu() {
     var burger = document.getElementById('burger');
     var menu = document.getElementById('menu');
+    var closeBtn = document.getElementById('menu-close');
     if (!burger || !menu) return;
     function set(open) {
       menu.hidden = !open;
@@ -65,9 +66,15 @@
     burger.addEventListener('click', function () {
       set(menu.hidden);
     });
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        set(false);
+      });
+    }
     menu.addEventListener('click', function (e) {
-      // link click OR backdrop click (anything outside the panel) closes
-      if (e.target.closest('a') || !e.target.closest('.menu__panel')) set(false);
+      if (e.target.closest('a') || e.target.closest('#menu-close')) {
+        set(false);
+      }
     });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && !menu.hidden) set(false);
