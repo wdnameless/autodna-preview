@@ -9,157 +9,48 @@
 .dealer-hero {
   position: relative;
   width: 100%;
-  height: 810px;
-  min-height: 810px;
+  height: auto;
+  min-height: 0;
   background-color: #020202;
-  background-image: url('../img/site1/service-dealer-bg.jpg');
-  background-size: cover;
-  background-position: center top;
   overflow: hidden;
-  padding: 85px 0 30px;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
-.dealer-hero__shade--top {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 180px;
-  background: linear-gradient(180deg, rgba(2,2,8,0.85) 0%, rgba(2,2,8,0.4) 50%, transparent 100%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.dealer-hero__shade--bottom {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 220px;
-  background: linear-gradient(180deg, transparent 0%, rgba(2,2,8,0.7) 60%, #020202 100%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.dealer-hero__container {
+.dealer-hero__board {
   position: relative;
-  z-index: 2;
   width: 100%;
   max-width: 1440px;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 1440 / 810;
   margin: 0 auto;
-  padding: 0 24px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
 }
 
-.dealer-hero__sub {
-  font-family: var(--display);
-  font-weight: 500;
-  font-size: clamp(32px, 5.5vw, 80px);
-  letter-spacing: -4px;
-  line-height: 1;
-  text-transform: uppercase;
-  color: #e3dfff;
-  margin: 0 0 6px;
-  text-align: center;
-  text-shadow: 0 0 40px rgba(150, 133, 255, 0.4);
-}
-
-.dealer-hero__title {
-  font-family: var(--display);
-  font-weight: 500;
-  font-size: clamp(64px, 11.5vw, 160px);
-  line-height: 0.92;
-  letter-spacing: -8px;
-  text-transform: none; /* CamelCase SkipTheDealer per Figma */
-  color: #e3dfff;
-  margin: 0;
-  text-align: center;
-  text-shadow: 0 0 80px rgba(150, 133, 255, 0.55), 0 0 30px rgba(150, 133, 255, 0.35);
-}
-
-.dealer-hero__stage {
+.dealer-hero__board-img {
   width: 100%;
-  max-width: 1390px;
-  margin: 0 auto;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  padding-bottom: 10px;
-  box-sizing: border-box;
+  height: 100%;
+  display: block;
+  object-fit: contain;
 }
 
-.dealer-hero__bullet {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 300;
-  font-size: clamp(24px, 2.5vw, 38px);
-  letter-spacing: -0.8px;
-  line-height: 36px;
-  text-transform: uppercase;
-  color: #e1d9ff;
-  text-align: left;
+.dealer-hero__cta-hitarea {
+  position: absolute;
+  left: 78.194%;
+  top: 90.0%;
+  width: 20.069%;
+  height: 9.876%;
+  z-index: 10;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-.dealer-hero__bullet--1 {
-  width: 410px;
+.dealer-hero__cta-hitarea:hover {
+  background: rgba(150, 133, 255, 0.12);
+  box-shadow: 0 0 30px rgba(150, 133, 255, 0.35);
 }
 
-.dealer-hero__wire {
-  width: 242px;
-  height: 78px;
-  overflow: visible;
-  flex: none;
-  margin: 0 10px 8px;
-  pointer-events: none;
-}
-
-.dealer-hero__bullet--2 {
-  width: 435px;
-}
-
-.dealer-hero__cta-btn {
-  position: relative;
-  width: 289px;
-  height: 80px;
-  background: rgba(38, 37, 72, 0.44);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(194, 185, 255, 0.3);
-  box-shadow: 0 20px 60px rgba(10, 6, 30, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 28px;
-  text-decoration: none;
-  color: #ffffff;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 20px;
-  font-weight: 300;
-  letter-spacing: -0.4px;
-  text-transform: uppercase;
-  flex: none;
-  box-sizing: border-box;
-  transition: all 0.3s ease;
-}
-
-.dealer-hero__cta-btn:hover {
-  background: rgba(81, 64, 200, 0.4);
-  border-color: rgba(194, 185, 255, 0.6);
-  box-shadow: 0 20px 60px rgba(150, 133, 255, 0.4);
-}
-
-.dealer-hero__cta-arrow {
-  width: 14px;
-  height: 14px;
-  flex: none;
+.dealer-hero__mob {
+  display: none;
 }
 
 /* 2. SCENARIOS */
@@ -318,6 +209,7 @@
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 24px;
+  box-sizing: border-box;
 }
 
 .dealer-how__header {
@@ -325,7 +217,15 @@
   margin-bottom: 50px;
 }
 
-.dealer-how__title {
+.dealer-how__title-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.dealer-how__word {
   font-family: var(--display);
   font-weight: 500;
   font-size: clamp(64px, 8.5vw, 124px);
@@ -333,31 +233,54 @@
   line-height: 109px;
   text-transform: uppercase;
   color: #f7f7f7;
-  margin: 0 0 30px;
   text-shadow: 0 0 60px rgba(150, 133, 255, 0.45);
 }
 
-/* 4 Interactive step tabs */
+.dealer-how__wire-circuit {
+  width: 250px;
+  height: 40px;
+  overflow: visible;
+  display: block;
+}
+
+/* 4 Interactive step tabs on connecting wire */
+.dealer-how__tabs-bar {
+  position: relative;
+  width: 100%;
+  max-width: 1025px;
+  margin: 0 auto 50px;
+}
+
+.dealer-how__tabs-wire {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  z-index: 1;
+  pointer-events: none;
+}
+
 .dealer-how__tabs {
+  position: relative;
+  z-index: 2;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 24px;
-  margin-bottom: 50px;
+  width: 100%;
 }
 
 .hiw-tab {
   position: relative;
   width: 200px;
   height: 60px;
-  background: rgba(38, 37, 72, 0.44);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: #020202;
   border: 1px solid rgba(194, 185, 255, 0.3);
   font-family: var(--display);
   font-weight: 500;
-  font-size: 22px;
-  letter-spacing: -0.44px;
+  font-size: 20px;
+  letter-spacing: -0.4px;
   color: #a29cc8;
   cursor: pointer;
   display: flex;
@@ -379,8 +302,8 @@
 .hiw-tab:hover {
   color: #ffffff;
   border-color: rgba(194, 185, 255, 0.7);
-  background: rgba(81, 64, 200, 0.35);
-  box-shadow: 0 0 30px rgba(150, 133, 255, 0.45);
+  background: rgba(81, 64, 200, 0.45);
+  box-shadow: 0 0 30px rgba(150, 133, 255, 0.5);
 }
 
 .hiw-tab.is-active .tick,
@@ -421,7 +344,7 @@
   transform: translateY(0);
 }
 
-.hiw-step-card h3 {
+.hiw-card-title {
   font-family: var(--display);
   font-weight: 500;
   font-size: 36px;
@@ -515,6 +438,7 @@
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 24px;
+  box-sizing: border-box;
 }
 
 .dealer-savings__banner {
@@ -621,6 +545,7 @@
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 24px;
+  box-sizing: border-box;
 }
 
 .dealer-friends__card {
@@ -765,46 +690,70 @@
   .dealer-hero {
     height: auto !important;
     min-height: 720px;
-    padding: 100px 13px 40px;
-    background-size: cover;
-    background-position: center 30%;
+    padding: 100px 13px 40px !important;
+    background: #020202 url('../img/site1/service-dealer-bg.jpg') center top / cover no-repeat !important;
   }
-  .dealer-hero__sub {
+  .dealer-hero__board {
+    display: none !important;
+  }
+  .dealer-hero__mob {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+  .dealer-hero__mob-sub {
+    font-family: var(--display);
     font-size: 26px;
     line-height: 28px;
     letter-spacing: -0.5px;
-    margin-bottom: 16px;
+    color: #e3dfff;
+    margin: 0 0 16px;
   }
-  .dealer-hero__sub span {
-    display: block;
+  .dealer-hero__mob-title {
+    font-family: var(--display);
+    font-size: 55px;
+    letter-spacing: -2.8px;
+    line-height: 50px;
+    color: #e3dfff;
+    margin: 0 0 200px;
   }
-  .dealer-hero__title {
-    font-size: clamp(48px, 14vw, 68px);
-    letter-spacing: -3px;
-    line-height: 0.92;
-    margin-bottom: 220px;
-  }
-  .dealer-hero__title span {
-    display: block;
-  }
-  .dealer-hero__stage {
+  .dealer-hero__mob-stage {
+    display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 12px;
-  }
-  .dealer-hero__bullet {
     width: 100%;
     max-width: 367px;
-    font-size: 20px;
+  }
+  .dealer-hero__mob-card {
+    padding: 18px 20px;
+    background: rgba(38, 37, 72, 0.44);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(194, 185, 255, 0.25);
+    text-align: left;
+  }
+  .dealer-hero__mob-card p {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 18px;
     line-height: 22px;
+    color: #ffffff;
+    margin: 0;
   }
-  .dealer-hero__wire {
-    display: none;
-  }
-  .dealer-hero__cta-btn {
-    width: 100%;
-    max-width: 367px;
+  .dealer-hero__mob-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     height: 60px;
+    padding: 0 20px;
+    background: rgba(38, 37, 72, 0.44);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(194, 185, 255, 0.3);
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
   }
 
   /* Scenarios mobile */
@@ -839,14 +788,28 @@
   .dealer-how {
     padding: 60px 13px 80px;
   }
-  .dealer-how__title {
+  .dealer-how__title-wrap {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .dealer-how__word {
     font-size: 55px;
     letter-spacing: -2.8px;
     line-height: 50px;
   }
+  .dealer-how__wire-circuit {
+    display: none;
+  }
+  .dealer-how__tabs-bar {
+    margin-bottom: 30px;
+  }
+  .dealer-how__tabs-wire {
+    display: none;
+  }
   .dealer-how__tabs {
     flex-wrap: wrap;
     gap: 8px;
+    justify-content: center;
   }
   .hiw-tab {
     width: 160px;
@@ -855,6 +818,14 @@
   }
   .hiw-step-card {
     padding: 24px 16px;
+  }
+  .hiw-card-title {
+    font-size: 26px;
+    line-height: 30px;
+  }
+  .hiw-lead {
+    font-size: 18px;
+    line-height: 24px;
   }
   .hiw-items-grid {
     grid-template-columns: 1fr;

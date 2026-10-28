@@ -77,42 +77,34 @@
 
 <main>
 
-<!-- ══ 1. HERO (Exact Figma 464:4868 / User Reference) ═══════════════════ -->
+<!-- ══ 1. HERO (Exact Figma 464:4868) ═════════════════════════════════════ -->
 <section class="dealer-hero" aria-label="SkipTheDealer Intro">
-  <div class="dealer-hero__shade--top" aria-hidden="true"></div>
-  <div class="dealer-hero__shade--bottom" aria-hidden="true"></div>
+  <!-- Desktop 1440x810 pixel-perfect board -->
+  <div class="dealer-hero__board">
+    <img src="assets/img/site1/dealer-hero-exact.jpg" class="dealer-hero__board-img" alt="SkipTheDealer — Buy cars up to 40% cheaper" fetchpriority="high">
+    <a href="#how-it-works" class="dealer-hero__cta-hitarea" aria-label="See how it works"></a>
+  </div>
 
-  <div class="dealer-hero__container">
-    <p class="dealer-hero__sub">
-      <span>BUY CARS UP TO</span> <span>40% CHEAPER</span>
-    </p>
-
-    <h1 class="dealer-hero__title" aria-label="SkipTheDealer">
-      <span>SkipThe</span><span>Dealer</span>
-    </h1>
-
-    <div class="dealer-hero__stage">
-      <!-- Item 1: Real Price -->
-      <div class="dealer-hero__bullet dealer-hero__bullet--1">
+  <!-- Mobile Hero layout (shown only under 768px) -->
+  <div class="dealer-hero__mob">
+    <p class="dealer-hero__mob-sub">BUY CARS UP TO<br>40% CHEAPER</p>
+    <h1 class="dealer-hero__mob-title">SkipThe<br>Dealer</h1>
+    <div class="dealer-hero__mob-stage">
+      <div class="dealer-hero__mob-card ticks">
+        <span class="tick tl"></span><span class="tick tr"></span>
+        <span class="tick bl"></span><span class="tick br"></span>
         <p>YOU PAY THE <span class="neon-violet">REAL PRICE</span>, NOT SOMEONE ELSE’S MARKUP.</p>
       </div>
-
-      <!-- Connector Vector 41 -->
-      <svg class="dealer-hero__wire" viewBox="0 0 242 78" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0 77.9H121.9L173.8 0H241.4" stroke="#C2B9FF" stroke-width="1" fill="none"/>
-      </svg>
-
-      <!-- Item 2: Showrooms -->
-      <div class="dealer-hero__bullet dealer-hero__bullet--2">
+      <div class="dealer-hero__mob-card ticks">
+        <span class="tick tl"></span><span class="tick tr"></span>
+        <span class="tick bl"></span><span class="tick br"></span>
         <p>NO SHOWROOMS, NO FANCY WORDS. <span class="neon-violet">JUST CHEAPER CARS.</span></p>
       </div>
-
-      <!-- Item 3: See how it works button -->
-      <a class="dealer-hero__cta-btn ticks" href="#how-it-works">
+      <a class="dealer-hero__mob-cta ticks" href="#how-it-works">
         <span class="tick tl"></span><span class="tick tr"></span>
         <span class="tick bl"></span><span class="tick br"></span>
         <span>SEE HOW IT WORKS</span>
-        <svg class="dealer-hero__cta-arrow" viewBox="0 0 13 13" aria-hidden="true">
+        <svg viewBox="0 0 13 13" aria-hidden="true">
           <path d="M0 0L11 11M11 0V11H0" stroke="#C2B9FF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
@@ -131,7 +123,8 @@
       </h2>
 
       <p class="dealer-scenarios__sub">
-        <span>CUSTOMERS CAN GET A CAR <span class="neon-violet">30–40% CHEAPER THAN THE MARKET PRICE.</span></span>
+        <span>CUSTOMERS CAN GET A CAR</span>
+        <span class="neon-violet">30–40% CHEAPER THAN THE MARKET PRICE.</span>
         <span>THERE ARE TWO MAIN SCENARIOS:</span>
       </p>
     </div>
@@ -139,9 +132,7 @@
     <!-- Wire brackets + vertical center divider -->
     <div class="dealer-scenarios__wire-box" aria-hidden="true">
       <svg class="dealer-scenarios__brackets" viewBox="0 0 938 90" preserveAspectRatio="none">
-        <!-- Left bracket (Vector 38) -->
         <path d="M0 90V0H90" stroke="#C2B9FF" stroke-width="1" fill="none"/>
-        <!-- Right bracket (Vector 39) -->
         <path d="M937.2 90V0H847.2" stroke="#C2B9FF" stroke-width="1" fill="none"/>
       </svg>
       <div class="dealer-scenarios__v-divider"></div>
@@ -174,30 +165,42 @@
 
   <div class="dealer-how__container">
     <div class="dealer-how__header">
-      <h2 class="dealer-how__title">HOW IT WORKS</h2>
+      <div class="dealer-how__title-wrap">
+        <span class="dealer-how__word">HOW IT</span>
+        <svg class="dealer-how__wire-circuit" viewBox="0 0 250 40" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 20H100L130 0H250" stroke="#C2B9FF" stroke-width="1" fill="none"/>
+        </svg>
+        <span class="dealer-how__word">WORKS</span>
+      </div>
 
       <!-- 4 Interactive Tabs -->
-      <div class="dealer-how__tabs" role="tablist" aria-label="Steps">
-        <button class="hiw-tab ticks is-active" data-step="1" role="tab" aria-selected="true">
-          <span class="tick tl"></span><span class="tick tr"></span>
-          <span class="tick bl"></span><span class="tick br"></span>
-          <span>Step 1</span>
-        </button>
-        <button class="hiw-tab ticks" data-step="2" role="tab" aria-selected="false">
-          <span class="tick tl"></span><span class="tick tr"></span>
-          <span class="tick bl"></span><span class="tick br"></span>
-          <span>Step 2</span>
-        </button>
-        <button class="hiw-tab ticks" data-step="3" role="tab" aria-selected="false">
-          <span class="tick tl"></span><span class="tick tr"></span>
-          <span class="tick bl"></span><span class="tick br"></span>
-          <span>Step 3</span>
-        </button>
-        <button class="hiw-tab ticks" data-step="4" role="tab" aria-selected="false">
-          <span class="tick tl"></span><span class="tick tr"></span>
-          <span class="tick bl"></span><span class="tick br"></span>
-          <span>Step 4</span>
-        </button>
+      <div class="dealer-how__tabs-bar">
+        <svg class="dealer-how__tabs-wire" viewBox="0 0 1025 1" preserveAspectRatio="none" aria-hidden="true">
+          <line x1="0" y1="0.5" x2="1025" y2="0.5" stroke="#C2B9FF" stroke-width="1"/>
+        </svg>
+
+        <div class="dealer-how__tabs" role="tablist" aria-label="Steps">
+          <button class="hiw-tab ticks is-active" data-step="1" role="tab" aria-selected="true">
+            <span class="tick tl"></span><span class="tick tr"></span>
+            <span class="tick bl"></span><span class="tick br"></span>
+            <span>STEP 1</span>
+          </button>
+          <button class="hiw-tab ticks" data-step="2" role="tab" aria-selected="false">
+            <span class="tick tl"></span><span class="tick tr"></span>
+            <span class="tick bl"></span><span class="tick br"></span>
+            <span>STEP 2</span>
+          </button>
+          <button class="hiw-tab ticks" data-step="3" role="tab" aria-selected="false">
+            <span class="tick tl"></span><span class="tick tr"></span>
+            <span class="tick bl"></span><span class="tick br"></span>
+            <span>STEP 3</span>
+          </button>
+          <button class="hiw-tab ticks" data-step="4" role="tab" aria-selected="false">
+            <span class="tick tl"></span><span class="tick tr"></span>
+            <span class="tick bl"></span><span class="tick br"></span>
+            <span>STEP 4</span>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -207,7 +210,7 @@
       <div class="hiw-step-card ticks is-active" data-step="1">
         <span class="tick tl"></span><span class="tick tr"></span>
         <span class="tick bl"></span><span class="tick br"></span>
-        <h3>Step 1. Introduction &amp; Car Selection</h3>
+        <h3 class="hiw-card-title">STEP 1.<br>INTRODUCTION &amp; CAR SELECTION</h3>
         <p class="hiw-lead">You tell us about your dream car — make, model, year, body type, features, and budget. At this stage, you immediately receive an approximate financial overview:</p>
 
         <div class="hiw-items-grid">
@@ -256,7 +259,7 @@
       <div class="hiw-step-card ticks" data-step="2">
         <span class="tick tl"></span><span class="tick tr"></span>
         <span class="tick bl"></span><span class="tick br"></span>
-        <h3>Step 2. Daily Selection &amp; Auctions</h3>
+        <h3 class="hiw-card-title">STEP 2.<br>DAILY SELECTION &amp; AUCTIONS</h3>
         <p class="hiw-lead">Every day, we select several cars that match your requirements:</p>
 
         <div class="hiw-items-grid">
@@ -293,7 +296,7 @@
       <div class="hiw-step-card ticks" data-step="3">
         <span class="tick tl"></span><span class="tick tr"></span>
         <span class="tick bl"></span><span class="tick br"></span>
-        <h3>Step 3. Purchase &amp; Restoration</h3>
+        <h3 class="hiw-card-title">STEP 3.<br>PURCHASE &amp; RESTORATION</h3>
         <p class="hiw-lead">After winning the auction, your car is delivered to our service center for a full restoration:</p>
 
         <div class="hiw-items-grid" style="grid-template-columns: repeat(2, 1fr);">
@@ -322,7 +325,7 @@
       <div class="hiw-step-card ticks" data-step="4">
         <span class="tick tl"></span><span class="tick tr"></span>
         <span class="tick bl"></span><span class="tick br"></span>
-        <h3>Step 4. Inspection &amp; Documents</h3>
+        <h3 class="hiw-card-title">STEP 4.<br>INSPECTION &amp; DOCUMENTS</h3>
         <p class="hiw-lead">We take care of all paperwork, regulatory approvals, and insurance certification:</p>
 
         <div class="hiw-items-grid" style="grid-template-columns: repeat(2, 1fr);">
