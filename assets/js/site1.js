@@ -258,6 +258,21 @@
     }, { passive: true });
   }
 
+    // mobile carlears carousel buttons (prev/next)
+  function initCarlearsCarousel() {
+    const prev = document.getElementById('carlears-prev');
+    const next = document.getElementById('carlears-next');
+    const grid = document.querySelector('.carlears__grid');
+    if (!prev || !next || !grid) return;
+
+    prev.addEventListener('click', () => {
+      grid.scrollBy({ left: -305, behavior: 'smooth' });
+    });
+    next.addEventListener('click', () => {
+      grid.scrollBy({ left: 305, behavior: 'smooth' });
+    });
+  }
+
   function boot() {
     initPreloader();
     initMenu();
@@ -266,6 +281,7 @@
     initReveal();
     initHeroFx();
     initGlobalFx();
+    initCarlearsCarousel();
   }
 
   if (document.readyState === 'loading') {

@@ -421,6 +421,7 @@ a { color: inherit; }
 .value > * { max-width: 1440px; margin-left: auto; margin-right: auto; padding-left: 40px; padding-right: 40px; }
 .value__title { font-size: 40px; font-weight: 300; letter-spacing: -0.8px; text-transform: uppercase; line-height: 0.93; color: #e1d9ff; text-align: center; max-width: 559px; margin: 0 auto; }
 .value__title em { font-style: normal; color: var(--violet); }
+.carlears__nav, .value__title-v-line, .value__v-line { display: none; }
 .value__fan { width: 100%; height: 283px; margin: 20px 0 0; }
 .value__fan path { stroke: url(#fanStroke); stroke-width: 1; fill: none; }
 .value__grid { display: grid; grid-template-columns: 224px 209px 219px 219px 223px; gap: 40px; text-align: center; justify-content: center; }
@@ -1652,6 +1653,44 @@ body::after {
     text-align: center !important;
     margin: 0 auto !important;
   }
+
+  /* Mobile Carlears Carousel Nav Buttons (Frame 1769: 60x63px with ticks) */
+  .carlears__nav {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 367px !important;
+    margin: 0 auto 24px !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .carlears__nav-btn {
+    width: 60px !important;
+    height: 63px !important;
+    background: rgba(38, 37, 72, 0.44) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    border: 1px solid rgba(194, 185, 255, 0.35) !important;
+    position: relative !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .carlears__nav-btn .tick {
+    width: 18px !important;
+    height: 18px !important;
+    border-color: #c2b9ff !important;
+  }
+  .carlears__nav-btn svg {
+    width: 18px !important;
+    height: 18px !important;
+    display: block !important;
+  }
+
   /* Horizontal scroll for 4 cards */
   .carlears__grid {
     display: flex !important;
@@ -1668,6 +1707,32 @@ body::after {
     width: 289px !important;
     height: 291px !important;
     scroll-snap-align: center;
+    border: 1px solid rgba(194, 185, 255, 0.38) !important;
+    background: rgba(38, 37, 72, 0.44) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    padding: 28px 20px 24px !important;
+    box-sizing: border-box !important;
+  }
+  .clr-card h3 {
+    font-family: 'Helvetica Neue', sans-serif !important;
+    font-size: 38px !important;
+    font-weight: 300 !important;
+    letter-spacing: -0.8px !important;
+    line-height: 36px !important;
+    text-transform: uppercase !important;
+    color: #c2b9ff !important;
+    margin: 0 !important;
+    white-space: normal !important;
+  }
+  .clr-card p {
+    font-family: 'Helvetica Neue', sans-serif !important;
+    font-size: 19px !important;
+    font-weight: 300 !important;
+    letter-spacing: -0.4px !important;
+    line-height: 21px !important;
+    color: #ffffff !important;
+    margin: 0 !important;
   }
 
   /* 3. VALUE */
@@ -1675,29 +1740,90 @@ body::after {
     padding: 50px 13px 70px !important;
   }
   .value__title {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    font-family: 'Helvetica Neue', sans-serif !important;
     font-size: 25px !important;
+    font-weight: 300 !important;
     line-height: 26px !important;
     letter-spacing: -0.5px !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
     max-width: 367px !important;
-    margin: 0 auto 30px !important;
+    margin: 0 auto !important;
+    color: #ffffff !important;
+  }
+  .value__title span {
+    display: block !important;
+    color: #ffffff !important;
+  }
+  .value__title-em {
+    display: block !important;
+    font-style: normal !important;
+    color: #9685ff !important;
+    text-shadow: 0 0 18px rgba(150, 133, 255, 0.6);
+  }
+  .value__title-v-line {
+    display: block !important;
+    width: 1px !important;
+    max-width: 1px !important;
+    height: 59px !important;
+    background: #c2b9ff !important;
+    margin: 24px auto 32px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    opacity: 0.8;
   }
   .value__fan { display: none !important; }
   .value__grid {
     display: flex !important;
     flex-direction: column !important;
-    gap: 24px !important;
+    gap: 0 !important;
     max-width: 367px !important;
     margin: 0 auto !important;
     text-align: center !important;
   }
-  .value__grid > div h3 {
-    font-size: 24px !important;
-    margin-bottom: 8px !important;
-    min-height: 0 !important;
+  .value__item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 0 !important;
   }
-  .value__grid > div p {
-    font-size: 18px !important;
-    line-height: 1.35 !important;
+  .value__item h3 {
+    font-family: 'Helvetica Neue', sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 300 !important;
+    letter-spacing: -0.48px !important;
+    line-height: 23px !important;
+    text-transform: uppercase !important;
+    color: #c2b9ff !important;
+    margin: 0 0 8px !important;
+    min-height: 0 !important;
+    text-align: center !important;
+  }
+  .value__item p {
+    font-family: 'Helvetica Neue', sans-serif !important;
+    font-size: 19px !important;
+    font-weight: 300 !important;
+    letter-spacing: -0.4px !important;
+    line-height: 21px !important;
+    color: #ffffff !important;
+    text-align: center !important;
+    margin: 0 !important;
+    max-width: 320px !important;
+  }
+  .value__v-line {
+    display: block !important;
+    width: 1px !important;
+    max-width: 1px !important;
+    height: 31px !important;
+    background: #c2b9ff !important;
+    margin: 24px auto 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    opacity: 0.8;
   }
 
   /* 4. PRICE COMPARISON */

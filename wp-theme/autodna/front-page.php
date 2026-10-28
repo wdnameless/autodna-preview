@@ -95,6 +95,24 @@ get_header(); ?>
     </div>
   </div>
 
+  <!-- Mobile Carlears Carousel Nav Buttons (Frame 1769) -->
+  <div class="carlears__nav" aria-label="Carousel navigation">
+    <button class="carlears__nav-btn carlears__nav-btn--prev ticks" id="carlears-prev" aria-label="Previous card">
+      <span class="tick tl"></span><span class="tick tr"></span>
+      <span class="tick bl"></span><span class="tick br"></span>
+      <svg viewBox="0 0 18 18" aria-hidden="true">
+        <path d="M11 4L6 9L11 14" stroke="#C2B9FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </button>
+    <button class="carlears__nav-btn carlears__nav-btn--next ticks" id="carlears-next" aria-label="Next card">
+      <span class="tick tl"></span><span class="tick tr"></span>
+      <span class="tick bl"></span><span class="tick br"></span>
+      <svg viewBox="0 0 18 18" aria-hidden="true">
+        <path d="M7 4L12 9L7 14" stroke="#C2B9FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </button>
+  </div>
+
   <div class="carlears__grid">
     <article class="clr-card">
       <svg class="clr-card__ticks" viewBox="0 0 289 291" preserveAspectRatio="none" aria-hidden="true">
@@ -129,17 +147,40 @@ get_header(); ?>
 
 <!-- ══ 3. VALUE 1790–2830 ════════════════════════════════════════════════ -->
 <section class="value" id="value" aria-label="Why AutoDNA">
-  <h2 class="value__title">Imagine buying a car from a dealer —<br><em>but paying the same price you’d pay a private seller.</em></h2>
+  <h2 class="value__title">
+    <span>Imagine buying a car from a dealer —</span>
+    <em class="value__title-em">but paying the same price you’d pay a private seller.</em>
+  </h2>
+  <span class="value__title-v-line" aria-hidden="true"></span>
   <svg class="value__fan" viewBox="0 2276 1440 283" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
     <defs><linearGradient id="fanStroke" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c2b9ff"/><stop offset="1" stop-color="#746f99"/></linearGradient></defs>
     <path d="M720 2276L144 2559M720 2276L433 2559M720 2276L720 2559M720 2276L1012 2559M720 2276L1301 2559"/>
   </svg>
   <div class="value__grid">
-    <div><h3>No Surprises</h3><p>No hidden fees. No surprises. We cover the GST ourselves.</p></div>
-    <div><h3>Affordable Dealer Prices</h3><p>Buying from a dealer can be just as affordable as buying privately.</p></div>
-    <div><h3>Changing the Game</h3><p>Calgary has never seen this before. We put the customer first.</p></div>
-    <div><h3>Flexible Options</h3><p>Flexible financing and an extended warranty from our partners.</p></div>
-    <div><h3>Real Value</h3><p>Zero profit for us — just fair prices and peace of mind for you.</p></div>
+    <div class="value__item">
+      <h3>No Surprises</h3>
+      <p>No hidden fees. No surprises. We cover the GST ourselves.</p>
+      <span class="value__v-line" aria-hidden="true"></span>
+    </div>
+    <div class="value__item">
+      <h3>Affordable Dealer Prices</h3>
+      <p>Buying from a dealer can be just as affordable as buying privately.</p>
+      <span class="value__v-line" aria-hidden="true"></span>
+    </div>
+    <div class="value__item">
+      <h3>Changing the Game</h3>
+      <p>Calgary has never seen this before. We put the customer first.</p>
+      <span class="value__v-line" aria-hidden="true"></span>
+    </div>
+    <div class="value__item">
+      <h3>Flexible Options</h3>
+      <p>Flexible financing and an extended warranty from our partners.</p>
+      <span class="value__v-line" aria-hidden="true"></span>
+    </div>
+    <div class="value__item">
+      <h3>Real Value</h3>
+      <p>Zero profit for us — just fair prices and peace of mind for you.</p>
+    </div>
   </div>
 </section>
 
