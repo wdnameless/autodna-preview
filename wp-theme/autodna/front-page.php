@@ -46,11 +46,6 @@ get_header(); ?>
       </a>
     </nav>
   </div>
-  <figure class="hero__quote">
-    <svg class="hero__quote-ticks" viewBox="340 870 760 335" preserveAspectRatio="none" aria-hidden="true"><path d="M342.016 883.61V870.277H355.348M1097.98 883.61V870.277H1084.65M355.348 1203.15H342.016V1189.82M1084.65 1203.15H1097.98V1189.82"/></svg>
-    <blockquote>We don’t call ourselves a dealer, we don’t like that word.</blockquote>
-    <span class="hero__quote-line" aria-hidden="true"></span>
-  </figure>
 </section>
 
 <!-- ══ 2. CARLEARS ══════════════════════════════════════════════════════ -->
@@ -108,9 +103,10 @@ get_header(); ?>
 
 <!-- ══ 3. VALUE 1790–2830 ════════════════════════════════════════════════ -->
 <section class="value" id="value" aria-label="Why AutoDNA">
-  <h2 class="value__title">Imagine buying a<br>car from a dealer —<br><em>but paying the same price you’d pay a private seller.</em></h2>
-  <svg class="value__fan" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M200 0 L360 120 M520 0 L560 120 M720 0 L720 120 M920 0 L880 120 M1240 0 L1080 120"/>
+  <h2 class="value__title">Imagine buying a car from a dealer —<br><em>but paying the same price you’d pay a private seller.</em></h2>
+  <svg class="value__fan" viewBox="0 2276 1440 283" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+    <defs><linearGradient id="fanStroke" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c2b9ff"/><stop offset="1" stop-color="#746f99"/></linearGradient></defs>
+    <path d="M720 2276L144 2559M720 2276L433 2559M720 2276L720 2559M720 2276L1012 2559M720 2276L1301 2559"/>
   </svg>
   <div class="value__grid">
     <div><h3>No Surprises</h3><p>No hidden fees. No surprises. We cover the GST ourselves.</p></div>
@@ -250,7 +246,7 @@ get_header(); ?>
 
 <!-- ══ 7. CORPORATE 5430–6630 ════════════════════════════════════════════ -->
 <section class="corporate" id="corporate" aria-label="About AutoDNA">
-  <p class="corporate__dna" aria-hidden="true">DNA</p>
+  <img class="corporate__dna" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/corporate-bg.svg" alt="" aria-hidden="true">
   <div class="corporate__top">
     <p class="corporate__about">AutoDNA is the parent corporation that brings together SkipTheDealer, AutoDNA&nbsp;Service, and other companies.</p>
     <aside class="corporate__card ticks">
@@ -262,7 +258,7 @@ get_header(); ?>
   <figure class="corporate__photo ticks">
     <span class="tick tl"></span><span class="tick tr"></span>
     <span class="tick bl"></span><span class="tick br"></span>
-    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/site1/building.jpg' ); ?>" alt="DNA Auto dealership building in Calgary">
+    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/corporate-hall.jpg" alt="DNA Auto dealership building in Calgary">
   </figure>
   <p class="corporate__plan">Over the next two years, we plan to create a complete automotive hub for car enthusiasts, offering all kinds of services and entertainment for our clients.</p>
 </section>
