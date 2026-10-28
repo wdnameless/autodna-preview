@@ -163,6 +163,8 @@ a { color: inherit; }
   line-height: 0.88; letter-spacing: -0.05em;
   text-transform: uppercase; text-align: center; white-space: nowrap;
 }
+.hero__word span { display: inline; }
+.hero__mob-subs-block { display: none; }
 .hero__sub {
   position: absolute; top: 603px; height: 74px;
   font-size: 40px; line-height: 0.93; text-transform: uppercase;
@@ -1447,19 +1449,13 @@ body::after {
   .hero {
     height: auto !important;
     min-height: 720px;
-    padding: 84px 13px 40px !important;
+    padding: 90px 13px 40px !important;
     overflow: hidden;
   }
   .hero__bg {
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-  .hero {
-    height: auto !important;
-    min-height: 720px;
-    padding: 100px 13px 40px !important;
-    overflow: hidden;
   }
   .hero__frame {
     position: relative;
@@ -1477,13 +1473,17 @@ body::after {
     top: auto !important;
     width: 100% !important;
     max-width: 367px;
-    font-size: 64px !important;
-    line-height: 60px !important;
-    letter-spacing: -3.2px !important;
+    font-size: clamp(48px, 15vw, 68px) !important;
+    line-height: 0.9 !important;
+    letter-spacing: -3px !important;
     white-space: normal !important;
-    text-align: left !important;
-    margin: 0 auto 24px !important;
+    text-align: center !important;
+    margin: 0 auto 20px !important;
     transform: none !important;
+  }
+  .hero__word span {
+    display: block !important;
+    margin: 0 auto;
   }
   .hero__triptych {
     order: 2 !important;
@@ -1493,7 +1493,7 @@ body::after {
     width: 100% !important;
     max-width: 367px !important;
     height: 195px !important;
-    margin: 0 auto 24px !important;
+    margin: 0 auto 16px !important;
     box-shadow: 0 20px 60px rgba(10, 6, 30, 0.7);
   }
   .hero__triptych img {
@@ -1501,97 +1501,156 @@ body::after {
     height: 100%;
     object-fit: cover;
   }
-  .hero__sub {
+  .hero__sub { display: none !important; }
+  .hero__elbow { display: none !important; }
+  .rail { display: none !important; }
+
+  /* Mobile sub wire & text block */
+  .hero__mob-subs-block {
     order: 3 !important;
-    position: relative !important;
-    left: auto !important;
-    top: auto !important;
-    height: auto !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
     width: 100% !important;
-    max-width: 367px;
-    margin: 0 auto !important;
-    font-size: 25px !important;
-    line-height: 23px !important;
-    letter-spacing: -0.5px !important;
+    max-width: 367px !important;
+    margin: 0 auto 32px !important;
+    padding: 0 4px;
+    box-sizing: border-box;
   }
+  .hero__mob-sub {
+    font-size: 24px;
+    line-height: 22px;
+    letter-spacing: -0.5px;
+    color: #e1d9ff;
+    text-transform: uppercase;
+  }
+  .hero__mob-sub span {
+    display: block;
+  }
+  .hero__mob-sub--l {
+    font-family: 'DM Sans', sans-serif;
+    text-align: left;
+  }
+  .hero__mob-sub--r {
+    font-family: 'Helvetica Neue', sans-serif;
+    text-align: right;
+  }
+  .hero__mob-sub-wire {
+    width: 110px;
+    height: 25px;
+    overflow: visible;
+    flex: none;
+    margin: 0 8px;
+  }
+
   .hero__cta {
     order: 4 !important;
     position: relative !important;
     left: auto !important;
     bottom: auto !important;
-  }
-  .hero__sub--l {
-    text-align: left !important;
-    margin-bottom: 12px !important;
-  }
-  .hero__sub--r {
-    text-align: right !important;
-  }
-  .hero__elbow { display: none !important; }
-  .rail { display: none !important; }
-  .hero__cta {
     display: flex !important;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 289px;
-    height: 63px;
-    margin: 32px auto 0 !important;
-    padding: 0 24px;
-    background: rgba(38, 37, 72, 0.44);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(194, 185, 255, 0.3);
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 18px;
-    font-weight: 300;
-    letter-spacing: -0.36px;
-    color: #ffffff;
-    text-decoration: none;
-    box-shadow: 0 10px 30px rgba(10, 6, 30, 0.5);
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    max-width: 289px !important;
+    height: 63px !important;
+    margin: 0 auto 40px !important;
+    padding: 0 24px !important;
+    background: rgba(38, 37, 72, 0.44) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    border: 1px solid rgba(194, 185, 255, 0.3) !important;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 300 !important;
+    letter-spacing: -0.36px !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 10px 30px rgba(10, 6, 30, 0.5) !important;
+  }
+  .hero__cta .tick {
+    width: 18px !important;
+    height: 18px !important;
+    border-color: #c2b9ff !important;
+  }
+  .hero__cta-arrow {
+    width: 13px !important;
+    height: 13px !important;
+    display: block !important;
   }
 
   /* 2. CARLEARS */
   .carlears {
-    padding: 50px 13px 80px !important;
+    padding: 40px 13px 80px !important;
   }
   .carlears__top-block {
+    position: relative !important;
     width: 100% !important;
     max-width: 367px !important;
+    margin: 0 auto 36px !important;
+    padding: 24px 16px 28px !important;
+    border: 1px solid rgba(194, 185, 255, 0.25) !important;
+    background: rgba(38, 37, 72, 0.25) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    box-sizing: border-box !important;
   }
-  .carlears__ticks { display: none; }
+  .carlears__ticks {
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important;
+  }
   .carlears__quote {
     width: 100% !important;
-    max-width: 260px;
+    max-width: 260px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
   }
   .carlears__quote blockquote {
     font-size: 18px !important;
-    line-height: 19px !important;
+    line-height: 20px !important;
+    letter-spacing: -0.4px !important;
+    color: #8a86c9 !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    color: #8a86c9 !important;
   }
   .carlears__quote-line {
-    height: 28px !important;
-    margin: 14px auto 20px !important;
+    display: block !important;
+    width: 1px !important;
+    height: 35px !important;
+    background: #c2b9ff !important;
+    margin: 16px auto 24px !important;
   }
   .carlears__lede {
     display: flex !important;
     flex-direction: column !important;
-    gap: 4px !important;
+    gap: 6px !important;
     width: 100% !important;
-    max-width: 280px !important;
-    margin: 0 auto 10px !important;
-    font-size: 25px !important;
-    line-height: 23px !important;
+    margin: 0 auto 16px !important;
+    font-size: 24px !important;
+    line-height: 26px !important;
     letter-spacing: -0.5px !important;
     text-align: center !important;
   }
+  .carlears__new-badge {
+    color: #7262ff !important;
+    text-shadow: 0 0 16px rgba(114, 98, 255, 0.7) !important;
+  }
   .carlears__word-wrap {
-    margin-bottom: 30px !important;
+    margin-bottom: 0 !important;
   }
   .carlears__flank { display: none !important; }
   .carlears__word {
-    font-size: clamp(40px, 12vw, 55px) !important;
-    line-height: 50px !important;
+    font-size: 55px !important;
     letter-spacing: -2.8px !important;
+    line-height: 50px !important;
+    text-align: center !important;
+    margin: 0 auto !important;
   }
   /* Horizontal scroll for 4 cards */
   .carlears__grid {

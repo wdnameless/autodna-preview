@@ -17,13 +17,39 @@ get_header(); ?>
       <svg class="hero__ticks" viewBox="330 167 776 416" preserveAspectRatio="none" aria-hidden="true"><path d="M340.219 190.684V177.352H353.551M1096.19 190.684V177.351H1082.86M353.551 572.609H340.219V559.277M1082.86 572.609H1096.19V559.277"/></svg>
       <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/hero-trio.jpg" alt="Pickup, Honda crossover and Tesla side by side" fetchpriority="high">
     </div>
-    <h1 class="hero__word">the genetic code</h1>
+    <h1 class="hero__word">
+      <span>THE</span>
+      <span>GENETIC</span>
+      <span>CODE</span>
+    </h1>
     <p class="hero__sub hero__sub--l">to&nbsp;&nbsp;your<br>car</p>
     <p class="hero__sub hero__sub--r">has&nbsp;&nbsp;&nbsp;&nbsp;<em>already</em><br>been found</p>
     <svg class="hero__elbow" viewBox="480 615 265 50" preserveAspectRatio="none" aria-hidden="true">
       <path d="M479.781 664.905H630.487L670.902 615.441H744.829"/>
     </svg>
-    <a class="hero__cta" href="#services">Explore our services ↘</a>
+
+    <!-- Mobile specific subs block with exact Figma Vector 12 wire -->
+    <div class="hero__mob-subs-block" aria-hidden="true">
+      <div class="hero__mob-sub hero__mob-sub--l">
+        <span>TO&nbsp;&nbsp;YOUR</span>
+        <span>CAR</span>
+      </div>
+      <svg class="hero__mob-sub-wire" viewBox="0 0 126 28" preserveAspectRatio="none">
+        <path d="M0 27.1H71.3L90.5 0H125.5" stroke="#C2B9FF" fill="none" stroke-width="1"/>
+      </svg>
+      <div class="hero__mob-sub hero__mob-sub--r">
+        <span>HAS&nbsp;&nbsp;ALREADY</span>
+        <span>BEEN&nbsp;&nbsp;FOUND</span>
+      </div>
+    </div>
+    <a class="hero__cta ticks" href="#services">
+      <span class="tick tl"></span><span class="tick tr"></span>
+      <span class="tick bl"></span><span class="tick br"></span>
+      <span>EXPLORE OUR SERVICES</span>
+      <svg class="hero__cta-arrow" viewBox="0 0 13 13" aria-hidden="true">
+        <path d="M0 0L11 11M11 0V11H0" stroke="#C2B9FF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </a>
     <nav class="rail" aria-label="Explore">
       <svg class="rail__vectors" viewBox="0 0 265.05 228.03" preserveAspectRatio="none" aria-hidden="true">
         <path class="rail__line rail__line--1" d="M0 67.465H150.71L191.12 18.002H265.05"/>
