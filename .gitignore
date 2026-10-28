@@ -1,38 +1,56 @@
-# OS
+# Operating System
 .DS_Store
 Thumbs.db
 desktop.ini
 
-# Editors
+# Editors & IDEs
 .vscode/
 .idea/
 *.swp
 *.swo
 
-# Local secrets — Figma token lives here
-.env.local
+# Environment & Secrets
 .env
+.env.*
 *.local
 
-# Node (only if someone runs a dev server)
+# Node & Package Managers
 node_modules/
 npm-debug.log*
 yarn-error.log*
 
-# Build/scratch
+# Builds, archives & scratch
+dist/
+build/
+*.zip
+*.tar.gz
+*.mp4
+*.fig
+*.jsonl
+
+# Internal harness, caches & artifacts
 .tmp/
 .tmp-*
-dist/
-*.zip
+.workflow/
+.opencode/
+.ruff_cache/
+calque/
+shots/
+docs/
+openspec/
+tools/
+figma-plugin/
 
-# Reference material — never ship
-assets/fig-imgs/*.png
+# Heavy raw reference material & unused dumps (only production assets in assets/ and wp-theme/ stay)
 figma/
 AUTODNA/
-openspec/
-.workflow/
-docs/
-
-.opencode/
-.tmp/
-
+"1st site (assets)/"
+1st\ site\ (assets)/
+fonts/
+assets/fig-imgs/
+assets/img/hero.svg
+assets/img/site1/carlears-bg.jpg
+1.json
+mock-dump.json
+README-INSTALL.md
+"ТЗ.md"
