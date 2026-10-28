@@ -1,6 +1,8 @@
 <?php
 /**
- * Template Name: AutoDNA - Home Page (Site 1)
+ * Front Page Template
+ *
+ * @package AutoDNA
  */
 
 get_header(); ?>
@@ -59,7 +61,7 @@ get_header(); ?>
         <path class="rail__line rail__line--3" d="M0 228.026H150.7L191.12 178.562H265.05"/>
         <path class="rail__arrow-svg rail__arrow-svg--3" d="M257.05 168.562L265.05 160.562M257.05 160.562H265.05V168.562" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      <a href="<?php echo esc_url( home_url( "/skipthedealer/" ) ); ?>" class="rail__link rail__link--1">
+      <a href="skipthedealer.html" class="rail__link rail__link--1">
         <span>Explore</span>
         <span>SkipTheDealer</span>
       </a>
@@ -265,7 +267,11 @@ get_header(); ?>
   <div class="services__shade services__shade--bottom" aria-hidden="true"></div>
 
   <div class="services__content">
-    <h2 class="services__title">SERVICES</h2>
+        <div class="services__title-wrap ticks">
+      <span class="tick tl"></span><span class="tick tr"></span>
+      <span class="tick bl"></span><span class="tick br"></span>
+      <h2 class="services__title">SERVICES</h2>
+    </div>
 
     <!-- 3 Interactive service columns at the bottom (Desktop triptych & Mobile 3 stacked cards per Frame 1792) -->
     <div class="services__interactive-grid">
@@ -540,9 +546,6 @@ get_header(); ?>
 </section>
 
 </main>
-<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/js/site1.js" defer></script>
-</body>
-</html>
-</main>
 
-<?php get_footer(); ?>
+<?php
+get_footer();

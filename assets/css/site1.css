@@ -656,7 +656,28 @@ a { color: inherit; }
   justify-content: space-between;
 }
 
+.services__title-wrap {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 60px auto 0;
+  padding: 12px 28px;
+  box-sizing: border-box;
+}
+.services__title-wrap .tick {
+  width: 14px;
+  height: 14px;
+  border-color: #c2b9ff;
+  opacity: 1;
+}
+.services__title-wrap .tick.tl { top: 0; left: 0; }
+.services__title-wrap .tick.tr { top: 0; right: 0; }
+.services__title-wrap .tick.bl { bottom: 0; left: 0; }
+.services__title-wrap .tick.br { bottom: 0; right: 0; }
+
 .services__title {
+  margin: 0;
   font-family: var(--display);
   font-weight: 500;
   font-size: 124px;
@@ -1917,11 +1938,30 @@ body::after {
   .services__bg-layer, .services__shade {
     display: none !important;
   }
+  .services__title-wrap {
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 auto 32px !important;
+    padding: 8px 16px !important;
+    position: relative !important;
+  }
+  .services__title-wrap .tick {
+    width: 14px !important;
+    height: 14px !important;
+    border-color: #c2b9ff !important;
+    opacity: 1 !important;
+  }
+  .services__title-wrap .tick.tl { top: 0 !important; left: 0 !important; }
+  .services__title-wrap .tick.tr { top: 0 !important; right: 0 !important; }
+  .services__title-wrap .tick.bl { bottom: 0 !important; left: 0 !important; }
+  .services__title-wrap .tick.br { bottom: 0 !important; right: 0 !important; }
+
   .services__title {
     font-size: clamp(48px, 14vw, 63px) !important;
     letter-spacing: -3px !important;
     line-height: 60px !important;
-    margin: 0 0 32px !important;
+    margin: 0 !important;
   }
   .services__interactive-grid {
     display: flex !important;
@@ -1944,8 +1984,7 @@ body::after {
     position: relative !important;
     width: 100% !important;
     height: 209px !important;
-    border: 1px solid rgba(194, 185, 255, 0.25) !important;
-    border-bottom: 0 !important;
+    border: none !important;
     overflow: hidden !important;
     box-sizing: border-box !important;
   }
@@ -1956,8 +1995,7 @@ body::after {
     display: block !important;
   }
   .svc-col__media .tick {
-    border-color: #c2b9ff !important;
-    opacity: 1 !important;
+    display: none !important;
   }
   .svc-card {
     display: flex !important;
@@ -1965,19 +2003,25 @@ body::after {
     justify-content: flex-start !important;
     position: relative !important;
     width: 100% !important;
-    min-height: 213px !important;
+    min-height: auto !important;
     padding: 28px 24px 24px !important;
     background: rgba(38, 37, 72, 0.44) !important;
     backdrop-filter: blur(14px) !important;
     -webkit-backdrop-filter: blur(14px) !important;
-    border: 1px solid rgba(194, 185, 255, 0.25) !important;
+    border: none !important;
     box-shadow: 0 20px 60px rgba(10, 6, 30, 0.5) !important;
     box-sizing: border-box !important;
   }
-  .svc-card .tick {
+  .svc-card > .tick {
+    width: 18px !important;
+    height: 18px !important;
     border-color: #c2b9ff !important;
     opacity: 1 !important;
   }
+  .svc-card > .tick.tl { top: 0 !important; left: 0 !important; }
+  .svc-card > .tick.tr { top: 0 !important; right: 0 !important; }
+  .svc-card > .tick.bl { bottom: 0 !important; left: 0 !important; }
+  .svc-card > .tick.br { bottom: 0 !important; right: 0 !important; }
   .svc-card__btn {
     display: flex !important;
     position: absolute !important;
