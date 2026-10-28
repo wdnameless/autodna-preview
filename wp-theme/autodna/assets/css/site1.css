@@ -952,7 +952,7 @@ a { color: inherit; }
   position: relative;
   width: 100%;
   min-height: 980px;
-  background: #020202 url("../img/site1/community-bg.svg") center top / 1440px auto no-repeat;
+  background: #020202 url("../img/site1/community-bg.svg") center bottom / 100% 100% no-repeat;
   padding: 60px 0 30px;
   overflow: hidden;
 }
@@ -1069,10 +1069,12 @@ a { color: inherit; }
 
 .foot__box {
   position: relative;
-  width: 1370px;
+  width: 100%;
+  max-width: 1370px;
   margin: 0 auto;
   padding: 35px 20px 20px;
   min-height: 176px;
+  box-sizing: border-box;
 }
 
 .foot__ticks {
