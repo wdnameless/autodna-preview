@@ -1738,6 +1738,15 @@ body::after {
   /* 3. VALUE */
   .value {
     padding: 50px 13px 70px !important;
+    text-align: center !important;
+  }
+  .value > * {
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box !important;
   }
   .value__title {
     display: flex !important;
@@ -1752,6 +1761,7 @@ body::after {
     text-align: center !important;
     max-width: 367px !important;
     margin: 0 auto !important;
+    padding: 0 !important;
     color: #ffffff !important;
   }
   .value__title span {
@@ -1770,28 +1780,39 @@ body::after {
     max-width: 1px !important;
     height: 59px !important;
     background: #c2b9ff !important;
-    margin: 24px auto 32px !important;
+    margin: 24px auto 28px !important;
     padding: 0 !important;
     border: 0 !important;
     opacity: 0.8;
+    align-self: center !important;
   }
   .value__fan { display: none !important; }
   .value__grid {
     display: flex !important;
     flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
     gap: 0 !important;
+    width: 100% !important;
     max-width: 367px !important;
     margin: 0 auto !important;
+    padding: 0 !important;
     text-align: center !important;
+    box-sizing: border-box !important;
   }
   .value__item {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
+    justify-content: center !important;
     width: 100% !important;
+    max-width: 100% !important;
     margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
   }
   .value__item h3 {
+    width: 100% !important;
     font-family: 'Helvetica Neue', sans-serif !important;
     font-size: 24px !important;
     font-weight: 300 !important;
@@ -1804,6 +1825,10 @@ body::after {
     text-align: center !important;
   }
   .value__item p {
+    width: 100% !important;
+    max-width: 320px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
     font-family: 'Helvetica Neue', sans-serif !important;
     font-size: 19px !important;
     font-weight: 300 !important;
@@ -1811,8 +1836,8 @@ body::after {
     line-height: 21px !important;
     color: #ffffff !important;
     text-align: center !important;
-    margin: 0 !important;
-    max-width: 320px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
   }
   .value__v-line {
     display: block !important;
@@ -1820,10 +1845,11 @@ body::after {
     max-width: 1px !important;
     height: 31px !important;
     background: #c2b9ff !important;
-    margin: 24px auto 0 !important;
+    margin: 24px auto 24px !important;
     padding: 0 !important;
     border: 0 !important;
     opacity: 0.8;
+    align-self: center !important;
   }
 
   /* 4. PRICE COMPARISON */
