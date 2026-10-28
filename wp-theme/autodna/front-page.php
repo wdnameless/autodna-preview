@@ -267,37 +267,70 @@ get_header(); ?>
   <p class="corporate__plan">Over the next two years, we plan to create a complete automotive hub for car enthusiasts, offering all kinds of services and entertainment for our clients.</p>
 </section>
 
-<!-- ══ 8. CLUB 6630–7580 ═════════════════════════════════════════════════ -->
+<!-- ══ 8. CLUB ═════════════════════════════════════════════════════════ -->
 <section class="club" id="club" aria-label="DNA Auto Club">
-  <p class="club__lede">Join DNA Auto Club and get more than just service.</p>
-  <h2 class="club__title">Auto Club</h2>
+  <div class="club__stage">
+    <p class="club__lede">
+      <span class="club__lede-row"><span>JOIN</span><span>DNA</span></span>
+      <span class="club__lede-row"><span>AUTO</span><span>CLUB</span></span>
+      <span class="club__lede-row"><span>AND</span><span>GET</span></span>
+      <span class="club__lede-row"><span>MORE</span><span>THAN</span></span>
+      <span class="club__lede-row"><span>JUST</span></span>
+      <span class="club__lede-row"><span>SERVICE.</span></span>
+    </p>
+    <h2 class="club__title">AUTO CLUB</h2>
+  </div>
+
   <div class="club__grid">
     <article class="club-card ticks">
       <span class="tick tl"></span><span class="tick tr"></span>
       <span class="tick bl"></span><span class="tick br"></span>
-      <h3>Service</h3><p class="club-card__big">30%</p><p class="club-card__mid">off any work.</p>
-      <p>The lowest prices in Calgary for bodywork, mechanics, and painting.</p>
+      <h3>SERVICE</h3>
+      <div class="club-card__offer">
+        <p class="club-card__big">30%</p>
+        <p class="club-card__mid">OFF ANY WORK.</p>
+      </div>
+      <p class="club-card__desc">The lowest prices in Calgary for bodywork, mechanics, and painting.</p>
     </article>
+
     <article class="club-card ticks">
       <span class="tick tl"></span><span class="tick tr"></span>
       <span class="tick bl"></span><span class="tick br"></span>
-      <h3>Carwash</h3><p class="club-card__mid">every second wash</p><p class="club-card__big">is free</p>
-      <p>Modern automatic carwash that preserves your car’s coating.</p>
+      <h3>CARWASH</h3>
+      <div class="club-card__offer">
+        <p class="club-card__mid">EVERY<br>SECOND WASH</p>
+        <p class="club-card__big">IS FREE</p>
+      </div>
+      <p class="club-card__desc">Modern automatic carwash that preserves your car’s coating.</p>
     </article>
+
     <article class="club-card ticks">
       <span class="tick tl"></span><span class="tick tr"></span>
       <span class="tick bl"></span><span class="tick br"></span>
-      <h3>Wheel Alignment</h3><p class="club-card__big">$70</p><p class="club-card__mid">market price $150</p>
-      <p>State-of-the-art equipment with automatic adjustment.</p>
+      <h3>WHEEL<br>ALIGNMENT</h3>
+      <div class="club-card__offer">
+        <p class="club-card__big">$70</p>
+        <p class="club-card__mid">MARKET PRICE<br>$150</p>
+      </div>
+      <p class="club-card__desc">State-of-the-art equipment with automatic adjustment.</p>
     </article>
+
     <article class="club-card ticks">
       <span class="tick tl"></span><span class="tick tr"></span>
       <span class="tick bl"></span><span class="tick br"></span>
-      <h3>Tire Change</h3><p class="club-card__big">$60</p><p class="club-card__mid">market price - $120</p>
-      <p>Any wheel repair, seasonal tire replacement, and free tire storage.</p>
+      <h3>TIRE CHANGE</h3>
+      <div class="club-card__offer">
+        <p class="club-card__big">$60</p>
+        <p class="club-card__mid">MARKET PRICE<br>- $120</p>
+      </div>
+      <p class="club-card__desc">Any wheel repair, seasonal tire replacement, and free tire storage.</p>
     </article>
   </div>
-  <p class="club__out">Real benefits, real savings — made for drivers like you.</p>
+
+  <p class="club__out">
+    <span>REAL BENEFITS, REAL SAVINGS —</span>
+    <span>MADE FOR DRIVERS LIKE YOU.</span>
+  </p>
 </section>
 
 <!-- ══ 9. COMMUNITY 7580–8240 ════════════════════════════════════════════ -->

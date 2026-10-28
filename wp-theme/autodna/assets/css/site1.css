@@ -794,29 +794,158 @@ a { color: inherit; }
 .corporate__plan { position: relative; width: 759px; margin: 17px auto 0; font-size: 40px; font-weight: 300; letter-spacing: -0.8px; text-transform: uppercase; line-height: 0.93; text-align: justify; color: #c2b9ff; }
 
 /* ══ 8. CLUB ═════════════════════════════════════════════════════════════ */
-.club { padding: 30px 0 90px; }
-.club > * { max-width: 1440px; margin-left: auto; margin-right: auto; padding-left: 40px; padding-right: 40px; }
-.club__lede { font-size: 40px; font-weight: 300; letter-spacing: -0.8px; line-height: 0.93; text-transform: uppercase; text-align: justify; color: #c2b9ff; max-width: 335px; margin: 0; }
+.club {
+  position: relative;
+  padding: 60px 0 100px;
+  background: #020202 url("../img/site1/club-bg.svg") center top / 1440px auto no-repeat;
+}
+.club > * {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 26px;
+  padding-right: 26px;
+}
+.club__stage {
+  position: relative;
+  height: 250px;
+  margin-bottom: 0;
+}
+.club__lede {
+  position: absolute;
+  left: 24px;
+  top: 0;
+  width: 335px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  letter-spacing: -0.8px;
+  line-height: 37.2px;
+  text-transform: uppercase;
+  color: #c2b9ff;
+  margin: 0;
+}
+.club__lede span {
+  display: flex;
+  justify-content: space-between;
+}
 .club__title {
-  font-family: var(--display); font-weight: 500;
-  font-size: 124px; letter-spacing: -6.2px; line-height: 0.88;
-  text-transform: uppercase; text-align: center; white-space: nowrap; color: #f7f7f7; margin: 10px auto 50px;
-  text-shadow: 0 0 90px rgba(150, 133, 255, 0.6);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 12px;
+  z-index: 1;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 124px;
+  letter-spacing: -6.2px;
+  line-height: 109px;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  color: #f7f7f7;
+  text-shadow: 0 0 90px rgba(150, 133, 255, 0.85), 0 0 40px rgba(150, 133, 255, 0.5);
+  margin: 0;
+  pointer-events: none;
 }
-.club__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.club__lede-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.club__grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, 335px);
+  gap: 16px;
+  justify-content: center;
+}
 .club-card {
-  border: 1px solid rgba(194, 185, 255, 0.3);
-  background: linear-gradient(160deg, rgba(50,45,100,.55), #121121 55%);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 20px 50px rgba(10,8,30,.5);
-  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-  padding: 26px 22px 30px;
+  position: relative;
+  width: 335px;
+  height: 477px;
+  background: rgba(26, 21, 58, 0.45);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(194, 185, 255, 0.28);
+  box-shadow: 0 20px 60px rgba(10, 6, 30, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  padding: 38px 26px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
-.club-card h3 { font-size: 40px; font-weight: 300; letter-spacing: -0.8px; text-transform: uppercase; color: #fff; min-height: 0; margin: 0 0 10px; line-height: 0.93; }
-.club-card__big { font-family: var(--display); font-weight: 500; font-size: 64px; letter-spacing: -0.05em; text-transform: uppercase; margin: 12px 0 0; }
-.club-card__mid { font-family: var(--display); font-weight: 500; font-size: 32px; letter-spacing: -0.05em; text-transform: uppercase; color: var(--violet-soft); margin: 4px 0 12px; }
-
-.club-card p:last-child { font-size: 18px; line-height: 1.45; }
-.club__out { text-align: justify; margin: 36px 0 0 auto; font-size: 40px; font-weight: 300; letter-spacing: -0.8px; line-height: 0.93; text-transform: uppercase; color: #c2b9ff; max-width: 677px; }
+.club-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(194, 185, 255, 0.45);
+  box-shadow: 0 25px 70px rgba(150, 133, 255, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+.club-card .tick {
+  width: 18px;
+  height: 18px;
+  border-color: #c2b9ff;
+}
+.club-card h3 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  letter-spacing: -0.8px;
+  line-height: 37px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+  min-height: 74px;
+}
+.club-card__offer {
+  margin: auto 0;
+}
+.club-card__big {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 64px;
+  letter-spacing: -3.2px;
+  line-height: 56px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+}
+.club-card__mid {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 32px;
+  letter-spacing: -1.6px;
+  line-height: 32px;
+  text-transform: uppercase;
+  color: #9685ff;
+  margin: 8px 0 0;
+}
+.club-card__desc {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  letter-spacing: -0.36px;
+  line-height: 20px;
+  color: #a29cc8;
+  margin: 0;
+}
+.club__out {
+  display: block;
+  max-width: 1390px;
+  margin: 36px auto 0;
+  text-align: right;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  letter-spacing: -0.8px;
+  line-height: 37px;
+  text-transform: uppercase;
+  color: #c2b9ff;
+}
+.club__out span {
+  display: block;
+}
 
 /* ══ 9. COMMUNITY ═════════════════════════════════════════════════════════ */
 .community {
@@ -874,7 +1003,6 @@ a { color: inherit; }
 .carlears { background-color: #020202; position: relative; }
 .value { background: radial-gradient(700px 420px at 50% 45%, rgba(157,150,207,.16), transparent 70%), #020202; }
 .corporate { background: radial-gradient(1100px 700px at 50% 40%, rgba(60,50,130,.35), transparent 70%), #020202; }
-.club { background: radial-gradient(800px 500px at 12% 60%, rgba(90,80,160,.25), transparent 60%), radial-gradient(800px 500px at 88% 60%, rgba(90,80,160,.25), transparent 60%), #020202; }
 .community { background: radial-gradient(700px 480px at 72% 42%, rgba(117,96,191,.38), rgba(20,17,38,.6) 55%, #020202 85%), #020202; }
 
 /* film grain: 3% luminance noise, kills banding, adds premium texture */

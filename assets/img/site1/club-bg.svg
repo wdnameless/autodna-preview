@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 6550 1440 1000" preserveAspectRatio="none">
+<defs>
+<linearGradient id="paint14_linear_464_3249" x1="813.067" y1="6602.29" x2="813.067" y2="6867.11" gradientUnits="userSpaceOnUse">
+<stop offset="0.173077" stop-color="#9685FF"/>
+<stop offset="1" stop-color="#4F4493"/>
+</linearGradient>
+<filter id="filter0_f_464_3249" x="-560.715" y="6506.29" width="2747.56" height="456.821" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="48" result="effect1_foregroundBlur_464_3249"/>
+</filter>
+<filter id="filter5_f_464_3249" x="143.231" y="6752.92" width="1150.8" height="347.023" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="25.15" result="effect1_foregroundBlur_464_3249"/>
+</filter>
+</defs>
+<rect x="0" y="6550" width="1440" height="1000" fill="#020202"/>
+<g filter="url(#filter0_f_464_3249)">
+  <path d="M2090.85 6734.7C2090.85 6807.83 1518.77 6867.11 813.067 6867.11C107.368 6867.11 -464.715 6807.83 -464.715 6734.7C-464.715 6661.58 107.368 6602.29 813.067 6602.29C1518.77 6602.29 2090.85 6661.58 2090.85 6734.7Z" stroke-width="4" stroke="url(#paint14_linear_464_3249)" stroke-opacity="0.5" fill="#433694" fill-opacity="0.25"/>
+</g>
+<g id="Group_3" filter="url(#filter5_f_464_3249)">
+<g id="Group_4">
+<path id="Vector_20" d="M827.489 6803.62V7023.9C827.489 7034.17 818.818 7039.33 813.755 7032.06L653.867 6803.62H523.621L480.031 6866.32V6928.11L523.485 6989.3H566.319L567.677 6859.55C567.774 6850.83 575.126 6846.56 579.432 6852.72L716.39 7049.2H873.562L914.223 6990.89V6803.64H827.528L827.489 6803.62Z" fill="#433694"/>
+<path id="Vector_21" d="M1007.38 7049.64L1144.33 6851.33C1148.64 6845.33 1155.99 6849.5 1156.09 6857.98L1157.45 7049.62H1243.73V6864.57L1199.76 6803.24H1069.51L896.703 7049.62H1007.39L1007.38 7049.64Z" fill="#433694"/>
+<path id="Vector_22" d="M367.774 6803.22H237.548L193.531 6864.57V7003.32C212.407 7016.73 228.896 7034.54 244.706 7049.62H470.667C482.733 7032.6 495.886 7017.34 507.487 7002.41L367.794 6803.22H367.774ZM284.668 6989.52C282.224 6989.52 280.245 6987.47 280.265 6984.93L281.157 6857.98C281.274 6849.54 288.606 6845.33 292.932 6851.34L383.429 6982.31C385.524 6985.33 383.429 6989.54 379.86 6989.54H284.668V6989.52Z" fill="#433694"/>
+</g>
+</g>
+</svg>
