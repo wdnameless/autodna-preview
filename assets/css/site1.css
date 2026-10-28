@@ -421,7 +421,7 @@ a { color: inherit; }
 .value > * { max-width: 1440px; margin-left: auto; margin-right: auto; padding-left: 40px; padding-right: 40px; }
 .value__title { font-size: 40px; font-weight: 300; letter-spacing: -0.8px; text-transform: uppercase; line-height: 0.93; color: #e1d9ff; text-align: center; max-width: 559px; margin: 0 auto; }
 .value__title em { font-style: normal; color: var(--violet); }
-.carlears__nav, .value__title-v-line, .value__v-line { display: none; }
+.carlears__nav, .value__title-v-line, .value__v-line, .svc-col__media, .svc-card__btn { display: none; }
 .value__fan { width: 100%; height: 283px; margin: 20px 0 0; }
 .value__fan path { stroke: url(#fanStroke); stroke-width: 1; fill: none; }
 .value__grid { display: grid; grid-template-columns: 224px 209px 219px 219px 223px; gap: 40px; text-align: center; justify-content: center; }
@@ -1882,22 +1882,25 @@ body::after {
     white-space: nowrap;
   }
 
-  /* 5. SERVICES */
+  /* 5. SERVICES (3 stacked cards per Frame 1792) */
   .services {
     height: auto !important;
     min-height: 0 !important;
     padding: 60px 13px 70px !important;
   }
+  .services__bg-layer, .services__shade {
+    display: none !important;
+  }
   .services__title {
     font-size: clamp(48px, 14vw, 63px) !important;
     letter-spacing: -3px !important;
     line-height: 60px !important;
-    margin: 0 0 30px !important;
+    margin: 0 0 32px !important;
   }
   .services__interactive-grid {
     display: flex !important;
     flex-direction: column !important;
-    gap: 16px !important;
+    gap: 32px !important;
     padding: 0 !important;
     width: 100% !important;
     max-width: 367px !important;
@@ -1906,27 +1909,102 @@ body::after {
   .svc-col {
     width: 100% !important;
     min-height: 0 !important;
+    cursor: default !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .svc-col__media {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    height: 209px !important;
+    border: 1px solid rgba(194, 185, 255, 0.25) !important;
+    border-bottom: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+  .svc-col__media img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+  .svc-col__media .tick {
+    border-color: #c2b9ff !important;
+    opacity: 1 !important;
   }
   .svc-card {
-    min-height: 0 !important;
-    padding: 24px 20px !important;
-    background: rgba(38, 37, 72, 0.55) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    position: relative !important;
+    width: 100% !important;
+    min-height: 213px !important;
+    padding: 28px 24px 24px !important;
+    background: rgba(38, 37, 72, 0.44) !important;
     backdrop-filter: blur(14px) !important;
-    border: 1px solid rgba(194, 185, 255, 0.22) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    border: 1px solid rgba(194, 185, 255, 0.25) !important;
+    box-shadow: 0 20px 60px rgba(10, 6, 30, 0.5) !important;
+    box-sizing: border-box !important;
+  }
+  .svc-card .tick {
+    border-color: #c2b9ff !important;
+    opacity: 1 !important;
+  }
+  .svc-card__btn {
+    display: flex !important;
+    position: absolute !important;
+    right: 20px !important;
+    top: 20px !important;
+    width: 50px !important;
+    height: 50px !important;
+    background: rgba(38, 37, 72, 0.44) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(194, 185, 255, 0.35) !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+  .svc-card__btn .tick {
+    width: 14px !important;
+    height: 14px !important;
+    border-color: #c2b9ff !important;
+    opacity: 1 !important;
+  }
+  .svc-card__btn svg {
+    width: 14px !important;
+    height: 14px !important;
+    display: block !important;
   }
   .svc-col__name {
-    font-size: 28px !important;
-    line-height: 30px !important;
+    font-family: 'Helvetica Neue', sans-serif !important;
+    font-weight: 300 !important;
+    font-size: 30px !important;
+    letter-spacing: -0.6px !important;
+    line-height: 28px !important;
+    color: #c2b9ff !important;
+    margin: 0 !important;
     white-space: normal !important;
+    max-width: 250px !important;
   }
   .svc-col__desc {
+    font-family: 'Helvetica Neue', sans-serif !important;
+    font-weight: 300 !important;
     font-size: 15px !important;
-    line-height: 1.4 !important;
+    letter-spacing: -0.3px !important;
+    line-height: 18px !important;
+    color: #ffffff !important;
+    margin: 18px 0 0 !important;
     opacity: 1 !important;
     max-height: none !important;
     transform: none !important;
-    margin-top: 10px !important;
     display: block !important;
+    background: linear-gradient(180deg, #ffffff 0%, #c2b9ff 60%, #8a86c9 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
   }
 
   /* 6. FACTS */
