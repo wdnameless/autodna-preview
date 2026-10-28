@@ -30,10 +30,10 @@
     });
   }
 
-  // Interactive 4 Steps in HOW IT WORKS section
+  // Interactive 4 Steps in HOW IT WORKS section (Figma Screenshot 2)
   function initHowItWorks() {
     const tabs = document.querySelectorAll('.hiw-tab');
-    const steps = document.querySelectorAll('.hiw-step-card');
+    const steps = document.querySelectorAll('.hiw-step-view');
     if (!tabs.length || !steps.length) return;
 
     function activateStep(stepNum) {
@@ -42,9 +42,9 @@
         tab.classList.toggle('is-active', isActive);
         tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
       }
-      for (const card of steps) {
-        const isActive = card.getAttribute('data-step') === stepNum;
-        card.classList.toggle('is-active', isActive);
+      for (const view of steps) {
+        const isActive = view.getAttribute('data-step') === stepNum;
+        view.classList.toggle('is-active', isActive);
       }
     }
 

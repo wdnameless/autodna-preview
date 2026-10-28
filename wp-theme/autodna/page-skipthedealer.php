@@ -91,33 +91,30 @@ get_header(); ?>
   </div>
 </section>
 
-<!-- ══ 3. HOW IT WORKS (Interactive 4 Steps Component 464:5152) ═══════════ -->
+<!-- ══ 3. HOW IT WORKS (Figma Screenshot 2 / Component 464:5152) ═══════ -->
 <section class="dealer-how" id="how-it-works" aria-label="How it works">
-  <img class="dealer-how__glow" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/how-it-works-glow.svg" alt="" aria-hidden="true">
+  <div class="dealer-how__glow-bloom" aria-hidden="true"></div>
 
   <div class="dealer-how__container">
     <div class="dealer-how__header">
-      <div class="dealer-how__title-wrap">
-        <span class="dealer-how__word">HOW IT</span>
-        <svg class="dealer-how__wire-circuit" viewBox="0 0 250 40" preserveAspectRatio="none" aria-hidden="true">
+      <div class="dealer-how__title-circuit">
+        <span class="dealer-how__title-word">HOW IT</span>
+        <svg class="dealer-how__title-wire" viewBox="0 0 250 40" preserveAspectRatio="none" aria-hidden="true">
           <path d="M0 20H100L130 0H250" stroke="#C2B9FF" stroke-width="1" fill="none"/>
         </svg>
-        <span class="dealer-how__word">WORKS</span>
+        <span class="dealer-how__title-word">WORKS</span>
       </div>
 
-      <!-- 4 Interactive Tabs -->
+      <!-- 4 Interactive Tabs on horizontal hairline -->
       <div class="dealer-how__tabs-bar">
-        <svg class="dealer-how__tabs-wire" viewBox="0 0 1025 1" preserveAspectRatio="none" aria-hidden="true">
-          <line x1="0" y1="0.5" x2="1025" y2="0.5" stroke="#C2B9FF" stroke-width="1"/>
-        </svg>
-
+        <div class="dealer-how__tabs-wire" aria-hidden="true"></div>
         <div class="dealer-how__tabs" role="tablist" aria-label="Steps">
-          <button class="hiw-tab ticks is-active" data-step="1" role="tab" aria-selected="true">
+          <button class="hiw-tab ticks" data-step="1" role="tab" aria-selected="false">
             <span class="tick tl"></span><span class="tick tr"></span>
             <span class="tick bl"></span><span class="tick br"></span>
             <span>STEP 1</span>
           </button>
-          <button class="hiw-tab ticks" data-step="2" role="tab" aria-selected="false">
+          <button class="hiw-tab ticks is-active" data-step="2" role="tab" aria-selected="true">
             <span class="tick tl"></span><span class="tick tr"></span>
             <span class="tick bl"></span><span class="tick br"></span>
             <span>STEP 2</span>
@@ -136,194 +133,143 @@ get_header(); ?>
       </div>
     </div>
 
-    <!-- Interactive Step Cards Stage -->
-    <div class="dealer-how__stage">
-      <!-- Step 1 Card -->
-      <div class="hiw-step-card ticks is-active" data-step="1">
-        <span class="tick tl"></span><span class="tick tr"></span>
-        <span class="tick bl"></span><span class="tick br"></span>
-        <h3 class="hiw-card-title">STEP 1.<br>INTRODUCTION &amp; CAR SELECTION</h3>
-        <p class="hiw-lead">You tell us about your dream car — make, model, year, body type, features, and budget. At this stage, you immediately receive an approximate financial overview:</p>
+    <!-- Active Step Content (Centered in purple glow) -->
+    <div class="dealer-how__content-stage">
+      <!-- Step 1 -->
+      <div class="hiw-step-view" data-step="1">
+        <h3 class="hiw-step-view__title">STEP 1.<br>INTRODUCTION &amp; CAR SELECTION</h3>
+        <p class="hiw-step-view__sub">You tell us about your dream car — make, model, year, body type, features, and budget:</p>
 
-        <div class="hiw-items-grid">
-          <div class="hiw-item ticks">
-            <span class="tick tl"></span><span class="tick tr"></span>
-            <span class="tick bl"></span><span class="tick br"></span>
+        <div class="hiw-step-view__grid hiw-step-view__grid--4">
+          <div class="hiw-col">
             <p><strong>Approximate purchase price at auction</strong> — Estimated cost to buy the car at auction.</p>
           </div>
-          <div class="hiw-item ticks">
-            <span class="tick tl"></span><span class="tick tr"></span>
-            <span class="tick bl"></span><span class="tick br"></span>
-            <p><strong>Repair costs</strong> (if the car has any damage) — Expected expenses to fix any damages.</p>
+          <div class="hiw-col">
+            <p><strong>Repair costs</strong> (if any) — Expected expenses to fix any damages.</p>
           </div>
-          <div class="hiw-item ticks">
-            <span class="tick tl"></span><span class="tick tr"></span>
-            <span class="tick bl"></span><span class="tick br"></span>
+          <div class="hiw-col">
             <p><strong>Additional expenses</strong> — Extra costs for inspections, diagnostics, registration, and fees.</p>
           </div>
-          <div class="hiw-item ticks">
-            <span class="tick tl"></span><span class="tick tr"></span>
-            <span class="tick bl"></span><span class="tick br"></span>
+          <div class="hiw-col">
             <p><strong>Final “turnkey” price</strong> — Total cost to have the car completely ready to drive.</p>
           </div>
         </div>
 
-        <div class="hiw-calc-callout ticks">
-          <span class="tick tl"></span><span class="tick tr"></span>
-          <span class="tick bl"></span><span class="tick br"></span>
-          <p>We always calculate the total with your expected savings in mind — your car ends up <strong>30–40% cheaper</strong> than dealer or Marketplace prices.</p>
-        </div>
-
-        <div class="hiw-example-box ticks">
-          <span class="tick tl"></span><span class="tick tr"></span>
-          <span class="tick bl"></span><span class="tick br"></span>
-          <p><strong>Example:</strong> if the market price of a car is $20,000, we typically buy it at auction for around $10,000. Then we add repair, inspection, fees, and registration costs — and the final price comes to about $14,000. As a result, you save $6,000 compared to the market.</p>
-          <ul>
-            <li>✓ How much the car itself will cost</li>
-            <li>✓ What the repair and documentation expenses will be</li>
-            <li>✓ What the total final price is</li>
-            <li>✓ And how much money you’ll actually save</li>
-          </ul>
-        </div>
+        <p class="hiw-step-view__banner">
+          WE ALWAYS CALCULATE THE TOTAL WITH YOUR EXPECTED SAVINGS IN MIND — YOUR CAR ENDS UP 30–40% CHEAPER THAN DEALER OR MARKETPLACE PRICES.
+        </p>
       </div>
 
-      <!-- Step 2 Card -->
-      <div class="hiw-step-card ticks" data-step="2">
-        <span class="tick tl"></span><span class="tick tr"></span>
-        <span class="tick bl"></span><span class="tick br"></span>
-        <h3 class="hiw-card-title">STEP 2.<br>DAILY SELECTION &amp; AUCTIONS</h3>
-        <p class="hiw-lead">Every day, we select several cars that match your requirements:</p>
+      <!-- Step 2 (Exact from user screenshot!) -->
+      <div class="hiw-step-view is-active" data-step="2">
+        <h3 class="hiw-step-view__title">STEP 2.<br>DAILY SELECTION<br>&amp; AUCTIONS</h3>
+        <p class="hiw-step-view__sub">Every day, we select several cars that match your requirements:</p>
 
-        <div class="hiw-items-grid">
-          <div class="hiw-item ticks">
-            <span class="tick tl"></span><span class="tick tr"></span>
-            <span class="tick bl"></span><span class="tick br"></span>
-            <p><strong>Daily selection</strong> — We handpick matching vehicles across licensed wholesale auctions.</p>
+        <div class="hiw-step-view__grid hiw-step-view__grid--4">
+          <div class="hiw-col">
+            <p><strong>Daily selection</strong> — We pick cars that match your requirements.</p>
           </div>
-          <div class="hiw-item ticks">
-            <span class="tick tl"></span><span class="tick tr"></span>
-            <span class="tick bl"></span><span class="tick br"></span>
-            <p><strong>Detailed analysis</strong> — You get high-res photos, CarFax history, and estimated costs for each car.</p>
+          <div class="hiw-col">
+            <p><strong>Detailed analysis</strong> — You get photos, history, and estimated costs for each car.</p>
           </div>
-          <div class="hiw-item ticks">
-            <span class="tick tl"></span><span class="tick tr"></span>
-            <span class="tick bl"></span><span class="tick br"></span>
-            <p><strong>Your confirmation</strong> — You choose which cars meet your exact expectations.</p>
+          <div class="hiw-col">
+            <p><strong>Your confirmation</strong> — You choose which cars meet your needs.</p>
           </div>
-          <div class="hiw-item ticks">
-            <span class="tick tl"></span><span class="tick tr"></span>
-            <span class="tick bl"></span><span class="tick br"></span>
-            <p><strong>Auction bidding</strong> — We place expert bids on the confirmed cars within your budget.</p>
+          <div class="hiw-col">
+            <p><strong>Auction bidding</strong> — We place bids on the selected cars.</p>
           </div>
         </div>
 
-        <div class="hiw-calc-callout ticks">
-          <span class="tick tl"></span><span class="tick tr"></span>
-          <span class="tick bl"></span><span class="tick br"></span>
-          <p>Auctions are competitive — sometimes a car is not won immediately. We keep searching and bidding until we secure the right one within your target budget.</p>
-        </div>
+        <p class="hiw-step-view__banner">
+          AUCTIONS ARE COMPETITIVE—SOMETIMES A CAR IS NOT WON IMMEDIATELY. WE KEEP SEARCHING UNTIL WE SECURE A VEHICLE WITHIN YOUR BUDGET, USUALLY WITHIN A WEEK.
+        </p>
       </div>
 
-      <!-- Step 3 Card -->
-      <div class="hiw-step-card ticks" data-step="3">
-        <span class="tick tl"></span><span class="tick tr"></span>
-        <span class="tick bl"></span><span class="tick br"></span>
-        <h3 class="hiw-card-title">STEP 3.<br>PURCHASE &amp; RESTORATION</h3>
-        <p class="hiw-lead">After winning the auction, your car is delivered to our service center for a full restoration:</p>
+      <!-- Step 3 (Exact from user screenshot!) -->
+      <div class="hiw-step-view" data-step="3">
+        <h3 class="hiw-step-view__title">STEP 3.<br>PURCHASE &amp; RESTORATION</h3>
+        <p class="hiw-step-view__sub">After winning the auction, your car is delivered to our service center for a full inspection:</p>
 
-        <div class="hiw-items-grid" style="grid-template-columns: repeat(2, 1fr);">
-          <div class="hiw-item ticks" style="padding: 30px;">
-            <span class="tick tl"></span><span class="tick tr"></span>
-            <span class="tick bl"></span><span class="tick br"></span>
-            <h4 style="font-size: 22px; color: #c2b9ff; margin-bottom: 12px; font-weight: 300;">If the car is intact →</h4>
-            <p style="font-size: 18px; line-height: 24px;">We perform a complete mechanical check, full fluid maintenance, and fix all technical issues.</p>
+        <div class="hiw-step-view__grid hiw-step-view__grid--2">
+          <div class="hiw-col">
+            <p><strong>If the car is intact →</strong><br>we perform a complete check and fix all technical issues.</p>
           </div>
-          <div class="hiw-item ticks" style="padding: 30px;">
-            <span class="tick tl"></span><span class="tick tr"></span>
-            <span class="tick bl"></span><span class="tick br"></span>
-            <h4 style="font-size: 22px; color: #c2b9ff; margin-bottom: 12px; font-weight: 300;">If damaged (collision, hail, cosmetic) →</h4>
-            <p style="font-size: 18px; line-height: 24px;">We do certified bodywork, laser geometry alignment, OEM painting, and full restoration in our dedicated shop.</p>
+          <div class="hiw-col">
+            <p><strong>If damaged (collision, hail, cosmetic) →</strong><br>we do bodywork, painting, and full repairs.</p>
           </div>
         </div>
 
-        <div class="hiw-calc-callout ticks" style="text-align: center;">
-          <span class="tick tl"></span><span class="tick tr"></span>
-          <span class="tick bl"></span><span class="tick br"></span>
-          <p style="font-size: 24px; color: #ffffff;">The result: a car in perfect condition.</p>
-        </div>
+        <p class="hiw-step-view__banner">
+          THE RESULT: A CAR IN PERFECT CONDITION.
+        </p>
       </div>
 
-      <!-- Step 4 Card -->
-      <div class="hiw-step-card ticks" data-step="4">
-        <span class="tick tl"></span><span class="tick tr"></span>
-        <span class="tick bl"></span><span class="tick br"></span>
-        <h3 class="hiw-card-title">STEP 4.<br>INSPECTION &amp; DOCUMENTS</h3>
-        <p class="hiw-lead">We take care of all paperwork, regulatory approvals, and insurance certification:</p>
+      <!-- Step 4 -->
+      <div class="hiw-step-view" data-step="4">
+        <h3 class="hiw-step-view__title">STEP 4.<br>INSPECTION &amp; DOCUMENTS</h3>
+        <p class="hiw-step-view__sub">In all cases, you receive official documents confirming the car’s safety and full compliance:</p>
 
-        <div class="hiw-items-grid" style="grid-template-columns: repeat(2, 1fr);">
-          <div class="hiw-item ticks" style="padding: 30px;">
-            <span class="tick tl"></span><span class="tick tr"></span>
-            <span class="tick bl"></span><span class="tick br"></span>
-            <h4 style="font-size: 22px; color: #c2b9ff; margin-bottom: 12px; font-weight: 300;">If the car is clean (active status) →</h4>
-            <p style="font-size: 18px; line-height: 24px;">You can register it immediately with clean Canadian title.</p>
+        <div class="hiw-step-view__grid hiw-step-view__grid--2">
+          <div class="hiw-col">
+            <p><strong>If the car is clean (active status) →</strong><br>you can register it immediately.</p>
           </div>
-          <div class="hiw-item ticks" style="padding: 30px;">
-            <span class="tick tl"></span><span class="tick tr"></span>
-            <span class="tick bl"></span><span class="tick br"></span>
-            <h4 style="font-size: 22px; color: #c2b9ff; margin-bottom: 12px; font-weight: 300;">If the car has salvage status →</h4>
-            <p style="font-size: 18px; line-height: 24px;">It undergoes a rigorous AMVIC inspection and receives official certified rebuilt status.</p>
+          <div class="hiw-col">
+            <p><strong>If the car has salvage status →</strong><br>it undergoes an AMVIC inspection and gets rebuilt status.</p>
           </div>
         </div>
 
-        <div class="hiw-calc-callout ticks" style="text-align: center;">
-          <span class="tick tl"></span><span class="tick tr"></span>
-          <span class="tick bl"></span><span class="tick br"></span>
-          <p style="font-size: 20px; color: #ffffff;">In all cases, you receive official documents confirming the car’s safety and full compliance with Canadian standards.</p>
-        </div>
+        <p class="hiw-step-view__banner">
+          IN ALL CASES, YOU RECEIVE OFFICIAL DOCUMENTS CONFIRMING THE CAR’S SAFETY AND FULL COMPLIANCE WITH CANADIAN STANDARDS.
+        </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ 4. REAL SAVINGS TABLE ═══════════════════════════════════════════════ -->
-<section class="dealer-savings" aria-label="Real savings table">
+<!-- ══ 4. REAL SAVINGS ON EVERY CAR (Figma Screenshot 1) ═══════════════ -->
+<section class="dealer-savings" id="real-savings" aria-label="Real savings table">
   <div class="dealer-savings__container">
-    <div class="dealer-savings__banner ticks">
-      <span class="tick tl"></span><span class="tick tr"></span>
-      <span class="tick bl"></span><span class="tick br"></span>
-      <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/dealer-savings-cars.jpg" alt="SkipTheDealer cars savings">
+    <div class="dealer-savings__stage">
+      <!-- 3 Cars background banner -->
+      <div class="dealer-savings__cars">
+        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/dealer-savings-cars-exact.jpg" alt="Honda Civic, VW Tiguan, Hyundai Elantra" loading="lazy">
+      </div>
+
+      <!-- Title is part of the exact Figma board art; keep accessible sr-only for SEO -->
+      <h2 class="sr-only">Real Savings on Every Car</h2>
     </div>
 
-    <h2 class="dealer-savings__title">REAL SAVINGS ON EVERY CAR</h2>
-
-    <div class="dealer-savings__wrap">
+    <!-- Table matching Screenshot 1 -->
+    <div class="dealer-savings__wrap ticks">
+      <span class="tick tl"></span><span class="tick tr"></span>
+      <span class="tick bl"></span><span class="tick br"></span>
       <table class="dealer-savings__table">
         <thead>
           <tr>
             <th>Car (Year &amp; Model)</th>
             <th>Dealer Price</th>
             <th>SkipTheDealer Price</th>
-            <th>You Save</th>
+            <th class="th-save">You Save</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th>2019 Honda Civic</th>
+            <th>2019 HONDA CIVIC</th>
             <td>$18,900</td>
             <td>$13,200</td>
-            <td class="dealer-savings__save-val">$5,700</td>
+            <td class="td-save td-save--1">$5,700</td>
           </tr>
           <tr>
-            <th>2020 VW Tiguan</th>
+            <th>2020 VW TIGUAN</th>
             <td>$26,500</td>
-            <td>$21,700</td>
-            <td class="dealer-savings__save-val">$4,800</td>
+            <td>$18,900</td>
+            <td class="td-save td-save--2">$7,600</td>
           </tr>
           <tr>
-            <th>2021 Hyundai Elantra</th>
-            <td>$18,900</td>
+            <th>2021 HYUNDAI ELANTRA</th>
+            <td>$21,700</td>
             <td>$15,200</td>
-            <td class="dealer-savings__save-val">$3,700</td>
+            <td class="td-save td-save--3 is-lit">$6,500</td>
           </tr>
         </tbody>
       </table>

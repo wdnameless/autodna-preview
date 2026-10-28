@@ -5,6 +5,11 @@
   text-shadow: 0 0 20px rgba(150, 133, 255, 0.75), 0 0 40px rgba(150, 133, 255, 0.45);
 }
 
+.neon-lavender {
+  color: #c2b9ff !important;
+  text-shadow: 0 0 30px rgba(194, 185, 255, 0.7);
+}
+
 /* 1. HERO */
 .dealer-hero {
   position: relative;
@@ -53,7 +58,7 @@
   display: none;
 }
 
-/* 2. SCENARIOS */
+/* 2. SCENARIOS (Seamless black blend from hero) */
 .dealer-scenarios {
   position: relative;
   padding: 100px 0 120px;
@@ -182,24 +187,30 @@
   text-shadow: 0 0 50px rgba(150, 133, 255, 0.5);
 }
 
-/* 3. HOW IT WORKS (INTERACTIVE TABS) */
+/* ══ 3. HOW IT WORKS (Figma Screenshot 2 / Component 464:5152) ═══════════ */
 .dealer-how {
   position: relative;
-  padding: 80px 0 120px;
+  width: 100%;
+  min-height: 1050px;
   background-color: #020202;
   overflow: hidden;
+  padding: 100px 0 140px;
+  box-sizing: border-box;
   text-align: center;
 }
 
-.dealer-how__glow {
+/* Massive centered radial purple bloom */
+.dealer-how__glow-bloom {
   position: absolute;
   left: 50%;
-  top: 45%;
+  top: 50%;
   transform: translate(-50%, -50%);
   width: 1200px;
-  height: 1200px;
+  height: 900px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse 65% 55% at 50% 50%, rgba(95, 75, 220, 0.55) 0%, rgba(55, 40, 140, 0.32) 45%, rgba(18, 14, 45, 0.12) 70%, transparent 100%);
+  filter: blur(70px);
   pointer-events: none;
-  opacity: 0.85;
   z-index: 1;
 }
 
@@ -217,18 +228,18 @@
   margin-bottom: 50px;
 }
 
-.dealer-how__title-wrap {
+.dealer-how__title-circuit {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 24px;
-  margin-bottom: 40px;
+  gap: 32px;
+  margin-bottom: 50px;
 }
 
-.dealer-how__word {
+.dealer-how__title-word {
   font-family: var(--display);
   font-weight: 500;
-  font-size: clamp(64px, 8.5vw, 124px);
+  font-size: clamp(52px, 8.5vw, 124px);
   letter-spacing: -6.2px;
   line-height: 109px;
   text-transform: uppercase;
@@ -236,19 +247,19 @@
   text-shadow: 0 0 60px rgba(150, 133, 255, 0.45);
 }
 
-.dealer-how__wire-circuit {
+.dealer-how__title-wire {
   width: 250px;
   height: 40px;
   overflow: visible;
   display: block;
 }
 
-/* 4 Interactive step tabs on connecting wire */
+/* Tabs bar on horizontal hairline */
 .dealer-how__tabs-bar {
   position: relative;
   width: 100%;
   max-width: 1025px;
-  margin: 0 auto 50px;
+  margin: 0 auto 70px;
 }
 
 .dealer-how__tabs-wire {
@@ -258,6 +269,7 @@
   top: 50%;
   width: 100%;
   height: 1px;
+  background: rgba(194, 185, 255, 0.35);
   z-index: 1;
   pointer-events: none;
 }
@@ -273,164 +285,148 @@
 
 .hiw-tab {
   position: relative;
-  width: 200px;
-  height: 60px;
+  width: 180px;
+  height: 56px;
   background: #020202;
-  border: 1px solid rgba(194, 185, 255, 0.3);
+  border: 1px solid transparent;
   font-family: var(--display);
   font-weight: 500;
   font-size: 20px;
   letter-spacing: -0.4px;
-  color: #a29cc8;
+  color: #c2b9ff;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
   outline: none;
+  transition: all 0.3s ease;
 }
 
 .hiw-tab .tick {
   width: 14px;
   height: 14px;
   border-color: #c2b9ff;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
+  opacity: 0.85;
 }
 
-.hiw-tab.is-active,
-.hiw-tab:hover {
+.hiw-tab.is-active {
+  background: rgba(43, 33, 111, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(194, 185, 255, 0.55);
   color: #ffffff;
-  border-color: rgba(194, 185, 255, 0.7);
-  background: rgba(81, 64, 200, 0.45);
-  box-shadow: 0 0 30px rgba(150, 133, 255, 0.5);
+  box-shadow: 0 0 25px rgba(150, 133, 255, 0.5);
 }
 
-.hiw-tab.is-active .tick,
-.hiw-tab:hover .tick {
-  opacity: 1;
+.hiw-tab:hover:not(.is-active) {
+  color: #ffffff;
+  background: rgba(43, 33, 111, 0.35);
 }
 
-/* Step Card Container */
-.dealer-how__stage {
+/* Step Views Stage */
+.dealer-how__content-stage {
   position: relative;
-  max-width: 1175px;
-  min-height: 615px;
+  z-index: 2;
+  max-width: 1200px;
   margin: 0 auto;
+  min-height: 480px;
 }
 
-.hiw-step-card {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  background: rgba(22, 18, 48, 0.44);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(194, 185, 255, 0.3);
-  box-shadow: 0 30px 80px rgba(10, 6, 30, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  padding: 40px;
-  text-align: left;
-  box-sizing: border-box;
+.hiw-step-view {
+  display: none;
   opacity: 0;
-  pointer-events: none;
-  transform: translateY(15px);
+  transform: translateY(12px);
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-.hiw-step-card.is-active {
-  position: relative;
+.hiw-step-view.is-active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   opacity: 1;
-  pointer-events: auto;
   transform: translateY(0);
 }
 
-.hiw-card-title {
+.hiw-step-view__title {
   font-family: var(--display);
   font-weight: 500;
-  font-size: 36px;
-  letter-spacing: -1.8px;
-  line-height: 40px;
+  font-size: 38px;
+  letter-spacing: -1.9px;
+  line-height: 42px;
   text-transform: uppercase;
   color: #ffffff;
-  margin: 0 0 16px;
+  margin: 0 0 20px;
+  text-align: center;
+  text-shadow: 0 0 40px rgba(150, 133, 255, 0.5);
 }
 
-.hiw-step-card .hiw-lead {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 300;
-  font-size: 22px;
-  letter-spacing: -0.44px;
-  line-height: 28px;
-  color: #c2b9ff;
-  margin: 0 0 24px;
-}
-
-.hiw-items-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-bottom: 28px;
-}
-
-.hiw-item {
-  position: relative;
-  padding: 20px 16px;
-  background: rgba(38, 37, 72, 0.35);
-  border: 1px solid rgba(194, 185, 255, 0.2);
-  box-sizing: border-box;
-}
-
-.hiw-item p {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 22px;
-  color: #ffffff;
-  margin: 0;
-}
-
-.hiw-calc-callout {
-  padding: 24px;
-  background: rgba(81, 64, 200, 0.2);
-  border: 1px solid rgba(150, 133, 255, 0.35);
-  margin-bottom: 24px;
-}
-
-.hiw-calc-callout p {
+.hiw-step-view__sub {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 300;
   font-size: 20px;
   letter-spacing: -0.4px;
   line-height: 26px;
-  color: #ffffff;
-  margin: 0;
+  color: #e1d9ff;
+  margin: 0 0 44px;
+  text-align: center;
+  max-width: 700px;
 }
 
-.hiw-example-box {
+.hiw-step-view__grid--4 {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  padding: 24px;
-  background: rgba(18, 14, 38, 0.6);
-  border: 1px solid rgba(194, 185, 255, 0.2);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  width: 100%;
+  margin-bottom: 50px;
+  text-align: left;
 }
 
-.hiw-example-box p,
-.hiw-example-box ul {
+.hiw-step-view__grid--2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 50px;
+  text-align: left;
+}
+
+.hiw-col p {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 17px;
+  letter-spacing: -0.34px;
   line-height: 24px;
-  color: #c2b9ff;
+  color: #e1d9ff;
   margin: 0;
-  list-style: none;
 }
 
-/* 4. REAL SAVINGS TABLE */
+.hiw-col p strong {
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.hiw-step-view__banner {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.36px;
+  line-height: 26px;
+  text-transform: uppercase;
+  color: #c2b9ff;
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  text-shadow: 0 0 30px rgba(150, 133, 255, 0.4);
+}
+
+/* ══ 4. REAL SAVINGS TABLE (Figma Screenshot 1) ══════════════════════════ */
 .dealer-savings {
   position: relative;
-  padding: 80px 0 100px;
+  width: 100%;
+  padding: 80px 0 140px;
   background-color: #020202;
+  overflow: hidden;
   text-align: center;
 }
 
@@ -441,15 +437,14 @@
   box-sizing: border-box;
 }
 
-.dealer-savings__banner {
+.dealer-savings__stage {
   position: relative;
   width: 100%;
-  max-width: 1390px;
-  margin: 0 auto 30px;
-  box-shadow: 0 30px 80px rgba(10, 6, 30, 0.7);
+  max-width: 1440px;
+  margin: 0 auto -90px;
 }
 
-.dealer-savings__banner img {
+.dealer-savings__cars img {
   width: 100%;
   height: auto;
   aspect-ratio: 1440 / 765;
@@ -458,36 +453,55 @@
 }
 
 .dealer-savings__title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 90px;
+  width: 100%;
   font-family: var(--display);
   font-weight: 500;
-  font-size: clamp(48px, 8.5vw, 124px);
+  font-size: clamp(52px, 8.5vw, 124px);
   letter-spacing: -6.2px;
   line-height: 109px;
   text-transform: uppercase;
-  color: #f7f7f7;
-  margin: 0 0 50px;
+  color: #ffffff;
   text-shadow: 0 0 60px rgba(150, 133, 255, 0.45);
+  pointer-events: none;
+  z-index: 2;
+  margin: 0;
 }
 
 .dealer-savings__wrap {
   position: relative;
+  z-index: 3;
   max-width: 1390px;
   margin: 0 auto;
   overflow-x: auto;
+  border: 1px solid rgba(194, 185, 255, 0.22);
+  background: rgba(18, 14, 42, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 20px 60px rgba(10, 6, 30, 0.5);
+}
+
+.dealer-savings__wrap .tick {
+  width: 18px;
+  height: 18px;
+  border-color: #c2b9ff;
+  opacity: 1;
 }
 
 .dealer-savings__table {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
+  border-collapse: collapse;
   text-align: left;
 }
 
 .dealer-savings__table th,
 .dealer-savings__table td {
-  border: 1px solid rgba(194, 185, 255, 0.18);
+  border: 1px solid rgba(194, 185, 255, 0.16);
   vertical-align: middle;
-  padding: 22px 32px;
+  padding: 24px 32px;
 }
 
 .dealer-savings__table thead th {
@@ -496,18 +510,7 @@
   font-size: 24px;
   letter-spacing: -0.48px;
   color: #c2b9ff;
-  background: rgba(38, 37, 72, 0.44);
-  backdrop-filter: blur(14px);
-}
-
-.dealer-savings__table tbody tr {
-  background: rgba(38, 37, 72, 0.44);
-  backdrop-filter: blur(12px);
-  transition: background 0.3s ease;
-}
-
-.dealer-savings__table tbody tr:hover {
-  background: rgba(48, 45, 90, 0.52);
+  background: rgba(38, 37, 72, 0.35);
 }
 
 .dealer-savings__table tbody th {
@@ -527,10 +530,31 @@
   color: #ffffff;
 }
 
-.dealer-savings__save-val {
-  color: #9685ff !important;
+/* Glowing You Save column matching Screenshot 1 */
+.th-save {
+  background: rgba(43, 33, 111, 0.6) !important;
+  color: #ffffff !important;
+}
+
+.td-save {
+  font-weight: 400 !important;
+}
+
+.td-save--1 {
+  background: rgba(43, 33, 111, 0.5) !important;
+  color: #ffffff !important;
+}
+
+.td-save--2 {
+  background: rgba(67, 54, 148, 0.65) !important;
+  color: #ffffff !important;
+}
+
+.td-save--3.is-lit {
+  background: #b4a8ff !important;
+  color: #15112e !important;
   font-weight: 500 !important;
-  text-shadow: 0 0 16px rgba(150, 133, 255, 0.6);
+  text-shadow: none !important;
 }
 
 /* 5. FRIENDS & STATS */
@@ -788,16 +812,16 @@
   .dealer-how {
     padding: 60px 13px 80px;
   }
-  .dealer-how__title-wrap {
+  .dealer-how__title-circuit {
     flex-direction: column;
     gap: 12px;
   }
-  .dealer-how__word {
+  .dealer-how__title-word {
     font-size: 55px;
     letter-spacing: -2.8px;
     line-height: 50px;
   }
-  .dealer-how__wire-circuit {
+  .dealer-how__title-wire {
     display: none;
   }
   .dealer-how__tabs-bar {
@@ -816,29 +840,34 @@
     height: 48px;
     font-size: 18px;
   }
-  .hiw-step-card {
-    padding: 24px 16px;
+  .hiw-step-view__grid--4,
+  .hiw-step-view__grid--2 {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
-  .hiw-card-title {
-    font-size: 26px;
-    line-height: 30px;
+  .hiw-step-view__title {
+    font-size: 28px;
+    line-height: 32px;
   }
-  .hiw-lead {
+  .hiw-step-view__sub {
     font-size: 18px;
     line-height: 24px;
   }
-  .hiw-items-grid {
-    grid-template-columns: 1fr;
-  }
-  .hiw-example-box {
-    grid-template-columns: 1fr;
-  }
 
   /* Savings mobile */
+  .dealer-savings {
+    padding: 60px 13px 80px;
+  }
+  .dealer-savings__stage {
+    margin-bottom: 20px;
+  }
   .dealer-savings__title {
-    font-size: 48px;
-    line-height: 46px;
-    letter-spacing: -2.4px;
+    position: static !important;
+    transform: none !important;
+    font-size: 40px;
+    line-height: 44px;
+    letter-spacing: -2px;
+    margin: 20px 0;
   }
   .dealer-savings__table th,
   .dealer-savings__table td {
