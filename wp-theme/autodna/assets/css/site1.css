@@ -1206,6 +1206,71 @@ body::after {
 .rv { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .rv.is-in { opacity: 1; transform: none; }
 
+/* ══ LAPTOP FLUID ADAPTATION (769px to 1439px) ══════════════════════════ */
+@media (max-width: 1439px) and (min-width: 769px) {
+  .hero__frame {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 810px !important;
+    margin: 0 auto !important;
+    transform: none !important;
+  }
+  .hero__word {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    font-size: clamp(72px, 8.8vw, 133px) !important;
+    letter-spacing: -0.05em !important;
+    white-space: nowrap !important;
+    transform: none !important;
+  }
+  .hero__triptych {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: clamp(500px, 51vw, 740px) !important;
+    height: auto !important;
+    aspect-ratio: 740 / 378 !important;
+  }
+  .rail {
+    right: 24px !important;
+    left: auto !important;
+  }
+  .hero__sub--l {
+    left: clamp(20px, 15vw, 340px) !important;
+  }
+  .hero__sub--r {
+    left: auto !important;
+    right: clamp(20px, 15vw, 340px) !important;
+    text-align: right !important;
+  }
+  .hero__elbow {
+    display: none !important;
+  }
+  .carlears__grid {
+    grid-template-columns: repeat(4, minmax(220px, 289px));
+    gap: clamp(16px, 3vw, 78px);
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+  .clr-card {
+    width: 100%;
+    min-width: 0;
+  }
+  .club__grid {
+    grid-template-columns: repeat(4, minmax(220px, 335px));
+    gap: clamp(10px, 1.2vw, 16px);
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+  .club-card {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
 /* ══ TABLET (1024px and below) ══════════════════════════════════════════ */
 @media (max-width: 1200px) and (min-width: 769px) {
   .hero__frame { max-width: 100%; padding: 0 24px; }

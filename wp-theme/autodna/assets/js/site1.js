@@ -164,8 +164,7 @@
       hero.classList.add('hero--static');
       return;
     }
-    var frame = hero.querySelector('.hero__frame');
-    var trip = hero.querySelector('.hero__triptych img');
+        var trip = hero.querySelector('.hero__triptych img');
     var word = hero.querySelector('.hero__word');
     var subs = hero.querySelectorAll('.hero__sub');
     var rails = hero.querySelectorAll('.rail a');
@@ -202,7 +201,8 @@
       requestAnimationFrame(function () {
         var y = Math.min(window.scrollY, 900);
         if (bg) bg.style.transform = 'translate3d(0,' + (y * 0.18) + 'px,0) scale(1.02)';
-        if (frame) frame.style.transform = 'translate3d(0,' + (y * -0.06) + 'px,0)';
+        // frame transform removed to avoid laptop layout breakage
+        if (trip) trip.style.transform = 'translate3d(0,' + (y * -0.05) + 'px,0)';
         if (quote) quote.style.transform = 'translate3d(0,' + (y * -0.12) + 'px,0)';
         ticking = false;
       });
