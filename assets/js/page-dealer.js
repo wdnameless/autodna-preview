@@ -2,56 +2,6 @@
 (function () {
   'use strict';
 
-  // preloader: DNA reveal + real load progress, curtain lift
-  function initPreloader() {
-    const el = document.getElementById('preloader');
-    if (!el) return;
-    let repeat = false;
-    try { repeat = sessionStorage.getItem('dna-pre') === '1'; } catch (e) { void e; }
-    const bar = el.querySelector('.preloader__bar span');
-    const pct = el.querySelector('.preloader__pct');
-    const t0 = Date.now();
-    let pct_ = 0;
-    let done = false;
-    document.body.style.overflow = 'hidden';
-
-    function paint(n) {
-      pct_ = Math.min(100, Math.max(pct_, n));
-      if (bar) bar.style.width = `${pct_}%`;
-      if (pct) pct.textContent = `${Math.round(pct_)}%`;
-    }
-
-    const tick = setInterval(() => {
-      if (done) return;
-      const dt = (Date.now() - t0) / 1000;
-      paint(Math.min(90, dt * 55 + 8));
-    }, 120);
-
-    function finish() {
-      if (done) return;
-      done = true;
-      clearInterval(tick);
-      paint(100);
-      setTimeout(() => {
-        el.classList.add('is-done');
-        document.body.style.overflow = '';
-        document.body.classList.add('hero-in');
-        try { sessionStorage.setItem('dna-pre', '1'); } catch (e) { void e; }
-      }, 350);
-    }
-
-    const hold = repeat ? 400 : 1200;
-    if (document.readyState === 'complete') {
-      setTimeout(finish, hold);
-    } else {
-      window.addEventListener('load', () => {
-        const wait = Math.max(0, hold - (Date.now() - t0));
-        setTimeout(finish, wait);
-      });
-      setTimeout(finish, 5000);
-    }
-  }
-
   // fullscreen menu overlay
   function initMenu() {
     const burger = document.getElementById('burger');
@@ -107,7 +57,6 @@
   }
 
   function boot() {
-    initPreloader();
     initMenu();
     initHowItWorks();
   }
