@@ -228,16 +228,14 @@ get_header(); ?>
 
 <!-- ══ 4. REAL SAVINGS ON EVERY CAR (Figma Screenshot 1) ═══════════════ -->
 <section class="dealer-savings" id="real-savings" aria-label="Real savings table">
-  <div class="dealer-savings__container">
-    <div class="dealer-savings__stage">
-      <!-- 3 Cars background banner -->
-      <div class="dealer-savings__cars">
-        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/dealer-savings-cars-exact.jpg" alt="Honda Civic, VW Tiguan, Hyundai Elantra" loading="lazy">
-      </div>
+  <!-- Seamless Full-Bleed 2560px Cars Banner with zero cuts or rectangular borders -->
+  <div class="dealer-savings__hero">
+    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/dealer-savings-hero-seamless.jpg" alt="Real Savings on Every Car: 2019 Honda Civic, 2020 VW Tiguan, 2021 Hyundai Elantra" class="dealer-savings__hero-img" loading="lazy">
+  </div>
 
-      <!-- Title is part of the exact Figma board art; keep accessible sr-only for SEO -->
-      <h2 class="sr-only">Real Savings on Every Car</h2>
-    </div>
+  <div class="dealer-savings__container">
+    <!-- Accessible SEO title -->
+    <h2 class="sr-only">Real Savings on Every Car</h2>
 
     <!-- Table matching Screenshot 1 -->
     <div class="dealer-savings__wrap ticks">
