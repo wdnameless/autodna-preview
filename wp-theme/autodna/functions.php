@@ -26,7 +26,7 @@ function autodna_theme_setup() {
 add_action( 'after_setup_theme', 'autodna_theme_setup' );
 
 function autodna_enqueue_assets() {
-    // site-1: local fonts only (Orbitron + Helvetica Neue woff2), no Google Fonts
+    // base styles
     wp_enqueue_style(
         'autodna-site1',
         get_template_directory_uri() . '/assets/css/site1.css',
@@ -34,13 +34,29 @@ function autodna_enqueue_assets() {
         AUTODNA_THEME_VERSION
     );
 
-    wp_enqueue_script(
-        'autodna-site1',
-        get_template_directory_uri() . '/assets/js/site1.js',
-        array(),
-        AUTODNA_THEME_VERSION,
-        true
-    );
+    if ( is_page_template( 'page-skipthedealer.php' ) || is_page( 'skipthedealer' ) ) {
+        wp_enqueue_style(
+            'autodna-dealer',
+            get_template_directory_uri() . '/assets/css/page-dealer.css',
+            array( 'autodna-site1' ),
+            AUTODNA_THEME_VERSION
+        );
+        wp_enqueue_script(
+            'autodna-dealer',
+            get_template_directory_uri() . '/assets/js/page-dealer.js',
+            array(),
+            AUTODNA_THEME_VERSION,
+            true
+        );
+    } else {
+        wp_enqueue_script(
+            'autodna-site1',
+            get_template_directory_uri() . '/assets/js/site1.js',
+            array(),
+            AUTODNA_THEME_VERSION,
+            true
+        );
+    }
 }
 add_action( 'wp_enqueue_scripts', 'autodna_enqueue_assets' );
 
