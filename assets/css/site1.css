@@ -1131,7 +1131,7 @@ a { color: inherit; }
 
 .foot__item {
   position: relative;
-  margin-bottom: 12px;
+  margin-bottom: 24px;
   width: 348px;
 }
 
@@ -1144,7 +1144,7 @@ a { color: inherit; }
   line-height: 26px;
   color: #ffffff;
   text-decoration: none;
-  margin: 0 0 6px;
+  margin: 0;
   transition: color 0.2s ease;
 }
 
@@ -1156,6 +1156,7 @@ a { color: inherit; }
   display: block;
   width: 348px;
   height: 35px;
+  margin-top: -24px;
   overflow: visible;
 }
 
@@ -2403,15 +2404,19 @@ body::after {
   }
   .foot__item {
     width: 100% !important;
+    margin-bottom: 24px !important;
   }
   .foot__item-line {
     width: 100% !important;
+    margin-top: -24px !important;
   }
   .foot__link {
     font-size: 22px !important;
+    margin: 0 !important;
   }
   .foot__address {
     font-size: 22px !important;
+    margin-bottom: 0 !important;
   }
   .foot__socials {
     justify-content: flex-start !important;
