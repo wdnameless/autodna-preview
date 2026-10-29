@@ -21,23 +21,26 @@
   text-shadow: 0 0 30px rgba(194, 185, 255, 0.7);
 }
 
-/* 1. HERO — EXACT PROPORTION PER FIGMA */
+/* 1. HERO — VIEWPORT-ADAPTIVE ELEGANT SCALE (Exact Figma composition) */
 .dealer-hero {
   position: relative;
   width: 100%;
-  height: auto;
-  min-height: 0;
+  height: clamp(480px, 75vh, 760px);
+  max-height: 760px;
   background-color: #020202;
   overflow: hidden;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .dealer-hero__board {
   position: relative;
-  width: 100%;
-  max-width: 1440px;
-  height: auto;
-  aspect-ratio: 1440 / 920;
+  height: 100%;
+  width: auto;
+  aspect-ratio: 1440 / 810;
+  max-width: 100vw;
   margin: 0 auto;
 }
 
@@ -45,37 +48,37 @@
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center top;
 }
 
-.dealer-hero__cta-hitarea {
+.dealer-hero__mob {
+  display: none !important;
+}
+
+.dealer-hero__cta-hitarea.dealer-hero__cta-hitarea {
   position: absolute;
   left: 78.194%;
-  top: 79.24%;
+  top: 90.0%;
   width: 20.069%;
-  height: 8.70%;
+  height: 9.876%;
   z-index: 10;
   cursor: pointer;
   border-radius: 2px;
   transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-.dealer-hero__mob {
-  display: none;
-}
-
-/* 2. SCENARIOS (Seamless black blend from hero) */
+/* 2. SCENARIOS — SEAMLESS SOFT AMBIENT TRANSITION */
 .dealer-scenarios {
   position: relative;
   width: 100%;
-  padding: 0 0 100px;
-  margin-top: -30px;
+  padding: 10px 0 100px;
   background-color: #020202;
+  background-image: radial-gradient(1000px 450px at 50% 0%, rgba(83, 60, 231, 0.22) 0%, rgba(42, 31, 104, 0.1) 50%, transparent 80%);
   overflow: hidden;
 }
 
-.dealer-scenarios__container {
+.dealer-scenarios__container.dealer-scenarios__container {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 24px;
@@ -780,10 +783,12 @@
   .dealer-scenarios {
   position: relative;
   width: 100%;
-  padding: 0 0 100px;
+  padding: 20px 0 100px;
   margin-top: -30px;
   background-color: #020202;
+  background-image: radial-gradient(900px 350px at 50% 0%, rgba(83, 60, 231, 0.15) 0%, rgba(42, 31, 104, 0.08) 45%, transparent 75%);
   overflow: hidden;
+  z-index: 2;
 }
   .dealer-scenarios__title {
     font-size: 26px;
