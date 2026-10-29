@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 393 1300" fill="none">
+<defs>
+  <linearGradient id="dnaRibbonGrad" x1="100" y1="150" x2="300" y2="900" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#9685FF" stop-opacity="0.85"/>
+    <stop offset="40%" stop-color="#6A53E8" stop-opacity="0.8"/>
+    <stop offset="75%" stop-color="#432FCD" stop-opacity="0.65"/>
+    <stop offset="100%" stop-color="#241B5C" stop-opacity="0.4"/>
+  </linearGradient>
+  <filter id="ribbonBlur" x="-80" y="50" width="560" height="1100" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feGaussianBlur stdDeviation="30" result="blur"/>
+  </filter>
+  <radialGradient id="nebulaSoft" cx="50%" cy="30%" r="55%">
+    <stop offset="0%" stop-color="#7B61FF" stop-opacity="0.25"/>
+    <stop offset="60%" stop-color="#432FCD" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#020202" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+
+<rect width="393" height="1300" fill="#020202"/>
+<rect width="393" height="1300" fill="url(#nebulaSoft)"/>
+
+<!-- The giant stylized DNA "2" glyph -->
+<g filter="url(#ribbonBlur)">
+  <!-- Top rounded loop -->
+  <path d="M 60 280 C 40 180, 140 120, 240 130 C 330 140, 360 210, 340 280 C 320 340, 260 400, 180 470 L 80 570 C 40 610, 30 670, 40 730 L 340 730 C 365 730, 375 750, 360 770 L 320 830 C 300 860, 240 870, 180 870 L 50 870 C 20 870, 5 830, 15 790 C 25 740, 55 690, 95 640 L 210 520 C 270 460, 300 410, 300 350 C 300 290, 250 240, 180 240 C 120 240, 80 270, 60 300 Z" fill="url(#dnaRibbonGrad)"/>
+</g>
+</svg>

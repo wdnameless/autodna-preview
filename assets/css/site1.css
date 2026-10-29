@@ -831,6 +831,7 @@ a { color: inherit; }
   padding-left: 26px;
   padding-right: 26px;
 }
+.club__nav { display: none; }
 .club__stage {
   position: relative;
   height: 250px;
@@ -850,9 +851,8 @@ a { color: inherit; }
   color: #c2b9ff;
   margin: 0;
 }
-.club__lede span {
-  display: flex;
-  justify-content: space-between;
+.club__lede-line {
+  display: block;
 }
 .club__title {
   position: absolute;
@@ -2200,7 +2200,8 @@ body::after {
 
   /* 8. AUTO CLUB */
   .club {
-    padding: 90px 13px 70px !important;
+    padding: 70px 13px 70px !important;
+    background: #020202 url("../img/site1/club-mob-bg.svg") center top / 100% auto no-repeat !important;
   }
   .club__stage {
     position: static !important;
@@ -2211,23 +2212,83 @@ body::after {
     margin-bottom: 24px !important;
   }
   .club__lede {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
     position: static !important;
     width: 100% !important;
     max-width: 367px !important;
-    margin: 0 auto 16px !important;
-    font-size: 25px !important;
-    line-height: 26px !important;
+    margin: 0 auto 24px !important;
+    font-family: 'Helvetica Neue', sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 300 !important;
+    line-height: 27px !important;
+    letter-spacing: -0.5px !important;
+    text-transform: uppercase !important;
+    color: #ffffff !important;
+    text-align: left !important;
+  }
+  .club__lede-line {
+    display: block !important;
+    white-space: nowrap !important;
+    color: #ffffff !important;
   }
   .club__title {
     position: static !important;
+    font-family: var(--display) !important;
+    font-weight: 500 !important;
     font-size: clamp(48px, 14vw, 64px) !important;
     letter-spacing: -3.2px !important;
     line-height: 60px !important;
     text-align: center !important;
+    color: #ffffff !important;
+    text-shadow: 0 0 45px rgba(150, 133, 255, 0.75), 0 0 90px rgba(83, 60, 231, 0.45) !important;
     transform: none !important;
-    margin: 0 auto 24px !important;
+    margin: 0 auto 28px !important;
     white-space: normal !important;
   }
+
+  /* Mobile Club Carousel Nav Buttons */
+  .club__nav {
+    display: flex !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    max-width: 367px !important;
+    margin: 0 auto 20px !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .club__nav-btn {
+    width: 60px !important;
+    height: 63px !important;
+    background: rgba(38, 37, 72, 0.44) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    border: none !important;
+    position: relative !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .club__nav-btn .tick {
+    width: 18px !important;
+    height: 18px !important;
+    border-color: #c2b9ff !important;
+    opacity: 1 !important;
+  }
+  .club__nav-btn .tick.tl { top: 0 !important; left: 0 !important; }
+  .club__nav-btn .tick.tr { top: 0 !important; right: 0 !important; }
+  .club__nav-btn .tick.bl { bottom: 0 !important; left: 0 !important; }
+  .club__nav-btn .tick.br { bottom: 0 !important; right: 0 !important; }
+  .club__nav-btn svg {
+    width: 18px !important;
+    height: 18px !important;
+    display: block !important;
+  }
+
   /* Horizontal scroll for 4 club cards */
   .club__grid {
     display: flex !important;
@@ -2245,7 +2306,19 @@ body::after {
     height: 440px !important;
     scroll-snap-align: center;
     padding: 30px 22px !important;
+    border: none !important;
+    box-sizing: border-box !important;
   }
+  .club-card > .tick {
+    width: 18px !important;
+    height: 18px !important;
+    border-color: #c2b9ff !important;
+    opacity: 1 !important;
+  }
+  .club-card > .tick.tl { top: 0 !important; left: 0 !important; }
+  .club-card > .tick.tr { top: 0 !important; right: 0 !important; }
+  .club-card > .tick.bl { bottom: 0 !important; left: 0 !important; }
+  .club-card > .tick.br { bottom: 0 !important; right: 0 !important; }
   .club-card h3 {
     font-size: 32px !important;
     min-height: 0 !important;

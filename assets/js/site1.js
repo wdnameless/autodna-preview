@@ -273,6 +273,20 @@
     });
   }
 
+  function initClubCarousel() {
+    const prev = document.getElementById('club-prev');
+    const next = document.getElementById('club-next');
+    const grid = document.querySelector('.club__grid');
+    if (!prev || !next || !grid) return;
+
+    prev.addEventListener('click', () => {
+      grid.scrollBy({ left: -306, behavior: 'smooth' });
+    });
+    next.addEventListener('click', () => {
+      grid.scrollBy({ left: 306, behavior: 'smooth' });
+    });
+  }
+
   function boot() {
     initPreloader();
     initMenu();
@@ -282,6 +296,7 @@
     initHeroFx();
     initGlobalFx();
     initCarlearsCarousel();
+    initClubCarousel();
   }
 
   if (document.readyState === 'loading') {
