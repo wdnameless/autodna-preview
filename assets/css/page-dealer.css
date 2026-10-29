@@ -21,64 +21,52 @@
   text-shadow: 0 0 30px rgba(194, 185, 255, 0.7);
 }
 
-/* 1. HERO — VIEWPORT-ADAPTIVE ELEGANT SCALE (Exact Figma composition) */
+/* 1. HERO — EXACT FIGMA 1:1 REPRODUCTION (Full-width, seamless bottom transition) */
 .dealer-hero {
   position: relative;
   width: 100%;
-  height: clamp(480px, 75vh, 760px);
-  max-height: 760px;
   background-color: #020202;
-  overflow: hidden;
   box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
 }
 
 .dealer-hero__board {
   position: relative;
-  height: 100%;
-  width: auto;
-  aspect-ratio: 1440 / 810;
-  max-width: 100vw;
+  width: 100%;
   margin: 0 auto;
 }
 
 .dealer-hero__board-img {
   width: 100%;
-  height: 100%;
+  height: auto;
   display: block;
-  object-fit: contain;
-  object-position: center top;
 }
 
 .dealer-hero__mob {
   display: none !important;
 }
 
-.dealer-hero__cta-hitarea.dealer-hero__cta-hitarea {
+.dealer-hero__cta-hitarea {
   position: absolute;
   left: 78.194%;
-  top: 90.0%;
+  top: 76.33%;
   width: 20.069%;
-  height: 9.876%;
+  height: 8.38%;
   z-index: 10;
   cursor: pointer;
   border-radius: 2px;
   transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* 2. SCENARIOS — SEAMLESS SOFT AMBIENT TRANSITION */
+/* 2. SCENARIOS — SEAMLESS CONTINUATION */
 .dealer-scenarios {
   position: relative;
   width: 100%;
-  padding: 10px 0 100px;
+  padding: 16px 0 100px;
   background-color: #020202;
-  background-image: radial-gradient(1000px 450px at 50% 0%, rgba(83, 60, 231, 0.22) 0%, rgba(42, 31, 104, 0.1) 50%, transparent 80%);
   overflow: hidden;
 }
 
-.dealer-scenarios__container.dealer-scenarios__container {
+.dealer-scenarios__container.dealer-scenarios__container.dealer-scenarios__container.dealer-scenarios__container {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 24px;
