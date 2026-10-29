@@ -21,45 +21,34 @@
   text-shadow: 0 0 30px rgba(194, 185, 255, 0.7);
 }
 
-/* 1. HERO */
+/* 1. HERO — FULLSCREEN 100VH PER FIGMA */
 .dealer-hero {
   position: relative;
   width: 100%;
-  height: auto;
-  min-height: 0;
+  height: 100vh;
+  min-height: 100vh;
+  min-height: 100dvh;
   background-color: #020202;
   overflow: hidden;
   box-sizing: border-box;
-}
-.dealer-hero::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 120px;
-  background: linear-gradient(0deg, #020202 0%, rgba(2,2,2,0.6) 50%, transparent 100%);
-  pointer-events: none;
-  z-index: 5;
 }
 
 .dealer-hero__board {
   position: relative;
   width: 100%;
-  max-width: 1440px;
-  height: auto;
-  aspect-ratio: 1440 / 810;
-  margin: 0 auto;
+  height: 100%;
+  margin: 0;
 }
 
 .dealer-hero__board-img {
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center center;
 }
 
-.dealer-hero__cta-hitarea {
+.dealer-hero__cta-hitarea.dealer-hero__cta-hitarea {
   position: absolute;
   left: 78.194%;
   top: 90.0%;
