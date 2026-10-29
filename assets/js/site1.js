@@ -287,6 +287,34 @@
     });
   }
 
+  function initFactsCarousel() {
+    const prev = document.getElementById('facts-prev');
+    const next = document.getElementById('facts-next');
+    const grid = document.querySelector('.facts__grid');
+    if (!prev || !next || !grid) return;
+
+    prev.addEventListener('click', () => {
+      grid.scrollBy({ left: -306, behavior: 'smooth' });
+    });
+    next.addEventListener('click', () => {
+      grid.scrollBy({ left: 306, behavior: 'smooth' });
+    });
+  }
+
+  function initCompareNav() {
+    const prev = document.getElementById('compare-prev');
+    const next = document.getElementById('compare-next');
+    const wrap = document.querySelector('.compare__wrap');
+    if (!prev || !next || !wrap) return;
+
+    prev.addEventListener('click', () => {
+      wrap.scrollBy({ left: -200, behavior: 'smooth' });
+    });
+    next.addEventListener('click', () => {
+      wrap.scrollBy({ left: 200, behavior: 'smooth' });
+    });
+  }
+
   function boot() {
     initPreloader();
     initMenu();
@@ -297,6 +325,8 @@
     initGlobalFx();
     initCarlearsCarousel();
     initClubCarousel();
+    initFactsCarousel();
+    initCompareNav();
   }
 
   if (document.readyState === 'loading') {

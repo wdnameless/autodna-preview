@@ -116,7 +116,9 @@
   <div class="hero__shade hero__shade--top" aria-hidden="true"></div>
   <div class="hero__shade hero__shade--bottom" aria-hidden="true"></div>
   <div class="hero__frame">
-    <div class="hero__triptych">
+    <div class="hero__triptych ticks">
+      <span class="tick tl"></span><span class="tick tr"></span>
+      <span class="tick bl"></span><span class="tick br"></span>
       <svg class="hero__ticks" viewBox="330 167 776 416" preserveAspectRatio="none" aria-hidden="true"><path d="M340.219 190.684V177.352H353.551M1096.19 190.684V177.351H1082.86M353.551 572.609H340.219V559.277M1082.86 572.609H1096.19V559.277"/></svg>
       <img src="assets/img/site1/hero-trio.jpg" alt="Pickup, Honda crossover and Tesla side by side" fetchpriority="high">
     </div>
@@ -313,13 +315,32 @@
     </h2>
   </div>
 
+  <div class="compare__nav" aria-label="Comparison navigation">
+    <button class="compare__nav-btn ticks" id="compare-prev" aria-label="Previous columns">
+      <span class="tick tl"></span><span class="tick tr"></span>
+      <span class="tick bl"></span><span class="tick br"></span>
+      <svg viewBox="0 0 18 18" aria-hidden="true">
+        <path d="M11 4L6 9L11 14" stroke="#C2B9FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </button>
+    <button class="compare__nav-btn ticks" id="compare-next" aria-label="Next columns">
+      <span class="tick tl"></span><span class="tick tr"></span>
+      <span class="tick bl"></span><span class="tick br"></span>
+      <svg viewBox="0 0 18 18" aria-hidden="true">
+        <path d="M7 4L12 9L7 14" stroke="#C2B9FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </button>
+  </div>
+
   <div class="compare__tabs" role="tablist" aria-label="Seller">
     <button role="tab" aria-selected="false" data-col="dealer">Dealers</button>
     <button role="tab" aria-selected="false" data-col="market">Marketplace</button>
     <button role="tab" aria-selected="true" data-col="dna">AutoDNA</button>
   </div>
 
-  <div class="compare__wrap">
+  <div class="compare__wrap ticks">
+    <span class="tick tl"></span><span class="tick tr"></span>
+    <span class="tick bl"></span><span class="tick br"></span>
     <svg class="compare__table-ticks" viewBox="0 0 1388.5 520" preserveAspectRatio="none" aria-hidden="true">
       <path d="M0 18.8V0H18.8 M1388.5 18.8V0H1369.7 M0 501.2V520H18.8 M1388.5 501.2V520H1369.7" stroke="#C2B9FF" fill="none" stroke-width="1"/>
     </svg>
@@ -444,11 +465,29 @@
 
 <!-- ══ 6. FACTS 4790–5430 ════════════════════════════════════════════════ -->
 <section class="facts" id="facts" aria-label="Facts and figures">
-  <div class="fact fact--a ticks"><span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span><p class="fact__n">12</p><p class="fact__l">Stages of Inspection</p><p class="fact__t">We test, verify, and only then hand over the keys. Real inspection — not intuition.</p></div>
-  <div class="fact fact--b ticks"><span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span><p class="fact__n">10+</p><p class="fact__l">Years in the Industry</p><p class="fact__t">We’ve seen it all — and that’s why we do it right. It’s in our DNA.</p></div>
-  <div class="fact fact--c ticks"><span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span><p class="fact__n">450+</p><p class="fact__l">Clients Said “Wow!”</p><p class="fact__t">And new ones join every week. Every car is a story — and our client is always the main character.</p></div>
-  <div class="fact fact--d ticks"><span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span><p class="fact__n">3-4</p><p class="fact__l">Weeks — Faster Than You Expect</p><p class="fact__t">An optimized process — no delays, no surprises. Search, preparation, and the car is yours.</p></div>
-  <div class="fact fact--e ticks"><span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span><p class="fact__k">Save</p><p class="fact__n">30-50%</p><p class="fact__t">Overpaying isn’t our style — auctions let you save big.</p></div>
+  <div class="facts__nav" aria-label="Facts carousel navigation">
+    <button class="facts__nav-btn ticks" id="facts-prev" aria-label="Previous fact">
+      <span class="tick tl"></span><span class="tick tr"></span>
+      <span class="tick bl"></span><span class="tick br"></span>
+      <svg viewBox="0 0 18 18" aria-hidden="true">
+        <path d="M11 4L6 9L11 14" stroke="#C2B9FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </button>
+    <button class="facts__nav-btn ticks" id="facts-next" aria-label="Next fact">
+      <span class="tick tl"></span><span class="tick tr"></span>
+      <span class="tick bl"></span><span class="tick br"></span>
+      <svg viewBox="0 0 18 18" aria-hidden="true">
+        <path d="M7 4L12 9L7 14" stroke="#C2B9FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </button>
+  </div>
+  <div class="facts__grid">
+    <div class="fact fact--a ticks"><span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span><p class="fact__n">12</p><p class="fact__l">Stages of Inspection</p><p class="fact__t">We test, verify, and only then hand over the keys. Real inspection — not intuition.</p></div>
+    <div class="fact fact--b ticks"><span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span><p class="fact__n">10+</p><p class="fact__l">Years in the Industry</p><p class="fact__t">We’ve seen it all — and that’s why we do it right. It’s in our DNA.</p></div>
+    <div class="fact fact--c ticks"><span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span><p class="fact__n">450+</p><p class="fact__l">Clients Said “Wow!”</p><p class="fact__t">And new ones join every week. Every car is a story — and our client is always the main character.</p></div>
+    <div class="fact fact--d ticks"><span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span><p class="fact__n">3-4</p><p class="fact__l">Weeks — Faster Than You Expect</p><p class="fact__t">An optimized process — no delays, no surprises. Search, preparation, and the car is yours.</p></div>
+    <div class="fact fact--e ticks"><span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span><p class="fact__k">Save</p><p class="fact__n">30-50%</p><p class="fact__t">Overpaying isn’t our style — auctions let you save big.</p></div>
+  </div>
 </section>
 
 <!-- ══ 7. CORPORATE 5430–6630 ════════════════════════════════════════════ -->
@@ -566,7 +605,9 @@
     </div>
 
     <div class="community__right">
-      <figure class="community__photo">
+      <figure class="community__photo ticks">
+        <span class="tick tl"></span><span class="tick tr"></span>
+        <span class="tick bl"></span><span class="tick br"></span>
         <svg class="community__photo-ticks" viewBox="0 0 776 406" preserveAspectRatio="none" aria-hidden="true">
           <path d="M0 13.7V0H13.7 M776 13.7V0H762.3 M0 392.3V406H13.7 M776 392.3V406H762.3" stroke="#C2B9FF" fill="none" stroke-width="1"/>
         </svg>
