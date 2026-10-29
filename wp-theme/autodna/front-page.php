@@ -393,11 +393,17 @@ get_header(); ?>
 <section class="corporate" id="corporate" aria-label="About AutoDNA">
   <img class="corporate__dna" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/corporate-bg.svg" alt="" aria-hidden="true">
   <div class="corporate__top">
-    <p class="corporate__about">AutoDNA is the parent corporation that brings together SkipTheDealer, AutoDNA&nbsp;Service, and other companies.</p>
+    <p class="corporate__about">
+      <span class="text-lavender">AutoDNA is the parent corporation that brings</span>
+      <span class="text-white">together SkipTheDealer, AutoDNA&nbsp;Service, and other companies.</span>
+    </p>
     <aside class="corporate__card ticks">
       <span class="tick tl"></span><span class="tick tr"></span>
       <span class="tick bl"></span><span class="tick br"></span>
-      <p>We play by new rules — and this is just the beginning.</p>
+      <p>
+        <span class="text-white">We play by new rules —</span>
+        <span class="text-lavender">and this is just the beginning.</span>
+      </p>
     </aside>
   </div>
   <figure class="corporate__photo ticks">
@@ -405,7 +411,10 @@ get_header(); ?>
     <span class="tick bl"></span><span class="tick br"></span>
     <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/corporate-hall.jpg" alt="DNA Auto dealership building in Calgary">
   </figure>
-  <p class="corporate__plan">Over the next two years, we plan to create a complete automotive hub for car enthusiasts, offering all kinds of services and entertainment for our clients.</p>
+  <p class="corporate__plan">
+    <span class="text-lavender">Over the next two years, we plan to create a complete automotive</span>
+    <span class="text-white">hub for car enthusiasts, offering all kinds of services and entertainment for our clients.</span>
+  </p>
 </section>
 
 <!-- ══ 8. CLUB ═════════════════════════════════════════════════════════ -->
@@ -485,8 +494,8 @@ get_header(); ?>
   </div>
 
   <p class="club__out">
-    <span>REAL BENEFITS, REAL SAVINGS —</span>
-    <span>MADE FOR DRIVERS LIKE YOU.</span>
+    <span class="text-lavender">REAL BENEFITS, REAL SAVINGS —</span>
+    <span class="text-white">MADE FOR DRIVERS LIKE YOU.</span>
   </p>
 </section>
 

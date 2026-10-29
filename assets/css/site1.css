@@ -1,3 +1,20 @@
+
+/* Two-tone typography per Figma design system */
+.text-white {
+  color: #ffffff !important;
+}
+.text-lavender {
+  color: #c2b9ff !important;
+}
+.text-violet {
+  color: #9685ff !important;
+  text-shadow: 0 0 25px rgba(150, 133, 255, 0.7);
+}
+.corporate__about span,
+.corporate__plan span,
+.corporate__card span {
+  display: inline;
+}
 /* ══ AutoDNA site-1 — built from the board ══════════════════════════════
    Sources: figma/main.png (eye), 1.json Component 7 (107 texts + fonts),
    1st site (assets)/figma/main.svg (photos, AUTO shapes, gradients).
@@ -818,11 +835,11 @@ a { color: inherit; }
   object-fit: cover; pointer-events: none;
 }
 .corporate__top { position: relative; display: grid; grid-template-columns: 592px 289px; gap: 34px; align-items: start; justify-content: center; margin-bottom: 30px; padding-top: 60px; }
-.corporate__about { font-size: 40px; font-weight: 300; letter-spacing: -0.8px; text-transform: uppercase; line-height: 0.93; text-align: justify; color: #c2b9ff; margin: 0; }
+.corporate__about { font-size: 40px; font-weight: 300; letter-spacing: -0.8px; text-transform: uppercase; line-height: 0.93; text-align: justify; color: #ffffff; margin: 0; }
 .corporate__card { background: rgba(38, 37, 72, 0.44); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 0; padding: 35px; font-size: 40px; font-weight: 300; letter-spacing: -0.8px; text-transform: uppercase; line-height: 0.93; text-align: justify; color: #c2b9ff; width: 289px; min-height: 291px; margin: 0; }
 .corporate__photo { position: relative; width: 740px; margin: 0 auto; }
 .corporate__photo img { width: 740px; height: 378px; object-fit: cover; display: block; }
-.corporate__plan { position: relative; width: 759px; margin: 17px auto 0; font-size: 40px; font-weight: 300; letter-spacing: -0.8px; text-transform: uppercase; line-height: 0.93; text-align: justify; color: #c2b9ff; }
+.corporate__plan { position: relative; width: 759px; margin: 17px auto 0; font-size: 40px; font-weight: 300; letter-spacing: -0.8px; text-transform: uppercase; line-height: 0.93; text-align: justify; color: #ffffff; }
 
 /* ══ 8. CLUB ═════════════════════════════════════════════════════════════ */
 .club {
