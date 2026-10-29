@@ -21,13 +21,12 @@
   text-shadow: 0 0 30px rgba(194, 185, 255, 0.7);
 }
 
-/* 1. HERO — FULLSCREEN 100VH PER FIGMA */
+/* 1. HERO — EXACT PROPORTION PER FIGMA */
 .dealer-hero {
   position: relative;
   width: 100%;
-  height: 100vh;
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: auto;
+  min-height: 0;
   background-color: #020202;
   overflow: hidden;
   box-sizing: border-box;
@@ -36,8 +35,10 @@
 .dealer-hero__board {
   position: relative;
   width: 100%;
-  height: 100%;
-  margin: 0;
+  max-width: 1440px;
+  height: auto;
+  aspect-ratio: 1440 / 920;
+  margin: 0 auto;
 }
 
 .dealer-hero__board-img {
@@ -45,24 +46,19 @@
   height: 100%;
   display: block;
   object-fit: cover;
-  object-position: center center;
+  object-position: center top;
 }
 
-.dealer-hero__cta-hitarea.dealer-hero__cta-hitarea {
+.dealer-hero__cta-hitarea {
   position: absolute;
   left: 78.194%;
-  top: 90.0%;
+  top: 79.24%;
   width: 20.069%;
-  height: 9.876%;
+  height: 8.70%;
   z-index: 10;
   cursor: pointer;
   border-radius: 2px;
   transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.dealer-hero__cta-hitarea:hover {
-  background: rgba(150, 133, 255, 0.12);
-  box-shadow: 0 0 30px rgba(150, 133, 255, 0.35);
 }
 
 .dealer-hero__mob {
@@ -72,9 +68,10 @@
 /* 2. SCENARIOS (Seamless black blend from hero) */
 .dealer-scenarios {
   position: relative;
-  padding: 100px 0 120px;
+  width: 100%;
+  padding: 0 0 100px;
+  margin-top: -30px;
   background-color: #020202;
-  text-align: center;
   overflow: hidden;
 }
 
@@ -781,8 +778,13 @@
 
   /* Scenarios mobile */
   .dealer-scenarios {
-    padding: 60px 13px 70px;
-  }
+  position: relative;
+  width: 100%;
+  padding: 0 0 100px;
+  margin-top: -30px;
+  background-color: #020202;
+  overflow: hidden;
+}
   .dealer-scenarios__title {
     font-size: 26px;
     line-height: 28px;
