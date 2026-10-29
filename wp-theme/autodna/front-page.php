@@ -412,9 +412,10 @@ get_header(); ?>
 <section class="club" id="club" aria-label="DNA Auto Club">
   <div class="club__stage">
     <p class="club__lede">
-      <span class="club__lede-line">JOIN DNA AUTO CLUB</span>
-      <span class="club__lede-line">AND GET MORE THAN</span>
-      <span class="club__lede-line">JUST SERVICE.</span>
+      <span class="club__lede-row"><span>JOIN</span> <span>DNA</span> <span>AUTO</span></span>
+      <span class="club__lede-row"><span>CLUB</span> <span>AND</span> <span>GET</span></span>
+      <span class="club__lede-row"><span>MORE</span> <span>THAN</span> <span>JUST</span></span>
+      <span class="club__lede-row"><span>SERVICE.</span></span>
     </p>
     <h2 class="club__title">AUTO CLUB</h2>
   </div>

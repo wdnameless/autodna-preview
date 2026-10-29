@@ -845,32 +845,34 @@ a { color: inherit; }
 }
 .club__lede {
   position: absolute;
-  left: 24px;
-  top: 0;
+  left: 27px;
+  top: 10px;
   width: 335px;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 300;
   font-size: 40px;
   letter-spacing: -0.8px;
-  line-height: 37.2px;
+  line-height: 38px;
   text-transform: uppercase;
   color: #c2b9ff;
   margin: 0;
 }
-.club__lede-line {
-  display: block;
+.club__lede-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 .club__title {
   position: absolute;
-  left: 50%;
+  left: 748px;
   transform: translateX(-50%);
   bottom: 12px;
   z-index: 1;
   font-family: var(--display);
   font-weight: 500;
-  font-size: 124px;
-  letter-spacing: -6.2px;
-  line-height: 109px;
+  font-size: 110px;
+  letter-spacing: -5px;
+  line-height: 100px;
   text-transform: uppercase;
   text-align: center;
   white-space: nowrap;
@@ -1300,6 +1302,18 @@ body::after {
   .club-card {
     width: 100%;
     min-width: 0;
+  }
+  .club__stage {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 1440px !important;
+    height: 250px !important;
+    margin: 0 auto !important;
+  }
+  .club__title {
+    left: 55% !important;
+    font-size: clamp(70px, 7.6vw, 110px) !important;
+    letter-spacing: -3px !important;
   }
 }
 
@@ -2320,7 +2334,7 @@ body::after {
   .club__lede {
     display: flex !important;
     flex-direction: column !important;
-    gap: 2px !important;
+    gap: 4px !important;
     position: static !important;
     width: 100% !important;
     max-width: 367px !important;
@@ -2334,10 +2348,11 @@ body::after {
     color: #ffffff !important;
     text-align: left !important;
   }
-  .club__lede-line {
-    display: block !important;
-    white-space: nowrap !important;
-    color: #ffffff !important;
+  .club__lede-row {
+    display: flex !important;
+    gap: 8px !important;
+    justify-content: flex-start !important;
+    width: auto !important;
   }
   .club__title {
     position: static !important;
