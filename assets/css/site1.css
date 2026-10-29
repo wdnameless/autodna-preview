@@ -790,9 +790,13 @@ a { color: inherit; }
 .facts {
   position: relative;
   padding: 80px 0 60px;
-  min-height: 560px;
+  min-height: 650px;
   background-color: #020202;
-  background-image: radial-gradient(650px 480px at 85% 65%, rgba(150, 133, 255, 0.32), rgba(81, 64, 200, 0.12) 50%, transparent 75%);
+  background-image: url('../img/site1/facts-desktop-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 1440px auto;
+  overflow: hidden;
 }
 .fact { position: absolute; width: 262px; }
 @media (min-width: 1441px) { .fact { margin-left: calc((100vw - 1440px) / 2); } }
