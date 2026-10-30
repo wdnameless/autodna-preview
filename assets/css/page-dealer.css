@@ -329,127 +329,44 @@
   text-shadow: 0 0 35px rgba(194, 185, 255, 0.6);
 }
 
-/* ══ 4. REAL SAVINGS TABLE (Figma Screenshot 1) ══════════════════════════ */
+/* ══ 4. REAL SAVINGS TABLE (100% VECTOR SVG EXACT FIGMA 464:4868) ════════ */
 .dealer-savings {
   position: relative;
   width: 100%;
-  padding: 0 0 140px;
+  padding: 0 0 40px;
   background-color: #020202;
   overflow: hidden;
   text-align: center;
-}
-
-.dealer-savings__hero {
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #020202;
-  margin-bottom: 10px;
-}
-
-.dealer-savings__hero-img {
-  width: 100%;
-  max-width: 2560px;
-  height: auto;
-  display: block;
-  pointer-events: none;
-}
-
-.dealer-savings__container {
-  position: relative;
-  z-index: 5;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 24px;
   box-sizing: border-box;
 }
 
-.dealer-savings__wrap {
+.dealer-savings .dealer-board--desktop {
   position: relative;
-  z-index: 3;
-  max-width: 1390px;
-  margin: 0 auto;
-  overflow-x: auto;
-  border: 1px solid rgba(194, 185, 255, 0.22);
-  background: rgba(18, 14, 42, 0.65);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 20px 60px rgba(10, 6, 30, 0.5);
-}
-
-.dealer-savings__wrap .tick {
-  width: 18px;
-  height: 18px;
-  border-color: #c2b9ff;
-  opacity: 1;
-}
-
-.dealer-savings__table {
   width: 100%;
-  border-collapse: collapse;
-  text-align: left;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
-.dealer-savings__table th,
-.dealer-savings__table td {
-  border: 1px solid rgba(194, 185, 255, 0.16);
-  vertical-align: middle;
-  padding: 24px 32px;
+.dealer-savings .dealer-board__svg {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-.dealer-savings__table thead th {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 300;
-  font-size: 24px;
-  letter-spacing: -0.48px;
-  color: #c2b9ff;
-  background: rgba(38, 37, 72, 0.35);
+.dealer-savings__container--mobile {
+  display: none !important;
 }
 
-.dealer-savings__table tbody th {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 300;
-  font-size: 28px;
-  letter-spacing: -0.56px;
-  text-transform: uppercase;
-  color: #ffffff;
-}
-
-.dealer-savings__table tbody td {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 300;
-  font-size: 28px;
-  letter-spacing: -0.56px;
-  color: #ffffff;
-}
-
-/* Glowing You Save column matching Screenshot 1 */
-.th-save {
-  background: rgba(43, 33, 111, 0.6) !important;
-  color: #ffffff !important;
-}
-
-.td-save {
-  font-weight: 400 !important;
-}
-
-.td-save--1 {
-  background: rgba(43, 33, 111, 0.5) !important;
-  color: #ffffff !important;
-}
-
-.td-save--2 {
-  background: rgba(67, 54, 148, 0.65) !important;
-  color: #ffffff !important;
-}
-
-.td-save--3.is-lit {
-  background: #b4a8ff !important;
-  color: #15112e !important;
-  font-weight: 500 !important;
-  text-shadow: none !important;
+@media (max-width: 768px) {
+  .dealer-savings .dealer-board--desktop {
+    display: none !important;
+  }
+  .dealer-savings__container--mobile {
+    display: block !important;
+    max-width: 393px !important;
+    margin: 0 auto !important;
+    padding: 0 13px !important;
+  }
 }
 
 /* 5. FRIENDS & STATS */
