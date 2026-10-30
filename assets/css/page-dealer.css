@@ -451,24 +451,22 @@
   text-shadow: 0 0 35px rgba(194, 185, 255, 0.6);
 }
 
-/* ══ 4. REAL SAVINGS TABLE (Exact 1:1 Flow directly below How It Works text) ══ */
+/* ══ 4. REAL SAVINGS TABLE (100% FULL-SCREEN VECTOR SVG EXACT FIGMA 464:4868) */
 .dealer-savings {
   position: relative;
   width: 100%;
-  padding: 0 0 40px;
-  margin-top: -30px;
+  padding: 0 0 60px;
   background-color: #020202;
-  overflow: visible;
+  overflow: hidden;
   text-align: center;
   box-sizing: border-box;
-  z-index: 3;
 }
 
 .dealer-savings .dealer-board--desktop {
   position: relative;
   width: 100%;
-  max-width: clamp(880px, 58vw, 1080px);
-  margin: 0 auto;
+  max-width: 100% !important;
+  margin: 0 !important;
 }
 
 .dealer-savings .dealer-board__svg {
@@ -487,8 +485,8 @@
   }
   .dealer-savings__container--mobile {
     display: block !important;
-    max-width: 393px !important;
-    margin: 0 auto !important;
+    max-width: 100% !important;
+    margin: 0 !important;
     padding: 0 13px !important;
   }
 }
