@@ -464,10 +464,10 @@
   z-index: 3;
 }
 
-.dealer-savings .dealer-board.dealer-savings .dealer-board--desktop {
+.dealer-savings .dealer-board--desktop {
   position: relative;
   width: 100%;
-  max-width: 1440px;
+  max-width: clamp(880px, 58vw, 1080px);
   margin: 0 auto;
 }
 
