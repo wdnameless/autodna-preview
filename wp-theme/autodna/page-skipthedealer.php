@@ -9,65 +9,18 @@ get_header(); ?>
 
 <main>
 
-<!-- ══ 1. HERO (Exact Figma 464:4868 / Proportional Scale) ═══════════════ -->
-<section class="dealer-hero" id="hero" aria-label="SkipTheDealer Intro">
-  <!-- Desktop Hero Board: Max-width 1440px, perfectly proportional typography & buttons -->
-  <div class="dealer-hero__board dealer-hero__board--desktop">
-    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/dealer-hero-exact.jpg" class="dealer-hero__board-img" alt="SkipTheDealer — Buy cars up to 40% cheaper" fetchpriority="high">
-    <a href="#how-it-works" class="dealer-hero__cta-hitarea" aria-label="See how it works"></a>
+<!-- ══ 1 & 2. HERO + SCENARIOS (Exact 100% Vector SVG from Figma skipthedealer/SkipTheDealer.svg) ═══════════════ -->
+<section class="dealer-hero-scenarios" id="hero-scenarios" aria-label="SkipTheDealer Introduction & Market Scenarios">
+  <!-- Desktop Vector Board (1440px exact Figma scale, infinite crisp vector quality) -->
+  <div class="dealer-board dealer-board--desktop">
+    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/dealer-hero-scenarios-clean.svg" class="dealer-board__svg" alt="SkipTheDealer — Buy cars up to 40% cheaper. Imagine buying a car 30-40% cheaper than market price." fetchpriority="high">
+    <a href="#how-it-works" class="dealer-board__cta-hitarea" aria-label="See how it works"></a>
   </div>
 
-  <!-- Mobile Hero layout (shown only under 768px) -->
-  <div class="dealer-hero__board dealer-hero__board--mobile">
-    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/dealer-mob-hero-scenarios.svg" class="dealer-hero__board-img" alt="SkipTheDealer — Buy cars up to 40% cheaper" fetchpriority="high">
-    <a href="#how-it-works" class="dealer-hero__cta-hitarea dealer-hero__cta-hitarea--mob" aria-label="See how it works"></a>
-  </div>
-</section>
-
-<!-- ══ 2. SCENARIOS (Exact Figma 464:5122..5138 / Seamless #020202) ════════ -->
-<section class="dealer-scenarios" id="scenarios" aria-label="Market Scenarios">
-  <div class="dealer-scenarios__container">
-    <div class="dealer-scenarios__heading">
-      <h2 class="dealer-scenarios__title">
-        <span>IMAGINE BUYING A</span>
-        <span>DEALERS ARE OUT OF THE GAME.</span>
-        <span class="neon-violet">NOW IT’S YOUR TURN.</span>
-      </h2>
-
-      <p class="dealer-scenarios__sub">
-        <span>CUSTOMERS CAN GET A CAR</span>
-        <span class="neon-violet">30–40% CHEAPER THAN THE MARKET PRICE.</span>
-        <span>THERE ARE TWO MAIN SCENARIOS:</span>
-      </p>
-    </div>
-
-    <!-- Wire brackets + vertical center divider -->
-    <div class="dealer-scenarios__wire-box" aria-hidden="true">
-      <svg class="dealer-scenarios__brackets" viewBox="0 0 938 90" preserveAspectRatio="none">
-        <path d="M0 90V0H90" stroke="#C2B9FF" stroke-width="1" fill="none"/>
-        <path d="M937.2 90V0H847.2" stroke="#C2B9FF" stroke-width="1" fill="none"/>
-      </svg>
-      <div class="dealer-scenarios__v-divider"></div>
-    </div>
-
-    <!-- 2 Scenarios columns -->
-    <div class="dealer-scenarios__grid">
-      <!-- Scenario 1: Buy and profit -->
-      <div class="dealer-scenario-col dealer-scenario-col--1">
-        <h3 class="dealer-scenario-col__title">1. BUY AND PROFIT</h3>
-        <p class="dealer-scenario-col__body">A customer buys a car for $10,000, while the market price is $14,000–$15,000. They immediately gain <span class="neon-violet">$4,000–$5,000 in built-in savings</span>. If they choose to resell the car right away, they can essentially earn this money.</p>
-      </div>
-
-      <!-- Scenario 2: Drive without losing -->
-      <div class="dealer-scenario-col dealer-scenario-col--2">
-        <h3 class="dealer-scenario-col__title">2. DRIVE WITHOUT LOSING</h3>
-        <p class="dealer-scenario-col__body">A customer keeps the car for 2–3 years. During this time, the market price might drop from $15,000 to $10,000. But since they bought the car for $10,000, they can <span class="neon-violet">sell it for the same amount without losing anything</span>.</p>
-      </div>
-    </div>
-
-    <p class="dealer-scenarios__banner-quote">
-      WITH SKIPTHEDEALER, CUSTOMERS EITHER PROFIT OR MINIMIZE LOSSES TO ZERO.
-    </p>
+  <!-- Mobile Vector Board (393px exact Figma mobile vector) -->
+  <div class="dealer-board dealer-board--mobile">
+    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/dealer-mob-hero-scenarios.svg" class="dealer-board__svg" alt="SkipTheDealer — Buy cars up to 40% cheaper." fetchpriority="high">
+    <a href="#how-it-works" class="dealer-board__cta-hitarea dealer-board__cta-hitarea--mob" aria-label="See how it works"></a>
   </div>
 </section>
 
