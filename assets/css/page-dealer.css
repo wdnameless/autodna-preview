@@ -34,8 +34,8 @@
 .dealer-board {
   position: relative;
   width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
+  max-width: none !important;
+  margin: 0 !important;
 }
 
 .dealer-board--mobile {
@@ -82,19 +82,45 @@
   }
 }
 
-/* ══ 3. HOW IT WORKS (Exact Figma 464:5152 / User Screenshot) ═══════════ */
+/* ══ 3. HOW IT WORKS (Seamless ambient glow on #020202) ══════════════════ */
 .dealer-how {
   position: relative;
   width: 100%;
   min-height: 1150px;
-  background: #020202 url('../img/site1/dealer-how-exact-bg.svg') center -70px / 1440px auto no-repeat;
+  background: #020202 url('../img/site1/dealer-how-exact-bg.svg') center 40px / 1440px auto no-repeat;
   overflow: hidden;
   padding: 80px 0 80px;
   box-sizing: border-box;
   text-align: center;
 }
 
-.dealer-how__container.dealer-how__container {
+/* Soft ambient veil at top of How It Works: completely smooth fade from black */
+.dealer-how::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 220px;
+  background: linear-gradient(180deg, #020202 0%, rgba(2, 2, 2, 0.9) 35%, rgba(2, 2, 2, 0.5) 65%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Soft ambient veil at bottom of How It Works: completely smooth fade to black */
+.dealer-how::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 180px;
+  background: linear-gradient(0deg, #020202 0%, rgba(2, 2, 2, 0.85) 45%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dealer-how__container.dealer-how__container.dealer-how__container {
   position: relative;
   z-index: 2;
   max-width: 1440px;
