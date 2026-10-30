@@ -231,148 +231,35 @@ get_header(); ?>
   </div>
 </section>
 
-<!-- ══ 5. FRIENDS & STATS ══════════════════════════════════════════════════ -->
-<section class="dealer-friends" aria-label="Our friends community">
-  <div class="dealer-friends__container">
-    <div class="dealer-friends__card ticks">
-      <span class="tick tl"></span><span class="tick tr"></span>
-      <span class="tick bl"></span><span class="tick br"></span>
-      <div class="dealer-friends__photo ticks">
-        <span class="tick tl"></span><span class="tick tr"></span>
-        <span class="tick bl"></span><span class="tick br"></span>
-        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/dealer-friends.jpg" alt="AutoDNA team and friends">
-      </div>
-      <h3>Your friends are our friends!</h3>
-      <p>Your friends and family can enjoy a 30% discount on every service. And when they make their first order — you’ll get 30% off too.</p>
+<!-- ══ 5. FRIENDS, STATS, CTA & FOOTER (Exact 100% Vector SVG from Figma skipthedealer/) ══ -->
+<section class="dealer-bottom-zone" id="footer-zone" aria-label="Community, Benefits, and Contact">
+  <!-- Desktop 100% Vector SVG Board: Exact match to user screenshot -->
+  <div class="dealer-board dealer-board--desktop">
+    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/dealer-footer-exact-clean.svg" class="dealer-board__svg" alt="AutoDNA Friends, 30-40% Cheaper Benefits, Submit a Request, and Contact" loading="lazy">
+
+    <!-- Interactive click hitarea over 'SUBMIT A REQUEST ↗' button -->
+    <a href="#top" class="dealer-board__cta-bottom-hitarea" aria-label="Submit a request"></a>
+
+    <!-- Interactive telephone and email links over footer -->
+    <a href="tel:+14033128306" class="dealer-board__phone-hitarea" aria-label="Call +1 (403) 312-8306"></a>
+    <a href="mailto:info@autodna.com" class="dealer-board__email-hitarea" aria-label="Email info@autodna.com"></a>
+
+    <!-- Interactive Social Links -->
+    <div class="dealer-board__socials-hitarea">
+      <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"></a>
+      <a href="https://x.com" target="_blank" rel="noopener" aria-label="X (Twitter)"></a>
+      <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"></a>
     </div>
 
-    <!-- 5 Stats cards -->
-    <div class="dealer-stats-grid">
-      <div class="dealer-stat-item ticks">
-        <span class="tick tl"></span><span class="tick tr"></span>
-        <span class="tick bl"></span><span class="tick br"></span>
-        <div class="stat-num">30–40%</div>
-        <div class="stat-title">Cheaper</div>
-        <p>Save compared to dealer and Marketplace private seller prices.</p>
-      </div>
-
-      <div class="dealer-stat-item ticks">
-        <span class="tick tl"></span><span class="tick tr"></span>
-        <span class="tick bl"></span><span class="tick br"></span>
-        <div class="stat-title" style="margin-top: 14px;">Access to exclusive auctions</div>
-        <p>We represent you at closed wholesale auctions regular buyers can’t access.</p>
-      </div>
-
-      <div class="dealer-stat-item ticks">
-        <span class="tick tl"></span><span class="tick tr"></span>
-        <span class="tick bl"></span><span class="tick br"></span>
-        <div class="stat-title" style="margin-top: 14px;">Full inspection &amp; safety</div>
-        <p>Every car goes through a full diagnostic, road test, and AMVIC inspection.</p>
-      </div>
-
-      <div class="dealer-stat-item ticks">
-        <span class="tick tl"></span><span class="tick tr"></span>
-        <span class="tick bl"></span><span class="tick br"></span>
-        <div class="stat-title" style="margin-top: 14px;">Long-term financial benefit</div>
-        <p>In 2–3 years, you can resell your car for nearly the same price — zero losses.</p>
-      </div>
-
-      <div class="dealer-stat-item ticks">
-        <span class="tick tl"></span><span class="tick tr"></span>
-        <span class="tick bl"></span><span class="tick br"></span>
-        <div class="stat-title" style="margin-top: 14px;">Zero dealer markup</div>
-        <p>Dealers buy from the same auctions and markup prices. We buy for you directly.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ 6. CTA / REQUEST A QUOTE ════════════════════════════════════════════ -->
-<section class="dealer-cta-section" aria-label="Request quote">
-  <h2>Save up to $10,000 on your next car?<br>— It’s real.</h2>
-  <a href="#contact" class="dealer-cta-btn ticks">
-    <span class="tick tl"></span><span class="tick tr"></span>
-    <span class="tick bl"></span><span class="tick br"></span>
-    <span>Submit a request</span>
-    <svg viewBox="0 0 14 14" width="14" height="14" aria-hidden="true">
-      <path d="M0 13L13 0M0 0H13V13" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    </svg>
-  </a>
-</section>
-
-<!-- ══ 7. FOOTER ═══════════════════════════════════════════════════════════ -->
-<footer class="foot" id="contact" style="background: #020202 url('<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/community-bg.svg') center bottom / 100% 100% no-repeat; padding-bottom: 40px;">
-  <div class="foot__box">
-    <svg class="foot__ticks" viewBox="0 0 1370 176" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0 18.8V0H18.8 M1370 18.8V0H1351.2 M0 157.2V176H18.8 M1370 157.2V176H1351.2" stroke="#C2B9FF" fill="none" stroke-width="1"/>
-    </svg>
-
-    <div class="foot__grid">
-      <!-- Col 1: Contact us -->
-      <div class="foot__col foot__col--contact">
-        <h3>CONTACT US</h3>
-        <div class="foot__item">
-          <a href="tel:+14033128306" class="foot__link">+1 (403) 312-8306</a>
-          <svg class="foot__item-line" viewBox="0 0 348 35" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M0 34.2H246.7L312.8 0H348.2" stroke="#C2B9FF" fill="none" stroke-width="1"/>
-            <path d="M340.2 8L348.2 0M340.2 0H348.2V8" stroke="#C2B9FF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          </svg>
-        </div>
-        <div class="foot__item">
-          <a href="mailto:info@autodna.com" class="foot__link">info@autodna.com</a>
-          <svg class="foot__item-line" viewBox="0 0 348 35" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M0 34.2H246.7L312.8 0H348.2" stroke="#C2B9FF" fill="none" stroke-width="1"/>
-            <path d="M340.2 8L348.2 0M340.2 0H348.2V8" stroke="#C2B9FF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          </svg>
-        </div>
-      </div>
-
-      <!-- Col 2: Follow Us -->
-      <div class="foot__col foot__col--social">
-        <h3>FOLLOW US</h3>
-        <div class="foot__socials">
-          <a href="#" aria-label="Facebook" class="foot__soc-btn">
-            <svg viewBox="0 0 40 40" aria-hidden="true">
-              <circle cx="20" cy="20" r="19.5" fill="none" stroke="#C2B9FF"/>
-              <path d="M22 29v-9h3l.5-3.5h-3.5v-2c0-1 .3-1.8 1.8-1.8h2V9.5c-.4 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.6H16V20h2.8v9H22Z" fill="#FFFFFF"/>
-            </svg>
-          </a>
-          <a href="#" aria-label="X" class="foot__soc-btn">
-            <svg viewBox="0 0 40 40" aria-hidden="true">
-              <circle cx="20" cy="20" r="19.5" fill="none" stroke="#C2B9FF"/>
-              <path d="M25.5 12h2.5l-5.5 6.3L29 27h-5.1l-4-5.2-4.6 5.2h-2.5l5.9-6.8L12.5 12h5.2l3.6 4.8L25.5 12Zm-.9 13.5h1.4L17.1 13.4h-1.5l9 12.1Z" fill="#FFFFFF"/>
-            </svg>
-          </a>
-          <a href="#" aria-label="Instagram" class="foot__soc-btn">
-            <svg viewBox="0 0 40 40" aria-hidden="true">
-              <circle cx="20" cy="20" r="19.5" fill="none" stroke="#C2B9FF"/>
-              <rect x="13" y="13" width="14" height="14" rx="4" fill="none" stroke="#FFFFFF" stroke-width="1.8"/>
-              <circle cx="20" cy="20" r="3.5" fill="none" stroke="#FFFFFF" stroke-width="1.8"/>
-              <circle cx="24.5" cy="15.5" r="1" fill="#FFFFFF"/>
-            </svg>
-          </a>
-        </div>
-        <svg class="foot__social-underline" viewBox="0 0 207 1" preserveAspectRatio="none" aria-hidden="true">
-          <line x1="0" y1="0.5" x2="207" y2="0.5" stroke="#C2B9FF"/>
-        </svg>
-      </div>
-
-      <!-- Col 3: Find Us -->
-      <div class="foot__col foot__col--find">
-        <h3>FIND US</h3>
-        <div class="foot__item">
-          <p class="foot__address">730 2 Ave SW,<br>Calgary, T2P1R8,<br>Canada</p>
-          <svg class="foot__item-line foot__item-line--find" viewBox="0 0 348 35" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M0 34.2H246.7L312.8 0H348.2" stroke="#C2B9FF" fill="none" stroke-width="1"/>
-            <path d="M340.2 8L348.2 0M340.2 0H348.2V8" stroke="#C2B9FF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          </svg>
-        </div>
-      </div>
-    </div>
+    <!-- Interactive Address Link to Google Maps -->
+    <a href="https://maps.google.com/?q=730+2+Ave+SW+Calgary+T2P1R8+Canada" target="_blank" rel="noopener" class="dealer-board__address-hitarea" aria-label="Open location in Google Maps"></a>
   </div>
 
-  <p class="foot__copy">© 2025 AutoDNA Canada. All rights reserved.</p>
-</footer>
+  <!-- Mobile Vector Board (from skipthedealer/SkipTheDealer mob.svg) -->
+  <div class="dealer-board dealer-board--mobile">
+    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/dealer-mob-footer-clean.svg" class="dealer-board__svg" alt="AutoDNA Friends and Contact" loading="lazy">
+  </div>
+</section>
 
 </main>
 
