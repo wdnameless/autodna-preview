@@ -81,14 +81,14 @@
   }
 }
 
-/* ══ 3. HOW IT WORKS (Seamless ambient glow on #020202) ══════════════════ */
+/* ══ 3. HOW IT WORKS (Seamless continuous flow into Real Savings per Figma) ═══ */
 .dealer-how {
   position: relative;
   width: 100%;
-  min-height: 1150px;
-  background: #020202 url('../img/site1/dealer-how-exact-bg.svg') center 40px / 1440px auto no-repeat;
-  overflow: hidden;
-  padding: 80px 0 80px;
+  min-height: 0;
+  background: #020202 url('../img/site1/dealer-how-exact-bg.svg') center -40px / 1440px auto no-repeat;
+  overflow: visible;
+  padding: 80px 0 0;
   box-sizing: border-box;
   text-align: center;
 }
@@ -100,26 +100,15 @@
   left: 0;
   right: 0;
   top: 0;
-  height: 220px;
-  background: linear-gradient(180deg, #020202 0%, rgba(2, 2, 2, 0.9) 35%, rgba(2, 2, 2, 0.5) 65%, transparent 100%);
+  height: 140px;
+  background: linear-gradient(180deg, #020202 0%, rgba(2, 2, 2, 0.75) 45%, transparent 100%);
   pointer-events: none;
   z-index: 1;
 }
 
-/* Soft ambient veil at bottom of How It Works: completely smooth fade to black */
-.dealer-how::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 180px;
-  background: linear-gradient(0deg, #020202 0%, rgba(2, 2, 2, 0.85) 45%, transparent 100%);
-  pointer-events: none;
-  z-index: 1;
-}
+/* Notice: NO .dealer-how::after black veil! The glow continues directly into the cars! */
 
-.dealer-how__container.dealer-how__container.dealer-how__container {
+.dealer-how__container.dealer-how__container.dealer-how__container.dealer-how__container {
   position: relative;
   z-index: 2;
   max-width: 1440px;
@@ -329,18 +318,20 @@
   text-shadow: 0 0 35px rgba(194, 185, 255, 0.6);
 }
 
-/* ══ 4. REAL SAVINGS TABLE (100% VECTOR SVG EXACT FIGMA 464:4868) ════════ */
+/* ══ 4. REAL SAVINGS TABLE (Exact 1:1 Flow directly below How It Works text) ══ */
 .dealer-savings {
   position: relative;
   width: 100%;
   padding: 0 0 40px;
+  margin-top: -30px;
   background-color: #020202;
-  overflow: hidden;
+  overflow: visible;
   text-align: center;
   box-sizing: border-box;
+  z-index: 3;
 }
 
-.dealer-savings .dealer-board--desktop {
+.dealer-savings .dealer-board.dealer-savings .dealer-board--desktop {
   position: relative;
   width: 100%;
   max-width: 1440px;
