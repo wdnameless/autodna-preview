@@ -177,12 +177,12 @@
       <div class="dealer-how__tabs-bar">
         <div class="dealer-how__tabs-wire" aria-hidden="true"></div>
         <div class="dealer-how__tabs" role="tablist" aria-label="Steps">
-          <button class="hiw-tab ticks" data-step="1" role="tab" aria-selected="false">
+          <button class="hiw-tab ticks is-active" data-step="1" role="tab" aria-selected="true">
             <span class="tick tl"></span><span class="tick tr"></span>
             <span class="tick bl"></span><span class="tick br"></span>
             <span>STEP 1</span>
           </button>
-          <button class="hiw-tab ticks is-active" data-step="2" role="tab" aria-selected="true">
+          <button class="hiw-tab ticks" data-step="2" role="tab" aria-selected="false">
             <span class="tick tl"></span><span class="tick tr"></span>
             <span class="tick bl"></span><span class="tick br"></span>
             <span>STEP 2</span>
@@ -203,33 +203,49 @@
 
     <!-- Active Step Content (Centered in purple glow) -->
     <div class="dealer-how__content-stage">
-      <!-- Step 1 -->
-      <div class="hiw-step-view" data-step="1">
-        <h3 class="hiw-step-view__title">STEP 1.<br>INTRODUCTION &amp; CAR SELECTION</h3>
-        <p class="hiw-step-view__sub">You tell us about your dream car — make, model, year, body type, features, and budget:</p>
+      <!-- Step 1 (Exact match to user screenshot) -->
+      <div class="hiw-step-view is-active" data-step="1">
+        <h3 class="hiw-step-view__title">STEP 1.<br>INTRODUCTION &amp; CAR<br>SELECTION</h3>
+        <p class="hiw-step-view__sub">You tell us about your dream car — make, model, year, body type,<br>features, and budget.</p>
+
+        <span class="hiw-step-view__v-line" aria-hidden="true"></span>
+        <p class="hiw-step-view__sub-2">At this stage, you immediately receive<br>an approximate financial overview:</p>
 
         <div class="hiw-step-view__grid hiw-step-view__grid--4">
           <div class="hiw-col">
             <p><strong>Approximate purchase price at auction</strong> — Estimated cost to buy the car at auction.</p>
           </div>
           <div class="hiw-col">
-            <p><strong>Repair costs</strong> (if any) — Expected expenses to fix any damages.</p>
+            <p><strong>Repair costs (if the car has any damage)</strong> — Expected expenses to fix any damages.</p>
           </div>
           <div class="hiw-col">
-            <p><strong>Additional expenses</strong> — Extra costs for inspections, diagnostics, registration, and fees.</p>
+            <p><strong>Additional expenses (inspection, diagnostics, registration, fees)</strong> — Extra costs for inspections, registration, and fees.</p>
           </div>
           <div class="hiw-col">
-            <p><strong>Final “turnkey” price</strong> — Total cost to have the car completely ready to drive.</p>
+            <p><strong>Final “turnkey” price</strong> — Total cost to have the car ready to drive.</p>
           </div>
         </div>
 
         <p class="hiw-step-view__banner">
-          WE ALWAYS CALCULATE THE TOTAL WITH YOUR EXPECTED SAVINGS IN MIND — YOUR CAR ENDS UP 30–40% CHEAPER THAN DEALER OR MARKETPLACE PRICES.
+          WE ALWAYS CALCULATE THE TOTAL WITH YOUR EXPECTED SAVINGS IN MIND — YOUR CAR ENDS UP <span class="neon-violet">30–40% CHEAPER</span> THAN DEALER OR MARKETPLACE PRICES.
         </p>
+
+        <div class="hiw-step-view__grid hiw-step-view__grid--2 hiw-step-view__example">
+          <div class="hiw-col hiw-col--example">
+            <p>Example: if the market price of a car is <strong>$20,000</strong>, we typically buy it at auction for around <strong>$10,000</strong>. Then we add repair, inspection, fees, and registration costs — and the final price comes to about <strong>$14,000</strong>. As a result, you save <strong>$6,000</strong> compared to the market.</p>
+          </div>
+          <div class="hiw-col hiw-col--transparency">
+            <p>Thanks to this transparency, even before buying you know:<br>
+            - how much the car itself will cost,<br>
+            - what the repair and documentation expenses will be,<br>
+            - what the total final price is,<br>
+            - and how much money you’ll actually save.</p>
+          </div>
+        </div>
       </div>
 
-      <!-- Step 2 (Exact from user screenshot!) -->
-      <div class="hiw-step-view is-active" data-step="2">
+      <!-- Step 2<!-- Step 2 (Exact from user screenshot!) -->
+      <div class="hiw-step-view" data-step="2">
         <h3 class="hiw-step-view__title">STEP 2.<br>DAILY SELECTION<br>&amp; AUCTIONS</h3>
         <p class="hiw-step-view__sub">Every day, we select several cars that match your requirements:</p>
 
