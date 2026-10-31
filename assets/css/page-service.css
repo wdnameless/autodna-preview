@@ -62,26 +62,26 @@
 
 .service-tab-btn--shop {
   left: 24.583%;
-  top: 37.256%;
+  top: 26.500%;
   width: 10.139%;
-  height: 6.157%;
+  height: 6.235%;
 }
 
 .service-tab-btn--plan {
   left: 44.931%;
-  top: 37.256%;
+  top: 26.500%;
   width: 10.139%;
-  height: 6.157%;
+  height: 6.235%;
 }
 
 .service-tab-btn--paint {
   left: 65.278%;
-  top: 37.256%;
+  top: 26.500%;
   width: 10.139%;
-  height: 6.157%;
+  height: 6.235%;
 }
 
-.service-tab-btn:hover {
+.service-tab-btn:hover.service-tab-btn:hover {
   background: rgba(150, 133, 255, 0.15);
   box-shadow: 0 0 20px rgba(150, 133, 255, 0.5);
 }
