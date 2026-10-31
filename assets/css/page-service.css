@@ -47,10 +47,10 @@
   opacity: 0.3;
 }
 
-/* Interactive Tab Buttons over the tabs bar */
+/* Interactive Tab Buttons over the tabs bar — Exact 1:1 match to Figma Component 8 */
 .service-tab-btn {
   position: absolute;
-  z-index: 10;
+  z-index: 20;
   cursor: pointer;
   background: transparent;
   border: none;
@@ -61,32 +61,32 @@
 }
 
 .service-tab-btn--shop {
-  left: 24.3%;
-  top: 37.4%;
-  width: 11.8%;
-  height: 5.5%;
+  left: 24.583%;
+  top: 37.256%;
+  width: 10.139%;
+  height: 6.157%;
 }
 
 .service-tab-btn--plan {
-  left: 44.4%;
-  top: 37.4%;
-  width: 12.8%;
-  height: 5.5%;
+  left: 44.931%;
+  top: 37.256%;
+  width: 10.139%;
+  height: 6.157%;
 }
 
 .service-tab-btn--paint {
-  left: 64.6%;
-  top: 37.4%;
-  width: 11.1%;
-  height: 5.5%;
+  left: 65.278%;
+  top: 37.256%;
+  width: 10.139%;
+  height: 6.157%;
 }
 
 .service-tab-btn:hover {
-  background: rgba(150, 133, 255, 0.12);
-  box-shadow: 0 0 20px rgba(150, 133, 255, 0.4);
+  background: rgba(150, 133, 255, 0.15);
+  box-shadow: 0 0 20px rgba(150, 133, 255, 0.5);
 }
 
-/* ══ INTERACTIVE HITAREAS ON BOTTOM SECTION ═════════════════════════════ */
+/* ══ INTERACTIVE HITAREAS/* ══ INTERACTIVE HITAREAS ON BOTTOM SECTION ═════════════════════════════ */
 .service-hitarea {
   position: absolute;
   z-index: 10;
