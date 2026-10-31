@@ -311,7 +311,7 @@ get_header(); ?>
 
   <!-- ══ MOBILE SITE (Exact 100% Vector SVG from Figma skipthedealer/SkipTheDealer mob.svg) ══ -->
   <div class="dealer-mobile-layout">
-    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/skipthedealer-mobile-full.svg" class="dealer-mobile-svg" alt="SkipTheDealer Mobile" fetchpriority="high">
+    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/skipthedealer-mobile-retina.jpg" class="dealer-mobile-img" alt="SkipTheDealer Mobile" fetchpriority="high">
 
     <!-- Interactive Button: SEE HOW IT WORKS ↘ (over Honda crossover at y=630) -->
     <a href="#how-it-works-mob" class="dealer-mob-hitarea dealer-mob-hitarea--see-how" aria-label="See how it works"></a>
