@@ -1,5 +1,5 @@
 /**
- * AutoDNA Service Page Scripts
+ * AutoDNA Service Page Scripts — Interactive In-Place Service Tabs
  */
 (function() {
   'use strict';
@@ -45,8 +45,46 @@
     });
   }
 
+  // Interactive in-place service tabs switcher (Component 8)
+  function initServiceTabs() {
+    const img = document.getElementById('service-view-img');
+    const btns = document.querySelectorAll('.service-tab-btn');
+    if (!img || !btns.length) return;
+
+    const sources = {
+      'shop': 'assets/img/site1/service-state-shop.jpg',
+      'plan': 'assets/img/site1/service-state-plan.jpg',
+      'paint': 'assets/img/site1/service-state-paint.jpg'
+    };
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const service = btn.getAttribute('data-service');
+        if (!sources[service]) return;
+
+        btns.forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+
+        // Smooth crossfade
+        img.classList.add('is-switching');
+        setTimeout(() => {
+          img.src = sources[service];
+          img.onload = () => {
+            img.classList.remove('is-switching');
+          };
+          // Fallback if cached
+          setTimeout(() => {
+            img.classList.remove('is-switching');
+          }, 50);
+        }, 150);
+      });
+    });
+  }
+
   function boot() {
     initMenu();
+    initServiceTabs();
   }
 
   if (document.readyState === 'loading') {
