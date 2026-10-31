@@ -575,3 +575,80 @@
     margin: 0 !important;
   }
 }
+
+/* ══ DEDICATED FULL-SITE MOBILE LAYOUT (100% VECTOR SVG FROM FIGMA 464:1462) ══ */
+.dealer-mobile-layout {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .dealer-desktop-layout {
+    display: none !important;
+  }
+  .dealer-mobile-layout {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    background-color: #020202 !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .dealer-mobile-svg {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+  }
+
+  .dealer-mob-hitarea {
+    position: absolute;
+    z-index: 10;
+    cursor: pointer;
+  }
+  .dealer-mob-hitarea--see-how {
+    left: 13%;
+    top: 8.14%;
+    width: 74%;
+    height: 0.95%;
+  }
+  .dealer-mob-hitarea--submit {
+    left: 13%;
+    top: 87.65%;
+    width: 74%;
+    height: 1.0%;
+  }
+  .dealer-mob-hitarea--phone {
+    left: 4%;
+    top: 91.8%;
+    width: 80%;
+    height: 0.8%;
+  }
+  .dealer-mob-hitarea--email {
+    left: 4%;
+    top: 92.8%;
+    width: 80%;
+    height: 0.8%;
+  }
+  .dealer-mob-hitarea--socials {
+    left: 4%;
+    top: 94.6%;
+    width: 60%;
+    height: 0.9%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .dealer-mob-hitarea--socials a {
+    display: block;
+    width: 30%;
+    height: 100%;
+  }
+  .dealer-mob-hitarea--address {
+    left: 4%;
+    top: 96.3%;
+    width: 80%;
+    height: 1.4%;
+  }
+}

@@ -76,6 +76,9 @@
 </nav>
 
 <main>
+  <!-- ══ DESKTOP SITE (Shown on screens > 768px) ════════════════════════ -->
+  <div class="dealer-desktop-layout">
+
 
 <!-- ══ 1. HERO (Exact Figma 464:4868 / 100% Crisp Vector SVG) ═══════════════ -->
 <section class="dealer-hero" id="hero" aria-label="SkipTheDealer Intro">
@@ -86,10 +89,7 @@
   </div>
 
   <!-- Mobile Vector Board (393px exact Figma mobile vector) -->
-  <div class="dealer-board dealer-board--mobile">
-    <img src="assets/img/site1/dealer-mob-hero-scenarios.svg" class="dealer-board__svg" alt="SkipTheDealer — Buy cars up to 40% cheaper" fetchpriority="high">
-    <a href="#how-it-works" class="dealer-board__cta-hitarea dealer-board__cta-hitarea--mob" aria-label="See how it works"></a>
-  </div>
+  
 </section>
 
 <!-- ══ 2. SCENARIOS (Exact Figma 464:5122..5138 / Seamless #020202) ════════ -->
@@ -371,11 +371,34 @@
   </div>
 
   <!-- Mobile Vector Board (from skipthedealer/SkipTheDealer mob.svg) -->
-  <div class="dealer-board dealer-board--mobile">
-    <img src="assets/img/site1/dealer-mob-footer-clean.svg" class="dealer-board__svg" alt="AutoDNA Friends and Contact" loading="lazy">
-  </div>
+  
 </section>
 
+
+  </div>
+
+  <!-- ══ MOBILE SITE (Exact 100% Vector SVG from Figma skipthedealer/SkipTheDealer mob.svg) ══ -->
+  <div class="dealer-mobile-layout">
+    <img src="assets/img/site1/skipthedealer-mobile-full.svg" class="dealer-mobile-svg" alt="SkipTheDealer Mobile" fetchpriority="high">
+
+    <!-- Interactive Button: SEE HOW IT WORKS ↘ (over Honda crossover at y=630) -->
+    <a href="#how-it-works-mob" class="dealer-mob-hitarea dealer-mob-hitarea--see-how" aria-label="See how it works"></a>
+
+    <!-- Interactive Button: SUBMIT A REQUEST ↗ -->
+    <a href="#top" class="dealer-mob-hitarea dealer-mob-hitarea--submit" aria-label="Submit a request"></a>
+
+    <!-- Interactive Footer Links -->
+    <a href="tel:+14033128306" class="dealer-mob-hitarea dealer-mob-hitarea--phone" aria-label="Call +1 (403) 312-8306"></a>
+    <a href="mailto:info@autodna.com" class="dealer-mob-hitarea dealer-mob-hitarea--email" aria-label="Email info@autodna.com"></a>
+
+    <div class="dealer-mob-hitarea dealer-mob-hitarea--socials">
+      <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"></a>
+      <a href="https://x.com" target="_blank" rel="noopener" aria-label="X (Twitter)"></a>
+      <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"></a>
+    </div>
+
+    <a href="https://maps.google.com/?q=730+2+Ave+SW+Calgary+T2P1R8+Canada" target="_blank" rel="noopener" class="dealer-mob-hitarea dealer-mob-hitarea--address" aria-label="Open location in Google Maps"></a>
+  </div>
 </main>
 
 <script src="assets/js/page-dealer.js"></script>
