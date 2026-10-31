@@ -1,0 +1,151 @@
+/* ══ AUTODNA FLIP PAGE STYLES (100% VECTOR SVG / TRUE FULL-SCREEN) ══ */
+
+.page-flip {
+  background-color: #020202;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+.flip-main {
+  position: relative;
+  width: 100%;
+  background-color: #020202;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.flip-board {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  background-color: #020202;
+}
+
+.flip-board--mobile {
+  display: none !important;
+}
+
+.flip-board__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ══ INTERACTIVE HITAREAS ══════════════════════════════════════════════ */
+.flip-hitarea {
+  position: absolute;
+  z-index: 10;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flip-hitarea--see-how {
+  left: 39.985%;
+  top: 10.453%;
+  width: 20.069%;
+  height: 1.186%;
+}
+
+.flip-hitarea--see-how:hover,
+.flip-hitarea--submit:hover {
+  background: rgba(150, 133, 255, 0.15);
+  box-shadow: 0 0 30px rgba(150, 133, 255, 0.5);
+}
+
+.flip-hitarea--submit {
+  left: 40.004%;
+  top: 90.633%;
+  width: 20.069%;
+  height: 1.186%;
+}
+
+.flip-hitarea--phone {
+  left: 3.1%;
+  top: 95.7%;
+  width: 22%;
+  height: 0.9%;
+}
+
+.flip-hitarea--email {
+  left: 3.1%;
+  top: 96.6%;
+  width: 22%;
+  height: 0.9%;
+}
+
+.flip-hitarea--socials {
+  left: 42.0%;
+  top: 97.9%;
+  width: 16%;
+  height: 0.9%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.flip-hitarea--socials a {
+  display: block;
+  width: 30%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.flip-hitarea--address {
+  left: 72.0%;
+  top: 95.7%;
+  width: 25%;
+  height: 1.6%;
+}
+
+/* ══ MOBILE (768px and down) ══════════════════════════════════════════ */
+.flip-mob-hitarea {
+  position: absolute;
+  z-index: 10;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .flip-board--desktop {
+    display: none !important;
+  }
+  .flip-board--mobile {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    background-color: #020202 !important;
+  }
+
+  .flip-mob-hitarea--see-how {
+    left: 13%;
+    top: 9.8%;
+    width: 74%;
+    height: 1.1%;
+  }
+  .flip-mob-hitarea--submit {
+    left: 13%;
+    top: 89.2%;
+    width: 74%;
+    height: 1.1%;
+  }
+  .flip-mob-hitarea--phone {
+    left: 4%;
+    top: 94.6%;
+    width: 80%;
+    height: 0.8%;
+  }
+  .flip-mob-hitarea--email {
+    left: 4%;
+    top: 95.6%;
+    width: 80%;
+    height: 0.8%;
+  }
+  .flip-mob-hitarea--address {
+    left: 4%;
+    top: 97.2%;
+    width: 80%;
+    height: 1.5%;
+  }
+}
