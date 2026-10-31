@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkipTheShop™ — AutoDNA Service</title>
+  <meta name="description" content="A new format of car service — where you don’t go to the shop. Our technician picks up your car, completes all necessary work, and brings it back to you.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/site1/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site1.css">
+  <link rel="stylesheet" href="assets/css/page-service.css">
+</head>
+<body class="page-service page-subservice">
+
+<!-- ══ FIXED HUD HEADER ══════════════════════════════════════════════════ -->
+<header class="hud" id="top">
+  <a class="hud__logo" href="index.html" aria-label="AutoDNA home">
+    <img src="assets/img/site1/logo.svg" width="37" height="21" alt="AutoDNA">
+  </a>
+  <button class="hud__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ══ FULLSCREEN MENU OVERLAY ════════════════════════════════════════════ -->
+<nav class="menu" id="menu" aria-label="Site menu" hidden>
+  <div class="menu__container">
+    <div class="menu__header">
+      <a class="menu__logo" href="index.html" aria-label="AutoDNA">
+        <img src="assets/img/site1/logo.svg" width="37" height="20" alt="AutoDNA">
+      </a>
+      <button class="menu__close" id="menu-close" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" width="28" height="28" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill="none" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="menu__panel ticks">
+      <span class="tick tl"></span><span class="tick tr"></span>
+      <span class="tick bl"></span><span class="tick br"></span>
+      <ul>
+        <li><a href="index.html#home"><span>Home</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
+        <li><a href="skipthedealer.html"><span>SkipTheDealer</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
+        <li><a href="dnaservice.html"><span>AutoDNA Service</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
+        <li><a href="skiptheshop.html" class="is-active"><span>SkipTheShop™</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
+        <li><a href="drivecareplan.html"><span>DriveCarePlan™</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
+        <li><a href="paintbot.html"><span>PaintBot™</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
+        <li><a href="#contact"><span>Contact</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="service-main">
+  <!-- 100% Vector SVG Board from Figma AUTODNA/Skip the Shop.svg -->
+  <div class="service-board service-board--subpage">
+    <img src="assets/img/site1/skiptheshop-clean.svg" class="service-board__svg" alt="SkipTheShop™ — AutoDNA Service" fetchpriority="high">
+
+    <!-- Interactive Navigation Hitarea to go back to AutoDNA Service -->
+    <a href="dnaservice.html" class="subpage-back-hitarea" aria-label="Back to AutoDNA Service"></a>
+
+    <!-- Interactive Footer Links -->
+    <a href="tel:+14033128306" class="subpage-phone-hitarea" aria-label="Call +1 (403) 312-8306"></a>
+    <a href="mailto:info@autodna.com" class="subpage-email-hitarea" aria-label="Email info@autodna.com"></a>
+    <a href="https://maps.google.com/?q=730+2+Ave+SW+Calgary+T2P1R8+Canada" target="_blank" rel="noopener" class="subpage-address-hitarea" aria-label="Find us on Google Maps"></a>
+  </div>
+</main>
+
+<script src="assets/js/page-service.js"></script>
+</body>
+</html>

@@ -40,6 +40,47 @@
   transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
+
+.service-hitarea--tab-shop {
+  left: 23.6%;
+  top: 42.08%;
+  width: 11.8%;
+  height: 1.15%;
+}
+
+.service-hitarea--tab-plan {
+  left: 43.4%;
+  top: 42.08%;
+  width: 13.2%;
+  height: 1.15%;
+}
+
+.service-hitarea--tab-paint {
+  left: 64.6%;
+  top: 42.08%;
+  width: 11.1%;
+  height: 1.15%;
+}
+
+.service-hitarea--tab-shop:hover,
+.service-hitarea--tab-plan:hover,
+.service-hitarea--tab-paint:hover {
+  background: rgba(150, 133, 255, 0.2);
+  box-shadow: 0 0 25px rgba(150, 133, 255, 0.6);
+}
+
+.service-hitarea--card-link {
+  left: 10%;
+  top: 44.5%;
+  width: 80%;
+  height: 17%;
+  border-radius: 4px;
+}
+
+.service-hitarea--card-link:hover {
+  background: rgba(150, 133, 255, 0.04);
+}
+
 .service-hitarea--official {
   left: 39.994%;
   top: 66.138%;
@@ -108,4 +149,49 @@
     max-width: 100% !important;
     margin: 0 !important;
   }
+}
+
+/* ══ SUBPAGE SPECIFIC STYLES (SkipTheShop, DriveCarePlan, PaintBot) ══ */
+.page-subservice .hud__logo {
+  display: none !important;
+}
+
+.subpage-back-hitarea {
+  position: absolute;
+  left: 1.0%;
+  top: 1.0%;
+  width: 15.0%;
+  height: 2.2%;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.subpage-phone-hitarea {
+  position: absolute;
+  left: 3.1%;
+  top: 94.6%;
+  width: 22%;
+  height: 1.1%;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.subpage-email-hitarea {
+  position: absolute;
+  left: 3.1%;
+  top: 95.8%;
+  width: 22%;
+  height: 1.1%;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.subpage-address-hitarea {
+  position: absolute;
+  left: 72.0%;
+  top: 94.6%;
+  width: 25%;
+  height: 2.0%;
+  z-index: 10;
+  cursor: pointer;
 }
