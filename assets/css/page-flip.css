@@ -17,9 +17,15 @@
 .flip-board {
   position: relative;
   width: 100%;
-  max-width: 100%;
   margin: 0;
   background-color: #020202;
+}
+
+.flip-board--desktop {
+  display: block;
+  /* Exact 1-screen viewport scaling: Hero section (810px high on 1440px canvas) ALWAYS fits 1 screen (100vh) */
+  width: min(100vw, 1440px, calc((100vh - 10px) * (1440 / 810))) !important;
+  margin: 0 auto !important;
 }
 
 .flip-board--mobile {
