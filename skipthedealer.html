@@ -84,16 +84,49 @@
 
 
 <!-- ══ 1. HERO (Exact Figma 464:4868 / 100% Crisp Vector SVG) ═══════════════ -->
-<section class="dealer-hero" id="hero" aria-label="SkipTheDealer Intro">
-  <!-- Desktop 100% Vector Board (1440x880, exact Figma proportions, razor-sharp typography) -->
-  <div class="dealer-board dealer-board--desktop">
-    <img src="assets/img/site1/dealer-hero-vector.svg" class="dealer-board__svg" alt="SkipTheDealer — Buy cars up to 40% cheaper" fetchpriority="high">
-    <a href="#how-it-works" class="dealer-board__cta-hitarea dealer-board__cta-hitarea--hero" aria-label="See how it works"></a>
-  </div>
+<section class="dealer-hero" id="home" aria-label="SkipTheDealer Hero">
+    <!-- 1. Full-bleed background photo covering 100% width & 100% height (NO black bars!) -->
+    <div class="dealer-hero__bg">
+      <img src="assets/img/site1/dealer-hero-bg-photo.jpg" alt="SkipTheDealer Fleet" class="dealer-hero__bg-img" fetchpriority="high">
+      <div class="dealer-hero__shade-top" aria-hidden="true"></div>
+      <div class="dealer-hero__shade-bottom" aria-hidden="true"></div>
+    </div>
 
-  <!-- Mobile Vector Board (393px exact Figma mobile vector) -->
-  
-</section>
+    <!-- 2. Responsive Content Container (Always fits in 100vh on any screen!) -->
+    <div class="dealer-hero__frame">
+      <div class="dealer-hero__header">
+        <img src="assets/img/site1/dealer-hero-title.svg" class="dealer-hero__title-svg" alt="BUY CARS UP TO 40% CHEAPER — SkipTheDealer" fetchpriority="high">
+      </div>
+
+      <div class="dealer-hero__bottom">
+        <div class="dealer-hero__bottom-l">
+          <span>YOU PAY THE <em class="dealer-hero__accent">REAL</em></span>
+          <span><em class="dealer-hero__accent">PRICE</em> — NO HIDDEN</span>
+          <span>MARKUPS</span>
+        </div>
+
+        <div class="dealer-hero__bottom-c">
+          <svg class="dealer-hero__divider-wire" viewBox="0 0 40 2" aria-hidden="true"><line x1="0" y1="1" x2="40" y2="1" stroke="#C2B9FF"/></svg>
+          <div class="dealer-hero__overhead-text">
+            <span>NO SHOWROOMS</span>
+            <span>NO OVERHEAD —</span>
+            <span>JUST CARS AT TRUE VALUE</span>
+          </div>
+        </div>
+
+        <div class="dealer-hero__btn-wrap">
+          <a href="#how-it-works" class="dealer-hero__btn ticks" aria-label="See how it works">
+            <span class="tick tl"></span><span class="tick tr"></span>
+            <span class="tick bl"></span><span class="tick br"></span>
+            <span>SEE HOW IT WORKS</span>
+            <svg viewBox="0 0 13 13" aria-hidden="true">
+              <path d="M0 0L11 11M11 0V11H0" stroke="#C2B9FF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
 <!-- ══ 2. SCENARIOS (Exact Figma 464:5122..5138 / Seamless #020202) ════════ -->
 <section class="dealer-scenarios" id="scenarios" aria-label="Market Scenarios">
