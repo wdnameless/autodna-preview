@@ -136,7 +136,7 @@
     }
   }
 
-  // fullscreen interactive services: hover + click crossfades background layer & toggles card
+  // fullscreen interactive services: hover crossfades background layer & toggles card, click navigates to page
   function initServices() {
     const cols = document.querySelectorAll('.svc-col');
     const layers = document.querySelectorAll('.services__bg-layer');
@@ -147,7 +147,6 @@
       for (const c of cols) {
         const isActive = (c === target);
         c.classList.toggle('is-active', isActive);
-        c.setAttribute('aria-expanded', isActive ? 'true' : 'false');
       }
       for (const l of layers) {
         l.classList.toggle('is-active', l.classList.contains(`services__bg-layer--${id}`));
@@ -156,7 +155,6 @@
 
     for (const col of cols) {
       col.addEventListener('mouseenter', () => activate(col));
-      col.addEventListener('click', () => activate(col));
       col.addEventListener('focus', () => activate(col));
     }
   }
