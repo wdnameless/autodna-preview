@@ -52,9 +52,9 @@
     if (!img || !btns.length) return;
 
     const sources = {
-      'shop': 'assets/img/site1/service-state-shop.jpg',
-      'plan': 'assets/img/site1/service-state-plan.jpg',
-      'paint': 'assets/img/site1/service-state-paint.jpg'
+      'shop': 'assets/img/site1/service-state-shop-vector.svg',
+      'plan': 'assets/img/site1/service-state-plan-vector.svg',
+      'paint': 'assets/img/site1/service-state-paint-vector.svg'
     };
 
     btns.forEach(btn => {
