@@ -179,10 +179,19 @@
   }
   .service-mobile-layout {
     display: block !important;
+    position: relative !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
     background-color: #020202 !important;
+    overflow: hidden !important;
+  }
+  .service-mobile-svg,
+  .service-mobile-img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
   }
 }
 
