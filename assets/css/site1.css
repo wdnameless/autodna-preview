@@ -753,9 +753,18 @@ a { color: inherit; }
 .compare__wrap {
   position: relative;
   max-width: 1390px;
+  width: calc(100% - 48px);
   margin: 0 auto;
   z-index: 2;
-  overflow-x: auto;
+  overflow: visible !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.compare__wrap::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 .compare__table-ticks {
   position: absolute;
@@ -2247,9 +2256,17 @@ body::after {
   .compare__table-ticks { display: none !important; }
   .compare__wrap {
     overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
     -webkit-overflow-scrolling: touch;
     width: 100% !important;
     max-width: 100% !important;
+  }
+  .compare__wrap::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
   }
   .compare__table th, .compare__table td {
     padding: 16px 20px !important;
