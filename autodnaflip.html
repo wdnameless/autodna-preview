@@ -61,28 +61,74 @@
 
 <main class="flip-main">
 
-  <!-- ══ DESKTOP SITE (Shown on screens > 768px): 100% Vector SVG from Figma ══ -->
-  <div class="flip-board flip-board--desktop">
-    <img src="assets/img/site1/autodnaflip-desktop-clean.svg" class="flip-board__svg" alt="AutoDNA Flip — Turn Vehicles into Profitable Assets" fetchpriority="high">
-
-    <!-- Interactive Button: SEE HOW IT WORKS ↘ -->
-    <a href="#formula" class="flip-hitarea flip-hitarea--see-how" aria-label="See how it works"></a>
-
-    <!-- Interactive Button: SUBMIT A REQUEST ↗ -->
-    <a href="#top" class="flip-hitarea flip-hitarea--submit" aria-label="Submit a request"></a>
-
-    <!-- Interactive Footer Links -->
-    <a href="tel:+14033128306" class="flip-hitarea flip-hitarea--phone" aria-label="Call +1 (403) 312-8306"></a>
-    <a href="mailto:info@autodna.com" class="flip-hitarea flip-hitarea--email" aria-label="Email info@autodna.com"></a>
-
-    <div class="flip-hitarea flip-hitarea--socials">
-      <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"></a>
-      <a href="https://x.com" target="_blank" rel="noopener" aria-label="X (Twitter)"></a>
-      <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"></a>
+  <!-- ══ DESKTOP HERO SECTION (100% Full-Bleed 100vh Edge-to-Edge) ═══════ -->
+  <section class="flip-hero">
+    <div class="flip-hero__bg">
+      <img src="assets/img/site1/flip-photo-0.jpg" alt="Invest in cars" class="flip-hero__bg-img" fetchpriority="high">
+      <div class="flip-hero__shade-top" aria-hidden="true"></div>
+      <div class="flip-hero__shade-bottom" aria-hidden="true"></div>
     </div>
 
-    <a href="https://maps.google.com/?q=730+2+Ave+SW+Calgary+T2P1R8+Canada" target="_blank" rel="noopener" class="flip-hitarea flip-hitarea--address" aria-label="Find us on Google Maps"></a>
-  </div>
+    <div class="flip-hero__frame">
+      <div class="flip-hero__header">
+        <img src="assets/img/site1/flip-hero-title.svg" class="flip-hero__title-svg" alt="Invest in cars. EARN FROM $2,000 ON EACH VEHICLE." fetchpriority="high">
+      </div>
+
+      <div class="flip-hero__bottom">
+        <div class="flip-hero__bottom-l">
+          WE BUY, REPAIR, AND SELL CARS — YOU EARN THE PROFIT.
+        </div>
+
+        <div class="flip-hero__btn-wrap">
+          <a href="#formula" class="flip-hero__btn ticks" aria-label="Become an investor">
+            <span class="tick tl"></span><span class="tick tr"></span>
+            <span class="tick bl"></span><span class="tick br"></span>
+            <span>BECOME AN INVESTOR</span>
+            <svg viewBox="0 0 13 13" aria-hidden="true">
+              <path d="M0 11L11 0M0 0H11V11" stroke="#C2B9FF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="flip-hero__bottom-r">
+          <div class="flip-hero__badge">
+            <span>Tangible assets</span>
+            <svg class="flip-hero__badge-wire" viewBox="0 0 140 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24H70L95 0H140" stroke="#9685FF" fill="none" stroke-width="1"/></svg>
+          </div>
+          <div class="flip-hero__badge">
+            <span>Up to 40% ROI</span>
+            <svg class="flip-hero__badge-wire" viewBox="0 0 140 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24H70L95 0H140" stroke="#9685FF" fill="none" stroke-width="1"/></svg>
+          </div>
+          <div class="flip-hero__badge">
+            <span>Lower risk</span>
+            <svg class="flip-hero__badge-wire" viewBox="0 0 140 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H70L95 24H140" stroke="#9685FF" fill="none" stroke-width="1"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ DESKTOP BODY SECTIONS (How it works, Profit, Guarantees, Compare, Footer) ══ -->
+  <section class="flip-body" id="formula">
+    <div class="flip-body__container">
+      <img src="assets/img/site1/autodnaflip-body-vector.svg" class="flip-body__svg" alt="AutoDNA Flip Details" loading="lazy">
+
+      <!-- Interactive Button: SUBMIT A REQUEST ↗ -->
+      <a href="#top" class="flip-hitarea flip-hitarea--submit" aria-label="Submit a request"></a>
+
+      <!-- Interactive Footer Links -->
+      <a href="tel:+14033128306" class="flip-hitarea flip-hitarea--phone" aria-label="Call +1 (403) 312-8306"></a>
+      <a href="mailto:info@autodna.com" class="flip-hitarea flip-hitarea--email" aria-label="Email info@autodna.com"></a>
+
+      <div class="flip-hitarea flip-hitarea--socials">
+        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"></a>
+        <a href="https://x.com" target="_blank" rel="noopener" aria-label="X (Twitter)"></a>
+        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"></a>
+      </div>
+
+      <a href="https://maps.google.com/?q=730+2+Ave+SW+Calgary+T2P1R8+Canada" target="_blank" rel="noopener" class="flip-hitarea flip-hitarea--address" aria-label="Find us on Google Maps"></a>
+    </div>
+  </section>
 
   <!-- ══ MOBILE SITE (From Figma Invest in cars mob.png): 100% Vector SVG ══ -->
   <div class="flip-board flip-board--mobile">
