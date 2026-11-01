@@ -26,6 +26,10 @@
   position: relative;
   width: 100%;
   background-color: #020202;
+  background-image: radial-gradient(110% 850px at 50% 360px, #5c44b2 0%, #3a287a 28%, #1f1244 52%, #0a051d 75%, #020202 100%);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% 900px;
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -39,7 +43,9 @@
 .dealer-board--desktop {
   display: block;
   width: min(100vw, 1440px, calc((100vh - 10px) * (1440 / 810))) !important;
+  max-width: 1440px !important;
   margin: 0 auto !important;
+  box-shadow: 0 0 140px rgba(92, 68, 178, 0.45);
 }
 
 .dealer-board--mobile {

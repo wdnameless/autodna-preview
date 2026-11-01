@@ -10,6 +10,11 @@
   position: relative;
   width: 100%;
   background-color: #020202;
+  /* Full-bleed ambient studio lighting: extends across entire widescreen (no black bars on sides!) */
+  background-image: radial-gradient(110% 850px at 50% 360px, #735ac4 0%, #4a348d 28%, #271858 52%, #0e0728 75%, #020202 100%);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% 900px;
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -25,7 +30,10 @@
   display: block;
   /* Exact 1-screen viewport scaling: Hero section (810px high on 1440px canvas) ALWAYS fits 1 screen (100vh) */
   width: min(100vw, 1440px, calc((100vh - 10px) * (1440 / 810))) !important;
+  max-width: 1440px !important;
   margin: 0 auto !important;
+  /* Soft ambient feathering: seamless glow blending with the full-screen background */
+  box-shadow: 0 0 140px rgba(115, 90, 196, 0.45);
 }
 
 .flip-board--mobile {
