@@ -29,22 +29,38 @@
   display: block;
 }
 
-/* ══ INTERACTIVE MULTI-VIEW SECTION (Component 8 - Exactly matching user screenshot!) ══ */
+/* ══ INTERACTIVE MULTI-VIEW SECTION (Component 8 - Instant 0ms Crossfade) ══ */
 .service-board--multiview {
   position: relative;
   width: 100%;
   overflow: hidden;
 }
 
-#service-view-img {
+.service-views {
+  position: relative;
+  width: 100%;
+}
+
+.service-view-layer {
   width: 100%;
   height: auto;
   display: block;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.16s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-#service-view-img.is-switching {
-  opacity: 0.3;
+.service-view-layer:not(.is-active) {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.service-view-layer.is-active {
+  position: relative;
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
 }
 
 /* Interactive Tab Buttons over the tabs bar — Exact 1:1 match to Figma Component 8 */

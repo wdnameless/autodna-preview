@@ -68,11 +68,15 @@
       <img src="assets/img/site1/service-top-vector.svg" class="service-board__img" alt="AutoDNA Service — The Future of Service is Already Here" fetchpriority="high">
     </div>
 
-    <!-- Part 2: Interactive Multiple Services Component (Component 8 - exactly matching user screenshot!) -->
+    <!-- Part 2: Interactive Multiple Services Component (Component 8 - Instant 0ms Layer Switcher) -->
     <div class="service-board service-board--multiview" id="multiple-services">
-      <img id="service-view-img" src="assets/img/site1/service-state-shop-vector.svg" class="service-board__img" alt="ONE DNA. MULTIPLE SERVICES.">
+      <div class="service-views">
+        <img class="service-view-layer service-view-layer--shop is-active" src="assets/img/site1/service-state-shop-vector.svg" alt="SkipTheShop" fetchpriority="high">
+        <img class="service-view-layer service-view-layer--plan" src="assets/img/site1/service-state-plan-vector.svg" alt="DriveCarePlan" loading="eager">
+        <img class="service-view-layer service-view-layer--paint" src="assets/img/site1/service-state-paint-vector.svg" alt="PaintBot" loading="eager">
+      </div>
 
-      <!-- Interactive Tab Click Hitareas (switching state in place on the same page!) -->
+      <!-- Interactive Tab Click Hitareas (switching state in place on the same page instantly in 0ms!) -->
       <button class="service-tab-btn service-tab-btn--shop is-active" data-service="shop" aria-label="Show SkipTheShop view"></button>
       <button class="service-tab-btn service-tab-btn--plan" data-service="plan" aria-label="Show DriveCarePlan view"></button>
       <button class="service-tab-btn service-tab-btn--paint" data-service="paint" aria-label="Show PaintBot view"></button>

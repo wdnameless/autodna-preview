@@ -71,39 +71,28 @@
     });
   }
 
-  // Interactive in-place service tabs switcher (Component 8)
+  // Interactive in-place service tabs switcher (Component 8 - Instant 0ms Layer Switch)
   function initServiceTabs() {
-    const img = document.getElementById('service-view-img');
     const btns = document.querySelectorAll('.service-tab-btn');
-    if (!img || !btns.length) return;
-
-    const sources = {
-      'shop': 'assets/img/site1/service-state-shop-vector.svg',
-      'plan': 'assets/img/site1/service-state-plan-vector.svg',
-      'paint': 'assets/img/site1/service-state-paint-vector.svg'
-    };
+    const layers = document.querySelectorAll('.service-view-layer');
+    if (!btns.length || !layers.length) return;
 
     btns.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         const service = btn.getAttribute('data-service');
-        if (!sources[service]) return;
+        if (!service) return;
 
         btns.forEach(b => b.classList.remove('is-active'));
         btn.classList.add('is-active');
 
-        // Smooth crossfade
-        img.classList.add('is-switching');
-        setTimeout(() => {
-          img.src = sources[service];
-          img.onload = () => {
-            img.classList.remove('is-switching');
-          };
-          // Fallback if cached
-          setTimeout(() => {
-            img.classList.remove('is-switching');
-          }, 50);
-        }, 150);
+        layers.forEach(layer => {
+          if (layer.classList.contains('service-view-layer--' + service)) {
+            layer.classList.add('is-active');
+          } else {
+            layer.classList.remove('is-active');
+          }
+        });
       });
     });
   }
