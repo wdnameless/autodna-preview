@@ -1412,6 +1412,13 @@ body::after {
 
 /* ══ MOBILE (768px and down — Pixel-perfect per main mob.svg / 393px) ═════ */
 @media (max-width: 768px) {
+  .hud {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    padding: 24px 20px !important;
+  }
   /* Full-Screen Mobile Menu Overlay (Figma Frame 464:867) */
   .menu {
     position: fixed !important;
