@@ -16,7 +16,7 @@ get_header(); ?>
 <section class="dealer-hero" id="home" aria-label="SkipTheDealer Hero">
     <!-- 1. Full-bleed background photo covering 100% width & 100% height (NO black bars!) -->
     <div class="dealer-hero__bg">
-      <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/dealer-hero-bg-photo.jpg" alt="SkipTheDealer Fleet" class="dealer-hero__bg-img" fetchpriority="high">
+      <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/dealer-hero-bg-photo.png" alt="SkipTheDealer Fleet" class="dealer-hero__bg-img" fetchpriority="high">
       <div class="dealer-hero__shade-top" aria-hidden="true"></div>
       <div class="dealer-hero__shade-bottom" aria-hidden="true"></div>
     </div>
