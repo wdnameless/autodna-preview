@@ -126,7 +126,7 @@ a { color: inherit; }
 /* board: burger stays a burger when the menu is open */
 .hud__burger[aria-expanded="true"] span { background: #fff; }
 
-/* ══ MENU OVERLAY & SLIDING DRAWER ══════════════════════════════════════ */
+/* ══ MENU OVERLAY & SLIDING DRAWER (EXACT FIGMA 464:3660 MATCH) ══════════ */
 .menu {
   position: fixed !important;
   inset: 0 !important;
@@ -169,17 +169,19 @@ a { color: inherit; }
 
 .menu__panel {
   position: relative !important;
-  width: 289px !important;
+  width: 295px !important;
   max-width: calc(100vw - 32px) !important;
   margin: 0 !important;
-  background: rgba(24, 22, 52, 0.94) !important;
+  background: rgba(22, 19, 48, 0.82) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(194, 185, 255, 0.4) !important;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7) !important;
+  border: 1px solid rgba(194, 185, 255, 0.22) !important;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.75) !important;
+  padding: 14px 0 18px !important;
   transform: translateX(45px) !important;
   opacity: 0 !important;
   transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.24s ease !important;
+  box-sizing: border-box !important;
 }
 
 .menu.is-open .menu__panel {
@@ -187,39 +189,197 @@ a { color: inherit; }
   opacity: 1 !important;
 }
 
-.menu ul { list-style: none; margin: 0; padding: 0; }
-.menu li { border-bottom: 1px solid rgba(194, 185, 255, 0.4) !important; }
-.menu li:last-child { border-bottom: 0 !important; }
-.menu ul a {
+/* Precise corner ticks hugging the outer edges */
+.menu__panel > .tick {
+  position: absolute !important;
+  width: 20px !important;
+  height: 20px !important;
+  border-color: #c2b9ff !important;
+  border-style: solid !important;
+  pointer-events: none !important;
+  z-index: 10 !important;
+}
+
+.menu__panel > .tick.tl {
+  top: -1px !important;
+  left: -1px !important;
+  border-width: 1.2px 0 0 1.2px !important;
+}
+
+.menu__panel > .tick.tr {
+  top: -1px !important;
+  right: -1px !important;
+  border-width: 1.2px 1.2px 0 0 !important;
+}
+
+.menu__panel > .tick.bl {
+  bottom: -1px !important;
+  left: -1px !important;
+  border-width: 0 0 1.2px 1.2px !important;
+}
+
+.menu__panel > .tick.br {
+  bottom: -1px !important;
+  right: -1px !important;
+  border-width: 0 1.2px 1.2px 0 !important;
+}
+
+.menu-list {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.menu-item {
+  position: relative !important;
+  margin: 0 14px !important;
+  border-bottom: 1px solid rgba(194, 185, 255, 0.45) !important;
+}
+
+.menu-link {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-end !important;
+  height: 43px !important;
+  padding: 0 2px 7px !important;
+  text-decoration: none !important;
+  box-sizing: border-box !important;
+  transition: background 0.2s ease !important;
+}
+
+.menu-text {
+  font-family: 'Helvetica Neue', Helvetica, -apple-system, BlinkMacSystemFont, Arial, sans-serif !important;
+  font-weight: 300 !important;
+  font-size: 22px !important;
+  letter-spacing: -0.4px !important;
+  line-height: 1 !important;
+  background: linear-gradient(90deg, #ffffff 0%, #ffffff 28%, #b2a8f8 68%, #524b89 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  transition: all 0.2s ease !important;
+  white-space: nowrap !important;
+}
+
+.menu-link:hover .menu-text {
+  background: #ffffff !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-shadow: 0 0 14px rgba(194, 185, 255, 0.8) !important;
+}
+
+/* Arrow icon */
+.menu-arrow {
+  width: 16px !important;
+  height: 12px !important;
+  flex: none !important;
+  overflow: visible !important;
+  margin-bottom: 1px !important;
+  transition: transform 0.2s ease !important;
+}
+
+.menu-arrow path {
+  stroke: #c2b9ff !important;
+  stroke-width: 1.1 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+  fill: none !important;
+}
+
+.menu-link:hover .menu-arrow {
+  transform: translateX(3px) !important;
+}
+
+.menu-link:hover .menu-arrow path {
+  stroke: #ffffff !important;
+  filter: drop-shadow(0 0 6px rgba(194, 185, 255, 0.9)) !important;
+}
+
+/* ══ SUBMENU (PAGES: SkipTheDealer, AutoDNA Service, AutoDNA Flip) ═════ */
+.menu-sublist {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 0 4px 14px !important;
+  overflow: hidden !important;
+  max-height: 0 !important;
+  opacity: 0 !important;
+  transform: translateY(-4px) !important;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, transform 0.25s ease !important;
+}
+
+.menu-item.is-expanded .menu-sublist,
+.menu-item:hover .menu-sublist {
+  max-height: 140px !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.menu-subitem {
+  border-bottom: 1px dashed rgba(194, 185, 255, 0.22) !important;
+}
+.menu-subitem:last-child {
+  border-bottom: none !important;
+}
+
+.menu-sublink {
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
-  height: 44px !important;
-  padding: 0 14px 0 16px !important;
-  font-size: 20px !important;
-  font-weight: 300 !important;
+  height: 36px !important;
+  padding: 0 2px !important;
   text-decoration: none !important;
-  color: #fff !important;
-  transition: background 0.15s ease !important;
 }
-.menu ul a:hover {
-  background: rgba(150, 133, 255, 0.22) !important;
+
+.menu-subtext {
+  font-family: 'Helvetica Neue', Helvetica, -apple-system, BlinkMacSystemFont, Arial, sans-serif !important;
+  font-weight: 300 !important;
+  font-size: 16px !important;
+  letter-spacing: -0.3px !important;
+  line-height: 1 !important;
+  background: linear-gradient(90deg, #e4dfff 0%, rgba(194, 185, 255, 0.7) 60%, rgba(140, 130, 200, 0.4) 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  transition: all 0.2s ease !important;
 }
-.menu ul a svg {
-  width: 12px !important;
-  height: 12px !important;
-  overflow: visible !important;
-  flex: none !important;
+
+.menu-sublink:hover .menu-subtext {
+  background: #ffffff !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-shadow: 0 0 10px rgba(194, 185, 255, 0.8) !important;
 }
-.menu ul a svg path {
-  fill: none !important;
+
+.menu-sublink .menu-arrow {
+  width: 13px !important;
+  height: 10px !important;
+}
+
+/* Chevron indicator */
+.menu-chevron {
+  width: 8px !important;
+  height: 8px !important;
+  margin-left: 8px !important;
+  margin-bottom: 2px !important;
+  transition: transform 0.25s ease !important;
+}
+.menu-chevron path {
   stroke: #c2b9ff !important;
   stroke-width: 1.2 !important;
   stroke-linecap: round !important;
   stroke-linejoin: round !important;
+  fill: none !important;
+}
+.menu-item.is-expanded .menu-chevron,
+.menu-item:hover .menu-chevron {
+  transform: rotate(90deg) !important;
 }
 
-/* ══ 1. HERO  ═════════════════════════════════════════════════════════════ */
+/* ══ 1. HERO/* ══ 1. HERO  ═════════════════════════════════════════════════════════════ */
 .hero { position: relative; overflow: hidden; background: #050428; padding-bottom: 40px; }
 .hero__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 /* fig Ellipse 2/3: black shapes, bg-blur 4, fg-blur 200 — carve top/bottom glow */

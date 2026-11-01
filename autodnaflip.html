@@ -24,36 +24,96 @@
   </button>
 </header>
 
-<!-- ══ FULLSCREEN MENU OVERLAY ════════════════════════════════════════════ -->
+<!-- ══ FULLSCREEN MENU OVERLAY (EXACT FIGMA 464:3660 MATCH) ══════════════ -->
 <nav class="menu" id="menu" aria-label="Site menu" hidden>
   <div class="menu__container">
-    <div class="menu__header">
-      <a class="menu__logo" href="index.html" aria-label="AutoDNA">
-        <img src="assets/img/site1/logo.svg" width="37" height="20" alt="AutoDNA">
-      </a>
-      <button class="menu__close" id="menu-close" aria-label="Close menu">
-        <svg viewBox="0 0 24 24" width="28" height="28" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill="none" aria-hidden="true">
-          <line x1="18" y1="6" x2="6" y2="18"/>
-          <line x1="6" y1="6" x2="18" y2="18"/>
-        </svg>
-      </button>
-    </div>
-
     <div class="menu__panel ticks">
-      <span class="tick tl"></span><span class="tick tr"></span>
-      <span class="tick bl"></span><span class="tick br"></span>
-      <ul>
-        <li><a href="index.html"><span>Home</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
-        <li><a href="skipthedealer.html"><span>SkipTheDealer</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
-        <li><a href="dnaservice.html"><span>AutoDNA Service</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
-        <li><a href="autodnaflip.html"><span>AutoDNA Flip</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
-        <li><a href="index.html#carlears"><span>Who We Are</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
-        <li><a href="index.html#value"><span>Why AutoDNA</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
-        <li><a href="index.html#compare"><span>Price Comparison</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
-        <li><a href="index.html#facts"><span>Facts &amp; Figures</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
-        <li><a href="index.html#corporate"><span>About AutoDNA</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
-        <li><a href="index.html#club"><span>DNA Auto Club</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
-        <li><a href="#contact"><span>Contact</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M0 6H10M5.5 1.5L10 6L5.5 10.5"/></svg></a></li>
+      <span class="tick tl"></span>
+      <span class="tick tr"></span>
+      <span class="tick bl"></span>
+      <span class="tick br"></span>
+
+      <ul class="menu-list">
+        <li class="menu-item">
+          <a href="index.html" class="menu-link">
+            <span class="menu-text">Home</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html#carlears" class="menu-link">
+            <span class="menu-text">Who We Are</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html#value" class="menu-link">
+            <span class="menu-text">Why AutoDNA</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html#compare" class="menu-link">
+            <span class="menu-text">Price Comparison</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+
+        <!-- Our Services with Pages Submenu (SkipTheDealer, AutoDNA Service, AutoDNA Flip) -->
+        <li class="menu-item menu-item--has-sub">
+          <a href="index.html#services" class="menu-link">
+            <div style="display: flex; align-items: flex-end;">
+              <span class="menu-text">Our Services</span>
+              <svg class="menu-chevron" viewBox="0 0 8 8" aria-hidden="true"><path d="M2 1L5 4L2 7"/></svg>
+            </div>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+          <ul class="menu-sublist">
+            <li class="menu-subitem">
+              <a href="skipthedealer.html" class="menu-sublink">
+                <span class="menu-subtext">SkipTheDealer</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem">
+              <a href="dnaservice.html" class="menu-sublink">
+                <span class="menu-subtext">AutoDNA Service</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem">
+              <a href="autodnaflip.html" class="menu-sublink">
+                <span class="menu-subtext">AutoDNA Flip</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="menu-item">
+          <a href="index.html#facts" class="menu-link">
+            <span class="menu-text">Facts &amp; Figures</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html#corporate" class="menu-link">
+            <span class="menu-text">About AutoDNA</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html#club" class="menu-link">
+            <span class="menu-text">DNA Auto Club</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="#contact" class="menu-link">
+            <span class="menu-text">Contact</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
       </ul>
     </div>
   </div>
