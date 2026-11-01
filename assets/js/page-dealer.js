@@ -9,24 +9,64 @@
     const closeBtn = document.getElementById('menu-close');
     if (!burger || !menu) return;
 
-    function set(open) {
-      menu.hidden = !open;
-      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-      document.body.style.overflow = open ? 'hidden' : '';
+    let closeTimer = null;
+
+    function setMenu(open) {
+      clearTimeout(closeTimer);
+      if (open) {
+        menu.hidden = false;
+        burger.setAttribute('aria-expanded', 'true');
+        burger.setAttribute('aria-label', 'Close menu');
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            menu.classList.add('is-open');
+          });
+        });
+      } else {
+        burger.setAttribute('aria-expanded', 'false');
+        burger.setAttribute('aria-label', 'Open menu');
+        menu.classList.remove('is-open');
+        closeTimer = setTimeout(() => {
+          if (!menu.classList.contains('is-open')) {
+            menu.hidden = true;
+          }
+        }, 280);
+      }
     }
 
-    burger.addEventListener('click', () => set(menu.hidden));
-    if (closeBtn) closeBtn.addEventListener('click', () => set(false));
+    burger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = menu.classList.contains('is-open') && !menu.hidden;
+      setMenu(!isOpen);
+    });
 
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setMenu(false);
+      });
+    }
+
+    // Clicking anywhere outside .menu__panel (or on any menu link) closes the menu
     menu.addEventListener('click', (e) => {
-      if (e.target.closest('a') || e.target.closest('#menu-close')) {
-        set(false);
+      if (!e.target.closest('.menu__panel') || e.target.closest('a')) {
+        setMenu(false);
+      }
+    });
+
+    // Global click listener to close menu if clicking anywhere on the screen
+    document.addEventListener('click', (e) => {
+      if (menu.classList.contains('is-open')) {
+        if (!e.target.closest('.menu__panel') && !e.target.closest('#burger')) {
+          setMenu(false);
+        }
       }
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !menu.hidden) set(false);
+      if (e.key === 'Escape' && menu.classList.contains('is-open')) {
+        setMenu(false);
+      }
     });
   }
 
