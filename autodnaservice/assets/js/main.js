@@ -4,13 +4,11 @@
 (function() {
   'use strict';
 
-  // ══ 1. DYNAMIC STICKY DOCKED HEADER & DROPDOWNS ═══════════════════════
+  // ══ 1. DYNAMIC STICKY HEADER & DROPDOWNS ══════════════════════════════
   function initHeader() {
-    const stickyHeader = document.querySelector('#sticky-header');
     const evoPanel = document.querySelector('.panel-evolution');
     const evoBtn = document.querySelector('#btn-evolution');
 
-    // Toggle evolution panel on click
     if (evoPanel && evoBtn) {
       evoBtn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -18,16 +16,14 @@
         evoPanel.classList.toggle('is-open', !isOpen);
         evoBtn.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
       });
-    }
 
-    // Scroll listener: dock sticky header when scrolled down past hero (> 400px)
-    if (stickyHeader) {
-      function onScroll() {
-        const scrolled = window.scrollY > 400;
-        stickyHeader.classList.toggle('is-docked', scrolled);
-      }
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
+      // Close dropdown when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.panel-evolution')) {
+          evoPanel.classList.remove('is-open');
+          evoBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
     }
 
     // Connect dropdown links to smooth scroll and multiple-services tabs
@@ -36,6 +32,10 @@
         const tab = link.getAttribute('data-tab');
         if (tab && window.activateServiceTab) {
           window.activateServiceTab(tab);
+        }
+        if (evoPanel && evoBtn) {
+          evoPanel.classList.remove('is-open');
+          evoBtn.setAttribute('aria-expanded', 'false');
         }
       });
     });

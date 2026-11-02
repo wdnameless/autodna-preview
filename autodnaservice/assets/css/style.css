@@ -90,12 +90,12 @@ body.site-service {
 
 .panel-evolution__box {
   width: 100%;
-  background: rgba(22, 19, 48, 0.88);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border);
+  background: rgba(38, 37, 72, 0.44);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(194, 185, 255, 0.28);
   border-radius: 2px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
   transition: all 0.25s ease;
 }
 
@@ -149,16 +149,19 @@ body.site-service {
   list-style: none;
   margin: 0;
   padding: 0;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(194, 185, 255, 0.22);
   overflow: hidden;
   max-height: 0;
   opacity: 0;
-  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  background: rgba(24, 22, 52, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: max-height 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
 }
 
 .panel-evolution.is-open .panel-evolution__menu {
-  max-height: 250px;
-  opacity: 1;
+  max-height: 250px !important;
+  opacity: 1 !important;
 }
 
 .panel-evolution__item {
@@ -236,16 +239,17 @@ body.site-service {
 .panel-nav__box {
   width: 100%;
   height: 54px;
-  background: rgba(22, 19, 48, 0.88);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border);
+  background: rgba(38, 37, 72, 0.44);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(194, 185, 255, 0.28);
   border-radius: 2px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 clamp(10px, 1.4vw, 24px);
+  transition: all 0.25s ease;
 }
 
 .panel-nav__item {
@@ -304,10 +308,10 @@ body.site-service {
   top: 100%;
   left: 0;
   min-width: 240px;
-  background: rgba(22, 19, 48, 0.94);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border);
+  background: rgba(24, 22, 52, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(194, 185, 255, 0.28);
   border-radius: 2px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
   padding: 6px 0;
@@ -321,9 +325,24 @@ body.site-service {
 }
 
 .panel-nav__item:hover .panel-nav__dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 240px;
+  background: rgba(24, 22, 52, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(194, 185, 255, 0.28);
+  border-radius: 2px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+  padding: 6px 0;
+  margin-top: 6px;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 110;
 }
 
 .panel-nav__dropdown-menu a {
@@ -565,12 +584,21 @@ body.site-service {
 
 /* In the sticky docked header, reveal dropdown smoothly on hover or click */
 .sticky-header .panel-evolution__menu {
-  max-height: 0 !important;
-  opacity: 0 !important;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(194, 185, 255, 0.22);
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  background: rgba(24, 22, 52, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: max-height 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
 }
 
 .sticky-header .panel-evolution:hover .panel-evolution__menu,
-.sticky-header .panel-evolution.is-open .panel-evolution__menu {
+.panel-evolution.is-open .panel-evolution__menu {
   max-height: 250px !important;
   opacity: 1 !important;
 }
