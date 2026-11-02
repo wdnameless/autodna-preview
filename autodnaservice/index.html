@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoDNA Service — The Future of Service is Already Here</title>
+  <meta name="description" content="Next-generation automotive center in Calgary equipped with innovative technology, modern minimalist interior, and smart service systems.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="site-service">
+
+<!-- ══ STICKY HUD HEADER & NAVIGATION ═════════════════════════════════════ -->
+<header class="hud" id="top">
+  <div class="hud__left">
+    <a class="hud__logo" href="index.html" aria-label="AutoDNA Service home">
+      <img src="assets/img/logo.svg" width="37" height="21" alt="AutoDNA Service">
+    </a>
+
+    <!-- Dropdown: SERVICE EVOLUTION -->
+    <div class="nav-dropdown" id="dropdown-evolution">
+      <button class="nav-dropdown__btn" aria-expanded="false" aria-haspopup="true">
+        <span>SERVICE EVOLUTION</span>
+        <svg class="nav-dropdown__chevron" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="#C2B9FF" stroke-width="1.2" fill="none"/></svg>
+      </button>
+      <div class="nav-dropdown__menu ticks">
+        <span class="tick tl"></span><span class="tick tr"></span>
+        <span class="tick bl"></span><span class="tick br"></span>
+        <a href="#multiple-services" data-tab="shop"><span>SkipTheShop™</span><svg viewBox="0 0 14 12"><path d="M0 6H12M7 1L12 6L7 11"/></svg></a>
+        <a href="#multiple-services" data-tab="plan"><span>DriveCarePlan™</span><svg viewBox="0 0 14 12"><path d="M0 6H12M7 1L12 6L7 11"/></svg></a>
+        <a href="#multiple-services" data-tab="plan"><span>DriveCarePlan™ Commercial</span><svg viewBox="0 0 14 12"><path d="M0 6H12M7 1L12 6L7 11"/></svg></a>
+        <a href="#multiple-services" data-tab="paint"><span>PaintBot™</span><svg viewBox="0 0 14 12"><path d="M0 6H12M7 1L12 6L7 11"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Center Navigation: Services Links & Dropdowns -->
+  <nav class="hud__nav" aria-label="Main Navigation">
+    <!-- Dropdown: Auto Services -->
+    <div class="nav-dropdown">
+      <button class="nav-dropdown__btn">
+        <span>AutoServices</span>
+        <svg class="nav-dropdown__chevron" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="#C2B9FF" stroke-width="1.2" fill="none"/></svg>
+      </button>
+      <div class="nav-dropdown__menu ticks">
+        <span class="tick tl"></span><span class="tick tr"></span>
+        <span class="tick bl"></span><span class="tick br"></span>
+        <a href="#catalog-services"><span>Oil change ($29)</span></a>
+        <a href="#catalog-services"><span>Tire Services &amp; Balancing</span></a>
+        <a href="#catalog-services"><span>Wheel alignment ($79)</span></a>
+        <a href="#catalog-services"><span>Check engine diagnostics</span></a>
+        <a href="#catalog-services"><span>AC &amp; Heating Repair ($59)</span></a>
+        <a href="#catalog-services"><span>Brakes replacement ($79)</span></a>
+        <a href="#catalog-services"><span>Steering and Suspension</span></a>
+        <a href="#catalog-services"><span>Engine &amp; Transmission repair</span></a>
+      </div>
+    </div>
+
+    <a href="#catalog-services" class="hud__nav-link"><span>Remote Starters</span></a>
+
+    <!-- Dropdown: Inspections -->
+    <div class="nav-dropdown">
+      <button class="nav-dropdown__btn">
+        <span>Inspections</span>
+        <svg class="nav-dropdown__chevron" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="#C2B9FF" stroke-width="1.2" fill="none"/></svg>
+      </button>
+      <div class="nav-dropdown__menu ticks">
+        <span class="tick tl"></span><span class="tick tr"></span>
+        <span class="tick bl"></span><span class="tick br"></span>
+        <a href="#catalog-services"><span>Mechanical inspection ($59)</span></a>
+        <a href="#catalog-services"><span>Insurance Inspection</span></a>
+        <a href="#catalog-services"><span>Out of Province Inspection</span></a>
+        <a href="#catalog-services"><span>Salvage Inspection</span></a>
+      </div>
+    </div>
+
+    <a href="#catalog-services" class="hud__nav-link"><span>Towing / OnRoad</span></a>
+    <a href="#catalog-services" class="hud__nav-link"><span>Car Buying Assist</span></a>
+    <a href="#catalog-services" class="hud__nav-link"><span>EV Service</span></a>
+  </nav>
+
+  <div class="hud__right">
+    <a href="tel:+14033128306" class="hud__phone">+1 (403) 312-8306</a>
+    <button class="hud__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ══ SLIDING RIGHT DRAWER MENU (EXACT FIGMA 464:3660 MATCH) ════════════ -->
+<nav class="menu" id="menu" aria-label="Site menu" hidden>
+  <div class="menu__container">
+    <div class="menu__panel ticks">
+      <span class="tick tl"></span><span class="tick tr"></span>
+      <span class="tick bl"></span><span class="tick br"></span>
+
+      <ul class="menu-list">
+        <li class="menu-item">
+          <a href="#top" class="menu-link">
+            <span class="menu-text">Home</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="#calgary-facility" class="menu-link">
+            <span class="menu-text">Facility in Calgary</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="#multiple-services" class="menu-link">
+            <span class="menu-text">Service Evolution</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item menu-item--has-sub">
+          <a href="#catalog-services" class="menu-link">
+            <div style="display: flex; align-items: flex-end;">
+              <span class="menu-text">Services Catalog</span>
+              <svg class="menu-chevron" viewBox="0 0 8 8" aria-hidden="true"><path d="M2 1L5 4L2 7"/></svg>
+            </div>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+          <ul class="menu-sublist">
+            <li class="menu-subitem"><a href="#catalog-services" class="menu-sublink"><span class="menu-subtext">Auto Services</span><svg class="menu-arrow" viewBox="0 0 16 12"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg></a></li>
+            <li class="menu-subitem"><a href="#catalog-services" class="menu-sublink"><span class="menu-subtext">Inspections</span><svg class="menu-arrow" viewBox="0 0 16 12"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg></a></li>
+            <li class="menu-subitem"><a href="#catalog-services" class="menu-sublink"><span class="menu-subtext">Remote Starters</span><svg class="menu-arrow" viewBox="0 0 16 12"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg></a></li>
+            <li class="menu-subitem"><a href="#catalog-services" class="menu-sublink"><span class="menu-subtext">Towing &amp; Support</span><svg class="menu-arrow" viewBox="0 0 16 12"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg></a></li>
+            <li class="menu-subitem"><a href="#catalog-services" class="menu-sublink"><span class="menu-subtext">Car Buying Assist</span><svg class="menu-arrow" viewBox="0 0 16 12"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg></a></li>
+            <li class="menu-subitem"><a href="#catalog-services" class="menu-sublink"><span class="menu-subtext">EV &amp; Electric Cars</span><svg class="menu-arrow" viewBox="0 0 16 12"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="menu-item">
+          <a href="#price-reset" class="menu-link">
+            <span class="menu-text">Price Reset</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="#fuel-refund" class="menu-link">
+            <span class="menu-text">4L Fuel Refund</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="#team" class="menu-link">
+            <span class="menu-text">Inside AutoDNA</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="#contact" class="menu-link">
+            <span class="menu-text">Contact Us</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="site-main">
+
+  <!-- ══ DESKTOP SITE (100% Full-Bleed Edge-to-Edge) ═════════════════════ -->
+  <div class="layout-desktop">
+
+    <!-- 1. Top Section (Hero + Calgary Facility) -->
+    <section class="section-board section-board--top" id="calgary-facility">
+      <img src="assets/img/site-top.svg" class="section-svg" alt="AutoDNA Service — The Future of Service is Already Here" fetchpriority="high">
+      <!-- Interactive Official Site Button ↗ -->
+      <a href="https://autodnaservice.com" target="_blank" rel="noopener" class="hitarea hitarea--official" aria-label="Visit AutoDNA Service official site"></a>
+    </section>
+
+    <!-- 2. Interactive Multi-Service Component (ONE DNA. MULTIPLE SERVICES.) -->
+    <section class="section-board section-board--multiview" id="multiple-services">
+      <div class="multiview-layers">
+        <img class="multiview-layer multiview-layer--shop is-active" src="assets/img/service-state-shop.svg" alt="SkipTheShop" fetchpriority="high">
+        <img class="multiview-layer multiview-layer--plan" src="assets/img/service-state-plan.svg" alt="DriveCarePlan" loading="eager">
+        <img class="multiview-layer multiview-layer--paint" src="assets/img/service-state-paint.svg" alt="PaintBot" loading="eager">
+      </div>
+
+      <!-- Interactive Tab Click Hitareas (aligned with subpixel precision to Y=340px / top: 26.5%) -->
+      <button class="multiview-tab-btn multiview-tab-btn--shop is-active" data-service="shop" aria-label="Switch to SkipTheShop view"></button>
+      <button class="multiview-tab-btn multiview-tab-btn--plan" data-service="plan" aria-label="Switch to DriveCarePlan view"></button>
+      <button class="multiview-tab-btn multiview-tab-btn--paint" data-service="paint" aria-label="Switch to PaintBot view"></button>
+    </section>
+
+    <!-- 3. Bottom Section (Catalog + Price Reset + Fuel Refund + Team + Contact) -->
+    <section class="section-board section-board--bottom" id="catalog-services">
+      <img src="assets/img/site-bottom.svg" class="section-svg" alt="Services Catalog, Price Reset, 4L Fuel Refund, and Contact" loading="lazy">
+
+      <!-- Interactive Price Reset Table Click Hitareas -->
+      <div id="price-reset">
+        <button class="hitarea hitarea--price-row hitarea--price-row-1" aria-label="Oil Change $29"></button>
+        <button class="hitarea hitarea--price-row hitarea--price-row-2" aria-label="Tires installation $69"></button>
+        <button class="hitarea hitarea--price-row hitarea--price-row-3" aria-label="Wheel alignment $79"></button>
+        <button class="hitarea hitarea--price-row hitarea--price-row-4" aria-label="AC recharge $59"></button>
+        <button class="hitarea hitarea--price-row hitarea--price-row-5" aria-label="Brakes replacement $79"></button>
+        <button class="hitarea hitarea--price-row hitarea--price-row-6" aria-label="Inspection $59"></button>
+      </div>
+
+      <!-- Anchor points for quick jump -->
+      <div id="fuel-refund" style="position: absolute; top: 58%; left: 0;"></div>
+      <div id="team" style="position: absolute; top: 68%; left: 0;"></div>
+      <div id="contact" style="position: absolute; top: 88%; left: 0;"></div>
+
+      <!-- Interactive Contact Button ↗ -->
+      <a href="#contact" class="hitarea hitarea--contact-btn" aria-label="Contact with us"></a>
+
+      <!-- Interactive Footer Links -->
+      <a href="tel:+14033128306" class="hitarea hitarea--phone" aria-label="Call +1 (403) 312-8306"></a>
+      <a href="mailto:info@autodna.com" class="hitarea hitarea--email" aria-label="Email info@autodna.com"></a>
+
+      <div class="hitarea hitarea--socials">
+        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"></a>
+        <a href="https://x.com" target="_blank" rel="noopener" aria-label="X (Twitter)"></a>
+        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"></a>
+      </div>
+
+      <a href="https://maps.google.com/?q=730+2+Ave+SW+Calgary+T2P1R8+Canada" target="_blank" rel="noopener" class="hitarea hitarea--address" aria-label="Find us on Google Maps"></a>
+    </section>
+
+  </div>
+
+  <!-- ══ MOBILE SITE (100% Full-Bleed Vector SVG from Figma 393x10228) ══ -->
+  <div class="layout-mobile">
+    <img src="assets/img/dnaservice-mobile.svg" class="mobile-svg" alt="AutoDNA Service Mobile" fetchpriority="high">
+
+    <!-- Interactive Mobile Hitareas -->
+    <a href="https://autodnaservice.com" target="_blank" rel="noopener" class="mob-hitarea mob-hitarea--official" aria-label="Visit AutoDNA Service official site"></a>
+    <a href="#contact" class="mob-hitarea mob-hitarea--contact-btn" aria-label="Contact with us"></a>
+    <a href="tel:+14033128306" class="mob-hitarea mob-hitarea--phone" aria-label="Call +1 (403) 312-8306"></a>
+    <a href="mailto:info@autodna.com" class="mob-hitarea mob-hitarea--email" aria-label="Email info@autodna.com"></a>
+    <a href="https://maps.google.com/?q=730+2+Ave+SW+Calgary+T2P1R8+Canada" target="_blank" rel="noopener" class="mob-hitarea mob-hitarea--address" aria-label="Find us on Google Maps"></a>
+  </div>
+
+</main>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
