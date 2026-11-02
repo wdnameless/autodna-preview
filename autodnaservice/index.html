@@ -13,154 +13,121 @@
 </head>
 <body class="site-service">
 
-<!-- ══ STICKY HUD HEADER & NAVIGATION ═════════════════════════════════════ -->
-<header class="hud" id="top">
-  <div class="hud__left">
-    <a class="hud__logo" href="index.html" aria-label="AutoDNA Service home">
-      <img src="assets/img/logo.svg" width="37" height="21" alt="AutoDNA Service">
-    </a>
+<!-- ══ DYNAMIC STICKY HEADER (ALWAYS PRESENT / DROPDOWNS / NO BURGER) ══ -->
+<header class="sticky-header" id="top">
+  <div class="sticky-header__container">
 
-    <!-- Dropdown: SERVICE EVOLUTION -->
-    <div class="nav-dropdown" id="dropdown-evolution">
-      <button class="nav-dropdown__btn" aria-expanded="false" aria-haspopup="true">
-        <span>SERVICE EVOLUTION</span>
-        <svg class="nav-dropdown__chevron" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="#C2B9FF" stroke-width="1.2" fill="none"/></svg>
-      </button>
-      <div class="nav-dropdown__menu ticks">
-        <span class="tick tl"></span><span class="tick tr"></span>
-        <span class="tick bl"></span><span class="tick br"></span>
-        <a href="#multiple-services" data-tab="shop"><span>SkipTheShop™</span><svg viewBox="0 0 14 12"><path d="M0 6H12M7 1L12 6L7 11"/></svg></a>
-        <a href="#multiple-services" data-tab="plan"><span>DriveCarePlan™</span><svg viewBox="0 0 14 12"><path d="M0 6H12M7 1L12 6L7 11"/></svg></a>
-        <a href="#multiple-services" data-tab="plan"><span>DriveCarePlan™ Commercial</span><svg viewBox="0 0 14 12"><path d="M0 6H12M7 1L12 6L7 11"/></svg></a>
-        <a href="#multiple-services" data-tab="paint"><span>PaintBot™</span><svg viewBox="0 0 14 12"><path d="M0 6H12M7 1L12 6L7 11"/></svg></a>
-      </div>
-    </div>
-  </div>
+    <!-- Left Panel: SERVICE EVOLUTION (Interactive Dropdown per Figma) -->
+    <div class="panel-evolution is-open">
+      <div class="panel-evolution__box ticks">
+        <span class="tick tl"></span>
+        <span class="tick tr"></span>
+        <span class="tick bl"></span>
+        <span class="tick br"></span>
 
-  <!-- Center Navigation: Services Links & Dropdowns -->
-  <nav class="hud__nav" aria-label="Main Navigation">
-    <!-- Dropdown: Auto Services -->
-    <div class="nav-dropdown">
-      <button class="nav-dropdown__btn">
-        <span>AutoServices</span>
-        <svg class="nav-dropdown__chevron" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="#C2B9FF" stroke-width="1.2" fill="none"/></svg>
-      </button>
-      <div class="nav-dropdown__menu ticks">
-        <span class="tick tl"></span><span class="tick tr"></span>
-        <span class="tick bl"></span><span class="tick br"></span>
-        <a href="#catalog-services"><span>Oil change ($29)</span></a>
-        <a href="#catalog-services"><span>Tire Services &amp; Balancing</span></a>
-        <a href="#catalog-services"><span>Wheel alignment ($79)</span></a>
-        <a href="#catalog-services"><span>Check engine diagnostics</span></a>
-        <a href="#catalog-services"><span>AC &amp; Heating Repair ($59)</span></a>
-        <a href="#catalog-services"><span>Brakes replacement ($79)</span></a>
-        <a href="#catalog-services"><span>Steering and Suspension</span></a>
-        <a href="#catalog-services"><span>Engine &amp; Transmission repair</span></a>
-      </div>
-    </div>
+        <button class="panel-evolution__btn" id="btn-evolution" aria-expanded="true">
+          <span class="panel-evolution__title">SERVICE EVOLUTION</span>
+          <svg class="panel-evolution__chevron" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1L5 5L9 1"/></svg>
+        </button>
 
-    <a href="#catalog-services" class="hud__nav-link"><span>Remote Starters</span></a>
-
-    <!-- Dropdown: Inspections -->
-    <div class="nav-dropdown">
-      <button class="nav-dropdown__btn">
-        <span>Inspections</span>
-        <svg class="nav-dropdown__chevron" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="#C2B9FF" stroke-width="1.2" fill="none"/></svg>
-      </button>
-      <div class="nav-dropdown__menu ticks">
-        <span class="tick tl"></span><span class="tick tr"></span>
-        <span class="tick bl"></span><span class="tick br"></span>
-        <a href="#catalog-services"><span>Mechanical inspection ($59)</span></a>
-        <a href="#catalog-services"><span>Insurance Inspection</span></a>
-        <a href="#catalog-services"><span>Out of Province Inspection</span></a>
-        <a href="#catalog-services"><span>Salvage Inspection</span></a>
+        <ul class="panel-evolution__menu" id="menu-evolution">
+          <li class="panel-evolution__item">
+            <a href="#multiple-services" data-tab="shop" class="panel-evolution__link">
+              <span class="panel-evolution__text">SkipTheShop™</span>
+              <svg class="panel-evolution__arrow" viewBox="0 0 14 10" aria-hidden="true"><path d="M0 5H12M7 1L12 5L7 9"/></svg>
+            </a>
+          </li>
+          <li class="panel-evolution__item">
+            <a href="#multiple-services" data-tab="plan" class="panel-evolution__link">
+              <span class="panel-evolution__text">DriveCarePlan™</span>
+              <svg class="panel-evolution__arrow" viewBox="0 0 14 10" aria-hidden="true"><path d="M0 5H12M7 1L12 5L7 9"/></svg>
+            </a>
+          </li>
+          <li class="panel-evolution__item">
+            <a href="#multiple-services" data-tab="plan" class="panel-evolution__link">
+              <span class="panel-evolution__text">DriveCare Plan™ Commercial</span>
+              <svg class="panel-evolution__arrow" viewBox="0 0 14 10" aria-hidden="true"><path d="M0 5H12M7 1L12 5L7 9"/></svg>
+            </a>
+          </li>
+          <li class="panel-evolution__item">
+            <a href="#multiple-services" data-tab="paint" class="panel-evolution__link">
+              <span class="panel-evolution__text">PaintBot™</span>
+              <svg class="panel-evolution__arrow" viewBox="0 0 14 10" aria-hidden="true"><path d="M0 5H12M7 1L12 5L7 9"/></svg>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
 
-    <a href="#catalog-services" class="hud__nav-link"><span>Towing / OnRoad</span></a>
-    <a href="#catalog-services" class="hud__nav-link"><span>Car Buying Assist</span></a>
-    <a href="#catalog-services" class="hud__nav-link"><span>EV Service</span></a>
-  </nav>
+    <!-- Right Panel: Horizontal Navigation Bar with Dropdowns -->
+    <nav class="panel-nav" aria-label="Services Navigation">
+      <div class="panel-nav__box ticks">
+        <span class="tick tl"></span>
+        <span class="tick tr"></span>
+        <span class="tick bl"></span>
+        <span class="tick br"></span>
 
-  <div class="hud__right">
-    <a href="tel:+14033128306" class="hud__phone">+1 (403) 312-8306</a>
-    <button class="hud__burger" id="burger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+        <!-- Item 1: AutoServices Dropdown -->
+        <div class="panel-nav__item">
+          <button class="panel-nav__dropdown-btn">
+            <span>AutoServices</span>
+            <svg class="panel-nav__chevron" viewBox="0 0 8 5" aria-hidden="true"><path d="M1 1L4 4L7 1"/></svg>
+          </button>
+          <ul class="panel-nav__dropdown-menu ticks">
+            <span class="tick tl"></span><span class="tick tr"></span>
+            <span class="tick bl"></span><span class="tick br"></span>
+            <li><a href="#catalog-services">Oil change ($29)</a></li>
+            <li><a href="#catalog-services">Tire Services &amp; Balancing</a></li>
+            <li><a href="#catalog-services">Wheel alignment ($79)</a></li>
+            <li><a href="#catalog-services">Check engine diagnostics</a></li>
+            <li><a href="#catalog-services">AC &amp; Heating Repair ($59)</a></li>
+            <li><a href="#catalog-services">Brakes replacement ($79)</a></li>
+            <li><a href="#catalog-services">Steering &amp; Suspension</a></li>
+            <li><a href="#catalog-services">Engine &amp; Transmission repair</a></li>
+          </ul>
+        </div>
+
+        <!-- Item 2: Remote Starters -->
+        <div class="panel-nav__item">
+          <a href="#catalog-services" class="panel-nav__link">Remote Starters installation</a>
+        </div>
+
+        <!-- Item 3: Inspections Dropdown -->
+        <div class="panel-nav__item">
+          <button class="panel-nav__dropdown-btn">
+            <span>Inspections</span>
+            <svg class="panel-nav__chevron" viewBox="0 0 8 5" aria-hidden="true"><path d="M1 1L4 4L7 1"/></svg>
+          </button>
+          <ul class="panel-nav__dropdown-menu ticks">
+            <span class="tick tl"></span><span class="tick tr"></span>
+            <span class="tick bl"></span><span class="tick br"></span>
+            <li><a href="#catalog-services">Mechanical inspection ($59)</a></li>
+            <li><a href="#catalog-services">Insurance Inspection</a></li>
+            <li><a href="#catalog-services">Out of Province Inspection</a></li>
+            <li><a href="#catalog-services">Salvage Inspection</a></li>
+          </ul>
+        </div>
+
+        <!-- Item 4: Towing / OnRoad -->
+        <div class="panel-nav__item">
+          <a href="#catalog-services" class="panel-nav__link">Towing/OnRoad support</a>
+        </div>
+
+        <!-- Item 5: Car Buying Assist -->
+        <div class="panel-nav__item">
+          <a href="#catalog-services" class="panel-nav__link">Car Buying Assist</a>
+        </div>
+
+        <!-- Item 6: EV Service -->
+        <div class="panel-nav__item">
+          <a href="#catalog-services" class="panel-nav__link">EV/Electric cars service</a>
+        </div>
+
+      </div>
+    </nav>
+
   </div>
 </header>
-
-<!-- ══ SLIDING RIGHT DRAWER MENU (EXACT FIGMA 464:3660 MATCH) ════════════ -->
-<nav class="menu" id="menu" aria-label="Site menu" hidden>
-  <div class="menu__container">
-    <div class="menu__panel ticks">
-      <span class="tick tl"></span><span class="tick tr"></span>
-      <span class="tick bl"></span><span class="tick br"></span>
-
-      <ul class="menu-list">
-        <li class="menu-item">
-          <a href="#top" class="menu-link">
-            <span class="menu-text">Home</span>
-            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="#calgary-facility" class="menu-link">
-            <span class="menu-text">Facility in Calgary</span>
-            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="#multiple-services" class="menu-link">
-            <span class="menu-text">Service Evolution</span>
-            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
-          </a>
-        </li>
-        <li class="menu-item menu-item--has-sub">
-          <a href="#catalog-services" class="menu-link">
-            <div style="display: flex; align-items: flex-end;">
-              <span class="menu-text">Services Catalog</span>
-              <svg class="menu-chevron" viewBox="0 0 8 8" aria-hidden="true"><path d="M2 1L5 4L2 7"/></svg>
-            </div>
-            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
-          </a>
-          <ul class="menu-sublist">
-            <li class="menu-subitem"><a href="#catalog-services" class="menu-sublink"><span class="menu-subtext">Auto Services</span><svg class="menu-arrow" viewBox="0 0 16 12"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg></a></li>
-            <li class="menu-subitem"><a href="#catalog-services" class="menu-sublink"><span class="menu-subtext">Inspections</span><svg class="menu-arrow" viewBox="0 0 16 12"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg></a></li>
-            <li class="menu-subitem"><a href="#catalog-services" class="menu-sublink"><span class="menu-subtext">Remote Starters</span><svg class="menu-arrow" viewBox="0 0 16 12"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg></a></li>
-            <li class="menu-subitem"><a href="#catalog-services" class="menu-sublink"><span class="menu-subtext">Towing &amp; Support</span><svg class="menu-arrow" viewBox="0 0 16 12"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg></a></li>
-            <li class="menu-subitem"><a href="#catalog-services" class="menu-sublink"><span class="menu-subtext">Car Buying Assist</span><svg class="menu-arrow" viewBox="0 0 16 12"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg></a></li>
-            <li class="menu-subitem"><a href="#catalog-services" class="menu-sublink"><span class="menu-subtext">EV &amp; Electric Cars</span><svg class="menu-arrow" viewBox="0 0 16 12"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg></a></li>
-          </ul>
-        </li>
-        <li class="menu-item">
-          <a href="#price-reset" class="menu-link">
-            <span class="menu-text">Price Reset</span>
-            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="#fuel-refund" class="menu-link">
-            <span class="menu-text">4L Fuel Refund</span>
-            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="#team" class="menu-link">
-            <span class="menu-text">Inside AutoDNA</span>
-            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="#contact" class="menu-link">
-            <span class="menu-text">Contact Us</span>
-            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
 
 <main class="site-main">
 
@@ -170,23 +137,7 @@
     <!-- 1. Top Section (Hero + Calgary Facility) -->
     <section class="section-board section-board--top" id="calgary-facility">
       <img src="assets/img/site-top.svg" class="section-svg" alt="AutoDNA Service — The Future of Service is Already Here" fetchpriority="high">
-
-      <!-- Interactive Nav Hitareas on Top Section -->
-      <!-- 1. Left Panel (SERVICE EVOLUTION dropdown items) -->
-      <a href="#multiple-services" data-tab="shop" class="top-nav-hitarea top-nav-hitarea--shop" aria-label="SkipTheShop"></a>
-      <a href="#multiple-services" data-tab="plan" class="top-nav-hitarea top-nav-hitarea--plan" aria-label="DriveCarePlan"></a>
-      <a href="#multiple-services" data-tab="plan" class="top-nav-hitarea top-nav-hitarea--plan-comm" aria-label="DriveCare Plan Commercial"></a>
-      <a href="#multiple-services" data-tab="paint" class="top-nav-hitarea top-nav-hitarea--paint" aria-label="PaintBot"></a>
-
-      <!-- 2. Right Panel (Navigation items) -->
-      <a href="#catalog-services" class="top-nav-hitarea top-nav-hitarea--autoservices" aria-label="AutoServices"></a>
-      <a href="#catalog-services" class="top-nav-hitarea top-nav-hitarea--starters" aria-label="Remote Starters installation"></a>
-      <a href="#catalog-services" class="top-nav-hitarea top-nav-hitarea--inspections" aria-label="Inspections"></a>
-      <a href="#catalog-services" class="top-nav-hitarea top-nav-hitarea--towing" aria-label="Towing / OnRoad support"></a>
-      <a href="#catalog-services" class="top-nav-hitarea top-nav-hitarea--buying" aria-label="Car Buying Assist"></a>
-      <a href="#catalog-services" class="top-nav-hitarea top-nav-hitarea--ev" aria-label="EV / Electric cars service"></a>
-
-      <!-- 3. Calgary Section Official Site Button ↗ -->
+      <!-- Interactive Official Site Button ↗ -->
       <a href="https://autodnaservice.com" target="_blank" rel="noopener" class="hitarea hitarea--official" aria-label="Visit AutoDNA Service official site"></a>
     </section>
 
