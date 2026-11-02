@@ -49,24 +49,23 @@ body.site-service {
 .tick.bl { bottom: -1px; left: -1px; border-width: 0 0 1.2px 1.2px; }
 .tick.br { bottom: -1px; right: -1px; border-width: 0 1.2px 1.2px 0; }
 
-/* ══ DYNAMIC STICKY DOCKED HEADER (APPEARS AS YOU SCROLL) ══════════════ */
+/* ══ DYNAMIC STICKY HEADER (ALWAYS PRESENT / 100% VECTOR / NO BURGER) ═ */
 .sticky-header {
   position: fixed;
-  top: 16px;
+  top: 24px;
   left: 0;
   right: 0;
   z-index: 100;
   pointer-events: none;
   display: flex;
   justify-content: center;
-  padding: 0 clamp(16px, 2vw, 32px);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-20px);
-  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
+  padding: 0 clamp(16px, 1.8vw, 32px);
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
 }
 
-.sticky-header.is-docked {
+/* always docked */ .sticky-header {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
