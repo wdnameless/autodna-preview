@@ -13,11 +13,11 @@
 </head>
 <body class="site-service">
 
-<!-- ══ DYNAMIC STICKY HEADER (ALWAYS PRESENT / DROPDOWNS / NO BURGER) ══ -->
-<header class="sticky-header" id="top">
+<!-- ══ DYNAMIC STICKY DOCKED HEADER (APPEARS AS YOU SCROLL DOWN / NO BURGER) ══ -->
+<header class="sticky-header" id="sticky-header">
   <div class="sticky-header__container">
 
-    <!-- Left Panel: SERVICE EVOLUTION (Interactive Dropdown per Figma) -->
+    <!-- Left Panel: SERVICE EVOLUTION (Dropdown) -->
     <div class="panel-evolution is-open">
       <div class="panel-evolution__box ticks">
         <span class="tick tl"></span>
@@ -27,32 +27,32 @@
 
         <button class="panel-evolution__btn" id="btn-evolution" aria-expanded="true">
           <span class="panel-evolution__title">SERVICE EVOLUTION</span>
-          <svg class="panel-evolution__chevron" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1L5 5L9 1"/></svg>
+          <svg class="panel-evolution__chevron" viewBox="0 0 10 6"><path d="M1 1L5 5L9 1"/></svg>
         </button>
 
         <ul class="panel-evolution__menu" id="menu-evolution">
           <li class="panel-evolution__item">
             <a href="#multiple-services" data-tab="shop" class="panel-evolution__link">
               <span class="panel-evolution__text">SkipTheShop™</span>
-              <svg class="panel-evolution__arrow" viewBox="0 0 14 10" aria-hidden="true"><path d="M0 5H12M7 1L12 5L7 9"/></svg>
+              <svg class="panel-evolution__arrow" viewBox="0 0 14 10"><path d="M0 5H12M7 1L12 5L7 9"/></svg>
             </a>
           </li>
           <li class="panel-evolution__item">
             <a href="#multiple-services" data-tab="plan" class="panel-evolution__link">
               <span class="panel-evolution__text">DriveCarePlan™</span>
-              <svg class="panel-evolution__arrow" viewBox="0 0 14 10" aria-hidden="true"><path d="M0 5H12M7 1L12 5L7 9"/></svg>
+              <svg class="panel-evolution__arrow" viewBox="0 0 14 10"><path d="M0 5H12M7 1L12 5L7 9"/></svg>
             </a>
           </li>
           <li class="panel-evolution__item">
             <a href="#multiple-services" data-tab="plan" class="panel-evolution__link">
               <span class="panel-evolution__text">DriveCare Plan™ Commercial</span>
-              <svg class="panel-evolution__arrow" viewBox="0 0 14 10" aria-hidden="true"><path d="M0 5H12M7 1L12 5L7 9"/></svg>
+              <svg class="panel-evolution__arrow" viewBox="0 0 14 10"><path d="M0 5H12M7 1L12 5L7 9"/></svg>
             </a>
           </li>
           <li class="panel-evolution__item">
             <a href="#multiple-services" data-tab="paint" class="panel-evolution__link">
               <span class="panel-evolution__text">PaintBot™</span>
-              <svg class="panel-evolution__arrow" viewBox="0 0 14 10" aria-hidden="true"><path d="M0 5H12M7 1L12 5L7 9"/></svg>
+              <svg class="panel-evolution__arrow" viewBox="0 0 14 10"><path d="M0 5H12M7 1L12 5L7 9"/></svg>
             </a>
           </li>
         </ul>
@@ -71,7 +71,7 @@
         <div class="panel-nav__item">
           <button class="panel-nav__dropdown-btn">
             <span>AutoServices</span>
-            <svg class="panel-nav__chevron" viewBox="0 0 8 5" aria-hidden="true"><path d="M1 1L4 4L7 1"/></svg>
+            <svg class="panel-nav__chevron" viewBox="0 0 8 5"><path d="M1 1L4 4L7 1"/></svg>
           </button>
           <ul class="panel-nav__dropdown-menu ticks">
             <span class="tick tl"></span><span class="tick tr"></span>
@@ -96,7 +96,7 @@
         <div class="panel-nav__item">
           <button class="panel-nav__dropdown-btn">
             <span>Inspections</span>
-            <svg class="panel-nav__chevron" viewBox="0 0 8 5" aria-hidden="true"><path d="M1 1L4 4L7 1"/></svg>
+            <svg class="panel-nav__chevron" viewBox="0 0 8 5"><path d="M1 1L4 4L7 1"/></svg>
           </button>
           <ul class="panel-nav__dropdown-menu ticks">
             <span class="tick tl"></span><span class="tick tr"></span>
@@ -134,60 +134,69 @@
   <!-- ══ DESKTOP SITE (100% Full-Bleed Edge-to-Edge) ═════════════════════ -->
   <div class="layout-desktop">
 
-    <!-- 1. Top Section (Hero + Calgary Facility) -->
-    <section class="section-board section-board--top" id="calgary-facility">
-      <img src="assets/img/site-top.svg" class="section-svg" alt="AutoDNA Service — The Future of Service is Already Here" fetchpriority="high">
-      <!-- Interactive Official Site Button ↗ -->
-      <a href="https://autodnaservice.com" target="_blank" rel="noopener" class="hitarea hitarea--official" aria-label="Visit AutoDNA Service official site"></a>
+    <!-- 1. Hero Section (100% Pixel-Perfect Match to Figma DNA service-1.png) -->
+    <section class="service-hero" id="home">
+      <div class="service-hero__wrapper">
+        <img src="assets/img/hero-exact-2x.png" srcset="assets/img/hero-exact-1x.png 1x, assets/img/hero-exact-2x.png 2x" class="service-hero__img" alt="AutoDNA Service — The Future of Service is Already Here" fetchpriority="high">
+
+        <!-- Interactive Nav Hitareas Overlaid on Figma Header -->
+        <!-- Left Panel: SERVICE EVOLUTION dropdown items -->
+        <a href="#multiple-services" data-tab="shop" class="hero-hitarea hero-hitarea--shop" aria-label="SkipTheShop"></a>
+        <a href="#multiple-services" data-tab="plan" class="hero-hitarea hero-hitarea--plan" aria-label="DriveCarePlan"></a>
+        <a href="#multiple-services" data-tab="plan" class="hero-hitarea hero-hitarea--plan-comm" aria-label="DriveCare Plan Commercial"></a>
+        <a href="#multiple-services" data-tab="paint" class="hero-hitarea hero-hitarea--paint" aria-label="PaintBot"></a>
+
+        <!-- Right Panel: Navigation items -->
+        <a href="#catalog-services" class="hero-hitarea hero-hitarea--autoservices" aria-label="AutoServices"></a>
+        <a href="#catalog-services" class="hero-hitarea hero-hitarea--starters" aria-label="Remote Starters installation"></a>
+        <a href="#catalog-services" class="hero-hitarea hero-hitarea--inspections" aria-label="Inspections"></a>
+        <a href="#catalog-services" class="hero-hitarea hero-hitarea--towing" aria-label="Towing / OnRoad support"></a>
+        <a href="#catalog-services" class="hero-hitarea hero-hitarea--buying" aria-label="Car Buying Assist"></a>
+        <a href="#catalog-services" class="hero-hitarea hero-hitarea--ev" aria-label="EV / Electric cars service"></a>
+
+        <!-- Indicators on Right -->
+        <a href="#multiple-services" data-tab="shop" class="hero-hitarea hero-hitarea--ind-shop" aria-label="SkipTheShop view"></a>
+        <a href="#multiple-services" data-tab="plan" class="hero-hitarea hero-hitarea--ind-plan" aria-label="DriveCarePlan view"></a>
+        <a href="#multiple-services" data-tab="paint" class="hero-hitarea hero-hitarea--ind-paint" aria-label="PaintBot view"></a>
+      </div>
     </section>
 
-    <!-- 2. Interactive Multi-Service Component (ONE DNA. MULTIPLE SERVICES.) -->
-    <section class="section-board section-board--multiview" id="multiple-services">
-      <div class="multiview-layers">
-        <img class="multiview-layer multiview-layer--shop is-active" src="assets/img/service-state-shop.svg" alt="SkipTheShop" fetchpriority="high">
-        <img class="multiview-layer multiview-layer--plan" src="assets/img/service-state-plan.svg" alt="DriveCarePlan" loading="eager">
-        <img class="multiview-layer multiview-layer--paint" src="assets/img/service-state-paint.svg" alt="PaintBot" loading="eager">
+    <!-- 2. Body Section (Calgary Facility, Multiple Services, Catalog, Price Table, Fuel Refund, Team, Contact) -->
+    <section class="service-body">
+      <div class="service-body__wrapper">
+        <img src="assets/img/dnaservice-body.svg" class="service-body__svg" alt="AutoDNA Service Full Site" loading="lazy">
+
+        <!-- Interactive Hitareas on Body -->
+        <!-- Calgary Official Site Button ↗ -->
+        <a href="https://autodnaservice.com" target="_blank" rel="noopener" class="body-hitarea body-hitarea--official" aria-label="Visit AutoDNA Service official site"></a>
+
+        <!-- Multiple Services Tab Switches -->
+        <button class="body-tab-btn body-tab-btn--shop is-active" data-service="shop" aria-label="Show SkipTheShop view"></button>
+        <button class="body-tab-btn body-tab-btn--plan" data-service="plan" aria-label="Show DriveCarePlan view"></button>
+        <button class="body-tab-btn body-tab-btn--paint" data-service="paint" aria-label="Show PaintBot view"></button>
+
+        <div id="multiple-services" style="position: absolute; top: 14%; left: 0;"></div>
+        <div id="catalog-services" style="position: absolute; top: 32%; left: 0;"></div>
+        <div id="price-reset" style="position: absolute; top: 50%; left: 0;"></div>
+        <div id="fuel-refund" style="position: absolute; top: 70%; left: 0;"></div>
+        <div id="team" style="position: absolute; top: 80%; left: 0;"></div>
+        <div id="contact" style="position: absolute; top: 92%; left: 0;"></div>
+
+        <!-- Contact Button ↗ -->
+        <a href="#contact" class="body-hitarea body-hitarea--contact-btn" aria-label="Contact with us"></a>
+
+        <!-- Footer Links -->
+        <a href="tel:+14033128306" class="body-hitarea body-hitarea--phone" aria-label="Call +1 (403) 312-8306"></a>
+        <a href="mailto:info@autodna.com" class="body-hitarea body-hitarea--email" aria-label="Email info@autodna.com"></a>
+
+        <div class="body-hitarea body-hitarea--socials">
+          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"></a>
+          <a href="https://x.com" target="_blank" rel="noopener" aria-label="X (Twitter)"></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"></a>
+        </div>
+
+        <a href="https://maps.google.com/?q=730+2+Ave+SW+Calgary+T2P1R8+Canada" target="_blank" rel="noopener" class="body-hitarea body-hitarea--address" aria-label="Find us on Google Maps"></a>
       </div>
-
-      <!-- Interactive Tab Click Hitareas (aligned with subpixel precision to Y=340px / top: 26.5%) -->
-      <button class="multiview-tab-btn multiview-tab-btn--shop is-active" data-service="shop" aria-label="Switch to SkipTheShop view"></button>
-      <button class="multiview-tab-btn multiview-tab-btn--plan" data-service="plan" aria-label="Switch to DriveCarePlan view"></button>
-      <button class="multiview-tab-btn multiview-tab-btn--paint" data-service="paint" aria-label="Switch to PaintBot view"></button>
-    </section>
-
-    <!-- 3. Bottom Section (Catalog + Price Reset + Fuel Refund + Team + Contact) -->
-    <section class="section-board section-board--bottom" id="catalog-services">
-      <img src="assets/img/site-bottom.svg" class="section-svg" alt="Services Catalog, Price Reset, 4L Fuel Refund, and Contact" loading="lazy">
-
-      <!-- Interactive Price Reset Table Click Hitareas -->
-      <div id="price-reset">
-        <button class="hitarea hitarea--price-row hitarea--price-row-1" aria-label="Oil Change $29"></button>
-        <button class="hitarea hitarea--price-row hitarea--price-row-2" aria-label="Tires installation $69"></button>
-        <button class="hitarea hitarea--price-row hitarea--price-row-3" aria-label="Wheel alignment $79"></button>
-        <button class="hitarea hitarea--price-row hitarea--price-row-4" aria-label="AC recharge $59"></button>
-        <button class="hitarea hitarea--price-row hitarea--price-row-5" aria-label="Brakes replacement $79"></button>
-        <button class="hitarea hitarea--price-row hitarea--price-row-6" aria-label="Inspection $59"></button>
-      </div>
-
-      <!-- Anchor points for quick jump -->
-      <div id="fuel-refund" style="position: absolute; top: 58%; left: 0;"></div>
-      <div id="team" style="position: absolute; top: 68%; left: 0;"></div>
-      <div id="contact" style="position: absolute; top: 88%; left: 0;"></div>
-
-      <!-- Interactive Contact Button ↗ -->
-      <a href="#contact" class="hitarea hitarea--contact-btn" aria-label="Contact with us"></a>
-
-      <!-- Interactive Footer Links -->
-      <a href="tel:+14033128306" class="hitarea hitarea--phone" aria-label="Call +1 (403) 312-8306"></a>
-      <a href="mailto:info@autodna.com" class="hitarea hitarea--email" aria-label="Email info@autodna.com"></a>
-
-      <div class="hitarea hitarea--socials">
-        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"></a>
-        <a href="https://x.com" target="_blank" rel="noopener" aria-label="X (Twitter)"></a>
-        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"></a>
-      </div>
-
-      <a href="https://maps.google.com/?q=730+2+Ave+SW+Calgary+T2P1R8+Canada" target="_blank" rel="noopener" class="hitarea hitarea--address" aria-label="Find us on Google Maps"></a>
     </section>
 
   </div>
