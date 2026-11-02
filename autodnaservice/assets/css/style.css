@@ -356,9 +356,9 @@ body.site-service {
 
 .service-hero__wrapper {
   position: relative;
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
 }
 
 .service-hero__img {
@@ -411,9 +411,9 @@ body.site-service {
 
 .service-body__wrapper {
   position: relative;
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
 }
 
 .service-body__svg {
@@ -562,4 +562,21 @@ body.site-service {
     width: 90%;
     height: 1.5%;
   }
+}
+
+/* In the sticky docked header, reveal dropdown smoothly on hover or click */
+.sticky-header .panel-evolution__menu {
+  max-height: 0 !important;
+  opacity: 0 !important;
+}
+
+.sticky-header .panel-evolution:hover .panel-evolution__menu,
+.sticky-header .panel-evolution.is-open .panel-evolution__menu {
+  max-height: 250px !important;
+  opacity: 1 !important;
+}
+
+.sticky-header .panel-evolution:hover .panel-evolution__chevron,
+.sticky-header .panel-evolution.is-open .panel-evolution__chevron {
+  transform: rotate(180deg) !important;
 }
