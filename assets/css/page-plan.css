@@ -1,16 +1,17 @@
-/* ══ DRIVECAREPLAN PAGE STYLES (100% VECTOR SVG / TRUE FULL-SCREEN) ═══ */
+/* ══ DRIVECAREPLAN PAGE STYLES (100% RESPONSIVE + DESKTOP VECTOR SVG) ═══ */
 
 .page-plan {
   background-color: #020202;
   color: #ffffff;
   overflow-x: hidden;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .plan-main {
   position: relative;
   width: 100%;
   background-color: #020202;
-  overflow: hidden;
+  overflow-x: hidden;
   box-sizing: border-box;
 }
 
@@ -44,7 +45,6 @@
   transition: background 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Top Back / Dropdown Button */
 .plan-hitarea--top-btn {
   left: 1.43%;
   top: 0.51%;
@@ -57,7 +57,6 @@
   box-shadow: 0 0 20px rgba(150, 133, 255, 0.5);
 }
 
-/* Interactive Table Rows */
 .plan-hitarea--table-row {
   left: 2.12%;
   width: 95.8%;
@@ -78,44 +77,13 @@
 .plan-hitarea--row-7 { top: 55.40%; height: 2.37%; }
 .plan-hitarea--row-8 { top: 58.20%; height: 2.37%; }
 
-/* Footer Links */
-.plan-hitarea--phone {
-  left: 2.1%;
-  top: 93.8%;
-  width: 20%;
-  height: 1.6%;
-}
+.plan-hitarea--phone { left: 2.1%; top: 93.8%; width: 20%; height: 1.6%; }
+.plan-hitarea--email { left: 2.1%; top: 95.8%; width: 20%; height: 1.6%; }
+.plan-hitarea--socials { left: 42.0%; top: 94.8%; width: 16%; height: 1.8%; display: flex; justify-content: space-between; }
+.plan-hitarea--socials a { display: block; width: 30%; height: 100%; }
+.plan-hitarea--address { left: 72.0%; top: 93.8%; width: 25%; height: 2.8%; }
 
-.plan-hitarea--email {
-  left: 2.1%;
-  top: 95.8%;
-  width: 20%;
-  height: 1.6%;
-}
-
-.plan-hitarea--socials {
-  left: 42.0%;
-  top: 94.8%;
-  width: 16%;
-  height: 1.8%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.plan-hitarea--socials a {
-  display: block;
-  width: 30%;
-  height: 100%;
-}
-
-.plan-hitarea--address {
-  left: 72.0%;
-  top: 93.8%;
-  width: 25%;
-  height: 2.8%;
-}
-
-/* ══ MOBILE LAYOUT (393 x 4271) ════════════════════════════════════════ */
+/* ══ MOBILE RESPONSIVE LAYOUT (<= 768px) ═══════════════════════════════ */
 @media (max-width: 768px) {
   .plan-board--desktop {
     display: none !important;
@@ -127,42 +95,496 @@
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
+    padding: 20px 14px 40px !important;
     background-color: #020202 !important;
-    overflow: hidden !important;
+    box-sizing: border-box !important;
   }
 
-  .plan-mob-hitarea {
+  /* 1. Header Bar */
+  .mob-plan-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding: 0 4px;
+  }
+
+  .mob-plan-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: rgba(38, 37, 72, 0.44);
+    border: 1px solid rgba(194, 185, 255, 0.35);
+    color: #C2B9FF;
+    font-family: 'Orbitron', monospace, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    box-shadow: 0 0 15px rgba(150, 133, 255, 0.2);
+    transition: all 0.25s ease;
+  }
+
+  .mob-plan-badge:hover,
+  .mob-plan-badge:active {
+    background: rgba(150, 133, 255, 0.25);
+    border-color: #C2B9FF;
+    box-shadow: 0 0 25px rgba(150, 133, 255, 0.5);
+  }
+
+  .mob-plan-badge svg {
+    width: 10px;
+    height: 10px;
+    stroke: currentColor;
+  }
+
+  /* Corner ticks */
+  .tick {
     position: absolute;
-    z-index: 15;
+    width: 6px;
+    height: 6px;
+    border-color: #C2B9FF;
+    pointer-events: none;
+  }
+  .tick.tl { top: -1px; left: -1px; border-top: 2px solid; border-left: 2px solid; }
+  .tick.tr { top: -1px; right: -1px; border-top: 2px solid; border-right: 2px solid; }
+  .tick.bl { bottom: -1px; left: -1px; border-bottom: 2px solid; border-left: 2px solid; }
+  .tick.br { bottom: -1px; right: -1px; border-bottom: 2px solid; border-right: 2px solid; }
+
+  /* 2. Hero Section */
+  .mob-plan-hero {
+    margin-bottom: 32px;
+  }
+
+  .mob-plan-title {
+    font-family: 'Orbitron', monospace, sans-serif;
+    font-size: clamp(26px, 8vw, 36px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 0 0 14px;
+  }
+
+  .mob-plan-title span {
+    display: block;
+  }
+
+  .mob-plan-title .neon-violet {
+    color: #9685FF;
+    text-shadow: 0 0 20px rgba(150, 133, 255, 0.6);
+  }
+
+  .mob-plan-desc {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #C2B9FF;
+    font-weight: 300;
+    margin: 0 0 20px;
+  }
+
+  /* Photo Collage */
+  .mob-plan-collage {
+    position: relative;
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    border: 1px solid rgba(194, 185, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  }
+
+  .mob-plan-collage img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .mob-plan-subdesc {
+    font-size: 13px;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 28px;
+    font-style: italic;
+  }
+
+  /* 3. Feature Table & Cards Section */
+  .mob-plan-section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(194, 185, 255, 0.25);
+  }
+
+  .mob-plan-section-title {
+    font-family: 'Orbitron', monospace, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .mob-plan-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* View Mode Toggle Button */
+  .mob-view-toggle {
+    background: rgba(38, 37, 72, 0.44);
+    border: 1px solid rgba(194, 185, 255, 0.3);
+    color: #C2B9FF;
+    font-family: 'Orbitron', monospace, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 6px 10px;
     cursor: pointer;
-    background: transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s ease;
   }
 
-  .plan-mob-hitarea--top-btn {
-    left: 4.5%;
-    top: 1.8%;
-    width: 91%;
-    height: 1.6%;
+  .mob-view-toggle:hover {
+    background: rgba(150, 133, 255, 0.2);
+    border-color: #9685FF;
   }
 
-  .plan-mob-hitarea--phone {
-    left: 5%;
-    top: 94.2%;
-    width: 90%;
-    height: 1.0%;
+  .mob-view-toggle.is-active {
+    background: #9685FF;
+    color: #020202;
+    border-color: #9685FF;
+    font-weight: 700;
   }
 
-  .plan-mob-hitarea--email {
-    left: 5%;
-    top: 95.4%;
-    width: 90%;
-    height: 1.0%;
+  /* Navigation Arrows */
+  .mob-arrow-btn {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(38, 37, 72, 0.44);
+    border: 1px solid rgba(194, 185, 255, 0.35);
+    color: #C2B9FF;
+    cursor: pointer;
+    transition: all 0.2s ease;
   }
 
-  .plan-mob-hitarea--address {
-    left: 5%;
-    top: 97.0%;
-    width: 90%;
-    height: 1.8%;
+  .mob-arrow-btn:hover,
+  .mob-arrow-btn:active {
+    background: rgba(150, 133, 255, 0.3);
+    border-color: #9685FF;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(150, 133, 255, 0.4);
+  }
+
+  .mob-arrow-btn svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* ══ MODE A: SWIPEABLE HORIZONTAL TABLE ══ */
+  .mob-table-swipe-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 12px;
+    border: 1px solid rgba(194, 185, 255, 0.2);
+    border-radius: 4px;
+    scrollbar-width: thin;
+    scrollbar-color: #9685FF rgba(38, 37, 72, 0.4);
+  }
+
+  .mob-table-swipe-wrapper::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  .mob-table-swipe-wrapper::-webkit-scrollbar-track {
+    background: rgba(38, 37, 72, 0.4);
+  }
+
+  .mob-table-swipe-wrapper::-webkit-scrollbar-thumb {
+    background: #9685FF;
+    border-radius: 3px;
+  }
+
+  .mob-table-grid {
+    display: grid;
+    grid-template-columns: 280px 340px;
+    width: 620px;
+    min-width: 620px;
+  }
+
+  .mob-table-cell {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(194, 185, 255, 0.15);
+    border-right: 1px solid rgba(194, 185, 255, 0.15);
+    background: rgba(26, 25, 45, 0.6);
+    box-sizing: border-box;
+    scroll-snap-align: start;
+  }
+
+  .mob-table-cell--head {
+    background: rgba(38, 37, 72, 0.9);
+    font-family: 'Orbitron', monospace, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    text-transform: uppercase;
+    border-bottom: 2px solid #9685FF;
+  }
+
+  .mob-table-cell--feature {
+    font-family: 'Orbitron', monospace, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #ffffff;
+    background: linear-gradient(90deg, rgba(38, 37, 72, 0.7) 0%, rgba(26, 25, 45, 0.5) 100%);
+  }
+
+  .mob-table-cell--desc {
+    font-size: 13px;
+    line-height: 1.45;
+    color: #C2B9FF;
+    font-weight: 400;
+  }
+
+  .mob-swipe-hint {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11px;
+    color: rgba(194, 185, 255, 0.7);
+    margin-bottom: 24px;
+    padding: 0 4px;
+  }
+
+  .mob-swipe-hint span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* ══ MODE B: STACKED INTERACTIVE CARDS ══ */
+  .mob-cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .mob-plan-card {
+    background: rgba(38, 37, 72, 0.35);
+    border: 1px solid rgba(194, 185, 255, 0.25);
+    border-left: 3px solid #9685FF;
+    padding: 16px 14px;
+    position: relative;
+    border-radius: 2px;
+    transition: all 0.25s ease;
+  }
+
+  .mob-plan-card:hover,
+  .mob-plan-card:active {
+    background: rgba(38, 37, 72, 0.6);
+    border-color: rgba(194, 185, 255, 0.5);
+    border-left-color: #C2B9FF;
+    box-shadow: 0 5px 20px rgba(150, 133, 255, 0.15);
+  }
+
+  .mob-card-head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .mob-card-num {
+    font-family: 'Orbitron', monospace, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #9685FF;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+  }
+
+  .mob-card-title {
+    font-family: 'Orbitron', monospace, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .mob-card-body {
+    font-size: 13px;
+    line-height: 1.45;
+    color: #C2B9FF;
+    font-weight: 400;
+    margin: 0;
+    padding-left: 24px;
+  }
+
+  /* 4. Bottom Banner */
+  .mob-plan-banner {
+    position: relative;
+    width: 100%;
+    margin-bottom: 36px;
+    background: #000000;
+    border: 1px solid rgba(194, 185, 255, 0.25);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .mob-banner-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .mob-banner-content {
+    padding: 20px 16px;
+    text-align: center;
+  }
+
+  .mob-banner-title {
+    font-family: 'Orbitron', monospace, sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 0 0 16px;
+  }
+
+  .mob-banner-title span {
+    display: block;
+  }
+
+  .mob-banner-title .neon-violet {
+    color: #9685FF;
+    text-shadow: 0 0 15px rgba(150, 133, 255, 0.6);
+  }
+
+  .mob-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 280px;
+    padding: 14px 20px;
+    background: #9685FF;
+    color: #020202;
+    font-family: 'Orbitron', monospace, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    text-transform: uppercase;
+    box-shadow: 0 0 20px rgba(150, 133, 255, 0.5);
+    transition: all 0.2s ease;
+  }
+
+  .mob-cta-btn:hover,
+  .mob-cta-btn:active {
+    background: #C2B9FF;
+    box-shadow: 0 0 30px rgba(194, 185, 255, 0.8);
+    transform: translateY(-1px);
+  }
+
+  /* 5. Mobile Footer */
+  .mob-plan-footer {
+    border-top: 1px solid rgba(194, 185, 255, 0.2);
+    padding-top: 24px;
+    text-align: left;
+  }
+
+  .mob-footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .mob-footer-link {
+    font-size: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.2s ease;
+  }
+
+  .mob-footer-link:hover {
+    color: #9685FF;
+  }
+
+  .mob-footer-socials {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+
+  .mob-soc-icon {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(194, 185, 255, 0.3);
+    border-radius: 2px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #C2B9FF;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .mob-soc-icon:hover {
+    border-color: #9685FF;
+    background: rgba(150, 133, 255, 0.2);
+    color: #ffffff;
+  }
+
+  .mob-soc-icon svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+
+  .mob-footer-address {
+    font-size: 13px;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 16px;
+  }
+
+  .mob-footer-copy {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 }

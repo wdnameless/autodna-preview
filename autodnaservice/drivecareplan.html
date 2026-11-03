@@ -46,18 +46,320 @@
     <a href="https://maps.google.com/?q=730+2+Ave+SW+Calgary+T2P1R8+Canada" target="_blank" rel="noopener" class="plan-hitarea plan-hitarea--address" aria-label="Find us on Google Maps"></a>
   </div>
 
-  <!-- ══ MOBILE BOARD (100% Vector SVG from Figma SkipTheDealer mob-3.svg, 393x4271) ══ -->
+  <!-- ══ MOBILE RESPONSIVE LAYOUT (<= 768px, 100% Adaptivity, Zero Clipping) ══ -->
   <div class="plan-board plan-board--mobile">
-    <img src="assets/img/drivecareplan-mobile-clean.svg" class="plan-svg" alt="DriveCarePlan Mobile" fetchpriority="high">
+    
+    <!-- 1. Header Bar with Back Button -->
+    <header class="mob-plan-header">
+      <a href="dnaservice.html#multiple-services" class="mob-plan-badge">
+        <span class="tick tl"></span><span class="tick tr"></span>
+        <span class="tick bl"></span><span class="tick br"></span>
+        <span>DRIVECAREPLAN™</span>
+        <svg viewBox="0 0 10 10" fill="none"><path d="M1 3.5L5 7.5L9 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
+    </header>
 
-    <!-- Interactive Mobile Hitareas -->
-    <a href="dnaservice.html#multiple-services" class="plan-mob-hitarea plan-mob-hitarea--top-btn" aria-label="Back to AutoDNA Service"></a>
-    <a href="tel:+14033128306" class="plan-mob-hitarea plan-mob-hitarea--phone" aria-label="Call +1 (403) 312-8306"></a>
-    <a href="mailto:info@autodna.com" class="plan-mob-hitarea plan-mob-hitarea--email" aria-label="Email info@autodna.com"></a>
-    <a href="https://maps.google.com/?q=730+2+Ave+SW+Calgary+T2P1R8+Canada" target="_blank" rel="noopener" class="plan-mob-hitarea plan-mob-hitarea--address" aria-label="Find us on Google Maps"></a>
+    <!-- 2. Hero Section -->
+    <section class="mob-plan-hero">
+      <h1 class="mob-plan-title">
+        <span>STAY INFORMED.</span>
+        <span class="neon-violet">STAY AHEAD.</span>
+      </h1>
+      
+      <p class="mob-plan-desc">
+        DriveCarePlan is a system that combines car monitoring, analytics, and preventative service. It automatically tracks the status of your vehicle (mileage, fuel consumption, ECU errors, temperatures, load, etc.) and reminds you about necessary maintenance, diagnostics, or refueling.
+      </p>
+
+      <div class="mob-plan-collage">
+        <img src="assets/img/plan-mob-img-0.jpg" alt="DriveCarePlan Telematics Fleet" fetchpriority="high">
+      </div>
+
+      <p class="mob-plan-subdesc">
+        The plan integrates with our telematics devices and helps us remotely analyze the technical condition of your car 24/7.
+      </p>
+    </section>
+
+    <!-- 3. Feature Table & Cards Section -->
+    <section class="mob-plan-table-section">
+      <div class="mob-plan-section-head">
+        <h2 class="mob-plan-section-title">SPECIFICATIONS</h2>
+        
+        <div class="mob-plan-controls">
+          <button type="button" class="mob-view-toggle is-active" id="btn-view-cards" aria-label="View as cards">⊞ CARDS</button>
+          <button type="button" class="mob-view-toggle" id="btn-view-table" aria-label="View as table">↔ TABLE</button>
+          
+          <button type="button" class="mob-arrow-btn" id="btn-scroll-left" aria-label="Scroll left" style="display: none;">
+            <svg viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          <button type="button" class="mob-arrow-btn" id="btn-scroll-right" aria-label="Scroll right" style="display: none;">
+            <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mode A: Interactive Stacked Cards (Default for Mobile) -->
+      <div class="mob-cards-wrapper" id="mob-cards-view">
+        
+        <article class="mob-plan-card">
+          <div class="mob-card-head">
+            <span class="mob-card-num">01</span>
+            <h3 class="mob-card-title">24/7 TELEMATICS MONITORING</h3>
+          </div>
+          <p class="mob-card-body">
+            Via a telematics module, your car is constantly monitored for errors. Data is sent directly from your car's ECU, and any faults that appear are immediately reflected in our system.
+          </p>
+        </article>
+
+        <article class="mob-plan-card">
+          <div class="mob-card-head">
+            <span class="mob-card-num">02</span>
+            <h3 class="mob-card-title">AUTOMATIC ERROR NOTIFICATIONS</h3>
+          </div>
+          <p class="mob-card-body">
+            Our technicians analyze the severity of the problem and notify you if diagnostics or repair are needed.
+          </p>
+        </article>
+
+        <article class="mob-plan-card">
+          <div class="mob-card-head">
+            <span class="mob-card-num">03</span>
+            <h3 class="mob-card-title">DRIVING AND EFFICIENCY ANALYTICS</h3>
+          </div>
+          <p class="mob-card-body">
+            Analysis of fuel consumption, engine load, and driving style. If you suddenly see increased fuel consumption, it might indicate a need to check your tires, perform a wheel alignment, replace filters, etc., as these factors affect your engine, suspension, and costs.
+          </p>
+        </article>
+
+        <article class="mob-plan-card">
+          <div class="mob-card-head">
+            <span class="mob-card-num">04</span>
+            <h3 class="mob-card-title">MILEAGE AND SCHEDULED MAINTENANCE REMINDERS</h3>
+          </div>
+          <p class="mob-card-body">
+            We understand life is fast and you might forget about car maintenance (like when it's time to change oil or filters). Our system receives notifications when your scheduled maintenance is due. We determine this interval with you—every 6,000, 8,000, or 10,000 km, depending on the car's mileage, make, type, etc. Our technicians will suggest the correct interval. We will notify you automatically when it's time for maintenance.
+          </p>
+        </article>
+
+        <article class="mob-plan-card">
+          <div class="mob-card-head">
+            <span class="mob-card-num">05</span>
+            <h3 class="mob-card-title">LOW FUEL CONCIERGE</h3>
+          </div>
+          <p class="mob-card-body">
+            If your fuel level drops below 5 L, you receive an SMS: "Refuel now?" A courier will come for free and refuel your car directly at your home or work. This service operates within Calgary and its surroundings. You only pay for the cost of the gasoline (Shell, Costco, Esso, Chevron, Petro Canada).
+          </p>
+        </article>
+
+        <article class="mob-plan-card">
+          <div class="mob-card-head">
+            <span class="mob-card-num">06</span>
+            <h3 class="mob-card-title">PRIORITY SERVICE</h3>
+          </div>
+          <p class="mob-card-body">
+            You receive priority scheduling for service.
+          </p>
+        </article>
+
+        <article class="mob-plan-card">
+          <div class="mob-card-head">
+            <span class="mob-card-num">07</span>
+            <h3 class="mob-card-title">FREE PICKUP & RETURN</h3>
+          </div>
+          <p class="mob-card-body">
+            Free PickUp & Return of your car for diagnostics.
+          </p>
+        </article>
+
+        <article class="mob-plan-card">
+          <div class="mob-card-head">
+            <span class="mob-card-num">08</span>
+            <h3 class="mob-card-title">MONTHLY TECHNICAL REPORT</h3>
+          </div>
+          <p class="mob-card-body">
+            You receive a monthly technical report on your vehicle.
+          </p>
+        </article>
+
+      </div>
+
+      <!-- Mode B: Horizontally Swipeable Table -->
+      <div id="mob-table-view" style="display: none;">
+        <div class="mob-swipe-hint">
+          <span>⇄ SWIPE HORIZONTALLY TO READ FULL DETAILS</span>
+          <span id="swipe-page-indicator">● FEATURE &nbsp; ○ DESCRIPTION</span>
+        </div>
+
+        <div class="mob-table-swipe-wrapper" id="swipe-container">
+          <div class="mob-table-grid">
+            
+            <!-- Table Header -->
+            <div class="mob-table-cell mob-table-cell--head">FEATURE</div>
+            <div class="mob-table-cell mob-table-cell--head">DESCRIPTION</div>
+
+            <!-- Row 1 -->
+            <div class="mob-table-cell mob-table-cell--feature">24/7 TELEMATICS MONITORING</div>
+            <div class="mob-table-cell mob-table-cell--desc">
+              Via a telematics module, your car is constantly monitored for errors. Data is sent directly from your car's ECU, and any faults that appear are immediately reflected in our system.
+            </div>
+
+            <!-- Row 2 -->
+            <div class="mob-table-cell mob-table-cell--feature">AUTOMATIC ERROR NOTIFICATIONS</div>
+            <div class="mob-table-cell mob-table-cell--desc">
+              Our technicians analyze the severity of the problem and notify you if diagnostics or repair are needed.
+            </div>
+
+            <!-- Row 3 -->
+            <div class="mob-table-cell mob-table-cell--feature">DRIVING AND EFFICIENCY ANALYTICS</div>
+            <div class="mob-table-cell mob-table-cell--desc">
+              Analysis of fuel consumption, engine load, and driving style. If you suddenly see increased fuel consumption, it might indicate a need to check your tires, perform a wheel alignment, replace filters, etc., as these factors affect your engine, suspension, and costs.
+            </div>
+
+            <!-- Row 4 -->
+            <div class="mob-table-cell mob-table-cell--feature">MILEAGE AND SCHEDULED MAINTENANCE REMINDERS</div>
+            <div class="mob-table-cell mob-table-cell--desc">
+              We understand life is fast and you might forget about car maintenance (like when it's time to change oil or filters). Our system receives notifications when your scheduled maintenance is due. We determine this interval with you—every 6,000, 8,000, or 10,000 km, depending on the car's mileage, make, type, etc. Our technicians will suggest the correct interval. We will notify you automatically when it's time for maintenance.
+            </div>
+
+            <!-- Row 5 -->
+            <div class="mob-table-cell mob-table-cell--feature">LOW FUEL CONCIERGE</div>
+            <div class="mob-table-cell mob-table-cell--desc">
+              If your fuel level drops below 5 L, you receive an SMS: "Refuel now?" A courier will come for free and refuel your car directly at your home or work. This service operates within Calgary and its surroundings. You only pay for the cost of the gasoline (Shell, Costco, Esso, Chevron, Petro Canada).
+            </div>
+
+            <!-- Row 6 -->
+            <div class="mob-table-cell mob-table-cell--feature">PRIORITY SERVICE</div>
+            <div class="mob-table-cell mob-table-cell--desc">
+              You receive priority scheduling for service.
+            </div>
+
+            <!-- Row 7 -->
+            <div class="mob-table-cell mob-table-cell--feature">FREE PICKUP & RETURN</div>
+            <div class="mob-table-cell mob-table-cell--desc">
+              Free PickUp & Return of your car for diagnostics.
+            </div>
+
+            <!-- Row 8 -->
+            <div class="mob-table-cell mob-table-cell--feature">MONTHLY TECHNICAL REPORT</div>
+            <div class="mob-table-cell mob-table-cell--desc">
+              You receive a monthly technical report on your vehicle.
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 4. Bottom Banner -->
+    <section class="mob-plan-banner">
+      <img src="assets/img/plan-mob-img-2.jpg" class="mob-banner-img" alt="AutoDNA Fleet & Family" loading="lazy">
+      
+      <div class="mob-banner-content">
+        <h2 class="mob-banner-title">
+          <span>SEE PROBLEMS</span>
+          <span class="neon-violet">BEFORE</span>
+          <span>THEY HAPPEN.</span>
+        </h2>
+        
+        <a href="tel:+14033128306" class="mob-cta-btn">
+          <span class="tick tl"></span><span class="tick tr"></span>
+          <span class="tick bl"></span><span class="tick br"></span>
+          <span>ORDER DRIVECAREPLAN ↗</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 5. Mobile Footer -->
+    <footer class="mob-plan-footer">
+      <div class="mob-footer-contact">
+        <a href="tel:+14033128306" class="mob-footer-link">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#9685FF" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>+1 (403) 312-8306</span>
+        </a>
+        <a href="mailto:info@autodna.com" class="mob-footer-link">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#9685FF" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>info@autodna.com</span>
+        </a>
+      </div>
+
+      <div class="mob-footer-socials">
+        <a href="https://facebook.com" target="_blank" rel="noopener" class="mob-soc-icon" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="https://x.com" target="_blank" rel="noopener" class="mob-soc-icon" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener" class="mob-soc-icon" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+      </div>
+
+      <div class="mob-footer-address">
+        730 2 Ave SW, Calgary, AB T2P 1R8, Canada
+      </div>
+
+      <div class="mob-footer-copy">
+        © 2026 AutoDNA. All rights reserved.
+      </div>
+    </footer>
+
   </div>
 
 </main>
+
+<script>
+  // Mobile View Switcher & Smooth Scroller
+  (function() {
+    const btnCards = document.getElementById('btn-view-cards');
+    const btnTable = document.getElementById('btn-view-table');
+    const viewCards = document.getElementById('mob-cards-view');
+    const viewTable = document.getElementById('mob-table-view');
+    const btnLeft = document.getElementById('btn-scroll-left');
+    const btnRight = document.getElementById('btn-scroll-right');
+    const container = document.getElementById('swipe-container');
+    const indicator = document.getElementById('swipe-page-indicator');
+
+    if (btnCards && btnTable && viewCards && viewTable) {
+      btnCards.addEventListener('click', () => {
+        btnCards.classList.add('is-active');
+        btnTable.classList.remove('is-active');
+        viewCards.style.display = 'flex';
+        viewTable.style.display = 'none';
+        btnLeft.style.display = 'none';
+        btnRight.style.display = 'none';
+      });
+
+      btnTable.addEventListener('click', () => {
+        btnTable.classList.add('is-active');
+        btnCards.classList.remove('is-active');
+        viewCards.style.display = 'none';
+        viewTable.style.display = 'block';
+        btnLeft.style.display = 'inline-flex';
+        btnRight.style.display = 'inline-flex';
+      });
+    }
+
+    if (btnLeft && btnRight && container) {
+      btnLeft.addEventListener('click', () => {
+        container.scrollTo({ left: 0, behavior: 'smooth' });
+      });
+
+      btnRight.addEventListener('click', () => {
+        container.scrollTo({ left: 340, behavior: 'smooth' });
+      });
+
+      container.addEventListener('scroll', () => {
+        if (indicator) {
+          if (container.scrollLeft > 100) {
+            indicator.innerHTML = '○ FEATURE &nbsp; ● DESCRIPTION';
+          } else {
+            indicator.innerHTML = '● FEATURE &nbsp; ○ DESCRIPTION';
+          }
+        }
+      });
+    }
+  })();
+</script>
 
 <script src="assets/js/page-service.js"></script>
 </body>
