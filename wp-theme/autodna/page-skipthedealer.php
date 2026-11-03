@@ -16,7 +16,7 @@ get_header(); ?>
 <section class="dealer-hero" id="home" aria-label="SkipTheDealer Hero">
     <!-- 1. Full-bleed background photo covering 100% width & 100% height (NO black bars!) -->
     <div class="dealer-hero__bg">
-      <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/dealer-hero-bg-photo.png" alt="SkipTheDealer Fleet" class="dealer-hero__bg-img" fetchpriority="high">
+      <img src="<?php echo esc_url( ad_img( 'ad_dealer_hero_bg', 'img/site1/dealer-hero-bg-photo.jpg' ) ); ?>" alt="SkipTheDealer Fleet" class="dealer-hero__bg-img" fetchpriority="high">
       <div class="dealer-hero__shade-top" aria-hidden="true"></div>
       <div class="dealer-hero__shade-bottom" aria-hidden="true"></div>
     </div>
@@ -24,7 +24,7 @@ get_header(); ?>
     <!-- 2. Responsive Content Container (Always fits in 100vh on any screen!) -->
     <div class="dealer-hero__frame">
       <div class="dealer-hero__header">
-        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/dealer-hero-title.svg" class="dealer-hero__title-svg" alt="BUY CARS UP TO 40% CHEAPER — SkipTheDealer" fetchpriority="high">
+        <img src="<?php echo esc_url( ad_img( 'ad_dealer_hero_title', 'img/site1/dealer-hero-title.svg' ) ); ?>" class="dealer-hero__title-svg" alt="BUY CARS UP TO 40% CHEAPER — SkipTheDealer" fetchpriority="high">
       </div>
 
       <div class="dealer-hero__bottom">
@@ -259,14 +259,14 @@ get_header(); ?>
 <section class="dealer-savings" id="real-savings" aria-label="Real savings table">
   <!-- Desktop 100% Vector SVG Board: Exact match to user screenshot -->
   <div class="dealer-board dealer-board--desktop">
-    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/dealer-savings-exact-clean.svg" class="dealer-board__svg" alt="Real Savings on Every Car: 2019 Honda Civic, 2020 VW Tiguan, 2021 Hyundai Elantra" loading="lazy">
+    <img src="<?php echo esc_url( ad_img( 'ad_dealer_savings', 'img/site1/dealer-savings-exact-clean.svg' ) ); ?>" class="dealer-board__svg" alt="Real Savings on Every Car: 2019 Honda Civic, 2020 VW Tiguan, 2021 Hyundai Elantra" loading="lazy">
   </div>
 
   <!-- Mobile Layout -->
   <div class="dealer-savings__container dealer-savings__container--mobile">
     <div class="dealer-savings__stage">
       <div class="dealer-savings__cars">
-        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/dealer-savings-cars-exact.png" alt="Honda Civic, VW Tiguan, Hyundai Elantra" loading="lazy">
+        <img src="<?php echo esc_url( ad_img( 'ad_dealer_savings_cars', 'img/site1/dealer-savings-cars-exact.png' ) ); ?>" alt="Honda Civic, VW Tiguan, Hyundai Elantra" loading="lazy">
       </div>
       <h2 class="dealer-savings__title">
         <span>REAL</span> <span class="neon-lavender">SAVINGS ON</span><br>
@@ -315,7 +315,7 @@ get_header(); ?>
 <section class="dealer-bottom-zone" id="footer-zone" aria-label="Community, Benefits, and Contact">
   <!-- Desktop 100% Vector SVG Board: Exact match to user screenshot -->
   <div class="dealer-board dealer-board--desktop">
-    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/dealer-footer-exact-clean.svg" class="dealer-board__svg" alt="AutoDNA Friends, 30-40% Cheaper Benefits, Submit a Request, and Contact" loading="lazy">
+    <img src="<?php echo esc_url( ad_img( 'ad_dealer_footer', 'img/site1/dealer-footer-exact-clean.svg' ) ); ?>" class="dealer-board__svg" alt="AutoDNA Friends, 30-40% Cheaper Benefits, Submit a Request, and Contact" loading="lazy">
 
     <!-- Interactive click hitarea over 'SUBMIT A REQUEST ↗' button -->
     <a href="#top" class="dealer-board__cta-bottom-hitarea" aria-label="Submit a request"></a>
@@ -344,7 +344,7 @@ get_header(); ?>
 
   <!-- ══ MOBILE SITE (Exact 100% Vector SVG from Figma skipthedealer/SkipTheDealer mob.svg) ══ -->
   <div class="dealer-mobile-layout">
-    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/skipthedealer-mobile-clean.svg" class="dealer-mobile-svg" alt="SkipTheDealer Mobile" fetchpriority="high">
+    <img src="<?php echo esc_url( ad_img( 'ad_dealer_mobile', 'img/site1/skipthedealer-mobile-clean.svg' ) ); ?>" class="dealer-mobile-svg" alt="SkipTheDealer Mobile" fetchpriority="high">
 
     <!-- Interactive Button: SEE HOW IT WORKS ↘ (over Honda crossover at y=630) -->
     <a href="#how-it-works-mob" class="dealer-mob-hitarea dealer-mob-hitarea--see-how" aria-label="See how it works"></a>

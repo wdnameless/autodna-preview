@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: AutoDNA — AutoDNA Flip (Invest)
+ * Template Name: AutoDNA — DNA Invest (legacy)
  */
 
 get_header(); ?>
@@ -145,7 +145,7 @@ get_header(); ?>
     <div class="shell">
       <!-- 4 Cars Sourced Fleet from Figma -->
       <div style="max-width: 1200px; margin: 0 auto; overflow: hidden; position: relative;">
-        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/' ); ?>img/clean/invest/cars-profit.jpg" alt="AutoDNA Flip Curated Vehicle Portfolio" style="width: 100%; display: block;">
+        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/' ); ?>img/clean/invest/cars-profit.jpg" alt="DNA Invest Curated Vehicle Portfolio" style="width: 100%; display: block;">
       </div>
 
       <div style="text-align: center; margin-top: -20px; margin-bottom: 40px; position: relative; z-index: 2;">
@@ -312,7 +312,7 @@ get_header(); ?>
               <td style="color: var(--dna-dim);">High risk, speculative, zero physical asset backing</td>
             </tr>
             <tr class="highlight">
-              <td><strong>AutoDNA Flip</strong></td>
+              <td><strong>DNA Invest</strong></td>
               <td style="color: #ffffff;"><strong>20–30% per deal, ~30-day cycle, backed by physical cars</strong></td>
             </tr>
           </tbody>
@@ -369,7 +369,7 @@ get_header(); ?>
         </button>
 
         <div class="dna-form-success">
-          Thank you! An AutoDNA Flip investment manager will contact you with the current vehicle pipeline.
+          Thank you! A DNA Invest investment manager will contact you with the current vehicle pipeline.
         </div>
       </form>
     </div>

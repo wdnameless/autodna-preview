@@ -1,0 +1,147 @@
+/* ══ PAINTBOT PAGE STYLES (100% VECTOR SVG / TRUE FULL-SCREEN) ════════ */
+
+.page-paintbot {
+  background-color: #020202;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+.paintbot-main {
+  position: relative;
+  width: 100%;
+  background-color: #020202;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* ══ DESKTOP BOARD (1440 x 4606) ═══════════════════════════════════════ */
+.paintbot-board--desktop {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  display: block;
+}
+
+.paintbot-board--mobile {
+  display: none !important;
+}
+
+.paintbot-svg {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ══ INTERACTIVE HITAREAS (DESKTOP) ════════════════════════════════════ */
+.paintbot-hitarea {
+  position: absolute;
+  z-index: 15;
+  cursor: pointer;
+  border-radius: 2px;
+  background: transparent;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Top Back / Dropdown Button */
+.paintbot-hitarea--top-btn {
+  left: 1.43%;
+  top: 0.43%;
+  width: 22.36%;
+  height: 1.54%;
+}
+
+.paintbot-hitarea--top-btn:hover {
+  background: rgba(150, 133, 255, 0.15);
+  box-shadow: 0 0 20px rgba(150, 133, 255, 0.5);
+}
+
+/* Footer Links */
+.paintbot-hitarea--phone {
+  left: 2.1%;
+  top: 94.8%;
+  width: 20%;
+  height: 1.4%;
+}
+
+.paintbot-hitarea--email {
+  left: 2.1%;
+  top: 96.5%;
+  width: 20%;
+  height: 1.4%;
+}
+
+.paintbot-hitarea--socials {
+  left: 42.0%;
+  top: 95.8%;
+  width: 16%;
+  height: 1.6%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.paintbot-hitarea--socials a {
+  display: block;
+  width: 30%;
+  height: 100%;
+}
+
+.paintbot-hitarea--address {
+  left: 72.0%;
+  top: 94.8%;
+  width: 25%;
+  height: 2.4%;
+}
+
+/* ══ MOBILE LAYOUT (393 x 4537) ════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .paintbot-board--desktop {
+    display: none !important;
+  }
+
+  .paintbot-board--mobile {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    background-color: #020202 !important;
+    overflow: hidden !important;
+  }
+
+  .paintbot-mob-hitarea {
+    position: absolute;
+    z-index: 15;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  .paintbot-mob-hitarea--top-btn {
+    left: 4.5%;
+    top: 1.6%;
+    width: 91%;
+    height: 1.5%;
+  }
+
+  .paintbot-mob-hitarea--phone {
+    left: 5%;
+    top: 94.6%;
+    width: 90%;
+    height: 0.9%;
+  }
+
+  .paintbot-mob-hitarea--email {
+    left: 5%;
+    top: 95.6%;
+    width: 90%;
+    height: 0.9%;
+  }
+
+  .paintbot-mob-hitarea--address {
+    left: 5%;
+    top: 97.2%;
+    width: 90%;
+    height: 1.6%;
+  }
+}

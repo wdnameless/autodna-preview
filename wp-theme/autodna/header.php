@@ -13,7 +13,7 @@
 <div class="preloader" id="preloader" aria-hidden="true">
   <img class="preloader__logo" src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/site1/dna-logo.svg' ); ?>" alt="">
   <div class="preloader__bar" aria-hidden="true"><span></span></div>
-
+</div>
 <header class="hud" id="top">
   <a class="hud__logo" href="#home" aria-label="AutoDNA home">
     <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/site1/logo.svg' ); ?>" width="37" height="21" alt="AutoDNA">

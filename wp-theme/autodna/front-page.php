@@ -10,8 +10,13 @@ get_header(); ?>
 <main id="home">
 
 <!-- ══ 1. HERO ═════════════════════════════════════════════════════════════ -->
+<?php
+// Hero content: editable via AutoDNA Content → Hero. ACF textarea newlines split into lines.
+$ad_hero_sub_l = preg_split( '/\r\n|\r|\n/', ad_field( 'ad_hero_sub_l', "to  your\ncar" ) );
+$ad_hero_sub_r = preg_split( '/\r\n|\r|\n/', ad_field( 'ad_hero_sub_r', "has    already\nbeen found" ) );
+?>
 <section class="hero" aria-label="Intro">
-  <img class="hero__bg" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/hero-ground.jpg" alt="" aria-hidden="true" fetchpriority="high">
+  <img class="hero__bg" src="<?php echo esc_url( ad_img( 'ad_hero_bg', 'img/site1/hero-ground.jpg' ) ); ?>" alt="" aria-hidden="true" fetchpriority="high">
   <div class="hero__shade hero__shade--top" aria-hidden="true"></div>
   <div class="hero__shade hero__shade--bottom" aria-hidden="true"></div>
   <div class="hero__frame">
@@ -19,15 +24,15 @@ get_header(); ?>
       <span class="tick tl"></span><span class="tick tr"></span>
       <span class="tick bl"></span><span class="tick br"></span>
       <svg class="hero__ticks" viewBox="330 167 776 416" preserveAspectRatio="none" aria-hidden="true"><path d="M340.219 190.684V177.352H353.551M1096.19 190.684V177.351H1082.86M353.551 572.609H340.219V559.277M1082.86 572.609H1096.19V559.277"/></svg>
-      <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/hero-trio.jpg" alt="Pickup, Honda crossover and Tesla side by side" fetchpriority="high">
+      <img src="<?php echo esc_url( ad_img( 'ad_hero_trio', 'img/site1/hero-trio.jpg' ) ); ?>" alt="Pickup, Honda crossover and Tesla side by side" fetchpriority="high">
     </div>
     <h1 class="hero__word">
-      <span>THE</span>
-      <span>GENETIC</span>
-      <span>CODE</span>
+      <span><?php echo esc_html( ad_field( 'ad_hero_word_1', 'THE' ) ); ?></span>
+      <span><?php echo esc_html( ad_field( 'ad_hero_word_2', 'GENETIC' ) ); ?></span>
+      <span><?php echo esc_html( ad_field( 'ad_hero_word_3', 'CODE' ) ); ?></span>
     </h1>
-    <p class="hero__sub hero__sub--l">to&nbsp;&nbsp;your<br>car</p>
-    <p class="hero__sub hero__sub--r">has&nbsp;&nbsp;&nbsp;&nbsp;<em>already</em><br>been found</p>
+    <p class="hero__sub hero__sub--l"><?php echo wp_kses_post( implode( '<br>', array_map( 'esc_html', $ad_hero_sub_l ) ) ); ?></p>
+    <p class="hero__sub hero__sub--r"><?php echo wp_kses_post( implode( '<br>', array_map( 'esc_html', $ad_hero_sub_r ) ) ); ?></p>
     <svg class="hero__elbow" viewBox="480 615 265 50" preserveAspectRatio="none" aria-hidden="true">
       <path d="M479.781 664.905H630.487L670.902 615.441H744.829"/>
     </svg>
@@ -35,21 +40,23 @@ get_header(); ?>
     <!-- Mobile specific subs block with exact Figma Vector 12 wire -->
     <div class="hero__mob-subs-block" aria-hidden="true">
       <div class="hero__mob-sub hero__mob-sub--l">
-        <span>TO&nbsp;&nbsp;YOUR</span>
-        <span>CAR</span>
+        <?php foreach ( $ad_hero_sub_l as $line ) : ?>
+        <span><?php echo esc_html( $line ); ?></span>
+        <?php endforeach; ?>
       </div>
       <svg class="hero__mob-sub-wire" viewBox="0 0 126 28" preserveAspectRatio="none">
         <path d="M0 27.1H71.3L90.5 0H125.5" stroke="#C2B9FF" fill="none" stroke-width="1"/>
       </svg>
       <div class="hero__mob-sub hero__mob-sub--r">
-        <span>HAS&nbsp;&nbsp;ALREADY</span>
-        <span>BEEN&nbsp;&nbsp;FOUND</span>
+        <?php foreach ( $ad_hero_sub_r as $line ) : ?>
+        <span><?php echo esc_html( $line ); ?></span>
+        <?php endforeach; ?>
       </div>
     </div>
     <a class="hero__cta ticks" href="#services">
       <span class="tick tl"></span><span class="tick tr"></span>
       <span class="tick bl"></span><span class="tick br"></span>
-      <span>EXPLORE OUR SERVICES</span>
+      <span><?php echo esc_html( ad_field( 'ad_hero_cta', 'EXPLORE OUR SERVICES' ) ); ?></span>
       <svg class="hero__cta-arrow" viewBox="0 0 13 13" aria-hidden="true">
         <path d="M0 0L11 11M11 0V11H0" stroke="#C2B9FF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
       </svg>
@@ -63,15 +70,15 @@ get_header(); ?>
         <path class="rail__line rail__line--3" d="M0 228.026H150.7L191.12 178.562H265.05"/>
         <path class="rail__arrow-svg rail__arrow-svg--3" d="M257.05 168.562L265.05 160.562M257.05 160.562H265.05V168.562" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      <a href="skipthedealer.html" class="rail__link rail__link--1">
+      <a href="<?php echo esc_url( home_url( '/skipthedealer/' ) ); ?>" class="rail__link rail__link--1">
         <span>Explore</span>
         <span>SkipTheDealer</span>
       </a>
-      <a href="#services" class="rail__link rail__link--2">
-        <span>AutoDNA</span>
-        <span>Flip</span>
+      <a href="<?php echo esc_url( home_url( '/dnainvest/' ) ); ?>" class="rail__link rail__link--2">
+        <span>DNA</span>
+        <span>Invest</span>
       </a>
-      <a href="#services" class="rail__link rail__link--3">
+      <a href="<?php echo esc_url( home_url( '/dnaservice/' ) ); ?>" class="rail__link rail__link--3">
         <span>AutoDNA Service</span>
       </a>
     </nav>
@@ -85,19 +92,22 @@ get_header(); ?>
       <path d="M0 13.3V0H13.3 M756 13.3V0H742.7 M0 319.7V333H13.3 M756 319.7V333H742.7" stroke="#C2B9FF" fill="none" stroke-width="1"/>
     </svg>
     <figure class="carlears__quote">
-      <blockquote>We don’t call ourselves a dealer, we don’t like that word.</blockquote>
+      <blockquote><?php echo esc_html( ad_field( 'ad_carlears_quote', 'We don’t call ourselves a dealer, we don’t like that word.' ) ); ?></blockquote>
       <span class="carlears__quote-line" aria-hidden="true"></span>
     </figure>
+    <?php
+    // Lede line 2: second word glows ("a new slang term" → em on "new").
+    $ad_lede2 = preg_split( '/\s+/', ad_field( 'ad_carlears_lede_2', 'a new slang term' ), 3 );
+    ?>
     <p class="carlears__lede">
-      <span>We’re starting</span>
-      <span>a <em class="carlears__new-badge">new</em> slang term</span>
+      <span><?php echo esc_html( ad_field( 'ad_carlears_lede_1', 'We’re starting' ) ); ?></span>
+      <span><?php echo esc_html( $ad_lede2[0] ?? '' ); ?> <em class="carlears__new-badge"><?php echo esc_html( $ad_lede2[1] ?? '' ); ?></em> <?php echo esc_html( $ad_lede2[2] ?? '' ); ?></span>
     </p>
     <div class="carlears__word-wrap">
       <span class="carlears__flank carlears__flank--l" aria-hidden="true"></span>
-      <h2 class="carlears__word" aria-label="carlears">carlears</h2>
+      <h2 class="carlears__word" aria-label="carlears"><?php echo esc_html( ad_field( 'ad_carlears_word', 'carlears' ) ); ?></h2>
       <span class="carlears__flank carlears__flank--r" aria-hidden="true"></span>
     </div>
-  </div>
 
   <!-- Mobile Carlears Carousel Nav Buttons (Frame 1769) -->
   <div class="carlears__nav" aria-label="Carousel navigation">
@@ -117,74 +127,64 @@ get_header(); ?>
     </button>
   </div>
 
+  <?php
+  $ad_carlears_cards = ad_rows( 'ad_carlears_cards', array(
+      array( 'title' => 'High quality', 'text' => 'A higher level of quality you can trust at an affordable price' ),
+      array( 'title' => 'Wide choice', 'text' => 'A great selection of cars to match every lifestyle and need' ),
+      array( 'title' => 'Save more', 'text' => 'A smarter way to save money without compromising on quality' ),
+      array( 'title' => 'True value', 'text' => 'A real value that gives you confidence and satisfaction every time' ),
+  ) );
+  ?>
   <div class="carlears__grid">
+    <?php foreach ( $ad_carlears_cards as $card ) : ?>
     <article class="clr-card">
       <svg class="clr-card__ticks" viewBox="0 0 289 291" preserveAspectRatio="none" aria-hidden="true">
         <path d="M0 18.8V0H18.8 M289 18.8V0H270.2 M0 272.2V291H18.8 M289 272.2V291H270.2" stroke="#C2B9FF" fill="none" stroke-width="1"/>
       </svg>
-      <h3>High quality</h3>
-      <p>A higher level of quality you can trust at an affordable price</p>
+      <h3><?php echo esc_html( $card['title'] ); ?></h3>
+      <p><?php echo esc_html( $card['text'] ); ?></p>
     </article>
-    <article class="clr-card">
-      <svg class="clr-card__ticks" viewBox="0 0 289 291" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0 18.8V0H18.8 M289 18.8V0H270.2 M0 272.2V291H18.8 M289 272.2V291H270.2" stroke="#C2B9FF" fill="none" stroke-width="1"/>
-      </svg>
-      <h3>Wide choice</h3>
-      <p>A great selection of cars to match every lifestyle and need</p>
-    </article>
-    <article class="clr-card">
-      <svg class="clr-card__ticks" viewBox="0 0 289 291" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0 18.8V0H18.8 M289 18.8V0H270.2 M0 272.2V291H18.8 M289 272.2V291H270.2" stroke="#C2B9FF" fill="none" stroke-width="1"/>
-      </svg>
-      <h3>Save more</h3>
-      <p>A smarter way to save money without compromising on quality</p>
-    </article>
-    <article class="clr-card">
-      <svg class="clr-card__ticks" viewBox="0 0 289 291" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0 18.8V0H18.8 M289 18.8V0H270.2 M0 272.2V291H18.8 M289 272.2V291H270.2" stroke="#C2B9FF" fill="none" stroke-width="1"/>
-      </svg>
-      <h3>True value</h3>
-      <p>A real value that gives you confidence and satisfaction every time</p>
-    </article>
+    <?php endforeach; ?>
   </div>
 </section>
 
 <!-- ══ 3. VALUE 1790–2830 ════════════════════════════════════════════════ -->
+<?php
+// Value title: two lines — plain + violet glow. Newline in the field splits them.
+$ad_value_title = preg_split( '/\r\n|\r|\n/', ad_field( 'ad_value_title', "Imagine buying a car from a dealer —\nbut paying the same price you’d pay a private seller." ) );
+?>
 <section class="value" id="value" aria-label="Why AutoDNA">
   <h2 class="value__title">
-    <span>Imagine buying a car from a dealer —</span>
-    <em class="value__title-em">but paying the same price you’d pay a private seller.</em>
+    <span><?php echo esc_html( $ad_value_title[0] ); ?></span>
+    <?php if ( ! empty( $ad_value_title[1] ) ) : ?>
+    <em class="value__title-em"><?php echo esc_html( $ad_value_title[1] ); ?></em>
+    <?php endif; ?>
   </h2>
   <span class="value__title-v-line" aria-hidden="true"></span>
   <svg class="value__fan" viewBox="0 2276 1440 283" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
     <defs><linearGradient id="fanStroke" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c2b9ff"/><stop offset="1" stop-color="#746f99"/></linearGradient></defs>
     <path d="M720 2276L144 2559M720 2276L433 2559M720 2276L720 2559M720 2276L1012 2559M720 2276L1301 2559"/>
   </svg>
+  <?php
+  $ad_value_items = ad_rows( 'ad_value_items', array(
+      array( 'title' => 'No Surprises', 'text' => 'No hidden fees. No surprises. We cover the GST ourselves.' ),
+      array( 'title' => 'Affordable Dealer Prices', 'text' => 'Buying from a dealer can be just as affordable as buying privately.' ),
+      array( 'title' => 'Changing the Game', 'text' => 'Calgary has never seen this before. We put the customer first.' ),
+      array( 'title' => 'Flexible Options', 'text' => 'Flexible financing and an extended warranty from our partners.' ),
+      array( 'title' => 'Real Value', 'text' => 'Zero profit for us — just fair prices and peace of mind for you.' ),
+  ) );
+  $ad_vi_total = count( $ad_value_items );
+  ?>
   <div class="value__grid">
+    <?php foreach ( $ad_value_items as $i => $item ) : ?>
     <div class="value__item">
-      <h3>No Surprises</h3>
-      <p>No hidden fees. No surprises. We cover the GST ourselves.</p>
+      <h3><?php echo esc_html( $item['title'] ); ?></h3>
+      <p><?php echo esc_html( $item['text'] ); ?></p>
+      <?php if ( $i < $ad_vi_total - 1 ) : ?>
       <span class="value__v-line" aria-hidden="true"></span>
+      <?php endif; ?>
     </div>
-    <div class="value__item">
-      <h3>Affordable Dealer Prices</h3>
-      <p>Buying from a dealer can be just as affordable as buying privately.</p>
-      <span class="value__v-line" aria-hidden="true"></span>
-    </div>
-    <div class="value__item">
-      <h3>Changing the Game</h3>
-      <p>Calgary has never seen this before. We put the customer first.</p>
-      <span class="value__v-line" aria-hidden="true"></span>
-    </div>
-    <div class="value__item">
-      <h3>Flexible Options</h3>
-      <p>Flexible financing and an extended warranty from our partners.</p>
-      <span class="value__v-line" aria-hidden="true"></span>
-    </div>
-    <div class="value__item">
-      <h3>Real Value</h3>
-      <p>Zero profit for us — just fair prices and peace of mind for you.</p>
-    </div>
+    <?php endforeach; ?>
   </div>
 </section>
 
@@ -194,8 +194,8 @@ get_header(); ?>
     <!-- Callout badge + line -->
     <div class="compare__badge-box">
       <p class="compare__badge">
-        <span>TOYOTA COROLLA</span>
-        <span>HATCHBACK 2021</span>
+        <span><?php echo esc_html( ad_field( 'ad_compare_badge_1', 'TOYOTA COROLLA' ) ); ?></span>
+        <span><?php echo esc_html( ad_field( 'ad_compare_badge_2', 'HATCHBACK 2021' ) ); ?></span>
       </p>
       <svg class="compare__badge-line" viewBox="0 0 391 50" preserveAspectRatio="none" aria-hidden="true">
         <path d="M0 0H200L240.4 49.5H390.8" stroke="#C2B9FF" fill="none" stroke-width="1"/>
@@ -204,7 +204,7 @@ get_header(); ?>
 
     <!-- Corolla photo -->
     <div class="compare__car">
-      <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/corolla.png" alt="Toyota Corolla Hatchback 2021" fetchpriority="low">
+      <img src="<?php echo esc_url( ad_img( 'ad_compare_car', 'img/site1/corolla.png' ) ); ?>" alt="Toyota Corolla Hatchback 2021" fetchpriority="low">
     </div>
 
     <!-- Big Orbitron Title behind table header -->
@@ -253,24 +253,22 @@ get_header(); ?>
         </tr>
       </thead>
       <tbody>
-        <tr data-col="dealer">
-          <th>DEALERS</th>
-          <td>$23,000 + GST</td>
-          <td>Dealer purchase</td>
-          <td>Higher price, GST extra</td>
+        <?php
+        $ad_compare_rows = ad_rows( 'ad_compare_rows', array(
+            array( 'option' => 'DEALERS', 'price' => '$23,000 + GST', 'features' => 'Dealer purchase', 'cons' => 'Higher price, GST extra', 'col' => 'dealer' ),
+            array( 'option' => 'MARKETPLACE', 'price' => '$21,000', 'features' => 'Lower price', 'cons' => 'Car not inspected, potential issues, no warranty', 'col' => 'market' ),
+            array( 'option' => 'AUTODNA', 'price' => '$21,000', 'features' => 'Full inspection completed, 3-year paid warranty, financing available', 'cons' => 'NONE — ALL VALUE INCLUDED', 'col' => 'dna' ),
+        ) );
+        $ad_cr_total = count( $ad_compare_rows );
+        ?>
+        <?php foreach ( $ad_compare_rows as $i => $row ) : $is_dna = ( $i === $ad_cr_total - 1 ); ?>
+        <tr data-col="<?php echo esc_attr( $row['col'] ?? ( $is_dna ? 'dna' : 'col' . $i ) ); ?>"<?php echo $is_dna ? ' class="is-lit"' : ''; ?>>
+          <th><?php echo esc_html( $row['option'] ); ?></th>
+          <td><?php echo esc_html( $row['price'] ); ?><?php echo $is_dna ? '<br><span class="compare__gst">(GST INCLUDED)</span>' : ''; ?></td>
+          <td><?php echo esc_html( $row['features'] ); ?></td>
+          <td<?php echo $is_dna ? ' class="compare__none"' : ''; ?>><?php echo esc_html( $row['cons'] ); ?></td>
         </tr>
-        <tr data-col="market">
-          <th>MARKETPLACE</th>
-          <td>$21,000</td>
-          <td>Lower price</td>
-          <td>Car not inspected, potential issues, no warranty</td>
-        </tr>
-        <tr data-col="dna" class="is-lit">
-          <th>AUTODNA</th>
-          <td>$21,000<br><span class="compare__gst">(GST INCLUDED)</span></td>
-          <td>Full inspection completed, 3-year paid warranty, financing available</td>
-          <td class="compare__none">NONE — ALL VALUE INCLUDED</td>
-        </tr>
+        <?php endforeach; ?>
       </tbody>
     </table>
   </div>
@@ -279,9 +277,9 @@ get_header(); ?>
 <!-- ══ 5. SERVICES (Full-screen interactive panorama) ═══════════════════ -->
 <section class="services" id="services" aria-label="Services">
   <!-- 3 Full-bleed background layers with crossfade on hover -->
-  <div class="services__bg-layer services__bg-layer--1 is-active" aria-hidden="true" style="background-image: url('<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/service-dealer-bg.jpg');"></div>
-  <div class="services__bg-layer services__bg-layer--2" aria-hidden="true" style="background-image: url('<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/service-flip-bg.jpg');"></div>
-  <div class="services__bg-layer services__bg-layer--3" aria-hidden="true" style="background-image: url('<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/service-service-bg.jpg');"></div>
+  <div class="services__bg-layer services__bg-layer--1 is-active" aria-hidden="true" style="background-image: url('<?php echo esc_url( ad_img( 'ad_svc_bg_1', 'img/site1/service-dealer-bg.jpg' ) ); ?>');"></div>
+  <div class="services__bg-layer services__bg-layer--2" aria-hidden="true" style="background-image: url('<?php echo esc_url( ad_img( 'ad_svc_bg_2', 'img/site1/service-flip-bg.jpg' ) ); ?>');"></div>
+  <div class="services__bg-layer services__bg-layer--3" aria-hidden="true" style="background-image: url('<?php echo esc_url( ad_img( 'ad_svc_bg_3', 'img/site1/service-service-bg.jpg' ) ); ?>');"></div>
 
   <!-- Ambient dark gradient vignettes -->
   <div class="services__shade services__shade--top" aria-hidden="true"></div>
@@ -296,11 +294,11 @@ get_header(); ?>
 
     <!-- 3 Interactive service columns at the bottom (Desktop triptych & Mobile 3 stacked cards per Frame 1792) -->
     <div class="services__interactive-grid">
-      <!-- Col 1: SkipTheDealers -->
-      <div class="svc-col is-active" data-svc="1" tabindex="0" role="button" aria-expanded="true">
+      <!-- Col 1: SkipTheDealer -->
+      <a href="<?php echo esc_url( home_url( '/skipthedealer/' ) ); ?>" class="svc-col is-active" data-svc="1" aria-label="Explore SkipTheDealer">
         <div class="svc-col__media ticks">
           <span class="tick tl"></span><span class="tick tr"></span>
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/mob-svc1.jpg" alt="SkipTheDealers" loading="lazy">
+          <img src="<?php echo esc_url( ad_img( 'ad_svc_card_1', 'img/site1/mob-svc1.jpg' ) ); ?>" alt="SkipTheDealer" loading="lazy">
         </div>
         <div class="svc-card ticks">
           <span class="tick tl"></span><span class="tick tr"></span>
@@ -312,16 +310,16 @@ get_header(); ?>
               <path d="M0 11L11 0M0 0H11V11" stroke="#C2B9FF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
             </svg>
           </div>
-          <h3 class="svc-col__name">SkipTheDealers</h3>
-          <p class="svc-col__desc">Find, bid, and buy the best vehicles directly from trusted car auctions. Smart, transparent, and hassle-free — we handle the process from search to delivery.</p>
+          <h3 class="svc-col__name"><?php echo esc_html( ad_field( 'ad_svc_name_1', 'SkipTheDealer' ) ); ?></h3>
+          <p class="svc-col__desc"><?php echo esc_html( ad_field( 'ad_svc_desc_1', 'Find, bid, and buy the best vehicles directly from trusted car auctions. Smart, transparent, and hassle-free — we handle the process from search to delivery.' ) ); ?></p>
         </div>
-      </div>
+      </a>
 
-      <!-- Col 2: AutoDNA Flip -->
-      <div class="svc-col" data-svc="2" tabindex="0" role="button" aria-expanded="false">
+      <!-- Col 2: DNA Invest -->
+      <a href="<?php echo esc_url( home_url( '/dnainvest/' ) ); ?>" class="svc-col" data-svc="2" aria-label="Explore DNA Invest">
         <div class="svc-col__media ticks">
           <span class="tick tl"></span><span class="tick tr"></span>
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/mob-svc2.jpg" alt="AutoDNA Flip" loading="lazy">
+          <img src="<?php echo esc_url( ad_img( 'ad_svc_card_2', 'img/site1/mob-svc2.jpg' ) ); ?>" alt="DNA Invest" loading="lazy">
         </div>
         <div class="svc-card ticks">
           <span class="tick tl"></span><span class="tick tr"></span>
@@ -333,16 +331,16 @@ get_header(); ?>
               <path d="M0 11L11 0M0 0H11V11" stroke="#C2B9FF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
             </svg>
           </div>
-          <h3 class="svc-col__name">AutoDNA Flip</h3>
-          <p class="svc-col__desc">Turn vehicles into valuable assets. We help you invest wisely in high-demand cars and maximize your returns through strategic resale.</p>
+          <h3 class="svc-col__name"><?php echo esc_html( ad_field( 'ad_svc_name_2', 'DNA Invest' ) ); ?></h3>
+          <p class="svc-col__desc"><?php echo esc_html( ad_field( 'ad_svc_desc_2', 'Turn vehicles into valuable assets. We help you invest wisely in high-demand cars and maximize your returns through strategic resale.' ) ); ?></p>
         </div>
-      </div>
+      </a>
 
       <!-- Col 3: AutoDNA Service -->
-      <div class="svc-col" data-svc="3" tabindex="0" role="button" aria-expanded="false">
+      <a href="<?php echo esc_url( home_url( '/dnaservice/' ) ); ?>" class="svc-col" data-svc="3" aria-label="Explore AutoDNA Service">
         <div class="svc-col__media ticks">
           <span class="tick tl"></span><span class="tick tr"></span>
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/mob-svc3.jpg" alt="AutoDNA Service" loading="lazy">
+          <img src="<?php echo esc_url( ad_img( 'ad_svc_card_3', 'img/site1/mob-svc3.jpg' ) ); ?>" alt="AutoDNA Service" loading="lazy">
         </div>
         <div class="svc-card ticks">
           <span class="tick tl"></span><span class="tick tr"></span>
@@ -354,10 +352,10 @@ get_header(); ?>
               <path d="M0 11L11 0M0 0H11V11" stroke="#C2B9FF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
             </svg>
           </div>
-          <h3 class="svc-col__name">AutoDNA Service</h3>
-          <p class="svc-col__desc">AutoDNA Service is a next-generation automotive center, equipped with innovative technology, a modern minimalist and spotless interior, smart service systems, a skilled team, and much more — as described below.</p>
+          <h3 class="svc-col__name"><?php echo esc_html( ad_field( 'ad_svc_name_3', 'AutoDNA Service' ) ); ?></h3>
+          <p class="svc-col__desc"><?php echo esc_html( ad_field( 'ad_svc_desc_3', 'AutoDNA Service is a next-generation automotive center, equipped with innovative technology, a modern minimalist and spotless interior, smart service systems, a skilled team, and much more — as described below.' ) ); ?></p>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -380,22 +378,37 @@ get_header(); ?>
       </svg>
     </button>
   </div>
+  <?php
+  $ad_fact_items = ad_rows( 'ad_fact_items', array(
+      array( 'kicker' => '', 'number' => '12', 'label' => 'Stages of Inspection', 'text' => 'We test, verify, and only then hand over the keys. Real inspection — not intuition.' ),
+      array( 'kicker' => '', 'number' => '10+', 'label' => 'Years in the Industry', 'text' => 'We’ve seen it all — and that’s why we do it right. It’s in our DNA.' ),
+      array( 'kicker' => '', 'number' => '450+', 'label' => 'Clients Said “Wow!”', 'text' => 'And new ones join every week. Every car is a story — and our client is always the main character.' ),
+      array( 'kicker' => '', 'number' => '3-4', 'label' => 'Weeks — Faster Than You Expect', 'text' => 'An optimized process — no delays, no surprises. Search, preparation, and the car is yours.' ),
+      array( 'kicker' => 'Save', 'number' => '30-50%', 'label' => '', 'text' => 'Overpaying isn’t our style — auctions let you save big.' ),
+  ) );
+  $ad_fact_mods = array( 'a', 'b', 'c', 'd', 'e' );
+  ?>
   <div class="facts__grid">
-    <div class="fact fact--a ticks"><span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span><p class="fact__n">12</p><p class="fact__l">Stages of Inspection</p><p class="fact__t">We test, verify, and only then hand over the keys. Real inspection — not intuition.</p></div>
-    <div class="fact fact--b ticks"><span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span><p class="fact__n">10+</p><p class="fact__l">Years in the Industry</p><p class="fact__t">We’ve seen it all — and that’s why we do it right. It’s in our DNA.</p></div>
-    <div class="fact fact--c ticks"><span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span><p class="fact__n">450+</p><p class="fact__l">Clients Said “Wow!”</p><p class="fact__t">And new ones join every week. Every car is a story — and our client is always the main character.</p></div>
-    <div class="fact fact--d ticks"><span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span><p class="fact__n">3-4</p><p class="fact__l">Weeks — Faster Than You Expect</p><p class="fact__t">An optimized process — no delays, no surprises. Search, preparation, and the car is yours.</p></div>
-    <div class="fact fact--e ticks"><span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span><p class="fact__k">Save</p><p class="fact__n">30-50%</p><p class="fact__t">Overpaying isn’t our style — auctions let you save big.</p></div>
+    <?php foreach ( $ad_fact_items as $i => $fact ) : ?>
+    <div class="fact fact--<?php echo esc_attr( $ad_fact_mods[ $i % 5 ] ); ?> ticks"><span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span><?php if ( $fact['kicker'] !== '' ) : ?><p class="fact__k"><?php echo esc_html( $fact['kicker'] ); ?></p><?php endif; ?><p class="fact__n"><?php echo esc_html( $fact['number'] ); ?></p><?php if ( $fact['label'] !== '' ) : ?><p class="fact__l"><?php echo esc_html( $fact['label'] ); ?></p><?php endif; ?><p class="fact__t"><?php echo esc_html( $fact['text'] ); ?></p></div>
+    <?php endforeach; ?>
   </div>
 </section>
 
 <!-- ══ 7. CORPORATE 5430–6630 ════════════════════════════════════════════ -->
+<?php
+// Corporate paragraphs: two-tone (lavender + white). Newline splits the tones.
+$ad_corp_about = preg_split( '/\r\n|\r|\n/', ad_field( 'ad_corp_about', "AutoDNA is the parent corporation that brings\ntogether SkipTheDealer, AutoDNA Service, and other companies." ) );
+$ad_corp_plan = preg_split( '/\r\n|\r|\n/', ad_field( 'ad_corp_plan', "Over the next two years, we plan to create a complete automotive\nhub for car enthusiasts, offering all kinds of services and entertainment for our clients." ) );
+?>
 <section class="corporate" id="corporate" aria-label="About AutoDNA">
   <img class="corporate__dna" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/corporate-bg.svg" alt="" aria-hidden="true">
   <div class="corporate__top">
     <p class="corporate__about">
-      <span class="text-lavender">AutoDNA is the parent corporation that brings</span>
-      <span class="text-white">together SkipTheDealer, AutoDNA&nbsp;Service, and other companies.</span>
+      <span class="text-lavender"><?php echo esc_html( $ad_corp_about[0] ); ?></span>
+      <?php if ( ! empty( $ad_corp_about[1] ) ) : ?>
+      <span class="text-white"><?php echo esc_html( $ad_corp_about[1] ); ?></span>
+      <?php endif; ?>
     </p>
     <aside class="corporate__card ticks">
       <span class="tick tl"></span><span class="tick tr"></span>
@@ -409,11 +422,13 @@ get_header(); ?>
   <figure class="corporate__photo ticks">
     <span class="tick tl"></span><span class="tick tr"></span>
     <span class="tick bl"></span><span class="tick br"></span>
-    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/corporate-hall.jpg" alt="DNA Auto dealership building in Calgary">
+    <img src="<?php echo esc_url( ad_img( 'ad_corp_hall', 'img/site1/corporate-hall.jpg' ) ); ?>" alt="DNA Auto dealership building in Calgary">
   </figure>
   <p class="corporate__plan">
-    <span class="text-lavender">Over the next two years, we plan to create a complete automotive</span>
-    <span class="text-white">hub for car enthusiasts, offering all kinds of services and entertainment for our clients.</span>
+    <span class="text-lavender"><?php echo esc_html( $ad_corp_plan[0] ); ?></span>
+    <?php if ( ! empty( $ad_corp_plan[1] ) ) : ?>
+    <span class="text-white"><?php echo esc_html( $ad_corp_plan[1] ); ?></span>
+    <?php endif; ?>
   </p>
 </section>
 
@@ -447,50 +462,28 @@ get_header(); ?>
     </button>
   </div>
 
+  <?php
+  $ad_club_cards = ad_rows( 'ad_club_cards', array(
+      array( 'title' => 'SERVICE', 'big' => '30%', 'mid' => 'OFF ANY WORK.', 'desc' => 'The lowest prices in Calgary for bodywork, mechanics, and painting.', 'flip' => false ),
+      array( 'title' => 'CARWASH', 'big' => 'IS FREE', 'mid' => "EVERY\nSECOND WASH", 'desc' => 'Modern automatic carwash that preserves your car’s coating.', 'flip' => true ),
+      array( 'title' => "WHEEL\nALIGNMENT", 'big' => '$70', 'mid' => "MARKET PRICE\n$150", 'desc' => 'State-of-the-art equipment with automatic adjustment.', 'flip' => false ),
+      array( 'title' => 'TIRE CHANGE', 'big' => '$60', 'mid' => "MARKET PRICE\n- $120", 'desc' => 'Any wheel repair, seasonal tire replacement, and free tire storage.', 'flip' => false ),
+  ) );
+  ?>
   <div class="club__grid">
+    <?php foreach ( $ad_club_cards as $card ) : ?>
     <article class="club-card ticks">
       <span class="tick tl"></span><span class="tick tr"></span>
       <span class="tick bl"></span><span class="tick br"></span>
-      <h3>SERVICE</h3>
+      <h3><?php echo wp_kses_post( implode( '<br>', array_map( 'esc_html', preg_split( '/\r\n|\r|\n/', $card['title'] ) ) ) ); ?></h3>
       <div class="club-card__offer">
-        <p class="club-card__big">30%</p>
-        <p class="club-card__mid">OFF ANY WORK.</p>
+        <?php $ad_big = '<p class="club-card__big">' . esc_html( $card['big'] ) . '</p>'; ?>
+        <?php $ad_mid = '<p class="club-card__mid">' . wp_kses_post( implode( '<br>', array_map( 'esc_html', preg_split( '/\r\n|\r|\n/', $card['mid'] ) ) ) ) . '</p>'; ?>
+        <?php echo ! empty( $card['flip'] ) ? $ad_mid . $ad_big : $ad_big . $ad_mid; ?>
       </div>
-      <p class="club-card__desc">The lowest prices in Calgary for bodywork, mechanics, and painting.</p>
+      <p class="club-card__desc"><?php echo esc_html( $card['desc'] ); ?></p>
     </article>
-
-    <article class="club-card ticks">
-      <span class="tick tl"></span><span class="tick tr"></span>
-      <span class="tick bl"></span><span class="tick br"></span>
-      <h3>CARWASH</h3>
-      <div class="club-card__offer">
-        <p class="club-card__mid">EVERY<br>SECOND WASH</p>
-        <p class="club-card__big">IS FREE</p>
-      </div>
-      <p class="club-card__desc">Modern automatic carwash that preserves your car’s coating.</p>
-    </article>
-
-    <article class="club-card ticks">
-      <span class="tick tl"></span><span class="tick tr"></span>
-      <span class="tick bl"></span><span class="tick br"></span>
-      <h3>WHEEL<br>ALIGNMENT</h3>
-      <div class="club-card__offer">
-        <p class="club-card__big">$70</p>
-        <p class="club-card__mid">MARKET PRICE<br>$150</p>
-      </div>
-      <p class="club-card__desc">State-of-the-art equipment with automatic adjustment.</p>
-    </article>
-
-    <article class="club-card ticks">
-      <span class="tick tl"></span><span class="tick tr"></span>
-      <span class="tick bl"></span><span class="tick br"></span>
-      <h3>TIRE CHANGE</h3>
-      <div class="club-card__offer">
-        <p class="club-card__big">$60</p>
-        <p class="club-card__mid">MARKET PRICE<br>- $120</p>
-      </div>
-      <p class="club-card__desc">Any wheel repair, seasonal tire replacement, and free tire storage.</p>
-    </article>
+    <?php endforeach; ?>
   </div>
 
   <p class="club__out">
@@ -520,23 +513,31 @@ get_header(); ?>
         <svg class="community__photo-ticks" viewBox="0 0 776 406" preserveAspectRatio="none" aria-hidden="true">
           <path d="M0 13.7V0H13.7 M776 13.7V0H762.3 M0 392.3V406H13.7 M776 392.3V406H762.3" stroke="#C2B9FF" fill="none" stroke-width="1"/>
         </svg>
-        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/site1/community-trio.jpg" alt="AutoDNA community with five cars" fetchpriority="low">
+        <img src="<?php echo esc_url( ad_img( 'ad_community_photo', 'img/site1/community-trio.jpg' ) ); ?>" alt="AutoDNA community with five cars" fetchpriority="low">
       </figure>
 
       <div class="community__sub-wrap">
         <svg class="community__sub-line" viewBox="0 0 265 50" preserveAspectRatio="none" aria-hidden="true">
           <path d="M0 49.5H150.7L191.1 0H265" stroke="#C2B9FF" fill="none" stroke-width="1"/>
         </svg>
+        <?php $ad_community_sub = preg_split( '/\r\n|\r|\n/', ad_field( 'ad_community_sub', "WE’RE BUILDING A COMMUNITY\nWHERE EVERY CUSTOMER GETS\nMORE THAN THEY EXPECT." ) ); ?>
         <p class="community__sub">
-          <span>WE’RE BUILDING A COMMUNITY</span>
-          <span>WHERE EVERY CUSTOMER GETS</span>
-          <span>MORE THAN THEY EXPECT.</span>
+          <?php foreach ( $ad_community_sub as $line ) : ?>
+          <span><?php echo esc_html( $line ); ?></span>
+          <?php endforeach; ?>
         </p>
       </div>
     </div>
   </div>
 
   <!-- Bottom part: Footer -->
+  <?php
+  // Footer contacts: editable via Customizer → AutoDNA Contact.
+  $ad_phone = get_theme_mod( 'autodna_phone', '+1 (403) 312-8306' );
+  $ad_email = get_theme_mod( 'autodna_email', 'info@autodna.com' );
+  $ad_addr  = get_theme_mod( 'autodna_address', '730 2 Ave SW, Calgary, T2P1R8, Canada' );
+  $ad_tel   = 'tel:+' . preg_replace( '/\D+/', '', $ad_phone );
+  ?>
   <footer class="foot" id="contact">
     <div class="foot__box">
       <svg class="foot__ticks" viewBox="0 0 1370 176" preserveAspectRatio="none" aria-hidden="true">
@@ -548,14 +549,14 @@ get_header(); ?>
         <div class="foot__col foot__col--contact">
           <h3>CONTACT US</h3>
           <div class="foot__item">
-            <a href="tel:+14033128306" class="foot__link">+1 (403) 312-8306</a>
+            <a href="<?php echo esc_url( $ad_tel ); ?>" class="foot__link"><?php echo esc_html( $ad_phone ); ?></a>
             <svg class="foot__item-line" viewBox="0 0 348 35" preserveAspectRatio="none" aria-hidden="true">
               <path d="M0 34.2H246.7L312.8 0H348.2" stroke="#C2B9FF" fill="none" stroke-width="1"/>
               <path d="M340.2 8L348.2 0M340.2 0H348.2V8" stroke="#C2B9FF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
             </svg>
           </div>
           <div class="foot__item">
-            <a href="mailto:info@autodna.com" class="foot__link">info@autodna.com</a>
+            <a href="mailto:<?php echo esc_attr( $ad_email ); ?>" class="foot__link"><?php echo esc_html( $ad_email ); ?></a>
             <svg class="foot__item-line" viewBox="0 0 348 35" preserveAspectRatio="none" aria-hidden="true">
               <path d="M0 34.2H246.7L312.8 0H348.2" stroke="#C2B9FF" fill="none" stroke-width="1"/>
               <path d="M340.2 8L348.2 0M340.2 0H348.2V8" stroke="#C2B9FF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
@@ -567,19 +568,19 @@ get_header(); ?>
         <div class="foot__col foot__col--social">
           <h3>FOLLOW US</h3>
           <div class="foot__socials">
-            <a href="#" aria-label="Facebook" class="foot__soc-btn">
+            <a href="<?php echo esc_url( get_theme_mod( 'autodna_facebook', '#' ) ); ?>" aria-label="Facebook" class="foot__soc-btn">
               <svg viewBox="0 0 40 40" aria-hidden="true">
                 <circle cx="20" cy="20" r="19.5" fill="none" stroke="#C2B9FF"/>
                 <path d="M22 29v-9h3l.5-3.5h-3.5v-2c0-1 .3-1.8 1.8-1.8h2V9.5c-.4 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.6H16V20h2.8v9H22Z" fill="#FFFFFF"/>
               </svg>
             </a>
-            <a href="#" aria-label="X" class="foot__soc-btn">
+            <a href="<?php echo esc_url( get_theme_mod( 'autodna_x', '#' ) ); ?>" aria-label="X" class="foot__soc-btn">
               <svg viewBox="0 0 40 40" aria-hidden="true">
                 <circle cx="20" cy="20" r="19.5" fill="none" stroke="#C2B9FF"/>
                 <path d="M25.5 12h2.5l-5.5 6.3L29 27h-5.1l-4-5.2-4.6 5.2h-2.5l5.9-6.8L12.5 12h5.2l3.6 4.8L25.5 12Zm-.9 13.5h1.4L17.1 13.4h-1.5l9 12.1Z" fill="#FFFFFF"/>
               </svg>
             </a>
-            <a href="#" aria-label="Instagram" class="foot__soc-btn">
+            <a href="<?php echo esc_url( get_theme_mod( 'autodna_instagram', '#' ) ); ?>" aria-label="Instagram" class="foot__soc-btn">
               <svg viewBox="0 0 40 40" aria-hidden="true">
                 <circle cx="20" cy="20" r="19.5" fill="none" stroke="#C2B9FF"/>
                 <rect x="13" y="13" width="14" height="14" rx="4" fill="none" stroke="#FFFFFF" stroke-width="1.8"/>
@@ -597,7 +598,7 @@ get_header(); ?>
         <div class="foot__col foot__col--find">
           <h3>FIND US</h3>
           <div class="foot__item">
-            <p class="foot__address">730 2 Ave SW,<br>Calgary, T2P1R8,<br>Canada</p>
+            <p class="foot__address"><?php echo wp_kses_post( implode( '<br>', array_map( 'esc_html', array_map( 'trim', explode( ',', $ad_addr ) ) ) ) ); ?></p>
             <svg class="foot__item-line foot__item-line--find" viewBox="0 0 348 35" preserveAspectRatio="none" aria-hidden="true">
               <path d="M0 34.2H246.7L312.8 0H348.2" stroke="#C2B9FF" fill="none" stroke-width="1"/>
               <path d="M340.2 8L348.2 0M340.2 0H348.2V8" stroke="#C2B9FF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>

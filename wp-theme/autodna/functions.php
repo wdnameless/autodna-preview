@@ -7,7 +7,9 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'AUTODNA_THEME_VERSION', '1.1.0' );
+define( 'AUTODNA_THEME_VERSION', '1.2.0' );
+
+require_once get_template_directory() . '/inc/acf-fields.php';
 
 function autodna_theme_setup() {
     add_theme_support( 'title-tag' );
@@ -44,6 +46,36 @@ function autodna_enqueue_assets() {
         wp_enqueue_script(
             'autodna-dealer',
             get_template_directory_uri() . '/assets/js/page-dealer.js',
+            array(),
+            AUTODNA_THEME_VERSION,
+            true
+        );
+    } elseif ( is_page_template( 'page-autodnaflip.php' ) || is_page( 'dnainvest' ) ) {
+        wp_enqueue_style(
+            'autodna-flip',
+            get_template_directory_uri() . '/assets/css/page-flip.css',
+            array( 'autodna-site1' ),
+            AUTODNA_THEME_VERSION
+        );
+        wp_enqueue_script(
+            'autodna-flip',
+            get_template_directory_uri() . '/assets/js/page-flip.js',
+            array(),
+            AUTODNA_THEME_VERSION,
+            true
+        );
+    } elseif ( is_page_template( 'page-dnaservice.php' ) || is_page( 'dnaservice' )
+        || is_page_template( 'page-drivecareplan.php' ) || is_page_template( 'page-paintbot.php' )
+        || is_page_template( 'page-skiptheshop.php' ) ) {
+        wp_enqueue_style(
+            'autodna-service',
+            get_template_directory_uri() . '/assets/css/page-service.css',
+            array( 'autodna-site1' ),
+            AUTODNA_THEME_VERSION
+        );
+        wp_enqueue_script(
+            'autodna-service',
+            get_template_directory_uri() . '/assets/js/page-service.js',
             array(),
             AUTODNA_THEME_VERSION,
             true
