@@ -92,28 +92,33 @@
     });
   }
 
-  // Interactive in-place service tabs switcher (Component 8 - Instant 0ms Layer Switch)
+  // Interactive in-place service tabs switcher (Switch on HOVER & click)
   function initServiceTabs() {
     const btns = document.querySelectorAll('.service-tab-btn');
     const layers = document.querySelectorAll('.service-view-layer');
     if (!btns.length || !layers.length) return;
 
+    function activateTab(service) {
+      btns.forEach(b => {
+        const isActive = b.getAttribute('data-service') === service;
+        b.classList.toggle('is-active', isActive);
+      });
+
+      layers.forEach(layer => {
+        const isActive = layer.classList.contains('service-view-layer--' + service);
+        layer.classList.toggle('is-active', isActive);
+      });
+    }
+
     btns.forEach(btn => {
+      btn.addEventListener('mouseenter', () => {
+        const service = btn.getAttribute('data-service');
+        if (service) activateTab(service);
+      });
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         const service = btn.getAttribute('data-service');
-        if (!service) return;
-
-        btns.forEach(b => b.classList.remove('is-active'));
-        btn.classList.add('is-active');
-
-        layers.forEach(layer => {
-          if (layer.classList.contains('service-view-layer--' + service)) {
-            layer.classList.add('is-active');
-          } else {
-            layer.classList.remove('is-active');
-          }
-        });
+        if (service) activateTab(service);
       });
     });
   }

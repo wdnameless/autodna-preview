@@ -4,7 +4,7 @@
 (function() {
   'use strict';
 
-  // ══ 1. MULTI-SERVICE TABS (Instant 0ms resident layer crossfade) ═══════
+  // ══ 1. MULTI-SERVICE TABS (Switch on HOVER & click) ═══════════════════
   function initMultiview() {
     const columnBtns = document.querySelectorAll('.multiview-column-btn');
     const states = document.querySelectorAll('.multiview-state');
@@ -23,6 +23,12 @@
     };
 
     columnBtns.forEach(btn => {
+      // Hover switches image & active card immediately
+      btn.addEventListener('mouseenter', () => {
+        const service = btn.getAttribute('data-service');
+        if (service) window.activateServiceTab(service);
+      });
+      // Click also switches
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         const service = btn.getAttribute('data-service');
@@ -32,6 +38,12 @@
 
     // Handle all data-tab triggers across the page (Hero indicators & Header dropdown)
     document.querySelectorAll('[data-tab]').forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        const tab = link.getAttribute('data-tab');
+        if (tab && window.activateServiceTab) {
+          window.activateServiceTab(tab);
+        }
+      });
       link.addEventListener('click', () => {
         const tab = link.getAttribute('data-tab');
         if (tab && window.activateServiceTab) {
