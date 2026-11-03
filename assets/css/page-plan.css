@@ -1,0 +1,168 @@
+/* ══ DRIVECAREPLAN PAGE STYLES (100% VECTOR SVG / TRUE FULL-SCREEN) ═══ */
+
+.page-plan {
+  background-color: #020202;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+.plan-main {
+  position: relative;
+  width: 100%;
+  background-color: #020202;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* ══ DESKTOP BOARD (1440 x 3923) ═══════════════════════════════════════ */
+.plan-board--desktop {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  display: block;
+}
+
+.plan-board--mobile {
+  display: none !important;
+}
+
+.plan-svg {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ══ INTERACTIVE HITAREAS (DESKTOP) ════════════════════════════════════ */
+.plan-hitarea {
+  position: absolute;
+  z-index: 15;
+  cursor: pointer;
+  border-radius: 2px;
+  background: transparent;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Top Back / Dropdown Button */
+.plan-hitarea--top-btn {
+  left: 1.43%;
+  top: 0.51%;
+  width: 22.36%;
+  height: 1.81%;
+}
+
+.plan-hitarea--top-btn:hover {
+  background: rgba(150, 133, 255, 0.15);
+  box-shadow: 0 0 20px rgba(150, 133, 255, 0.5);
+}
+
+/* Interactive Table Rows */
+.plan-hitarea--table-row {
+  left: 2.12%;
+  width: 95.8%;
+  background: transparent;
+  transition: background 0.2s ease;
+}
+
+.plan-hitarea--table-row:hover {
+  background: rgba(150, 133, 255, 0.1);
+}
+
+.plan-hitarea--row-1 { top: 36.07%; height: 1.99%; }
+.plan-hitarea--row-2 { top: 38.54%; height: 3.21%; }
+.plan-hitarea--row-3 { top: 41.98%; height: 2.85%; }
+.plan-hitarea--row-4 { top: 45.40%; height: 3.20%; }
+.plan-hitarea--row-5 { top: 49.00%; height: 3.20%; }
+.plan-hitarea--row-6 { top: 52.60%; height: 2.37%; }
+.plan-hitarea--row-7 { top: 55.40%; height: 2.37%; }
+.plan-hitarea--row-8 { top: 58.20%; height: 2.37%; }
+
+/* Footer Links */
+.plan-hitarea--phone {
+  left: 2.1%;
+  top: 93.8%;
+  width: 20%;
+  height: 1.6%;
+}
+
+.plan-hitarea--email {
+  left: 2.1%;
+  top: 95.8%;
+  width: 20%;
+  height: 1.6%;
+}
+
+.plan-hitarea--socials {
+  left: 42.0%;
+  top: 94.8%;
+  width: 16%;
+  height: 1.8%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.plan-hitarea--socials a {
+  display: block;
+  width: 30%;
+  height: 100%;
+}
+
+.plan-hitarea--address {
+  left: 72.0%;
+  top: 93.8%;
+  width: 25%;
+  height: 2.8%;
+}
+
+/* ══ MOBILE LAYOUT (393 x 4271) ════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .plan-board--desktop {
+    display: none !important;
+  }
+
+  .plan-board--mobile {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    background-color: #020202 !important;
+    overflow: hidden !important;
+  }
+
+  .plan-mob-hitarea {
+    position: absolute;
+    z-index: 15;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  .plan-mob-hitarea--top-btn {
+    left: 4.5%;
+    top: 1.8%;
+    width: 91%;
+    height: 1.6%;
+  }
+
+  .plan-mob-hitarea--phone {
+    left: 5%;
+    top: 94.2%;
+    width: 90%;
+    height: 1.0%;
+  }
+
+  .plan-mob-hitarea--email {
+    left: 5%;
+    top: 95.4%;
+    width: 90%;
+    height: 1.0%;
+  }
+
+  .plan-mob-hitarea--address {
+    left: 5%;
+    top: 97.0%;
+    width: 90%;
+    height: 1.8%;
+  }
+}
