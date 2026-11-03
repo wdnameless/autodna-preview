@@ -13,11 +13,11 @@
 </head>
 <body class="site-service">
 
-<!-- ══ DYNAMIC STICKY DOCKED HEADER (APPEARS AS YOU SCROLL DOWN / NO BURGER) ══ -->
+<!-- ══ DYNAMIC STICKY HEADER (ALWAYS PRESENT / FLOATING AS YOU SCROLL) ═══ -->
 <header class="sticky-header" id="sticky-header">
   <div class="sticky-header__container">
 
-    <!-- Left Panel: SERVICE EVOLUTION (Dropdown) -->
+    <!-- Left Panel: SERVICE EVOLUTION (Dropdown per Figma) -->
     <div class="panel-evolution">
       <div class="panel-evolution__box ticks">
         <span class="tick tl"></span>
@@ -134,54 +134,77 @@
   <!-- ══ DESKTOP SITE (100% Full-Bleed Edge-to-Edge) ═════════════════════ -->
   <div class="layout-desktop">
 
-    <!-- 1. Hero Section (100% Pixel-Perfect Match to Figma DNA service-1.png) -->
-    <section class="service-hero" id="home">
-      <div class="service-hero__wrapper">
-        <img src="assets/img/dnaservice-hero-vector.svg" class="service-hero__img" alt="AutoDNA Service — The Future of Service is Already Here" fetchpriority="high">
+    <!-- 1. Hero Section (viewBox="0 0 1440 960" - 100% Vector SVG) -->
+    <section class="section-block section-block--hero" id="home">
+      <img src="assets/img/dnaservice-hero-vector.svg" class="block-svg" alt="AutoDNA Service — The Future of Service is Already Here" fetchpriority="high">
+
+      <!-- Right Indicators on Hero -->
+      <a href="#multiple-services" data-tab="shop" class="hero-ind-hitarea hero-ind-hitarea--shop" aria-label="SkipTheShop view"></a>
+      <a href="#multiple-services" data-tab="plan" class="hero-ind-hitarea hero-ind-hitarea--plan" aria-label="DriveCarePlan view"></a>
+      <a href="#multiple-services" data-tab="paint" class="hero-ind-hitarea hero-ind-hitarea--paint" aria-label="PaintBot view"></a>
+    </section>
+
+    <!-- 2. Calgary Facility Section (viewBox="0 960 1440 1315.95") -->
+    <section class="section-block section-block--calgary" id="calgary-facility">
+      <img src="assets/img/service-calgary.svg" class="block-svg" alt="The Future of Car Service Begins in Calgary" loading="lazy">
+      <!-- Interactive Official Site Button ↗ -->
+      <a href="https://autodnaservice.com" target="_blank" rel="noopener" class="calgary-hitarea--official" aria-label="Visit AutoDNA Service official site"></a>
+    </section>
+
+    <!-- 3. INTERACTIVE 3-STATE MULTIVIEW SECTION (ONE DNA. MULTIPLE SERVICES. - Exactly matching user screenshot!) -->
+    <section class="section-block section-block--multiview" id="multiple-services">
+      <div class="multiview-stage">
+        <!-- State 1: SkipTheShop (Active card on left, triptych background) -->
+        <div class="multiview-state multiview-state--shop is-active">
+          <img src="assets/img/service-state-shop.svg" class="block-svg" alt="SkipTheShop" fetchpriority="high">
+        </div>
+
+        <!-- State 2: DriveCarePlan (Active card in center, purple 3D OBD dongle background) -->
+        <div class="multiview-state multiview-state--plan">
+          <img src="assets/img/service-state-plan.svg" class="block-svg" alt="DriveCarePlan" loading="eager">
+        </div>
+
+        <!-- State 3: PaintBot (Active card on right, painting robot background) -->
+        <div class="multiview-state multiview-state--paint">
+          <img src="assets/img/service-state-paint.svg" class="block-svg" alt="PaintBot" loading="eager">
+        </div>
+
+        <!-- Interactive 3 Column Buttons across the bottom of the section -->
+        <button class="multiview-column-btn multiview-column-btn--shop is-active" data-service="shop" aria-label="Switch to SkipTheShop"></button>
+        <button class="multiview-column-btn multiview-column-btn--plan" data-service="plan" aria-label="Switch to DriveCarePlan"></button>
+        <button class="multiview-column-btn multiview-column-btn--paint" data-service="paint" aria-label="Switch to PaintBot"></button>
       </div>
     </section>
 
-    <!-- 2. Body Section (Calgary Facility, Multiple Services, Catalog, Price Table, Fuel Refund, Team, Contact) -->
-    <section class="service-body">
-      <div class="service-body__wrapper">
-        <img src="assets/img/dnaservice-body.svg" class="service-body__svg" alt="AutoDNA Service Full Site" loading="lazy">
+    <!-- 4. Catalog, Price Reset, 4L Fuel Refund, Team, Contact & Footer (viewBox="0 3044.95 1440 4878.05") -->
+    <section class="section-block section-block--catalog-footer">
+      <img src="assets/img/service-catalog-footer.svg" class="block-svg" alt="Services Catalog, Price Reset, Team and Contact" loading="lazy">
 
-        <!-- Interactive Hitareas on Body -->
-        <!-- Calgary Official Site Button ↗ -->
-        <a href="https://autodnaservice.com" target="_blank" rel="noopener" class="body-hitarea body-hitarea--official" aria-label="Visit AutoDNA Service official site"></a>
+      <div id="catalog-services" style="position: absolute; top: 0%; left: 0;"></div>
+      <div id="price-reset" style="position: absolute; top: 26%; left: 0;"></div>
+      <div id="fuel-refund" style="position: absolute; top: 56%; left: 0;"></div>
+      <div id="team" style="position: absolute; top: 70%; left: 0;"></div>
+      <div id="contact" style="position: absolute; top: 88%; left: 0;"></div>
 
-        <!-- Multiple Services Tab Switches -->
-        <button class="body-tab-btn body-tab-btn--shop is-active" data-service="shop" aria-label="Show SkipTheShop view"></button>
-        <button class="body-tab-btn body-tab-btn--plan" data-service="plan" aria-label="Show DriveCarePlan view"></button>
-        <button class="body-tab-btn body-tab-btn--paint" data-service="paint" aria-label="Show PaintBot view"></button>
+      <!-- Contact Button ↗ -->
+      <a href="#contact" class="footer-hitarea--contact-btn" aria-label="Contact with us"></a>
 
-        <div id="multiple-services" style="position: absolute; top: 14%; left: 0;"></div>
-        <div id="catalog-services" style="position: absolute; top: 32%; left: 0;"></div>
-        <div id="price-reset" style="position: absolute; top: 50%; left: 0;"></div>
-        <div id="fuel-refund" style="position: absolute; top: 70%; left: 0;"></div>
-        <div id="team" style="position: absolute; top: 80%; left: 0;"></div>
-        <div id="contact" style="position: absolute; top: 92%; left: 0;"></div>
+      <!-- Footer Links -->
+      <a href="tel:+14033128306" class="footer-hitarea--phone" aria-label="Call +1 (403) 312-8306"></a>
+      <a href="mailto:info@autodna.com" class="footer-hitarea--email" aria-label="Email info@autodna.com"></a>
 
-        <!-- Contact Button ↗ -->
-        <a href="#contact" class="body-hitarea body-hitarea--contact-btn" aria-label="Contact with us"></a>
-
-        <!-- Footer Links -->
-        <a href="tel:+14033128306" class="body-hitarea body-hitarea--phone" aria-label="Call +1 (403) 312-8306"></a>
-        <a href="mailto:info@autodna.com" class="body-hitarea body-hitarea--email" aria-label="Email info@autodna.com"></a>
-
-        <div class="body-hitarea body-hitarea--socials">
-          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"></a>
-          <a href="https://x.com" target="_blank" rel="noopener" aria-label="X (Twitter)"></a>
-          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"></a>
-        </div>
-
-        <a href="https://maps.google.com/?q=730+2+Ave+SW+Calgary+T2P1R8+Canada" target="_blank" rel="noopener" class="body-hitarea body-hitarea--address" aria-label="Find us on Google Maps"></a>
+      <div class="footer-hitarea--socials">
+        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"></a>
+        <a href="https://x.com" target="_blank" rel="noopener" aria-label="X (Twitter)"></a>
+        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"></a>
       </div>
+
+      <a href="https://maps.google.com/?q=730+2+Ave+SW+Calgary+T2P1R8+Canada" target="_blank" rel="noopener" class="footer-hitarea--address" aria-label="Find us on Google Maps"></a>
     </section>
 
   </div>
 
-  <!-- ══ MOBILE SITE (100% Full-Bleed Vector SVG from Figma 393x10228) ══ -->
+  <!-- ══ MOBILE SITE (100% Vector SVG from Figma 393x10228 - Stacked 3 Cards) ══ -->
   <div class="layout-mobile">
     <img src="assets/img/dnaservice-mobile.svg" class="mobile-svg" alt="AutoDNA Service Mobile" fetchpriority="high">
 

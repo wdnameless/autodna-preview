@@ -49,7 +49,7 @@ body.site-service {
 .tick.bl { bottom: -1px; left: -1px; border-width: 0 0 1.2px 1.2px; }
 .tick.br { bottom: -1px; right: -1px; border-width: 0 1.2px 1.2px 0; }
 
-/* ══ DYNAMIC STICKY HEADER (ALWAYS PRESENT / 100% VECTOR / NO BURGER) ═ */
+/* ══ DYNAMIC STICKY DOCKED HEADER ══════════════════════════════════════ */
 .sticky-header {
   position: fixed;
   top: 32px;
@@ -59,21 +59,13 @@ body.site-service {
   pointer-events: none;
   display: flex;
   justify-content: center;
-  padding: 0 clamp(16px, 1.8vw, 32px);
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: translateY(0) !important;
-}
-
-/* always docked */ .sticky-header {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+  padding: 0 clamp(16px, 2.5vw, 36px);
+  transition: transform 0.3s ease;
 }
 
 .sticky-header__container {
   width: 100%;
-  max-width: 1440px;
+  max-width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -93,7 +85,7 @@ body.site-service {
   background: rgba(38, 37, 72, 0.44);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(194, 185, 255, 0.28);
+  border: 1px solid var(--border);
   border-radius: 2px;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
   transition: all 0.25s ease;
@@ -124,13 +116,7 @@ body.site-service {
 }
 
 .panel-evolution__btn:hover .panel-evolution__title {
-  font-family: var(--body);
-  font-weight: 300;
-  font-size: 18px !important;
-  letter-spacing: -0.2px;
-  text-transform: uppercase;
-  color: #ffffff;
-  transition: color 0.2s ease;
+  color: var(--violet-soft);
 }
 
 .panel-evolution__chevron {
@@ -147,7 +133,8 @@ body.site-service {
   fill: none;
 }
 
-.panel-evolution.is-open .panel-evolution__chevron {
+.panel-evolution.is-open .panel-evolution__chevron,
+.panel-evolution:hover .panel-evolution__chevron {
   transform: rotate(180deg);
 }
 
@@ -165,6 +152,7 @@ body.site-service {
   transition: max-height 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
 }
 
+.panel-evolution:hover .panel-evolution__menu,
 .panel-evolution.is-open .panel-evolution__menu {
   max-height: 250px !important;
   opacity: 1 !important;
@@ -181,7 +169,7 @@ body.site-service {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 46px;
+  height: 48px;
   padding: 0 20px;
   text-decoration: none;
   transition: background 0.2s ease;
@@ -194,7 +182,7 @@ body.site-service {
 .panel-evolution__text {
   font-family: var(--body);
   font-weight: 300;
-  font-size: 15px;
+  font-size: 16px;
   letter-spacing: -0.2px;
   background: linear-gradient(90deg, #ffffff 0%, #ffffff 35%, rgba(194, 185, 255, 0.7) 70%, rgba(140, 130, 200, 0.4) 100%);
   -webkit-background-clip: text;
@@ -238,7 +226,7 @@ body.site-service {
 .panel-nav {
   pointer-events: auto;
   flex: 1;
-  max-width: 1060px;
+  max-width: 1054px;
   position: relative;
 }
 
@@ -296,7 +284,7 @@ body.site-service {
   width: 8px;
   height: 5px;
   overflow: visible;
-  transition: transform 0.25s ease;
+  transition: transform 0.2s ease;
 }
 .panel-nav__chevron path {
   stroke: var(--violet-soft);
@@ -314,10 +302,10 @@ body.site-service {
   top: 100%;
   left: 0;
   min-width: 240px;
-  background: rgba(24, 22, 52, 0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(194, 185, 255, 0.28);
+  background: rgba(22, 19, 48, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
   border-radius: 2px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
   padding: 6px 0;
@@ -331,24 +319,9 @@ body.site-service {
 }
 
 .panel-nav__item:hover .panel-nav__dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 240px;
-  background: rgba(24, 22, 52, 0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(194, 185, 255, 0.28);
-  border-radius: 2px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
-  padding: 6px 0;
-  margin-top: 6px;
-  list-style: none;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(6px);
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 110;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .panel-nav__dropdown-menu a {
@@ -370,29 +343,38 @@ body.site-service {
   color: var(--violet-soft);
 }
 
-/* ══ 1. HERO SECTION (100% Pixel-Perfect Match to Figma) ═══════════════ */
-.service-hero {
+/* ══ MAIN LAYOUT & SECTIONS ════════════════════════════════════════════ */
+.site-main {
   position: relative;
   width: 100%;
   background-color: var(--bg);
   overflow: hidden;
 }
 
-.service-hero__wrapper {
+.layout-desktop {
+  width: 100%;
+  margin: 0;
+  background-color: var(--bg);
+}
+
+.section-block {
   position: relative;
   width: 100% !important;
   max-width: 100% !important;
   margin: 0 !important;
+  background-color: var(--bg);
 }
 
-.service-hero__img {
-  width: 100%;
-  height: auto;
-  display: block;
+.block-svg,
+.mobile-svg {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
 }
 
-/* Interactive Hitareas over Hero Image */
-.hero-hitarea {
+/* ══ 1. HERO INDICATORS ════════════════════════════════════════════════ */
+.hero-ind-hitarea {
   position: absolute;
   z-index: 25;
   cursor: pointer;
@@ -400,117 +382,155 @@ body.site-service {
   transition: background 0.2s ease, box-shadow 0.2s ease;
   border-radius: 2px;
 }
-
-.hero-hitarea:hover {
+.hero-ind-hitarea:hover {
   background: rgba(150, 133, 255, 0.12);
   box-shadow: 0 0 16px rgba(150, 133, 255, 0.4);
 }
+.hero-ind-hitarea--shop  { left: 78.5%; top: 54.5%; width: 20.0%; height: 6.5%; }
+.hero-ind-hitarea--plan  { left: 78.5%; top: 63.5%; width: 20.0%; height: 6.5%; }
+.hero-ind-hitarea--paint { left: 78.5%; top: 76.5%; width: 20.0%; height: 6.5%; }
 
-/* Left Box Dropdown Items */
-.hero-hitarea--shop      { left: 1.4%; top: 12.3%; width: 22.5%; height: 5.0%; }
-.hero-hitarea--plan      { left: 1.4%; top: 17.3%; width: 22.5%; height: 5.0%; }
-.hero-hitarea--plan-comm { left: 1.4%; top: 22.3%; width: 22.5%; height: 5.0%; }
-.hero-hitarea--paint     { left: 1.4%; top: 27.3%; width: 22.5%; height: 5.0%; }
-
-/* Right Box Nav Items */
-.hero-hitarea--autoservices { left: 25.0%; top: 2.6%; width: 11.1%; height: 6.6%; }
-.hero-hitarea--starters     { left: 36.1%; top: 2.6%; width: 13.2%; height: 6.6%; }
-.hero-hitarea--inspections  { left: 49.3%; top: 2.6%; width: 9.0%;  height: 6.6%; }
-.hero-hitarea--towing       { left: 58.3%; top: 2.6%; width: 12.5%; height: 6.6%; }
-.hero-hitarea--buying       { left: 70.8%; top: 2.6%; width: 11.1%; height: 6.6%; }
-.hero-hitarea--ev           { left: 81.9%; top: 2.6%; width: 16.0%; height: 6.6%; }
-
-/* Right Indicators */
-.hero-hitarea--ind-shop  { left: 78.5%; top: 54.5%; width: 20.0%; height: 4.5%; }
-.hero-hitarea--ind-plan  { left: 78.5%; top: 63.5%; width: 20.0%; height: 4.5%; }
-.hero-hitarea--ind-paint { left: 78.5%; top: 76.5%; width: 20.0%; height: 4.5%; }
-
-/* ══ 2. BODY SECTION (Calgary, Multiple Services, Catalog, Prices, Team, Footer) ══ */
-.service-body {
-  position: relative;
-  width: 100%;
-  background-color: var(--bg);
-  overflow: hidden;
-}
-
-.service-body__wrapper {
-  position: relative;
-  width: 100% !important;
-  max-width: 100% !important;
-  margin: 0 !important;
-}
-
-.service-body__svg {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Interactive Hitareas on Body */
-.body-hitarea {
+/* ══ 2. CALGARY HITAREAS ═══════════════════════════════════════════════ */
+.calgary-hitarea--official {
   position: absolute;
-  z-index: 15;
+  left: 39.99%;
+  top: 85.5%;
+  width: 20.07%;
+  height: 6.1%;
+  z-index: 25;
   cursor: pointer;
-  background: transparent;
-  border: none;
-  outline: none;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
   border-radius: 2px;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
 }
-
-.body-hitarea:hover {
+.calgary-hitarea--official:hover {
   background: rgba(150, 133, 255, 0.18);
   box-shadow: 0 0 30px rgba(150, 133, 255, 0.6);
 }
 
-.body-hitarea--official {
-  left: 39.99%;
-  top: 14.2%;
-  width: 20.07%;
-  height: 1.15%;
+/* ══ 3. MULTIVIEW 3-STATE COMPONENT (1440 x 769 EXACT FIGMA MATCH) ═════ */
+.section-block--multiview {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 
-.body-hitarea--contact-btn {
+.multiview-stage {
+  position: relative;
+  width: 100%;
+}
+
+.multiview-state {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.multiview-state:not(.is-active) {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.multiview-state.is-active {
+  position: relative;
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* 3 Clickable Columns across the bottom (SkipTheShop, DriveCarePlan, PaintBot) */
+.multiview-column-btn {
+  position: absolute;
+  top: 58.5%;
+  height: 38.0%;
+  z-index: 30;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  border-radius: 2px;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.multiview-column-btn:hover {
+  background: rgba(150, 133, 255, 0.15);
+  box-shadow: 0 0 25px rgba(150, 133, 255, 0.5);
+}
+
+.multiview-column-btn--shop {
+  left: 1.67%;
+  width: 31.6%;
+}
+
+.multiview-column-btn--plan {
+  left: 34.17%;
+  width: 31.6%;
+}
+
+.multiview-column-btn--paint {
+  left: 66.67%;
+  width: 31.6%;
+}
+
+/* ══ 4. FOOTER HITAREAS ════════════════════════════════════════════════ */
+.footer-hitarea--contact-btn {
+  position: absolute;
   left: 40.03%;
-  top: 93.5%;
+  top: 90.7%;
   width: 20.07%;
-  height: 1.15%;
+  height: 1.65%;
+  z-index: 25;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+.footer-hitarea--contact-btn:hover {
+  background: rgba(150, 133, 255, 0.18);
+  box-shadow: 0 0 30px rgba(150, 133, 255, 0.6);
 }
 
-.body-hitarea--phone {
+.footer-hitarea--phone {
+  position: absolute;
   left: 3.1%;
-  top: 97.0%;
+  top: 95.8%;
   width: 24%;
-  height: 0.9%;
+  height: 1.3%;
+  z-index: 25;
 }
-
-.body-hitarea--email {
+.footer-hitarea--email {
+  position: absolute;
   left: 3.1%;
-  top: 97.9%;
-  width: 24%;
-  height: 0.9%;
-}
-
-.body-hitarea--socials {
-  left: 42.0%;
   top: 97.2%;
+  width: 24%;
+  height: 1.3%;
+  z-index: 25;
+}
+.footer-hitarea--socials {
+  position: absolute;
+  left: 42.0%;
+  top: 96.2%;
   width: 16%;
-  height: 1.1%;
+  height: 1.6%;
+  z-index: 25;
   display: flex;
   justify-content: space-between;
 }
-
-.body-hitarea--socials a {
+.footer-hitarea--socials a {
   display: block;
   width: 30%;
   height: 100%;
 }
-
-.body-hitarea--address {
+.footer-hitarea--address {
+  position: absolute;
   left: 72.0%;
-  top: 97.0%;
+  top: 95.8%;
   width: 26%;
-  height: 1.5%;
+  height: 2.2%;
+  z-index: 25;
 }
 
 /* ══ MOBILE ADAPTATIONS (<= 768px) ═════════════════════════════════════ */
@@ -586,30 +606,4 @@ body.site-service {
     width: 90%;
     height: 1.5%;
   }
-}
-
-/* In the sticky docked header, reveal dropdown smoothly on hover or click */
-.sticky-header .panel-evolution__menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  border-top: 1px solid rgba(194, 185, 255, 0.22);
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  background: rgba(24, 22, 52, 0.78);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  transition: max-height 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
-}
-
-.sticky-header .panel-evolution:hover .panel-evolution__menu,
-.panel-evolution.is-open .panel-evolution__menu {
-  max-height: 250px !important;
-  opacity: 1 !important;
-}
-
-.sticky-header .panel-evolution:hover .panel-evolution__chevron,
-.sticky-header .panel-evolution.is-open .panel-evolution__chevron {
-  transform: rotate(180deg) !important;
 }
