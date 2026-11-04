@@ -1,0 +1,163 @@
+/* ══ DRIVECAREPLAN COMMERCIAL PAGE STYLES (100% VECTOR SVG / TRUE FULL-SCREEN) ══ */
+
+.page-commercial {
+  background-color: #020202;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+.commercial-main {
+  position: relative;
+  width: 100%;
+  background-color: #020202;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* ══ DESKTOP BOARD (1440 x 4841) ═══════════════════════════════════════ */
+.commercial-board--desktop {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  display: block;
+}
+
+.commercial-board--mobile {
+  display: none !important;
+}
+
+.commercial-svg {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ══ INTERACTIVE HITAREAS (DESKTOP) ════════════════════════════════════ */
+.commercial-hitarea {
+  position: absolute;
+  z-index: 15;
+  cursor: pointer;
+  border-radius: 2px;
+  background: transparent;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Top Back / Dropdown Button */
+.commercial-hitarea--top-btn {
+  left: 1.45%;
+  top: 0.43%;
+  width: 22.36%;
+  height: 1.47%;
+}
+
+.commercial-hitarea--top-btn:hover {
+  background: rgba(150, 133, 255, 0.15);
+  box-shadow: 0 0 20px rgba(150, 133, 255, 0.5);
+}
+
+/* 5 Advantage Cards */
+.commercial-hitarea--card-1 { left: 1.78%;  top: 57.26%; width: 20.07%; height: 6.01%; }
+.commercial-hitarea--card-2 { left: 39.99%; top: 57.26%; width: 20.07%; height: 6.01%; }
+.commercial-hitarea--card-3 { left: 78.20%; top: 57.26%; width: 20.07%; height: 6.01%; }
+.commercial-hitarea--card-4 { left: 18.40%; top: 63.72%; width: 20.07%; height: 6.01%; }
+.commercial-hitarea--card-5 { left: 61.58%; top: 63.72%; width: 20.07%; height: 6.01%; }
+
+.commercial-hitarea--card-1:hover,
+.commercial-hitarea--card-2:hover,
+.commercial-hitarea--card-3:hover,
+.commercial-hitarea--card-4:hover,
+.commercial-hitarea--card-5:hover {
+  background: rgba(150, 133, 255, 0.12);
+  box-shadow: 0 0 30px rgba(150, 133, 255, 0.45);
+}
+
+/* Footer Links */
+.commercial-hitarea--phone {
+  left: 2.1%;
+  top: 94.8%;
+  width: 20%;
+  height: 1.4%;
+}
+
+.commercial-hitarea--email {
+  left: 2.1%;
+  top: 96.5%;
+  width: 20%;
+  height: 1.4%;
+}
+
+.commercial-hitarea--socials {
+  left: 42.0%;
+  top: 95.8%;
+  width: 16%;
+  height: 1.6%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.commercial-hitarea--socials a {
+  display: block;
+  width: 30%;
+  height: 100%;
+}
+
+.commercial-hitarea--address {
+  left: 72.0%;
+  top: 94.8%;
+  width: 25%;
+  height: 2.4%;
+}
+
+/* ══ MOBILE LAYOUT (393 x 4597) ════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .commercial-board--desktop {
+    display: none !important;
+  }
+
+  .commercial-board--mobile {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    background-color: #020202 !important;
+    overflow: hidden !important;
+  }
+
+  .commercial-mob-hitarea {
+    position: absolute;
+    z-index: 15;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  .commercial-mob-hitarea--top-btn {
+    left: 4.5%;
+    top: 1.6%;
+    width: 91%;
+    height: 1.5%;
+  }
+
+  .commercial-mob-hitarea--phone {
+    left: 5%;
+    top: 94.6%;
+    width: 90%;
+    height: 0.9%;
+  }
+
+  .commercial-mob-hitarea--email {
+    left: 5%;
+    top: 95.6%;
+    width: 90%;
+    height: 0.9%;
+  }
+
+  .commercial-mob-hitarea--address {
+    left: 5%;
+    top: 97.2%;
+    width: 90%;
+    height: 1.6%;
+  }
+}
