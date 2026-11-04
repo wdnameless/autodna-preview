@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkipTheDealer Extended — Showroom &amp; Direct Auction Sourcing | AutoDNA</title>
+  <meta name="description" content="Buy cars up to 40% cheaper directly from auctions. Full vehicle inventory, inspection guarantee, financing, and nationwide delivery across Canada.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/site1/favicon.svg">
+
+  <link rel="preload" href="assets/fonts/Orbitron-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/HelveticaNeue-light.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="assets/css/site1.css">
+  <link rel="stylesheet" href="assets/css/page-dealer-extended.css">
+</head>
+<body class="page-dealer-ext">
+
+<!-- ══ FIXED HUD HEADER ══════════════════════════════════════════════════ -->
+<header class="hud" id="top">
+  <a class="hud__logo" href="index.html" aria-label="AutoDNA home">
+    <img src="assets/img/site1/logo.svg" width="37" height="21" alt="AutoDNA">
+  </a>
+  <button class="hud__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ══ FULLSCREEN MENU OVERLAY (EXACT FIGMA 464:3660 MATCH) ══════════════ -->
+<nav class="menu" id="menu" aria-label="Site menu" hidden>
+  <div class="menu__container">
+    <div class="menu__panel ticks">
+      <span class="tick tl"></span>
+      <span class="tick tr"></span>
+      <span class="tick bl"></span>
+      <span class="tick br"></span>
+
+      <ul class="menu-list">
+        <li class="menu-item">
+          <a href="index.html" class="menu-link">
+            <span class="menu-text">Home</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html#carlears" class="menu-link">
+            <span class="menu-text">Who We Are</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html#value" class="menu-link">
+            <span class="menu-text">Why AutoDNA</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html#compare" class="menu-link">
+            <span class="menu-text">Price Comparison</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+
+        <li class="menu-item menu-item--has-sub">
+          <a href="index.html#services" class="menu-link">
+            <div style="display: flex; align-items: flex-end;">
+              <span class="menu-text">Our Services</span>
+              <svg class="menu-chevron" viewBox="0 0 8 8" aria-hidden="true"><path d="M2 1L5 4L2 7"/></svg>
+            </div>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+          <ul class="menu-sublist">
+            <li class="menu-subitem">
+              <a href="skipthedealer.html" class="menu-sublink">
+                <span class="menu-subtext">SkipTheDealer (Quick)</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem">
+              <a href="skipthedealer-extended.html" class="menu-sublink is-active">
+                <span class="menu-subtext">SkipTheDealer (Extended)</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem">
+              <a href="skipthesearch.html" class="menu-sublink">
+                <span class="menu-subtext">SkipTheSearch</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem">
+              <a href="dnaservice.html" class="menu-sublink">
+                <span class="menu-subtext">AutoDNA Service</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem">
+              <a href="autodnaflip.html" class="menu-sublink">
+                <span class="menu-subtext">AutoDNA Flip</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="menu-item">
+          <a href="index.html#facts" class="menu-link">
+            <span class="menu-text">Facts &amp; Figures</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html#corporate" class="menu-link">
+            <span class="menu-text">About AutoDNA</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="#contact" class="menu-link">
+            <span class="menu-text">Contact</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="dealer-ext-main">
+
+  <!-- ══ DESKTOP BOARD (100% Vector SVG from Figma SkipTheDealer-1.svg, 1440x15951) ══ -->
+  <div class="dealer-ext-board dealer-ext-board--desktop">
+    <img src="assets/img/site1/skipthedealer-extended-desktop-clean.svg" class="dealer-ext-svg" alt="SkipTheDealer Extended — Showroom &amp; Direct Auction Sourcing" fetchpriority="high">
+
+    <!-- Interactive Top Logo Link -->
+    <a href="index.html" class="dealer-ext-hitarea dealer-ext-hitarea--top-logo" aria-label="AutoDNA Home"></a>
+
+    <!-- Interactive CTA Buttons -->
+    <a href="#how-it-works" class="dealer-ext-hitarea dealer-ext-hitarea--see-how" aria-label="See How It Works"></a>
+    <a href="#contact" class="dealer-ext-hitarea dealer-ext-hitarea--find-your-car" aria-label="Find Your Car"></a>
+    <a href="#contact" class="dealer-ext-hitarea dealer-ext-hitarea--find-my-car" aria-label="Find My Car"></a>
+    <a href="tel:+14033128306" class="dealer-ext-hitarea dealer-ext-hitarea--give-call" aria-label="Give Us A Call"></a>
+
+    <!-- Social Media Buttons -->
+    <a href="https://instagram.com" target="_blank" rel="noopener" class="dealer-ext-hitarea dealer-ext-hitarea--instagram" aria-label="Follow us on Instagram"></a>
+    <a href="https://t.me" target="_blank" rel="noopener" class="dealer-ext-hitarea dealer-ext-hitarea--telegram" aria-label="Follow us on Telegram"></a>
+
+    <!-- Bottom CTA Button -->
+    <a href="#contact" class="dealer-ext-hitarea dealer-ext-hitarea--submit" aria-label="Submit A Request"></a>
+
+    <!-- Target Anchors -->
+    <div id="how-it-works" style="position: absolute; top: 18%; left: 0;"></div>
+    <div id="contact" style="position: absolute; bottom: 2%; left: 0;"></div>
+
+    <!-- Interactive Footer Links -->
+    <a href="tel:+14033128306" class="dealer-ext-hitarea dealer-ext-hitarea--phone" aria-label="Call +1 (403) 312-8306"></a>
+    <a href="mailto:info@autodna.com" class="dealer-ext-hitarea dealer-ext-hitarea--email" aria-label="Email info@autodna.com"></a>
+
+    <div class="dealer-ext-hitarea dealer-ext-hitarea--socials">
+      <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"></a>
+      <a href="https://x.com" target="_blank" rel="noopener" aria-label="X (Twitter)"></a>
+      <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"></a>
+    </div>
+
+    <a href="https://maps.google.com/?q=730+2+Ave+SW+Calgary+T2P1R8+Canada" target="_blank" rel="noopener" class="dealer-ext-hitarea dealer-ext-hitarea--address" aria-label="Find us on Google Maps"></a>
+  </div>
+
+  <!-- ══ MOBILE BOARD (100% Vector SVG from Figma SkipTheDealer mob-5.svg, 393x17278) ══ -->
+  <div class="dealer-ext-board dealer-ext-board--mobile">
+    <img src="assets/img/site1/skipthedealer-extended-mobile-clean.svg" class="dealer-ext-svg" alt="SkipTheDealer Extended Mobile" fetchpriority="high">
+
+    <!-- Interactive Mobile Hitareas -->
+    <a href="index.html" class="dealer-ext-mob-hitarea dealer-ext-mob-hitarea--top-logo" aria-label="AutoDNA Home"></a>
+    <a href="#how-it-works" class="dealer-ext-mob-hitarea dealer-ext-mob-hitarea--see-how" aria-label="See How It Works"></a>
+    <a href="#contact" class="dealer-ext-mob-hitarea dealer-ext-mob-hitarea--find-your-car" aria-label="Find Your Car"></a>
+    <a href="#contact" class="dealer-ext-mob-hitarea dealer-ext-mob-hitarea--find-my-car" aria-label="Find My Car"></a>
+    <a href="tel:+14033128306" class="dealer-ext-mob-hitarea dealer-ext-mob-hitarea--give-call" aria-label="Give Us A Call"></a>
+    <a href="#contact" class="dealer-ext-mob-hitarea dealer-ext-mob-hitarea--submit" aria-label="Submit A Request"></a>
+
+    <a href="tel:+14033128306" class="dealer-ext-mob-hitarea dealer-ext-mob-hitarea--phone" aria-label="Call +1 (403) 312-8306"></a>
+    <a href="mailto:info@autodna.com" class="dealer-ext-mob-hitarea dealer-ext-mob-hitarea--email" aria-label="Email info@autodna.com"></a>
+    <a href="https://maps.google.com/?q=730+2+Ave+SW+Calgary+T2P1R8+Canada" target="_blank" rel="noopener" class="dealer-ext-mob-hitarea dealer-ext-mob-hitarea--address" aria-label="Find us on Google Maps"></a>
+  </div>
+
+</main>
+
+<script src="assets/js/page-dealer.js"></script>
+</body>
+</html>

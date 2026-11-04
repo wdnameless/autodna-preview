@@ -1,0 +1,270 @@
+/* ══ SKIPTHEDEALER EXTENDED PAGE STYLES (100% VECTOR SVG / TRUE FULL-SCREEN) ══ */
+
+.page-dealer-ext {
+  background-color: #020202;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+.dealer-ext-main {
+  position: relative;
+  width: 100%;
+  background-color: #020202;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* ══ DESKTOP BOARD (1440 x 15951) ══════════════════════════════════════ */
+.dealer-ext-board--desktop {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  display: block;
+}
+
+.dealer-ext-board--mobile {
+  display: none !important;
+}
+
+.dealer-ext-svg {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ══ INTERACTIVE HITAREAS (DESKTOP) ════════════════════════════════════ */
+.dealer-ext-hitarea {
+  position: absolute;
+  z-index: 15;
+  cursor: pointer;
+  border-radius: 2px;
+  background: transparent;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Top Back / Logo Link */
+.dealer-ext-hitarea--top-logo {
+  left: 1.5%;
+  top: 0.25%;
+  width: 13.5%;
+  height: 0.45%;
+}
+
+/* SEE HOW IT WORKS ↘ (Hero CTA) */
+.dealer-ext-hitarea--see-how {
+  left: 77.0%;
+  top: 4.80%;
+  width: 20.0%;
+  height: 0.45%;
+}
+
+.dealer-ext-hitarea--see-how:hover {
+  background: rgba(150, 133, 255, 0.22);
+  box-shadow: 0 0 25px rgba(150, 133, 255, 0.7);
+}
+
+/* FIND YOUR CAR ↗ (Inventory CTA at y=2721) */
+.dealer-ext-hitarea--find-your-car {
+  left: 39.95%;
+  top: 16.90%;
+  width: 20.10%;
+  height: 0.45%;
+}
+
+.dealer-ext-hitarea--find-your-car:hover {
+  background: rgba(150, 133, 255, 0.25);
+  box-shadow: 0 0 30px rgba(150, 133, 255, 0.8);
+}
+
+/* FIND MY CAR ↗ (Inspection CTA at y=10335) */
+.dealer-ext-hitarea--find-my-car {
+  left: 74.15%;
+  top: 64.60%;
+  width: 20.10%;
+  height: 0.50%;
+}
+
+.dealer-ext-hitarea--find-my-car:hover {
+  background: rgba(150, 133, 255, 0.25);
+  box-shadow: 0 0 30px rgba(150, 133, 255, 0.8);
+}
+
+/* GIVE US A CALL ↗ (Warranty CTA at y=12518) */
+.dealer-ext-hitarea--give-call {
+  left: 74.15%;
+  top: 78.35%;
+  width: 20.10%;
+  height: 0.50%;
+}
+
+.dealer-ext-hitarea--give-call:hover {
+  background: rgba(150, 133, 255, 0.25);
+  box-shadow: 0 0 30px rgba(150, 133, 255, 0.8);
+}
+
+/* Social links (Instagram & Telegram) */
+.dealer-ext-hitarea--instagram {
+  left: 1.5%;
+  top: 90.25%;
+  width: 20.0%;
+  height: 0.45%;
+}
+
+.dealer-ext-hitarea--telegram {
+  left: 23.5%;
+  top: 90.25%;
+  width: 20.0%;
+  height: 0.45%;
+}
+
+.dealer-ext-hitarea--instagram:hover,
+.dealer-ext-hitarea--telegram:hover {
+  background: rgba(150, 133, 255, 0.2);
+  box-shadow: 0 0 20px rgba(150, 133, 255, 0.6);
+}
+
+/* SUBMIT A REQUEST ↗ (Bottom CTA at y=14833) */
+.dealer-ext-hitarea--submit {
+  left: 39.95%;
+  top: 92.80%;
+  width: 20.10%;
+  height: 0.50%;
+}
+
+.dealer-ext-hitarea--submit:hover {
+  background: rgba(150, 133, 255, 0.3);
+  box-shadow: 0 0 35px rgba(150, 133, 255, 0.9);
+}
+
+/* Footer Links */
+.dealer-ext-hitarea--phone {
+  left: 2.5%;
+  top: 98.90%;
+  width: 18%;
+  height: 0.35%;
+}
+
+.dealer-ext-hitarea--email {
+  left: 2.5%;
+  top: 99.20%;
+  width: 18%;
+  height: 0.35%;
+}
+
+.dealer-ext-hitarea--socials {
+  left: 42.0%;
+  top: 98.95%;
+  width: 16%;
+  height: 0.45%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dealer-ext-hitarea--socials a {
+  display: block;
+  width: 30%;
+  height: 100%;
+}
+
+.dealer-ext-hitarea--address {
+  left: 72.0%;
+  top: 98.85%;
+  width: 22%;
+  height: 0.60%;
+}
+
+/* ══ MOBILE LAYOUT (393 x 17278) ═══════════════════════════════════════ */
+@media (max-width: 768px) {
+  .dealer-ext-board--desktop {
+    display: none !important;
+  }
+
+  .dealer-ext-board--mobile {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    background-color: #020202 !important;
+    overflow: hidden !important;
+  }
+
+  .dealer-ext-mob-hitarea {
+    position: absolute;
+    z-index: 15;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  /* Mobile Top Logo */
+  .dealer-ext-mob-hitarea--top-logo {
+    left: 4.5%;
+    top: 0.25%;
+    width: 45%;
+    height: 0.35%;
+  }
+
+  /* Mobile SEE HOW IT WORKS */
+  .dealer-ext-mob-hitarea--see-how {
+    left: 13.0%;
+    top: 4.30%;
+    width: 74.0%;
+    height: 0.40%;
+  }
+
+  /* Mobile FIND YOUR CAR */
+  .dealer-ext-mob-hitarea--find-your-car {
+    left: 7.5%;
+    top: 22.40%;
+    width: 85.0%;
+    height: 0.40%;
+  }
+
+  /* Mobile FIND MY CAR */
+  .dealer-ext-mob-hitarea--find-my-car {
+    left: 12.0%;
+    top: 62.65%;
+    width: 76.0%;
+    height: 0.40%;
+  }
+
+  /* Mobile GIVE US A CALL */
+  .dealer-ext-mob-hitarea--give-call {
+    left: 12.0%;
+    top: 75.70%;
+    width: 76.0%;
+    height: 0.40%;
+  }
+
+  /* Mobile SUBMIT A REQUEST */
+  .dealer-ext-mob-hitarea--submit {
+    left: 12.0%;
+    top: 91.15%;
+    width: 76.0%;
+    height: 0.45%;
+  }
+
+  /* Mobile Footer */
+  .dealer-ext-mob-hitarea--phone {
+    left: 5%;
+    top: 96.65%;
+    width: 90%;
+    height: 0.25%;
+  }
+
+  .dealer-ext-mob-hitarea--email {
+    left: 5%;
+    top: 96.90%;
+    width: 90%;
+    height: 0.25%;
+  }
+
+  .dealer-ext-mob-hitarea--address {
+    left: 5%;
+    top: 98.75%;
+    width: 90%;
+    height: 0.50%;
+  }
+}
