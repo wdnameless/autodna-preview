@@ -1,0 +1,253 @@
+/* ══ SKIPTHESEARCH PAGE STYLES (100% VECTOR SVG / TRUE FULL-SCREEN) ══ */
+
+.page-search {
+  background-color: #020202;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+.page-search .hud__logo {
+  visibility: hidden;
+}
+
+.search-main {
+  position: relative;
+  width: 100%;
+  background-color: #020202;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* ══ DESKTOP BOARD (1440 x 9981) ═══════════════════════════════════════ */
+.search-board--desktop {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  display: block;
+}
+
+.search-board--mobile {
+  display: none !important;
+}
+
+.search-svg {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ══ INTERACTIVE STEP SWITCHER (HOW OUR SERVICE WORKS) ═════════════════ */
+.search-steps-container {
+  position: absolute;
+  left: 0;
+  top: 34.616%;
+  width: 100%;
+  height: 15.54%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.search-step-view {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: #020202;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.search-step-view.is-active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  z-index: 10;
+}
+
+.search-step-view img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Interactive Step Buttons (Step 1 to Step 5) */
+.search-step-btn {
+  position: absolute;
+  top: 39.55%;
+  height: 0.65%;
+  z-index: 20;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-step-btn--1 { left: 4.10%;  width: 10.35%; }
+.search-step-btn--2 { left: 24.45%; width: 10.35%; }
+.search-step-btn--3 { left: 44.80%; width: 10.35%; }
+.search-step-btn--4 { left: 65.15%; width: 10.35%; }
+.search-step-btn--5 { left: 85.50%; width: 10.35%; }
+
+.search-step-btn:hover {
+  background: rgba(150, 133, 255, 0.2);
+  box-shadow: 0 0 20px rgba(150, 133, 255, 0.6);
+}
+
+.search-step-btn.is-active {
+  background: rgba(150, 133, 255, 0.3);
+  box-shadow: 0 0 25px rgba(150, 133, 255, 0.8);
+}
+
+/* ══ INTERACTIVE HITAREAS (DESKTOP) ════════════════════════════════════ */
+.search-hitarea {
+  position: absolute;
+  z-index: 15;
+  cursor: pointer;
+  border-radius: 2px;
+  background: transparent;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Top Back / Logo Link */
+.search-hitarea--top-logo {
+  left: 1.5%;
+  top: 0.35%;
+  width: 13.5%;
+  height: 0.55%;
+}
+
+/* FIND MY CAR ↗ CTA button */
+.search-hitarea--find-car {
+  left: 74.15%;
+  top: 18.08%;
+  width: 20.10%;
+  height: 0.82%;
+}
+
+.search-hitarea--find-car:hover {
+  background: rgba(150, 133, 255, 0.25);
+  box-shadow: 0 0 30px rgba(150, 133, 255, 0.8);
+}
+
+/* Bottom CTA Button */
+.search-hitarea--cta-bottom {
+  left: 39.95%;
+  top: 89.20%;
+  width: 20.10%;
+  height: 0.75%;
+}
+
+.search-hitarea--cta-bottom:hover {
+  background: rgba(150, 133, 255, 0.25);
+  box-shadow: 0 0 30px rgba(150, 133, 255, 0.8);
+}
+
+/* Footer Links */
+.search-hitarea--phone {
+  left: 2.5%;
+  top: 97.10%;
+  width: 18%;
+  height: 0.55%;
+}
+
+.search-hitarea--email {
+  left: 2.5%;
+  top: 97.50%;
+  width: 18%;
+  height: 0.55%;
+}
+
+.search-hitarea--socials {
+  left: 95.0%;
+  top: 97.20%;
+  width: 3.5%;
+  height: 0.65%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-hitarea--socials a {
+  display: block;
+  width: 30%;
+  height: 100%;
+}
+
+.search-hitarea--address {
+  left: 72.0%;
+  top: 97.00%;
+  width: 22%;
+  height: 0.95%;
+}
+
+/* ══ MOBILE LAYOUT (393 x 10971) ═══════════════════════════════════════ */
+@media (max-width: 768px) {
+  .search-board--desktop {
+    display: none !important;
+  }
+
+  .search-board--mobile {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    background-color: #020202 !important;
+    overflow: hidden !important;
+  }
+
+  .search-mob-hitarea {
+    position: absolute;
+    z-index: 15;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  /* Mobile Top Logo */
+  .search-mob-hitarea--top-logo {
+    left: 4.5%;
+    top: 0.4%;
+    width: 45%;
+    height: 0.5%;
+  }
+
+  /* Mobile FIND MY CAR Button */
+  .search-mob-hitarea--find-car {
+    left: 13.0%;
+    top: 21.30%;
+    width: 74.0%;
+    height: 0.65%;
+  }
+
+  .search-mob-hitarea--find-car:active {
+    background: rgba(150, 133, 255, 0.3);
+  }
+
+  /* Mobile Footer */
+  .search-mob-hitarea--phone {
+    left: 5%;
+    top: 94.80%;
+    width: 90%;
+    height: 0.45%;
+  }
+
+  .search-mob-hitarea--email {
+    left: 5%;
+    top: 95.15%;
+    width: 90%;
+    height: 0.45%;
+  }
+
+  .search-mob-hitarea--address {
+    left: 5%;
+    top: 98.10%;
+    width: 90%;
+    height: 0.85%;
+  }
+}

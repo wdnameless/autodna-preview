@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkipTheSearch — Car Search &amp; Private Seller Buying Service | AutoDNA</title>
+  <meta name="description" content="We find, inspect, and help you negotiate cars from private sellers in Calgary. Buy like an expert without becoming one.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/site1/favicon.svg">
+
+  <link rel="preload" href="assets/fonts/Orbitron-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/HelveticaNeue-light.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="assets/css/site1.css">
+  <link rel="stylesheet" href="assets/css/page-search.css">
+</head>
+<body class="page-search">
+
+<!-- ══ FIXED HUD HEADER ══════════════════════════════════════════════════ -->
+<header class="hud" id="top">
+  <a class="hud__logo" href="index.html" aria-label="AutoDNA home">
+    <img src="assets/img/site1/logo.svg" width="37" height="21" alt="AutoDNA">
+  </a>
+  <button class="hud__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ══ FULLSCREEN MENU OVERLAY (EXACT FIGMA 464:3660 MATCH) ══════════════ -->
+<nav class="menu" id="menu" aria-label="Site menu" hidden>
+  <div class="menu__container">
+    <div class="menu__panel ticks">
+      <span class="tick tl"></span>
+      <span class="tick tr"></span>
+      <span class="tick bl"></span>
+      <span class="tick br"></span>
+
+      <ul class="menu-list">
+        <li class="menu-item">
+          <a href="index.html" class="menu-link">
+            <span class="menu-text">Home</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html#carlears" class="menu-link">
+            <span class="menu-text">Who We Are</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html#value" class="menu-link">
+            <span class="menu-text">Why AutoDNA</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html#compare" class="menu-link">
+            <span class="menu-text">Price Comparison</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+
+        <li class="menu-item menu-item--has-sub">
+          <a href="index.html#services" class="menu-link">
+            <div style="display: flex; align-items: flex-end;">
+              <span class="menu-text">Our Services</span>
+              <svg class="menu-chevron" viewBox="0 0 8 8" aria-hidden="true"><path d="M2 1L5 4L2 7"/></svg>
+            </div>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+          <ul class="menu-sublist">
+            <li class="menu-subitem">
+              <a href="skipthedealer.html" class="menu-sublink">
+                <span class="menu-subtext">SkipTheDealer</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem">
+              <a href="skipthesearch.html" class="menu-sublink is-active">
+                <span class="menu-subtext">SkipTheSearch</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem">
+              <a href="dnaservice.html" class="menu-sublink">
+                <span class="menu-subtext">AutoDNA Service</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem">
+              <a href="autodnaflip.html" class="menu-sublink">
+                <span class="menu-subtext">AutoDNA Flip</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="menu-item">
+          <a href="index.html#facts" class="menu-link">
+            <span class="menu-text">Facts &amp; Figures</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html#corporate" class="menu-link">
+            <span class="menu-text">About AutoDNA</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="#contact" class="menu-link">
+            <span class="menu-text">Contact</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="search-main">
+
+  <!-- ══ DESKTOP BOARD (100% Vector SVG from Figma SkipTheSearch.svg, 1440x9981) ══ -->
+  <div class="search-board search-board--desktop">
+    <img src="assets/img/site1/skipthesearch-desktop-clean.svg" class="search-svg" alt="SkipTheSearch — Car Search &amp; Private Seller Buying Service" fetchpriority="high">
+
+    <!-- Interactive Step Buttons (Step 1 to Step 5) -->
+    <button type="button" class="search-step-btn search-step-btn--1 is-active" data-step="1" aria-label="Step 1: Tell Us What Is Your Dream"></button>
+    <button type="button" class="search-step-btn search-step-btn--2" data-step="2" aria-label="Step 2: We Find The Best Cars On The Market"></button>
+    <button type="button" class="search-step-btn search-step-btn--3" data-step="3" aria-label="Step 3: We Inspect The Cars For You"></button>
+    <button type="button" class="search-step-btn search-step-btn--4" data-step="4" aria-label="Step 4: Repair Cost Estimate"></button>
+    <button type="button" class="search-step-btn search-step-btn--5" data-step="5" aria-label="Step 5: We Negotiate With The Seller"></button>
+
+    <!-- Dynamic Overlay Views for Steps 2 to 5 -->
+    <div class="search-steps-container" id="steps-container">
+      <div class="search-step-view is-active" data-step-view="1"></div>
+      <div class="search-step-view" data-step-view="2">
+        <img src="assets/img/site1/skipthesearch-step-2.svg" alt="Step 2: We Find The Best Cars On The Market" loading="eager">
+      </div>
+      <div class="search-step-view" data-step-view="3">
+        <img src="assets/img/site1/skipthesearch-step-3.svg" alt="Step 3: We Inspect The Cars For You" loading="eager">
+      </div>
+      <div class="search-step-view" data-step-view="4">
+        <img src="assets/img/site1/skipthesearch-step-4.svg" alt="Step 4: Repair Cost Estimate" loading="eager">
+      </div>
+      <div class="search-step-view" data-step-view="5">
+        <img src="assets/img/site1/skipthesearch-step-5.svg" alt="Step 5: We Negotiate With The Seller" loading="eager">
+      </div>
+    </div>
+
+    <!-- Interactive Top Logo Link -->
+    <a href="index.html" class="search-hitarea search-hitarea--top-logo" aria-label="AutoDNA Home"></a>
+
+    <!-- Interactive CTA Buttons -->
+    <a href="#contact" class="search-hitarea search-hitarea--find-car" aria-label="Find My Car"></a>
+    <a href="#contact" class="search-hitarea search-hitarea--cta-bottom" aria-label="Submit Request"></a>
+
+    <!-- Target Anchor for Contact Links -->
+    <div id="contact" style="position: absolute; bottom: 3%; left: 0;"></div>
+
+    <!-- Interactive Footer Links -->
+    <a href="tel:+14033128306" class="search-hitarea search-hitarea--phone" aria-label="Call +1 (403) 312-8306"></a>
+    <a href="mailto:info@autodna.com" class="search-hitarea search-hitarea--email" aria-label="Email info@autodna.com"></a>
+
+    <div class="search-hitarea search-hitarea--socials">
+      <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"></a>
+      <a href="https://x.com" target="_blank" rel="noopener" aria-label="X (Twitter)"></a>
+      <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"></a>
+    </div>
+
+    <a href="https://maps.google.com/?q=730+2+Ave+SW+Calgary+T2P1R8+Canada" target="_blank" rel="noopener" class="search-hitarea search-hitarea--address" aria-label="Find us on Google Maps"></a>
+  </div>
+
+  <!-- ══ MOBILE BOARD (100% Vector SVG from Figma SkipTheSearch-5.svg, 393x10971) ══ -->
+  <div class="search-board search-board--mobile">
+    <img src="assets/img/site1/skipthesearch-mobile-clean.svg" class="search-svg" alt="SkipTheSearch Mobile" fetchpriority="high">
+
+    <!-- Interactive Mobile Hitareas -->
+    <a href="index.html" class="search-mob-hitarea search-mob-hitarea--top-logo" aria-label="AutoDNA Home"></a>
+    <a href="#contact" class="search-mob-hitarea search-mob-hitarea--find-car" aria-label="Find My Car"></a>
+    <a href="tel:+14033128306" class="search-mob-hitarea search-mob-hitarea--phone" aria-label="Call +1 (403) 312-8306"></a>
+    <a href="mailto:info@autodna.com" class="search-mob-hitarea search-mob-hitarea--email" aria-label="Email info@autodna.com"></a>
+    <a href="https://maps.google.com/?q=730+2+Ave+SW+Calgary+T2P1R8+Canada" target="_blank" rel="noopener" class="search-mob-hitarea search-mob-hitarea--address" aria-label="Find us on Google Maps"></a>
+  </div>
+
+</main>
+
+<script src="assets/js/page-search.js"></script>
+</body>
+</html>
