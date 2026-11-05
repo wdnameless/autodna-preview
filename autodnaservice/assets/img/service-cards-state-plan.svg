@@ -1,10 +1,10 @@
 <svg width="100%" height="auto" viewBox="0 0 1440 769" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
-<g id="Desktop - 55" clip-path="url(#clip0_464_7963)">
-<rect width="1440" height="769" fill="#020202"/>
+<g id="Desktop - 55" >
+<rect width="1440" height="769" fill="#8776D8"/>
 <g id="freepik__realistic-night-scene-of-a-large-car-auction-in-pr__66214">
-<rect x="24.0586" y="23.8359" width="1388.51" height="716.633" fill="url(#pattern0_464_7963)"/>
-<rect x="24.0586" y="23.8359" width="1388.51" height="716.633" fill="url(#pattern1_464_7963)"/>
+<rect x="0" y="0" width="1440" height="769" fill="url(#pattern0_464_7963)"/>
+<rect x="0" y="0" width="1440" height="769" fill="url(#pattern1_464_7963)"/>
 </g>
 <g id="Frame 1649">
 <path id="Vector 6" d="M24.0586 468.312V449.469H42.902" stroke="#C2B9FF"/>
