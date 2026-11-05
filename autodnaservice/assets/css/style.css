@@ -378,18 +378,14 @@ body.site-service {
   position: absolute;
   z-index: 25;
   cursor: pointer;
-  background: transparent;
-  transition: background 0.2s ease, box-shadow 0.2s ease;
-  border-radius: 2px;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
-.hero-ind-hitarea:hover {
-  background: rgba(150, 133, 255, 0.12);
-  box-shadow: 0 0 16px rgba(150, 133, 255, 0.4);
-}
-.hero-ind-hitarea--shop  { left: 78.5%; top: 54.5%; width: 20.0%; height: 6.5%; }
-.hero-ind-hitarea--plan  { left: 78.5%; top: 63.5%; width: 20.0%; height: 6.5%; }
-.hero-ind-hitarea--paint { left: 78.5%; top: 76.5%; width: 20.0%; height: 6.5%; }
-
+.hero-ind-hitarea--shop  { left: 79.5%; top: 49.5%; width: 19.5%; height: 8.0%; }
+.hero-ind-hitarea--plan  { left: 79.5%; top: 59.0%; width: 19.5%; height: 6.5%; }
+.hero-ind-hitarea--paint { left: 79.5%; top: 66.5%; width: 19.5%; height: 8.0%; }
 /* ══ 2. CALGARY HITAREAS ═══════════════════════════════════════════════ */
 .calgary-hitarea--official {
   position: absolute;
