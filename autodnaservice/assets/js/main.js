@@ -6,9 +6,9 @@
 
   // ══ 1. MULTI-SERVICE TABS (Switch on HOVER & click) ═══════════════════
   function initMultiview() {
-    const columnBtns = document.querySelectorAll('.service-tab-btn, .multiview-column-btn');
-    const states = document.querySelectorAll('.multiview-state');
-    if (!states.length) return;
+    const columnBtns = document.querySelectorAll('.service-col-btn, .service-tab-btn, .multiview-column-btn');
+    const views = document.querySelectorAll('.service-card-view, .multiview-state');
+    if (!columnBtns.length && !views.length) return;
 
     window.activateServiceTab = function(service) {
       columnBtns.forEach(b => {
@@ -16,19 +16,18 @@
         b.classList.toggle('is-active', isActive);
       });
 
-      states.forEach(s => {
-        const isActive = s.classList.contains('multiview-state--' + service);
-        s.classList.toggle('is-active', isActive);
+      views.forEach(v => {
+        const vService = v.getAttribute('data-service-view') || (v.classList.contains('multiview-state--' + service) ? service : '');
+        const isActive = vService === service;
+        v.classList.toggle('is-active', isActive);
       });
     };
 
     columnBtns.forEach(btn => {
-      // Hover switches image & active card immediately
       btn.addEventListener('mouseenter', () => {
         const service = btn.getAttribute('data-service');
         if (service) window.activateServiceTab(service);
       });
-      // Click also switches
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         const service = btn.getAttribute('data-service');

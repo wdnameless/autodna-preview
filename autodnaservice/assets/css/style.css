@@ -357,11 +357,10 @@ body.site-service {
   background-color: var(--bg);
 }
 
-.section-block {
+.service-board-full {
   position: relative;
-  width: 100% !important;
-  max-width: 100% !important;
-  margin: 0 !important;
+  width: 100%;
+  margin: 0;
   background-color: var(--bg);
 }
 
@@ -373,7 +372,7 @@ body.site-service {
   display: block !important;
 }
 
-/* ══ 1. HERO INDICATORS ════════════════════════════════════════════════ */
+/* ══ 1. HERO INDICATORS (y=480..716 in 7923px canvas) ══════════════════ */
 .hero-ind-hitarea {
   position: absolute;
   z-index: 25;
@@ -383,112 +382,99 @@ body.site-service {
   box-shadow: none !important;
   outline: none !important;
 }
-.hero-ind-hitarea--shop  { left: 79.5%; top: 24.77%; width: 19.5%; height: 3.92%; }
-.hero-ind-hitarea--plan  { left: 79.5%; top: 29.51%; width: 19.5%; height: 3.10%; }
-.hero-ind-hitarea--paint { left: 79.5%; top: 33.02%; width: 19.5%; height: 3.92%; }
-/* ══ 2. CALGARY HITAREAS ═══════════════════════════════════════════════ */
-.calgary-hitarea--official {
+.hero-ind-hitarea--shop  { left: 79.5%; top: 6.05%; width: 19.5%; height: 0.98%; }
+.hero-ind-hitarea--plan  { left: 79.5%; top: 7.21%; width: 19.5%; height: 0.76%; }
+.hero-ind-hitarea--paint { left: 79.5%; top: 8.08%; width: 19.5%; height: 0.98%; }
+
+/* ══ 2. OFFICIAL SITE BUTTON (y=1950..2030 in 7923px canvas) ═══════════ */
+.service-full-hitarea--official {
   position: absolute;
-  left: 39.99%;
-  top: 85.5%;
+  left: 40.0%;
+  top: 24.60%;
   width: 20.07%;
-  height: 6.1%;
+  height: 1.01%;
   z-index: 25;
   cursor: pointer;
   border-radius: 2px;
   transition: background 0.2s ease, box-shadow 0.2s ease;
 }
-.calgary-hitarea--official:hover {
+.service-full-hitarea--official:hover {
   background: rgba(150, 133, 255, 0.18);
   box-shadow: 0 0 30px rgba(150, 133, 255, 0.6);
 }
 
-/* ══ 3. MULTIVIEW 3-STATE COMPONENT (1440 x 1283 FIGMA COMPONENT 8) ═════ */
-.section-block--multiview {
-  position: relative;
+/* ══ 3. 3-STATE CARDS COMPONENT (y=2275.5..3044.5 in 7923px canvas) ═══ */
+.service-cards-container {
+  position: absolute;
+  left: 0;
+  top: 28.72%;
   width: 100%;
-  overflow: hidden;
-  background-color: var(--bg);
+  height: 9.705%;
+  pointer-events: none;
+  z-index: 10;
 }
 
-.multiview-stage {
-  position: relative;
-  width: 100%;
-}
-
-.multiview-state {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.multiview-state:not(.is-active) {
+.service-card-view {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
   opacity: 0;
-  pointer-events: none;
   visibility: hidden;
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
 }
 
-.multiview-state.is-active {
-  position: relative;
-  opacity: 1;
-  pointer-events: auto;
-  visibility: visible;
+.service-card-view.is-active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  z-index: 10;
 }
 
-/* Interactive Tab Buttons over the tabs bar — Exact 1:1 match to Figma Component 8 */
-.service-tab-btn {
+.service-card-view img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* 3 Clickable Column Cards across the bottom (y=2725..3016 in 7923px canvas) */
+.service-col-btn {
   position: absolute;
-  z-index: 20;
+  top: 34.39%;
+  height: 3.67%;
+  z-index: 25;
   cursor: pointer;
   background: transparent;
   border: none;
   outline: none;
-  padding: 0;
   border-radius: 2px;
   transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
-.service-tab-btn--shop {
-  left: 24.583%;
-  top: 26.500%;
-  width: 10.139%;
-  height: 6.235%;
+.service-col-btn--shop  { left: 1.78%;  width: 31.53%; }
+.service-col-btn--plan  { left: 34.12%; width: 31.53%; }
+.service-col-btn--paint { left: 66.53%; width: 31.53%; }
+
+.service-col-btn:hover {
+  background: rgba(150, 133, 255, 0.12);
+  box-shadow: 0 0 20px rgba(150, 133, 255, 0.4);
 }
 
-.service-tab-btn--plan {
-  left: 44.931%;
-  top: 26.500%;
-  width: 10.139%;
-  height: 6.235%;
-}
-
-.service-tab-btn--paint {
-  left: 65.278%;
-  top: 26.500%;
-  width: 10.139%;
-  height: 6.235%;
-}
-
-.service-tab-btn:hover {
-  background: rgba(150, 133, 255, 0.15);
-  box-shadow: 0 0 20px rgba(150, 133, 255, 0.5);
-}
-/* ══ 4. FOOTER HITAREAS ════════════════════════════════════════════════ */
-.footer-hitarea--contact-btn {
+/* ══ 4. FOOTER HITAREAS (y=7470..7923 in 7923px canvas) ════════════════ */
+.service-full-hitarea--contact-btn {
   position: absolute;
-  left: 40.03%;
-  top: 90.7%;
+  left: 40.0%;
+  top: 94.30%;
   width: 20.07%;
-  height: 1.65%;
+  height: 1.01%;
   z-index: 25;
   cursor: pointer;
   border-radius: 2px;
   transition: background 0.2s ease, box-shadow 0.2s ease;
 }
-.footer-hitarea--contact-btn:hover {
+.service-full-hitarea--contact-btn:hover {
   background: rgba(150, 133, 255, 0.18);
   box-shadow: 0 0 30px rgba(150, 133, 255, 0.6);
 }

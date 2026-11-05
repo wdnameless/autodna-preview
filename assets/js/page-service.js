@@ -94,8 +94,8 @@
 
   // Interactive in-place service tabs switcher (Switch on HOVER & click)
   function initServiceTabs() {
-    const btns = document.querySelectorAll('.service-tab-btn');
-    const layers = document.querySelectorAll('.service-view-layer');
+    const btns = document.querySelectorAll('.service-col-btn, .service-tab-btn');
+    const layers = document.querySelectorAll('.service-card-view, .service-view-layer');
     if (!btns.length || !layers.length) return;
 
     function activateTab(service) {
