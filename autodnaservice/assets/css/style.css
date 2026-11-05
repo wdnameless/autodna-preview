@@ -383,9 +383,9 @@ body.site-service {
   box-shadow: none !important;
   outline: none !important;
 }
-.hero-ind-hitarea--shop  { left: 79.5%; top: 49.5%; width: 19.5%; height: 8.0%; }
-.hero-ind-hitarea--plan  { left: 79.5%; top: 59.0%; width: 19.5%; height: 6.5%; }
-.hero-ind-hitarea--paint { left: 79.5%; top: 66.5%; width: 19.5%; height: 8.0%; }
+.hero-ind-hitarea--shop  { left: 79.5%; top: 24.77%; width: 19.5%; height: 3.92%; }
+.hero-ind-hitarea--plan  { left: 79.5%; top: 29.51%; width: 19.5%; height: 3.10%; }
+.hero-ind-hitarea--paint { left: 79.5%; top: 33.02%; width: 19.5%; height: 3.92%; }
 /* ══ 2. CALGARY HITAREAS ═══════════════════════════════════════════════ */
 .calgary-hitarea--official {
   position: absolute;
