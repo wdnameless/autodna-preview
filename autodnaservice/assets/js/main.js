@@ -6,7 +6,7 @@
 
   // ══ 1. MULTI-SERVICE TABS (Switch on HOVER & click) ═══════════════════
   function initMultiview() {
-    const columnBtns = document.querySelectorAll('.multiview-column-btn');
+    const columnBtns = document.querySelectorAll('.service-tab-btn, .multiview-column-btn');
     const states = document.querySelectorAll('.multiview-state');
     if (!states.length) return;
 

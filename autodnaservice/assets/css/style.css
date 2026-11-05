@@ -403,13 +403,14 @@ body.site-service {
   box-shadow: 0 0 30px rgba(150, 133, 255, 0.6);
 }
 
-/* ══ 3. MULTIVIEW 3-STATE COMPONENT (1440 x 769 EXACT FIGMA MATCH) ═════ */
+/* ══ 3. MULTIVIEW 3-STATE COMPONENT (1440 x 1283 FIGMA COMPONENT 8) ═════ */
 .section-block--multiview {
   position: relative;
   width: 100%;
   overflow: hidden;
-  background-color: #8776D8;
+  background-color: var(--bg);
 }
+
 .multiview-stage {
   position: relative;
   width: 100%;
@@ -419,7 +420,7 @@ body.site-service {
   width: 100%;
   height: auto;
   display: block;
-  transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .multiview-state:not(.is-active) {
@@ -437,12 +438,10 @@ body.site-service {
   visibility: visible;
 }
 
-/* 3 Clickable Columns across the bottom (SkipTheShop, DriveCarePlan, PaintBot) */
-.multiview-column-btn {
+/* Interactive Tab Buttons over the tabs bar — Exact 1:1 match to Figma Component 8 */
+.service-tab-btn {
   position: absolute;
-  top: 58.5%;
-  height: 38.0%;
-  z-index: 30;
+  z-index: 20;
   cursor: pointer;
   background: transparent;
   border: none;
@@ -452,26 +451,31 @@ body.site-service {
   transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
-.multiview-column-btn:hover {
+.service-tab-btn--shop {
+  left: 24.583%;
+  top: 26.500%;
+  width: 10.139%;
+  height: 6.235%;
+}
+
+.service-tab-btn--plan {
+  left: 44.931%;
+  top: 26.500%;
+  width: 10.139%;
+  height: 6.235%;
+}
+
+.service-tab-btn--paint {
+  left: 65.278%;
+  top: 26.500%;
+  width: 10.139%;
+  height: 6.235%;
+}
+
+.service-tab-btn:hover {
   background: rgba(150, 133, 255, 0.15);
-  box-shadow: 0 0 25px rgba(150, 133, 255, 0.5);
+  box-shadow: 0 0 20px rgba(150, 133, 255, 0.5);
 }
-
-.multiview-column-btn--shop {
-  left: 1.67%;
-  width: 31.6%;
-}
-
-.multiview-column-btn--plan {
-  left: 34.17%;
-  width: 31.6%;
-}
-
-.multiview-column-btn--paint {
-  left: 66.67%;
-  width: 31.6%;
-}
-
 /* ══ 4. FOOTER HITAREAS ════════════════════════════════════════════════ */
 .footer-hitarea--contact-btn {
   position: absolute;
