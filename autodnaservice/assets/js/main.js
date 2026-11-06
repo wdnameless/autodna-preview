@@ -29,8 +29,14 @@
         if (service) window.activateServiceTab(service);
       });
       btn.addEventListener('click', (e) => {
-        e.preventDefault();
         const service = btn.getAttribute('data-service');
+        const href = btn.getAttribute('href') || btn.getAttribute('data-href');
+        // If already active or arrow clicked, navigate to subpage!
+        if (btn.classList.contains('is-active') && href && href !== '#') {
+          window.location.href = href;
+          return;
+        }
+        e.preventDefault();
         if (service) window.activateServiceTab(service);
       });
     });
