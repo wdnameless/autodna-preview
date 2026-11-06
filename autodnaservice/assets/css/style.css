@@ -593,3 +593,50 @@ body.site-service {
     height: 1.5%;
   }
 }
+
+/* ══ 5. CATALOG GRID HITAREAS & HOVER EFFECTS ══════════════════════════ */
+.cat-grid-btn {
+  position: absolute;
+  z-index: 25;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 2px;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cat-grid-btn:hover {
+  background: rgba(150, 133, 255, 0.16);
+  box-shadow: 0 0 20px rgba(150, 133, 255, 0.5);
+}
+
+.cat-grid-item {
+  position: absolute;
+  left: 5.37%;
+  width: 20.56%;
+  z-index: 25;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 2px;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cat-grid-item:hover {
+  background: rgba(150, 133, 255, 0.14);
+  box-shadow: 0 0 15px rgba(150, 133, 255, 0.35);
+}
+
+.cat-grid-insp-item {
+  position: absolute;
+  left: 28.29%;
+  width: 20.56%;
+  z-index: 25;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 2px;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cat-grid-insp-item:hover {
+  background: rgba(150, 133, 255, 0.14);
+  box-shadow: 0 0 15px rgba(150, 133, 255, 0.35);
+}
