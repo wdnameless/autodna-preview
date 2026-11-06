@@ -53,7 +53,7 @@
     subItems.forEach(item => {
       const link = item.querySelector('.menu-link');
       if (link) {
-        link.addEventListener('click', (e) => {
+        link.addEventListener('click', () => {
           // If on touch device, toggle submenu
           if (window.matchMedia('(max-width: 768px)').matches || e.target.closest('.menu-chevron')) {
             if (!item.classList.contains('is-expanded')) {
@@ -92,11 +92,11 @@
     });
   }
 
-  // Interactive in-place service tabs switcher (Switch on HOVER & click)
+  // Interactive in-place service tabs switcher & direct subpage navigation
   function initServiceTabs() {
     const btns = document.querySelectorAll('.service-col-btn, .service-tab-btn');
     const layers = document.querySelectorAll('.service-card-view, .service-view-layer');
-    if (!btns.length || !layers.length) return;
+    if (!btns.length && !layers.length) return;
 
     function activateTab(service) {
       btns.forEach(b => {
@@ -105,7 +105,8 @@
       });
 
       layers.forEach(layer => {
-        const isActive = layer.classList.contains('service-view-layer--' + service);
+        const layerService = layer.getAttribute('data-service-view') || (layer.classList.contains('service-view-layer--' + service) ? service : '');
+        const isActive = layerService === service;
         layer.classList.toggle('is-active', isActive);
       });
     }
@@ -115,10 +116,41 @@
         const service = btn.getAttribute('data-service');
         if (service) activateTab(service);
       });
-      btn.addEventListener('click', (e) => {
+
+      btn.addEventListener('click', function(e) {
+        const service = this.getAttribute('data-service');
+        const href = this.getAttribute('href') || this.getAttribute('data-href');
+
+        // If card is active and has href, navigate directly to subpage!
+        if (this.classList.contains('is-active') && href && href !== '#') {
+          window.location.href = href;
+          return;
+        }
+
         e.preventDefault();
-        const service = btn.getAttribute('data-service');
         if (service) activateTab(service);
+      });
+    });
+
+    // Dedicated arrow buttons [↗] ALWAYS navigate immediately
+    document.querySelectorAll('.service-arrow-btn').forEach(arrow => {
+      arrow.addEventListener('click', function() {
+        const href = this.getAttribute('href');
+        if (href && href !== '#') {
+          window.location.href = href;
+        }
+      });
+    });
+
+    // Handle all data-tab triggers across the page (Hero indicators & Header dropdown)
+    document.querySelectorAll('[data-tab]').forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        const tab = link.getAttribute('data-tab');
+        if (tab) activateTab(tab);
+      });
+      link.addEventListener('click', () => {
+        const tab = link.getAttribute('data-tab');
+        if (tab) activateTab(tab);
       });
     });
   }
