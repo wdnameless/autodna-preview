@@ -123,9 +123,29 @@
     });
   }
 
+  
+  // ══ 3. SMOOTH SCROLLING FOR ALL IN-PAGE ANCHORS ═══════════════════════
+  function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#' || !href) return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          try {
+            history.pushState(null, '', href);
+          } catch (e) { void e; }
+        }
+      });
+    });
+  }
+
   function boot() {
     initMenu();
     initServiceTabs();
+    initSmoothScroll();
   }
 
   if (document.readyState === 'loading') {
