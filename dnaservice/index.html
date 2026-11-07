@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="../">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoDNA Service — The Future of Service is Already Here</title>
+  <meta name="description" content="Next-generation automotive center in Calgary equipped with innovative technology, modern minimalist interior, and smart service systems.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/site1/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site1.css?v=20261106_1">
+  <link rel="stylesheet" href="assets/css/page-service.css?v=20261106_1">
+</head>
+<body class="page-service">
+
+<!-- ══ FIXED HUD HEADER ══════════════════════════════════════════════════ -->
+<header class="hud" id="top">
+  <a class="hud__logo" href="index.html" aria-label="AutoDNA home">
+    <img src="assets/img/site1/logo.svg" width="37" height="21" alt="AutoDNA">
+  </a>
+  <button class="hud__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ══ FULLSCREEN MENU OVERLAY (EXACT FIGMA 464:3660 MATCH) ══════════════ -->
+<nav class="menu" id="menu" aria-label="Site menu" hidden>
+  <div class="menu__container">
+    <div class="menu__panel ticks">
+      <span class="tick tl"></span>
+      <span class="tick tr"></span>
+      <span class="tick bl"></span>
+      <span class="tick br"></span>
+
+      <ul class="menu-list">
+        <li class="menu-item">
+          <a href="index.html" class="menu-link">
+            <span class="menu-text">Home</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html#carlears" class="menu-link">
+            <span class="menu-text">Who We Are</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html#value" class="menu-link">
+            <span class="menu-text">Why AutoDNA</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html#compare" class="menu-link">
+            <span class="menu-text">Price Comparison</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+
+        <!-- Our Services with Pages Submenu (SkipTheDealer, AutoDNA Service, AutoDNA Flip) -->
+        <li class="menu-item menu-item--has-sub">
+          <a href="index.html#services" class="menu-link">
+            <div style="display: flex; align-items: flex-end;">
+              <span class="menu-text">Our Services</span>
+              <svg class="menu-chevron" viewBox="0 0 8 8" aria-hidden="true"><path d="M2 1L5 4L2 7"/></svg>
+            </div>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+                    <ul class="menu-sublist">
+            <li class="menu-subitem">
+              <a href="skipthedealer.html" class="menu-sublink">
+                <span class="menu-subtext">SkipTheDealer</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem menu-subitem--nested">
+              <a href="skipthesearch.html" class="menu-sublink">
+                <span class="menu-subtext">↳ SkipTheSearch</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem">
+              <a href="dnaservice.html" class="menu-sublink">
+                <span class="menu-subtext">AutoDNA Service</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem menu-subitem--nested">
+              <a href="skiptheshop.html" class="menu-sublink">
+                <span class="menu-subtext">↳ SkipTheShop™</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem menu-subitem--nested">
+              <a href="drivecareplan.html" class="menu-sublink">
+                <span class="menu-subtext">↳ DriveCarePlan™</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem menu-subitem--nested">
+              <a href="drivecareplan-commercial.html" class="menu-sublink">
+                <span class="menu-subtext">↳ DriveCare Plan™ Commercial</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem menu-subitem--nested">
+              <a href="paintbot.html" class="menu-sublink">
+                <span class="menu-subtext">↳ PaintBot™</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem">
+              <a href="dnainvest.html" class="menu-sublink">
+                <span class="menu-subtext">DNA Invest</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="menu-item">
+          <a href="index.html#facts" class="menu-link">
+            <span class="menu-text">Facts &amp; Figures</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html#corporate" class="menu-link">
+            <span class="menu-text">About AutoDNA</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html#club" class="menu-link">
+            <span class="menu-text">DNA Auto Club</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="#contact" class="menu-link">
+            <span class="menu-text">Contact</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<main class="service-main">
+
+  <!-- ══ DESKTOP SITE (Shown on screens > 768px) ════════════════════════ -->
+  <div class="service-desktop-layout">
+    <div class="service-board-full">
+      <img src="assets/img/site1/dnaservice-desktop-clean.svg" class="block-svg" alt="AutoDNA Service — The Future of Service is Already Here" fetchpriority="high">
+
+      <!-- Interactive 3-State Overlays for Section 4 (y=2275.5..3044.5 in 7923px canvas) -->
+      <div class="service-cards-container" id="multiple-services">
+        <div class="service-card-view is-active" data-service-view="shop"></div>
+        <div class="service-card-view" data-service-view="plan">
+          <img src="assets/img/site1/service-cards-state-plan.svg" alt="DriveCarePlan" loading="eager">
+        </div>
+        <div class="service-card-view" data-service-view="paint">
+          <img src="assets/img/site1/service-cards-state-paint.svg" alt="PaintBot" loading="eager">
+        </div>
+      </div>
+
+      <!-- Interactive Tab Buttons for Component 8 (SkipTheShop / DriveCarePlan / PaintBot) -->
+      <button class="service-tab-btn service-tab-btn--shop is-active" data-service="shop" aria-label="Show SkipTheShop view"></button>
+      <button class="service-tab-btn service-tab-btn--plan" data-service="plan" aria-label="Show DriveCarePlan view"></button>
+      <button class="service-tab-btn service-tab-btn--paint" data-service="paint" aria-label="Show PaintBot view"></button>
+
+      <!-- Right Indicators on Hero (y=480..716 in 7923px canvas) -->
+      <a href="skiptheshop.html" class="hero-ind-hitarea hero-ind-hitarea--shop" aria-label="Open SkipTheShop subpage"></a>
+      <a href="drivecareplan.html" class="hero-ind-hitarea hero-ind-hitarea--plan" aria-label="Open DriveCarePlan subpage"></a>
+      <a href="paintbot.html" class="hero-ind-hitarea hero-ind-hitarea--paint" aria-label="Open PaintBot subpage"></a>
+
+      <!-- Official Site Button (y=1950..2030 in 7923px canvas) -->
+      <a href="https://autodnaservice.com" target="_blank" rel="noopener" class="service-full-hitarea--official" aria-label="Visit AutoDNA Service official site"></a>
+
+      
+            </div>
+  </div>
+
+  <!-- ══ MOBILE SITE (Exact 1:1 Retina from Figma The future of service mob.png) ══ -->
+  <div class="service-mobile-layout">
+    <img src="assets/img/site1/dnaservice-mobile-clean.svg" class="service-mobile-svg" alt="AutoDNA Service Mobile" fetchpriority="high">
+
+    <!-- Interactive Button: AutoDnaService ↗ -->
+    <a href="https://autodnaservice.com" target="_blank" rel="noopener" class="service-mob-hitarea service-mob-hitarea--official" aria-label="Visit AutoDnaService official site"></a>
+
+    <!-- Interactive Button: CONTACT WITH US ↗ -->
+    <a href="#contact" class="service-mob-hitarea service-mob-hitarea--contact-btn" aria-label="Contact with us"></a>
+
+    <div id="contact" style="position:absolute;bottom:10%;left:0;"></div>
+      <!-- Interactive Footer Links -->
+    <a href="tel:+14033128306" class="service-mob-hitarea service-mob-hitarea--phone" aria-label="Call +1 (403) 312-8306"></a>
+    <a href="mailto:info@autodna.com" class="service-mob-hitarea service-mob-hitarea--email" aria-label="Email info@autodna.com"></a>
+
+    <div class="service-mob-hitarea service-mob-hitarea--socials">
+      <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"></a>
+      <a href="https://x.com" target="_blank" rel="noopener" aria-label="X (Twitter)"></a>
+      <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"></a>
+    </div>
+
+    <a href="https://maps.google.com/?q=730+2+Ave+SW+Calgary+T2P1R8+Canada" target="_blank" rel="noopener" class="service-mob-hitarea service-mob-hitarea--address" aria-label="Find us on Google Maps"></a>
+  </div>
+
+    <a href="https://maps.google.com/?q=730+2+Ave+SW+Calgary+T2P1R8+Canada" target="_blank" rel="noopener" class="service-mob-hitarea service-mob-hitarea--address" aria-label="Find us on Google Maps"></a>
+  </div>
+
+</main>
+
+<script src="assets/js/page-service.js?v=20261106_1"></script>
+</body>
+</html>
