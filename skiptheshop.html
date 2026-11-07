@@ -16,6 +16,256 @@
 
 <!-- ══ FIXED HUD HEADER ══════════════════════════════════════════════════ -->
 <!-- ══ FULLSCREEN MENU OVERLAY (EXACT FIGMA 464:3660 MATCH) ══════════════ -->
+<!-- ══ FIXED HUD HEADER (BURGER BUTTON) ═══════════════════════════════════ -->
+<header class="hud" id="top">
+  <button class="hud__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ══ FULLSCREEN MENU OVERLAY (EXACT FIGMA 464:3660 MATCH) ══════════════ -->
+<nav class="menu" id="menu" aria-label="Site menu" hidden>
+  <div class="menu__container">
+    <div class="menu__panel ticks">
+      <span class="tick tl"></span>
+      <span class="tick tr"></span>
+      <span class="tick bl"></span>
+      <span class="tick br"></span>
+
+      <ul class="menu-list">
+        <li class="menu-item">
+          <a href="index.html" class="menu-link">
+            <span class="menu-text">Home</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html#carlears" class="menu-link">
+            <span class="menu-text">Who We Are</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html#value" class="menu-link">
+            <span class="menu-text">Why AutoDNA</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html#compare" class="menu-link">
+            <span class="menu-text">Price Comparison</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+
+        <li class="menu-item menu-item--has-sub is-expanded">
+          <a href="index.html#services" class="menu-link">
+            <div style="display: flex; align-items: flex-end;">
+              <span class="menu-text">Our Services</span>
+              <svg class="menu-chevron" viewBox="0 0 8 8" aria-hidden="true"><path d="M2 1L5 4L2 7"/></svg>
+            </div>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+          <ul class="menu-sublist">
+            <li class="menu-subitem">
+              <a href="skipthedealer.html" class="menu-sublink">
+                <span class="menu-subtext">SkipTheDealer</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem menu-subitem--nested">
+              <a href="skipthesearch.html" class="menu-sublink">
+                <span class="menu-subtext">↳ SkipTheSearch</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem">
+              <a href="dnaservice.html" class="menu-sublink">
+                <span class="menu-subtext">AutoDNA Service</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem menu-subitem--nested">
+              <a href="skiptheshop.html" class="menu-sublink is-active">
+                <span class="menu-subtext">↳ SkipTheShop™</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem menu-subitem--nested">
+              <a href="drivecareplan.html" class="menu-sublink">
+                <span class="menu-subtext">↳ DriveCarePlan™</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem menu-subitem--nested">
+              <a href="drivecareplan-commercial.html" class="menu-sublink">
+                <span class="menu-subtext">↳ DriveCare Plan™ Commercial</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem menu-subitem--nested">
+              <a href="paintbot.html" class="menu-sublink">
+                <span class="menu-subtext">↳ PaintBot™</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem">
+              <a href="autodnaflip.html" class="menu-sublink">
+                <span class="menu-subtext">AutoDNA Flip</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="menu-item">
+          <a href="index.html#facts" class="menu-link">
+            <span class="menu-text">Facts &amp; Figures</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html#corporate" class="menu-link">
+            <span class="menu-text">About AutoDNA</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html#club" class="menu-link">
+            <span class="menu-text">DNA Auto Club</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="dnaservice.html#contact" class="menu-link">
+            <span class="menu-text">Contact</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ DYNAMIC STICKY HEADER (ALWAYS PRESENT / FLOATING AS YOU SCROLL) ═══ -->
+<header class="sticky-header" id="sticky-header">
+  <div class="sticky-header__container">
+
+    <!-- Left Panel: CURRENT SERVICE (Dropdown per Figma) -->
+    <div class="panel-evolution">
+      <div class="panel-evolution__box ticks">
+        <span class="tick tl"></span>
+        <span class="tick tr"></span>
+        <span class="tick bl"></span>
+        <span class="tick br"></span>
+
+        <button class="panel-evolution__btn" id="btn-evolution" aria-expanded="false">
+          <span class="panel-evolution__title">SKIPTHESHOP™</span>
+          <svg class="panel-evolution__chevron" viewBox="0 0 10 6"><path d="M1 1L5 5L9 1"/></svg>
+        </button>
+
+        <ul class="panel-evolution__menu" id="menu-evolution">
+          <li class="panel-evolution__item">
+            <a href="dnaservice.html" class="panel-evolution__link">
+              <span class="panel-evolution__text">Service Overview</span>
+              <svg class="panel-evolution__arrow" viewBox="0 0 14 10"><path d="M0 5H12M7 1L12 5L7 9"/></svg>
+            </a>
+          </li>
+          <li class="panel-evolution__item">
+            <a href="skiptheshop.html" class="panel-evolution__link is-active">
+              <span class="panel-evolution__text">SkipTheShop™</span>
+              <svg class="panel-evolution__arrow" viewBox="0 0 14 10"><path d="M0 5H12M7 1L12 5L7 9"/></svg>
+            </a>
+          </li>
+          <li class="panel-evolution__item">
+            <a href="drivecareplan.html" class="panel-evolution__link">
+              <span class="panel-evolution__text">DriveCarePlan™</span>
+              <svg class="panel-evolution__arrow" viewBox="0 0 14 10"><path d="M0 5H12M7 1L12 5L7 9"/></svg>
+            </a>
+          </li>
+          <li class="panel-evolution__item">
+            <a href="drivecareplan-commercial.html" class="panel-evolution__link">
+              <span class="panel-evolution__text">DriveCare Plan™ Commercial</span>
+              <svg class="panel-evolution__arrow" viewBox="0 0 14 10"><path d="M0 5H12M7 1L12 5L7 9"/></svg>
+            </a>
+          </li>
+          <li class="panel-evolution__item">
+            <a href="paintbot.html" class="panel-evolution__link">
+              <span class="panel-evolution__text">PaintBot™</span>
+              <svg class="panel-evolution__arrow" viewBox="0 0 14 10"><path d="M0 5H12M7 1L12 5L7 9"/></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Right Panel: Horizontal Navigation Bar with Dropdowns -->
+    <nav class="panel-nav" aria-label="Services Navigation">
+      <div class="panel-nav__box ticks">
+        <span class="tick tl"></span>
+        <span class="tick tr"></span>
+        <span class="tick bl"></span>
+        <span class="tick br"></span>
+
+        <!-- Item 1: AutoServices Dropdown -->
+        <div class="panel-nav__item">
+          <button class="panel-nav__dropdown-btn">
+            <span>AutoServices</span>
+            <svg class="panel-nav__chevron" viewBox="0 0 8 5"><path d="M1 1L4 4L7 1"/></svg>
+          </button>
+          <ul class="panel-nav__dropdown-menu ticks">
+            <span class="tick tl"></span><span class="tick tr"></span>
+            <span class="tick bl"></span><span class="tick br"></span>
+            <li><a href="dnaservice.html#price-reset">Oil change ($29)</a></li>
+            <li><a href="dnaservice.html#price-reset">Tire Services &amp; Balancing ($69)</a></li>
+            <li><a href="dnaservice.html#price-reset">Wheel alignment ($79)</a></li>
+            <li><a href="dnaservice.html#contact">Check engine lights repair</a></li>
+            <li><a href="dnaservice.html#price-reset">AC / Heating Repair ($59)</a></li>
+            <li><a href="dnaservice.html#contact">Engine / Transmission repair</a></li>
+          </ul>
+        </div>
+
+        <!-- Item 2: Remote Starters -->
+        <div class="panel-nav__item">
+          <a href="dnaservice.html#catalog-services" class="panel-nav__link">Remote Starters installation</a>
+        </div>
+
+        <!-- Item 3: Inspections Dropdown -->
+        <div class="panel-nav__item">
+          <button class="panel-nav__dropdown-btn">
+            <span>Inspections</span>
+            <svg class="panel-nav__chevron" viewBox="0 0 8 5"><path d="M1 1L4 4L7 1"/></svg>
+          </button>
+          <ul class="panel-nav__dropdown-menu ticks">
+            <span class="tick tl"></span><span class="tick tr"></span>
+            <span class="tick bl"></span><span class="tick br"></span>
+            <li><a href="dnaservice.html#catalog-services">Mechanical inspection ($59)</a></li>
+            <li><a href="dnaservice.html#catalog-services">Insurance Inspection</a></li>
+            <li><a href="dnaservice.html#catalog-services">Out of Province Inspection</a></li>
+            <li><a href="dnaservice.html#catalog-services">Salvage Inspection</a></li>
+          </ul>
+        </div>
+
+        <!-- Item 4: Towing / OnRoad -->
+        <div class="panel-nav__item">
+          <a href="tel:+14033128306" class="panel-nav__link" aria-label="Towing / OnRoad support">Towing/OnRoad support</a>
+        </div>
+
+        <!-- Item 5: Car Buying Assist -->
+        <div class="panel-nav__item">
+          <a href="skipthesearch.html" class="panel-nav__link" aria-label="Car Buying Assist (SkipTheSearch)">Car Buying Assist</a>
+        </div>
+
+        <!-- Item 6: EV Service -->
+        <div class="panel-nav__item">
+          <a href="dnaservice.html#catalog-services" class="panel-nav__link">EV/Electric cars service</a>
+        </div>
+
+      </div>
+    </nav>
+
+  </div>
+</header>
 <main class="shop-main">
 
   <!-- ══ DESKTOP BOARD (100% Vector SVG from Figma Skip the Shop.svg, 1440x4376) ══ -->

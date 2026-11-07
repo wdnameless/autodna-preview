@@ -967,3 +967,14 @@ body.site-service {
     display: none !important;
   }
 }
+
+
+/* Guarantee hud burger always sits on the far right */
+.hud {
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+}
+.hud__burger {
+  margin-left: auto !important;
+}

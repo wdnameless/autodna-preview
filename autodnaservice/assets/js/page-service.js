@@ -53,7 +53,7 @@
     subItems.forEach(item => {
       const link = item.querySelector('.menu-link');
       if (link) {
-        link.addEventListener('click', (e) => {
+        link.addEventListener('click', () => {
           // If on touch device, toggle submenu
           if (window.matchMedia('(max-width: 768px)').matches || e.target.closest('.menu-chevron')) {
             if (!item.classList.contains('is-expanded')) {
@@ -92,11 +92,11 @@
     });
   }
 
-  // Interactive in-place service tabs switcher (Switch on HOVER & click)
+  // Interactive in-place service tabs switcher & direct subpage navigation
   function initServiceTabs() {
-    const btns = document.querySelectorAll('.service-tab-btn');
-    const layers = document.querySelectorAll('.service-view-layer');
-    if (!btns.length || !layers.length) return;
+    const btns = document.querySelectorAll('.service-col-btn, .service-tab-btn');
+    const layers = document.querySelectorAll('.service-card-view, .service-view-layer');
+    if (!btns.length && !layers.length) return;
 
     function activateTab(service) {
       btns.forEach(b => {
@@ -105,7 +105,8 @@
       });
 
       layers.forEach(layer => {
-        const isActive = layer.classList.contains('service-view-layer--' + service);
+        const layerService = layer.getAttribute('data-service-view') || (layer.classList.contains('service-view-layer--' + service) ? service : '');
+        const isActive = layerService === service;
         layer.classList.toggle('is-active', isActive);
       });
     }
@@ -115,17 +116,92 @@
         const service = btn.getAttribute('data-service');
         if (service) activateTab(service);
       });
-      btn.addEventListener('click', (e) => {
+
+      btn.addEventListener('click', function(e) {
+        const service = this.getAttribute('data-service');
+        const href = this.getAttribute('href') || this.getAttribute('data-href');
+
+        // If card is active and has href, navigate directly to subpage!
+        if (this.classList.contains('is-active') && href && href !== '#') {
+          window.location.href = href;
+          return;
+        }
+
         e.preventDefault();
-        const service = btn.getAttribute('data-service');
         if (service) activateTab(service);
+      });
+    });
+
+    // Dedicated arrow buttons [↗] ALWAYS navigate immediately
+    document.querySelectorAll('.service-arrow-btn').forEach(arrow => {
+      arrow.addEventListener('click', function() {
+        const href = this.getAttribute('href');
+        if (href && href !== '#') {
+          window.location.href = href;
+        }
+      });
+    });
+
+    // Handle all data-tab triggers across the page (Hero indicators & Header dropdown)
+    document.querySelectorAll('[data-tab]').forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        const tab = link.getAttribute('data-tab');
+        if (tab) activateTab(tab);
+      });
+      link.addEventListener('click', () => {
+        const tab = link.getAttribute('data-tab');
+        if (tab) activateTab(tab);
       });
     });
   }
 
-  function boot() {
+  
+  // ══ 3. SMOOTH SCROLLING FOR ALL IN-PAGE ANCHORS ═══════════════════════
+  function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#' || !href) return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          try {
+            history.pushState(null, '', href);
+          } catch (e) { void e; }
+        }
+      });
+    });
+  }
+
+  
+  // ══ DYNAMIC STICKY HEADER & DROPDOWNS ══════════════════════════════
+  function initHeader() {
+    const evoPanel = document.querySelector('.panel-evolution');
+    const evoBtn = document.querySelector('#btn-evolution');
+
+    if (evoPanel && evoBtn) {
+      evoBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = evoPanel.classList.contains('is-open');
+        evoPanel.classList.toggle('is-open', !isOpen);
+        evoBtn.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.panel-evolution')) {
+          evoPanel.classList.remove('is-open');
+          evoBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  }
+
+function boot() {
     initMenu();
+    initHeader();
     initServiceTabs();
+    initSmoothScroll();
   }
 
   if (document.readyState === 'loading') {
