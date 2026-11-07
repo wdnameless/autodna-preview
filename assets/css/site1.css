@@ -71,6 +71,7 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { margin: 0 !important; padding: 0 !important; }
 html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
@@ -3165,8 +3166,8 @@ main { position: relative; z-index: 1; }
 /* Right Panel: Navigation Bar */
 .panel-nav {
   pointer-events: auto;
-  flex: 1;
-  max-width: 1054px;
+  flex: none;
+  max-width: none;
   position: relative;
 }
 
@@ -3346,4 +3347,269 @@ main { position: relative; z-index: 1; }
   justify-content: space-between !important;
   align-items: flex-start !important;
   gap: 24px !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   AUTHORITATIVE FIGMA HEADER GEOMETRY — 464:7166 (PaintBot artboard)
+   Every dimension is declared in vw against the 1440px artboard, so the
+   HTML header scales in exact lockstep with the width:100% SVG beneath it.
+     left panel : x 21.039  y 19.609  w 322  h 71
+     nav panel  : x 366.039 y 19.609  w 1054 h 71
+   ═══════════════════════════════════════════════════════════════════════ */
+
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.sticky-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 6.2924vw !important;      /* 90.6px @1440: panel bottom + breathing room */
+  z-index: 100 !important;
+  pointer-events: none !important;
+  background: none !important;
+  transition: none !important;
+  display: block !important;
+  padding: 0 !important;
+}
+
+.sticky-header__container {
+  position: relative !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  box-sizing: border-box !important;
+}
+
+/* ── LEFT: SERVICE / PRODUCT DROPDOWN ─────────────────────────────────── */
+.panel-evolution {
+  position: absolute !important;
+  left: 1.4610vw !important;        /* 21.039 / 1440 */
+  top: 1.3617vw !important;         /* 19.609 / 1440 */
+  width: 22.3611vw !important;      /* 322    / 1440 */
+  height: 4.9306vw !important;      /* 71     / 1440 */
+  flex: none !important;
+  pointer-events: auto !important;
+  z-index: 2 !important;
+}
+
+.panel-evolution__box,
+.panel-nav__box {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: rgba(38, 37, 72, 0.44) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(194, 185, 255, 0.28) !important;
+  border-radius: 0 !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45) !important;
+  box-sizing: border-box !important;
+}
+
+.panel-evolution__btn {
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 1.6667vw !important;   /* 24 / 1440 */
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  background: transparent !important;
+  border: 0 !important;
+  cursor: pointer !important;
+  color: #fff !important;
+  outline: none !important;
+}
+
+.panel-evolution__title {
+  font-family: var(--body) !important;
+  font-weight: 300 !important;
+  font-size: 1.25vw !important;     /* 18 / 1440 */
+  letter-spacing: -0.2px !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  white-space: nowrap !important;
+}
+
+.panel-evolution__chevron { width: 0.6944vw !important; height: 0.4167vw !important; flex: none !important; overflow: visible !important; transition: transform 0.25s ease !important; }
+.panel-evolution__chevron path { stroke: #c2b9ff !important; stroke-width: 1.4 !important; fill: none !important; stroke-linecap: round !important; stroke-linejoin: round !important; }
+.panel-evolution.is-open .panel-evolution__chevron,
+.panel-evolution:hover .panel-evolution__chevron { transform: rotate(180deg) !important; }
+
+/* SERVICE dropdown list */
+.panel-evolution__menu {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-top: 1px solid rgba(194, 185, 255, 0.22) !important;
+  max-height: 0 !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  background: rgba(24, 22, 52, 0.94) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  transition: max-height 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease !important;
+}
+.panel-evolution:hover .panel-evolution__menu,
+.panel-evolution.is-open .panel-evolution__menu { max-height: 25vw !important; opacity: 1 !important; }
+
+.panel-evolution__item { border-bottom: 1px solid rgba(194, 185, 255, 0.22) !important; }
+.panel-evolution__item:last-child { border-bottom: none !important; }
+
+.panel-evolution__link {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  height: 3.3333vw !important;      /* 48 / 1440 */
+  padding: 0 1.3889vw !important;   /* 20 / 1440 */
+  text-decoration: none !important;
+  transition: background 0.2s ease !important;
+}
+.panel-evolution__link:hover { background: rgba(150, 133, 255, 0.2) !important; }
+
+.panel-evolution__text {
+  font-family: var(--body) !important;
+  font-weight: 300 !important;
+  font-size: 1.1111vw !important;   /* 16 / 1440 */
+  letter-spacing: -0.2px !important;
+  color: #e6e2ff !important;
+  white-space: nowrap !important;
+}
+.panel-evolution__link:hover .panel-evolution__text { color: #ffffff !important; }
+.panel-evolution__link.is-active .panel-evolution__text { color: #ffffff !important; font-weight: 400 !important; }
+
+.panel-evolution__arrow { width: 0.9722vw !important; height: 0.6944vw !important; flex: none !important; transition: transform 0.2s ease !important; }
+.panel-evolution__arrow path { stroke: #c2b9ff !important; stroke-width: 1.1 !important; fill: none !important; stroke-linecap: round !important; stroke-linejoin: round !important; }
+.panel-evolution__link:hover .panel-evolution__arrow { transform: translateX(0.2083vw) !important; }
+
+/* ── RIGHT: MAIN NAVIGATION BAR ───────────────────────────────────────── */
+.panel-nav {
+  position: absolute !important;
+  left: 25.4194vw !important;       /* 366.039 / 1440 */
+  top: 1.3617vw !important;         /* 19.609  / 1440 */
+  width: 73.1944vw !important;      /* 1054    / 1440 */
+  height: 4.9306vw !important;      /* 71      / 1440 */
+  pointer-events: auto !important;
+  z-index: 2 !important;
+}
+
+.panel-nav__box {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 0 1.9444vw !important;    /* 28 / 1440 */
+}
+
+.panel-nav__item {
+  position: relative !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.panel-nav__link,
+.panel-nav__dropdown-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.4167vw !important;         /* 6 / 1440 */
+  height: 100% !important;
+  padding: 0 0.4167vw !important;
+  background: transparent !important;
+  border: 0 !important;
+  cursor: pointer !important;
+  font-family: var(--body) !important;
+  font-weight: 300 !important;
+  font-size: 1.1111vw !important;   /* 16 / 1440 */
+  letter-spacing: -0.2px !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  transition: color 0.2s ease !important;
+}
+
+.panel-nav__link:hover,
+.panel-nav__dropdown-btn:hover,
+.panel-nav__item:hover .panel-nav__dropdown-btn { color: #c2b9ff !important; }
+
+.panel-nav__chevron { width: 0.5556vw !important; height: 0.3472vw !important; flex: none !important; overflow: visible !important; transition: transform 0.2s ease !important; }
+.panel-nav__chevron path { stroke: #c2b9ff !important; stroke-width: 1.2 !important; fill: none !important; stroke-linecap: round !important; stroke-linejoin: round !important; }
+.panel-nav__item:hover .panel-nav__chevron { transform: rotate(180deg) !important; }
+
+.panel-nav__dropdown-menu {
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  min-width: 16.6667vw !important;
+  margin: 0.4167vw 0 0 !important;
+  padding: 0.4167vw 0 !important;
+  list-style: none !important;
+  background: rgba(22, 19, 48, 0.96) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(194, 185, 255, 0.28) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translateY(0.4167vw) !important;
+  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s, transform 0.22s !important;
+  z-index: 110 !important;
+}
+
+.panel-nav__item:hover .panel-nav__dropdown-menu {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
+.panel-nav__dropdown-menu a {
+  display: block !important;
+  padding: 0.625vw 1.1111vw !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-family: var(--body) !important;
+  font-weight: 300 !important;
+  font-size: 0.9722vw !important;   /* 14 / 1440 */
+  border-bottom: 1px solid rgba(194, 185, 255, 0.15) !important;
+}
+.panel-nav__dropdown-menu a:last-child { border-bottom: none !important; }
+.panel-nav__dropdown-menu a:hover { background: rgba(150, 133, 255, 0.2) !important; color: #c2b9ff !important; }
+
+/* ── CORNER TICKS ─────────────────────────────────────────────────────── */
+.panel-evolution__box .tick,
+.panel-nav__box .tick {
+  position: absolute !important;
+  width: 1.25vw !important;         /* 18 / 1440 */
+  height: 1.25vw !important;
+  border-color: #c2b9ff !important;
+  border-style: solid !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+}
+.panel-evolution__box .tick.tl, .panel-nav__box .tick.tl { top: 0 !important; left: 0 !important; border-width: 1px 0 0 1px !important; }
+.panel-evolution__box .tick.tr, .panel-nav__box .tick.tr { top: 0 !important; right: 0 !important; border-width: 1px 1px 0 0 !important; }
+.panel-evolution__box .tick.bl, .panel-nav__box .tick.bl { bottom: 0 !important; left: 0 !important; border-width: 0 0 1px 1px !important; }
+.panel-evolution__box .tick.br, .panel-nav__box .tick.br { bottom: 0 !important; right: 0 !important; border-width: 0 1px 1px 0 !important; }
+
+/* ── DESKTOP: the Figma artboard has no burger, only these two panels ── */
+@media (min-width: 769px) {
+  body.site-service .hud, body.site-service #burger,
+  body.page-shop .hud, body.page-shop #burger,
+  body.page-plan .hud, body.page-plan #burger,
+  body.page-commercial .hud, body.page-commercial #burger,
+  body.page-paintbot .hud, body.page-paintbot #burger {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+}
+
+/* ── <=768px: dedicated mobile artboard, header removed ──────────────── */
+@media (max-width: 768px) {
+  .sticky-header { display: none !important; }
 }
