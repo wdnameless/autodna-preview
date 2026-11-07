@@ -3925,3 +3925,26 @@ html, body {
     display: block !important;
   }
 }
+/* ── TABLET/LAPTOP 769..1439px: the value grid was hard-coded
+   224+209+219+219+223 + 4*40 = 1254px, wider than the viewport,
+   causing horizontal overflow on 1024px screens. Make it fluid. */
+@media (min-width: 769px) and (max-width: 1439px) {
+  .value__grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: clamp(12px, 2vw, 40px) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 40px !important;
+    box-sizing: border-box !important;
+  }
+  .value__item { min-width: 0 !important; }
+  .value__grid h3 { font-size: clamp(16px, 1.9vw, 24px) !important; }
+  .value__grid p  { font-size: clamp(14px, 1.6vw, 20px) !important; }
+
+  /* keep the carlears flank decoration from overflowing */
+  .carlears__flank--r { right: 0 !important; }
+  .carlears__flank--l { left: 0 !important; }
+}
+
+/* hard guard: nothing may create a horizontal scrollbar */
+html, body { overflow-x: hidden !important; }
