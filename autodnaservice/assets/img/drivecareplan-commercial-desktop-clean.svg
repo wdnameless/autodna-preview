@@ -146,7 +146,7 @@
 <path d="M2951.84 42.2637C2951.84 141.812 1965.08 394.872 798.206 148.789C-351.654 372.681 -1319.81 141.812 -1319.81 42.2637C-1319.81 -57.2846 -363.571 -137.984 816.012 -137.984C1995.6 -137.984 2951.84 -57.2846 2951.84 42.2637Z" fill="black" style="mix-blend-mode:soft-light"/>
 </g>
 <g id="Frame 1866">
-<g id="Frame 1822">
+<g id="Frame 1822" display="none">
 <g id="Frame 1821">
 <g id="Frame 1815">
 <rect width="322" height="71" transform="translate(20.8359 20.6094)" fill="#262548" fill-opacity="0.44"/>
@@ -163,7 +163,7 @@
 <path id="Vector 9_3" d="M323.993 91.5H342.836V72.6566" stroke="#C2B9FF"/>
 </g>
 </g>
-<g id="Frame 1639">
+<g id="Frame 1639" display="none">
 <rect width="1054" height="71" transform="translate(365.836 20.6094)" fill="#262548" fill-opacity="0.44"/>
 <path id="Vector 6_4" d="M365.836 39.3434V20.5H384.679" stroke="#C2B9FF"/>
 <path id="Vector 8_4" d="M1420.3 39.3434V20.5H1401.46" stroke="#C2B9FF"/>

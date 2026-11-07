@@ -1006,3 +1006,28 @@ body.site-service {
     -webkit-overflow-scrolling: touch !important;
   }
 }
+
+
+/* Service sites: on desktop, hide HUD burger so only the authentic header shows */
+@media (min-width: 769px) {
+  body.site-service .hud,
+  body.page-shop .hud,
+  body.page-plan .hud,
+  body.page-commercial .hud,
+  body.page-paintbot .hud {
+    display: none !important;
+  }
+  
+  .sticky-header {
+    top: 20px !important;
+  }
+}
+
+.sticky-header__container {
+  width: 100% !important;
+  max-width: 1400px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  gap: 24px !important;
+}

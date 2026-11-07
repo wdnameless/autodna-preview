@@ -246,7 +246,7 @@
 </g>
 </g>
 <g id="Frame 1866">
-<g id="Frame 1822">
+<g id="Frame 1822" display="none">
 <g id="Frame 1821">
 <g id="Frame 1815">
 <rect width="322" height="71" transform="translate(20.2734 19.875)" fill="#262548" fill-opacity="0.44"/>
@@ -263,7 +263,7 @@
 <path id="Vector 9_13" d="M323.43 90.7656H342.273V71.9222" stroke="#C2B9FF"/>
 </g>
 </g>
-<g id="Frame 1639_3">
+<g id="Frame 1639_3" display="none">
 <rect width="1054" height="71" transform="translate(365.273 19.875)" fill="#262548" fill-opacity="0.44"/>
 <path id="Vector 6_14" d="M365.273 38.609V19.7656H384.117" stroke="#C2B9FF"/>
 <path id="Vector 8_14" d="M1419.74 38.609V19.7656H1400.89" stroke="#C2B9FF"/>
