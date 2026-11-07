@@ -65,7 +65,7 @@ body.site-service {
 
 .sticky-header__container {
   width: 100%;
-  max-width: 100%;
+  max-width: 1400px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
