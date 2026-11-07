@@ -2,8 +2,6 @@
 
 <g id="Skip the Shop" clip-path="url(#clip0_464_6756)">
 <rect width="1440" height="4376" fill="#020202"/>
-
-
 <path id="Vector_2" d="M-80.0846 -36.6875H1486.16V673.311H-80.0846V-36.6875Z" fill="url(#paint0_linear_464_6756)"/>
 
 
@@ -374,6 +372,7 @@
 </g>
 </g>
 </g>
+<g id="Header Band Gradient" pointer-events="none"><defs><linearGradient id="hg_skip_0" x1="0" y1="0" x2="0" y2="91" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#110D31"/><stop offset="0.4945" stop-color="#110C39"/><stop offset="0.967" stop-color="#18124A"/></linearGradient><linearGradient id="hg_skip_343" x1="0" y1="0" x2="0" y2="91" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#060428"/><stop offset="0.4945" stop-color="#070435"/><stop offset="0.967" stop-color="#0E0946"/></linearGradient><linearGradient id="hg_skip_1420" x1="0" y1="0" x2="0" y2="91" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#010203"/><stop offset="0.4945" stop-color="#000000"/><stop offset="0.967" stop-color="#010102"/></linearGradient></defs><rect x="0" y="0" width="20" height="91" fill="url(#hg_skip_0)"/><rect x="343" y="0" width="22" height="91" fill="url(#hg_skip_343)"/><rect x="1420" y="0" width="20" height="91" fill="url(#hg_skip_1420)"/></g>
 </g>
 
 <defs>

@@ -282,6 +282,7 @@
 </g>
 </g>
 </g>
+<g id="Header Band Gradient" pointer-events="none"><defs><linearGradient id="hg_driv_0" x1="0" y1="0" x2="0" y2="91" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#242437"/><stop offset="0.4945" stop-color="#353645"/><stop offset="0.967" stop-color="#50525D"/></linearGradient><linearGradient id="hg_driv_343" x1="0" y1="0" x2="0" y2="91" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#28293D"/><stop offset="0.4945" stop-color="#3D3F53"/><stop offset="0.967" stop-color="#535569"/></linearGradient><linearGradient id="hg_driv_1420" x1="0" y1="0" x2="0" y2="91" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#07070D"/><stop offset="0.4945" stop-color="#090A10"/><stop offset="0.967" stop-color="#080A12"/></linearGradient></defs><rect x="0" y="0" width="20" height="91" fill="url(#hg_driv_0)"/><rect x="343" y="0" width="22" height="91" fill="url(#hg_driv_343)"/><rect x="1420" y="0" width="20" height="91" fill="url(#hg_driv_1420)"/></g>
 </g>
 
 <defs>

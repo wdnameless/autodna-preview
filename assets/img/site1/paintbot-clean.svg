@@ -304,6 +304,7 @@
 </g>
 </g>
 </g>
+<g id="Header Band Gradient" pointer-events="none"><defs><linearGradient id="hg_pain_0" x1="0" y1="0" x2="0" y2="91" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#141032"/><stop offset="0.4945" stop-color="#18133B"/><stop offset="0.967" stop-color="#201B4C"/></linearGradient><linearGradient id="hg_pain_343" x1="0" y1="0" x2="0" y2="91" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#131138"/><stop offset="0.4945" stop-color="#1E1B50"/><stop offset="0.967" stop-color="#2F2A6B"/></linearGradient><linearGradient id="hg_pain_1420" x1="0" y1="0" x2="0" y2="91" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#090912"/><stop offset="0.4945" stop-color="#100F20"/><stop offset="0.967" stop-color="#1A1732"/></linearGradient></defs><rect x="0" y="0" width="20" height="91" fill="url(#hg_pain_0)"/><rect x="343" y="0" width="22" height="91" fill="url(#hg_pain_343)"/><rect x="1420" y="0" width="20" height="91" fill="url(#hg_pain_1420)"/></g>
 </g>
 
 <defs>
