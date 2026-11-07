@@ -3948,3 +3948,61 @@ html, body {
 
 /* hard guard: nothing may create a horizontal scrollbar */
 html, body { overflow-x: hidden !important; }
+/* ══ DESKTOP: the artboard already contains the exact Figma glass header
+   (blur, corner ticks, labels, chevrons). The HTML header duplicated it and
+   rendered a flat approximation, so it is hidden on desktop. The dropdowns
+   stay functional via transparent click-zones in the HTML layer. ══ */
+@media (min-width: 769px) {
+  body.site-service .sticky-header,
+  body.page-shop .sticky-header,
+  body.page-plan .sticky-header,
+  body.page-commercial .sticky-header,
+  body.page-paintbot .sticky-header {
+    background: none !important;
+  }
+  /* keep the boxes invisible but clickable so the real dropdowns still work */
+  body.site-service .panel-evolution__box,
+  body.site-service .panel-nav__box,
+  body.page-shop .panel-evolution__box, body.page-shop .panel-nav__box,
+  body.page-plan .panel-evolution__box, body.page-plan .panel-nav__box,
+  body.page-commercial .panel-evolution__box, body.page-commercial .panel-nav__box,
+  body.page-paintbot .panel-evolution__box, body.page-paintbot .panel-nav__box {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  body.site-service .panel-evolution__box::before,
+  body.site-service .panel-nav__box::before,
+  body.page-shop .panel-evolution__box::before, body.page-shop .panel-nav__box::before,
+  body.page-plan .panel-evolution__box::before, body.page-plan .panel-nav__box::before,
+  body.page-commercial .panel-evolution__box::before, body.page-commercial .panel-nav__box::before,
+  body.page-paintbot .panel-evolution__box::before, body.page-paintbot .panel-nav__box::before {
+    background: transparent !important;
+  }
+  body.site-service .panel-evolution__box .tick,
+  body.site-service .panel-nav__box .tick,
+  body.page-shop .panel-evolution__box .tick, body.page-shop .panel-nav__box .tick,
+  body.page-plan .panel-evolution__box .tick, body.page-plan .panel-nav__box .tick,
+  body.page-commercial .panel-evolution__box .tick, body.page-commercial .panel-nav__box .tick,
+  body.page-paintbot .panel-evolution__box .tick, body.page-paintbot .panel-nav__box .tick {
+    display: none !important;
+  }
+  /* the text must stay invisible on top of the baked-in labels */
+  body.site-service .panel-evolution__title,
+  body.site-service .panel-nav__link,
+  body.site-service .panel-nav__dropdown-btn,
+  body.page-shop .panel-evolution__title, body.page-shop .panel-nav__link, body.page-shop .panel-nav__dropdown-btn,
+  body.page-plan .panel-evolution__title, body.page-plan .panel-nav__link, body.page-plan .panel-nav__dropdown-btn,
+  body.page-commercial .panel-evolution__title, body.page-commercial .panel-nav__link, body.page-commercial .panel-nav__dropdown-btn,
+  body.page-paintbot .panel-evolution__title, body.page-paintbot .panel-nav__link, body.page-paintbot .panel-nav__dropdown-btn {
+    color: transparent !important;
+    text-shadow: none !important;
+  }
+  body.site-service .panel-evolution__title::selection,
+  body.page-shop .panel-evolution__title::selection,
+  body.page-plan .panel-evolution__title::selection,
+  body.page-commercial .panel-evolution__title::selection,
+  body.page-paintbot .panel-evolution__title::selection { background: transparent !important; }
+}
