@@ -3289,11 +3289,11 @@ main { position: relative; z-index: 1; }
 /* Guarantee hud burger always sits on the far right */
 .hud {
   display: flex !important;
-  justify-content: flex-end !important;
   align-items: center !important;
+  justify-content: space-between !important;
 }
 .hud__burger {
-  margin-left: auto !important;
+  margin-left: 0 !important;
 }
 
 
@@ -3612,4 +3612,147 @@ html, body {
 /* ── <=768px: dedicated mobile artboard, header removed ──────────────── */
 @media (max-width: 768px) {
   .sticky-header { display: none !important; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   MOBILE STEPS CAROUSEL — replaces the baked-in single-step artwork.
+   Sits exactly over the artboard band via --band-top / --band-h.
+   Native horizontal swipe: touch, trackpad, arrow keys, dots.
+   ══════════════════════════════════════════════════════════════════════ */
+.steps { display: none; }
+
+@media (max-width: 768px) {
+  .steps {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: var(--band-top);
+    height: var(--band-h);
+    z-index: 12;
+    pointer-events: auto;
+  }
+
+  .steps__viewport {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0;
+  }
+  .steps__viewport::-webkit-scrollbar { display: none; }
+
+  .steps__track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+
+  .steps__slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 18px;
+  }
+
+  /* Step tab — Figma: 146×80 at x=12.47 */
+  .steps__tab {
+    flex: none;
+    width: 146px;
+    height: 43px;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(38, 37, 72, 0.56);
+    border: 1px solid rgba(194, 185, 255, 0.35);
+    color: #ffffff;
+    font-family: var(--body);
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+  }
+
+  .steps__panel {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+
+  .steps__title {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(18px, 5.4vw, 24px);
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-shadow: 0 0 18px rgba(194, 185, 255, 0.55);
+  }
+
+  .steps__rule {
+    display: block;
+    width: 1px;
+    height: 26px;
+    margin: 10px auto;
+    background: rgba(194, 185, 255, 0.6);
+  }
+
+  .steps__desc {
+    margin: 0;
+    max-width: 320px;
+    font-family: var(--body);
+    font-weight: 300;
+    font-size: clamp(11px, 3.2vw, 14px);
+    line-height: 1.45;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    color: rgba(214, 208, 255, 0.82);
+  }
+
+  .steps__dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    pointer-events: auto;
+  }
+  .steps__dot {
+    width: 22px;
+    height: 3px;
+    padding: 0;
+    border: 0;
+    border-radius: 2px;
+    background: rgba(194, 185, 255, 0.28);
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+  .steps__dot.is-active {
+    background: #c2b9ff;
+    transform: scaleY(1.6);
+    box-shadow: 0 0 10px rgba(194, 185, 255, 0.8);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .steps__viewport { scroll-behavior: auto; }
 }

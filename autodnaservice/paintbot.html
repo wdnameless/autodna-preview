@@ -16,6 +16,9 @@
 
 <!-- ══ FIXED HUD HEADER (BURGER BUTTON) ═══════════════════════════════════ -->
 <header class="hud" id="top">
+  <a class="hud__logo" href="../index.html" aria-label="AutoDNA home">
+    <img src="assets/img/logo.svg" width="36" height="18" alt="AutoDNA">
+  </a>
   <button class="hud__burger" id="burger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
@@ -288,6 +291,41 @@
 
   <!-- ══ MOBILE BOARD (100% Vector SVG from Figma SkipTheDealer mob-4.svg, 393x4537) ══ -->
   <div class="paintbot-board paintbot-board--mobile">
+      <!-- ══ SWIPEABLE STEPS CAROUSEL (replaces baked-in single-step artwork) ══ -->
+  <section class="steps" id="steps" data-steps style="--band-top:53.780%;--band-h:8.376%">
+    <div class="steps__viewport" tabindex="0" role="region" aria-label="How it works steps">
+      <div class="steps__track">
+      <article class="steps__slide" data-index="0">
+        <div class="steps__tab">STEP 1</div>
+        <div class="steps__panel">
+          <h3 class="steps__title">3D SCANNING</h3>
+          <span class="steps__rule" aria-hidden="true"></span>
+          <p class="steps__desc">3D BODY SCANNING<br>(LASER MAPPING)</p>
+        </div>
+      </article>
+      <article class="steps__slide" data-index="1">
+        <div class="steps__tab">STEP 2</div>
+        <div class="steps__panel">
+          <h3 class="steps__title">TRAJECTORY PLANNING</h3>
+          <span class="steps__rule" aria-hidden="true"></span>
+          <p class="steps__desc">AUTOMATIC PLANNING OF<br>THE PAINTING TRAJECTORY</p>
+        </div>
+      </article>
+      <article class="steps__slide" data-index="2">
+        <div class="steps__tab">STEP 3</div>
+        <div class="steps__panel">
+          <h3 class="steps__title">PRECISION PAINTING</h3>
+          <span class="steps__rule" aria-hidden="true"></span>
+          <p class="steps__desc">THE ROBOT APPLIES PAINT<br>WITH MICRON-LEVEL PRECISION</p>
+        </div>
+      </article>
+      </div>
+    </div>
+    <div class="steps__dots" role="tablist" aria-label="Steps">
+      <button class="steps__dot is-active" data-go="0" aria-label="Step 1"></button><button class="steps__dot" data-go="1" aria-label="Step 2"></button><button class="steps__dot" data-go="2" aria-label="Step 3"></button>
+    </div>
+  </section>
+
     <img src="assets/img/paintbot-mobile-clean.svg" class="paintbot-svg" alt="PaintBot Mobile" fetchpriority="high">
 
     <!-- Interactive Mobile Hitareas -->

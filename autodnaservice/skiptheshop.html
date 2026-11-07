@@ -18,6 +18,9 @@
 <!-- ══ FULLSCREEN MENU OVERLAY (EXACT FIGMA 464:3660 MATCH) ══════════════ -->
 <!-- ══ FIXED HUD HEADER (BURGER BUTTON) ═══════════════════════════════════ -->
 <header class="hud" id="top">
+  <a class="hud__logo" href="../index.html" aria-label="AutoDNA home">
+    <img src="assets/img/logo.svg" width="36" height="18" alt="AutoDNA">
+  </a>
   <button class="hud__burger" id="burger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
@@ -303,6 +306,49 @@
   <!-- ══ MOBILE BOARD (100% Vector SVG from Figma SkipTheDealer mob-1.svg, 393x4597) ══ -->
   <div class="shop-board shop-board--mobile">
     <div id="how-it-works-mob" style="position:absolute;top:22%;left:0;"></div>
+      <!-- ══ SWIPEABLE STEPS CAROUSEL (replaces baked-in single-step artwork) ══ -->
+  <section class="steps" id="steps" data-steps style="--band-top:24.472%;--band-h:8.701%">
+    <div class="steps__viewport" tabindex="0" role="region" aria-label="How it works steps">
+      <div class="steps__track">
+      <article class="steps__slide" data-index="0">
+        <div class="steps__tab">STEP 1</div>
+        <div class="steps__panel">
+          <h3 class="steps__title">ORDER</h3>
+          <span class="steps__rule" aria-hidden="true"></span>
+          <p class="steps__desc">VIA WEBSITE, PHONE CALL,<br>OR APP—YOU CHOOSE THE<br>TIME AND THE SERVICE.</p>
+        </div>
+      </article>
+      <article class="steps__slide" data-index="1">
+        <div class="steps__tab">STEP 2</div>
+        <div class="steps__panel">
+          <h3 class="steps__title">PICKUP</h3>
+          <span class="steps__rule" aria-hidden="true"></span>
+          <p class="steps__desc">OUR CERTIFIED TECHNICIAN<br>ARRIVES AND PICKS UP<br>YOUR CAR.</p>
+        </div>
+      </article>
+      <article class="steps__slide" data-index="2">
+        <div class="steps__tab">STEP 3</div>
+        <div class="steps__panel">
+          <h3 class="steps__title">SERVICE</h3>
+          <span class="steps__rule" aria-hidden="true"></span>
+          <p class="steps__desc">REPAIR, DIAGNOSTICS, OR<br>DETAILING — EVERYTHING IS<br>DONE AT OUR AUTODNA.</p>
+        </div>
+      </article>
+      <article class="steps__slide" data-index="3">
+        <div class="steps__tab">STEP 4</div>
+        <div class="steps__panel">
+          <h3 class="steps__title">RETURN</h3>
+          <span class="steps__rule" aria-hidden="true"></span>
+          <p class="steps__desc">WE RETURN THE CAR CLEAN,<br>CHECKED, AND READY FOR<br>THE ROAD.</p>
+        </div>
+      </article>
+      </div>
+    </div>
+    <div class="steps__dots" role="tablist" aria-label="Steps">
+      <button class="steps__dot is-active" data-go="0" aria-label="Step 1"></button><button class="steps__dot" data-go="1" aria-label="Step 2"></button><button class="steps__dot" data-go="2" aria-label="Step 3"></button><button class="steps__dot" data-go="3" aria-label="Step 4"></button>
+    </div>
+  </section>
+
     <img src="assets/img/skiptheshop-mobile-clean.svg" class="shop-svg" alt="SkipTheShop Mobile" fetchpriority="high">
 
     <!-- Interactive Mobile Hitareas -->

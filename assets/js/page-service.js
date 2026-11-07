@@ -210,3 +210,91 @@ function boot() {
     boot();
   }
 })();
+
+/* ══ MOBILE STEPS CAROUSEL — swipe, dots, keyboard ══════════════════════ */
+(function () {
+  'use strict';
+
+  function initSteps() {
+    document.querySelectorAll('[data-steps]').forEach(function (root) {
+      var viewport = root.querySelector('.steps__viewport');
+      var slides = root.querySelectorAll('.steps__slide');
+      var dots = root.querySelectorAll('.steps__dot');
+      if (!viewport || !slides.length) return;
+
+      var index = 0;
+
+      function setActive(i) {
+        index = i;
+        dots.forEach(function (d, di) {
+          d.classList.toggle('is-active', di === i);
+          d.setAttribute('aria-selected', di === i ? 'true' : 'false');
+        });
+      }
+
+      function goTo(i, smooth) {
+        i = Math.max(0, Math.min(slides.length - 1, i));
+        var target = slides[i];
+        if (!target) return;
+        viewport.scrollTo({
+          left: target.offsetLeft - viewport.offsetLeft,
+          behavior: smooth === false ? 'auto' : 'smooth'
+        });
+        setActive(i);
+      }
+
+      // Sync active dot while the user swipes
+      var raf = 0;
+      viewport.addEventListener('scroll', function () {
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(function () {
+          var w = viewport.clientWidth || 1;
+          var i = Math.round(viewport.scrollLeft / w);
+          if (i !== index) setActive(i);
+        });
+      }, { passive: true });
+
+      // Dots
+      dots.forEach(function (d) {
+        d.addEventListener('click', function () {
+          goTo(parseInt(d.getAttribute('data-go'), 10) || 0);
+        });
+      });
+
+      // Keyboard: arrows swipe left/right
+      root.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight') { e.preventDefault(); goTo(index + 1); }
+        if (e.key === 'ArrowLeft')  { e.preventDefault(); goTo(index - 1); }
+      });
+
+      // Drag-to-swipe with a mouse (desktop touchpads already work natively)
+      var down = false, startX = 0, startLeft = 0;
+      viewport.addEventListener('pointerdown', function (e) {
+        if (e.pointerType === 'mouse') {
+          down = true; startX = e.clientX; startLeft = viewport.scrollLeft;
+          viewport.style.cursor = 'grabbing';
+        }
+      });
+      viewport.addEventListener('pointermove', function (e) {
+        if (!down) return;
+        viewport.scrollLeft = startLeft - (e.clientX - startX);
+      });
+      ['pointerup', 'pointerleave', 'pointercancel'].forEach(function (ev) {
+        viewport.addEventListener(ev, function () {
+          if (!down) return;
+          down = false;
+          viewport.style.cursor = '';
+          goTo(Math.round(viewport.scrollLeft / (viewport.clientWidth || 1)));
+        });
+      });
+
+      setActive(0);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSteps);
+  } else {
+    initSteps();
+  }
+})();
