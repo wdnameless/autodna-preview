@@ -3756,3 +3756,146 @@ html, body {
 @media (prefers-reduced-motion: reduce) {
   .steps__viewport { scroll-behavior: auto; }
 }
+
+/* ══════════════════════════════════════════════════════════════════════
+   HEADER — FIGMA 464:7007 EXACT (DriveCarePlan artboard, 1440px)
+   Measurements taken from the source SVG + rendered Figma PNG:
+     left panel  x 20.555  w 322   ; nav panel x 365.555 w 1054
+     panel y 19.828   h 71
+     title glyphs start x=39  (panel + 18.45)
+     nav first item  x=437   (panel + 71.45)
+     nav last item   ends x=1347 (panel right 1419.555 -> pad 72.55)
+     title cap-height 15px  -> font-size ~21.5px
+     nav  cap-height 12px  -> font-size ~17px
+     corner ticks 18.84 long, 1px, colour #C2B9FF
+   Percentages are of the 1440 artboard so the header tracks the SVG.
+   ══════════════════════════════════════════════════════════════════════ */
+
+.panel-evolution__box,
+.panel-nav__box {
+  border: 0 !important;                 /* Figma has NO full border, only corner ticks */
+  background: #262548 !important;       /* flat fill; opacity comes from the box-shadow layer */
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45) !important;
+  border-radius: 0 !important;
+}
+
+/* Translucent fill exactly as authored (#262548 @ 44%) without a visible hairline */
+.panel-evolution__box::before,
+.panel-nav__box::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: rgba(38, 37, 72, 0.44) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+.panel-evolution__box > *,
+.panel-nav__box > * { position: relative !important; z-index: 1 !important; }
+
+/* Left panel typography: 21.5px, glyph start 18.45px in */
+.panel-evolution__btn {
+  padding: 0 1.2813vw !important;       /* 18.45 / 1440 */
+}
+.panel-evolution__title {
+  font-size: 1.4931vw !important;       /* 21.5 / 1440 */
+  letter-spacing: 0 !important;
+  line-height: 1 !important;
+}
+
+/* Nav: asymmetric padding so first glyph lands exactly at x=437 */
+.panel-nav__box {
+  padding: 0 5.0382vw 0 4.9618vw !important;   /* right 72.55/1440, left 71.45/1440 */
+  justify-content: space-between !important;
+}
+.panel-nav__link,
+.panel-nav__dropdown-btn {
+  font-size: 1.1806vw !important;       /* 17 / 1440 */
+  padding: 0 !important;                /* spacing owned by justify-content */
+  letter-spacing: 0 !important;
+}
+
+/* Corner ticks: 18.84px long, 1px, no offset */
+.panel-evolution__box .tick,
+.panel-nav__box .tick {
+  width: 1.3083vw !important;           /* 18.84 / 1440 */
+  height: 1.3083vw !important;
+  border-width: 1px !important;
+  border-color: #c2b9ff !important;
+  border-style: solid !important;
+  z-index: 3 !important;
+}
+.panel-evolution__box .tick.tl, .panel-nav__box .tick.tl { top: 0 !important; left: 0 !important; border-width: 1px 0 0 1px !important; }
+.panel-evolution__box .tick.tr, .panel-nav__box .tick.tr { top: 0 !important; right: 0 !important; border-width: 1px 1px 0 0 !important; }
+.panel-evolution__box .tick.bl, .panel-nav__box .tick.bl { bottom: 0 !important; left: 0 !important; border-width: 0 0 1px 1px !important; }
+.panel-evolution__box .tick.br, .panel-nav__box .tick.br { bottom: 0 !important; right: 0 !important; border-width: 0 1px 1px 0 !important; }
+
+/* ── NAV: Figma uses UNIFORM ~27.2px gaps, not space-between ───────────── */
+.panel-nav__box {
+  justify-content: flex-start !important;
+  gap: 1.8889vw !important;            /* 27.2 / 1440 — measured from the Figma PNG */
+  padding: 0 5.0382vw 0 4.9618vw !important;
+}
+.panel-nav__item { flex: 0 0 auto !important; }
+
+/* Figma's typeface is narrower than the local Helvetica fallback:
+   compress tracking so the 6 labels occupy the authored 774px. */
+.panel-nav__link,
+.panel-nav__dropdown-btn {
+  letter-spacing: -0.0465em !important;   /* 890px -> ~774px at 17px */
+  padding: 0 !important;
+}
+
+/* ── NAV: solved numerically against Figma glyph widths ────────────────
+   15.5px / -0.03em reproduces the authored label widths
+   (85.8/177.4/73.3/156.5/113.6/151.6 vs Figma 84/175/68/157/113/149).
+   Gaps are uniform 27.2px, matching the artboard's 26/31/25/27/27.        */
+.panel-nav__box {
+  justify-content: flex-start !important;
+  gap: 1.8889vw !important;
+  padding: 0 5.0382vw 0 4.9618vw !important;
+}
+.panel-nav__item { flex: 0 0 auto !important; }
+
+.panel-nav__link,
+.panel-nav__dropdown-btn {
+  font-size: 1.0764vw !important;        /* 15.5 / 1440 */
+  letter-spacing: -0.03em !important;
+  padding: 0 !important;
+  gap: 0.4167vw !important;              /* 6px chevron gap */
+}
+.panel-nav__chevron {
+  width: 0.5556vw !important;            /* 8px */
+  height: 0.3472vw !important;
+}
+/* Final calibration: absorb the residual 14px width delta across 110 glyphs */
+.panel-nav__link,
+.panel-nav__dropdown-btn {
+  letter-spacing: -0.0382em !important;
+}
+/* BUGFIX: opaque #262548 + 44% overlay doubled the fill (panels too light).
+   Figma has ONE translucent layer: #262548 @ 44%. */
+.panel-evolution__box,
+.panel-nav__box {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.panel-evolution__box::before,
+.panel-nav__box::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: rgba(38, 37, 72, 0.44) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+/* Title: 18.5px reproduces Figma's 174px glyph run (39..213) exactly */
+.panel-evolution__title {
+  font-size: 1.2847vw !important;     /* 18.5 / 1440 */
+  letter-spacing: 0 !important;
+}
+/* Title glyphs start 18.4px inside the panel, as in the artboard */
+.panel-evolution__btn {
+  padding: 0 1.2813vw !important;     /* 18.45 / 1440 */
+}
