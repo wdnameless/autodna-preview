@@ -588,3 +588,18 @@
     letter-spacing: 0.5px;
   }
 }
+/* ── MOBILE: drivecareplan uses a custom HTML badge (not an SVG artboard).
+   In Figma the badge sits BELOW the logo/burger row (logo y=26..44, badge top y≈72),
+   so the HUD must not overlap it. Push the badge row down. */
+@media (max-width: 768px) {
+  .plan-board--mobile {
+    padding-top: 72px !important;   /* Figma: badge top edge at y≈72 */
+  }
+  .plan-board--mobile .mob-plan-header {
+    margin-top: 0 !important;
+  }
+  /* HUD logo/burger stay at Figma y=26 */
+  .hud {
+    padding: 26px 14px 0 13px !important;
+  }
+}
