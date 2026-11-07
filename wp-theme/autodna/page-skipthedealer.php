@@ -8,7 +8,7 @@
 get_header(); ?>
 
 <main>
-  <!-- ══ DESKTOP SITE (Shown on screens > 768px) ════════════════════════ -->
+  <h1 class="sr-only">SkipTheDealer — buy cars up to 40% cheaper</h1>
   <div class="dealer-desktop-layout">
 
 

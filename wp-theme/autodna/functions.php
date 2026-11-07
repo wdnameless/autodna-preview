@@ -7,9 +7,14 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'AUTODNA_THEME_VERSION', '1.2.0' );
+define( 'AUTODNA_THEME_VERSION', '1.6.0' );
 
-require_once get_template_directory() . '/inc/acf-fields.php';
+require_once get_template_directory() . '/inc/content-defaults.php';
+require_once get_template_directory() . '/inc/content-helpers.php';
+require_once get_template_directory() . '/inc/sections-home.php';
+require_once get_template_directory() . '/inc/customize-content.php';
+require_once get_template_directory() . '/inc/menu-walker.php';
+require_once get_template_directory() . '/inc/admin-tidy.php';
 
 function autodna_theme_setup() {
     add_theme_support( 'title-tag' );
@@ -92,26 +97,43 @@ function autodna_enqueue_assets() {
 }
 add_action( 'wp_enqueue_scripts', 'autodna_enqueue_assets' );
 
-/** Fallback menu: the board's 9 anchors, used until a WP menu is assigned. */
+/** Fallback menu: same 9 anchors + services submenu, overlay markup. */
 function autodna_fallback_menu() {
+    $arrow = '<svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>';
     $items = array(
-        '#home'      => 'Home',
-        '#carlears'  => 'Who We Are',
-        '#value'     => 'Why AutoDNA',
-        '#compare'   => 'Price Comparison',
-        '#services'  => 'Our Services',
-        '#facts'     => 'Facts & Figures',
-        '#corporate' => 'About AutoDNA',
-        '#club'      => 'DNA Auto Club',
-        '#contact'   => 'Contact',
+        array( '/', 'Home' ),
+        array( '/#carlears', 'Who We Are' ),
+        array( '/#value', 'Why AutoDNA' ),
+        array( '/#compare', 'Price Comparison' ),
+        array( '/#facts', 'Facts & Figures' ),
+        array( '/#corporate', 'About AutoDNA' ),
+        array( '/#club', 'DNA Auto Club' ),
+        array( '/#contact', 'Contact' ),
     );
-    echo '<ul>';
-    foreach ( $items as $href => $label ) {
-        printf(
-            '<li><a href="%s">%s</a></li>',
-            esc_url( home_url( '/' . $href ) ),
-            esc_html( $label )
-        );
+    echo '<ul class="menu-list">';
+    foreach ( array_slice( $items, 0, 4 ) as $it ) {
+        printf( '<li class="menu-item"><a href="%s" class="menu-link"><span class="menu-text">%s</span>%s</a></li>',
+            esc_url( home_url( $it[0] ) ), esc_html( $it[1] ), $arrow );
+    }
+    printf( '<li class="menu-item menu-item--has-sub"><a href="%s" class="menu-link"><div style="display: flex; align-items: flex-end;"><span class="menu-text">Our Services</span><svg class="menu-chevron" viewBox="0 0 8 8" aria-hidden="true"><path d="M2 1L5 4L2 7"/></svg></div>%s</a><ul class="menu-sublist">',
+        esc_url( home_url( '/#services' ) ), $arrow );
+    foreach ( array(
+        array( '/skipthedealer/', 'SkipTheDealer' ),
+        array( '/skipthesearch/', '↳ SkipTheSearch' ),
+        array( '/dnaservice/', 'AutoDNA Service' ),
+        array( '/skiptheshop/', '↳ SkipTheShop™' ),
+        array( '/drivecareplan/', '↳ DriveCarePlan™' ),
+        array( '/commercial/', '↳ DriveCare Plan™ Commercial' ),
+        array( '/paintbot/', '↳ PaintBot™' ),
+        array( '/dnainvest/', 'AutoDNA Flip' ),
+    ) as $sub ) {
+        printf( '<li class="menu-subitem"><a href="%s" class="menu-sublink"><span class="menu-subtext">%s</span>%s</a></li>',
+            esc_url( home_url( $sub[0] ) ), esc_html( $sub[1] ), $arrow );
+    }
+    echo '</ul></li>';
+    foreach ( array_slice( $items, 4 ) as $it ) {
+        printf( '<li class="menu-item"><a href="%s" class="menu-link"><span class="menu-text">%s</span>%s</a></li>',
+            esc_url( home_url( $it[0] ) ), esc_html( $it[1] ), $arrow );
     }
     echo '</ul>';
 }
@@ -139,7 +161,7 @@ function autodna_customize_register( $wp_customize ) {
         'autodna_instagram' => '#',
     );
     foreach ( $fields as $key => $def ) {
-        $wp_customize->add_setting( $key, array( 'default' => $def, 'sanitize_callback' => 'sanitize_text_field' ) );
+        $wp_customize->add_setting( $key, array( 'default' => $def, 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage' ) );
         $wp_customize->add_control( $key, array(
             'label'   => ucwords( str_replace( '_', ' ', preg_replace( '/^autodna_/', '', $key ) ) ),
             'section' => 'autodna_contact',
@@ -148,3 +170,16 @@ function autodna_customize_register( $wp_customize ) {
     }
 }
 add_action( 'customize_register', 'autodna_customize_register' );
+
+/** Front-end hygiene for a marketing site: no generator/RSD/oEmbed/emoji bloat, no XML-RPC. */
+function autodna_front_cleanup() {
+    remove_action( 'wp_head', 'wp_generator' );
+    remove_action( 'wp_head', 'rsd_link' );
+    remove_action( 'wp_head', 'wlwmanifest_link' );
+    remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
+    remove_action( 'wp_head', 'wp_oembed_add_host_js' );
+    remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+    remove_action( 'wp_print_styles', 'print_emoji_styles' );
+    add_filter( 'xmlrpc_enabled', '__return_false' );
+}
+add_action( 'init', 'autodna_front_cleanup' );

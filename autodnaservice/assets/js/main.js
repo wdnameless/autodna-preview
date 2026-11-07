@@ -100,7 +100,72 @@
     });
   }
 
-  function boot() {
+  
+  // ══ 0. FULLSCREEN HUD BURGER MENU ═════════════════════════════════════
+  function initMenu() {
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('menu');
+    if (!burger || !menu) return;
+
+    let closeTimer = null;
+
+    function setMenu(open) {
+      clearTimeout(closeTimer);
+      if (open) {
+        menu.hidden = false;
+        burger.setAttribute('aria-expanded', 'true');
+        burger.setAttribute('aria-label', 'Close menu');
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            menu.classList.add('is-open');
+          });
+        });
+      } else {
+        burger.setAttribute('aria-expanded', 'false');
+        burger.setAttribute('aria-label', 'Open menu');
+        menu.classList.remove('is-open');
+        closeTimer = setTimeout(() => {
+          if (!menu.classList.contains('is-open')) {
+            menu.hidden = true;
+          }
+        }, 280);
+      }
+    }
+
+    burger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = menu.classList.contains('is-open') && !menu.hidden;
+      setMenu(!isOpen);
+    });
+
+    // Toggle submenu on mobile / click
+    const subItems = menu.querySelectorAll('.menu-item--has-sub');
+    subItems.forEach(item => {
+      const link = item.querySelector('.menu-link');
+      if (link) {
+        link.addEventListener('click', (e) => {
+          if (window.matchMedia('(max-width: 768px)').matches || e.target.closest('.menu-chevron')) {
+            if (!item.classList.contains('is-expanded')) {
+              e.preventDefault();
+              item.classList.add('is-expanded');
+            }
+          }
+        });
+      }
+    });
+
+    // Close on click outside
+    document.addEventListener('click', (e) => {
+      if (menu.classList.contains('is-open')) {
+        if (!e.target.closest('.menu__panel') && !e.target.closest('#burger')) {
+          setMenu(false);
+        }
+      }
+    });
+  }
+
+function boot() {
+    initMenu();
     initMultiview();
     initHeader();
     initSmoothScroll();

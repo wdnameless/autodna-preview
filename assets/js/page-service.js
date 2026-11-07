@@ -174,8 +174,32 @@
     });
   }
 
-  function boot() {
+  
+  // ══ DYNAMIC STICKY HEADER & DROPDOWNS ══════════════════════════════
+  function initHeader() {
+    const evoPanel = document.querySelector('.panel-evolution');
+    const evoBtn = document.querySelector('#btn-evolution');
+
+    if (evoPanel && evoBtn) {
+      evoBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = evoPanel.classList.contains('is-open');
+        evoPanel.classList.toggle('is-open', !isOpen);
+        evoBtn.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.panel-evolution')) {
+          evoPanel.classList.remove('is-open');
+          evoBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  }
+
+function boot() {
     initMenu();
+    initHeader();
     initServiceTabs();
     initSmoothScroll();
   }

@@ -661,3 +661,309 @@ body.site-service {
   background: rgba(150, 133, 255, 0.25);
   box-shadow: 0 0 20px rgba(150, 133, 255, 0.7);
 }
+
+
+/* ══ FIXED HUD HEADER (BURGER BUTTON) ═══════════════════════════════════ */
+.hud {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 120;
+  display: flex;
+  justify-content: flex-end;
+  padding: 32px 36px;
+  pointer-events: none;
+}
+
+.hud__burger {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 8px;
+  pointer-events: auto;
+  z-index: 125;
+}
+.hud__burger span {
+  display: block;
+  width: 37px;
+  height: 3px;
+  background: #c2b9ff;
+  transition: 0.3s;
+}
+.hud__burger[aria-expanded="true"] span {
+  background: #fff;
+}
+
+/* ══ MENU OVERLAY & SLIDING DRAWER (EXACT FIGMA 464:3660 MATCH) ══════════ */
+.menu {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 130 !important;
+  background: transparent !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: flex-end !important;
+  padding: 24px 25px 0 0 !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: opacity 0.25s ease, visibility 0.25s ease !important;
+}
+
+.menu.is-open {
+  pointer-events: auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.menu[hidden] {
+  display: none !important;
+}
+
+.menu__container {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: auto !important;
+  display: block !important;
+}
+
+.menu__panel {
+  position: relative !important;
+  width: 320px !important;
+  max-width: calc(100vw - 32px) !important;
+  margin: 0 !important;
+  background: rgba(22, 19, 48, 0.92) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(194, 185, 255, 0.22) !important;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.75) !important;
+  padding: 14px 0 18px !important;
+  transform: translateX(45px) !important;
+  opacity: 0 !important;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.24s ease !important;
+  box-sizing: border-box !important;
+}
+
+.menu.is-open .menu__panel {
+  transform: translateX(0) !important;
+  opacity: 1 !important;
+}
+
+.menu__panel > .tick {
+  position: absolute !important;
+  width: 20px !important;
+  height: 20px !important;
+  border-color: #c2b9ff !important;
+  border-style: solid !important;
+  pointer-events: none !important;
+  z-index: 10 !important;
+}
+
+.menu__panel > .tick.tl { top: -1px !important; left: -1px !important; border-width: 1.2px 0 0 1.2px !important; }
+.menu__panel > .tick.tr { top: -1px !important; right: -1px !important; border-width: 1.2px 1.2px 0 0 !important; }
+.menu__panel > .tick.bl { bottom: -1px !important; left: -1px !important; border-width: 0 0 1.2px 1.2px !important; }
+.menu__panel > .tick.br { bottom: -1px !important; right: -1px !important; border-width: 0 1.2px 1.2px 0 !important; }
+
+.menu-list {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.menu-item {
+  position: relative !important;
+  margin: 0 14px !important;
+  border-bottom: 1px solid rgba(194, 185, 255, 0.45) !important;
+}
+
+.menu-link {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-end !important;
+  height: 43px !important;
+  padding: 0 2px 7px !important;
+  text-decoration: none !important;
+  box-sizing: border-box !important;
+  transition: background 0.2s ease !important;
+}
+
+.menu-text {
+  font-family: 'Helvetica Neue', Helvetica, -apple-system, BlinkMacSystemFont, Arial, sans-serif !important;
+  font-weight: 300 !important;
+  font-size: 20px !important;
+  letter-spacing: -0.4px !important;
+  line-height: 1 !important;
+  background: linear-gradient(90deg, #ffffff 0%, #ffffff 28%, #b2a8f8 68%, #524b89 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  transition: all 0.2s ease !important;
+  white-space: nowrap !important;
+}
+
+.menu-link:hover .menu-text {
+  background: #ffffff !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-shadow: 0 0 14px rgba(194, 185, 255, 0.8) !important;
+}
+
+.menu-arrow {
+  width: 16px !important;
+  height: 12px !important;
+  flex: none !important;
+  overflow: visible !important;
+  margin-bottom: 1px !important;
+  transition: transform 0.2s ease !important;
+}
+
+.menu-arrow path {
+  stroke: #c2b9ff !important;
+  stroke-width: 1.1 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+  fill: none !important;
+}
+
+.menu-link:hover .menu-arrow {
+  transform: translateX(3px) !important;
+}
+.menu-link:hover .menu-arrow path {
+  stroke: #ffffff !important;
+  filter: drop-shadow(0 0 6px rgba(194, 185, 255, 0.9)) !important;
+}
+
+.menu-sublist {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 0 4px 14px !important;
+  overflow: hidden !important;
+  max-height: 0 !important;
+  opacity: 0 !important;
+  transform: translateY(-4px) !important;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, transform 0.25s ease !important;
+}
+
+.menu-item.is-expanded .menu-sublist,
+.menu-item:hover .menu-sublist {
+  max-height: 520px !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.menu-subitem {
+  border-bottom: 1px dashed rgba(194, 185, 255, 0.22) !important;
+}
+.menu-subitem:last-child {
+  border-bottom: none !important;
+}
+
+.menu-sublink {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  height: 36px !important;
+  padding: 0 2px !important;
+  text-decoration: none !important;
+}
+
+.menu-subtext {
+  font-family: 'Helvetica Neue', Helvetica, -apple-system, BlinkMacSystemFont, Arial, sans-serif !important;
+  font-weight: 300 !important;
+  font-size: 16px !important;
+  letter-spacing: -0.3px !important;
+  line-height: 1 !important;
+  background: linear-gradient(90deg, #e4dfff 0%, rgba(194, 185, 255, 0.7) 60%, rgba(140, 130, 200, 0.4) 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  transition: all 0.2s ease !important;
+}
+
+.menu-sublink:hover .menu-subtext {
+  background: #ffffff !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-shadow: 0 0 10px rgba(194, 185, 255, 0.8) !important;
+}
+
+.menu-sublink .menu-arrow {
+  width: 13px !important;
+  height: 10px !important;
+}
+
+.menu-chevron {
+  width: 8px !important;
+  height: 8px !important;
+  margin-left: 8px !important;
+  margin-bottom: 2px !important;
+  transition: transform 0.25s ease !important;
+}
+.menu-chevron path {
+  stroke: #c2b9ff !important;
+  stroke-width: 1.2 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+  fill: none !important;
+}
+.menu-item.is-expanded .menu-chevron,
+.menu-item:hover .menu-chevron {
+  transform: rotate(90deg) !important;
+}
+
+.menu-subitem--nested {
+  padding-left: 14px !important;
+  border-bottom: 1px dashed rgba(194, 185, 255, 0.12) !important;
+}
+.menu-subitem--nested .menu-subtext {
+  font-size: 14px !important;
+  opacity: 0.82;
+}
+.menu-subitem--nested:hover .menu-subtext {
+  opacity: 1;
+}
+
+/* Mobile cards hitareas */
+.mob-hitarea--card-shop {
+  left: 6.8%;
+  top: 29.35%;
+  width: 86.4%;
+  height: 4.0%;
+}
+.mob-hitarea--card-plan {
+  left: 6.8%;
+  top: 33.65%;
+  width: 86.4%;
+  height: 4.0%;
+}
+.mob-hitarea--card-paint {
+  left: 6.8%;
+  top: 37.85%;
+  width: 86.4%;
+  height: 4.0%;
+}
+
+
+/* Guarantee HUD Burger is always above sticky header and clickable */
+.hud {
+  z-index: 150 !important;
+}
+.hud__burger {
+  position: relative !important;
+  z-index: 155 !important;
+  pointer-events: auto !important;
+}
+
+@media (max-width: 768px) {
+  .sticky-header {
+    display: none !important;
+  }
+}
