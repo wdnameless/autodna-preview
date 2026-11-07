@@ -1597,3 +1597,29 @@ html, body {
 .panel-evolution__btn {
   padding: 0 1.2813vw !important;     /* 18.45 / 1440 */
 }
+/* ── MOBILE HUD: match Figma 393px exactly ───────────────────────────────
+   Measured in SkipTheDealer mob-*.png:
+     logo   x 13..49 (w 36)   y 26..45 (h 19)
+     burger x 344..379 (w 35) y 26..45 (h 19, 3 lines + 2 gaps)
+   ─────────────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hud {
+    padding: 26px 14px 0 13px !important;
+    align-items: flex-start !important;
+  }
+  .hud__logo img {
+    width: 36px !important;
+    height: 20px !important;
+    display: block !important;
+  }
+  .hud__burger {
+    padding: 0 !important;
+    gap: 5px !important;
+    margin: 0 !important;
+  }
+  .hud__burger span {
+    width: 35px !important;
+    height: 3px !important;
+    display: block !important;
+  }
+}
