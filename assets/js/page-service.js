@@ -53,7 +53,7 @@
     subItems.forEach(item => {
       const link = item.querySelector('.menu-link');
       if (link) {
-        link.addEventListener('click', () => {
+        link.addEventListener('click', (e) => {
           // If on touch device, toggle submenu
           if (window.matchMedia('(max-width: 768px)').matches || e.target.closest('.menu-chevron')) {
             if (!item.classList.contains('is-expanded')) {

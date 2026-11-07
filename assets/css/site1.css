@@ -3294,3 +3294,31 @@ main { position: relative; z-index: 1; }
 .hud__burger {
   margin-left: auto !important;
 }
+
+
+/* ══ MOBILE MENU SCROLLABILITY & ACCESSIBILITY ══ */
+.menu {
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    padding: 16px 16px 32px 16px !important;
+    background: rgba(2, 2, 2, 0.75) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+  }
+  .menu__container {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+  }
+  .menu__panel {
+    width: 100% !important;
+    max-width: 330px !important;
+    max-height: calc(100vh - 48px) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+}
