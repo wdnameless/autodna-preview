@@ -502,9 +502,10 @@ html, body {
   right: 0 !important;
   z-index: 250 !important;
   display: flex !important;
-  justify-content: space-between !important;
+  justify-content: flex-end !important;
   align-items: flex-start !important;
   padding: 27px 25px 0 25px !important;
+  background: none !important;
   pointer-events: none !important;
   box-sizing: border-box !important;
 }
@@ -515,12 +516,7 @@ html, body {
 }
 
 .page-dealer-ext .hud__logo {
-  display: block !important;
-  width: 50px !important;
-  height: 65px !important;
-  background: transparent !important;
-  cursor: pointer !important;
-  pointer-events: auto !important;
+  display: none !important;
 }
 
 .page-dealer-ext .hud__logo-dealer {
@@ -577,4 +573,20 @@ html, body {
   .page-dealer-ext .hud {
     justify-content: flex-end !important;
   }
+}
+
+/* ══ TRANSPARENT BURGER CLICK HITAREA (USES FIGMA ARTWORK BARS) ════════ */
+.page-dealer-ext .hud__burger {
+  width: 44px !important;
+  height: 38px !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+  outline: none !important;
+  padding: 0 !important;
+  margin-top: 5px !important;
+}
+
+.page-dealer-ext .hud__burger span {
+  display: none !important;
 }
