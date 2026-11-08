@@ -514,11 +514,17 @@ html, body {
   pointer-events: auto !important;
 }
 
-.page-dealer-ext .hud__logo-dealer {
-  width: 37px !important;
-  height: 58px !important;
+.page-dealer-ext .hud__logo {
   display: block !important;
-  object-fit: contain !important;
+  width: 50px !important;
+  height: 65px !important;
+  background: transparent !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+}
+
+.page-dealer-ext .hud__logo-dealer {
+  display: none !important;
 }
 
 .page-dealer-ext .hud__burger {
