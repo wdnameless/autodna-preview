@@ -1,5 +1,9 @@
 /* ══ SKIPTHEDEALER PAGE STYLES (100% AUTHENTIC FIGMA VECTOR ARTBOARD) ══ */
 
+html {
+  scroll-behavior: smooth !important;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -41,6 +45,199 @@ html, body {
   display: block;
 }
 
+/* ══ LIVING INTERACTIVE HERO MENU BOX (Desktop x=1125, y=103 w=289 h=304) ══ */
+.dealer-hero-menu {
+  position: absolute !important;
+  left: 78.125% !important;        /* 1125 / 1440 */
+  top: 0.6457% !important;         /* 103 / 15951 */
+  width: 20.069% !important;       /* 289 / 1440 */
+  height: 1.9058% !important;      /* 304 / 15951 */
+  max-height: 25vw !important;
+  background: rgba(38, 37, 72, 0.44) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(194, 185, 255, 0.22) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  z-index: 30 !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease !important;
+}
+
+
+
+.dealer-hero-menu__row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex: 1 !important;
+  min-height: 2.72vw !important;
+  padding: 0 1.25vw !important;     /* ~18px / 1440 */
+  text-decoration: none !important;
+  border-bottom: 1px solid rgba(194, 185, 255, 0.18) !important;
+  transition: background 0.2s ease, color 0.2s ease !important;
+  cursor: pointer !important;
+}
+.dealer-hero-menu__row:last-child {
+  border-bottom: none !important;
+}
+
+.dealer-hero-menu__row:hover {
+  background: rgba(150, 133, 255, 0.22) !important;
+}
+
+.dealer-hero-menu__text {
+  font-family: var(--body, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif) !important;
+  font-size: 1.111vw !important;    /* 16px / 1440 */
+  font-weight: 300 !important;
+  color: #C2B9FF !important;
+  white-space: nowrap !important;
+  letter-spacing: -0.2px !important;
+  transition: color 0.2s ease, transform 0.2s ease !important;
+}
+
+.dealer-hero-menu__row:hover .dealer-hero-menu__text {
+  color: #FFFFFF !important;
+  transform: translateX(2px) !important;
+}
+
+.dealer-hero-menu__row.is-active .dealer-hero-menu__text {
+  color: #FFFFFF !important;
+  font-weight: 500 !important;
+}
+
+.dealer-hero-menu__row.is-highlight .dealer-hero-menu__text {
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.2px !important;
+}
+
+.dealer-hero-menu__icon,
+.dealer-hero-menu__chevron {
+  width: 0.972vw !important;        /* 14px / 1440 */
+  height: 0.694vw !important;       /* 10px / 1440 */
+  flex-shrink: 0 !important;
+  transition: transform 0.25s ease !important;
+}
+
+.dealer-hero-menu__row:hover .dealer-hero-menu__icon {
+  transform: translateX(4px) !important;
+}
+
+
+
+/* Corner ticks on the hero menu */
+.dealer-hero-menu .tick {
+  position: absolute !important;
+  width: 1.25vw !important;         /* 18px / 1440 */
+  height: 1.25vw !important;
+  border-color: #C2B9FF !important;
+  border-style: solid !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+}
+.dealer-hero-menu .tick.tl { top: 0 !important; left: 0 !important; border-width: 1px 0 0 1px !important; }
+.dealer-hero-menu .tick.tr { top: 0 !important; right: 0 !important; border-width: 1px 1px 0 0 !important; }
+.dealer-hero-menu .tick.bl { bottom: 0 !important; left: 0 !important; border-width: 0 0 1px 1px !important; }
+.dealer-hero-menu .tick.br { bottom: 0 !important; right: 0 !important; border-width: 0 1px 1px 0 !important; }
+
+/* Hero Burger Button (Desktop x=1380, y=38) */
+.dealer-hero-burger-btn {
+  position: absolute !important;
+  right: 1.736% !important;        /* 25px / 1440 */
+  top: 0.238% !important;          /* 38px / 15951 */
+  width: 2.778vw !important;       /* 40px / 1440 */
+  height: 2.083vw !important;      /* 30px / 1440 */
+  background: transparent !important;
+  border: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  padding: 4px 2px !important;
+  cursor: pointer !important;
+  z-index: 35 !important;
+  outline: none !important;
+}
+
+.dealer-hero-burger-btn span {
+  display: block !important;
+  width: 100% !important;
+  height: 2.5px !important;
+  background-color: #C2B9FF !important;
+  transition: background-color 0.2s ease, transform 0.2s ease !important;
+}
+
+.dealer-hero-burger-btn:hover span {
+  background-color: #FFFFFF !important;
+}
+
+/* ══ STICKY HUD (APPEARS ON SCROLL PAST HERO) ═══════════════════════════ */
+.dealer-sticky-hud {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 120 !important;
+  height: 64px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 0 28px !important;
+  background: rgba(15, 13, 33, 0.92) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(194, 185, 255, 0.15) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+  transform: translateY(-100%) !important;
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.dealer-sticky-hud.is-visible {
+  transform: translateY(0) !important;
+}
+
+.dealer-sticky-hud__logo {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  text-decoration: none !important;
+}
+
+.dealer-sticky-hud__name {
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px !important;
+  color: #FFFFFF !important;
+}
+
+.dealer-sticky-hud__burger {
+  width: 36px !important;
+  height: 24px !important;
+  background: transparent !important;
+  border: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  padding: 2px !important;
+  cursor: pointer !important;
+  outline: none !important;
+}
+
+.dealer-sticky-hud__burger span {
+  display: block !important;
+  width: 100% !important;
+  height: 2.5px !important;
+  background-color: #C2B9FF !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.dealer-sticky-hud__burger:hover span {
+  background-color: #FFFFFF !important;
+}
+
 /* ══ INTERACTIVE HITAREAS (DESKTOP) ════════════════════════════════════ */
 .dealer-ext-hitarea {
   position: absolute;
@@ -49,19 +246,6 @@ html, body {
   border-radius: 2px;
   background: transparent;
   transition: background 0.25s ease, box-shadow 0.25s ease;
-}
-
-.dealer-ext-menu-hitarea {
-  position: absolute;
-  z-index: 25;
-  cursor: pointer;
-  background: transparent;
-  transition: background 0.2s ease;
-  border-radius: 2px;
-}
-
-.dealer-ext-menu-hitarea:hover {
-  background: rgba(150, 133, 255, 0.12);
 }
 
 /* Top Back / Logo Link */
@@ -139,12 +323,6 @@ html, body {
   height: 0.45%;
 }
 
-.dealer-ext-hitarea--instagram:hover,
-.dealer-ext-hitarea--telegram:hover {
-  background: rgba(150, 133, 255, 0.2);
-  box-shadow: 0 0 20px rgba(150, 133, 255, 0.6);
-}
-
 /* SUBMIT A REQUEST ↗ (Bottom CTA at y=14833) */
 .dealer-ext-hitarea--submit {
   left: 39.95%;
@@ -201,6 +379,10 @@ html, body {
     display: none !important;
   }
 
+  .dealer-sticky-hud {
+    display: none !important;
+  }
+
   .dealer-ext-board--mobile {
     display: block !important;
     position: relative !important;
@@ -209,6 +391,29 @@ html, body {
     margin: 0 !important;
     background-color: #020202 !important;
     overflow: hidden !important;
+  }
+
+  .dealer-mob-burger-btn {
+    position: absolute !important;
+    right: 14px !important;
+    top: 24px !important;
+    width: 36px !important;
+    height: 24px !important;
+    background: transparent !important;
+    border: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    padding: 2px !important;
+    cursor: pointer !important;
+    z-index: 25 !important;
+  }
+
+  .dealer-mob-burger-btn span {
+    display: block !important;
+    width: 100% !important;
+    height: 2.5px !important;
+    background-color: #C2B9FF !important;
   }
 
   .dealer-ext-mob-hitarea {
@@ -237,7 +442,7 @@ html, body {
   /* Mobile FIND YOUR CAR */
   .dealer-ext-mob-hitarea--find-your-car {
     left: 7.5%;
-    top: 22.40%;
+    top: 18.0%;
     width: 85.0%;
     height: 0.40%;
   }
