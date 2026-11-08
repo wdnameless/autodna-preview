@@ -268,3 +268,14 @@
     height: 0.50%;
   }
 }
+
+/* Hide duplicate AutoDNA logo on mobile while keeping burger on the right */
+@media (max-width: 768px) {
+  body.page-dealer-ext .hud__logo {
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+  body.page-dealer-ext .hud {
+    justify-content: space-between !important;
+  }
+}
