@@ -279,3 +279,39 @@
     justify-content: space-between !important;
   }
 }
+/* ══ SKIPTHEDEALER HUD & HERO MENU ═════════════════════════════════════ */
+.hud__logo-dealer {
+  width: 37px !important;
+  height: 58px !important;
+  display: block !important;
+  object-fit: contain !important;
+}
+
+body.page-dealer-ext .hud {
+  padding: 27px 14px 0 25px !important;
+  align-items: flex-start !important;
+}
+
+.dealer-ext-menu-hitarea {
+  position: absolute;
+  z-index: 25;
+  cursor: pointer;
+  background: transparent;
+  transition: background 0.2s ease;
+  border-radius: 2px;
+}
+
+.dealer-ext-menu-hitarea:hover {
+  background: rgba(150, 133, 255, 0.15);
+}
+
+@media (max-width: 768px) {
+  body.page-dealer-ext .hud__logo {
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+  body.page-dealer-ext .hud {
+    justify-content: space-between !important;
+    padding: 21px 14px 0 13px !important;
+  }
+}
