@@ -1,8 +1,8 @@
-/** AutoDNA SkipTheDealer Page Scripts — Standard Global Burger Menu + Living Hero Menu */
+/** AutoDNA SkipTheDealer Page Scripts — 100% Authentic Figma Navigation */
 (function () {
   'use strict';
 
-  // Section target ratios in 15951px artboard
+  // Exact section target ratios in 15951px artboard
   const SECTION_RATIOS = {
     'top': 0,
     'cars': 0.1160,       // y ≈ 1850 in 15951 (Cars & Inventory)
@@ -34,120 +34,9 @@
     });
   }
 
-  // 1. Standard Fullscreen / Sliding Burger Menu (Matching all other pages)
-  function initStandardBurgerMenu() {
-    const burgerBtns = document.querySelectorAll('#burger, #mob-burger, #sticky-burger');
-    const menu = document.querySelector('#menu');
-    if (!burgerBtns.length || !menu) return;
-
-    let closeTimer = null;
-
-    function setMenu(open) {
-      clearTimeout(closeTimer);
-      if (open) {
-        menu.hidden = false;
-        document.body.classList.add('menu-open');
-        burgerBtns.forEach(b => {
-          b.setAttribute('aria-expanded', 'true');
-          b.setAttribute('aria-label', 'Close menu');
-        });
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            menu.classList.add('is-open');
-          });
-        });
-      } else {
-        document.body.classList.remove('menu-open');
-        burgerBtns.forEach(b => {
-          b.setAttribute('aria-expanded', 'false');
-          b.setAttribute('aria-label', 'Open menu');
-        });
-        menu.classList.remove('is-open');
-        closeTimer = setTimeout(() => {
-          if (!menu.classList.contains('is-open')) {
-            menu.hidden = true;
-          }
-        }, 280);
-      }
-    }
-
-    burgerBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isOpen = menu.classList.contains('is-open') && !menu.hidden;
-        setMenu(!isOpen);
-      });
-    });
-
-    const closeBtn = document.querySelector('#menu-close');
-    if (closeBtn) {
-      closeBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        setMenu(false);
-      });
-    }
-
-    // Toggle submenus inside menu
-    const subItems = menu.querySelectorAll('.menu-item--has-sub');
-    subItems.forEach(item => {
-      const link = item.querySelector('.menu-link');
-      if (link) {
-        link.addEventListener('click', (e) => {
-          if (window.matchMedia('(max-width: 768px)').matches || e.target.closest('.menu-chevron')) {
-            if (!item.classList.contains('is-expanded')) {
-              e.preventDefault();
-              item.classList.add('is-expanded');
-              return;
-            }
-          }
-        });
-      }
-    });
-
-    // Clicking anywhere outside .menu__panel closes the menu
-    menu.addEventListener('click', (e) => {
-      if (!e.target.closest('.menu__panel') || (e.target.closest('a') && !e.target.closest('.menu-item--has-sub > a'))) {
-        setMenu(false);
-      }
-      if (e.target.closest('.menu-sublink')) {
-        setMenu(false);
-      }
-    });
-
-    document.addEventListener('click', (e) => {
-      if (menu.classList.contains('is-open')) {
-        if (!e.target.closest('.menu__panel') && !e.target.closest('#burger')) {
-          setMenu(false);
-        }
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && menu.classList.contains('is-open')) {
-        setMenu(false);
-      }
-    });
-
-    // Handle smooth scroll for menu links with data-scroll
-    menu.querySelectorAll('[data-scroll]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        const key = link.getAttribute('data-scroll');
-        if (key) {
-          e.preventDefault();
-          setMenu(false);
-          setTimeout(() => scrollToSection(key), 120);
-        }
-      });
-    });
-  }
-
-  // 2. Living Hero Menu (Desktop)
-  function initHeroMenu() {
-    const heroMenu = document.querySelector('#hero-menu');
-    if (!heroMenu) return;
-
-    // Smooth scroll for hero menu links
-    heroMenu.querySelectorAll('[data-scroll]').forEach(link => {
+  // 1. Hero Menu & Hitareas Smooth Scrolling
+  function initHeroNav() {
+    document.querySelectorAll('[data-scroll]').forEach(link => {
       link.addEventListener('click', (e) => {
         const key = link.getAttribute('data-scroll');
         if (key && key !== 'top') {
@@ -157,48 +46,118 @@
       });
     });
 
-    // Scrollspy: update active link as user scrolls
-    const menuRows = heroMenu.querySelectorAll('.dealer-hero-menu__row[data-scroll]');
-    function updateScrollspy() {
-      const scrollY = window.scrollY;
-      const totalH = document.body.scrollHeight || document.documentElement.scrollHeight;
-      const scrollRatio = scrollY / totalH;
+    const burgerBtn = document.querySelector('#burger');
+    if (burgerBtn) {
+      burgerBtn.addEventListener('click', () => {
+        // Burger click scrolls smoothly to How It Works
+        scrollToSection('how-it-works');
+      });
+    }
+  }
 
-      let currentKey = 'top';
-      for (const [key, ratio] of Object.entries(SECTION_RATIOS)) {
-        if (scrollRatio >= ratio - 0.04) {
-          currentKey = key;
-        }
+  // 2. Sticky HUD & Dropdown Menu
+  function initStickyHUD() {
+    const stickyHud = document.querySelector('#sticky-hud');
+    const stickyBurger = document.querySelector('#sticky-burger');
+    const stickyMenu = document.querySelector('#sticky-menu');
+    if (!stickyHud || !stickyBurger || !stickyMenu) return;
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 750) {
+        stickyHud.classList.add('is-visible');
+      } else {
+        stickyHud.classList.remove('is-visible');
+        stickyMenu.hidden = true;
+        stickyBurger.setAttribute('aria-expanded', 'false');
       }
+    }, { passive: true });
 
-      menuRows.forEach(row => {
-        const isMatch = row.getAttribute('data-scroll') === currentKey;
-        row.classList.toggle('is-active', isMatch);
+    stickyBurger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isHidden = stickyMenu.hidden;
+      stickyMenu.hidden = !isHidden;
+      stickyBurger.setAttribute('aria-expanded', isHidden);
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!stickyMenu.hidden && !e.target.closest('#sticky-hud')) {
+        stickyMenu.hidden = true;
+        stickyBurger.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    stickyMenu.querySelectorAll('[data-scroll]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const key = link.getAttribute('data-scroll');
+        if (key) {
+          e.preventDefault();
+          stickyMenu.hidden = true;
+          stickyBurger.setAttribute('aria-expanded', 'false');
+          setTimeout(() => scrollToSection(key), 80);
+        }
+      });
+    });
+  }
+
+  // 3. Mobile Navigation Drawer
+  function initMobileMenu() {
+    const mobBurger = document.querySelector('#mob-burger');
+    const mobMenu = document.querySelector('#mob-menu');
+    const mobClose = document.querySelector('#mob-close');
+    if (!mobBurger || !mobMenu) return;
+
+    function setMobMenu(open) {
+      if (open) {
+        mobMenu.hidden = false;
+        mobBurger.setAttribute('aria-expanded', 'true');
+        requestAnimationFrame(() => mobMenu.classList.add('is-open'));
+      } else {
+        mobBurger.setAttribute('aria-expanded', 'false');
+        mobMenu.classList.remove('is-open');
+        setTimeout(() => { mobMenu.hidden = true; }, 260);
+      }
+    }
+
+    mobBurger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setMobMenu(mobMenu.hidden);
+    });
+
+    if (mobClose) {
+      mobClose.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setMobMenu(false);
       });
     }
 
-    window.addEventListener('scroll', updateScrollspy, { passive: true });
-    updateScrollspy();
-  }
+    document.addEventListener('click', (e) => {
+      if (!mobMenu.hidden && !e.target.closest('#mob-menu') && !e.target.closest('#mob-burger')) {
+        setMobMenu(false);
+      }
+    });
 
-  // 3. CTA Hitareas Smooth Scrolling
-  function initHitareas() {
-    document.querySelectorAll('[data-scroll]').forEach(el => {
-      if (el.closest('#hero-menu') || el.closest('#menu')) return;
-      el.addEventListener('click', (e) => {
-        const key = el.getAttribute('data-scroll');
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !mobMenu.hidden) {
+        setMobMenu(false);
+      }
+    });
+
+    mobMenu.querySelectorAll('[data-scroll]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const key = link.getAttribute('data-scroll');
         if (key) {
           e.preventDefault();
-          scrollToSection(key);
+          setMobMenu(false);
+          setTimeout(() => scrollToSection(key), 120);
         }
       });
     });
   }
 
   function boot() {
-    initStandardBurgerMenu();
-    initHeroMenu();
-    initHitareas();
+    initHeroNav();
+    initStickyHUD();
+    initMobileMenu();
   }
 
   if (document.readyState === 'loading') {
