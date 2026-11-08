@@ -3873,29 +3873,25 @@ html, body {
 .panel-nav__dropdown-btn {
   letter-spacing: -0.0382em !important;
 }
-/* BUGFIX: opaque #262548 + 44% overlay doubled the fill (panels too light).
-   Figma has ONE translucent layer: #262548 @ 44%. */
+/* ══ DESKTOP GLASS HEADER (100% Vector & Real Frosted Blur) ══════════════ */
 .panel-evolution__box,
 .panel-nav__box {
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
+  background: rgba(38, 37, 72, 0.44) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(194, 185, 255, 0.22) !important;
+  border-radius: 0 !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45) !important;
 }
 .panel-evolution__box::before,
 .panel-nav__box::before {
-  content: "" !important;
-  position: absolute !important;
-  inset: 0 !important;
-  background: rgba(38, 37, 72, 0.44) !important;
-  pointer-events: none !important;
-  z-index: 0 !important;
+  display: none !important;
 }
-/* Title: 18.5px reproduces Figma's 174px glyph run (39..213) exactly */
 .panel-evolution__title {
   font-size: 1.2847vw !important;     /* 18.5 / 1440 */
   letter-spacing: 0 !important;
+  color: #ffffff !important;
 }
-/* Title glyphs start 18.4px inside the panel, as in the artboard */
 .panel-evolution__btn {
   padding: 0 1.2813vw !important;     /* 18.45 / 1440 */
 }
@@ -3948,61 +3944,3 @@ html, body {
 
 /* hard guard: nothing may create a horizontal scrollbar */
 html, body { overflow-x: hidden !important; }
-/* ══ DESKTOP: the artboard already contains the exact Figma glass header
-   (blur, corner ticks, labels, chevrons). The HTML header duplicated it and
-   rendered a flat approximation, so it is hidden on desktop. The dropdowns
-   stay functional via transparent click-zones in the HTML layer. ══ */
-@media (min-width: 769px) {
-  body.site-service .sticky-header,
-  body.page-shop .sticky-header,
-  body.page-plan .sticky-header,
-  body.page-commercial .sticky-header,
-  body.page-paintbot .sticky-header {
-    background: none !important;
-  }
-  /* keep the boxes invisible but clickable so the real dropdowns still work */
-  body.site-service .panel-evolution__box,
-  body.site-service .panel-nav__box,
-  body.page-shop .panel-evolution__box, body.page-shop .panel-nav__box,
-  body.page-plan .panel-evolution__box, body.page-plan .panel-nav__box,
-  body.page-commercial .panel-evolution__box, body.page-commercial .panel-nav__box,
-  body.page-paintbot .panel-evolution__box, body.page-paintbot .panel-nav__box {
-    background: transparent !important;
-    border: 0 !important;
-    box-shadow: none !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
-  body.site-service .panel-evolution__box::before,
-  body.site-service .panel-nav__box::before,
-  body.page-shop .panel-evolution__box::before, body.page-shop .panel-nav__box::before,
-  body.page-plan .panel-evolution__box::before, body.page-plan .panel-nav__box::before,
-  body.page-commercial .panel-evolution__box::before, body.page-commercial .panel-nav__box::before,
-  body.page-paintbot .panel-evolution__box::before, body.page-paintbot .panel-nav__box::before {
-    background: transparent !important;
-  }
-  body.site-service .panel-evolution__box .tick,
-  body.site-service .panel-nav__box .tick,
-  body.page-shop .panel-evolution__box .tick, body.page-shop .panel-nav__box .tick,
-  body.page-plan .panel-evolution__box .tick, body.page-plan .panel-nav__box .tick,
-  body.page-commercial .panel-evolution__box .tick, body.page-commercial .panel-nav__box .tick,
-  body.page-paintbot .panel-evolution__box .tick, body.page-paintbot .panel-nav__box .tick {
-    display: none !important;
-  }
-  /* the text must stay invisible on top of the baked-in labels */
-  body.site-service .panel-evolution__title,
-  body.site-service .panel-nav__link,
-  body.site-service .panel-nav__dropdown-btn,
-  body.page-shop .panel-evolution__title, body.page-shop .panel-nav__link, body.page-shop .panel-nav__dropdown-btn,
-  body.page-plan .panel-evolution__title, body.page-plan .panel-nav__link, body.page-plan .panel-nav__dropdown-btn,
-  body.page-commercial .panel-evolution__title, body.page-commercial .panel-nav__link, body.page-commercial .panel-nav__dropdown-btn,
-  body.page-paintbot .panel-evolution__title, body.page-paintbot .panel-nav__link, body.page-paintbot .panel-nav__dropdown-btn {
-    color: transparent !important;
-    text-shadow: none !important;
-  }
-  body.site-service .panel-evolution__title::selection,
-  body.page-shop .panel-evolution__title::selection,
-  body.page-plan .panel-evolution__title::selection,
-  body.page-commercial .panel-evolution__title::selection,
-  body.page-paintbot .panel-evolution__title::selection { background: transparent !important; }
-}
