@@ -17,7 +17,7 @@
 
 <main class="dealer-ext-main">
 
-  <!-- ══ DESKTOP BOARD (100% Vector SVG from Figma SkipTheDealer-1.svg, 1440x15951) ══ -->
+  <!-- ══ DESKTOP BOARD (100% Full-Bleed Vector SVG from Figma SkipTheDealer-1.svg, 1440x15951) ══ -->
   <div class="dealer-ext-board dealer-ext-board--desktop">
     <img src="assets/img/site1/skipthedealer-extended-desktop-clean.svg" class="dealer-ext-svg" alt="SkipTheDealer — Showroom &amp; Direct Auction Sourcing" fetchpriority="high">
 
@@ -25,18 +25,50 @@
     <a href="#top" class="dealer-ext-hitarea dealer-ext-hitarea--top-logo" data-scroll="top" aria-label="SkipTheDealer Home"></a>
 
     <!-- Top Right Burger Button (Over SVG burger icon at x=1380, y=38) -->
-    <a href="#hero-menu" class="dealer-hero-burger" aria-label="Menu" data-scroll="top"></a>
+    <button type="button" class="dealer-hero-burger" id="burger" aria-label="Open menu" aria-expanded="false"></button>
 
-    <!-- ══ THE ONLY MENU FOR SKIPTHEDEALER (Exact 7 Figma Rows over Authentic Artwork) ══ -->
-    <div class="dealer-hero-menu-hitareas" id="hero-menu">
-      <a href="#top" class="dealer-menu-hitarea" style="left: 77.778%; top: 0.6457%; width: 20.417%; height: 0.4075%;" data-scroll="top" aria-label="Home"></a>
-      <a href="#how-it-works" class="dealer-menu-hitarea" style="left: 77.778%; top: 1.0532%; width: 20.417%; height: 0.4075%;" data-scroll="how-it-works" aria-label="How It Works"></a>
-      <a href="#cars" class="dealer-menu-hitarea" style="left: 77.778%; top: 1.4607%; width: 20.417%; height: 0.4075%;" data-scroll="cars" aria-label="Cars &amp; Inventory"></a>
-      <a href="#carlears" class="dealer-menu-hitarea" style="left: 77.778%; top: 1.8682%; width: 20.417%; height: 0.4075%;" data-scroll="carlears" aria-label="Why Us"></a>
-      <a href="#standard" class="dealer-menu-hitarea" style="left: 77.778%; top: 2.2757%; width: 20.417%; height: 0.4075%;" data-scroll="standard" aria-label="Extras"></a>
-      <a href="#contact" class="dealer-menu-hitarea" style="left: 77.778%; top: 2.6832%; width: 20.417%; height: 0.4075%;" data-scroll="contact" aria-label="Contact"></a>
-      <a href="skipthesearch.html" class="dealer-menu-hitarea" style="left: 77.778%; top: 3.0907%; width: 20.417%; height: 0.4138%;" aria-label="SkipTheSearch Subpage"></a>
-    </div>
+    <!-- ══ DROPDOWN MENU (OPENS ONLY ON CLICK OF BURGER BUTTON) ══════════ -->
+    <nav class="dealer-hero-menu ticks" id="hero-menu" aria-label="SkipTheDealer Navigation" hidden>
+      <span class="tick tl"></span>
+      <span class="tick tr"></span>
+      <span class="tick bl"></span>
+      <span class="tick br"></span>
+
+      <button type="button" class="dealer-hero-menu__row dealer-hero-menu__row--home" id="btn-close-menu" aria-label="Close menu">
+        <span class="dealer-hero-menu__text">HOME</span>
+        <svg viewBox="0 0 10 6" class="dealer-hero-menu__chevron"><path d="M1 5L5 1L9 5" stroke="#C2B9FF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      </button>
+
+      <a href="#how-it-works" class="dealer-hero-menu__row" data-scroll="how-it-works">
+        <span class="dealer-hero-menu__text">How It Works</span>
+        <svg viewBox="0 0 14 10" class="dealer-hero-menu__icon"><path d="M0 5H12M7 1L12 5L7 9" stroke="#C2B9FF" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      </a>
+
+      <a href="#cars" class="dealer-hero-menu__row" data-scroll="cars">
+        <span class="dealer-hero-menu__text">Cars &amp; Inventory</span>
+        <svg viewBox="0 0 14 10" class="dealer-hero-menu__icon"><path d="M0 5H12M7 1L12 5L7 9" stroke="#C2B9FF" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      </a>
+
+      <a href="#carlears" class="dealer-hero-menu__row" data-scroll="carlears">
+        <span class="dealer-hero-menu__text">Why Us</span>
+        <svg viewBox="0 0 14 10" class="dealer-hero-menu__icon"><path d="M0 5H12M7 1L12 5L7 9" stroke="#C2B9FF" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      </a>
+
+      <a href="#standard" class="dealer-hero-menu__row" data-scroll="standard">
+        <span class="dealer-hero-menu__text">Extras</span>
+        <svg viewBox="0 0 14 10" class="dealer-hero-menu__icon"><path d="M0 5H12M7 1L12 5L7 9" stroke="#C2B9FF" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      </a>
+
+      <a href="#contact" class="dealer-hero-menu__row" data-scroll="contact">
+        <span class="dealer-hero-menu__text">Contact</span>
+        <svg viewBox="0 0 14 10" class="dealer-hero-menu__icon"><path d="M0 5H12M7 1L12 5L7 9" stroke="#C2B9FF" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      </a>
+
+      <a href="skipthesearch.html" class="dealer-hero-menu__row is-highlight">
+        <span class="dealer-hero-menu__text">SKIPTHESEARCH</span>
+        <svg viewBox="0 0 14 10" class="dealer-hero-menu__icon"><path d="M0 5H12M7 1L12 5L7 9" stroke="#C2B9FF" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      </a>
+    </nav>
 
     <!-- Interactive CTA Buttons -->
     <a href="#how-it-works" class="dealer-ext-hitarea dealer-ext-hitarea--see-how" data-scroll="how-it-works" aria-label="See How It Works"></a>
@@ -74,6 +106,48 @@
   <!-- ══ MOBILE BOARD (100% Vector SVG from Figma SkipTheDealer mob-5.svg, 393x17278) ══ -->
   <div class="dealer-ext-board dealer-ext-board--mobile">
     <img src="assets/img/site1/skipthedealer-extended-mobile-clean.svg" class="dealer-ext-svg" alt="SkipTheDealer Extended Mobile" fetchpriority="high">
+
+    <!-- Mobile Burger Button -->
+    <button type="button" class="dealer-mob-burger" id="mob-burger" aria-label="Open mobile menu" aria-expanded="false"></button>
+
+    <!-- Mobile Drawer (Exact Same SkipTheDealer Menu) -->
+    <nav class="dealer-mob-drawer ticks" id="mob-menu" aria-label="SkipTheDealer Mobile Navigation" hidden>
+      <span class="tick tl"></span><span class="tick tr"></span>
+      <span class="tick bl"></span><span class="tick br"></span>
+      
+      <button type="button" class="dealer-mob-drawer__close" id="mob-close" aria-label="Close menu">&times;</button>
+
+      <div class="dealer-mob-drawer__list">
+        <a href="#top" class="dealer-mob-drawer__link" data-scroll="top">
+          <span>HOME</span>
+          <svg viewBox="0 0 14 10" class="dealer-menu-arrow"><path d="M0 5H12M7 1L12 5L7 9" stroke="#C2B9FF" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </a>
+        <a href="#how-it-works-mob" class="dealer-mob-drawer__link" data-scroll="how-it-works">
+          <span>How It Works</span>
+          <svg viewBox="0 0 14 10" class="dealer-menu-arrow"><path d="M0 5H12M7 1L12 5L7 9" stroke="#C2B9FF" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </a>
+        <a href="#cars-mob" class="dealer-mob-drawer__link" data-scroll="cars">
+          <span>Cars &amp; Inventory</span>
+          <svg viewBox="0 0 14 10" class="dealer-menu-arrow"><path d="M0 5H12M7 1L12 5L7 9" stroke="#C2B9FF" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </a>
+        <a href="#carlears" class="dealer-mob-drawer__link" data-scroll="carlears">
+          <span>Why Us</span>
+          <svg viewBox="0 0 14 10" class="dealer-menu-arrow"><path d="M0 5H12M7 1L12 5L7 9" stroke="#C2B9FF" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </a>
+        <a href="#standard" class="dealer-mob-drawer__link" data-scroll="standard">
+          <span>Extras</span>
+          <svg viewBox="0 0 14 10" class="dealer-menu-arrow"><path d="M0 5H12M7 1L12 5L7 9" stroke="#C2B9FF" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </a>
+        <a href="#contact-mob" class="dealer-mob-drawer__link" data-scroll="contact">
+          <span>Contact</span>
+          <svg viewBox="0 0 14 10" class="dealer-menu-arrow"><path d="M0 5H12M7 1L12 5L7 9" stroke="#C2B9FF" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </a>
+        <a href="skipthesearch.html" class="dealer-mob-drawer__link is-highlight">
+          <span>SKIPTHESEARCH</span>
+          <svg viewBox="0 0 14 10" class="dealer-menu-arrow"><path d="M0 5H12M7 1L12 5L7 9" stroke="#C2B9FF" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </a>
+      </div>
+    </nav>
 
     <!-- Interactive Mobile Hitareas -->
     <a href="#top" class="dealer-ext-mob-hitarea dealer-ext-mob-hitarea--top-logo" data-scroll="top" aria-label="SkipTheDealer Home"></a>
