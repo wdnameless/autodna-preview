@@ -192,11 +192,11 @@
 </g>
 </g>
 <rect id="&#208;&#154;&#208;&#176;&#208;&#187;&#209;&#140;&#209;&#143;&#208;&#189; (2) 1" width="1440" height="809" fill="url(#pattern3_494_3660)"/>
-<foreignObject x="-2522" y="-53" width="6447" height="1337"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(2px);clip-path:url(#bgblur_3_494_3660_clip_path);height:100%;width:100%"></div></foreignObject><g id="Ellipse 2" filter="url(#filter8_f_494_3660)" data-figma-bg-blur-radius="4">
-<path d="M3725 189.672C3725 391.192 2577.96 1084 834.612 1084C-908.737 1084 -2322 920.635 -2322 719.115C-2322 517.595 -908.737 565.829 834.612 565.829C2577.96 565.829 3725 -11.8488 3725 189.672Z" fill="black" style="mix-blend-mode:soft-light"/>
+<foreignObject x="-2522" y="-53" width="6447" height="1337"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(2px);clip-path:url(#bgblur_3_494_3660_clip_path);height:100%;width:100%"></div></foreignObject><g id="Ellipse 2" filter="url(#filter8_f_494_3660)" opacity="0.30">
+<path d="M3725 189.672C3725 391.192 2577.96 1084 834.612 1084C-908.737 1084 -2322 920.635 -2322 719.115C-2322 517.595 -908.737 565.829 834.612 565.829C2577.96 565.829 3725 -11.8488 3725 189.672Z" fill="black"/>
 </g>
-<foreignObject x="-954.641" y="-281.049" width="3528.76" height="697.645"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(2px);clip-path:url(#bgblur_4_494_3660_clip_path);height:100%;width:100%"></div></foreignObject><g id="Ellipse 3" filter="url(#filter9_f_494_3660)" data-figma-bg-blur-radius="4">
-<path d="M2374.12 71.9984C2373.22 145.031 1648.17 321.731 795.732 130.607C-48.5159 284.428 -755.543 106.269 -754.638 33.2364C-753.733 -39.7957 -52.6032 -90.3228 811.38 -79.619C1675.36 -68.9152 2375.03 -1.03379 2374.12 71.9984Z" fill="black" style="mix-blend-mode:soft-light"/>
+<foreignObject x="-954.641" y="-281.049" width="3528.76" height="697.645"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(2px);clip-path:url(#bgblur_4_494_3660_clip_path);height:100%;width:100%"></div></foreignObject><g id="Ellipse 3" filter="url(#filter9_f_494_3660)" opacity="0.30">
+<path d="M2374.12 71.9984C2373.22 145.031 1648.17 321.731 795.732 130.607C-48.5159 284.428 -755.543 106.269 -754.638 33.2364C-753.733 -39.7957 -52.6032 -90.3228 811.38 -79.619C1675.36 -68.9152 2375.03 -1.03379 2374.12 71.9984Z" fill="black"/>
 </g>
 <g id="Group 76">
 <g id="Group 73">
@@ -1044,7 +1044,7 @@
 </g>
 </g>
 </g>
-<g id="Frame 1638_3">
+<g id="Frame 1638_3" display="none">
 <rect width="289" height="304" transform="translate(1125 103)" fill="#262548" fill-opacity="0.44"/>
 <path id="Vector 6_43" d="M1125 122V103H1144" stroke="#C2B9FF"/>
 <path id="Vector 8_43" d="M1413 122V103H1394" stroke="#C2B9FF"/>

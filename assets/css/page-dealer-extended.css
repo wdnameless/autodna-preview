@@ -315,3 +315,97 @@ body.page-dealer-ext .hud {
     padding: 21px 14px 0 13px !important;
   }
 }
+
+/* ══ INTERACTIVE HERO MENU BOX (Desktop x=1125, y=103 w=289 h=304) ═════ */
+.dealer-hero-menu {
+  position: absolute !important;
+  left: 78.125% !important;        /* 1125 / 1440 */
+  top: 0.6457% !important;         /* 103 / 15951 */
+  width: 20.069% !important;       /* 289 / 1440 */
+  height: 1.9058% !important;      /* 304 / 15951 */
+  background: rgba(38, 37, 72, 0.44) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(194, 185, 255, 0.22) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  z-index: 30 !important;
+  box-sizing: border-box !important;
+}
+
+.dealer-hero-menu__row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex: 1 !important;
+  padding: 0 1.25vw !important;     /* ~18px / 1440 */
+  text-decoration: none !important;
+  border-bottom: 1px solid rgba(194, 185, 255, 0.18) !important;
+  transition: background 0.2s ease, color 0.2s ease !important;
+}
+.dealer-hero-menu__row:last-child {
+  border-bottom: none !important;
+}
+
+.dealer-hero-menu__row:hover {
+  background: rgba(150, 133, 255, 0.2) !important;
+}
+
+.dealer-hero-menu__text {
+  font-family: var(--body, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif) !important;
+  font-size: 1.111vw !important;    /* 16px / 1440 */
+  font-weight: 300 !important;
+  color: #C2B9FF !important;
+  white-space: nowrap !important;
+  letter-spacing: -0.2px !important;
+  transition: color 0.2s ease !important;
+}
+
+.dealer-hero-menu__row.is-active .dealer-hero-menu__text {
+  color: #FFFFFF !important;
+  font-weight: 400 !important;
+}
+
+.dealer-hero-menu__row.is-highlight .dealer-hero-menu__text {
+  color: #FFFFFF !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.2px !important;
+}
+
+.dealer-hero-menu__row:hover .dealer-hero-menu__text {
+  color: #FFFFFF !important;
+}
+
+.dealer-hero-menu__icon {
+  width: 0.972vw !important;        /* 14px / 1440 */
+  height: 0.694vw !important;       /* 10px / 1440 */
+  flex-shrink: 0 !important;
+  transition: transform 0.2s ease !important;
+}
+
+.dealer-hero-menu__row:hover .dealer-hero-menu__icon {
+  transform: translateX(3px) !important;
+}
+
+/* Corner ticks on the hero menu */
+.dealer-hero-menu .tick {
+  position: absolute !important;
+  width: 1.25vw !important;         /* 18px / 1440 */
+  height: 1.25vw !important;
+  border-color: #C2B9FF !important;
+  border-style: solid !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+}
+.dealer-hero-menu .tick.tl { top: 0 !important; left: 0 !important; border-width: 1px 0 0 1px !important; }
+.dealer-hero-menu .tick.tr { top: 0 !important; right: 0 !important; border-width: 1px 1px 0 0 !important; }
+.dealer-hero-menu .tick.bl { bottom: 0 !important; left: 0 !important; border-width: 0 0 1px 1px !important; }
+.dealer-hero-menu .tick.br { bottom: 0 !important; right: 0 !important; border-width: 0 1px 1px 0 !important; }
+
+/* Desktop: hide floating burger drawer to prevent duplicate menu collision */
+@media (min-width: 769px) {
+  body.page-dealer-ext .hud__burger {
+    display: none !important;
+  }
+}
