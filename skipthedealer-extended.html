@@ -15,18 +15,17 @@
 </head>
 <body class="page-dealer-ext">
 
-<!-- ══ STICKY HUD (APPEARS ON SCROLL PAST HERO) ═══════════════════════════ -->
-<header class="dealer-sticky-hud" id="sticky-hud" aria-label="SkipTheDealer header">
-  <a class="dealer-sticky-hud__logo" href="#top" aria-label="SkipTheDealer home">
-    <img src="assets/img/site1/logo-skipthedealer.png" width="28" height="44" alt="SkipTheDealer">
-    <span class="dealer-sticky-hud__name">SKIP THE DEALER</span>
+<!-- ══ FIXED HUD HEADER (BURGER BUTTON & LOGO MATCHING ALL PAGES) ═════════ -->
+<header class="hud" id="top">
+  <a class="hud__logo" href="skipthedealer.html" aria-label="SkipTheDealer home">
+    <img src="assets/img/site1/logo-skipthedealer.png" width="37" height="58" alt="SkipTheDealer" class="hud__logo-dealer">
   </a>
-  <button class="dealer-sticky-hud__burger" id="sticky-burger" aria-label="Toggle navigation menu" aria-expanded="false">
+  <button class="hud__burger" id="burger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </header>
 
-<!-- ══ FULLSCREEN / FLOATING MENU DRAWER ═════════════════════════════════ -->
+<!-- ══ FULLSCREEN / SLIDING MENU OVERLAY (EXACT SAME AS EVERYWHERE) ═════ -->
 <nav class="menu" id="menu" aria-label="Site menu" hidden>
   <div class="menu__container">
     <div class="menu__panel ticks">
@@ -37,61 +36,49 @@
 
       <ul class="menu-list">
         <li class="menu-item">
-          <a href="#top" class="menu-link" data-scroll="top">
+          <a href="index.html" class="menu-link">
             <span class="menu-text">Home</span>
             <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
           </a>
         </li>
         <li class="menu-item">
-          <a href="#how-it-works" class="menu-link" data-scroll="how-it-works">
-            <span class="menu-text">How It Works</span>
+          <a href="index.html#carlears" class="menu-link">
+            <span class="menu-text">Who We Are</span>
             <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
           </a>
         </li>
         <li class="menu-item">
-          <a href="#cars" class="menu-link" data-scroll="cars">
-            <span class="menu-text">Cars &amp; Inventory</span>
+          <a href="index.html#value" class="menu-link">
+            <span class="menu-text">Why AutoDNA</span>
             <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
           </a>
         </li>
         <li class="menu-item">
-          <a href="#carlears" class="menu-link" data-scroll="carlears">
-            <span class="menu-text">Why Us (Carlears)</span>
-            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="#standard" class="menu-link" data-scroll="standard">
-            <span class="menu-text">The Standard</span>
-            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="skipthesearch.html" class="menu-link">
-            <span class="menu-text" style="color: #9685FF; font-weight: 700;">SkipTheSearch Subpage</span>
-            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="#contact" class="menu-link" data-scroll="contact">
-            <span class="menu-text">Contact / Submit A Request</span>
+          <a href="index.html#compare" class="menu-link">
+            <span class="menu-text">Price Comparison</span>
             <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
           </a>
         </li>
 
-        <!-- AutoDNA Ecosystem Submenu -->
+        <!-- Our Services with Pages Submenu (SkipTheDealer, AutoDNA Service, AutoDNA Flip) -->
         <li class="menu-item menu-item--has-sub">
           <a href="index.html#services" class="menu-link">
             <div style="display: flex; align-items: flex-end;">
-              <span class="menu-text" style="color: rgba(194, 185, 255, 0.7); font-size: 15px;">AutoDNA Ecosystem</span>
+              <span class="menu-text">Our Services</span>
               <svg class="menu-chevron" viewBox="0 0 8 8" aria-hidden="true"><path d="M2 1L5 4L2 7"/></svg>
             </div>
             <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
           </a>
-          <ul class="menu-sublist">
+                    <ul class="menu-sublist">
             <li class="menu-subitem">
-              <a href="index.html" class="menu-sublink">
-                <span class="menu-subtext">Main Portal</span>
+              <a href="skipthedealer.html" class="menu-sublink is-active">
+                <span class="menu-subtext">SkipTheDealer</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem menu-subitem--nested">
+              <a href="skipthesearch.html" class="menu-sublink">
+                <span class="menu-subtext">↳ SkipTheSearch</span>
                 <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
               </a>
             </li>
@@ -101,9 +88,27 @@
                 <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
               </a>
             </li>
-            <li class="menu-subitem">
-              <a href="autodnaflip.html" class="menu-sublink">
-                <span class="menu-subtext">AutoDNA Flip</span>
+            <li class="menu-subitem menu-subitem--nested">
+              <a href="skiptheshop.html" class="menu-sublink">
+                <span class="menu-subtext">↳ SkipTheShop™</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem menu-subitem--nested">
+              <a href="drivecareplan.html" class="menu-sublink">
+                <span class="menu-subtext">↳ DriveCarePlan™</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem menu-subitem--nested">
+              <a href="drivecareplan-commercial.html" class="menu-sublink">
+                <span class="menu-subtext">↳ DriveCare Plan™ Commercial</span>
+                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+              </a>
+            </li>
+            <li class="menu-subitem menu-subitem--nested">
+              <a href="paintbot.html" class="menu-sublink">
+                <span class="menu-subtext">↳ PaintBot™</span>
                 <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
               </a>
             </li>
@@ -114,6 +119,31 @@
               </a>
             </li>
           </ul>
+        </li>
+
+        <li class="menu-item">
+          <a href="index.html#facts" class="menu-link">
+            <span class="menu-text">Facts &amp; Figures</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html#corporate" class="menu-link">
+            <span class="menu-text">About AutoDNA</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html#club" class="menu-link">
+            <span class="menu-text">DNA Auto Club</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="#contact" class="menu-link">
+            <span class="menu-text">Contact</span>
+            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
+          </a>
         </li>
       </ul>
     </div>
@@ -208,11 +238,6 @@
   <!-- ══ MOBILE BOARD (100% Vector SVG from Figma SkipTheDealer mob-5.svg, 393x17278) ══ -->
   <div class="dealer-ext-board dealer-ext-board--mobile">
     <img src="assets/img/site1/skipthedealer-extended-mobile-clean.svg" class="dealer-ext-svg" alt="SkipTheDealer Extended Mobile" fetchpriority="high">
-
-    <!-- Mobile Burger Button -->
-    <button type="button" class="dealer-mob-burger-btn" id="mob-burger" aria-label="Open mobile menu">
-      <span></span><span></span><span></span>
-    </button>
 
     <!-- Interactive Mobile Hitareas -->
     <a href="#top" class="dealer-ext-mob-hitarea dealer-ext-mob-hitarea--top-logo" data-scroll="top" aria-label="SkipTheDealer Home"></a>

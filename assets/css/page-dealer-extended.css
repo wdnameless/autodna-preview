@@ -493,3 +493,82 @@ html, body {
     height: 0.50%;
   }
 }
+
+/* ══ STANDARD HUD & BURGER MENU (MATCHING ALL PAGES) ═══════════════════ */
+.page-dealer-ext .hud {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 250 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  padding: 27px 25px 0 25px !important;
+  pointer-events: none !important;
+  box-sizing: border-box !important;
+}
+
+.page-dealer-ext .hud__logo,
+.page-dealer-ext .hud__burger {
+  pointer-events: auto !important;
+}
+
+.page-dealer-ext .hud__logo-dealer {
+  width: 37px !important;
+  height: 58px !important;
+  display: block !important;
+  object-fit: contain !important;
+}
+
+.page-dealer-ext .hud__burger {
+  display: flex !important;
+  position: relative !important;
+  z-index: 260 !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+  padding: 8px !important;
+  outline: none !important;
+  margin-top: 5px !important;
+}
+
+.page-dealer-ext .hud__burger span {
+  display: block !important;
+  width: 35px !important;
+  height: 2.5px !important;
+  background-color: #C2B9FF !important;
+  transition: background-color 0.2s ease, transform 0.25s ease !important;
+}
+
+.page-dealer-ext .hud__burger:hover span,
+.page-dealer-ext .hud__burger[aria-expanded="true"] span {
+  background-color: #FFFFFF !important;
+}
+
+/* Opaque glass menu drawer to prevent ghosting over hero */
+.page-dealer-ext .menu {
+  z-index: 200 !important;
+}
+
+.page-dealer-ext .menu__panel {
+  background: rgba(14, 12, 32, 0.96) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid rgba(194, 185, 255, 0.3) !important;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.9) !important;
+}
+
+@media (max-width: 768px) {
+  .page-dealer-ext .hud {
+    padding: 21px 16px 0 16px !important;
+  }
+  .page-dealer-ext .hud__logo {
+    display: none !important;
+  }
+  .page-dealer-ext .hud {
+    justify-content: flex-end !important;
+  }
+}

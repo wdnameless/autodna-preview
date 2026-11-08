@@ -1,8 +1,8 @@
-/** AutoDNA SkipTheDealer Page Scripts — Living Interactive Menu & Precise Smooth Scroll */
+/** AutoDNA SkipTheDealer Page Scripts — Standard Global Burger Menu + Living Hero Menu */
 (function () {
   'use strict';
 
-  // Exact section target ratios in 15951px artboard
+  // Section target ratios in 15951px artboard
   const SECTION_RATIOS = {
     'top': 0,
     'cars': 0.1160,       // y ≈ 1850 in 15951 (Cars & Inventory)
@@ -12,7 +12,6 @@
     'contact': 0.9090     // y ≈ 14500 in 15951 (Submit A Request & Footer)
   };
 
-  // Mobile section ratios in 17278px mobile artboard
   const MOB_SECTION_RATIOS = {
     'top': 0,
     'how-it-works': 0.043,
@@ -35,7 +34,98 @@
     });
   }
 
-  // 1. Living Hero Menu (Desktop)
+  // 1. Standard Fullscreen / Sliding Burger Menu (Matching all other pages)
+  function initStandardBurgerMenu() {
+    const burger = document.querySelector('#burger');
+    const menu = document.querySelector('#menu');
+    if (!burger || !menu) return;
+
+    let closeTimer = null;
+
+    function setMenu(open) {
+      clearTimeout(closeTimer);
+      if (open) {
+        menu.hidden = false;
+        burger.setAttribute('aria-expanded', 'true');
+        burger.setAttribute('aria-label', 'Close menu');
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            menu.classList.add('is-open');
+          });
+        });
+      } else {
+        burger.setAttribute('aria-expanded', 'false');
+        burger.setAttribute('aria-label', 'Open menu');
+        menu.classList.remove('is-open');
+        closeTimer = setTimeout(() => {
+          if (!menu.classList.contains('is-open')) {
+            menu.hidden = true;
+          }
+        }, 280);
+      }
+    }
+
+    burger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = menu.classList.contains('is-open') && !menu.hidden;
+      setMenu(!isOpen);
+    });
+
+    // Toggle submenus inside menu
+    const subItems = menu.querySelectorAll('.menu-item--has-sub');
+    subItems.forEach(item => {
+      const link = item.querySelector('.menu-link');
+      if (link) {
+        link.addEventListener('click', (e) => {
+          if (window.matchMedia('(max-width: 768px)').matches || e.target.closest('.menu-chevron')) {
+            if (!item.classList.contains('is-expanded')) {
+              e.preventDefault();
+              item.classList.add('is-expanded');
+              return;
+            }
+          }
+        });
+      }
+    });
+
+    // Clicking anywhere outside .menu__panel closes the menu
+    menu.addEventListener('click', (e) => {
+      if (!e.target.closest('.menu__panel') || (e.target.closest('a') && !e.target.closest('.menu-item--has-sub > a'))) {
+        setMenu(false);
+      }
+      if (e.target.closest('.menu-sublink')) {
+        setMenu(false);
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (menu.classList.contains('is-open')) {
+        if (!e.target.closest('.menu__panel') && !e.target.closest('#burger')) {
+          setMenu(false);
+        }
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.classList.contains('is-open')) {
+        setMenu(false);
+      }
+    });
+
+    // Handle smooth scroll for menu links with data-scroll
+    menu.querySelectorAll('[data-scroll]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const key = link.getAttribute('data-scroll');
+        if (key) {
+          e.preventDefault();
+          setMenu(false);
+          setTimeout(() => scrollToSection(key), 120);
+        }
+      });
+    });
+  }
+
+  // 2. Living Hero Menu (Desktop)
   function initHeroMenu() {
     const heroMenu = document.querySelector('#hero-menu');
     if (!heroMenu) return;
@@ -75,74 +165,7 @@
     updateScrollspy();
   }
 
-  // 2. Sticky HUD on Scroll
-  function initStickyHUD() {
-    const stickyHud = document.querySelector('#sticky-hud');
-    const stickyBurger = document.querySelector('#sticky-burger');
-    const mobBurger = document.querySelector('#mob-burger');
-    const menu = document.querySelector('#menu');
-    if (!menu) return;
-
-    function setMenu(open) {
-      if (open) {
-        menu.hidden = false;
-        requestAnimationFrame(() => {
-          menu.classList.add('is-open');
-        });
-      } else {
-        menu.classList.remove('is-open');
-        setTimeout(() => {
-          if (!menu.classList.contains('is-open')) menu.hidden = true;
-        }, 250);
-      }
-    }
-
-    function toggleMenu() {
-      const isOpen = menu.classList.contains('is-open') && !menu.hidden;
-      setMenu(!isOpen);
-    }
-
-    if (stickyBurger) stickyBurger.addEventListener('click', toggleMenu);
-    if (mobBurger) mobBurger.addEventListener('click', toggleMenu);
-
-    // Show/hide sticky HUD on scroll
-    if (stickyHud) {
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 700) {
-          stickyHud.classList.add('is-visible');
-        } else {
-          stickyHud.classList.remove('is-visible');
-        }
-      }, { passive: true });
-    }
-
-    // Smooth scroll for menu drawer links
-    menu.querySelectorAll('[data-scroll]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        const key = link.getAttribute('data-scroll');
-        if (key) {
-          e.preventDefault();
-          setMenu(false);
-          setTimeout(() => scrollToSection(key), 100);
-        }
-      });
-    });
-
-    // Close menu when clicking outside
-    menu.addEventListener('click', (e) => {
-      if (!e.target.closest('.menu__panel')) {
-        setMenu(false);
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && menu.classList.contains('is-open')) {
-        setMenu(false);
-      }
-    });
-  }
-
-  // 3. Page CTA Hitareas Smooth Scrolling
+  // 3. CTA Hitareas Smooth Scrolling
   function initHitareas() {
     document.querySelectorAll('[data-scroll]').forEach(el => {
       if (el.closest('#hero-menu') || el.closest('#menu')) return;
@@ -157,8 +180,8 @@
   }
 
   function boot() {
+    initStandardBurgerMenu();
     initHeroMenu();
-    initStickyHUD();
     initHitareas();
   }
 
