@@ -6,170 +6,28 @@
   <title>SkipTheDealer — Buy cars up to 40% cheaper | AutoDNA</title>
   <meta name="description" content="Buy cars up to 40% cheaper directly from auctions. Full vehicle inventory, inspection guarantee, financing, and nationwide delivery across Canada.">
   <link rel="icon" type="image/svg+xml" href="assets/img/site1/favicon.svg">
-
-  <link rel="preload" href="assets/fonts/Orbitron-Variable.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/HelveticaNeue-light.woff2" as="font" type="font/woff2" crossorigin>
-
   <link rel="stylesheet" href="assets/css/site1.css">
   <link rel="stylesheet" href="assets/css/page-dealer-extended.css">
 </head>
 <body class="page-dealer-ext">
 
-<!-- ══ FIXED HUD HEADER (EXACT FIGMA 'k' LOGO & BURGER) ═══════════════════ -->
-<header class="hud" id="top">
-  <a class="hud__logo" href="skipthedealer.html" aria-label="SkipTheDealer home">
-    <img src="assets/img/site1/logo-skipthedealer.png" width="37" height="58" alt="SkipTheDealer" class="hud__logo-dealer">
-  </a>
-  <button class="hud__burger" id="burger" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</header>
-
-<!-- ══ FULLSCREEN MENU OVERLAY (DEDICATED FULL-FLEDGED MENU) ═════════════ -->
-<nav class="menu" id="menu" aria-label="Site menu" hidden>
-  <div class="menu__container">
-    <div class="menu__panel ticks">
-      <span class="tick tl"></span>
-      <span class="tick tr"></span>
-      <span class="tick bl"></span>
-      <span class="tick br"></span>
-
-      <ul class="menu-list">
-        <li class="menu-item">
-          <a href="#top" class="menu-link">
-            <span class="menu-text">Home</span>
-            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="#how-it-works" class="menu-link">
-            <span class="menu-text">How It Works</span>
-            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="#cars" class="menu-link">
-            <span class="menu-text">Cars &amp; Inventory</span>
-            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="#carlears" class="menu-link">
-            <span class="menu-text">Why Us (Carlears)</span>
-            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="#standard" class="menu-link">
-            <span class="menu-text">The Standard</span>
-            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="skipthesearch.html" class="menu-link">
-            <span class="menu-text" style="color: #9685FF; font-weight: 700;">SkipTheSearch Subpage</span>
-            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="#contact" class="menu-link">
-            <span class="menu-text">Contact / Submit A Request</span>
-            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
-          </a>
-        </li>
-
-        <!-- AutoDNA Ecosystem Submenu -->
-        <li class="menu-item menu-item--has-sub">
-          <a href="index.html#services" class="menu-link">
-            <div style="display: flex; align-items: flex-end;">
-              <span class="menu-text" style="color: rgba(194, 185, 255, 0.7); font-size: 15px;">AutoDNA Ecosystem</span>
-              <svg class="menu-chevron" viewBox="0 0 8 8" aria-hidden="true"><path d="M2 1L5 4L2 7"/></svg>
-            </div>
-            <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
-          </a>
-          <ul class="menu-sublist">
-            <li class="menu-subitem">
-              <a href="index.html" class="menu-sublink">
-                <span class="menu-subtext">Main Portal</span>
-                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
-              </a>
-            </li>
-            <li class="menu-subitem">
-              <a href="dnaservice.html" class="menu-sublink">
-                <span class="menu-subtext">AutoDNA Service</span>
-                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
-              </a>
-            </li>
-            <li class="menu-subitem">
-              <a href="autodnaflip.html" class="menu-sublink">
-                <span class="menu-subtext">AutoDNA Flip</span>
-                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
-              </a>
-            </li>
-            <li class="menu-subitem">
-              <a href="dnainvest.html" class="menu-sublink">
-                <span class="menu-subtext">DNA Invest</span>
-                <svg class="menu-arrow" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6H13M8 1.5L13 6L8 10.5"/></svg>
-              </a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
 <main class="dealer-ext-main">
 
   <!-- ══ DESKTOP BOARD (100% Vector SVG from Figma SkipTheDealer-1.svg, 1440x15951) ══ -->
   <div class="dealer-ext-board dealer-ext-board--desktop">
-    <img src="assets/img/site1/skipthedealer-extended-desktop-clean.svg" class="dealer-ext-svg" alt="SkipTheDealer Extended — Showroom &amp; Direct Auction Sourcing" fetchpriority="high">
+    <img src="assets/img/site1/skipthedealer-extended-desktop-clean.svg" class="dealer-ext-svg" alt="SkipTheDealer — Showroom &amp; Direct Auction Sourcing" fetchpriority="high">
 
     <!-- Interactive Top Logo Link -->
     <a href="#top" class="dealer-ext-hitarea dealer-ext-hitarea--top-logo" aria-label="SkipTheDealer Home"></a>
 
-    <!-- ══ INTERACTIVE HERO MENU BOX (Exact Figma 289x304 at x=1125, y=103) ══ -->
-    <nav class="dealer-hero-menu ticks" id="hero-menu" aria-label="SkipTheDealer Navigation">
-      <span class="tick tl"></span>
-      <span class="tick tr"></span>
-      <span class="tick bl"></span>
-      <span class="tick br"></span>
-
-      <a href="#top" class="dealer-hero-menu__row is-active">
-        <span class="dealer-hero-menu__text">HOME</span>
-        <svg viewBox="0 0 10 6" class="dealer-hero-menu__icon"><path d="M1 5L5 1L9 5" stroke="#C2B9FF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-      </a>
-
-      <a href="#how-it-works" class="dealer-hero-menu__row">
-        <span class="dealer-hero-menu__text">How It Works</span>
-        <svg viewBox="0 0 14 10" class="dealer-hero-menu__icon"><path d="M0 5H12M7 1L12 5L7 9" stroke="#C2B9FF" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-      </a>
-
-      <a href="#cars" class="dealer-hero-menu__row">
-        <span class="dealer-hero-menu__text">Cars &amp; Inventory</span>
-        <svg viewBox="0 0 14 10" class="dealer-hero-menu__icon"><path d="M0 5H12M7 1L12 5L7 9" stroke="#C2B9FF" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-      </a>
-
-      <a href="#carlears" class="dealer-hero-menu__row">
-        <span class="dealer-hero-menu__text">Why Us</span>
-        <svg viewBox="0 0 14 10" class="dealer-hero-menu__icon"><path d="M0 5H12M7 1L12 5L7 9" stroke="#C2B9FF" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-      </a>
-
-      <a href="#standard" class="dealer-hero-menu__row">
-        <span class="dealer-hero-menu__text">Extras</span>
-        <svg viewBox="0 0 14 10" class="dealer-hero-menu__icon"><path d="M0 5H12M7 1L12 5L7 9" stroke="#C2B9FF" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-      </a>
-
-      <a href="#contact" class="dealer-hero-menu__row">
-        <span class="dealer-hero-menu__text">Contact</span>
-        <svg viewBox="0 0 14 10" class="dealer-hero-menu__icon"><path d="M0 5H12M7 1L12 5L7 9" stroke="#C2B9FF" stroke-width="1.1" stroke-linecap="round" fill="none"/></svg>
-      </a>
-
-      <a href="skipthesearch.html" class="dealer-hero-menu__row is-highlight">
-        <span class="dealer-hero-menu__text">SKIPTHESEARCH</span>
-        <svg viewBox="0 0 14 10" class="dealer-hero-menu__icon"><path d="M0 5H12M7 1L12 5L7 9" stroke="#C2B9FF" stroke-width="1.1" stroke-linecap="round" fill="none"/></svg>
-      </a>
-    </nav>
+    <!-- Top-Right Hero Menu Links (Exact Figma coordinates over the drawn menu box) -->
+    <a href="#top" class="dealer-ext-menu-hitarea" style="left: 78.1%; top: 0.65%; width: 20.1%; height: 0.27%;" aria-label="Home"></a>
+    <a href="#how-it-works" class="dealer-ext-menu-hitarea" style="left: 78.1%; top: 0.92%; width: 20.1%; height: 0.27%;" aria-label="How It Works"></a>
+    <a href="#cars" class="dealer-ext-menu-hitarea" style="left: 78.1%; top: 1.20%; width: 20.1%; height: 0.27%;" aria-label="Cars &amp; Inventory"></a>
+    <a href="#carlears" class="dealer-ext-menu-hitarea" style="left: 78.1%; top: 1.47%; width: 20.1%; height: 0.27%;" aria-label="Why Us"></a>
+    <a href="#standard" class="dealer-ext-menu-hitarea" style="left: 78.1%; top: 1.74%; width: 20.1%; height: 0.27%;" aria-label="Extras"></a>
+    <a href="#contact" class="dealer-ext-menu-hitarea" style="left: 78.1%; top: 2.01%; width: 20.1%; height: 0.27%;" aria-label="Contact"></a>
+    <a href="skipthesearch.html" class="dealer-ext-menu-hitarea" style="left: 78.1%; top: 2.29%; width: 20.1%; height: 0.27%;" aria-label="SkipTheSearch Subpage"></a>
 
     <!-- Interactive CTA Buttons -->
     <a href="#how-it-works" class="dealer-ext-hitarea dealer-ext-hitarea--see-how" aria-label="See How It Works"></a>
@@ -210,11 +68,15 @@
 
     <!-- Interactive Mobile Hitareas -->
     <a href="#top" class="dealer-ext-mob-hitarea dealer-ext-mob-hitarea--top-logo" aria-label="SkipTheDealer Home"></a>
-    <a href="#how-it-works" class="dealer-ext-mob-hitarea dealer-ext-mob-hitarea--see-how" aria-label="See How It Works"></a>
-    <a href="#cars" class="dealer-ext-mob-hitarea dealer-ext-mob-hitarea--find-your-car" aria-label="Find Your Car"></a>
-    <a href="#contact" class="dealer-ext-mob-hitarea dealer-ext-mob-hitarea--find-my-car" aria-label="Find My Car"></a>
+    <a href="#how-it-works-mob" class="dealer-ext-mob-hitarea dealer-ext-mob-hitarea--see-how" aria-label="See How It Works"></a>
+    <a href="#cars-mob" class="dealer-ext-mob-hitarea dealer-ext-mob-hitarea--find-your-car" aria-label="Find Your Car"></a>
+    <a href="#contact-mob" class="dealer-ext-mob-hitarea dealer-ext-mob-hitarea--find-my-car" aria-label="Find My Car"></a>
     <a href="tel:+14033128306" class="dealer-ext-mob-hitarea dealer-ext-mob-hitarea--give-call" aria-label="Give Us A Call"></a>
-    <a href="#contact" class="dealer-ext-mob-hitarea dealer-ext-mob-hitarea--submit" aria-label="Submit A Request"></a>
+    <a href="#contact-mob" class="dealer-ext-mob-hitarea dealer-ext-mob-hitarea--submit" aria-label="Submit A Request"></a>
+
+    <div id="how-it-works-mob" style="position: absolute; top: 4.3%; left: 0;"></div>
+    <div id="cars-mob" style="position: absolute; top: 18.0%; left: 0;"></div>
+    <div id="contact-mob" style="position: absolute; top: 91.0%; left: 0;"></div>
 
     <a href="tel:+14033128306" class="dealer-ext-mob-hitarea dealer-ext-mob-hitarea--phone" aria-label="Call +1 (403) 312-8306"></a>
     <a href="mailto:info@autodna.com" class="dealer-ext-mob-hitarea dealer-ext-mob-hitarea--email" aria-label="Email info@autodna.com"></a>
@@ -223,6 +85,5 @@
 
 </main>
 
-<script src="assets/js/page-dealer.js"></script>
 </body>
 </html>
