@@ -46,6 +46,7 @@
       clearTimeout(closeTimer);
       if (open) {
         menu.hidden = false;
+        document.body.classList.add('menu-open');
         burgerBtns.forEach(b => {
           b.setAttribute('aria-expanded', 'true');
           b.setAttribute('aria-label', 'Close menu');
@@ -56,6 +57,7 @@
           });
         });
       } else {
+        document.body.classList.remove('menu-open');
         burgerBtns.forEach(b => {
           b.setAttribute('aria-expanded', 'false');
           b.setAttribute('aria-label', 'Open menu');
@@ -76,6 +78,14 @@
         setMenu(!isOpen);
       });
     });
+
+    const closeBtn = document.querySelector('#menu-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setMenu(false);
+      });
+    }
 
     // Toggle submenus inside menu
     const subItems = menu.querySelectorAll('.menu-item--has-sub');

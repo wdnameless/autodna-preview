@@ -614,3 +614,76 @@ html, body {
 .dealer-sticky-hud__burger:hover span {
   background-color: #FFFFFF !important;
 }
+
+/* ══ FULLSCREEN DIMMED & BLURRED BACKDROP FOR MENU (EXACT FIGMA MENU.PNG) ══ */
+.page-dealer-ext .menu {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 200 !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: flex-end !important;
+  padding: 24px 25px 0 0 !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: opacity 0.3s ease, visibility 0.3s ease, background 0.3s ease, backdrop-filter 0.3s ease !important;
+}
+
+.page-dealer-ext .menu.is-open {
+  pointer-events: auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  background: rgba(2, 2, 10, 0.75) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+
+.page-dealer-ext .menu__panel {
+  background: rgba(14, 12, 32, 0.98) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid rgba(194, 185, 255, 0.35) !important;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.95), 0 0 30px rgba(150, 133, 255, 0.15) !important;
+  width: 380px !important;
+  max-width: 90vw !important;
+}
+
+/* When menu is open, fade out hero menu box to prevent any collision */
+body.menu-open #hero-menu {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.2s ease !important;
+}
+
+/* ══ MENU CLOSE BUTTON ═════════════════════════════════════════════════ */
+.menu__close-btn {
+  position: absolute !important;
+  top: 12px !important;
+  right: 14px !important;
+  width: 32px !important;
+  height: 32px !important;
+  background: transparent !important;
+  border: 1px solid rgba(194, 185, 255, 0.3) !important;
+  border-radius: 2px !important;
+  color: #C2B9FF !important;
+  font-size: 22px !important;
+  line-height: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  z-index: 30 !important;
+  transition: all 0.2s ease !important;
+  padding: 0 0 2px 0 !important;
+}
+
+.menu__close-btn:hover {
+  background: rgba(150, 133, 255, 0.25) !important;
+  border-color: #FFFFFF !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 0 10px rgba(150, 133, 255, 0.5) !important;
+}
