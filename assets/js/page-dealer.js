@@ -36,9 +36,9 @@
 
   // 1. Standard Fullscreen / Sliding Burger Menu (Matching all other pages)
   function initStandardBurgerMenu() {
-    const burger = document.querySelector('#burger');
+    const burgerBtns = document.querySelectorAll('#burger, #mob-burger, #sticky-burger');
     const menu = document.querySelector('#menu');
-    if (!burger || !menu) return;
+    if (!burgerBtns.length || !menu) return;
 
     let closeTimer = null;
 
@@ -46,16 +46,20 @@
       clearTimeout(closeTimer);
       if (open) {
         menu.hidden = false;
-        burger.setAttribute('aria-expanded', 'true');
-        burger.setAttribute('aria-label', 'Close menu');
+        burgerBtns.forEach(b => {
+          b.setAttribute('aria-expanded', 'true');
+          b.setAttribute('aria-label', 'Close menu');
+        });
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
             menu.classList.add('is-open');
           });
         });
       } else {
-        burger.setAttribute('aria-expanded', 'false');
-        burger.setAttribute('aria-label', 'Open menu');
+        burgerBtns.forEach(b => {
+          b.setAttribute('aria-expanded', 'false');
+          b.setAttribute('aria-label', 'Open menu');
+        });
         menu.classList.remove('is-open');
         closeTimer = setTimeout(() => {
           if (!menu.classList.contains('is-open')) {
@@ -65,10 +69,12 @@
       }
     }
 
-    burger.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = menu.classList.contains('is-open') && !menu.hidden;
-      setMenu(!isOpen);
+    burgerBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = menu.classList.contains('is-open') && !menu.hidden;
+        setMenu(!isOpen);
+      });
     });
 
     // Toggle submenus inside menu

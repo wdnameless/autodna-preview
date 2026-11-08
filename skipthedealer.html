@@ -15,15 +15,18 @@
 </head>
 <body class="page-dealer-ext">
 
-<!-- ══ FIXED HUD HEADER (BURGER BUTTON & LOGO MATCHING ALL PAGES) ═════════ -->
-<header class="hud" id="top">
-  <a class="hud__logo" href="skipthedealer.html" aria-label="SkipTheDealer home"></a>
-  <button class="hud__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+<!-- ══ STICKY HUD (APPEARS ON SCROLL PAST HERO) ═══════════════════════════ -->
+<header class="dealer-sticky-hud" id="sticky-hud" aria-label="SkipTheDealer header">
+  <a class="dealer-sticky-hud__logo" href="#top" aria-label="SkipTheDealer home">
+    <img src="assets/img/site1/logo-skipthedealer.png" width="28" height="44" alt="SkipTheDealer">
+    <span class="dealer-sticky-hud__name">SKIP THE DEALER</span>
+  </a>
+  <button type="button" class="dealer-sticky-hud__burger" id="sticky-burger" aria-label="Toggle navigation menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </header>
 
-<!-- ══ FULLSCREEN / SLIDING MENU OVERLAY (EXACT SAME AS EVERYWHERE) ═════ -->
+<!-- ══ FULLSCREEN / SLIDING MENU OVERLAY ═════════════════════════════════ -->
 <nav class="menu" id="menu" aria-label="Site menu" hidden>
   <div class="menu__container">
     <div class="menu__panel ticks">
@@ -154,8 +157,11 @@
   <div class="dealer-ext-board dealer-ext-board--desktop">
     <img src="assets/img/site1/skipthedealer-extended-desktop-clean.svg" class="dealer-ext-svg" alt="SkipTheDealer — Showroom &amp; Direct Auction Sourcing" fetchpriority="high">
 
-    <!-- Interactive Top Logo Link -->
+    <!-- Top Left 'k' Logo Link -->
     <a href="#top" class="dealer-ext-hitarea dealer-ext-hitarea--top-logo" aria-label="SkipTheDealer Home"></a>
+
+    <!-- Top Right Burger Button (Locked mathematically over the SVG burger icon) -->
+    <button type="button" class="dealer-hero-burger" id="burger" aria-label="Open menu" aria-expanded="false"></button>
 
     <!-- ══ LIVING INTERACTIVE HERO MENU BOX (Exact Figma 289x304 at x=1125, y=103) ══ -->
     <nav class="dealer-hero-menu ticks" id="hero-menu" aria-label="SkipTheDealer Navigation">
@@ -236,6 +242,9 @@
   <!-- ══ MOBILE BOARD (100% Vector SVG from Figma SkipTheDealer mob-5.svg, 393x17278) ══ -->
   <div class="dealer-ext-board dealer-ext-board--mobile">
     <img src="assets/img/site1/skipthedealer-extended-mobile-clean.svg" class="dealer-ext-svg" alt="SkipTheDealer Extended Mobile" fetchpriority="high">
+
+    <!-- Mobile Burger Button (Locked mathematically over the mobile SVG burger icon) -->
+    <button type="button" class="dealer-mob-burger" id="mob-burger" aria-label="Open menu" aria-expanded="false"></button>
 
     <!-- Interactive Mobile Hitareas -->
     <a href="#top" class="dealer-ext-mob-hitarea dealer-ext-mob-hitarea--top-logo" data-scroll="top" aria-label="SkipTheDealer Home"></a>
