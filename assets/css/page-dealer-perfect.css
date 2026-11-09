@@ -1,0 +1,496 @@
+/* ══ SKIPTHEDEALER PERFECT RESPONSIVE 100VH HERO + EXTENDED BODY ══════ */
+
+html {
+  scroll-behavior: smooth !important;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #020202;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+.page-dealer-perfect {
+  background-color: #020202;
+  color: #ffffff;
+}
+
+/* ══ 1. RESPONSIVE 100VH HERO (Edge-to-Edge, NO Black Bars, Button Always Visible) ══ */
+.dealer-hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-height: 580px;
+  max-height: 1080px;
+  overflow: hidden;
+  background-color: #020202;
+  box-sizing: border-box;
+}
+
+.dealer-hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.dealer-hero__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  display: block;
+}
+
+.dealer-hero__shade-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 180px;
+  background: radial-gradient(120% 100% at 50% 0%, rgba(2, 2, 8, 0.6) 0%, transparent 80%);
+}
+
+.dealer-hero__shade-bottom {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 240px;
+  background: linear-gradient(180deg, transparent 0%, rgba(2, 2, 8, 0.65) 50%, #020202 100%);
+}
+
+.dealer-hero__frame {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 1440px;
+  height: 100%;
+  margin: 0 auto;
+  padding: clamp(20px, 3vh, 36px) clamp(20px, 3vw, 40px) clamp(16px, 2.5vh, 32px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+/* Topbar: k logo, skip THE DEALER, burger button */
+.dealer-hero__topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  position: relative;
+}
+
+.dealer-hero__k-logo {
+  display: block;
+  line-height: 0;
+  text-decoration: none;
+}
+.dealer-hero__k-logo img {
+  width: 37px;
+  height: 58px;
+  display: block;
+  object-fit: contain;
+}
+
+.dealer-hero__center-logo {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  display: block;
+}
+.dealer-hero__center-logo img {
+  width: clamp(200px, 22vw, 310px);
+  height: auto;
+  display: block;
+}
+
+.dealer-hero__burger-btn {
+  width: 44px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4px 2px;
+  outline: none;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  margin-top: 6px;
+}
+
+.dealer-hero__burger-btn span {
+  display: block;
+  width: 100%;
+  height: 2.5px;
+  background-color: #C2B9FF;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.dealer-hero__burger-btn:hover span,
+.dealer-hero__burger-btn[aria-expanded="true"] span {
+  background-color: #FFFFFF;
+}
+
+.dealer-hero__burger-btn:hover {
+  filter: drop-shadow(0 0 8px rgba(150, 133, 255, 0.7));
+}
+
+/* ══ DROPDOWN MENU (OPENS ONLY ON CLICK OF BURGER BUTTON) ══════════════ */
+.dealer-hero-dropdown {
+  position: absolute;
+  top: 55px;
+  right: 0;
+  width: 289px;
+  background: rgba(18, 16, 40, 0.96);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(194, 185, 255, 0.25);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  box-sizing: border-box;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+
+.dealer-hero-dropdown[hidden] {
+  display: none !important;
+}
+
+.dealer-hero-dropdown.is-open {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translateY(0) !important;
+}
+
+.dealer-dropdown-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 44px;
+  padding: 0 18px;
+  text-decoration: none;
+  border: none;
+  border-bottom: 1px solid rgba(194, 185, 255, 0.18);
+  background: transparent;
+  transition: background 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+}
+.dealer-dropdown-row:last-child {
+  border-bottom: none;
+}
+
+.dealer-dropdown-row:hover {
+  background: rgba(150, 133, 255, 0.22);
+}
+
+.dealer-dropdown-text {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: #C2B9FF;
+  white-space: nowrap;
+  letter-spacing: -0.2px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.dealer-dropdown-row:hover .dealer-dropdown-text {
+  color: #FFFFFF;
+  transform: translateX(2px);
+}
+
+.dealer-dropdown-row--home .dealer-dropdown-text {
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+.dealer-dropdown-row.is-highlight .dealer-dropdown-text {
+  color: #FFFFFF;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.dealer-dropdown-arrow,
+.dealer-dropdown-chevron {
+  width: 14px;
+  height: 10px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.dealer-dropdown-row:hover .dealer-dropdown-arrow {
+  transform: translateX(4px);
+}
+
+/* Corner ticks */
+.ticks { position: relative; }
+.tick {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: #C2B9FF;
+  border-style: solid;
+  pointer-events: none;
+  z-index: 5;
+}
+.tick.tl { top: 0; left: 0; border-width: 1px 0 0 1px; }
+.tick.tr { top: 0; right: 0; border-width: 1px 1px 0 0; }
+.tick.bl { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
+.tick.br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+
+/* Center Stage: BUY CARS UP TO 40% CHEAPER */
+.dealer-hero__center-stage {
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: clamp(14px, 2.5vh, 32px);
+}
+
+.dealer-hero__headline-img {
+  width: 100%;
+  max-width: 1120px;
+  height: auto;
+  max-height: clamp(110px, 18vh, 180px);
+  display: block;
+}
+
+/* Bottom Bar: Text and CTA Button */
+.dealer-hero__bottombar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: clamp(16px, 2.5vw, 36px);
+  padding-bottom: clamp(6px, 1vh, 16px);
+}
+
+.dealer-hero__bottom-left {
+  flex: none;
+}
+
+.dealer-hero__sub-callout {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(12px, 1.25vw, 18px);
+  font-weight: 700;
+  line-height: 1.35;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: -0.2px;
+}
+
+.dealer-hero__sub-callout span {
+  display: block;
+}
+
+.neon-accent {
+  font-style: normal;
+  color: #9685FF;
+  text-shadow: 0 0 15px rgba(150, 133, 255, 0.7);
+}
+
+.dealer-hero__bottom-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 6px;
+}
+
+.dealer-hero__wire {
+  width: clamp(24px, 3.5vw, 50px);
+  height: 2px;
+  flex: none;
+}
+
+.dealer-hero__overhead {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: clamp(10px, 0.9vw, 13px);
+  font-weight: 400;
+  line-height: 1.35;
+  color: #C2B9FF;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.dealer-hero__overhead span {
+  display: block;
+}
+
+.dealer-hero__bottom-right {
+  flex: none;
+}
+
+.dealer-hero__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: clamp(12px, 1.6vh, 18px) clamp(20px, 2vw, 32px);
+  background: rgba(38, 37, 72, 0.44);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(194, 185, 255, 0.35);
+  color: #FFFFFF;
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(12px, 1.1vw, 15px);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 20px rgba(150, 133, 255, 0.25);
+  box-sizing: border-box;
+}
+
+.dealer-hero__cta-btn:hover {
+  background: rgba(150, 133, 255, 0.3);
+  border-color: #C2B9FF;
+  box-shadow: 0 0 30px rgba(150, 133, 255, 0.6);
+  transform: translateY(-1px);
+}
+
+.dealer-hero__cta-btn svg {
+  width: 13px;
+  height: 13px;
+  flex: none;
+}
+
+/* ══ 2. EXTENDED SECTIONS BELOW HERO (100% Vector SVG) ═════════════════ */
+.dealer-body-container {
+  position: relative;
+  width: 100%;
+  background: #020202;
+  overflow: hidden;
+}
+
+.dealer-body-board--desktop {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  display: block;
+}
+
+.dealer-body-board--mobile {
+  display: none !important;
+}
+
+.dealer-body-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.dealer-body-hitarea {
+  position: absolute;
+  z-index: 15;
+  cursor: pointer;
+  border-radius: 2px;
+  background: transparent;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dealer-body-hitarea:hover {
+  background: rgba(150, 133, 255, 0.2);
+  box-shadow: 0 0 25px rgba(150, 133, 255, 0.6);
+}
+
+/* ══ MOBILE LAYOUT (393 x 17278) ═══════════════════════════════════════ */
+@media (max-width: 768px) {
+  .dealer-hero {
+    display: none !important;
+  }
+  .dealer-body-board--desktop {
+    display: none !important;
+  }
+  .dealer-body-board--mobile {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    background-color: #020202 !important;
+  }
+
+  .dealer-mob-burger {
+    position: absolute !important;
+    left: 85.0% !important;
+    top: 0.24% !important;
+    width: 13.0% !important;
+    height: 0.22% !important;
+    min-width: 48px !important;
+    min-height: 40px !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    z-index: 50 !important;
+  }
+
+  .dealer-mob-drawer {
+    position: fixed !important;
+    top: 70px !important;
+    right: 14px !important;
+    width: calc(100% - 28px) !important;
+    max-width: 360px !important;
+    background: rgba(18, 16, 40, 0.97) !important;
+    backdrop-filter: blur(24px) !important;
+    border: 1px solid rgba(194, 185, 255, 0.3) !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8) !important;
+    z-index: 200 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 8px 0 !important;
+  }
+  .dealer-mob-drawer[hidden] { display: none !important; }
+
+  .dealer-mob-drawer__link {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 14px 20px !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid rgba(194, 185, 255, 0.15) !important;
+    color: #C2B9FF !important;
+    font-size: 15px !important;
+    font-family: var(--body, sans-serif) !important;
+  }
+  .dealer-mob-drawer__link:last-child { border-bottom: none !important; }
+  .dealer-mob-drawer__link:hover, .dealer-mob-drawer__link:active {
+    background: rgba(150, 133, 255, 0.2) !important;
+    color: #FFFFFF !important;
+  }
+  .dealer-mob-drawer__link.is-highlight { color: #FFFFFF !important; font-weight: 600 !important; }
+
+  .dealer-mob-drawer__close {
+    position: absolute !important;
+    top: 8px !important;
+    right: 14px !important;
+    background: none !important;
+    border: none !important;
+    color: #C2B9FF !important;
+    font-size: 26px !important;
+    cursor: pointer !important;
+    line-height: 1 !important;
+  }
+
+  .dealer-ext-mob-hitarea {
+    position: absolute;
+    z-index: 15;
+    cursor: pointer;
+    background: transparent;
+  }
+}
