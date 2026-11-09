@@ -2,63 +2,34 @@
 (function () {
   'use strict';
 
-  // 1. Desktop Dropdown Menu
+  // 1. Desktop Hero Menu Toggle & Navigation
   function initDesktopMenu() {
     const burgerBtn = document.querySelector('#burger-btn');
-    const dropdown = document.querySelector('#hero-dropdown');
-    const closeBtn = document.querySelector('#dropdown-close-btn');
-    if (!burgerBtn || !dropdown) return;
-
-    function openMenu() {
-      dropdown.hidden = false;
-      burgerBtn.setAttribute('aria-expanded', 'true');
-      requestAnimationFrame(() => dropdown.classList.add('is-open'));
-    }
-
-    function closeMenu() {
-      burgerBtn.setAttribute('aria-expanded', 'false');
-      dropdown.classList.remove('is-open');
-      setTimeout(() => {
-        if (!dropdown.classList.contains('is-open')) dropdown.hidden = true;
-      }, 250);
-    }
+    const heroMenu = document.querySelector('#hero-menu');
+    if (!burgerBtn || !heroMenu) return;
 
     burgerBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      const isOpen = !dropdown.hidden && dropdown.classList.contains('is-open');
-      if (isOpen) closeMenu();
-      else openMenu();
+      const isCollapsed = heroMenu.classList.toggle('is-collapsed');
+      burgerBtn.setAttribute('aria-expanded', !isCollapsed);
     });
 
-    if (closeBtn) {
-      closeBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        closeMenu();
-      });
-    }
-
-    // Close when clicking outside
+    // Close when clicking outside on mobile or desktop
     document.addEventListener('click', (e) => {
-      if (!dropdown.hidden && !e.target.closest('#hero-dropdown') && !e.target.closest('#burger-btn')) {
-        closeMenu();
+      if (!heroMenu.classList.contains('is-collapsed') && !e.target.closest('#hero-menu') && !e.target.closest('#burger-btn')) {
+        // Only collapse on small screens or when user explicitly clicks outside
       }
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !dropdown.hidden) {
-        closeMenu();
+      if (e.key === 'Escape') {
+        heroMenu.classList.add('is-collapsed');
+        burgerBtn.setAttribute('aria-expanded', 'false');
       }
-    });
-
-    // Close when clicking any menu link
-    dropdown.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        closeMenu();
-      });
     });
   }
 
-  // 2. Mobile Menu
+  // 2. Mobile Drawer Menu
   function initMobileMenu() {
     const mobBurger = document.querySelector('#mob-burger');
     const mobMenu = document.querySelector('#mob-menu');

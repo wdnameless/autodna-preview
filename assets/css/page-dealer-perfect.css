@@ -17,133 +17,343 @@ html, body {
   color: #ffffff;
 }
 
-/* ══ 1. HERO SECTION (100VH, ZERO BLACK BARS, BUTTON ALWAYS ON SCREEN 1) ══ */
-.dealer-hero-section {
+/* ══ 1. FULL-BLEED 100VH HERO (EDGE-TO-EDGE, ZERO BLACK BARS, BUTTON ON SCREEN 1) ══ */
+.dealer-hero {
   position: relative;
   width: 100vw;
   height: 100vh;
-  min-height: 520px;
+  min-height: 540px;
   max-height: 1080px;
   overflow: hidden;
-  background: radial-gradient(130% 90% at 50% 25%, #4a3363 0%, #2b1d3d 50%, #0c0812 85%, #020202 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: #020202;
   box-sizing: border-box;
 }
 
-/* The 1440x895 Vector Stage */
-.dealer-hero-stage {
+.dealer-hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.dealer-hero__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  display: block;
+}
+
+.dealer-hero__shade-bottom {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(180deg, transparent 0%, rgba(2, 2, 2, 0.7) 60%, #020202 100%);
+  pointer-events: none;
+}
+
+/* Responsive Frame: Content fits 100vh perfectly without any scroll */
+.dealer-hero__frame {
   position: relative;
+  z-index: 5;
   width: 100%;
   max-width: 1440px;
   height: 100%;
-  max-height: 895px;
-  aspect-ratio: 1440 / 895;
   margin: 0 auto;
+  padding: clamp(16px, 2.5vh, 32px) clamp(20px, 3vw, 40px) clamp(16px, 2.5vh, 28px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
 
-.dealer-hero-svg {
+/* Topbar: k logo, skip THE DEALER, burger & menu */
+.dealer-hero__topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   width: 100%;
-  height: 100%;
+  position: relative;
+}
+
+.dealer-hero__k-logo {
+  display: block;
+  line-height: 0;
+  text-decoration: none;
+}
+.dealer-hero__k-logo img {
+  width: 37px;
+  height: 58px;
   display: block;
   object-fit: contain;
 }
 
-/* ══ INTERACTIVE HITAREAS (PRECISION POSITIONED OVER FIGMA ARTWORK) ═════ */
-.dealer-hitarea {
+.dealer-hero__center-logo {
   position: absolute;
-  z-index: 25;
-  cursor: pointer;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  display: block;
+}
+.dealer-hero__center-logo img {
+  width: clamp(200px, 22vw, 310px);
+  height: auto;
+  display: block;
+}
+
+.dealer-hero__nav-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.dealer-hero__burger-btn {
+  width: 44px;
+  height: 32px;
   background: transparent;
-  border-radius: 2px;
-  transition: background 0.2s ease, box-shadow 0.2s ease;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4px 2px;
+  outline: none;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  margin-top: 6px;
+  margin-bottom: 12px;
 }
 
-.dealer-hitarea:hover {
-  background: rgba(150, 133, 255, 0.2);
-  box-shadow: 0 0 15px rgba(150, 133, 255, 0.5);
+.dealer-hero__burger-btn span {
+  display: block;
+  width: 100%;
+  height: 2.5px;
+  background-color: #C2B9FF;
+  transition: background-color 0.2s ease;
 }
 
-/* Button CTA [ SEE HOW IT WORKS ↘ ] */
-.dealer-hitarea--see-how {
-  left: 78.19%;
-  top: 91.17%;
-  width: 20.0%;
-  height: 8.8%;
-  border-radius: 0;
-}
-.dealer-hitarea--see-how:hover {
-  background: rgba(150, 133, 255, 0.25);
-  box-shadow: 0 0 25px rgba(150, 133, 255, 0.7);
+.dealer-hero__burger-btn:hover span {
+  background-color: #FFFFFF;
 }
 
-/* Top Left 'k' Logo */
-.dealer-hitarea--k-logo {
-  left: 1.5%;
-  top: 2.8%;
-  width: 3.5%;
-  height: 7.2%;
+/* ══ EXACT 7-ROW FIGMA MENU BOX (100% SHARP VECTOR & FROSTED GLASS) ════ */
+.dealer-hero-menu {
+  position: relative;
+  width: clamp(250px, 20vw, 289px);
+  height: auto;
+  background: rgba(38, 37, 72, 0.44);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(194, 185, 255, 0.22);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 20;
+  transition: all 0.25s ease;
 }
 
-/* Top Center 'skip THE DEALER' Logo */
-.dealer-hitarea--center-logo {
-  left: 36.0%;
-  top: 3.5%;
-  width: 28.0%;
-  height: 14.5%;
+.dealer-hero-menu.is-collapsed {
+  display: none !important;
 }
 
-/* Top Right Burger '≡' */
-.dealer-hitarea--burger {
-  left: 95.0%;
-  top: 3.5%;
-  width: 3.5%;
-  height: 5.5%;
+.dealer-menu-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: clamp(36px, 4.8vh, 43.4px);
+  padding: 0 16px;
+  text-decoration: none;
+  border: none;
+  border-bottom: 1px solid rgba(194, 185, 255, 0.18);
+  background: transparent;
+  transition: background 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+}
+.dealer-menu-row:last-child {
+  border-bottom: none;
 }
 
-/* 7-Row Menu Items */
-.dealer-hitarea--menu-home {
-  left: 78.125%;
-  top: 11.51%;
-  width: 20.069%;
-  height: 7.26%;
+.dealer-menu-row:hover {
+  background: rgba(150, 133, 255, 0.22);
 }
-.dealer-hitarea--menu-hiw {
-  left: 78.125%;
-  top: 18.77%;
-  width: 20.069%;
-  height: 7.26%;
+
+.dealer-menu-text {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: clamp(13px, 1.1vw, 15px);
+  font-weight: 300;
+  color: #C2B9FF;
+  white-space: nowrap;
+  letter-spacing: -0.2px;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
-.dealer-hitarea--menu-cars {
-  left: 78.125%;
-  top: 26.03%;
-  width: 20.069%;
-  height: 7.26%;
+
+.dealer-menu-row:hover .dealer-menu-text {
+  color: #FFFFFF;
+  transform: translateX(2px);
 }
-.dealer-hitarea--menu-why {
-  left: 78.125%;
-  top: 33.30%;
-  width: 20.069%;
-  height: 7.26%;
+
+.dealer-menu-row.is-active .dealer-menu-text,
+.dealer-menu-row--home .dealer-menu-text {
+  color: #FFFFFF;
+  font-weight: 500;
 }
-.dealer-hitarea--menu-extras {
-  left: 78.125%;
-  top: 40.56%;
-  width: 20.069%;
-  height: 7.26%;
+
+.dealer-menu-row.is-highlight .dealer-menu-text {
+  color: #FFFFFF;
+  font-weight: 600;
+  letter-spacing: 0.2px;
 }
-.dealer-hitarea--menu-contact {
-  left: 78.125%;
-  top: 47.82%;
-  width: 20.069%;
-  height: 7.26%;
+
+.dealer-menu-arrow,
+.dealer-menu-chevron {
+  width: 14px;
+  height: 10px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
 }
-.dealer-hitarea--menu-search {
-  left: 78.125%;
-  top: 55.08%;
-  width: 20.069%;
-  height: 7.37%;
+
+.dealer-menu-row:hover .dealer-menu-arrow {
+  transform: translateX(4px);
+}
+
+/* Corner ticks */
+.ticks { position: relative; }
+.tick {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: #C2B9FF;
+  border-style: solid;
+  pointer-events: none;
+  z-index: 5;
+}
+.tick.tl { top: 0; left: 0; border-width: 1px 0 0 1px; }
+.tick.tr { top: 0; right: 0; border-width: 1px 1px 0 0; }
+.tick.bl { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
+.tick.br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+
+/* Center Stage: BUY CARS UP TO 40% CHEAPER */
+.dealer-hero__center-stage {
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: clamp(12px, 2vh, 28px);
+}
+
+.dealer-hero__headline-img {
+  width: 100%;
+  max-width: 1120px;
+  height: auto;
+  max-height: clamp(100px, 16vh, 180px);
+  display: block;
+}
+
+/* Bottom Bar: Text and CTA Button */
+.dealer-hero__bottombar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: clamp(16px, 2.5vw, 36px);
+}
+
+.dealer-hero__bottom-left {
+  flex: none;
+}
+
+.dealer-hero__sub-callout {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(11px, 1.2vw, 17px);
+  font-weight: 700;
+  line-height: 1.35;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: -0.2px;
+}
+
+.dealer-hero__sub-callout span {
+  display: block;
+}
+
+.neon-accent {
+  font-style: normal;
+  color: #9685FF;
+  text-shadow: 0 0 15px rgba(150, 133, 255, 0.7);
+}
+
+.dealer-hero__bottom-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 4px;
+}
+
+.dealer-hero__wire {
+  width: clamp(24px, 3.5vw, 50px);
+  height: 2px;
+  flex: none;
+}
+
+.dealer-hero__overhead {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: clamp(10px, 0.85vw, 12px);
+  font-weight: 400;
+  line-height: 1.35;
+  color: #C2B9FF;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.dealer-hero__overhead span {
+  display: block;
+}
+
+.dealer-hero__bottom-right {
+  flex: none;
+}
+
+.dealer-hero__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: clamp(10px, 1.5vh, 16px) clamp(18px, 1.8vw, 28px);
+  background: rgba(38, 37, 72, 0.44);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(194, 185, 255, 0.35);
+  color: #FFFFFF;
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(11px, 1.0vw, 14px);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 20px rgba(150, 133, 255, 0.25);
+  box-sizing: border-box;
+}
+
+.dealer-hero__cta-btn:hover {
+  background: rgba(150, 133, 255, 0.3);
+  border-color: #C2B9FF;
+  box-shadow: 0 0 30px rgba(150, 133, 255, 0.6);
+  transform: translateY(-1px);
+}
+
+.dealer-hero__cta-btn svg {
+  width: 13px;
+  height: 13px;
+  flex: none;
 }
 
 /* ══ 2. EXTENDED SECTIONS BELOW HERO (100% Vector SVG) ═════════════════ */
@@ -187,7 +397,7 @@ html, body {
 
 /* ══ MOBILE LAYOUT (393 x 17278 from Figma SkipTheDealer mob-5.svg) ══ */
 @media (max-width: 768px) {
-  .dealer-hero-section {
+  .dealer-hero {
     display: none !important;
   }
   .dealer-body-board--desktop {

@@ -15,33 +15,114 @@
 </head>
 <body class="page-dealer-perfect" id="top">
 
-<!-- ══ 1. EXACT FIGMA 100VH HERO (EDGE-TO-EDGE, ZERO BLACK BARS, BUTTON ALWAYS VISIBLE) ══ -->
-<section class="dealer-hero-section" id="home" aria-label="SkipTheDealer Hero">
+<!-- ══ 1. EXACT RESPONSIVE 100VH HERO (EDGE-TO-EDGE, NO BLACK BARS, BUTTON ON SCREEN 1) ══ -->
+<section class="dealer-hero" id="home" aria-label="SkipTheDealer Hero">
   
-  <div class="dealer-hero-stage">
-    <!-- 100% Vector & High-Res Figma Artwork (1440x895) -->
-    <img src="assets/img/site1/skipthedealer-hero-exact.svg" class="dealer-hero-svg" alt="SkipTheDealer — Buy Cars Up To 40% Cheaper" fetchpriority="high">
+  <!-- High-res background photo with the 3 cars and 2 vertical divider lines -->
+  <div class="dealer-hero__bg">
+    <img src="assets/img/site1/dealer-hero-bg-pure.svg" alt="SkipTheDealer Fleet &amp; Team" class="dealer-hero__bg-img" fetchpriority="high">
+    <div class="dealer-hero__shade-bottom" aria-hidden="true"></div>
+  </div>
 
-    <!-- Top Left 'k' Logo -->
-    <a href="#top" class="dealer-hitarea dealer-hitarea--k-logo" data-scroll="top" aria-label="SkipTheDealer Home"></a>
+  <!-- Content Container Fitting 100vh Exactly -->
+  <div class="dealer-hero__frame">
+    
+    <!-- Top Header Bar: k logo, skip THE DEALER, burger & menu -->
+    <header class="dealer-hero__topbar">
+      <a href="#top" class="dealer-hero__k-logo" aria-label="SkipTheDealer Home">
+        <img src="assets/img/site1/logo-skipthedealer.png" width="37" height="58" alt="SkipTheDealer">
+      </a>
 
-    <!-- Top Center 'skip THE DEALER' Logo -->
-    <a href="#top" class="dealer-hitarea dealer-hitarea--center-logo" data-scroll="top" aria-label="SkipTheDealer Home"></a>
+      <div class="dealer-hero__center-logo">
+        <img src="assets/img/site1/dealer-hero-logo.svg" width="310" height="124" alt="skip THE DEALER">
+      </div>
 
-    <!-- Top Right Burger '≡' -->
-    <a href="#how-it-works" class="dealer-hitarea dealer-hitarea--burger" data-scroll="how-it-works" aria-label="Menu"></a>
+      <div class="dealer-hero__nav-wrap">
+        <button type="button" class="dealer-hero__burger-btn" id="burger-btn" aria-label="Toggle navigation menu" aria-expanded="true">
+          <span></span><span></span><span></span>
+        </button>
 
-    <!-- ══ EXACT 7-ROW FIGMA MENU HITAREAS (100% INTERACTIVE WITH GLOWING HOVER) ══ -->
-    <a href="#top" class="dealer-hitarea dealer-hitarea--menu-home" data-scroll="top" aria-label="Home"></a>
-    <a href="#how-it-works" class="dealer-hitarea dealer-hitarea--menu-hiw" data-scroll="how-it-works" aria-label="How It Works"></a>
-    <a href="#cars" class="dealer-hitarea dealer-hitarea--menu-cars" data-scroll="cars" aria-label="Cars &amp; Inventory"></a>
-    <a href="#carlears" class="dealer-hitarea dealer-hitarea--menu-why" data-scroll="carlears" aria-label="Why Us"></a>
-    <a href="#standard" class="dealer-hitarea dealer-hitarea--menu-extras" data-scroll="standard" aria-label="Extras"></a>
-    <a href="#contact" class="dealer-hitarea dealer-hitarea--menu-contact" data-scroll="contact" aria-label="Contact"></a>
-    <a href="skipthesearch.html" class="dealer-hitarea dealer-hitarea--menu-search" aria-label="SkipTheSearch Subpage"></a>
+        <!-- ══ EXACT 7-ROW FIGMA MENU BOX (100% SHARP, HOVERABLE & CLICKABLE) ════ -->
+        <nav class="dealer-hero-menu ticks" id="hero-menu" aria-label="SkipTheDealer Navigation">
+          <span class="tick tl"></span><span class="tick tr"></span>
+          <span class="tick bl"></span><span class="tick br"></span>
 
-    <!-- Bottom Right [ SEE HOW IT WORKS ↘ ] Button -->
-    <a href="#how-it-works" class="dealer-hitarea dealer-hitarea--see-how" data-scroll="how-it-works" aria-label="See How It Works"></a>
+          <a href="#top" class="dealer-menu-row dealer-menu-row--home is-active" data-scroll="top">
+            <span class="dealer-menu-text">HOME</span>
+            <svg viewBox="0 0 10 6" class="dealer-menu-chevron"><path d="M1 5L5 1L9 5" stroke="#C2B9FF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </a>
+
+          <a href="#how-it-works" class="dealer-menu-row" data-scroll="how-it-works">
+            <span class="dealer-menu-text">How It Works</span>
+            <svg viewBox="0 0 14 10" class="dealer-menu-arrow"><path d="M0 5H12M7 1L12 5L7 9" stroke="#C2B9FF" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </a>
+
+          <a href="#cars" class="dealer-menu-row" data-scroll="cars">
+            <span class="dealer-menu-text">Cars &amp; Inventory</span>
+            <svg viewBox="0 0 14 10" class="dealer-menu-arrow"><path d="M0 5H12M7 1L12 5L7 9" stroke="#C2B9FF" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </a>
+
+          <a href="#carlears" class="dealer-menu-row" data-scroll="carlears">
+            <span class="dealer-menu-text">Why Us</span>
+            <svg viewBox="0 0 14 10" class="dealer-menu-arrow"><path d="M0 5H12M7 1L12 5L7 9" stroke="#C2B9FF" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </a>
+
+          <a href="#standard" class="dealer-menu-row" data-scroll="standard">
+            <span class="dealer-menu-text">Extras</span>
+            <svg viewBox="0 0 14 10" class="dealer-menu-arrow"><path d="M0 5H12M7 1L12 5L7 9" stroke="#C2B9FF" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </a>
+
+          <a href="#contact" class="dealer-menu-row" data-scroll="contact">
+            <span class="dealer-menu-text">Contact</span>
+            <svg viewBox="0 0 14 10" class="dealer-menu-arrow"><path d="M0 5H12M7 1L12 5L7 9" stroke="#C2B9FF" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </a>
+
+          <a href="skipthesearch.html" class="dealer-menu-row is-highlight">
+            <span class="dealer-menu-text">SKIPTHESEARCH</span>
+            <svg viewBox="0 0 14 10" class="dealer-menu-arrow"><path d="M0 5H12M7 1L12 5L7 9" stroke="#C2B9FF" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Center Headline: BUY CARS UP TO 40% CHEAPER -->
+    <div class="dealer-hero__center-stage">
+      <img src="assets/img/site1/dealer-headline-exact.svg" class="dealer-hero__headline-img" alt="BUY CARS UP TO 40% CHEAPER" fetchpriority="high">
+    </div>
+
+    <!-- Bottom Row: Text & [ SEE HOW IT WORKS ↘ ] Button -->
+    <div class="dealer-hero__bottombar">
+      
+      <div class="dealer-hero__bottom-left">
+        <p class="dealer-hero__sub-callout">
+          <span>YOU PAY THE <em class="neon-accent">REAL</em></span>
+          <span><em class="neon-accent">PRICE</em>, NOT SOMEONE</span>
+          <span>ELSE’S MARKUP.</span>
+        </p>
+      </div>
+
+      <div class="dealer-hero__bottom-center">
+        <svg class="dealer-hero__wire" viewBox="0 0 50 2" aria-hidden="true"><line x1="0" y1="1" x2="50" y2="1" stroke="#C2B9FF"/></svg>
+        <p class="dealer-hero__overhead">
+          <span>NO SHOWROOMS,</span>
+          <span>NO FANCY WORDS.</span>
+          <span>JUST CHEAPER CARS.</span>
+        </p>
+      </div>
+
+      <div class="dealer-hero__bottom-right">
+        <a href="#how-it-works" class="dealer-hero__cta-btn ticks" data-scroll="how-it-works" aria-label="See how it works">
+          <span class="tick tl"></span><span class="tick tr"></span>
+          <span class="tick bl"></span><span class="tick br"></span>
+          <span>SEE HOW IT WORKS</span>
+          <svg viewBox="0 0 13 13" aria-hidden="true">
+            <path d="M0 0L11 11M11 0V11H0" stroke="#C2B9FF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+
   </div>
 
 </section>
