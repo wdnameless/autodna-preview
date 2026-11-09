@@ -29,19 +29,17 @@
     
     <!-- Top Header Bar: k logo, skip THE DEALER, burger & menu -->
     <header class="dealer-hero__topbar">
-      <a href="#top" class="dealer-hero__k-logo" aria-label="SkipTheDealer Home">
+      <a href="#top" class="dealer-hero__k-logo" data-scroll="top" aria-label="SkipTheDealer Home">
         <img src="assets/img/site1/logo-skipthedealer.png" width="37" height="58" alt="SkipTheDealer">
       </a>
 
       <div class="dealer-hero__center-logo">
-        <img src="assets/img/site1/dealer-hero-logo.svg" width="310" height="124" alt="skip THE DEALER">
+        <a href="#top" data-scroll="top" aria-label="SkipTheDealer Home">
+          <img src="assets/img/site1/dealer-hero-logo.svg" width="310" height="124" alt="skip THE DEALER">
+        </a>
       </div>
 
       <div class="dealer-hero__nav-wrap">
-        <button type="button" class="dealer-hero__burger-btn" id="burger-btn" aria-label="Toggle navigation menu" aria-expanded="true">
-          <span></span><span></span><span></span>
-        </button>
-
         <!-- ══ EXACT 7-ROW FIGMA MENU BOX (100% SHARP, HOVERABLE & CLICKABLE) ════ -->
         <nav class="dealer-hero-menu ticks" id="hero-menu" aria-label="SkipTheDealer Navigation">
           <span class="tick tl"></span><span class="tick tr"></span>

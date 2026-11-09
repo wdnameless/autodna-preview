@@ -1,4 +1,4 @@
-/* ══ SKIPTHEDEALER PAGE STYLES (100% EXACT MATCH TO FIGMA ATTACHED SCREENSHOT) ══ */
+/* ══ SKIPTHEDEALER PAGE STYLES (100% CANONICAL FULL-BLEED / ZERO BLACK BARS) ══ */
 
 html {
   scroll-behavior: smooth !important;
@@ -22,7 +22,7 @@ html, body {
   position: relative;
   width: 100vw;
   height: 100vh;
-  min-height: 540px;
+  min-height: 520px;
   max-height: 1080px;
   overflow: hidden;
   background-color: #020202;
@@ -112,35 +112,6 @@ html, body {
   align-items: flex-end;
 }
 
-.dealer-hero__burger-btn {
-  width: 44px;
-  height: 32px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 4px 2px;
-  outline: none;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-  margin-top: 6px;
-  margin-bottom: 12px;
-}
-
-.dealer-hero__burger-btn span {
-  display: block;
-  width: 100%;
-  height: 2.5px;
-  background-color: #C2B9FF;
-  transition: background-color 0.2s ease;
-}
-
-.dealer-hero__burger-btn:hover span {
-  background-color: #FFFFFF;
-}
-
 /* ══ EXACT 7-ROW FIGMA MENU BOX (100% SHARP VECTOR & FROSTED GLASS) ════ */
 .dealer-hero-menu {
   position: relative;
@@ -159,15 +130,11 @@ html, body {
   transition: all 0.25s ease;
 }
 
-.dealer-hero-menu.is-collapsed {
-  display: none !important;
-}
-
 .dealer-menu-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: clamp(36px, 4.8vh, 43.4px);
+  height: clamp(34px, 4.5vh, 43.4px);
   padding: 0 16px;
   text-decoration: none;
   border: none;
@@ -188,7 +155,7 @@ html, body {
 
 .dealer-menu-text {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: clamp(13px, 1.1vw, 15px);
+  font-size: clamp(12px, 1.05vw, 15px);
   font-weight: 300;
   color: #C2B9FF;
   white-space: nowrap;
@@ -245,14 +212,14 @@ html, body {
 .dealer-hero__center-stage {
   width: 100%;
   margin-top: auto;
-  margin-bottom: clamp(12px, 2vh, 28px);
+  margin-bottom: clamp(10px, 1.8vh, 24px);
 }
 
 .dealer-hero__headline-img {
   width: 100%;
   max-width: 1120px;
   height: auto;
-  max-height: clamp(100px, 16vh, 180px);
+  max-height: clamp(90px, 15vh, 180px);
   display: block;
 }
 
@@ -272,7 +239,7 @@ html, body {
 .dealer-hero__sub-callout {
   margin: 0;
   font-family: 'Orbitron', sans-serif;
-  font-size: clamp(11px, 1.2vw, 17px);
+  font-size: clamp(10px, 1.1vw, 16px);
   font-weight: 700;
   line-height: 1.35;
   color: #FFFFFF;
@@ -307,7 +274,7 @@ html, body {
 .dealer-hero__overhead {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: clamp(10px, 0.85vw, 12px);
+  font-size: clamp(9px, 0.8vw, 12px);
   font-weight: 400;
   line-height: 1.35;
   color: #C2B9FF;
@@ -326,14 +293,14 @@ html, body {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  padding: clamp(10px, 1.5vh, 16px) clamp(18px, 1.8vw, 28px);
+  padding: clamp(9px, 1.4vh, 15px) clamp(16px, 1.8vw, 28px);
   background: rgba(38, 37, 72, 0.44);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(194, 185, 255, 0.35);
   color: #FFFFFF;
   font-family: 'Orbitron', sans-serif;
-  font-size: clamp(11px, 1.0vw, 14px);
+  font-size: clamp(10px, 0.95vw, 14px);
   font-weight: 700;
   letter-spacing: 0.5px;
   text-decoration: none;
