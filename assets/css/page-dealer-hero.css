@@ -1,0 +1,296 @@
+/* ══ SKIPTHEDEALER — 100VH HERO + FULL-BLEED BODY ══════════════════════ */
+
+html { scroll-behavior: smooth !important; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #020202;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.page-dealer-hero { background: #020202; }
+
+/* ══ HERO ═══════════════════════════════════════════════════════════════ */
+.dh {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 420px;
+  overflow: hidden;
+  background: #020202;
+  box-sizing: border-box;
+}
+
+/* photo layer: cover -> fills every viewport, never a side band, no black gaps */
+.dh__bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+
+.dh__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;   /* cars stay glued to the bottom edge */
+  display: block;
+}
+
+.dh__bg-shade {
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  height: 190px;
+  background: linear-gradient(180deg, transparent 0%, rgba(2,2,2,.72) 62%, #020202 100%);
+}
+
+/* UI layer: lives in the viewport, pinned top/bottom -> nothing can ever be cut off */
+.dh__frame {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(14px, 2.4vh, 34px) clamp(16px, 2.6vw, 40px) clamp(12px, 2vh, 26px);
+  box-sizing: border-box;
+}
+
+/* ── top bar ─────────────────────────────────────────────────────────── */
+.dh__top {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.dh__k { display: block; line-height: 0; flex: none; }
+.dh__k img { display: block; width: 37px; height: auto; }
+
+.dh__wordmark {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  display: block;
+  line-height: 0;
+}
+.dh__wordmark img {
+  display: block;
+  width: 310px;
+  height: auto;
+}
+
+.dh__nav { position: relative; display: flex; flex-direction: column; align-items: flex-end; flex: none; }
+
+.dh__burger {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 37px;
+  padding: 6px 4px;
+  margin-top: 8px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  transition: background .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.dh__burger:hover,
+.dh__burger[aria-expanded="true"] {
+  background: rgba(150,133,255,.16);
+  border-color: rgba(194,185,255,.45);
+  box-shadow: 0 0 14px rgba(150,133,255,.45);
+}
+.dh__burger span {
+  display: block;
+  width: 100%;
+  height: 2.5px;
+  background: #C2B9FF;
+  transition: background .2s ease;
+}
+.dh__burger:hover span,
+.dh__burger[aria-expanded="true"] span { background: #fff; }
+
+/* ── dropdown menu (closed by default) ───────────────────────────────── */
+.dh__menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 289px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(30,28,56,.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(194,185,255,.22);
+  box-shadow: 0 16px 40px rgba(0,0,0,.5);
+  box-sizing: border-box;
+  z-index: 40;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity .22s ease, transform .22s ease;
+}
+.dh__menu[hidden] { display: none !important; }
+.dh__menu.is-open { opacity: 1; transform: translateY(0); }
+
+.dh__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 43.4px;
+  padding: 0 18px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: -.2px;
+  color: #C2B9FF;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(194,185,255,.18);
+  transition: background .18s ease, color .18s ease;
+}
+.dh__row:last-child { border-bottom: none; }
+.dh__row:hover { background: rgba(150,133,255,.22); color: #fff; }
+.dh__row--home { color: #fff; font-weight: 500; }
+.dh__row--hl { color: #fff; font-weight: 600; letter-spacing: .2px; }
+.dh__row svg { width: 14px; height: 10px; flex: none; }
+
+/* ── headline ────────────────────────────────────────────────────────── */
+.dh__stage {
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: 66px;
+}
+.dh__headline {
+  display: block;
+  /* 1120/1440 = 77.78% of the artboard: scales with the viewport exactly like the
+     cover-scaled photo, while height:auto keeps the native 5.33 ratio */
+  width: 77.78%;
+  height: auto;
+}
+
+/* ── bottom bar ──────────────────────────────────────────────────────── */
+.dh__bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 34px;
+  width: 100%;
+}
+
+.dh__claim {
+  flex: none;
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -.2px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.dh__claim span { display: block; }
+.dh__claim em { font-style: normal; color: #9685FF; text-shadow: 0 0 15px rgba(150,133,255,.7); }
+
+.dh__note {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 4px;
+  min-width: 0;
+}
+.dh__wire { width: 50px; height: 2px; flex: none; }
+.dh__note p {
+  margin: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.35;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  color: #C2B9FF;
+}
+.dh__note p span { display: block; }
+
+.dh__cta {
+  position: relative;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  padding: 16px 27px;   /* Figma CTA 289 x 79 */
+  background: rgba(38,37,72,.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(194,185,255,.35);
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-sizing: border-box;
+  box-shadow: 0 0 20px rgba(150,133,255,.22);
+  transition: background .22s ease, border-color .22s ease, box-shadow .22s ease, transform .22s ease;
+}
+.dh__cta:hover {
+  background: rgba(150,133,255,.3);
+  border-color: #C2B9FF;
+  box-shadow: 0 0 30px rgba(150,133,255,.6);
+  transform: translateY(-1px);
+}
+.dh__cta svg { width: 13px; height: 13px; flex: none; }
+
+/* ── corner ticks (shared) ───────────────────────────────────────────── */
+.dh__tick {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  border-color: #C2B9FF;
+  border-style: solid;
+  pointer-events: none;
+}
+.dh__tick--tl { top: 0; left: 0; border-width: 1px 0 0 1px; }
+.dh__tick--tr { top: 0; right: 0; border-width: 1px 1px 0 0; }
+.dh__tick--bl { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
+.dh__tick--br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+
+/* ══ BODY BOARD ═════════════════════════════════════════════════════════ */
+.db { position: relative; width: 100%; background: #020202; overflow: hidden; }
+
+.db__board--desktop { position: relative; width: 100%; display: block; }
+.db__board--mobile { display: none; }
+
+.db__svg { width: 100%; height: auto; display: block; }
+.db__board--desktop, .db__board--mobile { aspect-ratio: auto; }
+
+.db__hit {
+  position: absolute;
+  z-index: 15;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 2px;
+  transition: background .2s ease, box-shadow .2s ease;
+}
+.db__hit:hover { background: rgba(150,133,255,.18); box-shadow: 0 0 22px rgba(150,133,255,.55); }
+
+.db__anchor { position: absolute; left: 0; width: 1px; height: 1px; }
+
+/* ══ MOBILE ═════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .dh { display: none !important; }
+  .db__board--desktop { display: none !important; }
+  .db__board--mobile {
+    display: block;
+    position: relative;
+    width: 100%;
+    background: #020202;
+  }
+  .db__mhit {
+    position: absolute;
+    z-index: 15;
+    cursor: pointer;
+    background: transparent;
+  }
+}
