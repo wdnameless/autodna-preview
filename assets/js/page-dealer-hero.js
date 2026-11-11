@@ -45,9 +45,9 @@
     if (history.pushState) history.pushState(null, null, hash);
   }
 
-  // Contain-scale for the artboard: s = max(W/1440, H/895) -> the whole Figma
-  // frame stays visible and hitareas scale exactly with the photo.
-  var ART_W = 1440, ART_H = 810, heroEl = null, artEl = null;
+  // --u is the size of one design pixel in viewport pixels: the stage is always
+  // a 1440x895 box contain-fitted, and all artwork is positioned in design %.
+  var ART_W = 1440, ART_H = 895, heroEl = null, artEl = null;
 
   function syncScale() {
     if (!heroEl || !artEl) return;
@@ -68,6 +68,7 @@
     var br = burger.getBoundingClientRect();
     menu.style.top = Math.round(br.bottom + 4) + 'px';
     menu.style.left = Math.round(br.right - 289 * s) + 'px';
+    menu.style.maxHeight = Math.round(innerHeight - br.bottom - 16) + 'px';
     menu.style.setProperty('--dh-menu-w', (289 * s).toFixed(1) + 'px');
     menu.style.setProperty('--dh-row-h', (43.4 * s).toFixed(2) + 'px');
     menu.style.setProperty('--dh-row-fs', (15 * s).toFixed(2) + 'px');
@@ -79,7 +80,7 @@
     burger = document.querySelector('#dh-burger');
     menu = document.querySelector('#dh-menu');
     heroEl = document.querySelector('.dh');
-    artEl = document.querySelector('.dh__art');
+    artEl = document.querySelector('.dh__stage');
 
     syncScale();
     window.addEventListener('resize', syncScale);

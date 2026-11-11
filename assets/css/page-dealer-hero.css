@@ -13,58 +13,38 @@ html, body {
 .page-dealer-hero { background: #020202; }
 
 /* ══ HERO ═══════════════════════════════════════════════════════════════ */
-/* The hero is a single composed frame (1440x810): logo, headline, bottom copy,
-   menu button and CTA are one image, so nothing can be duplicated and there is
-   no second layer to drift out of registration. The frame is height-fitted to
-   the viewport and the leftover width is covered by the same frame scaled up -
-   never a flat band, never a different crop.
-   Hit areas below are expressed against this 1440x810 frame. */
+/* One composed frame, WIDTH-driven. The section's height IS the frame's height,
+   so the section ends exactly where the artwork ends: no leftover area, therefore
+   no bar at the bottom and no side band at any aspect ratio. Source is 2560x1440
+   (1.78x the design width), so it stays sharp, and nothing is ever cropped. */
 .dh {
   position: relative;
   width: 100%;
-  height: 100vh;
-  min-height: 420px;
   overflow: hidden;
   box-sizing: border-box;
-  background: #120c1e;
+  background: #2b1f52;
+  line-height: 0;      /* kill the inline-image baseline gap */
 }
 
-/* Only the sliver the contain fit leaves over (a few px on odd aspects) is
-   visible here: the same frame, cover-scaled and blurred, so it reads as the
-   photograph continuing instead of a bar. */
-.dh__bleed {
-  position: absolute;
-  inset: 0;
+.dh__frame {
+  position: relative;
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: blur(26px) brightness(.72) saturate(112%);
-  transform: scale(1.08);
-  z-index: 0;
-  pointer-events: none;
+  height: auto;        /* 16:9 of the frame's own width */
+  z-index: 1;
 }
 
-.dh__art {
+.dh__stage {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 1440px;
-  height: 810px;
-  transform: translate(-50%, -50%) scale(var(--dh-s, 1));
-  transform-origin: center center;
-  box-sizing: border-box;
+  left: 0;
+  top: 0;
+  width: 100%;
+  aspect-ratio: 1440 / 810;
   z-index: 2;
 }
 
-.dh__shot {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: fill;      /* box ratio == frame ratio */
-}
-
+.dh__part, .dh__hit, .dh__burger { position: absolute; }
+.dh__part { display: block; }
 
 /* hitareas: percentages of the 1440x895 artboard */
 .dh__hit {
@@ -81,12 +61,11 @@ html, body {
 /* burger button: real <button>, sits exactly on the drawn ≡ */
 .dh__burger {
   position: absolute;
-  /* the frame has no drawn burger, so the control is drawn in CSS and sits where
-     the design puts it: top-right, aligned with the menu column */
-  left: 1352px;
-  top: 46px;
-  width: 44px;
-  height: 32px;
+  /* drawn in CSS at the design's coordinates, in % of the 1440x810 frame */
+  left: 93.9%;
+  top: 5.2%;
+  width: 3.05%;
+  height: 4.2%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -212,107 +191,6 @@ html, body {
 .dh__row--home { color: #fff; font-weight: 500; }
 .dh__row--hl { color: #fff; font-weight: 600; letter-spacing: .2px; }
 .dh__row svg { width: var(--dh-row-icon, 14px); height: auto; flex: none; }
-
-/* ── headline ────────────────────────────────────────────────────────── */
-.dh__stage {
-  width: 100%;
-  margin-top: auto;
-  margin-bottom: 66px;
-}
-.dh__headline {
-  display: block;
-  /* 1120/1440 = 77.78% of the artboard: scales with the viewport exactly like the
-     cover-scaled photo, while height:auto keeps the native 5.33 ratio */
-  width: 77.78%;
-  height: auto;
-}
-
-/* ── bottom bar ──────────────────────────────────────────────────────── */
-.dh__bottom {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 34px;
-  width: 100%;
-}
-
-.dh__claim {
-  flex: none;
-  margin: 0;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1.35;
-  letter-spacing: -.2px;
-  text-transform: uppercase;
-  color: #fff;
-}
-.dh__claim span { display: block; }
-.dh__claim em { font-style: normal; color: #9685FF; text-shadow: 0 0 15px rgba(150,133,255,.7); }
-
-.dh__note {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding-bottom: 4px;
-  min-width: 0;
-}
-.dh__wire { width: 50px; height: 2px; flex: none; }
-.dh__note p {
-  margin: 0;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  line-height: 1.35;
-  letter-spacing: .5px;
-  text-transform: uppercase;
-  color: #C2B9FF;
-}
-.dh__note p span { display: block; }
-
-.dh__cta {
-  position: relative;
-  flex: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 11px;
-  padding: 16px 27px;   /* Figma CTA 289 x 79 */
-  background: rgba(38,37,72,.5);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(194,185,255,.35);
-  color: #fff;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: .5px;
-  text-transform: uppercase;
-  text-decoration: none;
-  box-sizing: border-box;
-  box-shadow: 0 0 20px rgba(150,133,255,.22);
-  transition: background .22s ease, border-color .22s ease, box-shadow .22s ease, transform .22s ease;
-}
-.dh__cta:hover {
-  background: rgba(150,133,255,.3);
-  border-color: #C2B9FF;
-  box-shadow: 0 0 30px rgba(150,133,255,.6);
-  transform: translateY(-1px);
-}
-.dh__cta svg { width: 13px; height: 13px; flex: none; }
-
-/* ── corner ticks (shared) ───────────────────────────────────────────── */
-.dh__tick {
-  position: absolute;
-  width: 11px;
-  height: 11px;
-  border-color: #C2B9FF;
-  border-style: solid;
-  pointer-events: none;
-}
-.dh__tick--tl { top: 0; left: 0; border-width: 1px 0 0 1px; }
-.dh__tick--tr { top: 0; right: 0; border-width: 1px 1px 0 0; }
-.dh__tick--bl { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
-.dh__tick--br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
 
 /* ══ BODY BOARD ═════════════════════════════════════════════════════════ */
 .db { position: relative; width: 100%; background: #020202; overflow: hidden; }
