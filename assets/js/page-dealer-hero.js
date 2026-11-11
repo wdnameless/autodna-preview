@@ -51,11 +51,14 @@
 
   function syncScale() {
     if (!heroEl || !artEl) return;
-    var W = artEl.clientWidth;
-    if (!W) return;
-    // the hero scales by width exactly like the body board, so the artwork and
-    // the menu popover share one factor and the layout never letterboxes
-    var s = W / ART_W;
+    var W = heroEl.clientWidth, H = heroEl.clientHeight;
+    if (!W || !H) return;
+    // contain-fit: the full artboard (CTA included) is always on screen, and the
+    // same factor drives the menu popover so it never diverges from the artwork
+    // Contain-fit with a small safety margin: the CTA always sits inside the
+    // viewport instead of flush against its edge.
+    var SAFE = 0.93;
+    var s = Math.min(W / ART_W, H / ART_H) * SAFE;
     heroEl.style.setProperty('--dh-s', String(s));
     artEl.style.setProperty('--dh-s', String(s));
 
