@@ -13,38 +13,84 @@ html, body {
 .page-dealer-hero { background: #020202; }
 
 /* ══ HERO ═══════════════════════════════════════════════════════════════ */
-/* One composed frame, WIDTH-driven. The section's height IS the frame's height,
-   so the section ends exactly where the artwork ends: no leftover area, therefore
-   no bar at the bottom and no side band at any aspect ratio. Source is 2560x1440
-   (1.78x the design width), so it stays sharp, and nothing is ever cropped. */
+/* Responsive by construction, not by scaling one picture:
+   - .dh__photo covers the viewport at any aspect -> a side band is impossible,
+     and the photo is 2959x2160, so it is never upscaled;
+   - the artwork is four SVG strips (top row, wordmark, headline, bottom row)
+     stacked in a 100vh flex column. Normal flow means strips can never overlap,
+     vh sizing means the column always fits, and vector output stays sharp. */
 .dh {
   position: relative;
   width: 100%;
+  height: 100vh;
+  min-height: 430px;
   overflow: hidden;
   box-sizing: border-box;
   background: #2b1f52;
-  line-height: 0;      /* kill the inline-image baseline gap */
 }
 
-.dh__frame {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: auto;        /* 16:9 of the frame's own width */
-  z-index: 1;
-}
-
-.dh__stage {
+.dh__photo {
   position: absolute;
-  left: 0;
-  top: 0;
+  inset: 0;
   width: 100%;
-  aspect-ratio: 1440 / 810;
-  z-index: 2;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 58%;
+  display: block;
+  z-index: 0;
 }
 
-.dh__part, .dh__hit, .dh__burger { position: absolute; }
-.dh__part { display: block; }
+.dh__ui {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.2vh 2.2vw;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+.dh__ui > * { pointer-events: auto; }
+
+.dh__topbar {
+  width: 100%;
+  height: auto;
+  max-height: 10vh;
+  object-fit: contain;
+  object-position: center top;
+  display: block;
+  flex: none;
+}
+
+.dh__logo {
+  height: clamp(40px, 12.5vh, 165px);
+  width: auto;
+  display: block;
+  flex: none;
+  margin-top: .6vh;
+}
+
+.dh__headline {
+  width: min(96%, 1240px);
+  height: auto;
+  max-height: 26vh;
+  object-fit: contain;
+  object-position: center bottom;
+  display: block;
+  flex: 0 1 auto;
+}
+
+.dh__bottombar {
+  width: 100%;
+  height: auto;
+  max-height: 15vh;
+  object-fit: contain;
+  object-position: center bottom;
+  display: block;
+  flex: none;
+}
 
 /* hitareas: percentages of the 1440x895 artboard */
 .dh__hit {
@@ -61,7 +107,7 @@ html, body {
 /* burger button: real <button>, sits exactly on the drawn ≡ */
 .dh__burger {
   position: absolute;
-  /* drawn in CSS at the design's coordinates, in % of the 1440x810 frame */
+  /* drawn in CSS at the design's coordinates, in % of the 16:9 stage */
   left: 93.9%;
   top: 5.2%;
   width: 3.05%;
