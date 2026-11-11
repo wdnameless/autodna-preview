@@ -13,17 +13,20 @@ html, body {
 .page-dealer-hero { background: #020202; }
 
 /* ══ HERO ═══════════════════════════════════════════════════════════════ */
-/* Responsive by construction, not by scaling one picture:
-   - .dh__photo covers the viewport at any aspect -> a side band is impossible,
-     and the photo is 2959x2160, so it is never upscaled;
-   - the artwork is four SVG strips (top row, wordmark, headline, bottom row)
-     stacked in a 100vh flex column. Normal flow means strips can never overlap,
-     vh sizing means the column always fits, and vector output stays sharp. */
+/* Two independent layers, which is what makes this actually responsive:
+   1) .dh__photo - the photograph (2959x2160, no text) with object-fit: cover.
+      It always fills the viewport, so a side band is impossible at any aspect,
+      and it is never upscaled from a small bitmap.
+   2) .dh__art   - the whole composition (watermark, wordmark, headline, bottom
+      copy, CTA) as ONE transparent vector layer, contain-fitted to the same
+      1440x895 design box. Because both layers are centred and the art layer is
+      transparent, the photograph shows around it - no band, and the artwork is
+      never cropped or re-flowed: it keeps the design's proportions exactly. */
 .dh {
   position: relative;
   width: 100%;
   height: 100vh;
-  min-height: 430px;
+  min-height: 420px;
   overflow: hidden;
   box-sizing: border-box;
   background: #2b1f52;
@@ -40,57 +43,29 @@ html, body {
   z-index: 0;
 }
 
-.dh__ui {
+.dh__art {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1440px;
+  height: 895px;
+  /* s = min(W/1440, H/895), set by JS */
+  transform: translate(-50%, -50%) scale(var(--dh-s, 1));
+  transform-origin: center center;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.dh__art-img {
   position: absolute;
   inset: 0;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2.2vh 2.2vw;
-  box-sizing: border-box;
-  pointer-events: none;
-}
-.dh__ui > * { pointer-events: auto; }
-
-.dh__topbar {
   width: 100%;
-  height: auto;
-  max-height: 10vh;
-  object-fit: contain;
-  object-position: center top;
+  height: 100%;
   display: block;
-  flex: none;
+  object-fit: fill;
 }
 
-.dh__logo {
-  height: clamp(40px, 12.5vh, 165px);
-  width: auto;
-  display: block;
-  flex: none;
-  margin-top: .6vh;
-}
-
-.dh__headline {
-  width: min(96%, 1240px);
-  height: auto;
-  max-height: 26vh;
-  object-fit: contain;
-  object-position: center bottom;
-  display: block;
-  flex: 0 1 auto;
-}
-
-.dh__bottombar {
-  width: 100%;
-  height: auto;
-  max-height: 15vh;
-  object-fit: contain;
-  object-position: center bottom;
-  display: block;
-  flex: none;
-}
+.dh__hit, .dh__burger { position: absolute; }
 
 /* hitareas: percentages of the 1440x895 artboard */
 .dh__hit {

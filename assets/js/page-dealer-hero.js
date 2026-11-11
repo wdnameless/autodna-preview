@@ -80,7 +80,7 @@
     burger = document.querySelector('#dh-burger');
     menu = document.querySelector('#dh-menu');
     heroEl = document.querySelector('.dh');
-    artEl = document.querySelector('.dh__stage');
+    artEl = document.querySelector('.dh__art');
 
     syncScale();
     window.addEventListener('resize', syncScale);
