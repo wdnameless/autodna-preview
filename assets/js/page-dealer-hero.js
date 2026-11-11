@@ -45,9 +45,40 @@
     if (history.pushState) history.pushState(null, null, hash);
   }
 
+  // Contain-scale for the artboard: s = min(W/1440, H/937) -> the whole Figma
+  // frame stays visible and hitareas scale exactly with the photo.
+  var ART_W = 1440, ART_H = 937, heroEl = null, artEl = null;
+
+  function syncScale() {
+    if (!heroEl || !artEl) return;
+    var W = heroEl.clientWidth, H = heroEl.clientHeight;
+    if (!W || !H) return;
+    var s = Math.min(W / ART_W, H / ART_H);
+    artEl.style.setProperty('--dh-s', String(s));
+
+    // place the (unscaled) menu popover under the burger, and scale its metrics
+    var burger = document.getElementById('dh-burger');
+    var menu = document.getElementById('dh-menu');
+    if (!burger || !menu) return;
+    var br = burger.getBoundingClientRect();
+    menu.style.top = Math.round(br.bottom + 4) + 'px';
+    menu.style.left = Math.round(br.right - 289 * s) + 'px';
+    menu.style.setProperty('--dh-menu-w', (289 * s).toFixed(1) + 'px');
+    menu.style.setProperty('--dh-row-h', (43.4 * s).toFixed(2) + 'px');
+    menu.style.setProperty('--dh-row-fs', (15 * s).toFixed(2) + 'px');
+    menu.style.setProperty('--dh-row-px', (18 * s).toFixed(2) + 'px');
+    menu.style.setProperty('--dh-row-icon', (14 * s).toFixed(2) + 'px');
+  }
+
   function init() {
     burger = document.querySelector('#dh-burger');
     menu = document.querySelector('#dh-menu');
+    heroEl = document.querySelector('.dh');
+    artEl = document.querySelector('.dh__art');
+
+    syncScale();
+    window.addEventListener('resize', syncScale);
+    if (window.ResizeObserver && heroEl) new ResizeObserver(syncScale).observe(heroEl);
 
     if (burger && menu) {
       burger.addEventListener('click', function (e) {

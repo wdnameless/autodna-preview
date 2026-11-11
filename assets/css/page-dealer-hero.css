@@ -19,38 +19,78 @@ html, body {
   height: 100vh;
   min-height: 420px;
   overflow: hidden;
-  background: #020202;
+  box-sizing: border-box;
+  /* The artboard is height-fitted (same scale as the hero box). Remaining side
+     space is filled by stretching the artwork's own edge columns, so the studio
+     wall continues seamlessly instead of showing black bars. */
+  background-color: #020202;
+  background-image:
+    url('assets/img/site1/skipthedealer-hero-exact.svg'),
+    url('assets/img/site1/skipthedealer-hero-exact.svg'),
+    url('assets/img/site1/skipthedealer-hero-exact.svg');
+  background-position: center center, left center, right center;
+  background-size: auto 100%, 4px 100%, 4px 100%;
+  background-repeat: no-repeat, repeat-x, repeat-x;
+}
+
+/* ONE artboard box: photo + all hitareas share it, so scale can never diverge.
+   Height-fitted -> the CTA button is always inside the first screen. */
+.dh__art {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1440px;
+  height: 937px;
+  /* cover, bottom-anchored: s = max(W/1440, H/895) set by JS.
+     Photo and every hitarea live in this one box -> scale can never diverge,
+     the bottom bar (button included) always stays on screen, and wide screens
+     crop only the empty sky at the top instead of adding side bands. */
+  /* contain: the entire Figma frame (incl. bottom bar + CTA) is always visible */
+  transform: translate(-50%, -50%) scale(var(--dh-s, 1));
+  transform-origin: center center;
   box-sizing: border-box;
 }
 
-/* photo layer: cover -> fills every viewport, never a side band, no black gaps */
-.dh__bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
-
-.dh__bg-img {
+.dh__art-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center bottom;   /* cars stay glued to the bottom edge */
   display: block;
+  object-fit: fill;   /* box ratio == artboard ratio */
 }
 
-.dh__bg-shade {
+/* hitareas: percentages of the 1440x895 artboard */
+.dh__hit {
   position: absolute;
-  left: 0; right: 0; bottom: -1px;
-  height: 190px;
-  background: linear-gradient(180deg, transparent 0%, rgba(2,2,2,.72) 62%, #020202 100%);
+  z-index: 5;
+  background: transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background .18s ease, box-shadow .18s ease;
 }
+.dh__hit:hover { background: rgba(150,133,255,.20); box-shadow: 0 0 16px rgba(150,133,255,.55); }
+.dh__hit--menu:hover { background: rgba(150,133,255,.26); box-shadow: 0 0 20px rgba(150,133,255,.7); }
 
-/* UI layer: lives in the viewport, pinned top/bottom -> nothing can ever be cut off */
-.dh__frame {
+/* burger button: real <button>, sits exactly on the drawn ≡ */
+.dh__burger {
   position: absolute;
-  inset: 0;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: clamp(14px, 2.4vh, 34px) clamp(16px, 2.6vw, 40px) clamp(12px, 2vh, 26px);
-  box-sizing: border-box;
+  left: 1357px;
+  top: 44px;
+  width: 64px;
+  height: 55px;   /* 44..99: sits on the drawn ≡, clears the menu below */
+  z-index: 12;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  transition: background .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.dh__burger:hover,
+.dh__burger[aria-expanded="true"] {
+  background: rgba(150,133,255,.18);
+  border-color: rgba(194,185,255,.5);
+  box-shadow: 0 0 16px rgba(150,133,255,.5);
 }
 
 /* ── top bar ─────────────────────────────────────────────────────────── */
@@ -113,10 +153,12 @@ html, body {
 
 /* ── dropdown menu (closed by default) ───────────────────────────────── */
 .dh__menu {
+  /* viewport layer (outside the scaled artboard) -> text stays crisp */
   position: absolute;
-  top: calc(100% + 10px);
-  right: 0;
-  width: 289px;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  width: var(--dh-menu-w, 289px);
   display: flex;
   flex-direction: column;
   background: rgba(30,28,56,.55);
@@ -138,10 +180,10 @@ html, body {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  height: 43.4px;
-  padding: 0 18px;
+  height: var(--dh-row-h, 43.4px);
+  padding: 0 var(--dh-row-px, 18px);
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 15px;
+  font-size: var(--dh-row-fs, 15px);
   font-weight: 300;
   letter-spacing: -.2px;
   color: #C2B9FF;
@@ -153,7 +195,7 @@ html, body {
 .dh__row:hover { background: rgba(150,133,255,.22); color: #fff; }
 .dh__row--home { color: #fff; font-weight: 500; }
 .dh__row--hl { color: #fff; font-weight: 600; letter-spacing: .2px; }
-.dh__row svg { width: 14px; height: 10px; flex: none; }
+.dh__row svg { width: var(--dh-row-icon, 14px); height: auto; flex: none; }
 
 /* ── headline ────────────────────────────────────────────────────────── */
 .dh__stage {
