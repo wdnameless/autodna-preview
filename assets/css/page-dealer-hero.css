@@ -13,49 +13,33 @@ html, body {
 .page-dealer-hero { background: #020202; }
 
 /* ══ HERO ═══════════════════════════════════════════════════════════════ */
+/* The hero is not a "100vh screen" in the Figma file: it is the first 1440x895
+   band of a continuous 1440px-wide design, exactly like the body board below.
+   So it scales by width too. The artboard then always equals the viewport
+   width, which means there is no leftover width to fill: no side bands, no
+   crop, no stretched edges, and hero/body share one scale. */
 .dh {
   position: relative;
   width: 100%;
-  height: 100vh;
-  min-height: 420px;
   overflow: hidden;
   box-sizing: border-box;
-  /* The artboard is height-fitted (same scale as the hero box). Remaining side
-     space is filled by stretching the artwork's own edge columns, so the studio
-     wall continues seamlessly instead of showing black bars. */
-  background-color: #020202;
-  background-image:
-    url('assets/img/site1/skipthedealer-hero-exact.svg'),
-    url('assets/img/site1/skipthedealer-hero-exact.svg'),
-    url('assets/img/site1/skipthedealer-hero-exact.svg');
-  background-position: center center, left center, right center;
-  background-size: auto 100%, 4px 100%, 4px 100%;
-  background-repeat: no-repeat, repeat-x, repeat-x;
+  background: #020202;
 }
 
-/* ONE artboard box: photo + all hitareas share it, so scale can never diverge.
-   Height-fitted -> the CTA button is always inside the first screen. */
 .dh__art {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 1440px;
-  height: 937px;
-  /* cover, bottom-anchored: s = max(W/1440, H/895) set by JS.
-     Photo and every hitarea live in this one box -> scale can never diverge,
-     the bottom bar (button included) always stays on screen, and wide screens
-     crop only the empty sky at the top instead of adding side bands. */
-  /* contain: the entire Figma frame (incl. bottom bar + CTA) is always visible */
-  transform: translate(-50%, -50%) scale(var(--dh-s, 1));
-  transform-origin: center center;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1440 / 895;
   box-sizing: border-box;
 }
 
 .dh__art-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: fill;   /* box ratio == artboard ratio */
+  object-fit: fill;   /* box ratio == artboard ratio, so nothing is distorted */
 }
 
 /* hitareas: percentages of the 1440x895 artboard */

@@ -45,15 +45,18 @@
     if (history.pushState) history.pushState(null, null, hash);
   }
 
-  // Contain-scale for the artboard: s = min(W/1440, H/937) -> the whole Figma
+  // Contain-scale for the artboard: s = max(W/1440, H/895) -> the whole Figma
   // frame stays visible and hitareas scale exactly with the photo.
-  var ART_W = 1440, ART_H = 937, heroEl = null, artEl = null;
+  var ART_W = 1440, ART_H = 895, heroEl = null, artEl = null;
 
   function syncScale() {
     if (!heroEl || !artEl) return;
-    var W = heroEl.clientWidth, H = heroEl.clientHeight;
-    if (!W || !H) return;
-    var s = Math.min(W / ART_W, H / ART_H);
+    var W = artEl.clientWidth;
+    if (!W) return;
+    // the hero scales by width exactly like the body board, so the artwork and
+    // the menu popover share one factor and the layout never letterboxes
+    var s = W / ART_W;
+    heroEl.style.setProperty('--dh-s', String(s));
     artEl.style.setProperty('--dh-s', String(s));
 
     // place the (unscaled) menu popover under the burger, and scale its metrics
