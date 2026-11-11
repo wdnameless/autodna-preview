@@ -29,22 +29,6 @@ html, body {
   background: #120c1e;
 }
 
-/* Bottom scrim: the frame's own lower band is bright enough that the paragraph
-   text drops to ~2.5:1. A short gradient (only the last fifth of the frame)
-   restores readable contrast without visibly darkening the photograph. */
-.dh__art::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 22%;
-  background: linear-gradient(to top,
-      rgba(8,5,16,.72) 0%, rgba(8,5,16,.45) 55%, rgba(8,5,16,0) 100%);
-  pointer-events: none;
-  z-index: 3;
-}
-
 /* Only the sliver the contain fit leaves over (a few px on odd aspects) is
    visible here: the same frame, cover-scaled and blurred, so it reads as the
    photograph continuing instead of a bar. */
