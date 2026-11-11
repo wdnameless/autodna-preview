@@ -13,14 +13,12 @@ html, body {
 .page-dealer-hero { background: #020202; }
 
 /* ══ HERO ═══════════════════════════════════════════════════════════════ */
-/* Two independent layers, each solving one thing and neither fighting the other:
-   1) .dh__photo  - the photograph, object-fit: cover. It always fills the
-      viewport, so a bare band on either side is physically impossible.
-   2) .dh__art    - the vector composition (logo, headline, bottom bar, CTA) in
-      a fixed 1440x895 box that is only transform-scaled, contain-fit. Every
-      child positioned in artboard px (the burger) or artboard % (the hitareas)
-      therefore stays registered with the artwork, and the CTA can never fall
-      below the fold. */
+/* The hero is a single composed frame (1440x810): logo, headline, bottom copy,
+   menu button and CTA are one image, so nothing can be duplicated and there is
+   no second layer to drift out of registration. The frame is height-fitted to
+   the viewport and the leftover width is covered by the same frame scaled up -
+   never a flat band, never a different crop.
+   Hit areas below are expressed against this 1440x810 frame. */
 .dh {
   position: relative;
   width: 100%;
@@ -28,21 +26,22 @@ html, body {
   min-height: 420px;
   overflow: hidden;
   box-sizing: border-box;
-  background: #1a1030;
+  background: #120c1e;
 }
 
-.dh__photo {
+/* Only the sliver the contain fit leaves over (a few px on odd aspects) is
+   visible here: the same frame, cover-scaled and blurred, so it reads as the
+   photograph continuing instead of a bar. */
+.dh__bleed {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  /* The photograph fills the viewport: no side band can exist at any aspect.
-     The vector artboard on top is contain-fitted, so text and CTA stay in view;
-     it carries no imagery, so the two layers cannot show two different crops. */
   object-fit: cover;
-  object-position: 50% 50%;
-  display: block;
+  filter: blur(26px) brightness(.72) saturate(112%);
+  transform: scale(1.08);
   z-index: 0;
+  pointer-events: none;
 }
 
 .dh__art {
@@ -50,21 +49,22 @@ html, body {
   left: 50%;
   top: 50%;
   width: 1440px;
-  height: 895px;
-  /* s = min(W/1440, H/895) * SAFE, set by JS. SAFE < 1 leaves a proportional
-     margin, so the bottom bar and CTA never touch the viewport edge. */
+  height: 810px;
   transform: translate(-50%, -50%) scale(var(--dh-s, 1));
   transform-origin: center center;
   box-sizing: border-box;
   z-index: 2;
 }
 
-.dh__art-img {
+.dh__shot {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: fill;   /* box ratio == artboard ratio, so nothing is distorted */
+  object-fit: fill;      /* box ratio == frame ratio */
 }
+
 
 /* hitareas: percentages of the 1440x895 artboard */
 .dh__hit {
@@ -81,20 +81,35 @@ html, body {
 /* burger button: real <button>, sits exactly on the drawn ≡ */
 .dh__burger {
   position: absolute;
-  /* covers the drawn ≡ exactly: glyph occupies x 1377..1413, y 55..75 */
-  left: 1367px;
-  top: 45px;
-  width: 56px;
-  height: 40px;
+  /* the frame has no drawn burger, so the control is drawn in CSS and sits where
+     the design puts it: top-right, aligned with the menu column */
+  left: 1352px;
+  top: 46px;
+  width: 44px;
+  height: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 0 5px;
   z-index: 12;
   background: transparent;
-  border: 1px solid transparent;
+  border: 0;
   border-radius: 4px;
   cursor: pointer;
-  padding: 0;
   outline: none;
-  transition: background .18s ease, border-color .18s ease, box-shadow .18s ease;
+  transition: background .18s ease;
 }
+.dh__burger span {
+  display: block;
+  height: 2px;
+  background: #EFEBFF;
+  border-radius: 1px;
+  transition: transform .2s ease, opacity .2s ease;
+}
+.dh__burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.dh__burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.dh__burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 .dh__burger:hover,
 .dh__burger[aria-expanded="true"] {
   background: rgba(150,133,255,.18);
@@ -161,12 +176,20 @@ html, body {
   box-shadow: 0 16px 40px rgba(0,0,0,.5);
   box-sizing: border-box;
   z-index: 40;
+  /* Animated with visibility+opacity so a half-transparent ghost frame is never
+     painted: `hidden` removes it from layout, `is-open` fades it in fully. */
   opacity: 0;
+  visibility: hidden;
   transform: translateY(-6px);
-  transition: opacity .22s ease, transform .22s ease;
+  transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
 }
 .dh__menu[hidden] { display: none !important; }
-.dh__menu.is-open { opacity: 1; transform: translateY(0); }
+.dh__menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity .18s ease, transform .18s ease, visibility 0s;
+}
 
 .dh__row {
   display: flex;

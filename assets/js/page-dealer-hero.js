@@ -47,7 +47,7 @@
 
   // Contain-scale for the artboard: s = max(W/1440, H/895) -> the whole Figma
   // frame stays visible and hitareas scale exactly with the photo.
-  var ART_W = 1440, ART_H = 895, heroEl = null, artEl = null;
+  var ART_W = 1440, ART_H = 810, heroEl = null, artEl = null;
 
   function syncScale() {
     if (!heroEl || !artEl) return;
@@ -55,10 +55,9 @@
     if (!W || !H) return;
     // contain-fit: the full artboard (CTA included) is always on screen, and the
     // same factor drives the menu popover so it never diverges from the artwork
-    // Contain-fit with a small safety margin: the CTA always sits inside the
-    // viewport instead of flush against its edge.
-    var SAFE = 0.93;
-    var s = Math.min(W / ART_W, H / ART_H) * SAFE;
+    // Contain-fit, no shrink: the frame is 16:9, so on any 16:9 screen it fills
+    // the viewport exactly and the CTA sits on the bottom edge like the design.
+    var s = Math.min(W / ART_W, H / ART_H);
     heroEl.style.setProperty('--dh-s', String(s));
     artEl.style.setProperty('--dh-s', String(s));
 

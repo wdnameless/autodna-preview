@@ -9,34 +9,31 @@
   <link rel="preload" href="assets/fonts/Orbitron-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/HelveticaNeue-light.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/site1.css">
-  <link rel="stylesheet" href="assets/css/page-dealer-hero.css?v=20261111_5">
+  <link rel="stylesheet" href="assets/css/page-dealer-hero.css?v=20261111_6">
 </head>
 <body class="page-dealer-hero" id="top">
 
 <section class="dh" id="home" aria-label="SkipTheDealer Hero">
-  <!-- Photo: cropped to the viewport (object-fit: cover), so it always fills the
-       screen and there is never a bare band on either side. -->
-  <img src="assets/img/site1/hero-photo-fit.webp" class="dh__photo" alt="" aria-hidden="true" fetchpriority="high">
-
-  <!-- Vector composition (logo, headline, bottom bar, CTA): contain-fitted in the
-       same 1440x895 artboard, so nothing that matters can ever leave the screen. -->
+  <!-- one composed frame: nothing to duplicate, nothing to drift -->
+  <img src="assets/img/site1/hero-shot.webp" class="dh__bleed" alt="" aria-hidden="true">
   <div class="dh__art">
-    <img src="assets/img/site1/skipthedealer-hero-overlay.svg" class="dh__art-img" alt="SkipTheDealer — Buy Cars Up To 40% Cheaper">
+  <img src="assets/img/site1/hero-shot.webp" class="dh__shot" alt="SkipTheDealer — Buy Cars Up To 40% Cheaper" fetchpriority="high">
 
-    <!-- burger: real button on the drawn ≡ -->
-    <button type="button" class="dh__burger" id="dh-burger" aria-label="Open menu" aria-expanded="false" aria-controls="dh-menu"></button>
+  <button type="button" class="dh__burger" id="dh-burger" aria-label="Open menu" aria-expanded="false" aria-controls="dh-menu">
+    <span></span><span></span><span></span>
+  </button>
 
-    <!-- transparent hitareas over the drawn artboard -->
-    <a href="#top" class="dh__hit" style="left:1.736%;top:3.017%;width:2.569%;height:6.480%" aria-label="SkipTheDealer Home"></a>
-    <a href="#top" class="dh__hit" style="left:29.861%;top:2.235%;width:40.278%;height:20.112%" aria-label="SkipTheDealer Home"></a>
-    <a href="#how-it-works" class="dh__hit dh__hit--menu" style="left:78.125%;top:11.508%;width:20.069%;height:4.804%" aria-label="Home"></a>
-    <a href="#how-it-works" class="dh__hit dh__hit--menu" style="left:78.125%;top:16.313%;width:20.069%;height:4.804%" aria-label="How It Works"></a>
-    <a href="#cars" class="dh__hit dh__hit--menu" style="left:78.125%;top:21.117%;width:20.069%;height:4.804%" aria-label="Cars &amp; Inventory"></a>
-    <a href="#carlears" class="dh__hit dh__hit--menu" style="left:78.125%;top:25.922%;width:20.069%;height:4.804%" aria-label="Why Us"></a>
-    <a href="#standard" class="dh__hit dh__hit--menu" style="left:78.125%;top:30.726%;width:20.069%;height:4.804%" aria-label="Extras"></a>
-    <a href="#contact" class="dh__hit dh__hit--menu" style="left:78.125%;top:35.531%;width:20.069%;height:4.804%" aria-label="Contact"></a>
-    <a href="skipthesearch.html" class="dh__hit dh__hit--menu" style="left:78.125%;top:40.335%;width:20.069%;height:5.140%" aria-label="SkipTheSearch Subpage"></a>
-    <a href="#how-it-works" class="dh__hit" style="left:78.194%;top:91.173%;width:20.000%;height:8.827%" aria-label="See How It Works"></a>
+  <a href="#top" class="dh__hit" style="left:2.29%;top:4.14%;width:5.49%;height:8.27%" aria-label="SkipTheDealer Home"></a>
+  <a href="#top" class="dh__hit" style="left:31.25%;top:0%;width:39.03%;height:20.74%" aria-label="SkipTheDealer Home"></a>
+  <a href="#how-it-works" class="dh__hit dh__hit--menu" style="left:74.24%;top:6.91%;width:25.14%;height:4.94%" aria-label="Home"></a>
+  <a href="#how-it-works" class="dh__hit dh__hit--menu" style="left:74.24%;top:12.35%;width:25.14%;height:4.94%" aria-label="How It Works"></a>
+  <a href="#cars" class="dh__hit dh__hit--menu" style="left:74.24%;top:17.78%;width:25.14%;height:4.94%" aria-label="Cars &amp; Inventory"></a>
+  <a href="#carlears" class="dh__hit dh__hit--menu" style="left:74.24%;top:23.21%;width:25.14%;height:4.94%" aria-label="Why Us"></a>
+  <a href="#standard" class="dh__hit dh__hit--menu" style="left:74.24%;top:28.64%;width:25.14%;height:4.94%" aria-label="Extras"></a>
+  <a href="#contact" class="dh__hit dh__hit--menu" style="left:74.24%;top:34.07%;width:25.14%;height:4.94%" aria-label="Contact"></a>
+  <a href="skipthesearch.html" class="dh__hit dh__hit--menu" style="left:74.24%;top:39.51%;width:25.14%;height:5.43%" aria-label="SkipTheSearch Subpage"></a>
+  <a href="#how-it-works" class="dh__hit" style="left:78.13%;top:90.0%;width:20.14%;height:9.63%" aria-label="See How It Works"></a>
+  </div>
   </div>
 
 <!-- dropdown: closed by default (viewport layer -> crisp text) -->
@@ -108,6 +105,6 @@
   </div>
 </div>
 
-<script src="assets/js/page-dealer-hero.js?v=20261111_5"></script>
+<script src="assets/js/page-dealer-hero.js?v=20261111_6"></script>
 </body>
 </html>
