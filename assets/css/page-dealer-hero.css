@@ -12,51 +12,37 @@ html, body {
 
 .page-dealer-hero { background: #020202; }
 
-/* ══ HERO — 1:1 з макетом, завжди цілком у кадрі ═════════════════════════ */
-/* Кадр — чистий рендер артборда Figma (2880x1790, без foreignObject-глюків).
-   Вписується ЦІЛКОМ по обох осях (contain, рахує JS): композиція ніколи не
-   обрізається і CTA завжди видно. Поля заповнюються розмитою копією того ж
-   кадру, тому порожнечі немає — це те саме фото, лише не в фокусі. */
+/* ══ HERO — рівно як у Figma: кадр на всю ширину ═══════════════════════ */
+/* Кадр — чистий рендер артборда (2880x1790, без foreignObject-глюків).
+   WIDTH-DRIVEN: ширина = 100% вьюпорта, висота — за пропорцією 1440:895.
+   Тому:
+   - бокових полів НЕМАЄ фізично: кадр завжди дорівнює ширині екрана;
+   - нічого не обрізано по горизонталі й не апскейлиться (джерело 2x);
+   - на екранах, нижчих за 1.6:1, герой вищий за фолд — це нормальна поведінка
+     full-bleed героя, він просто прокручується. Ніяких blur-смуг. */
 .dh {
   position: relative;
   width: 100%;
-  height: 100vh;
-  min-height: 420px;
   overflow: hidden;
   box-sizing: border-box;
   background: #241838;
   line-height: 0;
 }
 
-/* підкладка: той самий кадр, cover + blur — заповнює поля без смуг */
-.dh__bleed {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: blur(48px) saturate(106%) brightness(.94);
-  transform: scale(1.12);
-  display: block;
-  z-index: 0;
-}
-
-/* сам кадр: розміри ставить JS (contain по обох осях) */
 .dh__frame {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
   display: block;
+  width: 100%;
+  height: auto;
   z-index: 1;
 }
 
-/* шар взаємодії — рівно по кадру; розміри теж ставить JS */
+/* шар взаємодії — рівно по кадру (розміри ставить JS) */
 .dh__stage {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  left: 0;
+  top: 0;
+  width: 100%;
   z-index: 2;
   pointer-events: none;
 }

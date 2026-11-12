@@ -53,8 +53,8 @@
     if (!heroEl) return;
     var W = heroEl.clientWidth, H = heroEl.clientHeight;
     if (!W || !H) return;
-    // contain по обох осях: кадр завжди цілком у вьюпорті, CTA видно
-    var s = Math.min(W / ART_W, H / ART_H);
+    // width-driven: 1 дизайн-піксель = W/1440 пікселів вьюпорта
+    var s = W / ART_W;
     heroEl.style.setProperty('--dh-s', String(s));
 
     var stageEl = heroEl.querySelector('.dh__stage');
