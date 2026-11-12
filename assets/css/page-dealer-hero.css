@@ -12,45 +12,73 @@ html, body {
 
 .page-dealer-hero { background: #020202; }
 
-/* ══ HERO ═══════════════════════════════════════════════════════════════ */
-/* The hero is ONE composed frame - exactly the Figma artboard, rendered at 2x
-   (2880x1790) from the original SVG, so type is crisp and the photo keeps its
-   native resolution.
-   It is WIDTH-driven: the section is as wide as the viewport and its height
-   follows the frame's own 1440:895 ratio. So:
-   - the frame always equals 100% of the viewport width -> no side band, ever;
-   - nothing is clipped or hidden: the section is exactly as tall as the frame,
-     so the CTA and the bottom copy are always fully rendered;
-   - on a screen shorter than 1.6:1 the hero is taller than the fold, which is
-     normal for a full-width hero and simply scrolls.
-   The ≡ is part of the frame, so exactly one menu icon exists; the button on top
-   of it is a transparent hit target. */
+/* ══ HERO — 1:1 з макетом Figma ═════════════════════════════════════════ */
+/* Герой — це сам експорт Figma: vector SVG з viewBox 0 0 1440 895, у якому
+   лежить і фото (вбудований webp 2400px), і весь текст, і намальований ≡,
+   і CTA. Нічого не перезбирається з частин і не растеризується, тому
+   результат ідентичний макету 1:1 — і лишається векторним (чітким) при
+   будь-якому масштабі.
+   Артборд вписується цілком (contain) по обох осях: композиція ніколи не
+   обрізається, CTA завжди в кадрі. Поля, які лишає contain, заповнюються тим
+   самим кадром у блюрі — тобто продовженням фото, а не порожнечею. */
 .dh {
   position: relative;
   width: 100%;
+  height: 100vh;
+  min-height: 420px;
   overflow: hidden;
   box-sizing: border-box;
-  background: #2b1f52;
-  line-height: 0;
+  background: #2f2140;
 }
 
-.dh__frame {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: auto;        /* 1440:895 of the frame's own width */
+/* Поля, которые оставляет contain-вписывание, продолжаются цветом самого края
+   макета: сверху — стена (96,66,139), снизу — тёмная полоса (33,25,43),
+   слева/справа — края стены. Разброс цвета по краю < 10, поэтому плоская
+   заливка неотличима от продолжения кадра и ничего не срезает. */
+.dh::before,
+.dh::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.dh::before {
+  top: 0;
+  height: var(--dh-pad-top, 0px);
+  background: #60428b;
+}
+.dh::after {
+  bottom: 0;
+  height: var(--dh-pad-bottom, 0px);
+  background: #21192b;
+}
+
+/* сам артборд Figma, 1:1, vector */
+.dh__art {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1440px;
+  height: 895px;
+  /* s = min(W/1440, H/895), задається з JS */
+  transform: translate(-50%, -50%) scale(var(--dh-s, 1));
+  transform-origin: center center;
+  box-sizing: border-box;
   z-index: 1;
 }
 
-/* interaction layer, in % of the frame box */
-.dh__stage {
+.dh__art-img {
   position: absolute;
-  left: 0;
-  top: 0;
+  inset: 0;
   width: 100%;
-  aspect-ratio: 1440 / 895;
-  z-index: 2;
+  height: 100%;
+  display: block;
+  object-fit: fill;
 }
+
+
 
 .dh__hit, .dh__burger { position: absolute; }
 
@@ -69,8 +97,8 @@ html, body {
 /* burger button: real <button>, sits exactly on the drawn ≡ */
 .dh__burger {
   position: absolute;
-  /* a transparent hit target over the ≡ drawn in the frame (x 1377..1414,
-     y 55..78 of the 1440x895 artboard) */
+  /* прозора зона точно над намальованим у макеті ≡:
+     x 1377..1414, y 55..78 у координатах артборда 1440x895 */
   left: 95.62%;
   top: 6.15%;
   width: 2.57%;

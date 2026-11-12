@@ -59,6 +59,12 @@
     // the viewport exactly and the CTA sits on the bottom edge like the design.
     var s = Math.min(W / ART_W, H / ART_H);
     heroEl.style.setProperty('--dh-s', String(s));
+
+    // Поля по вертикали продолжаются цветом краёв макета (см. .dh::before/::after),
+    // поэтому их высота должна быть известна точно.
+    var padY = Math.max(0, (H - ART_H * s) / 2);
+    heroEl.style.setProperty('--dh-pad-top', padY.toFixed(1) + 'px');
+    heroEl.style.setProperty('--dh-pad-bottom', padY.toFixed(1) + 'px');
     artEl.style.setProperty('--dh-s', String(s));
 
     // place the (unscaled) menu popover under the burger, and scale its metrics
@@ -80,7 +86,7 @@
     burger = document.querySelector('#dh-burger');
     menu = document.querySelector('#dh-menu');
     heroEl = document.querySelector('.dh');
-    artEl = document.querySelector('.dh__stage');
+    artEl = document.querySelector('.dh__art');
 
     syncScale();
     window.addEventListener('resize', syncScale);
