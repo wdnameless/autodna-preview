@@ -13,56 +13,43 @@ html, body {
 .page-dealer-hero { background: #020202; }
 
 /* ══ HERO ═══════════════════════════════════════════════════════════════ */
-/* Two independent layers, which is what makes this actually responsive:
-   1) .dh__photo - the photograph (2959x2160, no text) with object-fit: cover.
-      It always fills the viewport, so a side band is impossible at any aspect,
-      and it is never upscaled from a small bitmap.
-   2) .dh__art   - the whole composition (watermark, wordmark, headline, bottom
-      copy, CTA) as ONE transparent vector layer, contain-fitted to the same
-      1440x895 design box. Because both layers are centred and the art layer is
-      transparent, the photograph shows around it - no band, and the artwork is
-      never cropped or re-flowed: it keeps the design's proportions exactly. */
+/* The hero is ONE composed frame - exactly the Figma artboard, rendered at 2x
+   (2880x1790) from the original SVG, so type is crisp and the photo keeps its
+   native resolution.
+   It is WIDTH-driven: the section is as wide as the viewport and its height
+   follows the frame's own 1440:895 ratio. So:
+   - the frame always equals 100% of the viewport width -> no side band, ever;
+   - nothing is clipped or hidden: the section is exactly as tall as the frame,
+     so the CTA and the bottom copy are always fully rendered;
+   - on a screen shorter than 1.6:1 the hero is taller than the fold, which is
+     normal for a full-width hero and simply scrolls.
+   The ≡ is part of the frame, so exactly one menu icon exists; the button on top
+   of it is a transparent hit target. */
 .dh {
   position: relative;
   width: 100%;
-  height: 100vh;
-  min-height: 420px;
   overflow: hidden;
   box-sizing: border-box;
   background: #2b1f52;
+  line-height: 0;
 }
 
-.dh__photo {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 58%;
+.dh__frame {
+  position: relative;
   display: block;
-  z-index: 0;
-}
-
-.dh__art {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 1440px;
-  height: 895px;
-  /* s = min(W/1440, H/895), set by JS */
-  transform: translate(-50%, -50%) scale(var(--dh-s, 1));
-  transform-origin: center center;
-  box-sizing: border-box;
+  width: 100%;
+  height: auto;        /* 1440:895 of the frame's own width */
   z-index: 1;
 }
 
-.dh__art-img {
+/* interaction layer, in % of the frame box */
+.dh__stage {
   position: absolute;
-  inset: 0;
+  left: 0;
+  top: 0;
   width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: fill;
+  aspect-ratio: 1440 / 895;
+  z-index: 2;
 }
 
 .dh__hit, .dh__burger { position: absolute; }
@@ -82,82 +69,28 @@ html, body {
 /* burger button: real <button>, sits exactly on the drawn ≡ */
 .dh__burger {
   position: absolute;
-  /* drawn in CSS at the design's coordinates, in % of the 16:9 stage */
-  left: 93.9%;
-  top: 5.2%;
-  width: 3.05%;
-  height: 4.2%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  padding: 0 5px;
+  /* a transparent hit target over the ≡ drawn in the frame (x 1377..1414,
+     y 55..78 of the 1440x895 artboard) */
+  left: 95.62%;
+  top: 6.15%;
+  width: 2.57%;
+  height: 2.84%;
   z-index: 12;
-  background: transparent;
+  background: transparent;   /* the ≡ is already drawn in the frame: no second icon */
   border: 0;
   border-radius: 4px;
   cursor: pointer;
   outline: none;
+  padding: 0;
   transition: background .18s ease;
 }
-.dh__burger span {
-  display: block;
-  height: 2px;
-  background: #EFEBFF;
-  border-radius: 1px;
-  transition: transform .2s ease, opacity .2s ease;
-}
-.dh__burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.dh__burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-.dh__burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.dh__burger span { display: none; }   /* the ≡ is drawn in the frame; keep markup for a11y */
 .dh__burger:hover,
 .dh__burger[aria-expanded="true"] {
   background: rgba(150,133,255,.18);
   border-color: rgba(194,185,255,.5);
   box-shadow: 0 0 16px rgba(150,133,255,.5);
 }
-
-/* ── top bar ─────────────────────────────────────────────────────────── */
-.dh__top {
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.dh__k { display: block; line-height: 0; flex: none; }
-.dh__k img { display: block; width: 37px; height: auto; }
-
-.dh__wordmark {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
-  display: block;
-  line-height: 0;
-}
-.dh__wordmark img {
-  display: block;
-  width: 310px;
-  height: auto;
-}
-
-.dh__burger:hover,
-.dh__burger[aria-expanded="true"] {
-  background: rgba(150,133,255,.16);
-  border-color: rgba(194,185,255,.45);
-  box-shadow: 0 0 14px rgba(150,133,255,.45);
-}
-.dh__burger span {
-  display: block;
-  width: 100%;
-  height: 2.5px;
-  background: #C2B9FF;
-  transition: background .2s ease;
-}
-.dh__burger:hover span,
-.dh__burger[aria-expanded="true"] span { background: #fff; }
 
 /* ── dropdown menu (closed by default) ───────────────────────────────── */
 .dh__menu {
