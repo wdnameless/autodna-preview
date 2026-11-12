@@ -12,15 +12,11 @@ html, body {
 
 .page-dealer-hero { background: #020202; }
 
-/* ══ HERO — 1:1 з макетом Figma ═════════════════════════════════════════ */
-/* Герой — це сам експорт Figma: vector SVG з viewBox 0 0 1440 895, у якому
-   лежить і фото (вбудований webp 2400px), і весь текст, і намальований ≡,
-   і CTA. Нічого не перезбирається з частин і не растеризується, тому
-   результат ідентичний макету 1:1 — і лишається векторним (чітким) при
-   будь-якому масштабі.
-   Артборд вписується цілком (contain) по обох осях: композиція ніколи не
-   обрізається, CTA завжди в кадрі. Поля, які лишає contain, заповнюються тим
-   самим кадром у блюрі — тобто продовженням фото, а не порожнечею. */
+/* ══ HERO — 1:1 з макетом, цілком у кадрі ═══════════════════════════════ */
+/* Кадр — один растровий рендер артборда Figma (2880x1790 з оригінального SVG,
+   очищений від foreignObject-глюків). Вписується ЦІЛКОМ (contain) по обох осях:
+   композиція ніколи не обрізається. Поля заповнюються продовженням кадру:
+   зверху/знизу — кольором краю, зліва/справа — його ж крайніми колонками. */
 .dh {
   position: relative;
   width: 100%;
@@ -28,57 +24,39 @@ html, body {
   min-height: 420px;
   overflow: hidden;
   box-sizing: border-box;
-  background: #8165a7;   /* = точный цвет верхнего края кадра (129,101,167) */
+  /* колір = середній тон лівого/правого краю кадру, тому поля зливаються з ним */
+  background: #8b78b5;
 }
 
-/* Поля, которые оставляет contain-вписывание, продолжаются цветом самого края
-   макета: сверху — стена (96,66,139), снизу — тёмная полоса (33,25,43),
-   слева/справа — края стены. Разброс цвета по краю < 10, поэтому плоская
-   заливка неотличима от продолжения кадра и ничего не срезает. */
-.dh::before,
-.dh::after {
-  content: "";
+.dh__pad-top,
+.dh__pad-bottom {
   position: absolute;
   left: 0;
   right: 0;
+  height: var(--pad-y, 0px);
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
 }
-.dh::before {
-  top: 0;
-  height: var(--dh-pad-top, 0px);
-  background: #8165a7;   /* точный верхний край кадра */
-}
-.dh::after {
-  bottom: 0;
-  height: var(--dh-pad-bottom, 0px);
-  background: #050408;   /* точный нижний край кадра */
-}
+.dh__pad-top    { top: 0;    background: #7d63a8; }   /* верхний край кадра */
+.dh__pad-bottom { bottom: 0; background: #0a0710; }   /* нижний край кадра */
 
-/* сам артборд Figma, 1:1, vector */
-.dh__art {
+
+.dh__frame {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 1440px;
-  height: 895px;
-  /* s = min(W/1440, H/895), задається з JS */
-  transform: translate(-50%, -50%) scale(var(--dh-s, 1));
-  transform-origin: center center;
-  box-sizing: border-box;
-  z-index: 1;
-}
-
-.dh__art-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  transform: translate(-50%, -50%);
   display: block;
-  object-fit: fill;
+  z-index: 2;
 }
 
-
+.dh__stage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
 
 .dh__hit, .dh__burger { position: absolute; }
 

@@ -47,46 +47,37 @@
 
   // --u is the size of one design pixel in viewport pixels: the stage is always
   // a 1440x895 box contain-fitted, and all artwork is positioned in design %.
-  var ART_W = 1440, ART_H = 895, heroEl = null, artEl = null;
+  var ART_W = 1440, ART_H = 895, heroEl = null;
 
   function syncScale() {
-    if (!heroEl || !artEl) return;
+    if (!heroEl) return;
     var W = heroEl.clientWidth, H = heroEl.clientHeight;
     if (!W || !H) return;
-    // contain-fit: the full artboard (CTA included) is always on screen, and the
-    // same factor drives the menu popover so it never diverges from the artwork
-    // Contain-fit, no shrink: the frame is 16:9, so on any 16:9 screen it fills
-    // the viewport exactly and the CTA sits on the bottom edge like the design.
+    var frameEl = heroEl.querySelector('.dh__frame');
+    var stageEl = heroEl.querySelector('.dh__stage');
+    if (!frameEl || !stageEl) return;
+
+    // contain: кадр цілком у вьюпорті, з тим самим співвідношенням 1440:895
     var s = Math.min(W / ART_W, H / ART_H);
+    var fw = ART_W * s, fh = ART_H * s;
+
+    frameEl.style.width = fw + 'px';
+    frameEl.style.height = fh + 'px';
+    stageEl.style.width = fw + 'px';
+    stageEl.style.height = fh + 'px';
+
+    var padY = Math.max(0, (H - fh) / 2);
+    heroEl.style.setProperty('--pad-y', padY.toFixed(1) + 'px');
+    heroEl.style.setProperty('--frame-w', fw.toFixed(1) + 'px');
+    heroEl.style.setProperty('--frame-h', fh.toFixed(1) + 'px');
+    heroEl.style.setProperty('--pad-x', ((W - fw) / 2).toFixed(1) + 'px');
     heroEl.style.setProperty('--dh-s', String(s));
-
-    // Поля по вертикали продолжаются цветом краёв макета (см. .dh::before/::after),
-    // поэтому их высота должна быть известна точно.
-    var padY = Math.max(0, (H - ART_H * s) / 2);
-    heroEl.style.setProperty('--dh-pad-top', padY.toFixed(1) + 'px');
-    heroEl.style.setProperty('--dh-pad-bottom', padY.toFixed(1) + 'px');
-    artEl.style.setProperty('--dh-s', String(s));
-
-    // place the (unscaled) menu popover under the burger, and scale its metrics
-    var burger = document.getElementById('dh-burger');
-    var menu = document.getElementById('dh-menu');
-    if (!burger || !menu) return;
-    var br = burger.getBoundingClientRect();
-    menu.style.top = Math.round(br.bottom + 4) + 'px';
-    menu.style.left = Math.round(br.right - 289 * s) + 'px';
-    menu.style.maxHeight = Math.round(innerHeight - br.bottom - 16) + 'px';
-    menu.style.setProperty('--dh-menu-w', (289 * s).toFixed(1) + 'px');
-    menu.style.setProperty('--dh-row-h', (43.4 * s).toFixed(2) + 'px');
-    menu.style.setProperty('--dh-row-fs', (15 * s).toFixed(2) + 'px');
-    menu.style.setProperty('--dh-row-px', (18 * s).toFixed(2) + 'px');
-    menu.style.setProperty('--dh-row-icon', (14 * s).toFixed(2) + 'px');
   }
 
   function init() {
     burger = document.querySelector('#dh-burger');
     menu = document.querySelector('#dh-menu');
     heroEl = document.querySelector('.dh');
-    artEl = document.querySelector('.dh__art');
 
     syncScale();
     window.addEventListener('resize', syncScale);
