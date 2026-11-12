@@ -12,50 +12,39 @@ html, body {
 
 .page-dealer-hero { background: #020202; }
 
-/* ══ HERO — 1:1 з макетом, цілком у кадрі ═══════════════════════════════ */
-/* Кадр — один растровий рендер артборда Figma (2880x1790 з оригінального SVG,
-   очищений від foreignObject-глюків). Вписується ЦІЛКОМ (contain) по обох осях:
-   композиція ніколи не обрізається. Поля заповнюються продовженням кадру:
-   зверху/знизу — кольором краю, зліва/справа — його ж крайніми колонками. */
+/* ══ HERO — 1:1 з макетом, без полів і без глюків ═══════════════════════ */
+/* Кадр — чистий рендер артборда Figma (2880x1790 з оригінального SVG, без
+   foreignObject-плашок). Він WIDTH-driven: ширина = 100% вьюпорта, висота за
+   співвідношенням 1440:895. Тому:
+   - бокових полів немає фізично (кадр завжди дорівнює ширині екрана);
+   - нічого не обрізається по горизонталі, вектор не апскейлиться (2x джерело);
+   - на екранах нижчих за 1.6:1 кадр вищий за фолд — це нормальна поведінка
+     full-width героя, він просто прокручується. */
 .dh {
   position: relative;
   width: 100%;
-  height: 100vh;
-  min-height: 420px;
   overflow: hidden;
   box-sizing: border-box;
-  /* колір = середній тон лівого/правого краю кадру, тому поля зливаються з ним */
-  background: #8b78b5;
+  background: #241838;
+  line-height: 0;
 }
-
-.dh__pad-top,
-.dh__pad-bottom {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: var(--pad-y, 0px);
-  pointer-events: none;
-  z-index: 1;
-}
-.dh__pad-top    { top: 0;    background: #7d63a8; }   /* верхний край кадра */
-.dh__pad-bottom { bottom: 0; background: #0a0710; }   /* нижний край кадра */
-
 
 .dh__frame {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
   display: block;
-  z-index: 2;
+  width: 100%;
+  height: auto;        /* 1440:895 від власної ширини */
+  z-index: 1;
 }
 
+/* шар взаємодії — рівно по кадру */
 .dh__stage {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
+  left: 0;
+  top: 0;
+  width: 100%;
+  aspect-ratio: 1440 / 895;
+  z-index: 2;
 }
 
 .dh__hit, .dh__burger { position: absolute; }

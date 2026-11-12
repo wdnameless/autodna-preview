@@ -47,30 +47,15 @@
 
   // --u is the size of one design pixel in viewport pixels: the stage is always
   // a 1440x895 box contain-fitted, and all artwork is positioned in design %.
-  var ART_W = 1440, ART_H = 895, heroEl = null;
+  var ART_W = 1440, heroEl = null;
 
   function syncScale() {
     if (!heroEl) return;
-    var W = heroEl.clientWidth, H = heroEl.clientHeight;
-    if (!W || !H) return;
-    var frameEl = heroEl.querySelector('.dh__frame');
-    var stageEl = heroEl.querySelector('.dh__stage');
-    if (!frameEl || !stageEl) return;
-
-    // contain: кадр цілком у вьюпорті, з тим самим співвідношенням 1440:895
-    var s = Math.min(W / ART_W, H / ART_H);
-    var fw = ART_W * s, fh = ART_H * s;
-
-    frameEl.style.width = fw + 'px';
-    frameEl.style.height = fh + 'px';
-    stageEl.style.width = fw + 'px';
-    stageEl.style.height = fh + 'px';
-
-    var padY = Math.max(0, (H - fh) / 2);
-    heroEl.style.setProperty('--pad-y', padY.toFixed(1) + 'px');
-    heroEl.style.setProperty('--frame-w', fw.toFixed(1) + 'px');
-    heroEl.style.setProperty('--frame-h', fh.toFixed(1) + 'px');
-    heroEl.style.setProperty('--pad-x', ((W - fw) / 2).toFixed(1) + 'px');
+    var W = heroEl.clientWidth;
+    if (!W) return;
+    // кадр width-driven: один дизайн-піксель = W/1440 пікселів вьюпорта.
+    // Цей самий коефіцієнт масштабує попапи меню, щоб вони не розходились.
+    var s = W / ART_W;
     heroEl.style.setProperty('--dh-s', String(s));
   }
 
