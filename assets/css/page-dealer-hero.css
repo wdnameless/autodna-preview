@@ -28,7 +28,7 @@ html, body {
   min-height: 420px;
   overflow: hidden;
   box-sizing: border-box;
-  background: #2f2140;
+  background: #8165a7;   /* = точный цвет верхнего края кадра (129,101,167) */
 }
 
 /* Поля, которые оставляет contain-вписывание, продолжаются цветом самого края
@@ -47,12 +47,12 @@ html, body {
 .dh::before {
   top: 0;
   height: var(--dh-pad-top, 0px);
-  background: #60428b;
+  background: #8165a7;   /* точный верхний край кадра */
 }
 .dh::after {
   bottom: 0;
   height: var(--dh-pad-bottom, 0px);
-  background: #21192b;
+  background: #050408;   /* точный нижний край кадра */
 }
 
 /* сам артборд Figma, 1:1, vector */
