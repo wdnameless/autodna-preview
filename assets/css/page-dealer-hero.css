@@ -12,64 +12,61 @@ html, body {
 
 .page-dealer-hero { background: #020202; }
 
-/* ══ HERO — рівно як у Figma: кадр на всю ширину ═══════════════════════ */
-/* Кадр — чистий рендер артборда (2880x1790, без foreignObject-глюків).
-   WIDTH-DRIVEN: ширина = 100% вьюпорта, висота — за пропорцією 1440:895.
-   Тому:
-   - бокових полів НЕМАЄ фізично: кадр завжди дорівнює ширині екрана;
-   - нічого не обрізано по горизонталі й не апскейлиться (джерело 2x);
-   - на екранах, нижчих за 1.6:1, герой вищий за фолд — це нормальна поведінка
-     full-bleed героя, він просто прокручується. Ніяких blur-смуг. */
+/* ══ HERO — 1:1 з макетом, цілком у кадрі, без швів і без обрізання ══════ */
+/* Кадр героя містить контент по всій площі (замір: текст займає 100% ширини й
+   99.8% висоти), тому його не можна ні обрізати, ні розтягувати. Вписуємо
+   ЦІЛКОМ (contain) — так логотип, заголовок, опис і CTA завжди видно.
+   Поля, які лишаються, заповнюються крайніми колонками самого кадру: це
+   точне продовження зображення, тому лінії на стику не виникає.
+   Розміри рахує JS (contain по обох осях). */
 .dh {
   position: relative;
   width: 100%;
+  height: 100vh;
+  min-height: 420px;
   overflow: hidden;
   box-sizing: border-box;
-  background: #020202;
+  background: #1a1030;
   line-height: 0;
 }
 
+/* полоси-продовження зліва/справа: крайні колонки кадру */
+.dh__pad {
+  position: absolute;
+  top: 50%;
+  height: var(--fh, 0px);
+  width: var(--pw, 0px);
+  transform: translateY(-50%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+.dh__pad--l { right: calc(50% + var(--fw, 0px) / 2); background-image: url('../img/site1/hero-pad-l.jpg'); }
+.dh__pad--r { left:  calc(50% + var(--fw, 0px) / 2); background-image: url('../img/site1/hero-pad-r.jpg'); }
 
-
+/* сам кадр, contain по обох осях; розміри ставить JS */
 .dh__frame {
-  position: relative;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: block;
-  width: 100%;
-  height: auto;
   z-index: 1;
 }
 
-/* шар взаємодії — рівно по кадру (розміри ставить JS) */
+/* шар взаємодії — рівно по кадру */
 .dh__stage {
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   z-index: 2;
   pointer-events: none;
 }
 .dh__stage > * { pointer-events: auto; }
 
 .dh__hit, .dh__burger { position: absolute; }
-
-
-/* ── перехід герой → контент (як у Figma) ─────────────────────────────── */
-/* У макеті кадр не обривається: одразу під ним іде смуга, що плавно згасає
-   у чорний (замір: y900=16, y930=9, y960=3, y1000=0 при ширині 1440).
-   Це окремий блок, а не накладка на кадр — тому він не торкається ні CTA,
-   ні опису. Висота = 7.3% ширини, тобто масштабується разом із кадром. */
-.dh__fade {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1440 / 105;
-  background: linear-gradient(to bottom,
-      #040407 0%,
-      rgba(4,4,7,.86) 18%,
-      rgba(3,3,5,.62) 38%,
-      rgba(2,2,3,.38) 58%,
-      rgba(2,2,2,.16) 78%,
-      #020202 100%);
-}
 
 /* hitareas: percentages of the 1440x895 artboard */
 .dh__hit {

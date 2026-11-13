@@ -47,14 +47,14 @@
 
   // --u is the size of one design pixel in viewport pixels: the stage is always
   // a 1440x895 box contain-fitted, and all artwork is positioned in design %.
-  var ART_W = 1440, ART_H = 895, heroEl = null;
+  var ART_W = 1440, ART_H = 950, heroEl = null;
 
   function syncScale() {
     if (!heroEl) return;
     var W = heroEl.clientWidth, H = heroEl.clientHeight;
     if (!W || !H) return;
-    // width-driven: 1 дизайн-піксель = W/1440 пікселів вьюпорта
-    var s = W / ART_W;
+    // contain по обох осях: кадр завжди цілком у вьюпорті, CTA видно
+    var s = Math.min(W / ART_W, H / ART_H);
     heroEl.style.setProperty('--dh-s', String(s));
 
     var stageEl = heroEl.querySelector('.dh__stage');
@@ -63,6 +63,11 @@
     var fh = (ART_H * s).toFixed(1) + 'px';
     if (stageEl) { stageEl.style.width = fw; stageEl.style.height = fh; }
     if (frameEl) { frameEl.style.width = fw; frameEl.style.height = fh; }
+
+    // поля-продовження: ширина кожної = половина залишку, висота = висоті кадру
+    heroEl.style.setProperty('--fw', fw);
+    heroEl.style.setProperty('--fh', fh);
+    heroEl.style.setProperty('--pw', Math.max(0, (W - parseFloat(fw)) / 2).toFixed(1) + 'px');
   }
 
   function init() {
