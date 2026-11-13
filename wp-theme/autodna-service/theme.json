@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "color": {
+      "palette": [
+        { "slug": "bg", "name": "DNA Background", "color": "#020202" },
+        { "slug": "ink", "name": "DNA Ink", "color": "#ffffff" },
+        { "slug": "violet", "name": "DNA Violet", "color": "#9685ff" },
+        { "slug": "violet-soft", "name": "DNA Violet Soft", "color": "#c2b9ff" },
+        { "slug": "violet-pale", "name": "DNA Violet Pale", "color": "#e1d9ff" },
+        { "slug": "violet-deep", "name": "DNA Violet Deep", "color": "#433694" },
+        { "slug": "card", "name": "DNA Card", "color": "#262548" }
+      ]
+    },
+    "typography": {
+      "fontFamilies": [
+        { "slug": "display", "name": "Orbitron", "fontFamily": "\"Orbitron\", \"Arial Black\", sans-serif" },
+        { "slug": "body", "name": "Helvetica Neue", "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif" },
+        { "slug": "accent", "name": "DM Sans", "fontFamily": "\"DM Sans\", \"Helvetica Neue\", sans-serif" }
+      ],
+      "fontSizes": [
+        { "slug": "display-xl", "name": "Display XL", "size": "133px" },
+        { "slug": "display", "name": "Display", "size": "124px" },
+        { "slug": "display-md", "name": "Display MD", "size": "85px" },
+        { "slug": "display-sm", "name": "Display SM", "size": "64px" },
+        { "slug": "lead", "name": "Lead 40", "size": "40px" },
+        { "slug": "title", "name": "Title 30", "size": "30px" },
+        { "slug": "heading", "name": "Heading 24", "size": "24px" },
+        { "slug": "body", "name": "Body 20", "size": "20px" },
+        { "slug": "small", "name": "Small 18", "size": "18px" },
+        { "slug": "legal", "name": "Legal 14", "size": "14px" }
+      ]
+    },
+    "spacing": {
+      "spacingScale": { "operator": "*", "operand": 10, "steps": [0, 1, 2, 3, 4, 6, 9], "baseValue": "10px" }
+    },
+    "layout": { "contentSize": "1360px", "wideSize": "1440px" }
+  },
+  "styles": {
+    "color": { "background": "var(--wp--preset--color--bg)", "text": "var(--wp--preset--color--ink)" },
+    "typography": { "fontFamily": "var(--wp--preset--font-family--body)", "fontSize": "var(--wp--preset--font-size--body)" }
+  },
+  "templateParts": [
+    { "name": "header", "title": "DNA Header", "area": "header" },
+    { "name": "footer", "title": "DNA Footer", "area": "footer" },
+    { "name": "menu-overlay", "title": "DNA Menu Overlay", "area": "uncategorized" }
+  ]
+}

@@ -1,0 +1,1634 @@
+/* ══ AUTODNA SERVICE — STANDALONE WEBSITE STYLES ══════════════════════ */
+
+:root {
+  --display: 'Orbitron', -apple-system, BlinkMacSystemFont, sans-serif;
+  --body: 'Helvetica Neue', Helvetica, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  --bg: #020202;
+  --violet: #9685ff;
+  --violet-soft: #c2b9ff;
+  --violet-deep: #161330;
+  --border: rgba(194, 185, 255, 0.28);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Figma artboards are full-bleed: no browser default frame anywhere */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: var(--bg);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg);
+}
+
+body.site-service {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: #ffffff;
+  font-family: var(--body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ══ CORNER TICKS ══════════════════════════════════════════════════════ */
+.ticks {
+  position: relative;
+}
+
+.tick {
+  position: absolute;
+  width: 20px !important;
+  height: 20px !important;
+  border-color: var(--violet-soft);
+  border-style: solid;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.tick.tl { top: -1px; left: -1px; border-width: 1.2px 0 0 1.2px; }
+.tick.tr { top: -1px; right: -1px; border-width: 1.2px 1.2px 0 0; }
+.tick.bl { bottom: -1px; left: -1px; border-width: 0 0 1.2px 1.2px; }
+.tick.br { bottom: -1px; right: -1px; border-width: 0 1.2px 1.2px 0; }
+
+/* ══ DYNAMIC STICKY DOCKED HEADER ══════════════════════════════════════ */
+.sticky-header {
+  position: fixed;
+  top: 32px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  padding: 0 clamp(16px, 2.5vw, 36px);
+  transition: transform 0.3s ease;
+}
+
+.sticky-header__container {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+/* Left Panel: SERVICE EVOLUTION (Dropdown) */
+.panel-evolution {
+  pointer-events: auto;
+  width: 322px !important;
+  flex: none;
+  position: relative;
+}
+
+.panel-evolution__box {
+  width: 100%;
+  background: rgba(38, 37, 72, 0.44);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  transition: all 0.25s ease;
+}
+
+.panel-evolution__btn {
+  width: 100%;
+  height: 71px !important;
+  padding: 0 24px !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  outline: none;
+}
+
+.panel-evolution__title {
+  font-family: var(--body);
+  font-weight: 300;
+  font-size: 18px !important;
+  letter-spacing: -0.2px;
+  text-transform: uppercase;
+  color: #ffffff;
+  transition: color 0.2s ease;
+}
+
+.panel-evolution__btn:hover .panel-evolution__title {
+  color: var(--violet-soft);
+}
+
+.panel-evolution__chevron {
+  width: 10px;
+  height: 6px;
+  overflow: visible;
+  transition: transform 0.25s ease;
+}
+.panel-evolution__chevron path {
+  stroke: var(--violet-soft);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.panel-evolution.is-open .panel-evolution__chevron,
+.panel-evolution:hover .panel-evolution__chevron {
+  transform: rotate(180deg);
+}
+
+.panel-evolution__menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(194, 185, 255, 0.22);
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  background: rgba(24, 22, 52, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: max-height 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+
+.panel-evolution:hover .panel-evolution__menu,
+.panel-evolution.is-open .panel-evolution__menu {
+  max-height: 250px !important;
+  opacity: 1 !important;
+}
+
+.panel-evolution__item {
+  border-bottom: 1px solid rgba(194, 185, 255, 0.22);
+}
+.panel-evolution__item:last-child {
+  border-bottom: none;
+}
+
+.panel-evolution__link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  padding: 0 20px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.panel-evolution__link:hover {
+  background: rgba(150, 133, 255, 0.2);
+}
+
+.panel-evolution__text {
+  font-family: var(--body);
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: -0.2px;
+  background: linear-gradient(90deg, #ffffff 0%, #ffffff 35%, rgba(194, 185, 255, 0.7) 70%, rgba(140, 130, 200, 0.4) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.panel-evolution__link:hover .panel-evolution__text {
+  background: #ffffff;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: #ffffff;
+  text-shadow: 0 0 12px rgba(194, 185, 255, 0.8);
+}
+
+.panel-evolution__arrow {
+  width: 14px;
+  height: 10px;
+  flex: none;
+  transition: transform 0.2s ease;
+}
+.panel-evolution__arrow path {
+  stroke: var(--violet-soft);
+  stroke-width: 1.1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+.panel-evolution__link:hover .panel-evolution__arrow {
+  transform: translateX(3px);
+}
+.panel-evolution__link:hover .panel-evolution__arrow path {
+  stroke: #ffffff;
+  filter: drop-shadow(0 0 6px rgba(194, 185, 255, 0.9));
+}
+
+/* Right Panel: Navigation Bar */
+.panel-nav {
+  pointer-events: auto;
+  flex: none;
+  max-width: none;
+  position: relative;
+}
+
+.panel-nav__box {
+  width: 100%;
+  height: 71px !important;
+  background: rgba(38, 37, 72, 0.44);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 clamp(14px, 1.6vw, 28px) !important;
+  transition: all 0.25s ease;
+}
+
+.panel-nav__item {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.panel-nav__link,
+.panel-nav__dropdown-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 71px !important;
+  padding: 0 clamp(6px, 0.75vw, 12px) !important;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: var(--body);
+  font-weight: 300;
+  font-size: clamp(13px, 1.1vw, 16px) !important;
+  letter-spacing: -0.2px;
+  color: #ffffff;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.panel-nav__link:hover,
+.panel-nav__dropdown-btn:hover,
+.panel-nav__item:hover .panel-nav__dropdown-btn {
+  color: var(--violet-soft);
+}
+
+.panel-nav__chevron {
+  width: 8px;
+  height: 5px;
+  overflow: visible;
+  transition: transform 0.2s ease;
+}
+.panel-nav__chevron path {
+  stroke: var(--violet-soft);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+.panel-nav__item:hover .panel-nav__chevron {
+  transform: rotate(180deg);
+}
+
+.panel-nav__dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 240px;
+  background: rgba(22, 19, 48, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+  padding: 6px 0;
+  margin-top: 6px;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 110;
+}
+
+.panel-nav__item:hover .panel-nav__dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.panel-nav__dropdown-menu a {
+  display: block;
+  padding: 9px 16px;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: var(--body);
+  font-weight: 300;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(194, 185, 255, 0.15);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.panel-nav__dropdown-menu a:last-child {
+  border-bottom: none;
+}
+.panel-nav__dropdown-menu a:hover {
+  background: rgba(150, 133, 255, 0.2);
+  color: var(--violet-soft);
+}
+
+/* ══ MAIN LAYOUT & SECTIONS ════════════════════════════════════════════ */
+.site-main {
+  position: relative;
+  width: 100%;
+  background-color: var(--bg);
+  overflow: hidden;
+}
+
+.layout-desktop {
+  width: 100%;
+  margin: 0;
+  background-color: var(--bg);
+}
+
+.service-board-full {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  background-color: var(--bg);
+}
+
+.block-svg,
+.mobile-svg {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+}
+
+/* ══ 1. HERO INDICATORS (y=480..716 in 7923px canvas) ══════════════════ */
+.hero-ind-hitarea {
+  position: absolute;
+  z-index: 25;
+  cursor: pointer;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+.hero-ind-hitarea--shop  { left: 79.5%; top: 6.05%; width: 19.5%; height: 0.98%; }
+.hero-ind-hitarea--plan  { left: 79.5%; top: 7.21%; width: 19.5%; height: 0.76%; }
+.hero-ind-hitarea--paint { left: 79.5%; top: 8.08%; width: 19.5%; height: 0.98%; }
+
+/* ══ 2. OFFICIAL SITE BUTTON (y=1950..2030 in 7923px canvas) ═══════════ */
+.service-full-hitarea--official {
+  position: absolute;
+  left: 40.0%;
+  top: 24.60%;
+  width: 20.07%;
+  height: 1.01%;
+  z-index: 25;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+.service-full-hitarea--official:hover {
+  background: rgba(150, 133, 255, 0.18);
+  box-shadow: 0 0 30px rgba(150, 133, 255, 0.6);
+}
+
+/* ══ 3. 3-STATE CARDS COMPONENT (y=2275.5..3044.5 in 7923px canvas) ═══ */
+.service-cards-container {
+  position: absolute;
+  left: 0;
+  top: 28.72%;
+  width: 100%;
+  height: 9.705%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.service-card-view {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.service-card-view.is-active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  z-index: 10;
+}
+
+.service-card-view img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* 3 Clickable Column Cards across the bottom (y=2725..3016 in 7923px canvas) */
+.service-col-btn {
+  position: absolute;
+  top: 34.39%;
+  height: 3.67%;
+  z-index: 25;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-col-btn--shop  { left: 1.78%;  width: 31.53%; }
+.service-col-btn--plan  { left: 34.12%; width: 31.53%; }
+.service-col-btn--paint { left: 66.53%; width: 31.53%; }
+
+.service-col-btn:hover {
+  background: rgba(150, 133, 255, 0.12);
+  box-shadow: 0 0 20px rgba(150, 133, 255, 0.4);
+}
+
+/* ══ 4. FOOTER HITAREAS (y=7470..7923 in 7923px canvas) ════════════════ */
+.service-full-hitarea--contact-btn {
+  position: absolute;
+  left: 40.0%;
+  top: 94.30%;
+  width: 20.07%;
+  height: 1.01%;
+  z-index: 25;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+.service-full-hitarea--contact-btn:hover {
+  background: rgba(150, 133, 255, 0.18);
+  box-shadow: 0 0 30px rgba(150, 133, 255, 0.6);
+}
+
+.footer-hitarea--phone {
+  position: absolute;
+  left: 3.1%;
+  top: 95.8%;
+  width: 24%;
+  height: 1.3%;
+  z-index: 25;
+}
+.footer-hitarea--email {
+  position: absolute;
+  left: 3.1%;
+  top: 97.2%;
+  width: 24%;
+  height: 1.3%;
+  z-index: 25;
+}
+.footer-hitarea--socials {
+  position: absolute;
+  left: 42.0%;
+  top: 96.2%;
+  width: 16%;
+  height: 1.6%;
+  z-index: 25;
+  display: flex;
+  justify-content: space-between;
+}
+.footer-hitarea--socials a {
+  display: block;
+  width: 30%;
+  height: 100%;
+}
+.footer-hitarea--address {
+  position: absolute;
+  left: 72.0%;
+  top: 95.8%;
+  width: 26%;
+  height: 2.2%;
+  z-index: 25;
+}
+
+/* ══ MOBILE ADAPTATIONS (<= 768px) ═════════════════════════════════════ */
+.layout-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .layout-desktop {
+    display: none !important;
+  }
+
+  .layout-mobile {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    background-color: var(--bg) !important;
+    overflow: hidden !important;
+  }
+
+  .mobile-svg {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+  }
+
+  .mob-hitarea {
+    position: absolute;
+    z-index: 10;
+    cursor: pointer;
+  }
+
+  .mob-hitarea--official {
+    left: 13.15%;
+    top: 23.4%;
+    width: 73.54%;
+    height: 0.8%;
+  }
+
+  .mob-hitarea--contact-btn {
+    left: 13.15%;
+    top: 92.4%;
+    width: 73.54%;
+    height: 0.8%;
+  }
+
+  .mob-hitarea--phone {
+    left: 5%;
+    top: 94.6%;
+    width: 90%;
+    height: 0.8%;
+  }
+
+  .mob-hitarea--email {
+    left: 5%;
+    top: 95.6%;
+    width: 90%;
+    height: 0.8%;
+  }
+
+  .mob-hitarea--address {
+    left: 5%;
+    top: 97.2%;
+    width: 90%;
+    height: 1.5%;
+  }
+}
+
+/* ══ 5. CATALOG GRID HITAREAS & HOVER EFFECTS ══════════════════════════ */
+.cat-grid-btn {
+  position: absolute;
+  z-index: 25;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 2px;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cat-grid-btn:hover {
+  background: rgba(150, 133, 255, 0.16);
+  box-shadow: 0 0 20px rgba(150, 133, 255, 0.5);
+}
+
+.cat-grid-item {
+  position: absolute;
+  left: 5.37%;
+  width: 20.56%;
+  z-index: 25;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 2px;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cat-grid-item:hover {
+  background: rgba(150, 133, 255, 0.14);
+  box-shadow: 0 0 15px rgba(150, 133, 255, 0.35);
+}
+
+.cat-grid-insp-item {
+  position: absolute;
+  left: 28.29%;
+  width: 20.56%;
+  z-index: 25;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 2px;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cat-grid-insp-item:hover {
+  background: rgba(150, 133, 255, 0.14);
+  box-shadow: 0 0 15px rgba(150, 133, 255, 0.35);
+}
+
+/* Dedicated Arrow Hitareas over the [↗] buttons in each card */
+.service-arrow-btn {
+  position: absolute;
+  top: 34.45%;
+  height: 0.65%;
+  width: 3.2%;
+  z-index: 30;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 2px;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+.service-arrow-btn--shop  { left: 30.1%; }
+.service-arrow-btn--plan  { left: 62.4%; }
+.service-arrow-btn--paint { left: 94.7%; }
+
+.service-arrow-btn:hover {
+  background: rgba(150, 133, 255, 0.25);
+  box-shadow: 0 0 20px rgba(150, 133, 255, 0.7);
+}
+
+
+/* ══ FIXED HUD HEADER (BURGER BUTTON) ═══════════════════════════════════ */
+.hud {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 21px 14px 0 13px;   /* Figma: logo x=13 y=21; burger right x=344..379 */
+  pointer-events: none;
+}
+
+.hud__logo {
+  display: block;
+  line-height: 0;
+  pointer-events: auto;
+}
+.hud__logo img {
+  display: block;
+  width: 36px;
+  height: 21px;          /* logo.svg viewBox is 38x21 — keep true ratio */
+  object-fit: contain;
+}
+
+.hud__burger {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 8px;
+  pointer-events: auto;
+  z-index: 125;
+}
+.hud__burger span {
+  display: block;
+  width: 37px;
+  height: 3px;
+  background: #c2b9ff;
+  transition: 0.3s;
+}
+.hud__burger[aria-expanded="true"] span {
+  background: #fff;
+}
+
+/* ══ MENU OVERLAY & SLIDING DRAWER (EXACT FIGMA 464:3660 MATCH) ══════════ */
+.menu {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 130 !important;
+  background: transparent !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: flex-end !important;
+  padding: 24px 25px 0 0 !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: opacity 0.25s ease, visibility 0.25s ease !important;
+}
+
+.menu.is-open {
+  pointer-events: auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.menu[hidden] {
+  display: none !important;
+}
+
+.menu__container {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: auto !important;
+  display: block !important;
+}
+
+.menu__panel {
+  position: relative !important;
+  width: 320px !important;
+  max-width: calc(100vw - 32px) !important;
+  margin: 0 !important;
+  background: rgba(22, 19, 48, 0.92) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(194, 185, 255, 0.22) !important;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.75) !important;
+  padding: 14px 0 18px !important;
+  transform: translateX(45px) !important;
+  opacity: 0 !important;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.24s ease !important;
+  box-sizing: border-box !important;
+}
+
+.menu.is-open .menu__panel {
+  transform: translateX(0) !important;
+  opacity: 1 !important;
+}
+
+.menu__panel > .tick {
+  position: absolute !important;
+  width: 20px !important;
+  height: 20px !important;
+  border-color: #c2b9ff !important;
+  border-style: solid !important;
+  pointer-events: none !important;
+  z-index: 10 !important;
+}
+
+.menu__panel > .tick.tl { top: -1px !important; left: -1px !important; border-width: 1.2px 0 0 1.2px !important; }
+.menu__panel > .tick.tr { top: -1px !important; right: -1px !important; border-width: 1.2px 1.2px 0 0 !important; }
+.menu__panel > .tick.bl { bottom: -1px !important; left: -1px !important; border-width: 0 0 1.2px 1.2px !important; }
+.menu__panel > .tick.br { bottom: -1px !important; right: -1px !important; border-width: 0 1.2px 1.2px 0 !important; }
+
+.menu-list {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.menu-item {
+  position: relative !important;
+  margin: 0 14px !important;
+  border-bottom: 1px solid rgba(194, 185, 255, 0.45) !important;
+}
+
+.menu-link {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-end !important;
+  height: 43px !important;
+  padding: 0 2px 7px !important;
+  text-decoration: none !important;
+  box-sizing: border-box !important;
+  transition: background 0.2s ease !important;
+}
+
+.menu-text {
+  font-family: 'Helvetica Neue', Helvetica, -apple-system, BlinkMacSystemFont, Arial, sans-serif !important;
+  font-weight: 300 !important;
+  font-size: 20px !important;
+  letter-spacing: -0.4px !important;
+  line-height: 1 !important;
+  background: linear-gradient(90deg, #ffffff 0%, #ffffff 28%, #b2a8f8 68%, #524b89 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  transition: all 0.2s ease !important;
+  white-space: nowrap !important;
+}
+
+.menu-link:hover .menu-text {
+  background: #ffffff !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-shadow: 0 0 14px rgba(194, 185, 255, 0.8) !important;
+}
+
+.menu-arrow {
+  width: 16px !important;
+  height: 12px !important;
+  flex: none !important;
+  overflow: visible !important;
+  margin-bottom: 1px !important;
+  transition: transform 0.2s ease !important;
+}
+
+.menu-arrow path {
+  stroke: #c2b9ff !important;
+  stroke-width: 1.1 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+  fill: none !important;
+}
+
+.menu-link:hover .menu-arrow {
+  transform: translateX(3px) !important;
+}
+.menu-link:hover .menu-arrow path {
+  stroke: #ffffff !important;
+  filter: drop-shadow(0 0 6px rgba(194, 185, 255, 0.9)) !important;
+}
+
+.menu-sublist {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 0 4px 14px !important;
+  overflow: hidden !important;
+  max-height: 0 !important;
+  opacity: 0 !important;
+  transform: translateY(-4px) !important;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, transform 0.25s ease !important;
+}
+
+.menu-item.is-expanded .menu-sublist,
+.menu-item:hover .menu-sublist {
+  max-height: 520px !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.menu-subitem {
+  border-bottom: 1px dashed rgba(194, 185, 255, 0.22) !important;
+}
+.menu-subitem:last-child {
+  border-bottom: none !important;
+}
+
+.menu-sublink {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  height: 36px !important;
+  padding: 0 2px !important;
+  text-decoration: none !important;
+}
+
+.menu-subtext {
+  font-family: 'Helvetica Neue', Helvetica, -apple-system, BlinkMacSystemFont, Arial, sans-serif !important;
+  font-weight: 300 !important;
+  font-size: 16px !important;
+  letter-spacing: -0.3px !important;
+  line-height: 1 !important;
+  background: linear-gradient(90deg, #e4dfff 0%, rgba(194, 185, 255, 0.7) 60%, rgba(140, 130, 200, 0.4) 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  transition: all 0.2s ease !important;
+}
+
+.menu-sublink:hover .menu-subtext {
+  background: #ffffff !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-shadow: 0 0 10px rgba(194, 185, 255, 0.8) !important;
+}
+
+.menu-sublink .menu-arrow {
+  width: 13px !important;
+  height: 10px !important;
+}
+
+.menu-chevron {
+  width: 8px !important;
+  height: 8px !important;
+  margin-left: 8px !important;
+  margin-bottom: 2px !important;
+  transition: transform 0.25s ease !important;
+}
+.menu-chevron path {
+  stroke: #c2b9ff !important;
+  stroke-width: 1.2 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+  fill: none !important;
+}
+.menu-item.is-expanded .menu-chevron,
+.menu-item:hover .menu-chevron {
+  transform: rotate(90deg) !important;
+}
+
+.menu-subitem--nested {
+  padding-left: 14px !important;
+  border-bottom: 1px dashed rgba(194, 185, 255, 0.12) !important;
+}
+.menu-subitem--nested .menu-subtext {
+  font-size: 14px !important;
+  opacity: 0.82;
+}
+.menu-subitem--nested:hover .menu-subtext {
+  opacity: 1;
+}
+
+/* Mobile cards hitareas */
+.mob-hitarea--card-shop {
+  left: 6.8%;
+  top: 29.35%;
+  width: 86.4%;
+  height: 4.0%;
+}
+.mob-hitarea--card-plan {
+  left: 6.8%;
+  top: 33.65%;
+  width: 86.4%;
+  height: 4.0%;
+}
+.mob-hitarea--card-paint {
+  left: 6.8%;
+  top: 37.85%;
+  width: 86.4%;
+  height: 4.0%;
+}
+
+
+/* Guarantee HUD Burger is always above sticky header and clickable */
+.hud {
+  z-index: 150 !important;
+}
+.hud__burger {
+  position: relative !important;
+  z-index: 155 !important;
+  pointer-events: auto !important;
+}
+
+@media (max-width: 768px) {
+  .sticky-header {
+    display: none !important;
+  }
+}
+
+
+/* HUD is a two-sided bar: logo left, burger right */
+.hud {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+.hud__burger {
+  margin-left: 0 !important;
+}
+
+
+/* ══ MOBILE MENU SCROLLABILITY & ACCESSIBILITY ══ */
+.menu {
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    padding: 16px 16px 32px 16px !important;
+    background: rgba(2, 2, 2, 0.75) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+  }
+  .menu__container {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+  }
+  .menu__panel {
+    width: 100% !important;
+    max-width: 330px !important;
+    max-height: calc(100vh - 48px) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+}
+
+
+/* Service sites: on desktop, hide HUD burger so only the authentic header shows */
+@media (min-width: 769px) {
+  body.site-service .hud,
+  body.page-shop .hud,
+  body.page-plan .hud,
+  body.page-commercial .hud,
+  body.page-paintbot .hud {
+    display: none !important;
+  }
+  
+  .sticky-header {
+    top: 20px !important;
+  }
+}
+
+.sticky-header__container {
+  width: 100% !important;
+  max-width: 1400px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  gap: 24px !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   AUTHORITATIVE FIGMA HEADER GEOMETRY — 464:7166 (PaintBot artboard)
+   Every dimension is declared in vw against the 1440px artboard, so the
+   HTML header scales in exact lockstep with the width:100% SVG beneath it.
+     left panel : x 21.039  y 19.609  w 322  h 71
+     nav panel  : x 366.039 y 19.609  w 1054 h 71
+   ═══════════════════════════════════════════════════════════════════════ */
+
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.sticky-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 6.2924vw !important;      /* 90.6px @1440: panel bottom + breathing room */
+  z-index: 100 !important;
+  pointer-events: none !important;
+  background: none !important;
+  transition: none !important;
+  display: block !important;
+  padding: 0 !important;
+}
+
+.sticky-header__container {
+  position: relative !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  box-sizing: border-box !important;
+}
+
+/* ── LEFT: SERVICE / PRODUCT DROPDOWN ─────────────────────────────────── */
+.panel-evolution {
+  position: absolute !important;
+  left: 1.4610vw !important;        /* 21.039 / 1440 */
+  top: 1.3617vw !important;         /* 19.609 / 1440 */
+  width: 22.3611vw !important;      /* 322    / 1440 */
+  height: 4.9306vw !important;      /* 71     / 1440 */
+  flex: none !important;
+  pointer-events: auto !important;
+  z-index: 2 !important;
+}
+
+.panel-evolution__box,
+.panel-nav__box {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: rgba(38, 37, 72, 0.44) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(194, 185, 255, 0.28) !important;
+  border-radius: 0 !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45) !important;
+  box-sizing: border-box !important;
+}
+
+.panel-evolution__btn {
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 1.6667vw !important;   /* 24 / 1440 */
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  background: transparent !important;
+  border: 0 !important;
+  cursor: pointer !important;
+  color: #fff !important;
+  outline: none !important;
+}
+
+.panel-evolution__title {
+  font-family: var(--body) !important;
+  font-weight: 300 !important;
+  font-size: 1.25vw !important;     /* 18 / 1440 */
+  letter-spacing: -0.2px !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  white-space: nowrap !important;
+}
+
+.panel-evolution__chevron { width: 0.6944vw !important; height: 0.4167vw !important; flex: none !important; overflow: visible !important; transition: transform 0.25s ease !important; }
+.panel-evolution__chevron path { stroke: #c2b9ff !important; stroke-width: 1.4 !important; fill: none !important; stroke-linecap: round !important; stroke-linejoin: round !important; }
+.panel-evolution.is-open .panel-evolution__chevron,
+.panel-evolution:hover .panel-evolution__chevron { transform: rotate(180deg) !important; }
+
+/* SERVICE dropdown list */
+.panel-evolution__menu {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-top: 1px solid rgba(194, 185, 255, 0.22) !important;
+  max-height: 0 !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  background: rgba(24, 22, 52, 0.94) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  transition: max-height 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease !important;
+}
+.panel-evolution:hover .panel-evolution__menu,
+.panel-evolution.is-open .panel-evolution__menu { max-height: 25vw !important; opacity: 1 !important; }
+
+.panel-evolution__item { border-bottom: 1px solid rgba(194, 185, 255, 0.22) !important; }
+.panel-evolution__item:last-child { border-bottom: none !important; }
+
+.panel-evolution__link {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  height: 3.3333vw !important;      /* 48 / 1440 */
+  padding: 0 1.3889vw !important;   /* 20 / 1440 */
+  text-decoration: none !important;
+  transition: background 0.2s ease !important;
+}
+.panel-evolution__link:hover { background: rgba(150, 133, 255, 0.2) !important; }
+
+.panel-evolution__text {
+  font-family: var(--body) !important;
+  font-weight: 300 !important;
+  font-size: 1.1111vw !important;   /* 16 / 1440 */
+  letter-spacing: -0.2px !important;
+  color: #e6e2ff !important;
+  white-space: nowrap !important;
+}
+.panel-evolution__link:hover .panel-evolution__text { color: #ffffff !important; }
+.panel-evolution__link.is-active .panel-evolution__text { color: #ffffff !important; font-weight: 400 !important; }
+
+.panel-evolution__arrow { width: 0.9722vw !important; height: 0.6944vw !important; flex: none !important; transition: transform 0.2s ease !important; }
+.panel-evolution__arrow path { stroke: #c2b9ff !important; stroke-width: 1.1 !important; fill: none !important; stroke-linecap: round !important; stroke-linejoin: round !important; }
+.panel-evolution__link:hover .panel-evolution__arrow { transform: translateX(0.2083vw) !important; }
+
+/* ── RIGHT: MAIN NAVIGATION BAR ───────────────────────────────────────── */
+.panel-nav {
+  position: absolute !important;
+  left: 25.4194vw !important;       /* 366.039 / 1440 */
+  top: 1.3617vw !important;         /* 19.609  / 1440 */
+  width: 73.1944vw !important;      /* 1054    / 1440 */
+  height: 4.9306vw !important;      /* 71      / 1440 */
+  pointer-events: auto !important;
+  z-index: 2 !important;
+}
+
+.panel-nav__box {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 0 1.9444vw !important;    /* 28 / 1440 */
+}
+
+.panel-nav__item {
+  position: relative !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.panel-nav__link,
+.panel-nav__dropdown-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.4167vw !important;         /* 6 / 1440 */
+  height: 100% !important;
+  padding: 0 0.4167vw !important;
+  background: transparent !important;
+  border: 0 !important;
+  cursor: pointer !important;
+  font-family: var(--body) !important;
+  font-weight: 300 !important;
+  font-size: 1.1111vw !important;   /* 16 / 1440 */
+  letter-spacing: -0.2px !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  transition: color 0.2s ease !important;
+}
+
+.panel-nav__link:hover,
+.panel-nav__dropdown-btn:hover,
+.panel-nav__item:hover .panel-nav__dropdown-btn { color: #c2b9ff !important; }
+
+.panel-nav__chevron { width: 0.5556vw !important; height: 0.3472vw !important; flex: none !important; overflow: visible !important; transition: transform 0.2s ease !important; }
+.panel-nav__chevron path { stroke: #c2b9ff !important; stroke-width: 1.2 !important; fill: none !important; stroke-linecap: round !important; stroke-linejoin: round !important; }
+.panel-nav__item:hover .panel-nav__chevron { transform: rotate(180deg) !important; }
+
+.panel-nav__dropdown-menu {
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  min-width: 16.6667vw !important;
+  margin: 0.4167vw 0 0 !important;
+  padding: 0.4167vw 0 !important;
+  list-style: none !important;
+  background: rgba(22, 19, 48, 0.96) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(194, 185, 255, 0.28) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translateY(0.4167vw) !important;
+  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s, transform 0.22s !important;
+  z-index: 110 !important;
+}
+
+.panel-nav__item:hover .panel-nav__dropdown-menu {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
+.panel-nav__dropdown-menu a {
+  display: block !important;
+  padding: 0.625vw 1.1111vw !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-family: var(--body) !important;
+  font-weight: 300 !important;
+  font-size: 0.9722vw !important;   /* 14 / 1440 */
+  border-bottom: 1px solid rgba(194, 185, 255, 0.15) !important;
+}
+.panel-nav__dropdown-menu a:last-child { border-bottom: none !important; }
+.panel-nav__dropdown-menu a:hover { background: rgba(150, 133, 255, 0.2) !important; color: #c2b9ff !important; }
+
+/* ── CORNER TICKS ─────────────────────────────────────────────────────── */
+.panel-evolution__box .tick,
+.panel-nav__box .tick {
+  position: absolute !important;
+  width: 1.25vw !important;         /* 18 / 1440 */
+  height: 1.25vw !important;
+  border-color: #c2b9ff !important;
+  border-style: solid !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+}
+.panel-evolution__box .tick.tl, .panel-nav__box .tick.tl { top: 0 !important; left: 0 !important; border-width: 1px 0 0 1px !important; }
+.panel-evolution__box .tick.tr, .panel-nav__box .tick.tr { top: 0 !important; right: 0 !important; border-width: 1px 1px 0 0 !important; }
+.panel-evolution__box .tick.bl, .panel-nav__box .tick.bl { bottom: 0 !important; left: 0 !important; border-width: 0 0 1px 1px !important; }
+.panel-evolution__box .tick.br, .panel-nav__box .tick.br { bottom: 0 !important; right: 0 !important; border-width: 0 1px 1px 0 !important; }
+
+/* ── DESKTOP: the Figma artboard has no burger, only these two panels ── */
+@media (min-width: 769px) {
+  body.site-service .hud,
+  body.site-service #burger,
+  body.page-shop .hud, body.page-shop #burger,
+  body.page-plan .hud, body.page-plan #burger,
+  body.page-commercial .hud, body.page-commercial #burger,
+  body.page-paintbot .hud, body.page-paintbot #burger {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+}
+
+/* ── <=768px: dedicated mobile artboard, header removed ──────────────── */
+@media (max-width: 768px) {
+  .sticky-header { display: none !important; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   MOBILE STEPS CAROUSEL — replaces the baked-in single-step artwork.
+   Sits exactly over the artboard band via --band-top / --band-h.
+   Native horizontal swipe: touch, trackpad, arrow keys, dots.
+   ══════════════════════════════════════════════════════════════════════ */
+.steps { display: none; }
+
+@media (max-width: 768px) {
+  .steps {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: var(--band-top);
+    height: var(--band-h);
+    z-index: 12;
+    pointer-events: auto;
+  }
+
+  .steps__viewport {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0;
+  }
+  .steps__viewport::-webkit-scrollbar { display: none; }
+
+  .steps__track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+
+  .steps__slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 18px;
+  }
+
+  /* Step tab — Figma: 146×80 at x=12.47 */
+  .steps__tab {
+    flex: none;
+    width: 146px;
+    height: 43px;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(38, 37, 72, 0.56);
+    border: 1px solid rgba(194, 185, 255, 0.35);
+    color: #ffffff;
+    font-family: var(--body);
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+  }
+
+  .steps__panel {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+
+  .steps__title {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(18px, 5.4vw, 24px);
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-shadow: 0 0 18px rgba(194, 185, 255, 0.55);
+  }
+
+  .steps__rule {
+    display: block;
+    width: 1px;
+    height: 26px;
+    margin: 10px auto;
+    background: rgba(194, 185, 255, 0.6);
+  }
+
+  .steps__desc {
+    margin: 0;
+    max-width: 320px;
+    font-family: var(--body);
+    font-weight: 300;
+    font-size: clamp(11px, 3.2vw, 14px);
+    line-height: 1.45;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    color: rgba(214, 208, 255, 0.82);
+  }
+
+  .steps__dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    pointer-events: auto;
+  }
+  .steps__dot {
+    width: 22px;
+    height: 3px;
+    padding: 0;
+    border: 0;
+    border-radius: 2px;
+    background: rgba(194, 185, 255, 0.28);
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+  .steps__dot.is-active {
+    background: #c2b9ff;
+    transform: scaleY(1.6);
+    box-shadow: 0 0 10px rgba(194, 185, 255, 0.8);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .steps__viewport { scroll-behavior: auto; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   HEADER — FIGMA 464:7007 EXACT (DriveCarePlan artboard, 1440px)
+   Measurements taken from the source SVG + rendered Figma PNG:
+     left panel  x 20.555  w 322   ; nav panel x 365.555 w 1054
+     panel y 19.828   h 71
+     title glyphs start x=39  (panel + 18.45)
+     nav first item  x=437   (panel + 71.45)
+     nav last item   ends x=1347 (panel right 1419.555 -> pad 72.55)
+     title cap-height 15px  -> font-size ~21.5px
+     nav  cap-height 12px  -> font-size ~17px
+     corner ticks 18.84 long, 1px, colour #C2B9FF
+   Percentages are of the 1440 artboard so the header tracks the SVG.
+   ══════════════════════════════════════════════════════════════════════ */
+
+.panel-evolution__box,
+.panel-nav__box {
+  border: 0 !important;                 /* Figma has NO full border, only corner ticks */
+  background: #262548 !important;       /* flat fill; opacity comes from the box-shadow layer */
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45) !important;
+  border-radius: 0 !important;
+}
+
+/* Translucent fill exactly as authored (#262548 @ 44%) without a visible hairline */
+.panel-evolution__box::before,
+.panel-nav__box::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: rgba(38, 37, 72, 0.44) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+.panel-evolution__box > *,
+.panel-nav__box > * { position: relative !important; z-index: 1 !important; }
+
+/* Left panel typography: 21.5px, glyph start 18.45px in */
+.panel-evolution__btn {
+  padding: 0 1.2813vw !important;       /* 18.45 / 1440 */
+}
+.panel-evolution__title {
+  font-size: 1.4931vw !important;       /* 21.5 / 1440 */
+  letter-spacing: 0 !important;
+  line-height: 1 !important;
+}
+
+/* Nav: asymmetric padding so first glyph lands exactly at x=437 */
+.panel-nav__box {
+  padding: 0 5.0382vw 0 4.9618vw !important;   /* right 72.55/1440, left 71.45/1440 */
+  justify-content: space-between !important;
+}
+.panel-nav__link,
+.panel-nav__dropdown-btn {
+  font-size: 1.1806vw !important;       /* 17 / 1440 */
+  padding: 0 !important;                /* spacing owned by justify-content */
+  letter-spacing: 0 !important;
+}
+
+/* Corner ticks: 18.84px long, 1px, no offset */
+.panel-evolution__box .tick,
+.panel-nav__box .tick {
+  width: 1.3083vw !important;           /* 18.84 / 1440 */
+  height: 1.3083vw !important;
+  border-width: 1px !important;
+  border-color: #c2b9ff !important;
+  border-style: solid !important;
+  z-index: 3 !important;
+}
+.panel-evolution__box .tick.tl, .panel-nav__box .tick.tl { top: 0 !important; left: 0 !important; border-width: 1px 0 0 1px !important; }
+.panel-evolution__box .tick.tr, .panel-nav__box .tick.tr { top: 0 !important; right: 0 !important; border-width: 1px 1px 0 0 !important; }
+.panel-evolution__box .tick.bl, .panel-nav__box .tick.bl { bottom: 0 !important; left: 0 !important; border-width: 0 0 1px 1px !important; }
+.panel-evolution__box .tick.br, .panel-nav__box .tick.br { bottom: 0 !important; right: 0 !important; border-width: 0 1px 1px 0 !important; }
+
+/* ── NAV: Figma uses UNIFORM ~27.2px gaps, not space-between ───────────── */
+.panel-nav__box {
+  justify-content: flex-start !important;
+  gap: 1.8889vw !important;            /* 27.2 / 1440 — measured from the Figma PNG */
+  padding: 0 5.0382vw 0 4.9618vw !important;
+}
+.panel-nav__item { flex: 0 0 auto !important; }
+
+/* Figma's typeface is narrower than the local Helvetica fallback:
+   compress tracking so the 6 labels occupy the authored 774px. */
+.panel-nav__link,
+.panel-nav__dropdown-btn {
+  letter-spacing: -0.0465em !important;   /* 890px -> ~774px at 17px */
+  padding: 0 !important;
+}
+
+/* ── NAV: solved numerically against Figma glyph widths ────────────────
+   15.5px / -0.03em reproduces the authored label widths
+   (85.8/177.4/73.3/156.5/113.6/151.6 vs Figma 84/175/68/157/113/149).
+   Gaps are uniform 27.2px, matching the artboard's 26/31/25/27/27.        */
+.panel-nav__box {
+  justify-content: flex-start !important;
+  gap: 1.8889vw !important;
+  padding: 0 5.0382vw 0 4.9618vw !important;
+}
+.panel-nav__item { flex: 0 0 auto !important; }
+
+.panel-nav__link,
+.panel-nav__dropdown-btn {
+  font-size: 1.0764vw !important;        /* 15.5 / 1440 */
+  letter-spacing: -0.03em !important;
+  padding: 0 !important;
+  gap: 0.4167vw !important;              /* 6px chevron gap */
+}
+.panel-nav__chevron {
+  width: 0.5556vw !important;            /* 8px */
+  height: 0.3472vw !important;
+}
+/* Final calibration: absorb the residual 14px width delta across 110 glyphs */
+.panel-nav__link,
+.panel-nav__dropdown-btn {
+  letter-spacing: -0.0382em !important;
+}
+/* ══ DESKTOP GLASS HEADER (100% Vector & Real Frosted Blur) ══════════════ */
+.panel-evolution__box,
+.panel-nav__box {
+  background: rgba(38, 37, 72, 0.44) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(194, 185, 255, 0.22) !important;
+  border-radius: 0 !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45) !important;
+}
+.panel-evolution__box::before,
+.panel-nav__box::before {
+  display: none !important;
+}
+.panel-evolution__title {
+  font-size: 1.2847vw !important;     /* 18.5 / 1440 */
+  letter-spacing: 0 !important;
+  color: #ffffff !important;
+}
+.panel-evolution__btn {
+  padding: 0 1.2813vw !important;     /* 18.45 / 1440 */
+}
+/* ── MOBILE HUD: match Figma 393px exactly ───────────────────────────────
+   Measured in SkipTheDealer mob-*.png:
+     logo   x 13..49 (w 36)   y 26..45 (h 19)
+     burger x 344..379 (w 35) y 26..45 (h 19, 3 lines + 2 gaps)
+   ─────────────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hud {
+    padding: 26px 14px 0 13px !important;
+    align-items: flex-start !important;
+  }
+  .hud__logo img {
+    width: 36px !important;
+    height: 20px !important;
+    display: block !important;
+  }
+  .hud__burger {
+    padding: 0 !important;
+    gap: 5px !important;
+    margin: 0 !important;
+  }
+  .hud__burger span {
+    width: 35px !important;
+    height: 3px !important;
+    display: block !important;
+  }
+}
+
+/* Screen-reader-only h1 on SVG-board pages (design untouched, a11y satisfied) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

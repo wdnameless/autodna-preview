@@ -1,0 +1,236 @@
+/* ══ DRIVECAREPLAN PAGE STYLES (100% RESPONSIVE + DESKTOP VECTOR SVG) ═══ */
+
+.page-plan {
+  background-color: #020202;
+  color: #ffffff;
+  overflow-x: hidden;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.plan-main {
+  position: relative;
+  width: 100%;
+  background-color: #020202;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* ══ DESKTOP BOARD (1440 x 3923) ═══════════════════════════════════════ */
+.plan-board--desktop {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  display: block;
+}
+
+.plan-board--mobile {
+  display: none !important;
+}
+
+.plan-svg {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ══ INTERACTIVE HITAREAS (DESKTOP) ════════════════════════════════════ */
+.plan-hitarea {
+  position: absolute;
+  z-index: 15;
+  cursor: pointer;
+  border-radius: 2px;
+  background: transparent;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.plan-hitarea--top-btn {
+  left: 1.43%;
+  top: 0.51%;
+  width: 22.36%;
+  height: 1.81%;
+}
+
+.plan-hitarea--top-btn:hover {
+  background: rgba(150, 133, 255, 0.15);
+  box-shadow: 0 0 20px rgba(150, 133, 255, 0.5);
+}
+
+.plan-hitarea--table-row {
+  left: 2.12%;
+  width: 95.8%;
+  background: transparent;
+  transition: background 0.2s ease;
+}
+
+.plan-hitarea--table-row:hover {
+  background: rgba(150, 133, 255, 0.1);
+}
+
+.plan-hitarea--row-1 { top: 36.07%; height: 1.99%; }
+.plan-hitarea--row-2 { top: 38.54%; height: 3.21%; }
+.plan-hitarea--row-3 { top: 41.98%; height: 2.85%; }
+.plan-hitarea--row-4 { top: 45.40%; height: 3.20%; }
+.plan-hitarea--row-5 { top: 49.00%; height: 3.20%; }
+.plan-hitarea--row-6 { top: 52.60%; height: 2.37%; }
+.plan-hitarea--row-7 { top: 55.40%; height: 2.37%; }
+.plan-hitarea--row-8 { top: 58.20%; height: 2.37%; }
+
+.plan-hitarea--phone { left: 2.1%; top: 93.8%; width: 20%; height: 1.6%; }
+.plan-hitarea--email { left: 2.1%; top: 95.8%; width: 20%; height: 1.6%; }
+.plan-hitarea--socials { left: 42.0%; top: 94.8%; width: 16%; height: 1.8%; display: flex; justify-content: space-between; }
+.plan-hitarea--socials a { display: block; width: 30%; height: 100%; }
+.plan-hitarea--address { left: 72.0%; top: 93.8%; width: 25%; height: 2.8%; }
+
+/* ══ MOBILE LAYOUT WITH INTERACTIVE TABLE SCROLLER ═════════════════════ */
+@media (max-width: 768px) {
+  .plan-board--desktop {
+    display: none !important;
+  }
+
+  .plan-board--mobile {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: #020202 !important;
+    overflow: hidden !important;
+  }
+
+  .mob-plan-top,
+  .mob-plan-bottom {
+    position: relative !important;
+    width: 100% !important;
+  }
+
+  .plan-svg {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+  }
+
+  /* Table Container */
+  .mob-plan-table-container {
+    position: relative !important;
+    width: 100% !important;
+    background-color: #020202 !important;
+    padding-bottom: 12px !important;
+  }
+
+  /* Navigation Bar with Left & Right Arrows */
+  .mob-table-nav {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 16px 13px 14px !important;
+  }
+
+  .mob-table-btn {
+    position: relative !important;
+    width: 58px !important;
+    height: 58px !important;
+    background: rgba(38, 37, 72, 0.44) !important;
+    border: 1px solid rgba(194, 185, 255, 0.22) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    outline: none !important;
+    transition: background 0.2s ease, border-color 0.2s ease, opacity 0.2s ease !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+  }
+
+  .mob-table-btn:hover,
+  .mob-table-btn:active {
+    background: rgba(60, 56, 110, 0.6) !important;
+    border-color: rgba(194, 185, 255, 0.45) !important;
+  }
+
+  /* Corner ticks on buttons */
+  .mob-table-btn .tick {
+    position: absolute !important;
+    width: 8px !important;
+    height: 8px !important;
+    border-color: #C2B9FF !important;
+    border-style: solid !important;
+    pointer-events: none !important;
+  }
+  .mob-table-btn .tick.tl { top: 0 !important; left: 0 !important; border-width: 1px 0 0 1px !important; }
+  .mob-table-btn .tick.tr { top: 0 !important; right: 0 !important; border-width: 1px 1px 0 0 !important; }
+  .mob-table-btn .tick.bl { bottom: 0 !important; left: 0 !important; border-width: 0 0 1px 1px !important; }
+  .mob-table-btn .tick.br { bottom: 0 !important; right: 0 !important; border-width: 0 1px 1px 0 !important; }
+
+  .mob-table-hint {
+    font-family: 'Orbitron', monospace, sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.8px !important;
+    color: rgba(194, 185, 255, 0.6) !important;
+    text-transform: uppercase !important;
+  }
+
+  /* Horizontally Scrollable Track */
+  .mob-table-scroll-track {
+    width: 100% !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    padding: 0 0 14px 0 !important;
+    cursor: grab !important;
+  }
+  .mob-table-scroll-track:active {
+    cursor: grabbing !important;
+  }
+  .mob-table-scroll-track::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .mob-table-svg {
+    width: 1235px !important;
+    max-width: none !important;
+    height: auto !important;
+    display: block !important;
+  }
+
+  /* Interactive Hitareas */
+  .plan-mob-hitarea {
+    position: absolute !important;
+    z-index: 15 !important;
+    cursor: pointer !important;
+    background: transparent !important;
+  }
+
+  .plan-mob-hitarea--top-btn {
+    left: 4.5% !important;
+    top: 4.2% !important;
+    width: 91% !important;
+    height: 4.0% !important;
+  }
+
+  .plan-mob-hitarea--phone {
+    left: 5% !important;
+    top: 79.5% !important;
+    width: 90% !important;
+    height: 3.3% !important;
+  }
+
+  .plan-mob-hitarea--email {
+    left: 5% !important;
+    top: 83.5% !important;
+    width: 90% !important;
+    height: 3.3% !important;
+  }
+
+  .plan-mob-hitarea--address {
+    left: 5% !important;
+    top: 88.5% !important;
+    width: 90% !important;
+    height: 6.6% !important;
+  }
+}
