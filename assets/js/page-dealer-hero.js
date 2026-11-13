@@ -63,11 +63,9 @@
     var fh = (ART_H * s).toFixed(1) + 'px';
     if (stageEl) { stageEl.style.width = fw; stageEl.style.height = fh; }
     if (frameEl) { frameEl.style.width = fw; frameEl.style.height = fh; }
+    var bleedFrame = heroEl.querySelector('.dh__bleed-frame');
+    if (bleedFrame) { bleedFrame.style.width = fw; bleedFrame.style.height = fh; }
 
-    // поля-продовження: ширина кожної = половина залишку, висота = висоті кадру
-    heroEl.style.setProperty('--fw', fw);
-    heroEl.style.setProperty('--fh', fh);
-    heroEl.style.setProperty('--pw', Math.max(0, (W - parseFloat(fw)) / 2).toFixed(1) + 'px');
   }
 
   function init() {

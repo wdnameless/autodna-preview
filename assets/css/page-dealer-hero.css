@@ -31,28 +31,45 @@ html, body {
 }
 
 /* полоси-продовження зліва/справа: крайні колонки кадру */
-.dh__pad {
+/* Слой 1: размытая копия того же кадра, в том же боксе, но растянутая на весь
+   вьюпорт. Нужна, чтобы поля по бокам не были пустыми. */
+.dh__bleed {
   position: absolute;
-  top: 50%;
-  height: var(--fh, 0px);
-  width: var(--pw, 0px);
-  transform: translateY(-50%);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  pointer-events: none;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(54px) saturate(96%) brightness(.97);
+  display: block;
   z-index: 0;
 }
-.dh__pad--l { right: calc(50% + var(--fw, 0px) / 2); background-image: url('../img/site1/hero-pad-l.jpg'); }
-.dh__pad--r { left:  calc(50% + var(--fw, 0px) / 2); background-image: url('../img/site1/hero-pad-r.jpg'); }
 
-/* сам кадр, contain по обох осях; розміри ставить JS */
+/* Слой 1b: ещё одна размытая копия, но ровно в боксе кадра — она лежит прямо
+   под резким слоем, поэтому при растворении краёв под ними тот же рисунок,
+   а не чужая текстура. */
+.dh__bleed-frame {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: fill;
+  filter: blur(16px) brightness(1);
+  display: block;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* сам кадр: края растворяются в подложке, поэтому прямоугольной границы нет */
 .dh__frame {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   display: block;
-  z-index: 1;
+  z-index: 2;
+  /* Маску по бокам применять нельзя: контент доходит до самого края кадра
+     (замер: первая колонка с содержимым — 0.14%), поэтому растворение резало
+     букву «B». Оставляем кадр целым. */
 }
 
 /* шар взаємодії — рівно по кадру */
